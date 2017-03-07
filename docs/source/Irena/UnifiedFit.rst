@@ -1,6 +1,10 @@
 Unified Fit
 ===========
 
+
+.. toctree::
+   :maxdepth: 4
+
 Introduction
 ------------
 
@@ -14,27 +18,22 @@ an included description.
 
 **This is introduction written by Greg for this code**:
 
-*This fit uses the function described in *
+*This fit uses the function described in*
 
-*http://www.eng.uc.edu/~gbeaucag/PDFPapers/Beaucage2.pdf*
+http://www.eng.uc.edu/~gbeaucag/PDFPapers/Beaucage2.pdf
 
-*http://www.eng.uc.edu/~gbeaucag/PDFPapers/Beaucage1.pdf*
+http://www.eng.uc.edu/~gbeaucag/PDFPapers/Beaucage1.pdf
 
-*http://www.eng.uc.edu/~gbeaucag/PDFPapers/ma970373t.pdf*
+http://www.eng.uc.edu/~gbeaucag/PDFPapers/ma970373t.pdf
 
 The basic function is composed of a series of structural levels, each
 with the possibility to be
 
-*a) associated with the previous smaller size level (Rg\ :sub:`cutoff2` = Rg\ :sub:`1` in
-I2highq=B2q^(-p2)exp(-q^2Rg1^2/3) for the power-law region of 2)*
+*a) associated with the previous smaller size level :math:`R_{gcutoff2} = Rg_1`*
 
-*b) to follow mass fractal restrictions (calculate B for the mass
-fractal power law I = B q^(-p)*
+*b) to follow mass fractal restrictions (calculate B for the mass fractal power law :math:`I = B q^{-p}`*
 
-*c) to display spherical Correlations (Interference) as described by
-I(q) = I(q)/(1+p f(q etai)) where p is a packing factor 8\*vH/vO for vH
-= hard sphere volume and vO is occupied volume and f(q eta) is the
-sphere amplitude function for spherical Correlations (Interference) *
+*c) to display spherical Correlations (Interference) as described by :math:`I(q) = I(q)/(1+p f(q \eta))` where p is a packing factor 8\*vH/vO for vH = hard sphere volume and vO is occupied volume and :math:`f(q\eta)` is the sphere amplitude function for spherical Correlations (Interference)*
 
 *The intensity from each level is summed and the intensity from one
 level, i, is given by:*
@@ -95,19 +94,11 @@ and 1 for others)
 
 Each level must also have the answer to at least three questions:
 
-Are there Correlations: qCor\ :sub:`i`.
+* Are there Correlations: qCor\ :sub:`i`
+* Is this a Mass Fractal: qMF\ :sub:`i`
+* Does this level terminate at high-q in the next lower level Rg: q\ :sub:`PL` (PowerLimit) That is, is this a hierarchical structure build from the previous smaller level. A third option is to let the power law limit float as a free parameter although this is rarely appropriate.
 
-Is this a Mass Fractal: qMF\ :sub:`i`.
-
-Does this level terminate at high-q in the next lower level Rg:
-q\ :sub:`PL` (PowerLimit) That is, is this a hierarchical structure
-build from the previous smaller level. A third option is to let the
-power law limit float as a free parameter although this is rarely
-appropriate.
-
-As Gregg wrote me:
-
-“We have several options for coding the Unified function.
+As Gregg wrote me: “We have several options for coding the Unified function.
 
 a) Write a dedicated code for a specific morphological model where all
 of the parameters are defined in terms of the model. We have done this
@@ -138,7 +129,7 @@ application).
 Invariant:
 ~~~~~~~~~~
 
-The invariant INV is:
+The invariant :math:`Q_v` is:
 
 .. math::
 
@@ -157,8 +148,7 @@ The specific surface area S\ :sub:`v` is:
 
 | Where B is Porods constant – it is the value you get from Unified fit
   when P=4. To use correctly, one needs to convert the Unified provided
-  B to cm\ :sup:`-5` by multiplying by 10\ :sup:`32`
-| (from cm\ :sup:`-1`\ A\ :sup:`-4` to cm\ :sup:`-5`)….
+  B to cm\ :sup:`-5` by multiplying by 10\ :sup:`32` (from cm\ :sup:`-1`\ A\ :sup:`-4` to cm\ :sup:`-5`)….
 
 .. math::
 
@@ -168,37 +158,17 @@ Until Irena release 2.55 this value was called “Surface/Volume” ratio as
 Greg Beaucage had in his original code. One of the users has
 investigated and got in touch with Dale Schaefer and result is, that
 this value has been renamed. It si now called “pi \* B /Q” and in help
-it is also termed “S/(V\*fi\*(1-fi)))… :ref:`Here <UF_Figure1>` is what it should be in
-formulas (note: Q is invariant) :
+it is also termed “S/(V\*fi\*(1-fi)))…  Here is what it should be in
+formulas (note: Q\ :sub:`v` is invariant) :
 
-.. _UF_SVFormulas:
-
-.. figure:: media/UnifiedFit4.png
+.. figure:: media/UnifiedFitFormula.png
    :scale: 50%
 
-   Unified fit panel
-
-.. _UF_Figure1:
-
-.. figure:: media/UnifiedFit2.png
-   :align: left
-   :scale: 60%
-
-   Unified fit screen
 
 Link B to G/Rg:
 ~~~~~~~~~~~~~~~
 
-One of the problems of Unified fit is bit too high
-flexibility in some cases and if the data are less then perfect, one can
-easily create situation in which the volume part (G/Rg) and surface part
-(P/B) of the curve are physically impossible. Basically there may be too
-much or too little surface for given volume. The tool in this case
-raises red flag ("*Level may not be physically possible*" message. This
-has been addressed in Guinier-Porod model by Hammouda (see its own
-chapter), which calculates profile of SAS using just three parameters.
-However, this takes away some flexibility needed for systems with, for
-example, high polydispersity.
+One of the problems of Unified fit is bit too high flexibility in some cases and if the data are less then perfect, one can easily create situation in which the volume part (G/Rg) and surface part (P/B) of the curve are physically impossible. Basically there may be too much or too little surface for given volume. The tool in this case raises red flag "**Level may not be physically possible**" message. This has been addressed in Guinier-Porod model by Hammouda (see its own chapter), which calculates profile of SAS using just three parameters. However, this takes away some flexibility needed for systems with, for example, high polydispersity.
 
 To help in some cases I added "*Link B to G/Rg/P*" checkbox. If this is
 checked, the B is calculated under assumption of Guinier-Porod model.
@@ -214,15 +184,15 @@ Running Unified fit
 Select “SAS” – “Unified fit”. Following is the screen you should see
 after initialization:
 
-In the top part again deselect “Use Indra 2 data”, or “Use QRS data” or
-none checkbox and then select data as seen below and push button graph:
+.. figure:: media/UnifiedFit1.png
+   :align: left
+   :height: 580px
 
-.. _my-figure:
+In the top part  select “Use Indra 2 data”, or “Use QRS data” or none checkbox and then select data as seen below and push button graph.
 
-.. figure:: media/UnifiedFit3.png
-
-   Unified fit fittign examples
-
+.. figure:: media/UnifiedFit2.png
+   :align: center
+   :width: 780px
 
 The two graphs which appear show selected data in two different views –
 top graph is log-log Intensity vs Q vector, bottom part is Intensity \*
@@ -232,27 +202,21 @@ Q^4 vs Q vector, this represents S(Q) as known from scattering theories.
 
 Controls above the tabs:
 
-Graph Unified button recalculates model and puts it into the graphs
-
-Update automatically checkbox if any change to model parameters is made,
-automatically recalculates (i.e., automatically pushes the button Graph
-Unified). Uncheck on slow computers.
-
-Display local fits displays local Guinier and Porod fits in the graphs
-for active tab level
-
-Number of levels selects number of levels displayed. Note, that at no
-time parameters for not displayed levels are reset, so user can switch
-between number of displayed (=used) levels freely…
+ * *Graph Unified* button recalculates model and puts it into the graphs
+ * *Update automatically* checkbox if any change to model parameters is made, automatically recalculates (i.e., automatically pushes the button Graph Unified). Uncheck on slow computers.
+ * *Display local fits* displays local Guinier and Porod fits in the graphs for active tab level
+ * *Number of levels* selects number of levels displayed. Note, that at no time parameters for not displayed levels are reset, so user can switch between number of displayed (=used) levels freely…
 
 Now, when we have the data we will start building the structures from
 large Qs…
 
 Select the number of level 1, check Update Unified automatically (if
-used computer is fast enough, else push the button Graph Unified)…Click
+used computer is fast enough, else push the button Graph Unified)… Click
 on the Tab “1. level”. What appears is the screen shot:
 
-|image89|
+.. figure:: media/UnifiedFit3.png
+   :align: center
+   :width: 680px
 
 **Description of the Tab area in the panel:**
 
@@ -260,7 +224,7 @@ This area changes according to parameter selection etc. I have tried to
 put in this as much “smarts” as possible to help user make right
 choices, so parameters, which are not applicable at any given time
 should be invisible… Anyway, each parameter has most controls grouped on
-one line – that is current parameter value, checkbox “Fit” and (if Fit
+one line – that is current parameter value, checkbox *Fit* and (if Fit
 is selected) limits – low and high fitting limits. Further more
 underneath the parameters is the parameter step variable. This allows
 the user to select the magnitude that a parameters changes by pushing
@@ -278,18 +242,25 @@ appropriate background…
 
 Change background (under the tabs field) into the 0.1
 
-Select point 76 –87 on the top graph using cursors and check “Fit”
+Select point 76 – 87 on the top graph using cursors and check “Fit”
 checkboxes next to G and Rg. These parameters will be fitted in between
 the cursors. Push button “Fit Rg/G bwtn cursors”. The following should
 be result:
 
-|image90|
+.. figure:: media/UnifiedFit4.png
+   :align: center
+   :width: 780px
+
+
 
 The blue line in the graphs now is the Guinier fit. Next select points
 84 to 92 with cursors, check boxes “Fit” next to B and P and push button
 “Fit P/B btwn cursors”. Now we get the power-law fit on this area:
 
-|image91|
+.. figure:: media/UnifiedFit5.png
+   :align: left
+   :width: 780px
+
 
 The green line is local fit for the power law dependence. Notice, that
 the fit to the data in the modeled q range is now reasonably good,
@@ -309,17 +280,17 @@ selected for fitting, parameters selected for fitting, starting values
 and, if used, limits. It also presents some warning when parameters
 usually fitted together are not selected both. See below.
 
-|image92|\ Note, that this panel can be skipped using checkbox -
-checkbox "*Skip this panel next time?*" is on this information panel in
-lower right corner and same function checkbox "*Skip Fit Check?*" is on
-the main panel above the "*Revert back*" button):
+.. figure:: media/UnifiedFit6.png
+   :align: left
+   :width: 320px
 
-|image93|
+   Note, that this panel can be skipped using checkbox - checkbox "*Skip this panel next time?*" is on this information panel in lower right corner and same function checkbox "*Skip Fit Check?*" is on the main panel above the "*Revert back*" button):
 
-You can either "*Continue fitting*" or "*Cancel fitting*". Note, that
-changing the parameters in the panel is not allowed and so if you need
-to make changes, use button "*Cancel fitting*" fix problems and fit
-again. .
+.. figure:: media/UnifiedFit7.png
+    :align: left
+    :width: 320px
+
+    You can either "*Continue fitting*" or "*Cancel fitting*". Note, that changing the parameters in the panel is not allowed and so if you need to make changes, use button "*Cancel fitting*" fix problems and fit again.
 
 **Comment:**
 
@@ -338,7 +309,9 @@ Ok, level 1 looks fine and the background also. Uncheck all fit boxes in
 the panel and then select Number of levels as 2. Click on tab with “2.
 level”.
 
-|image94|
+.. figure:: media/UnifiedFit8.png
+    :align: left
+    :width: 780px
 
 The green and blue lines in at this time represent default values for
 level 2. If you click now on tab of 1. level, the blue and green lines
@@ -349,13 +322,17 @@ Let’s do local fits for level 2. Set cursors between points 31 and 48.
 Push “Fit Rg/G bwtn cursors” button. Fit should converge to following
 solution:
 
-|image95|
+.. figure:: media/UnifiedFit9.png
+    :align: left
+    :width: 780px
 
 Now we need to do something similar for power law dependence. Select
 points 47 to 63, reduce B to about 0.00001, select “fit” checkboxes
 there and do local fit. Following should be the result:
 
-|image96|
+.. figure:: media/UnifiedFit10.png
+    :align: left
+    :width: 780px
 
 Now we can select area with this level only and optimize the parameters
 of Both Guinier part and Power law part together:
@@ -370,7 +347,10 @@ In this case the reason for error message is the fact, that power law
 slope starting value is 4.2, which is not physical. Change that to 4 and
 fix it by deselecting the Fit checkbox. The do the fit:
 
-|image97|
+.. figure:: media/UnifiedFit11.png
+    :align: left
+    :width: 780px
+
 
 And now is the time to broaden the data range and fit both levels
 together. It is not necessary to fit background, but should not hurt…
@@ -385,7 +365,10 @@ to even largest qs. Therefore, to get good fit one needs to set RGCO to
 necessary (I had to set B for level 2 to lower number to get stable
 solution). But one can get really good solution:
 
-|image98|
+.. figure:: media/UnifiedFit12.png
+    :align: left
+    :width: 780px
+
 
 Last part, which may need to be solved, is the power law tail at
 smallest Qs from something large. To do so, we can use trick of this
@@ -397,7 +380,9 @@ need to fix only the power-law part. Modifying the B and P manually is
 the best method in this case… A good guess clearly is about
 3\*10\ :sup:`-7` for B and P roughly 4.
 
-|image99|
+.. figure:: media/UnifiedFit13.png
+    :align: left
+    :width: 780px
 
 Now select wide range of Q’s – points 103, select parameters to fit
 (possibly all, but that will take longer) and make sure the limits
@@ -406,7 +391,9 @@ Guinier parameters should not be fitted! Then push button fit.
 
 And we receive nice solution:
 
-|image100|
+.. figure:: media/UnifiedFit14.png
+    :align: left
+    :width: 780px
 
 Notice the standardized residuals in the top graphs are reasonable for
 all Q’s suggesting that we have right number of levels. It may be
@@ -414,14 +401,18 @@ possible to improve the fit by including some correlations – the powder
 could have been compacted quite a bit, but I leave that to user to
 figure out more…
 
-5.3 Correlations
-----------------
+Correlations
+------------
 
 If inter-particle interference is not negligible, then for reasonably
 weak interferences the code has built in simple model for modeling
 those. This is simple model, which is realistically valid only for
 gasses and is only approximation. For details see publications by
 Beaucage.
+
+.. figure:: media/UnifiedFit15.png
+    :align: left
+    :height: 580px
 
 **User should be aware of the crudeness of these calculations.**
 
@@ -441,13 +432,13 @@ interaction for particles in the particular population. If there are
 interactions among particles from different populations – which is very
 likely – these calculations have NO WAY to account for it.
 
-|image101|\ When checkbox is selected for correlations, new windows
+When checkbox is selected for correlations, new windows
 appear – ETA (distance between the layers) and Pack (fill of the first
 layer). Smaller the Pack, less interference. The ETA should not ever bee
 smaller than size of particles, and actually should be larger…
 
-5.4 Rg\ :sub:`CO` again – main warning
---------------------------------------
+Rg\ :sub:`CO` again –  warning
+------------------------------
 
 My experience has shown, that one of the least understood parameters of
 the whole Unified fit seems to be Rg\ :sub:`CO` parameter. Here is more
@@ -488,8 +479,8 @@ parameter. In my years of experience there are no such data, which would
 allow fitting this parameter. If anyone has such data, I'll be happy to
 put it back, but this will make the system cleaner and easier to use.
 
-5.5 Output from Unified
------------------------
+Output from Unified
+-------------------
 
 Result scan be either copied back to folder where the data came from,
 exported as ASCII, or little macro will include for each level text box
@@ -513,7 +504,10 @@ large number of waves, but provides separated outputs for various levels
 
 After pushing the button user gets input dialog:
 
-|image102|
+.. figure:: media/UnifiedFit16.png
+    :align: center
+    :width: 350px
+
 
 In which any useful comment can be inserted (modify default). Note the
 quotes. They have to be there…
@@ -540,17 +534,10 @@ using Igor built in tools (read functions “note”, and “StringByKey” resp
 This is the example of the list in this case:
 
 IgorExperimentName=Test case example;DataFolderinIgor=root:'Test
-data':;DistributionTypeModelled=Number
-distribution;NumberOfModelledDistributions=2;SASBackground=0.12257;Dist1ShapeModel=sphere;Dist1ScatShapeParam1=1;Dist1ScatShapeParam2=1;Dist1ScatShapeParam3=1;Dist1DistributionType=LogNormal;Dist1Formula=P(x)=(1/((x-loc)\*scale\*sqrt(2\*pi))
-\*
-exp(-ln((x-loc)/scale)^2/(2\*shape^2));Dist1NegligibleFraction=0.01;Dist1VolFraction=0.0024333;Dist1Location=21.79;Dist1Scale=87.731;Dist1Shape=0.5;Dist1VolFractionError=8.698e-05;Dist1LocationError=16.734;Dist1ScaleError=5.8733;Dist1ShapeError=0;Dist2ShapeModel=sphere;Dist2ScatShapeParam1=1;Dist2ScatShapeParam2=1;Dist2ScatShapeParam3=1;Dist2DistributionType=LogNormal;Dist2Formula=P(x)=(1/((x-loc)\*scale\*sqrt(2\*pi))
-\*
-exp(-ln((x-loc)/scale)^2/(2\*shape^2));Dist2NegligibleFraction=0.01;Dist2VolFraction=0.047415;Dist2Location=608.88;Dist2Scale=538.71;Dist2Shape=0.5;Dist2VolFractionError=0.00026279;Dist2LocationError=13.656;Dist2ScaleError=7.249;Dist2ShapeError=0;UsersComment=Result
-from Modeling Thu, Sep 12, 2002 1:20:06
-PM;Wname=ModelingQvector\_0;Units=A-1;
+data':;DistributionTypeModelled=Number distribution;NumberOfModelledDistributions=2;SASBackground=0.12257; Dist1ShapeModel=sphere;Dist1ScatShapeParam1=1;Dist1ScatShapeParam2=1; Dist1ScatShapeParam3=1;Dist1DistributionType=LogNormal; Dist1Formula=P(x)=(1/((x-loc)\*scale\*sqrt(2\*pi))*exp(-ln((x-loc)/scale)^2/(2\* shape^2)); Dist1NegligibleFraction=0.01;Dist1VolFraction=0.0024333;Dist1Location=21.79; Dist1Scale=87.731;Dist1Shape=0.5;Dist1VolFractionError=8.698e-05; Dist1LocationError=16.734;Dist1ScaleError=5.8733;Dist1ShapeError=0; Dist2ShapeModel=sphere;Dist2ScatShapeParam1=1;Dist2ScatShapeParam2=1; Dist2ScatShapeParam3=1;Dist2DistributionType=LogNormal; Dist2Formula=P(x)=(1/((x-loc)\*scale\*sqrt(2\*pi))\* exp(-ln((x-loc)/scale)^2/(2\*shape^2));Dist2NegligibleFraction=0.01; Dist2VolFraction=0.047415;Dist2Location=608.88;Dist2Scale=538.71; Dist2Shape=0.5;Dist2VolFractionError=0.00026279; Dist2LocationError=13.656;Dist2ScaleError=7.249;Dist2ShapeError=0;UsersComment=Result from Modeling Thu, Sep 12, 2002 1:20:06 PM;Wname=ModelingQvector\_0;Units=A-1;
 
-5.6. UNCERTAINITY EVALUATION
-----------------------------
+UNCERTAINITY EVALUATION
+-----------------------
 
 This script enables to analyze uncertainties of parameters of the
 Unified fit model. There are two different types of analysis one can
@@ -571,7 +558,10 @@ values are recorded. After the analysis, this dependence is analyzed and
 based on statistical analysis (number of fitted points and free
 parameters) the uncertainty of the parameter is estimated.
 
-|image103|
+.. figure:: media/UnifiedFit17.png
+    :align: left
+    :width: 380px
+
 
 Here is example of results:
 
@@ -592,7 +582,10 @@ to 82.62
 
 \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
 
-|image104|
+.. figure:: media/UnifiedFit18.png
+    :align: center
+    :width: 480px
+
 
 NOTE: you need to make sure the fitting limits are set widely enough as
 the fit may abruptly stop when these are violated. The Help in the panel
@@ -610,7 +603,9 @@ Results to graph
 
 This includes results in the graphs in text boxes:
 
-|image105|
+.. figure:: media/UnifiedFit19.png
+    :align: center
+    :width: 780px
 
 Note, that only selected, applicable parameters for each level are
 included in the text boxes… The text boxes can be formatted (double
@@ -626,8 +621,8 @@ sheet type program (Excel). Macro creates panel with buttons and walks
 user through steps needed to add data to the notebook in Igor, which
 then can be saves as text file and imported to other programs.
 
-5.7 Analyze results
--------------------
+Analyze results
+---------------
 
 Some specific cases can be analyzed further using Unified method. These
 are:
@@ -651,7 +646,13 @@ called from the bottom of the Unified main panel.
 
 Open the tool from the Unified panel (at the bottom):
 
-|image106| |image107|
+.. figure:: media/UnifiedFit20.png
+    :align: center
+    :width: 380px
+
+.. figure:: media/UnifiedFit21.png
+        :align: center
+        :width: 380px
 
 There are two options which data can be analyzed…
 
@@ -672,17 +673,23 @@ Then one can pick models:
 Invariant
 ~~~~~~~~~
 
-|image108|
+.. figure:: media/UnifiedFit22.png
+        :align: center
+        :width: 380px
+
 
 You need to pick also level for which to calculate the invariant. The
 invariant value is in the top field, user can input contrast value (if
 known) and if the data were absolutely calibrated and the contrast is
 known, the tool calculates the volume fraction of the phase.
 
-Porods law
+Porod law
 ~~~~~~~~~~
 
-|image109|
+.. figure:: media/UnifiedFit23.png
+        :align: center
+        :width: 380px
+
 
 This will provide results ONLY, if the P for selected level is close to
 4 (3.96 – 4.04). In that case, the tool provides Porod constant, P and
@@ -692,7 +699,9 @@ provided. You need to have data absolutely calibrated.
 Branched mass fractal
 ~~~~~~~~~~~~~~~~~~~~~
 
-|image110|
+.. figure:: media/UnifiedFit24.png
+        :align: center
+        :width: 380px
 
 Ok, this tool requires users to read the references. The code was
 provided by Greg Beaucage and provides results as expected. But I am not
@@ -711,7 +720,10 @@ be calculated, will be set to NaN.
 Size distribution
 ~~~~~~~~~~~~~~~~~
 
-|image111|
+.. figure:: media/UnifiedFit25.png
+        :align: center
+        :width: 380px
+
 
 In this case, parameters from one level can be used to calculate
 log-normal size distribution for the particles – which assumes the P is
@@ -725,7 +737,8 @@ User can get following outputs, using the buttons:
 *Print results to history area in Igor experiment*. For example here is
 the results from the above Size distribution tool:
 
-\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\* Results for Size dsitribution
+\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
+Results for Size dsitribution
 analysis from Unified fit
 \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
 
@@ -766,12 +779,20 @@ happening to.
 *Print textbox with the results to top (or Unified) graph*. This is
 example of record for the Size distribution:
 
-|image112|
+.. figure:: media/UnifiedFit26.png
+        :align: center
+        :width: 380px
+
+
 
 And for size distribution ONLY… Display distribution. This will
 calculate the log normal distribution for the parameters obtained.
 
-|image113|
+.. figure:: media/UnifiedFit27.png
+        :align: center
+        :width: 380px
+
+
 
 User may need to change the Radius min and Max values (my code to guess
 these seems to fail miserably in some cases). The graphs shows which
@@ -810,7 +831,11 @@ is valid).
 
 Before I start with the methods… Here is some more description of input:
 
-|image114|
+.. figure:: media/UnifiedFit28.png
+        :align: center
+        :width: 380px
+
+
 
 Top part (above lines with reference and Comments on validity) is for
 input. All numbers here should be known and provided by user. Anything
@@ -832,59 +857,145 @@ contrast calculator to calculate these values. Please, NOTE this…
 TwoPhaseSys1: *ρ\ :sub:`s`, ρ\ :sub:`sam`* and *B/Q* known. *φ\ :sub:`p `*\ calculated
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-|image115|
+.. figure:: media/UnifiedFit29.png
+        :align: center
+        :width: 380px
+
+
 
 This approach can be applied when the data are not measured on an
 absolute scale, but sample densities are known and the data cover a
 sufficient *q* range to determine the ratio *B/Q*. In this case, the
-porosity is calculated from : |image116| , and *S\ :sub:`v`* is
-calculated from |image117|. In our realization of this approach *B* and
-*Q* used are obtained from a unified fit (see above) to the scattering
-data. Normally the relevant *Q* is for level-1 only. The chord lengths
-are calculated from:
+porosity is calculated from :
 
-|image118|
+.. figure:: media/UnifiedFit30.png
+        :align: center
+        :width: 280px
+
+
+, and *S\ :sub:`v`* is calculated from
+
+.. figure:: media/UnifiedFit31.png
+        :align: center
+        :width: 180px
+
+
+In our realization of this approach *B* and *Q* used are obtained from a unified fit (see above) to the scattering data. Normally the relevant *Q* is for level-1 only. The chord lengths are calculated from:
+
+.. figure:: media/UnifiedFit32.png
+        :align: center
+        :height: 180px
+
+
 
 TwoPhaseSys2. : *ρ\ :sub:`s`, ρ\ :sub:`sam`, Δr* and *B\ :sub:`v`* known\ *. φ\ :sub:`p`* calculated
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-|image119|
+.. figure:: media/UnifiedFit33.png
+        :align: center
+        :width: 380px
+
 
 This approach applies where the data are on an absolute intensity but
 the low *q* data are lacking so *Q* is not known. The sample density
-must be known so that *φ\ :sub:`p`* can be calculated by\ |image120|.
-|image121| is used to compute *S\ :sub:`v`*. *Δr* is calculated from
-|image122|\ using known chemical composition of the struts.
+must be known so that *φ\ :sub:`p`* can be calculated by\
+
+.. figure:: media/UnifiedFit34.png
+        :align: center
+        :width: 380px
+
+.. figure:: media/UnifiedFit35.png
+        :align: center
+        :width: 380px
+
+is used to compute *S\ :sub:`v`*. *Δr* is calculated from
+
+.. figure:: media/UnifiedFit36.png
+        :align: center
+        :width: 380px
+
+using known chemical composition of the struts.
 
 TwoPhaseSys3. : *ρ\ :sub:`sam`, Δr*, *B\ :sub:`v`* and *Q\ :sub:`v, `*\ known\ *. ρ\ :sub:`s`* is calculated
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-|image123|
+.. figure:: media/UnifiedFit37.png
+        :align: center
+        :width: 380px
+
 
 This approach is similar to approach 2 but the data cover a sufficient
 *q* range to calculate *Q\ :sub:`v`*. For porous materials where one of
-the two phases is air, *ρ\ :sub:`s`* is calculated from |image124| and
-|image125|
+the two phases is air, *ρ\ :sub:`s`* is calculated from
 
-|image126|
+.. figure:: media/UnifiedFit38.png
+        :align: center
+        :width: 380px
+
+and
+
+.. figure:: media/UnifiedFit39.png
+        :align: center
+        :width: 380px
+
+.. figure:: media/UnifiedFit40.png
+   :align: center
+   :width: 380px
+
 
 If the SLD of the pore material is not zero, an iterative process is
 applied to calculate *ρ\ :sub:`s`* by forcing *φ\ :sub:`p`* in
-|image127| to equal *φ\ :sub:`p`* calculated from *Q\ :sub:`v`* in
-|image128|. The calculated *ρ\ :sub:`s`* is then plugged in |image129|
+
+.. figure:: media/UnifiedFit41.png
+        :align: center
+        :width: 380px
+
+to equal *φ\ :sub:`p`* calculated from *Q\ :sub:`v`* in
+
+.. figure:: media/UnifiedFit42.png
+        :align: center
+        :width: 380px
+
+. The calculated *ρ\ :sub:`s`* is then plugged in
+
+.. figure:: media/UnifiedFit43.png
+        :align: center
+        :width: 380px
+
 to calculate *S\ :sub:`v`*.
 
 TwoPhaseSys4. *ρ\ :sub:`s`, Δr*, *B\ :sub:`v`* and *Q\ :sub:`v `*\ known
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-|image130|
+.. figure:: media/UnifiedFit44.png
+        :align: center
+        :width: 380px
+
 
 This approach requires valid scattering data on absolute scale. By
-equating |image131| and |image132|, *φ\ :sub:`p`* is solved using
+equating
+
+.. figure:: media/UnifiedFit45.png
+        :align: center
+        :width: 380px
+
+and
+
+.. figure:: media/UnifiedFit46.png
+        :align: center
+        :width: 380px
+
+, *φ\ :sub:`p`* is solved using
 *B\ :sub:`v`* and *Q\ :sub:`v`* obtained from the scattering data. The
 scattering data must be valid over a sufficient *q* range to assure that
 *Q\ :sub:`v`* is accurate. After solving for *φ\ :sub:`p`, S\ :sub:`v`*
-can be calculated using |image133|. This approach does not require the
+can be calculated using
+
+.. figure:: media/UnifiedFit47.png
+        :align: center
+        :width: 380px
+
+. This approach does not require the
 sample density, but the chemical composition of the struts (Δ*r*) must
 be known. In addition this approach does require the complete scattering
 profile on an absolute scale.
