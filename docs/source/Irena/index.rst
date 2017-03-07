@@ -7,4 +7,4 @@ This is manual for Irena package version: 2.65
    :maxdepth: 3
 
    Irena_Introduction.rst
-   Irena_Chapter1.rst
+   UnifiedFit.rst

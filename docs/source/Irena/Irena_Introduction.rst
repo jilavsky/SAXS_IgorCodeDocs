@@ -8,7 +8,7 @@ Crystallography, vol. 42 (2009). Please e-mail me, if you need copy.
 
 | Version 2.62 for Igor 7.x
 
-***Jan Ilavsky***
+**Jan Ilavsky**
 
 **Included Methods – authors:**
 
