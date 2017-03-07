@@ -29,11 +29,11 @@ http://www.eng.uc.edu/~gbeaucag/PDFPapers/ma970373t.pdf
 The basic function is composed of a series of structural levels, each
 with the possibility to be
 
-*a) associated with the previous smaller size level :math:`R_{gcutoff2} = Rg_1`*
+*a) associated with the previous smaller size level* :math:`R_{gcutoff2} = Rg_1`
 
-*b) to follow mass fractal restrictions (calculate B for the mass fractal power law :math:`I = B q^{-p}`*
+*b) to follow mass fractal restrictions (calculate B for the mass fractal power law* :math:`I = B q^{-p}`
 
-*c) to display spherical Correlations (Interference) as described by :math:`I(q) = I(q)/(1+p f(q \eta))` where p is a packing factor 8\*vH/vO for vH = hard sphere volume and vO is occupied volume and :math:`f(q\eta)` is the sphere amplitude function for spherical Correlations (Interference)*
+*c) to display spherical Correlations (Interference) as described by* :math:`I(q) = I(q)/(1+p f(q \eta))` *where p is a packing factor 8\*vH/vO for vH = hard sphere volume and vO is occupied volume and* :math:`f(q\eta)` *is the sphere amplitude function for spherical Correlations (Interference)*
 
 *The intensity from each level is summed and the intensity from one
 level, i, is given by:*
