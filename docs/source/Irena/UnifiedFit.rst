@@ -33,7 +33,7 @@ with the possibility to be
 
 *b) to follow mass fractal restrictions (calculate B for the mass fractal power law* :math:`I = B q^{-p}`
 
-*c) to display spherical Correlations (Interference) as described by* :math:`I(q) = I(q)/(1+p f(q \eta))` *where p is a packing factor 8\*vH/vO for vH = hard sphere volume and vO is occupied volume and* :math:`f(q\eta)` *is the sphere amplitude function for spherical Correlations (Interference)*
+*c) to display spherical Correlations (Interference) as described by :math:`I(q) = I(q)/(1+p f(q \eta))` where p is a packing factor 8\*vH/vO for vH = hard sphere volume and vO is occupied volume and :math:`f(q\eta)` is the sphere amplitude function for spherical Correlations (Interference)*
 
 *The intensity from each level is summed and the intensity from one
 level, i, is given by:*
@@ -70,8 +70,8 @@ the volume of the lattice (provided to me by one nice Irena user)*.
 If particles are asymmetric, *e.g.,* rods or sheets the packing the
 number can be much higher and the spherical function becomes less
 appropriate although it can be used in a pinch for weak Correlations.
-The interpretation of p and eta become complicated in these
-cases. As a general rule eta has to be larger than Rg\ :sub:`i` as
+The interpretation of p and :math:`\eta` become complicated in these
+cases. As a general rule :math:`\eta` has to be larger than Rg\ :sub:`i` as
 common sense would dictate. The correlation function follows closely the
 development of Fournet in Guinier and Fournet and in Fournet's PhD
 dissertation where it is better described but is in French...
@@ -83,12 +83,12 @@ potentially have 8 parameters (including spherical Correlations):
 * G\ :sub:`i`
 * P\ :sub:`i`
 * B\ :sub:`i`
-* eta\ :sub:`i`
+* :math:`\eta` :sub:`i`
 * pack\ :sub:`i`
-* RgCO\ :sub:`i`
+* Rgco\ :sub:`i`
 * k
 
-where RCO\ :sub:`i` is usually Rg\ :sub:`(i-1)`, as
+where Rgco\ :sub:`i` is usually Rg\ :sub:`(i-1)`, as
 shown above, for hierarchical structures (k is 1.06 for mass fractals
 and 1 for others)
 
@@ -161,8 +161,12 @@ this value has been renamed. It si now called “pi \* B /Q” and in help
 it is also termed “S/(V\*fi\*(1-fi)))…  Here is what it should be in
 formulas (note: Q\ :sub:`v` is invariant) :
 
-.. figure:: media/UnifiedFitFormula.png
-   :scale: 50%
+.. math::
+
+  S_v = \frac{B}{2\pi\Delta\rho^2} = \frac{\pi B_v \phi (1-\phi) }{Q_v}
+
+  \frac{\pi B_v}{Q_v} = \frac{S_v}{\phi (1-\phi)}
+
 
 
 Link B to G/Rg:
@@ -969,36 +973,11 @@ TwoPhaseSys4. *ρ\ :sub:`s`, Δr*, *B\ :sub:`v`* and *Q\ :sub:`v `*\ known
 
 .. figure:: media/UnifiedFit44.png
         :align: center
+
+
         :width: 380px
-
-
 This approach requires valid scattering data on absolute scale. By
-equating
-
-.. figure:: media/UnifiedFit45.png
-        :align: center
-        :width: 380px
-
-and
-
-.. figure:: media/UnifiedFit46.png
-        :align: center
-        :width: 380px
-
-, *φ\ :sub:`p`* is solved using
-*B\ :sub:`v`* and *Q\ :sub:`v`* obtained from the scattering data. The
-scattering data must be valid over a sufficient *q* range to assure that
-*Q\ :sub:`v`* is accurate. After solving for *φ\ :sub:`p`, S\ :sub:`v`*
-can be calculated using
-
-.. figure:: media/UnifiedFit47.png
-        :align: center
-        :width: 380px
-
-. This approach does not require the
-sample density, but the chemical composition of the struts (Δ*r*) must
-be known. In addition this approach does require the complete scattering
-profile on an absolute scale.
+equating :math:`S_v = \frac{\pi B \phi_p(1-\phi_p)}{Q}` and :math:`\phi_p=\frac{\rho_s-\rho_\text{sam}}{\rho_s-\rho_p}=\frac{\rho_s-\rho_\text{sam}}{\rho_s}`, *φ\ :sub:`p`* is solved using *B\ :sub:`v`* and *Q\ :sub:`v`* obtained from the scattering data. The scattering data must be valid over a sufficient *q* range to assure that *Q\ :sub:`v`* is accurate. After solving for *φ\ :sub:`p`, S\ :sub:`v`* can be calculated using :math:`S_v = \frac{\pi B \phi (1-\phi) }{Q}` . This approach does not require the sample density, but the chemical composition of the struts (Δ*r*) must be known. In addition this approach does require the complete scattering profile on an absolute scale.
 
 TwoPhaseSys4.
 ^^^^^^^^^^^^^^
