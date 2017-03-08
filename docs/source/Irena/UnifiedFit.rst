@@ -973,9 +973,8 @@ TwoPhaseSys4. *ρ\ :sub:`s`, Δr*, *B\ :sub:`v`* and *Q\ :sub:`v `*\ known
 
 .. figure:: media/UnifiedFit44.png
         :align: center
-
-
         :width: 380px
+
 This approach requires valid scattering data on absolute scale. By
 equating :math:`S_v = \frac{\pi B \phi_p(1-\phi_p)}{Q}` and :math:`\phi_p=\frac{\rho_s-\rho_\text{sam}}{\rho_s-\rho_p}=\frac{\rho_s-\rho_\text{sam}}{\rho_s}`, *φ\ :sub:`p`* is solved using *B\ :sub:`v`* and *Q\ :sub:`v`* obtained from the scattering data. The scattering data must be valid over a sufficient *q* range to assure that *Q\ :sub:`v`* is accurate. After solving for *φ\ :sub:`p`, S\ :sub:`v`* can be calculated using :math:`S_v = \frac{\pi B \phi (1-\phi) }{Q}` . This approach does not require the sample density, but the chemical composition of the struts (Δ*r*) must be known. In addition this approach does require the complete scattering profile on an absolute scale.
 
@@ -989,7 +988,13 @@ not published in the manuscript. They assume we can model the material
 as systems of particles and take two different methods to calculate
 particle density.
 
-|image134| |image135|
+.. figure:: media/UnifiedFit45.png
+        :align: left
+        :width: 380px
+
+.. figure:: media/UnifiedFit46.png
+          :align: left
+          :width: 380px
 
 Note, that there are differences in what needs to be known. Method 6
 requires knowledge of contrast, while the method 5 does not, while

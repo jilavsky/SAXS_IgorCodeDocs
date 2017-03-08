@@ -6,8 +6,9 @@ Manual |release| for Irena version 2.62 for Igor 7.x
 .. toctree::
    :maxdepth: 3
 
-   Irena_Introduction.rst
-   UnifiedFit.rst
+   Irena_Introduction
+   ScatteringContrastCalculator
+   UnifiedFit
 
 Indices and tables
 ------------------
