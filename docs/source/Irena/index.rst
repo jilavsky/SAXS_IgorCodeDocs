@@ -8,6 +8,7 @@ Manual |release| for Irena version 2.62 for Igor 7.x
 
    Irena_Introduction
    ImportData
+   DataManipulation
    ScatteringContrastCalculator
    UnifiedFit
 
