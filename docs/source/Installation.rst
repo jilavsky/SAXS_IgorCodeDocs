@@ -33,20 +33,18 @@ https://github.com/jilavsky/SAXS_IgorInstaller/tree/master/Igor_GitHub.
 To test and use my code you can use demo version of Igor Pro - Igor pro will run on compuyter where it was not installed before for one month as full featured demo. To use this, find computer which did nto have yet Igor Pro installed, install the latest version of Igor Pro 7 from https://www.wavemetrics.com, and you are set.
 
 
-Instructions on Youtube
------------------------
+Youtube channel for Irena and Nika
+----------------------------------
 
 .. _YouTubeChannel:
 
 I have Youtube channel for instructional movies. Search for example
 “Ilavsky Irena” on Youtube and you will see something like this:
 
-
 .. figure:: media/Introduction0.png
-          :width: 500px
-          :alignement: center
+   :align: center
+   :width: 420px
 
-   Youtube channel for Irena and Nika packages
 
 The totally weird link to the channel is here:
 
