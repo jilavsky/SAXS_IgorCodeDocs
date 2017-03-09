@@ -8,8 +8,13 @@ Manual |release| for  Nika version: 1.75
 
    Introduction
    Main
+   BCandGeometry
+   Mask
+   FloodField
+   OutputData
    ImportDataTypes
    Nexus
+   InstrumentSupport
    Important
 
 Indices and tables

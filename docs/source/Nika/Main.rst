@@ -1,5 +1,5 @@
-Main Nika Panel
-===============
+Main Panel
+==========
 
 Select “Main panel” from the “SAS 2D” menu. This will present the following panel:
 
@@ -121,10 +121,7 @@ data:
 
 
 Refresh:
-~~~~~~~~~
-
-This button was removed in 1.66. The refresh and some other
-functionality was added to right click for most Listoboxes in Nika.
+ This button was removed in 1.66. The refresh and some other functionality was added to right click for most Listoboxes in Nika.
 
 Save/Load Config
 ~~~~~~~~~~~~~~~~
@@ -463,77 +460,8 @@ My\_Name\_is\_\_long\_for
 
 Etc…
 
-Bottom controls
----------------
-
-.. figure:: media/Main16.png
-   :align: center
-   :width: 580px
-
-
-These controls have following functions:
-
-“\ **Ave & Display selected file**\ ” will average all selected files,
-which are selected in the list box, and display them as one figure. The
-program will just load and display the CCD images, including some
-processing (dezinging), if selected.
-
-Note, if more than 1 image is selected, the images are first AVERAGED –
-that is intensities for each pixel as summed together and then divided
-by number of images.
-
-“\ **Convert selected files 1 at time**\ ” will load one after another
-the files selected in the list box and process them according to
-selection in the tabbed area.
-
-“\ **Ave & Convert selected files**\ ” will average all selected files
-in the list box and process them according to selection in the tabbed
-area.
-
-Note, if more than 1 image is selected, the images are first AVERAGED –
-that is intensities for each pixel as summed together and then divided
-by number of images.
-
-“\ **Save displayed image**\ ” will save displayed image into tiff file
-for future use. This is method, how to for example average number of
-images and save them for single empty or blank image.
-
-“\ **Skip Bad files**\ ” Enables to skip automatically processing of
-files, which have too low intensity (SetVariable control with limiting
-value appears when selected). Used to skip files which were accidentally
-NOT exposed in case of failing shutters or other issues.
-
-“\ **Display RAW data**\ ” will display in the image right of the panel
-the UNCORRECTED data file as loaded in. Values for the pixles are raw
-counts from the detector.
-
-“\ **Display Processed**\ ” will display in the image right of the panel
-the fully CORRECTED and CALIBRATED data. The values for the pixles
-should be directly absolute intensity in this case. This choice is not
-available, if image was loaded through using “\ **Ave & Display sel.
-Files(s)**\ ”. In this case no processing of the image was done. Use
-button “\ **Convert sel. Files 1 at time**\ ” or the other buttons….
-Just remember, that only the last image is available for display.
-
-“\ **Display beam center**\ ” will add circles in the image showing
-where beam center is set
-
-“\ **Display sectors/Lines**\ ” will add lines showing sectors or lines,
-which are selected for data analysis (if any)
-
-“\ **Log Int display**\ ” will switch displayed image into log
-(intensity) or linear (Intensity).
-
-“\ **Image with Q axes**\ ” Appends Qx/Qy (or Qz/Qy) axes to displayed
-image. Note, when unchecked, it has to recreate the image, since these Q
-axes cannot be removed any other way.
-
-“\ **Image w/ Q axes with grid**\ ” Appends Qx/Qy (or Qz/Qy) axes to
-displayed image – with grid lines. Note, when unchecked, it has to
-recreate the image, since these Q axes cannot be removed any other way.
-
-Geometry/processing controls
-----------------------------
+Controls in tabs
+----------------
 
 **Note, that if images are averaged, they are first averaged during
 loading, and then – during processing to create lineouts / square matrix
@@ -1258,8 +1186,77 @@ Note: next release of Irena package will have capabilities to use not
 only qrs data , but also q\ :sub:`x`\ rs, q\ :sub:`y`\ rs, and
 q\ :sub:`z`\ rs data.
 
+Bottom controls
+---------------
+
+.. figure:: media/Main16.png
+   :align: center
+   :width: 580px
+
+
+These controls have following functions:
+
+“\ **Ave & Display selected file**\ ” will average all selected files,
+which are selected in the list box, and display them as one figure. The
+program will just load and display the CCD images, including some
+processing (dezinging), if selected.
+
+Note, if more than 1 image is selected, the images are first AVERAGED –
+that is intensities for each pixel as summed together and then divided
+by number of images.
+
+“\ **Convert selected files 1 at time**\ ” will load one after another
+the files selected in the list box and process them according to
+selection in the tabbed area.
+
+“\ **Ave & Convert selected files**\ ” will average all selected files
+in the list box and process them according to selection in the tabbed
+area.
+
+Note, if more than 1 image is selected, the images are first AVERAGED –
+that is intensities for each pixel as summed together and then divided
+by number of images.
+
+“\ **Save displayed image**\ ” will save displayed image into tiff file
+for future use. This is method, how to for example average number of
+images and save them for single empty or blank image.
+
+“\ **Skip Bad files**\ ” Enables to skip automatically processing of
+files, which have too low intensity (SetVariable control with limiting
+value appears when selected). Used to skip files which were accidentally
+NOT exposed in case of failing shutters or other issues.
+
+“\ **Display RAW data**\ ” will display in the image right of the panel
+the UNCORRECTED data file as loaded in. Values for the pixles are raw
+counts from the detector.
+
+“\ **Display Processed**\ ” will display in the image right of the panel
+the fully CORRECTED and CALIBRATED data. The values for the pixles
+should be directly absolute intensity in this case. This choice is not
+available, if image was loaded through using “\ **Ave & Display sel.
+Files(s)**\ ”. In this case no processing of the image was done. Use
+button “\ **Convert sel. Files 1 at time**\ ” or the other buttons….
+Just remember, that only the last image is available for display.
+
+“\ **Display beam center**\ ” will add circles in the image showing
+where beam center is set
+
+“\ **Display sectors/Lines**\ ” will add lines showing sectors or lines,
+which are selected for data analysis (if any)
+
+“\ **Log Int display**\ ” will switch displayed image into log
+(intensity) or linear (Intensity).
+
+“\ **Image with Q axes**\ ” Appends Qx/Qy (or Qz/Qy) axes to displayed
+image. Note, when unchecked, it has to recreate the image, since these Q
+axes cannot be removed any other way.
+
+“\ **Image w/ Q axes with grid**\ ” Appends Qx/Qy (or Qz/Qy) axes to
+displayed image – with grid lines. Note, when unchecked, it has to
+recreate the image, since these Q axes cannot be removed any other way.
+
 Polarization correction
-~~~~~~~~~~~~~~~~~~~~~~~
+-----------------------
 
 Two types are available.
 
@@ -1283,8 +1280,7 @@ The final formula is:
 where *f*\ :sub:`s` is fraction of sigma polarization, 2q is 2 theta
 angle, and a is azimuthal angle from the plane of polarization plane.
 
-Implementation
-~~~~~~~~~~~~~~
+**Implementation**
 
 All of the Polarization corrections (from version 1.42) in Nika are
 applied by scaling the 2D data by the formulas above after all of the
