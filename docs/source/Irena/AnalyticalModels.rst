@@ -1,5 +1,5 @@
-12. Analytical models
-======================
+Analytical models
+=================
 
 **This tool provides GUI for different models: Debye-Bueche,
 Treubner-Strey, Ciccariello-Benedetti**
@@ -20,8 +20,8 @@ version 2.54 I have added ability to link RgCo to parameters from
 Debye-Bueche and Treubner-Strey models. Also I have (pre request) added
 plot of residuals.
 
-12.1 Debye-Bueche model for gels
---------------------------------
+Debye-Bueche model for gels
+----------------------------
 
 The theory is implemented in following form:
 
@@ -177,8 +177,8 @@ later.
    :width: 780px
 
 
-12.2 Treubner-Strey for small-angle diffraction
------------------------------------------------
+Treubner-Strey for small-angle diffraction
+-------------------------------------------
 
 Treubner-Strey model follows the publications : Teubner, M; Strey, R. J.
 Chem. Phys., 1987, 87, 3195 and Schubert, K-V.; Strey, R.; Kline, S. R.;
@@ -220,8 +220,8 @@ seem to be other way to scale the model to data.
 This is fitting to slit-smeared data for which Treubner-Strey model is
 the appropriate model to use.
 
-Ciccariello – Benedetti model for coated smooth surfaces
----------------------------------------------------------
+Ciccariello–Benedetti model for coated smooth surfaces
+------------------------------------------------------
 
 This tools was coded using following manuscripts:
 

@@ -1,8 +1,7 @@
 Scattering contrast calculator
 ==============================
 
-Introduction
--------------
+**Introduction**
 
 Calculating scattering contrast for various compounds is annoying
 “monkey” work, which can be easily left to computers. The tool in
@@ -13,8 +12,8 @@ Energy-dependent anomalous scattering effects (for X-rays) may also be
 considered by an additional level of this tool (see button marked
 :ref:`"Anomalous calculator" <Anomalous_Calculator>`  in lower right corner).
 
-Scattering contrast calculator
--------------------------------
+Basic calculator
+----------------
 
 Select from menu “SAS” item “Scattering contrast calculator”:
 
@@ -46,8 +45,7 @@ databases of this tool. In the lowest part of the tool are results and
 intermediate calculations of this tool – so one can obtain various
 numbers, which needed to be calculated.
 
-Use of matrix
--------------
+**Matrix**
 
 To calculate delta-rho squared …
 (ρ:sub:`matrix`\ −ρ\ :sub:`scatterer`)\ :sup:`2` ... we need to set
@@ -65,15 +63,9 @@ In each case the values for “delta-rho squared” should be recalculated.
 Note, that if checkbox “Use vacuum as matrix” is checked, vacuum is used
 as matrix and no selection for matrix is available…
 
-Saving data
------------
+**Saving data**
 
-This tool has “saving” feature, which allows to save the compound
-parameters in such way, that it can be used in the future. The data
-**can be saved either INSIDE the current Igor experiment or OUTSIDE Igor
-experiment**. Compounds saved outside ***are available to any Igor
-experiment on that particular computer***. But experiment moved to
-another computer will not have these compounds saved…
+This tool has “saving” feature, which allows to save the compound parameters in such way, that it can be used in the future. **The data can be saved either INSIDE the current Igor experiment or OUTSIDE Igor experiment.** Compounds saved outside are available to any Igor experiment on that particular computer**. But experiment moved to another computer will not have these compounds saved…
 
 To select where compounds are saved, use checkbox “Within this
 experiment(or on the computer)?

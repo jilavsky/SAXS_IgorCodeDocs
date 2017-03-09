@@ -8,8 +8,7 @@ was removed in version 2.58.
    :align: left
    :height: 580px
 
-Use of this tool
-----------------
+**Use of this tool**
 
 This tool is : **advanced; complicated; challenging to use – but really powerful**
 
@@ -94,8 +93,7 @@ is now:
 -  "*Volume [cm3/g]*" if data are on cm2/g scale. This is if the SAS
    data are calibrated per gram of sample.
 
-What is size distribution
-~~~~~~~~~~~~~~~~~~~~~~~~~
+**What is size distribution**
 
 The size distribution is modeled as small angle scattering (SAS) using
 basic SAS formula:
@@ -133,8 +131,7 @@ relatively easy to add other shapes in the code, so if anyone needs
 of different form factors varies significantly depending on calculations
 needed to calculate involved integrals.
 
-Structure factors
-~~~~~~~~~~~~~~~~~
+**Structure factors**
 
 The code includes number of Structure factors to account for interaction
 among the particles for non-dilute systems, which can be independently
@@ -156,8 +153,7 @@ interaction for particles in the particular population. If there are
 interactions among particles from different populations – which is very
 likely – these calculations have NO WAY to account for it.
 
-Important Information
-~~~~~~~~~~~~~~~~~~~~~
+**Important Information**
 
 The code uses for all size related parameters Angstroems (10:sup:`-10`
 m) or for Q vector (A:sup:`-1`). In the case of scattering contrast,
@@ -166,8 +162,7 @@ number distribution and any other volume contents centimeters
 
 This code uses either **Diameter** or **Radii** for scatterer size.
 
-Distribution Ψ(r) and V(r)\* Ψ(r) and distribution of r.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Distribution Ψ(r) and V(r)Ψ(r) and distribution of r.**
 
 The code can work with distribution defined as for number distribution
 N\*Ψ(r), where integral over Ψ(r) for all r is 1 and N is total number
@@ -245,8 +240,7 @@ provide the best possible method for using the binning method, I hope…
 
 All of the code handles bins of varying width…
 
-F(Q,r) problem – applicable ONLY to integrated spheroid
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**F(Q,r) problem – applicable ONLY to integrated spheroid**
 
 For the case of **integrated spheroids ONLY** - *rarely addressed
 problem is related to usual method of calculation of F(Q,r), independent
@@ -276,8 +270,8 @@ shapes. The standard spheroids also do not have this included – if you
 want to use this integration method, use even for spheres “integrated
 spheroid” and aspect ratio 1.
 
-Use of this tool for SINGLE input data set - size distribution.
----------------------------------------------------------------
+SINGLE input data set - size distribution
+-----------------------------------------
 
 NOTE: This part of the manual is from pre-2.43 version of Irena. It
 relates ONLY to Size distribution type of "population" in Modeling II.
@@ -297,8 +291,7 @@ Start tool from SAS menu. At this time it is titled “Modeling II”.
             :align: left
             :width: 380px
 
-GUI description
-~~~~~~~~~~~~~~~
+**GUI description**
 
 Note in following image, that the tool has somehow different GUI. The
 lower 2/3 of panel change depending on selection of radio-buttons “Data
@@ -348,8 +341,7 @@ small steps. Should be valid for all Model parameters (size
 distribution/peak, unified fit/…).
 
 
-Data controls
-~~~~~~~~~~~~~
+**Data controls**
 
 The data available in the test.pxp file distributed with the Irena
 package are in *qrs* structure, so select “QRS data” and pick the ‘Test
@@ -403,8 +395,7 @@ checkbox will open fields for Min and Max limits for fitting…
 
 Further controls are likely going to appear…
 
-Model controls
-~~~~~~~~~~~~~~
+**Model controls**
 
 Model controls become available by selecting “\ **Model controls”**
 radio button above the tabs.
@@ -552,8 +543,7 @@ main panel is selected)…
 **“Contrast”** field – input contrast. Only one contrast in case of
 single input data set.
 
-Last few buttons
-~~~~~~~~~~~~~~~~
+**Last few buttons**
 
 Under the tab area there are few more control buttons.
 
@@ -1029,8 +1019,8 @@ should get result similar to one below:
 
 
 
-7.6. Uncertainity evaluation
-----------------------------
+Uncertainity evaluation
+-----------------------
 
 This script enables to analyze uncertainties of parameters of the
 Modeling II, same method as Unified fit (chapter 6.6). There are two
@@ -1125,8 +1115,7 @@ pointed out here. Not everything can work easily though - scripting does
 not work and analysis of the parameters uncertainties has not been
 tested yet.
 
-Changes in Data controls
-~~~~~~~~~~~~~~~~~~~~~~~~
+**Changes in Data controls**
 
 When “\ **Data controls**\ ” AND “\ **Multiple Input Data Sets?**\ ” are
 selected, up to 10 input data sets can be loaded at the same time in the
@@ -1148,8 +1137,7 @@ time. If you unselect the “\ **Use?**\ ” checkbox on any data tab, all
 parameters stay in the tab. Therefore you can mix-and-match data any
 time from any of the 10 populations.
 
-Changes in Model controls
-~~~~~~~~~~~~~~~~~~~~~~~~~
+**Changes in Model controls**
 
 All controls stay the same. Contrast field will change reflecting
 selections: if “\ **Different contrast for data sets**\ ” is not
@@ -1158,7 +1146,6 @@ data X**\ ” will appear, if Data X are set to be used. This appears on
 EVERY population tab. You need to go and check the contrasts for every
 population.
 
-General comment
-~~~~~~~~~~~~~~~
+**General comment**
 
 *Please, remember, that with more data sets, this will be much slower. Setting up parameters for this complicated fitting space can be intimidating and very much complicated. You need to go through all of the used tabs in both Data controls and Model controls.*

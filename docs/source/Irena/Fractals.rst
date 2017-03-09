@@ -14,8 +14,7 @@ this Fortran code.
 Note, that this write up was written for studies of cement and therefore
 some of the terms are material-specifically called.
 
-Model description
-------------------
+**Model description**
 
 .. figure:: media/Fractals1.png
    :align: center
@@ -31,8 +30,7 @@ Model description
          :align: center
          :width: 780px
 
-Use
-----
+**Use**
 
 I do not have included real fractal data, but for purpose of GUI
 description and function description, the included data should be
@@ -47,8 +45,7 @@ allows to subtract known FIXED large background. The “SAS Background” at
 the bottom is similar term, but this one can be fitted during the
 fitting routine.
 
-**Select “Use mass fractal 1” for starters and other checkboxes as in
-figure below:**
+**Select “Use mass fractal 1” for starters and other checkboxes as in figure below:**
 
 .. figure:: media/Fractals4.png
          :align: center
@@ -106,7 +103,7 @@ volume filling between about 0.4 and 0.6.
             :width: 380px
 
 
-Bottom picture shows updated Surface Fractal panel. 
+Bottom picture shows updated Surface Fractal panel.
 
 Comments on surface fractal parameters:
 

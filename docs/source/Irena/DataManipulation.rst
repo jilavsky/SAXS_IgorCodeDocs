@@ -2,8 +2,8 @@
 Data manipulation tools
 =======================
 
-Data manipulation I – one or two data sets
-------------------------------------------
+Data manipulation I
+-------------------
 
 This tool allows the user to modify data in many ways. It can work on
 one or two data sets at the same time. The data sets may or may not
@@ -30,8 +30,7 @@ The tool allows the following data manipulations:
 7. Smooth data in linear or logarithmic scales or using
    spline smoothing with variable smoothing constant.
 
-Panel description
------------------
+**Panel description**
 
 .. figure:: media/DataManipulation1.png
            :align: left
@@ -163,11 +162,9 @@ from root:…., use the above pull down to preselect). If the folder does
 not exist, it will be created
 
 *New intensity name, New Q wave name, New Error wave name* names for
-output waves. Please fill in appropriately for your naming
-convention\ **.**
+output waves. Please fill in appropriately for your naming convention.
 
-Various uses of this tool
-~~~~~~~~~~~~~~~~~~~~~~~~~
+**Various uses of this tool**
 
 1. Merging segments from various sources. Import segments and then load
    in as Data set 1 the set which is calibrated, as set 2 next one and
@@ -186,8 +183,8 @@ Various uses of this tool
 Please, make sure you fill in properly the names of waves for output
 data. There is nothing I can do here to catch typos and mistakes…
 
-Data manipulation II – many data sets
--------------------------------------
+Data manipulation II
+--------------------
 
 This tool serves for modification of many data sets at once. In can
 average waves (all selected or every N waves), Normalize data, Subtract
@@ -195,8 +192,7 @@ dataset from all selected waves, and - possibly combined with the other
 tools also scale the data. But this tool can be modified to do other
 things. If you have any ideas, let me know.
 
-Introduction
-~~~~~~~~~~~~
+**Introduction**
 
 .. figure:: media/DataManipulation2.png
            :align: left
@@ -253,8 +249,7 @@ that the intensity should be same for all samples.
 enables scaling by fixed number, for example by scaling factor to put
 on absolute scale.
 
-GUI and controls
-----------------
+**GUI and controls**
 
 .. figure:: media/DataManipulation3.png
            :align: left
@@ -427,8 +422,8 @@ Reduce number of points (log-q rebin the data) and set Intensity units
 to appropriate unit - cm\ :sup:`2`/cm:sup:`3`, cm\ :sup:`2`/g, or
 arbitrary, so *Irena* is aware of the data units.
 
-Data merge – merge two data sets into one
-------------------------------------------
+Data merging
+------------
 
 This tool is used to merge to segments of data covering overlapping q
 ranges. This is common situation for 9ID USAXS/SAXS/WAXS instrument,
@@ -448,8 +443,7 @@ functionality is available in the Data manipulation I and Data
 manipulation II. I do not plan to add other “missions” to this tool, use
 the other tools for anything, which is more advanced.
 
-Introduction
-~~~~~~~~~~~~~~~~~~
+**Introduction**
 
 Data requirements: To merge two data sets you need to have data of one
 of the two naming structures:
@@ -504,8 +498,7 @@ screen sizes. ***
 The GUI is bit uncharacteristically one large panel with left part being
 Data selection and right side being processing and data view selection.
 
-Data selection
-~~~~~~~~~~~~~~~
+**Data selection**
 
 .. figure:: media/DataManipulation16.png
            :align: left
@@ -612,8 +605,7 @@ key and click at the last corner cell (in this case lower right cell).
 
 This may be important, see processing/operations…
 
-Operations and processing
-~~~~~~~~~~~~~~~~~~~~~~~~~
+**Operations and processing**
 
 .. figure:: media/DataManipulation19.png
            :align: left
@@ -715,8 +707,7 @@ controls how the new path name is auto-created and does not control (for
 now) saving data. So if you are typing in path yourself, be careful to
 type in unique path or expect data to be potentially overwritten.
 
-Sequence processing and data selection
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Sequence processing and data selection**
 
 As noted above, when **Process as sequence** checkbox is checked, the
 code assumes that there are two ranges of data selected in the Listbox –

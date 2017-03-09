@@ -1,8 +1,7 @@
 Powder diffraction (WAXS) fitting
 =================================
 
-Purpose and description
------------------------
+**Purpose and description**
 
 This tool is developed to enable simple analysis of powder diffraction
 data. Note the "simple" in the description. It's purpose is limited to:
@@ -24,8 +23,7 @@ accomplished by using Wavemetrics maintained Multi Peak Fitting 2.0.
 Fitted results can be stored (in tabular format, each peak profile,...)
 and plotted.
 
-9.2 What do you need for this tool
------------------------------------
+**What do you need for this tool**
 
 This tool can use "qrs" or "USAXS" data (slit smearing is not supported
 at this time). The qrs system handles :
@@ -40,8 +38,7 @@ Any of these data types will be converted to Two Theta [degrees] -
 Intensity - uncertainty for plotting and analysis. This was done based
 on suggestion by leading diffraction data analysis experts.
 
-Basic GUI and operations
-------------------------
+**Basic GUI and operations**
 
 .. figure:: media/WAXS1.png
       :align: left
@@ -73,8 +70,7 @@ have measured background ("empty") exposure and it is significant part
 of your data - and you intend to use it later in peak fitting. That will
 be obvious later.
 
-The graph
-~~~~~~~~~~
+**The graph**
 
 .. figure:: media/WAXS2.png
       :align: center
@@ -84,8 +80,7 @@ The graph
 Here is example of the graph in default way. Displays the Intensity vs
 TwoTheta (TTH) in degrees. Weird units, I know.
 
-Adding Diffraction lines (PDF2/4-type)
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Adding Diffraction lines (PDF2/4-type)**
 
 .. figure:: media/WAXS3.png
       :align: left
@@ -108,10 +103,9 @@ below.
       :align: left
       :width: 380px
 
-We need to fill it up. There are few choices.
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**We need to fill it up. There are few choices**
 
-Import from the set I distribute with Irena. Pick “Export/Import/Delete
+1.  Import from the set I distribute with Irena. Pick “Export/Import/Delete
 PDF cards” and you get another GUI: >>>>
 
 Here you can select card “outside” of Igor (distributed with Irena) and
@@ -157,8 +151,7 @@ It should remember it.
       :width: 280px
 
 
-Peak fitting
-~~~~~~~~~~~~~
+**Peak fitting**
 
 The Tab "Peak Fit" on the panel contains tools to do peak fitting. It
 uses Multipeak Fit 2.0 ("MPF2") package from Wavemetrics, which actually

@@ -1,12 +1,7 @@
 Unified Fit
 ===========
 
-
-.. toctree::
-   :maxdepth: 4
-
-Introduction
-------------
+**Introduction**
 
 The Unified fit uses code developed by Greg Beuacage to fit SAS data
 with levels composed of a Guinier part and a power law tail. The code
@@ -126,8 +121,7 @@ dealt with but including an optional mass fractal limitation (strictly
 limited to linear chains but useful for branched structures in
 application).
 
-Invariant:
-~~~~~~~~~~
+**Invariant:**
 
 The invariant :math:`Q_v` is:
 
@@ -137,8 +131,7 @@ The invariant :math:`Q_v` is:
 
 To use correctly, one needs to convert the Unified provided invariant to cm\ :sup:`-4` by multiplying by 10\ :sup:`24` (from cm\ :sup:`-1`\ A\ :sup:`-3` to cm\ :sup:`-4`)….
 
-Porod law:
-~~~~~~~~~~~
+**Porod law:**
 
 The specific surface area S\ :sub:`v` is:
 
@@ -169,8 +162,7 @@ formulas (note: Q\ :sub:`v` is invariant) :
 
 
 
-Link B to G/Rg:
-~~~~~~~~~~~~~~~
+**Link B to G/Rg:**
 
 One of the problems of Unified fit is bit too high flexibility in some cases and if the data are less then perfect, one can easily create situation in which the volume part (G/Rg) and surface part (P/B) of the curve are physically impossible. Basically there may be too much or too little surface for given volume. The tool in this case raises red flag "**Level may not be physically possible**" message. This has been addressed in Guinier-Porod model by Hammouda (see its own chapter), which calculates profile of SAS using just three parameters. However, this takes away some flexibility needed for systems with, for example, high polydispersity.
 
@@ -182,8 +174,8 @@ of the curve, which would be dominated by that specific parameter.
 From version 1.37 Unified has “Analyze results” tool, which can analyze
 also Invariant, Porod’s law and some other specific cases. Use it!
 
-Running Unified fit
--------------------
+Constructing Unified fit
+------------------------
 
 Select “SAS” – “Unified fit”. Following is the screen you should see
 after initialization:
@@ -405,8 +397,7 @@ possible to improve the fit by including some correlations – the powder
 could have been compacted quite a bit, but I leave that to user to
 figure out more…
 
-Correlations
-------------
+**Correlations**
 
 If inter-particle interference is not negligible, then for reasonably
 weak interferences the code has built in simple model for modeling
@@ -441,8 +432,7 @@ appear – ETA (distance between the layers) and Pack (fill of the first
 layer). Smaller the Pack, less interference. The ETA should not ever bee
 smaller than size of particles, and actually should be larger…
 
-Rg\ :sub:`CO` again –  warning
-------------------------------
+**Rg\ :sub:`CO` again –  warning**
 
 My experience has shown, that one of the least understood parameters of
 the whole Unified fit seems to be Rg\ :sub:`CO` parameter. Here is more
@@ -483,8 +473,7 @@ parameter. In my years of experience there are no such data, which would
 allow fitting this parameter. If anyone has such data, I'll be happy to
 put it back, but this will make the system cleaner and easier to use.
 
-Output from Unified
--------------------
+**Output from Unified**
 
 Result scan be either copied back to folder where the data came from,
 exported as ASCII, or little macro will include for each level text box
@@ -498,8 +487,7 @@ spreadsheet for publication.
 
 Use the buttons at the bottom of the panel.
 
-Copy to Data folder
-~~~~~~~~~~~~~~~~~~~
+**Copy to Data folder**
 
 If checkbox “Store Local (Porod & Guinier) fits?” is selected, then
 saved are not only final fits but also all local fits too.. This creates
@@ -540,7 +528,7 @@ This is the example of the list in this case:
 IgorExperimentName=Test case example;DataFolderinIgor=root:'Test
 data':;DistributionTypeModelled=Number distribution;NumberOfModelledDistributions=2;SASBackground=0.12257; Dist1ShapeModel=sphere;Dist1ScatShapeParam1=1;Dist1ScatShapeParam2=1; Dist1ScatShapeParam3=1;Dist1DistributionType=LogNormal; Dist1Formula=P(x)=(1/((x-loc)\*scale\*sqrt(2\*pi))*exp(-ln((x-loc)/scale)^2/(2\* shape^2)); Dist1NegligibleFraction=0.01;Dist1VolFraction=0.0024333;Dist1Location=21.79; Dist1Scale=87.731;Dist1Shape=0.5;Dist1VolFractionError=8.698e-05; Dist1LocationError=16.734;Dist1ScaleError=5.8733;Dist1ShapeError=0; Dist2ShapeModel=sphere;Dist2ScatShapeParam1=1;Dist2ScatShapeParam2=1; Dist2ScatShapeParam3=1;Dist2DistributionType=LogNormal; Dist2Formula=P(x)=(1/((x-loc)\*scale\*sqrt(2\*pi))\* exp(-ln((x-loc)/scale)^2/(2\*shape^2));Dist2NegligibleFraction=0.01; Dist2VolFraction=0.047415;Dist2Location=608.88;Dist2Scale=538.71; Dist2Shape=0.5;Dist2VolFractionError=0.00026279; Dist2LocationError=13.656;Dist2ScaleError=7.249;Dist2ShapeError=0;UsersComment=Result from Modeling Thu, Sep 12, 2002 1:20:06 PM;Wname=ModelingQvector\_0;Units=A-1;
 
-UNCERTAINITY EVALUATION
+Uncertainty evaluation
 -----------------------
 
 This script enables to analyze uncertainties of parameters of the
@@ -595,15 +583,13 @@ NOTE: you need to make sure the fitting limits are set widely enough as
 the fit may abruptly stop when these are violated. The Help in the panel
 provides many more details.
 
-Export ASCII
-~~~~~~~~~~~~
+**Export ASCII**
 
 This exports ASCII file with all the fitting parameters from Unified
 model (whole wave note from the results waves) and Q and Measured
 intensity, Error estimates and Unified fit intensity.
 
-Results to graph
-~~~~~~~~~~~~~~~~
+**Results to graph**
 
 This includes results in the graphs in text boxes:
 
@@ -617,8 +603,7 @@ click on the text box) to suit user output. But note, that the text
 boxes get redrawn (and therefore reset to default) next time user pushes
 the “Results to graph” button.
 
-Export to XLS file panel
-~~~~~~~~~~~~~~~~~~~~~~~~
+**Export to XLS file panel**
 
 This macro should output data in the table which can be loaded by spread
 sheet type program (Excel). Macro creates panel with buttons and walks
@@ -674,8 +659,7 @@ selected wave.
 
 Then one can pick models:
 
-Invariant
-~~~~~~~~~
+**Invariant**
 
 .. figure:: media/UnifiedFit22.png
         :align: center
@@ -687,8 +671,7 @@ invariant value is in the top field, user can input contrast value (if
 known) and if the data were absolutely calibrated and the contrast is
 known, the tool calculates the volume fraction of the phase.
 
-Porod law
-~~~~~~~~~~
+**Porod law**
 
 .. figure:: media/UnifiedFit23.png
         :align: center
@@ -700,8 +683,7 @@ This will provide results ONLY, if the P for selected level is close to
 calculates specific surface area – if the scattering contrast is
 provided. You need to have data absolutely calibrated.
 
-Branched mass fractal
-~~~~~~~~~~~~~~~~~~~~~
+**Branched mass fractal**
 
 .. figure:: media/UnifiedFit24.png
         :align: center
@@ -721,8 +703,7 @@ fractal). But you can also calculate some parameters from only one level
 (dmin and c) and if you select only one level, parameters, which cannot
 be calculated, will be set to NaN.
 
-Size distribution
-~~~~~~~~~~~~~~~~~
+**Size distribution**
 
 .. figure:: media/UnifiedFit25.png
         :align: center
@@ -825,8 +806,7 @@ UnifSizeDistVolumeDist\_1
 
 UnifSizeDistNumberDist\_1
 
-Two Phase media (aka: Porous system):
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Two Phase media (aka: Porous system):**
 
 This is copied from the manuscript by Dale Schaefer … For details,
 please, check the manuscript… It is applicable for two-phase systems
@@ -859,7 +839,6 @@ materials. This is kind of unique, I have extended the Scattering
 contrast calculator to calculate these values. Please, NOTE this…
 
 TwoPhaseSys1: *ρ\ :sub:`s`, ρ\ :sub:`sam`* and *B/Q* known. *φ\ :sub:`p `*\ calculated
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. figure:: media/UnifiedFit29.png
         :align: center
@@ -893,7 +872,6 @@ In our realization of this approach *B* and *Q* used are obtained from a unified
 
 
 TwoPhaseSys2. : *ρ\ :sub:`s`, ρ\ :sub:`sam`, Δr* and *B\ :sub:`v`* known\ *. φ\ :sub:`p`* calculated
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. figure:: media/UnifiedFit33.png
         :align: center
@@ -921,7 +899,6 @@ is used to compute *S\ :sub:`v`*. *Δr* is calculated from
 using known chemical composition of the struts.
 
 TwoPhaseSys3. : *ρ\ :sub:`sam`, Δr*, *B\ :sub:`v`* and *Q\ :sub:`v, `*\ known\ *. ρ\ :sub:`s`* is calculated
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. figure:: media/UnifiedFit37.png
         :align: center
@@ -969,7 +946,6 @@ to equal *φ\ :sub:`p`* calculated from *Q\ :sub:`v`* in
 to calculate *S\ :sub:`v`*.
 
 TwoPhaseSys4. *ρ\ :sub:`s`, Δr*, *B\ :sub:`v`* and *Q\ :sub:`v `*\ known
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. figure:: media/UnifiedFit44.png
         :align: center
@@ -979,7 +955,6 @@ This approach requires valid scattering data on absolute scale. By
 equating :math:`S_v = \frac{\pi B \phi_p(1-\phi_p)}{Q}` and :math:`\phi_p=\frac{\rho_s-\rho_\text{sam}}{\rho_s-\rho_p}=\frac{\rho_s-\rho_\text{sam}}{\rho_s}`, *φ\ :sub:`p`* is solved using *B\ :sub:`v`* and *Q\ :sub:`v`* obtained from the scattering data. The scattering data must be valid over a sufficient *q* range to assure that *Q\ :sub:`v`* is accurate. After solving for *φ\ :sub:`p`, S\ :sub:`v`* can be calculated using :math:`S_v = \frac{\pi B \phi (1-\phi) }{Q}` . This approach does not require the sample density, but the chemical composition of the struts (Δ*r*) must be known. In addition this approach does require the complete scattering profile on an absolute scale.
 
 TwoPhaseSys4.
-^^^^^^^^^^^^^^
 
 Particulate analysis, not published in manuscript.
 

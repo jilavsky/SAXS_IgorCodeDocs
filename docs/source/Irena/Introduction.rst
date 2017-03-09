@@ -268,7 +268,7 @@ graphs and panels. There is also command which closes all open windows
 and panels of this package.
 
 Getting help
-~~~~~~~~~~~~
+------------
 
 Main web site is here:
 http://usaxs.xray.aps.anl.gov/staff/ilavsky/irena.html

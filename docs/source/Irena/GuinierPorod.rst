@@ -1,8 +1,7 @@
-Gunier-Porod
+Guinier-Porod
 =============
 
-Introduction
-------------
+**Introduction**
 
 This model was developed by Boualem Hammouda (NIST) and published in "A
 new Guinier–Porod model", J. Appl. Cryst. (2010). 43, 716–719. In many
@@ -18,8 +17,7 @@ not complain you get different results form Unified vs Guinier-Porod. It
 shows lack of understanding of the theories - so get reading the
 manuscripts again, please...
 
-Simple description of Unified-Guinier-Porod differences
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Simple description of Unified-Guinier-Porod differences**
 
 Unified fit models scattering as system, of "levels" composed of Guinier
 and power law (Porod) areas (in simple case).
@@ -78,11 +76,9 @@ assumptions well - such as relatively monodispersed particulate systems.
 In other cases Unified fit may be the more generally applicable model.
 Even though it may be more challenging to use.
 
-How to use Guinier-Porod model
-------------------------------
+**How to use Guinier-Porod model**
 
 Parameter description
-~~~~~~~~~~~~~~~~~~~~~
 
 .. figure:: media/GunierPorod2.png
    :align: left
@@ -187,8 +183,7 @@ users...
 this type of structure factor for anything else than spheres may be
 totally inappropriate scientifically.
 
-Fitting procedure
-~~~~~~~~~~~~~~~~~
+**Fitting procedure**
 
 Here is example of relatively simple data, which can be fitted by UF two
 level model:

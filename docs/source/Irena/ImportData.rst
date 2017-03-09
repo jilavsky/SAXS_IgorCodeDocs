@@ -49,7 +49,7 @@ importers, it should force closing of any other opened panel for the
 other importers.
 
 Importing ASCII SAS data
-~~~~~~~~~~~~~~~~~~~~~~~~~
+------------------------
 
 .. figure:: media/ImportData2.png
         :align: left
@@ -206,7 +206,7 @@ controls. Generally the proper order, how to select and modify control
 is from top to bottom.
 
 Importing ASCII WAXS data
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+--------------------------
 
 .. figure:: media/ImportData3.png
         :align: center
@@ -222,7 +222,7 @@ original ASCII imported since it was doing things not appropriate for
 heir data.
 
 Importing Nexus canSAS data
-~~~~~~~~~~~~~~~~~~~~~~~~~~~
+---------------------------
 
 .. figure:: media/ImportData4.png
         :align: center
@@ -300,7 +300,7 @@ way too flexible for its own good and weird stuff happens. And not every
 file really follows required and suggested Nexus structure.
 
 Importing XML data
-~~~~~~~~~~~~~~~~~~~
+------------------
 
 .. figure:: media/ImportData5.png
         :align: center
@@ -320,8 +320,7 @@ If anyone has actually real world example of canSAS xml data, can you
 send me and example, please?
 
 
-Walk through Importing test file
----------------------------------
+**Walk through Importing test file**
 
 Using *Select data path* button select folder on the computer, where
 Irena data are installed, for example:

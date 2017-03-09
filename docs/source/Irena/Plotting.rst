@@ -1,8 +1,7 @@
 Plotting tools
 ==============
 
-Introduction
-------------
+**Introduction**
 
 .. figure:: media/Plotting1.png
    :align: left
@@ -42,8 +41,8 @@ The tasks, which can be done:
 
 Note, that this tool also allows displaying “results” – size distributions, Unified fits etc. The capabilities are still little bit limited in this area… I plan to improve on this.
 
-3.2 Plotting tool I Description
--------------------------------
+Plotting tool I
+---------------
 
 Select “Plotting I” from SAS menu.
 
@@ -213,7 +212,6 @@ Selected stored graph in the listBox can be either restored – or
 deleted, using the buttons below.
 
 More…
-~~~~~
 
 In version 2.62 I added ability to add linked d-spacing axis to the top
 of the graph. In the “More…” dialog is place for more useful tools.
@@ -381,8 +379,8 @@ You can create movies of rotation of the Gizmo plot, control its visual
 look, etc. More controls is likely to appear in the future, but final
 version of this tool is likely for Igor 7.
 
-3.3 Plotting tool II
---------------------
+Plotting tool II
+----------------
 
 This is modification of plotting tool developed by Dale Schaefer. This
 tool control ANY top graph. It can, therefore, be used more flexibly –

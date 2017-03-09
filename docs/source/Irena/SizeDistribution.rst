@@ -7,8 +7,7 @@ regularization**
 Basic description of methods
 ----------------------------
 
-Maximum entropy method by Pete Jemian
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Maximum entropy method**
 
 Maximum entropy (MaxEnt) and regularization (maximizes smoothness) are
 two separate methods for obtaining size distributions from small-angle
@@ -107,8 +106,7 @@ distribution. The MaxEnt constraint imposes no correlation on the
 amplitudes of adjacent bins in the calculated histogram size
 distribution.
 
-Regularization method by Pete Jemian
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Regularization method**
 
 The regularization method implemented here maximizes the smoothness of
 the calculated histogram size distribution by minimizing the sum of the
@@ -123,8 +121,7 @@ NOTE: since version 1.50 I modified the code to provide ONLY positive
 solutions. It is heavy-handed code change and likely not really
 mathematically correct. It may change a bit in the future.
 
-Total non-negative least square method
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Total non-negative least square method**
 
 This is implementation of the “Interior point method for totally
 nonnegative least square method”. I have found reference and method
@@ -186,8 +183,8 @@ different:
       :align: left
       :width: 780px
 
-Using the tool
---------------
+Use of Size Distribution
+------------------------
 
 This program uses one complex interface – a complex graph and panel for
 data input and manipulation. To start, select “Size distribution” from
@@ -239,8 +236,7 @@ very useful setting for the wide ranges of sizes measured using USAXS
 instrument. If no is selected here, the bins are all same width. Leave
 in yes for now…
 
-Fitting parameters:
-~~~~~~~~~~~~~~~~~~~
+**Fitting parameters**
 
 Background this is flat background to be subtracted from data. The red
 line in the graph shows current value. Set correctly for this case to
@@ -249,8 +245,7 @@ line in the graph shows current value. Set correctly for this case to
 Contrast (delta rho squared) – if this is properly inserted, the data
 are calibrated… Leave to 1 since the contrast is not known.
 
-Error handling:
-~~~~~~~~~~~~~~~
+**Error handling**
 
 There are four ways to handle now errors in this tool. The method is
 selected by four checkboxes lined vertically next to the “Background and
@@ -314,8 +309,7 @@ No errors, selected to use I\*Q\ :sup:`3` vs Q “space” for fitting:
       :width: 780px
 
 
-Particle shape:
-~~~~~~~~~~~~~~~
+**Particle shape**
 
 Particle shape model – the tool uses the same selection of form factors
 as Least square fitting. If you feel you really need another shape, I
@@ -327,8 +321,7 @@ internally optimized to run as fast as possible.
 
 Aspect ratio – anything, 1 is for sphere.
 
-Method:
-~~~~~~~
+**Methods**
 
 **The default method is Maximum Entropy.**
 
@@ -370,7 +363,6 @@ conditioning of the problem.
 Has no additional controls.
 
 Buttons part
-~~~~~~~~~~~~
 
 **“Run fitting”** runs the above selected method.
 
@@ -378,7 +370,6 @@ SAVE THE RESULTS button – if you do not push this, the data are not
 copied back into the sample folder and are overwritten with new data.
 
 Getting fit.
-~~~~~~~~~~~~
 
 First select range of data using the cursors. Set rounded cursor on
 point about 30 and squared on point 89 or so. Note, that you can vary
@@ -483,7 +474,6 @@ parameters are left in the state they are left in after last fitting (or
 in default if this macro was not yet run in this experiment.
 
 Resulting waves:
-~~~~~~~~~~~~~~~~
 
 Following waves are created in the folder with data, when saved from
 this macro (\_0, \_1, \_2, etc are different generations of solutions
@@ -568,7 +558,7 @@ where user can figure out what happened.
 Further some parameters are also saved in the string with name
 “SizesParameters\_0” such as MeanSizeOfDistribution.
 
-Uncertainty analysis of Size distribution:
+Uncertainty analysis of Size distribution
 ------------------------------------------
 
 If "Fit (w/uncertainties)" is used, 10 fits with data varied by data

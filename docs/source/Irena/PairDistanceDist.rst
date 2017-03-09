@@ -1,8 +1,7 @@
-Pair distance distribution function (PDDF, p(r))
-================================================
+Pair distance distribution function
+===================================
 
-Model description
------------------
+**Model description**
 
 This tool calculates Pair distance distribution function as generally
 defined in the small-angle scattering theory (see any basic SAS book,
@@ -38,8 +37,7 @@ NOTE: I have observed significant changes on the calculated PDDF with changes wi
 
 Comment on graph formatting… This tool uses same default font and font size setting as other tools. You can change font sizes and used font for legend, text boxes and tags in “SAS” - “Other tools”-“Configure common items”.
 
-Use of the tool
----------------
+**Use of the tool**
 
 Test data for this tool are included in the Irena folder distributed in
 the zip file and should be in your Igor Pro folder/User procedures/Irena
@@ -149,8 +147,7 @@ try.
 “Fit maximum size” – you can try, but in my experience resulting maximum
 size seems too low.
 
-Semi-GNOM file and other output data methods
----------------------------------------------
+**Semi-GNOM file and other output data methods**
 
 There are three buttons to use with three different methods to output
 data.

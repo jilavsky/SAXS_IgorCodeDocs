@@ -9,17 +9,24 @@ Manual |release| for Irena version 2.62 for Igor 7.x
    Introduction
    Important
    ImportData
+   ExportData
+   ScriptingTool
    Plotting
    DataManipulation
    Modeling
    UnifiedFit
    SizeDistribution
    AnalyticalModels
+   SmallAngleDiffraction
    WAXS
-   GunierPorod
+   GuinierPorod
    Fractals
    PairDistanceDist
+   Reflectivity
    ScatteringContrastCalculator
+   DataMining
+   EvaluateSizeDistributions
+   Desmearing
    OtherTools
 
 
