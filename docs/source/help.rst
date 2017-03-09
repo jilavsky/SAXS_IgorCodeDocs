@@ -13,3 +13,5 @@ For more information see web sites:
 Contact
 =======
 Questions? Please contact :  ilavsky@aps.anl.gov
+
+If you want to send me e-mail, there is command in Irena menu for that. Send me proper description and include Igor experiment with which you have problem.

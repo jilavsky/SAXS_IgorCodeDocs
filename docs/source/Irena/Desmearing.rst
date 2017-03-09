@@ -39,7 +39,7 @@ The GUI changes should be easy. Please note, that :
 2. If you set “L” parameter to 0, you assume the shape is rectangular in
    that direction, not trapezoidal.
 
-**Theory behind the Desmearing Procedure ** : See the Lake paper.
+**Theory behind the Desmearing Procedure** : See the Lake paper.
 
 **Example of the Desmearing Procedure**
 
