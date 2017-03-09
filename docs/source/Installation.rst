@@ -41,8 +41,9 @@ Instructions on Youtube
 I have Youtube channel for instructional movies. Search for example
 “Ilavsky Irena” on Youtube and you will see something like this:
 
-.. figure:: media/introduction0.png
-   :width: 700px
+.. figure:: media/Introduction0.png
+     :width: 700px
+     :alignement: center
 
    Youtube channel for Irena and Nika packages
 
