@@ -6,11 +6,17 @@ Manual |release| for Irena version 2.62 for Igor 7.x
 .. toctree::
    :maxdepth: 3
 
-   Irena_Introduction
+   Introduction
+   Important
    ImportData
+   Plotting
    DataManipulation
-   ScatteringContrastCalculator
+   Modeling
    UnifiedFit
+   GunierPorod
+   ScatteringContrastCalculator
+   OtherTools
+
 
 Indices and tables
 ------------------
