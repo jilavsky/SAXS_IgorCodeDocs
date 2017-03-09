@@ -14,8 +14,11 @@ Manual |release| for Irena version 2.62 for Igor 7.x
    Modeling
    UnifiedFit
    SizeDistribution
+   AnalyticalModels
    WAXS
    GunierPorod
+   Fractals
+   PairDistanceDist
    ScatteringContrastCalculator
    OtherTools
 

@@ -1,5 +1,5 @@
-Powder diffraction (WAXS) fitting tool
-======================================
+Powder diffraction (WAXS) fitting
+=================================
 
 Purpose and description
 -----------------------
