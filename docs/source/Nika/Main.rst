@@ -322,7 +322,7 @@ The panel walks user through the steps necessary…
       loading & processing every image a frame is appended
       automatically.
 
-4. “\ ***Close Movie file*\ ”** button. Well, before you can play it,
+4. “\ *Close Movie file*\ ” button. Well, before you can play it,
    you need to close it…
 
     **Warnings**: It is very likely all hell breaks loose if you close
@@ -336,10 +336,9 @@ The panel walks user through the steps necessary…
 
     Following dialog on Movie file control:
 
-.. figure:: media/Main12.jpeg
-       :align: center
-       :width: 380px
-
+.. figure:: media/Main12.png
+             :align: center
+             :width: 480px
 
     Is Igor panel and here are your last chances to control what and how
     it gets created… I have limited information on what works best, so

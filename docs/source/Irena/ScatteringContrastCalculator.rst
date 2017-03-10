@@ -48,7 +48,7 @@ numbers, which needed to be calculated.
 **Matrix**
 
 To calculate delta-rho squared …
-(ρ:sub:`matrix`\ −ρ\ :sub:`scatterer`)\ :sup:`2` ... we need to set
+(ρ:sub:`matrix`\ −rho\ :sub:`scatterer`)\ :sup:`2` ... we need to set
 scattering length density of matrix. This can be done in numerous ways:
 
 1. Write the numbers directly in the fields provided
@@ -125,7 +125,7 @@ small-angle scattering assume Q=0)…
 
 
 Note, that table on right got filled with all relevant numbers –
-f’ and f” , µ, and related values for each compound
+f’ and f” , Mu, and related values for each compound
 separately. Note, that f’ and f” are here with two different units as
 output – in electrons per molecule unit and in 10\ :sup:`10`
 cm\ :sup:`-2`. Lowest number is delta-rho squared between the two

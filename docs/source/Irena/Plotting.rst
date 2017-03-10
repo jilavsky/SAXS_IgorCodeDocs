@@ -105,10 +105,7 @@ Use “Manage Graph details” button.
    :width: 780px
 
 
-The panel shows two main lists. Left shows user styles available in Igor
-and right shows styles outside Igor. Buttons under each window allow
-manipulation with the styles, the buttons “ --- Copy -” or “-Copy ---“
-can be used to copy styles between the Igor experiment and hard drive
+The panel shows two main lists. Left shows user styles available in Igor and right shows styles outside Igor. Buttons under each window allow manipulation with the styles, the buttons “\-\-\- Copy \- >” or “<\- Copy \-\-\-“ can be used to copy styles between the Igor experiment and hard drive
 storage space.
 
 When done, kill the panel.

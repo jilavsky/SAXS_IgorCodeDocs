@@ -838,7 +838,7 @@ levels together…
 materials. This is kind of unique, I have extended the Scattering
 contrast calculator to calculate these values. Please, NOTE this…
 
-TwoPhaseSys1: *ρ\ :sub:`s`, ρ\ :sub:`sam`* and *B/Q* known. *φ\ :sub:`p `*\ calculated
+TwoPhaseSys1: *rho\ :sub:`s`, rho\ :sub:`sam`* and *B/Q* known. *fi\ :sub:`p `*\ calculated
 
 .. figure:: media/UnifiedFit29.png
         :align: center
@@ -871,7 +871,7 @@ In our realization of this approach *B* and *Q* used are obtained from a unified
 
 
 
-TwoPhaseSys2. : *ρ\ :sub:`s`, ρ\ :sub:`sam`, Δr* and *B\ :sub:`v`* known\ *. φ\ :sub:`p`* calculated
+TwoPhaseSys2. : *rho\ :sub:`s`, rho\ :sub:`sam`, Δr* and *B\ :sub:`v`* known\ *. fi\ :sub:`p`* calculated
 
 .. figure:: media/UnifiedFit33.png
         :align: center
@@ -880,7 +880,7 @@ TwoPhaseSys2. : *ρ\ :sub:`s`, ρ\ :sub:`sam`, Δr* and *B\ :sub:`v`* known\ *. 
 
 This approach applies where the data are on an absolute intensity but
 the low *q* data are lacking so *Q* is not known. The sample density
-must be known so that *φ\ :sub:`p`* can be calculated by\
+must be known so that *fi\ :sub:`p`* can be calculated by\
 
 .. figure:: media/UnifiedFit34.png
         :align: center
@@ -898,7 +898,7 @@ is used to compute *S\ :sub:`v`*. *Δr* is calculated from
 
 using known chemical composition of the struts.
 
-TwoPhaseSys3. : *ρ\ :sub:`sam`, Δr*, *B\ :sub:`v`* and *Q\ :sub:`v, `*\ known\ *. ρ\ :sub:`s`* is calculated
+TwoPhaseSys3. : *rho\ :sub:`sam`, Δr*, *B\ :sub:`v`* and *Q\ :sub:`v, `*\ known\ *. rho\ :sub:`s`* is calculated
 
 .. figure:: media/UnifiedFit37.png
         :align: center
@@ -907,7 +907,7 @@ TwoPhaseSys3. : *ρ\ :sub:`sam`, Δr*, *B\ :sub:`v`* and *Q\ :sub:`v, `*\ known\
 
 This approach is similar to approach 2 but the data cover a sufficient
 *q* range to calculate *Q\ :sub:`v`*. For porous materials where one of
-the two phases is air, *ρ\ :sub:`s`* is calculated from
+the two phases is air, *rho\ :sub:`s`* is calculated from
 
 .. figure:: media/UnifiedFit38.png
         :align: center
@@ -925,19 +925,19 @@ and
 
 
 If the SLD of the pore material is not zero, an iterative process is
-applied to calculate *ρ\ :sub:`s`* by forcing *φ\ :sub:`p`* in
+applied to calculate *rho\ :sub:`s`* by forcing *fi\ :sub:`p`* in
 
 .. figure:: media/UnifiedFit41.png
         :align: center
         :width: 380px
 
-to equal *φ\ :sub:`p`* calculated from *Q\ :sub:`v`* in
+to equal *fi\ :sub:`p`* calculated from *Q\ :sub:`v`* in
 
 .. figure:: media/UnifiedFit42.png
         :align: center
         :width: 380px
 
-. The calculated *ρ\ :sub:`s`* is then plugged in
+. The calculated *rho\ :sub:`s`* is then plugged in
 
 .. figure:: media/UnifiedFit43.png
         :align: center
@@ -945,14 +945,14 @@ to equal *φ\ :sub:`p`* calculated from *Q\ :sub:`v`* in
 
 to calculate *S\ :sub:`v`*.
 
-TwoPhaseSys4. *ρ\ :sub:`s`, Δr*, *B\ :sub:`v`* and *Q\ :sub:`v `*\ known
+TwoPhaseSys4. *rho\ :sub:`s`, delta*r*, *B\ :sub:`v`* and *Q\ :sub:`v `*\ known
 
 .. figure:: media/UnifiedFit44.png
         :align: center
         :width: 380px
 
 This approach requires valid scattering data on absolute scale. By
-equating :math:`S_v = \frac{\pi B \phi_p(1-\phi_p)}{Q}` and :math:`\phi_p=\frac{\rho_s-\rho_\text{sam}}{\rho_s-\rho_p}=\frac{\rho_s-\rho_\text{sam}}{\rho_s}`, *φ\ :sub:`p`* is solved using *B\ :sub:`v`* and *Q\ :sub:`v`* obtained from the scattering data. The scattering data must be valid over a sufficient *q* range to assure that *Q\ :sub:`v`* is accurate. After solving for *φ\ :sub:`p`, S\ :sub:`v`* can be calculated using :math:`S_v = \frac{\pi B \phi (1-\phi) }{Q}` . This approach does not require the sample density, but the chemical composition of the struts (Δ*r*) must be known. In addition this approach does require the complete scattering profile on an absolute scale.
+equating :math:`S_v = \frac{\pi B \phi_p(1-\phi_p)}{Q}` and :math:`\phi_p=\frac{\rho_s-\rho_\text{sam}}{\rho_s-\rho_p}=\frac{\rho_s-\rho_\text{sam}}{\rho_s}`, *fi\ :sub:`p`* is solved using *B\ :sub:`v`* and *Q\ :sub:`v`* obtained from the scattering data. The scattering data must be valid over a sufficient *q* range to assure that *Q\ :sub:`v`* is accurate. After solving for *fi\ :sub:`p`, S\ :sub:`v`* can be calculated using :math:`S_v = \frac{\pi B \phi (1-\phi) }{Q}` . This approach does not require the sample density, but the chemical composition of the struts (delta*r*) must be known. In addition this approach does require the complete scattering profile on an absolute scale.
 
 TwoPhaseSys4.
 
@@ -971,6 +971,4 @@ particle density.
           :align: left
           :width: 380px
 
-Note, that there are differences in what needs to be known. Method 6
-requires knowledge of contrast, while the method 5 does not, while
-method 5 requires knowledge of sample bulk density…
+Note, that there are differences in what needs to be known. Method 6 requires knowledge of contrast, while the method 5 does not, while method 5 requires knowledge of sample bulk density…

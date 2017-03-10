@@ -61,8 +61,8 @@ Check for updates
 -----------------
 
 .. figure:: media/Important1.png
-   :align: left
-   :height: 380px
+   :align: center
+   :height: 250px
 
 From version 2.52 I have added once-per month check for updates, which
 on ANY computer runs every 30 days. It checks installed versions of the
