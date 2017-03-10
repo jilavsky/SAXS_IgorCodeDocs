@@ -336,9 +336,9 @@ The panel walks user through the steps necessary…
 
     Following dialog on Movie file control:
 
-.. figure:: media/Main12.png
-             :align: center
-             :width: 480px
+    .. figure:: media/Main12.png
+       :align: center
+       :width: 380px
 
     Is Igor panel and here are your last chances to control what and how
     it gets created… I have limited information on what works best, so
