@@ -19,17 +19,20 @@ Debye-Bueche model for gels
 
 The theory is implemented in following form:
 
-I(q) =
-(4πKε:sup:`2`\ corrL\ :sup:`3`)/(1+q\ :sup:`2`\ corrL\ :sup:`2`)\ :sup:`2`
 
-where K = 8π\ :sup:`2`\ λ\ :sup:`-4`
+.. math::
 
-Parameters of the gel are then the corrL – correlation length and ε. The model also allows low-q power law to be fitted and subtracted from data as well as flat SAS background. The low-q power law slope has 2 parameters (slope and prefactor) and background has one. All can be fitted.
+    I(q)=\frac{4\pi K \varepsilon ^2 corrL^3}{(1+Q^2corrL^2)^2}
+
+where :math:`K = 8 \pi ^2 \lambda^{-4}`
+
+Parameters of the gel are then the corrL – correlation length and :math:`\varepsilon`. The model also allows low-q power law to be fitted and subtracted from data as well as flat SAS background. The low-q power law slope has 2 parameters (slope and prefactor) and background has one. All can be fitted.
 
 **NOTE: August 2012 user identified typo in the formula, which was used:**
 
-**I(q) =
-(4πKε:sup:`2`\ corrL\ :sup:`2`)/(1+q\ :sup:`2`\ corrL\ :sup:`2`)\ :sup:`2`**
+.. math::
+
+    I(q)=\frac{4\pi K \varepsilon ^2 corrL^2}{(1+Q^2corrL^2)^2}
 
 Based on provided citations, this formula needed corrL\ :sup:`3` not corrL\ :sup:`2` as was used in original implementation. As of now I am looking in the source of this error (which dates to about 2003). Currently there are not really clear, refereed publications I could base the decision on here. Actually, the one referred publication (my own) I have cites the "wrong" formulas. If you have any citation or opinion here, let me know.
 
@@ -37,25 +40,23 @@ Based on provided citations, this formula needed corrL\ :sup:`3` not corrL\ :sup
 
 Quoting: The Debye-Bueche model is used to describe scattering from phase-separated (two- phase) systems. Here also correlations are characterized by an e-folding length ξ. The pair correlation function is give by (Debye-Bueche, 1949):
 
-.. image:: media/AnalyticalModels1.png
-   :align: center
-   :width: 480px
+.. math::
 
+    \gamma(r) = exp(-\frac{r}{\xi })
 
 The scattering cross section is obtained by taking the Fourier transform
 to obtain:
 
-.. image:: media/AnalyticalModels2.png
-   :align: center
-   :width: 480px
+.. math::
 
+    \frac{d\Sigma  (Q))}{d\Omega }=\frac{C}{\left [ 1+(Q\xi )^2 \right ]^2}
 
 The prefactor can be expressed in terms of the volume fraction φ and
-contrast factor Δρ2 as:
+contrast factor :math:`\Delta \rho^2` as:
 
-.. image:: media/AnalyticalModels3.png
-   :align: center
-   :width: 480px
+.. math::
+
+    C=8\pi\Delta\rho^2\phi \xi ^3
 
 
 The Debye-Bueche model is obtained as a special case of the Teubner-Strey model for
@@ -68,13 +69,13 @@ This is the main screen:
 
 .. image:: media/AnalyticalModels4.png
    :align: center
-   :width: 480px
+   :width: 580px
 
 Data can be selected at the top part – as usually, one can use either pin-hole type data (desmeared for USAXS instrument) or slit smeared data. Results are the same, the model is slit smeared with slit length if slit smeared data are used.
 
 .. image:: media/AnalyticalModels5.png
    :align: center
-   :width: 480px
+   :width: 580px
 
 
 This is how the screen looks like with data selected. Note three graphs:
@@ -93,14 +94,14 @@ Lower Button “\ **Graph**\ ” will calculate model and place result in the gr
 
 .. image:: media/AnalyticalModels6.png
    :align: center
-   :width: 480px
+   :width: 580px
 
 
 Checkbox “\ **Use low-q slope**\ ” will enable controls for low-q power law slope. One can again select range of data where the power law dominates and Estimate slope with the button.
 
 .. image:: media/AnalyticalModels7.png
    :align: center
-   :width: 480px
+   :width: 580px
 
 **Limits for fitting** should be set, if needed, to sensible numbers. The checkboxes with “\ **Fit** …” allow selection of parameters which are going to be fitted using standard Igor least-squares fit.
 
@@ -108,14 +109,14 @@ Last item is “\ **Background**\ ”, which should be reasonably guessed and th
 
 .. image:: media/AnalyticalModels8.png
    :align: center
-   :width: 480px
+   :width: 580px
 
 
 Now with good starting guesses one can fit the model – using the “Fit button”
 
 .. image:: media/AnalyticalModels9.png
    :align: center
-   :width: 480px
+   :width: 580px
 
 
 This is the best fit this model does to these data (note the misfit, this is not probably the best model…).
@@ -132,7 +133,7 @@ Buttons:
 
 .. image:: media/AnalyticalModels10.png
    :align: center
-   :width: 480px
+   :width: 580px
 
 
 Treubner-Strey for small-angle diffraction
@@ -142,24 +143,20 @@ Treubner-Strey model follows the publications : Teubner, M; Strey, R. J. Chem. P
 
 The code is adopted form NIST SANS package. The formulas are:
 
-.. image:: media/AnalyticalModels11.png
-   :align: center
-   :width: 280px
+.. math::
 
+    I(Q)=TS\frac{1}{A+C_1Q^2+C_2Q^4}
 
 Where A, C\ :sub:`1` and C\ :sub:`2` are parameters from the theory and TS is scaling factor.
 
 Correlation length °ξ and repeat distance (d) are:
 
-.. image:: media/AnalyticalModels12.png
-   :align: center
-   :width: 280px
 
+.. math::
 
-.. image:: media/AnalyticalModels13.png
-      :align: center
-      :width: 280px
+    \xi =\left [ \frac{1}{2}(\frac{A}{C_2})^{0.5}+\frac{C_1}{4C_2} \right ]^{-0.5}
 
+    \frac{d}{2\pi} =\left [ \frac{1}{2}(\frac{A}{C_2})^{0.5}-\frac{C_1}{4C_2} \right ]^{-0.5}
 
 Example of the GUI with results:
 
@@ -167,7 +164,7 @@ Note, that only the parameters TS, A, C\ :sub:`1`, and C\ :sub:`2` are user cont
 
 .. image:: media/AnalyticalModels14.png
    :align: center
-   :width: 480px
+   :width: 580px
 
 
 This is fitting to slit-smeared data for which Treubner-Strey model is
@@ -178,9 +175,9 @@ Ciccariello–Benedetti model for coated smooth surfaces
 
 This tools was coded using following manuscripts:
 
-A. Benedetti, S. Ciccariello, Coated Silicas and Small-angle X-ray intensity behavior, J. Appl. Cryst (1994) **27**, 249-256.
+Benedetti, A., S. Ciccariello, Coated Silicas and Small-angle X-ray intensity behavior, J. Appl. Cryst (1994) **27**, 249-256.
 
-S. Pikus, E. Kobylas, and S. Ciccariello, Small-angle scattering characterization of n-aliphatic alcohol films adsorbed on hydroxylated porous silicas, J. APpl. Cryst. (2003) **36**, 744-748.
+Pikus, S., E. Kobylas, and S. Ciccariello, Small-angle scattering characterization of n-aliphatic alcohol films adsorbed on hydroxylated porous silicas, J. APpl. Cryst. (2003) **36**, 744-748.
 
 And tested on experimental data provided by S. Ciccariello. Note, that the experimental data were only slit smeared and that I have found some interesting discrepancies between using finite slit length (an dusing internal smearing routines of Irena for slit smearing the model) and running provided specific code for slit smeared data (assuming infinite slit length). Simply put, the results vary depending on slit length and one needs to be careful on this. Please, read further…
 
@@ -190,7 +187,7 @@ Ciccariello-benedetti GUI:
 
 .. image:: media/AnalyticalModels15.png
    :align: center
-   :width: 480px
+   :width: 580px
 
 
 This is the control panel and loaded data for this method…
@@ -229,14 +226,14 @@ Here is slit smeared data set using the parameters from above, just with “Mode
 
 .. image:: media/AnalyticalModels16.png
    :align: center
-   :width: 480px
+   :width: 580px
 
 
 and here is the same set of parameters, just with pihole-colimated data input:
 
 .. image:: media/AnalyticalModels17.png
    :align: center
-   :width: 480px
+   :width: 580px
 
 
 Note, that for these pinhole data the lower graph is set to be Intensity \* Q\ :sup:`-4`.

@@ -45,7 +45,7 @@ Example: Selected data and applied included log-log style:
 
 .. image:: media/Plotting2.png
    :align: center
-   :width: 600px
+   :width: 100%
 
 
 Note few items: In the axes names you need to use Igor formatting for subscripts, superscripts, Greek letters etc.
@@ -66,7 +66,7 @@ You can use the scripting tool to either rest Plotting tool and add the files or
 
 .. image:: media/Plotting12.png
      :align: center
-     :width: 600px
+     :width: 100%
 
 
 The plot of these data (time series of SAXS data) is not very informative in any presentation... Therefore now we have few 3D options...
@@ -95,13 +95,13 @@ Using the button "(Re)Graph (3D, Wf)" you can create Waterfall graph. It is fast
 
 .. image:: media/Plotting13.png
    :align: center
-   :width: 600px
+   :width: 100%
 
 There are some controls at the top which enable small changes to presentation of this graph...
 
 .. image:: media/Plotting14.png
    :align: center
-   :width: 600px
+   :width: 100%
 
 
 But not that much...
@@ -143,7 +143,7 @@ Fitting
 
 .. image:: media/Plotting5.png
    :align: center
-   :width: 600px
+   :width: 100%
 
 
 Use button “Fitting” to pull up panel with fitting range, checkbox “Use errors” if these are available. Select function to fit. Use cursors to select range of data to fit.
@@ -152,7 +152,7 @@ Note, that various number of parameters appears below for starting guesses for p
 
 .. image:: media/Plotting6.png
    :align: center
-   :width: 600px
+   :width: 100%
 
 The try to fitting:
 
@@ -160,7 +160,7 @@ Results are printed in graph:
 
 .. image:: media/Plotting7.png
    :align: center
-   :width: 600px
+   :width: 100%
 
 
 To remove the results from the graph and clean it up, use button “Remove Tags and Fits”.
@@ -185,7 +185,7 @@ Use “Manage Graph details” button.
 
 .. image:: media/Plotting3.png
    :align: center
-   :width: 600px
+   :width: 100%
 
 
 The panel shows two main lists. Left shows user styles available in Igor and right shows styles outside Igor. Buttons under each window allow manipulation with the styles, the buttons “\-\-\- Copy \- >” or “<\- Copy \-\-\-“ can be used to copy styles between the Igor experiment and hard drive
@@ -200,7 +200,7 @@ Click button “Modify data” and new panel will show up.
 
 .. image:: media/Plotting4.png
    :align: center
-   :width: 600px
+   :width: 100%
 
 
 **Important information:**
@@ -219,7 +219,7 @@ Storing graphs for future use, exporting images
 
 .. image:: media/Plotting8.png
    :align: center
-   :width: 600px
+   :width: 100%
 
 
 To get a control panel controlling the features for storing graph, exporting graph and recalling stored graph, push button on main screen “Store and recall graph”. This pulls up the above control graph.
@@ -270,7 +270,7 @@ This is modification of plotting tool developed by Dale Schaefer. This tool cont
 
 .. image:: media/Plotting19.png
    :align: left
-   :width: 600px
+   :width: 100%
 
 
 The GUI contains selected controls and any change in this GUI is applied to the top graph. Note, that compared to Plotting tool I, which at each modification reapplies all formatting to the graph it controls, this tool applies only the control which has been changed. Therefore, this tool is basically ONLY different GUI to Igor controls – combined with convenient Irena data selection tools.
