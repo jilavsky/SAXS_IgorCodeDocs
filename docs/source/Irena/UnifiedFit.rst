@@ -576,7 +576,7 @@ This approach can be applied when the data are not measured on an absolute scale
         :width: 380px
 
 
-This approach applies where the data are on an absolute intensity but the low *q* data are lacking so *Q* is not known. The sample density must be known so that *fi\ :sub:`p`* can be calculated by :math:`\phi_p=\frac{\rho_s - \rho_{sam}}{\rho_s - \rho_p}=\frac{\rho_s - \rho_{sam}}{\rho_s}`. :math:`S_v=\frac{B_v}{2 \pi (\Delta \SLD)^2}` is used to compute *S\ :sub:`v`*. :math:`\Delta \rho` is calculated from
+This approach applies where the data are on an absolute intensity but the low *q* data are lacking so *Q* is not known. The sample density must be known so that :math:`\phi_p` can be calculated by :math:`\phi_p=\frac{\rho_s - \rho_{sam}}{\rho_s - \rho_p}=\frac{\rho_s - \rho_{sam}}{\rho_s}`. :math:`S_v=\frac{B_v}{2 \pi (\Delta \SLD)^2}` is used to compute :math:`S_v`. :math:`\Delta \rho` is calculated from
 
 .. math::
       \Delta SLD = SLD_1 - SLD_2 = \rho_s \Delta r_s - \rho_p \Delta r_p
