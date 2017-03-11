@@ -16,7 +16,7 @@ Note the “Export multiple data sets?” checkbox. It opens the Multiple Data E
 
 .. image:: media/DataExport2.png
    :align: center
-   :width: 780px
+   :width: 480px
 
 
 Now we have graph and list of notes. Note, that no attempt is made to create sensible graph. You may have to modify the graph manually if needed.
@@ -43,7 +43,7 @@ Multiple data set export option:
 
 .. image:: media/DataExport3.jpeg
    :align: center
-   :width: 480px
+   :width: 280px
 
 
 There are few items one needs to know about this tool.
@@ -56,7 +56,7 @@ a. The tool started to search for data from parent folder of data selected in th
 
 .. image:: media/DataExport4.jpeg
    :align: center
-   :width: 380px
+   :width: 280px
 
 
 The tool start searching from root:USAXS:USAXS\_WMU: - if you cannot find your data, select different starting folder in the main panel and update the list. This is to reduce clutter and help users with giant experiments…

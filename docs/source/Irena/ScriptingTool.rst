@@ -5,11 +5,9 @@ This tool enables scripting of (for now) four packages – **Unified fit, Guinie
 
 **What this tool does:**
 
-For Data analysis tools for each of selected data folders it does
-following:
+For Data analysis tools for each of selected data folders it does following:
 
-1. Select the data folder and load the data in, create graph (pushes
-   “Graph” button)
+1. Select the data folder and load the data in, create graph (pushes    “Graph” button)
 
 2. Sets cursors to the same Q value as previously set
 
@@ -17,86 +15,54 @@ following:
 
 4. Saves data per selection in the control panel
 
-Limitations: The data selection must be unique for every data set. This
-requires one data set per folder for qrs data structure. For USAXS data
-(“Indra2”) the data used will be type selected during testing – for
-example SMR\_\* or DSM\_\*, or M\_SMR\_\* etc. These data must exist in
-all folders. If needed, I can try to update the system and make more
-options. Send me e-mail if you need more functionality.
+Limitations: The data selection must be unique for every data set. This requires one data set per folder for qrs data structure. For USAXS data (“Indra2”) the data used will be type selected during testing – for example SMR\_\* or DSM\_\*, or M\_SMR\_\* etc. These data must exist in all folders. If needed, I can try to update the system and make more options. Send me e-mail if you need more functionality.
 
 For Plotting tool I :
 
 1. Reset or no reset the tool
 
-2. Add data sets into the Plotting tool in order listed in the panel
-   (can be controlled by order choices)
+2. Add data sets into the Plotting tool in order listed in the panel (can be controlled by order choices)
 
 3. Push button "Plot"
 
 **Use of the Scripting tool**
 
-Open the tool, which you want to script and make a fit on representative
-data set. Make sure the data range selection (if any) using cursors is
-correct for all data sets in consideration. Use appropriate data type.
+Open the tool, which you want to script and make a fit on representative data set. Make sure the data range selection (if any) using cursors is correct for all data sets in consideration. Use appropriate data type.
 
 Open the main window:
 
-.. figure:: media/ScriptingTool1.png
-            :align: left
+.. image:: media/ScriptingTool1.png
+            :align: center
             :width: 380px
 
-.. figure:: media/ScriptingTool2.png
-            :align: left
+.. image:: media/ScriptingTool2.png
+            :align: center
             :width: 380px
 
 
-Select starting folder and from the list of folders here select the ones
-you want to process. Select type of data to be processed… Note, that if
-you select "Results" you can use only Plotting tool I. The controls
-hopefully make sense - which tool results, which type of results (e.g.,
-volume or number size distribution?) and which generation. remember,
-each tool can create multiple "generations" of results - each push of
-"save" button creates new one (\_1, \_2,...). Latest picks highest
-number found.
+Select starting folder and from the list of folders here select the ones you want to process. Select type of data to be processed… Note, that if you select "Results" you can use only Plotting tool I. The controls hopefully make sense - which tool results, which type of results (e.g., volume or number size distribution?) and which generation. remember, each tool can create multiple "generations" of results - each push of "save" button creates new one (\_1, \_2,...). Latest picks highest number found.
 
-Note, that the order here will be from top to bottom. Change the order
-by using "Sort Folders" popup. Let me know if more ordering should be
-done.
+Note, that the order here will be from top to bottom. Change the order by using "Sort Folders" popup. Let me know if more ordering should be done.
 
-| The buttons at the top:
-| “Get help” creates panel with short help for this tool.
+The buttons at the top:  “Get help” creates panel with short help for this tool.
 
-“Open logbook” opens one of two logbooks… If this tool was used to
-create its own notebook for results, this one will open. This notebook
-contains selected results and also graphs. If this notebook does not
-exist, standard internal logbook will be opened. This one contains
-similar data, but no graphs.
+“Open logbook” opens one of two logbooks… If this tool was used to create its own notebook for results, this one will open. This notebook contains selected results and also graphs. If this notebook does not exist, standard internal logbook will be opened. This one contains similar data, but no graphs.
 
 **Select options:**
 
-1. *Save results in notebook* – will create notebook in which graph and
-summary of results for each data sets will be printed.
+1. *Save results in notebook* – will create notebook in which graph and summary of results for each data sets will be printed.
 
-2. *Reset before next run* – valid for Unified. Will reset to original
-values from test case after each fit. This is useful when the changes
-are not progressive but more or less random and previous result could be
-worse starting point that the test case. If not selected, the last
-result is used as starting model for next sample.
+2. *Reset before next run* – valid for Unified. Will reset to original values from test case after each fit. This is useful when the changes are not progressive but more or less random and previous result could be worse starting point that the test case. If not selected, the last result is used as starting model for next sample.
 
-3. *Save results in folders* – will copy usual results waves in the
-original data folders so they can be plotted or looked at again.
+3. *Save results in folders* – will copy usual results waves in the original data folders so they can be plotted or looked at again.
 
 Note:
 
-Without “Save results in notebook” and/or “Save results in folders”
-there will be no output from the procedure and you will not learn
-anything…
+Without “Save results in notebook” and/or “Save results in folders” there will be no output from the procedure and you will not learn anything…
 
 **To run:**
 
-Select representative case example (and test extreme cases) and run the
-tool on this example data. Make sure all parameters are set correctly.
-This includes:
+Select representative case example (and test extreme cases) and run the tool on this example data. Make sure all parameters are set correctly. This includes:
 
 Proper selection of fit checkboxes and limits on Unified…
 

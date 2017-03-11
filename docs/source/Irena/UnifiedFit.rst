@@ -129,13 +129,13 @@ Select “SAS” – “Unified fit”. Following is the screen you should see a
 
 .. image:: media/UnifiedFit1.png
    :align: center
-   :height: 580px
+   :height: 400px
 
 In the top part  select “Use Indra 2 data”, or “Use QRS data” or none checkbox and then select data as seen below and push button graph.
 
 .. image:: media/UnifiedFit2.png
    :align: center
-   :width: 580px
+   :width: 600px
 
 The two graphs which appear show selected data in two different views – top graph is log-log Intensity vs Q vector, bottom part is (Intensity \* Q\ :sup:`4`) vs Q vector.
 
@@ -154,7 +154,7 @@ Select the number of level 1, check Update Unified automatically (if used comput
 
 .. image:: media/UnifiedFit3.png
    :align: center
-   :width: 580px
+   :width: 600px
 
 **Description of the Tab area in the panel:**
 
@@ -168,13 +168,13 @@ Select point 76 – 87 on the top graph using cursors and check “Fit” checkb
 
 .. image:: media/UnifiedFit4.png
    :align: center
-   :width: 580px
+   :width: 600px
 
 The blue line in the graphs now is the Guinier fit. Next select points 84 to 92 with cursors, check boxes “Fit” next to B and P and push button “Fit P/B btwn cursors”. Now we get the power-law fit on this area:
 
 .. image:: media/UnifiedFit5.png
    :align: center
-   :width: 580px
+   :width: 600px
 
 
 The green line is local fit for the power law dependence. Notice, that the fit to the data in the modeled q range is now reasonably good, including our background estimate.
@@ -187,13 +187,13 @@ From *Irena* version 2.52 be default you get "*Check fitting* parameters" panel,
 
 .. image:: media/UnifiedFit6.png
    :align: center
-   :width: 320px
+   :width: 280px
 
 Note, that this panel can be skipped using checkbox - checkbox "*Skip this panel next time?*" is on this information panel in lower right corner and same function checkbox "*Skip Fit Check?*" is on the main panel above the "*Revert back*" button):
 
 .. image:: media/UnifiedFit7.png
     :align: center
-    :width: 320px
+    :width: 280px
 
 You can either "*Continue fitting*" or "*Cancel fitting*". Note, that changing the parameters in the panel is not allowed and so if you need to make changes, use button "*Cancel fitting*" fix problems and fit again.
 
@@ -207,7 +207,7 @@ Ok, level 1 looks fine and the background also. Uncheck all fit boxes in the pan
 
 .. image:: media/UnifiedFit8.png
     :align: center
-    :width: 580px
+    :width: 600px
 
 The green and blue lines in at this time represent default values for level 2. If you click now on tab of 1. level, the blue and green lines will be set for local fits for level 1, if on tab with level 2, they represent local fits for level2., etc…
 
@@ -215,13 +215,13 @@ Let’s do local fits for level 2. Set cursors between points 31 and 48. Push �
 
 .. image:: media/UnifiedFit9.png
     :align: center
-    :width: 580px
+    :width: 600px
 
 Now we need to do something similar for power law dependence. Select points 47 to 63, reduce B to about 0.00001, select “fit” checkboxes there and do local fit. Following should be the result:
 
 .. image:: media/UnifiedFit10.png
     :align: center
-    :width: 580px
+    :width: 600px
 
 Now we can select area with this level only and optimize the parameters of Both Guinier part and Power law part together:
 
@@ -231,7 +231,7 @@ In this case the reason for error message is the fact, that power law slope star
 
 .. image:: media/UnifiedFit11.png
     :align: center
-    :width: 580px
+    :width: 600px
 
 
 And now is the time to broaden the data range and fit both levels together. It is not necessary to fit background, but should not hurt… Select points 31 to 103, check all parameters for level 1 and level 2 to fit and then fit.
@@ -240,14 +240,14 @@ Note, that in this case (this was mixture of two powders) the right setting for 
 
 .. image:: media/UnifiedFit12.png
     :align: center
-    :width: 580px
+    :width: 600px
 
 
 Last part, which may need to be solved, is the power law tail at smallest Qs from something large. To do so, we can use trick of this method – create level, which has really large Rg, but G is 0, This removes effectively Guinier area from the calculations. Then we are left with power-law only. To do so, create level 3 and select the tab with level 3. Set G to 0 and Rg is automatically set to 10\ :sup:`10`. Now we need to fix only the power-law part. Modifying the B and P manually is the best method in this case… A good guess clearly is about 3\*10\ :sup:`-7` for B and P roughly 4.
 
 .. image:: media/UnifiedFit13.png
     :align: center
-    :width: 580px
+    :width: 600px
 
 Now select wide range of Q’s – points 103, select parameters to fit (possibly all, but that will take longer) and make sure the limits (especially for level 3!!!) are set correctly. Note, that Level 3 Guinier parameters should not be fitted! Then push button fit.
 
@@ -255,7 +255,7 @@ And we receive nice solution:
 
 .. image:: media/UnifiedFit14.png
     :align: center
-    :width: 580px
+    :width: 600px
 
 Notice the standardized residuals in the top graphs are reasonable for all Q’s suggesting that we have right number of levels. It may be possible to improve the fit by including some correlations – the powder could have been compacted quite a bit, but I leave that to user to image out more…
 
@@ -265,7 +265,7 @@ If inter-particle interference is not negligible, then for reasonably weak inter
 
 .. image:: media/UnifiedFit15.png
     :align: center
-    :height: 580px
+    :height: 400px
 
 **User should be aware of the crudeness of these calculations.**
 
@@ -309,7 +309,7 @@ After pushing the button user gets input dialog:
 
 .. image:: media/UnifiedFit16.png
     :align: center
-    :width: 350px
+    :width: 300px
 
 
 In which any useful comment can be inserted (modify default). Note the quotes. They have to be there…
@@ -339,7 +339,7 @@ This script enables to analyze uncertainties of parameters of the Unified fit mo
 
 .. image:: media/UnifiedFit17.png
     :align: center
-    :width: 380px
+    :width: 280px
 
 
 Here is example of results:
@@ -363,7 +363,7 @@ to 82.62
 
 .. image:: media/UnifiedFit18.png
     :align: center
-    :width: 480px
+    :width: 400px
 
 
 NOTE: you need to make sure the fitting limits are set widely enough as the fit may abruptly stop when these are violated. The Help in the panel provides many more details.
@@ -378,7 +378,7 @@ This includes results in the graphs in text boxes:
 
 .. image:: media/UnifiedFit19.png
     :align: center
-    :width: 580px
+    :width: 600px
 
 Note, that only selected, applicable parameters for each level are included in the text boxes… The text boxes can be formatted (double click on the text box) to suit user output. But note, that the text boxes get redrawn (and therefore reset to default) next time user pushes the “Results to graph” button.
 
@@ -406,12 +406,9 @@ All of these can be analyzed by using “Analyze results” tool. It can be call
 Open the tool from the Unified panel (at the bottom):
 
 .. image:: media/UnifiedFit20.png
-    :align: center
-    :width: 380px
-
+    :width: 45%
 .. image:: media/UnifiedFit21.png
-        :align: center
-        :width: 380px
+    :width: 45%
 
 There are two options which data can be analyzed…
 
@@ -425,7 +422,7 @@ Then one can pick models:
 
 .. image:: media/UnifiedFit22.png
         :align: center
-        :width: 380px
+        :width: 280px
 
 
 You need to pick also level for which to calculate the invariant. The invariant value is in the top field, user can input contrast value (if known) and if the data were absolutely calibrated and the contrast is known, the tool calculates the volume fraction of the phase.
@@ -434,7 +431,7 @@ You need to pick also level for which to calculate the invariant. The invariant 
 
 .. image:: media/UnifiedFit23.png
         :align: center
-        :width: 380px
+        :width: 280px
 
 
 This will provide results ONLY, if the P for selected level is close to 4 (3.96 – 4.04). In that case, the tool provides Porod constant, P and calculates specific surface area – if the scattering contrast is provided. You need to have data absolutely calibrated.
@@ -443,7 +440,7 @@ This will provide results ONLY, if the P for selected level is close to 4 (3.96 
 
 .. image:: media/UnifiedFit24.png
         :align: center
-        :width: 380px
+        :width: 280px
 
 Ok, this tool requires users to read the references. The code was provided by Greg Beaucage and provides results as expected. But I am not clear on what these numbers really mean. Any way, the references are on the panel itself.
 
@@ -455,7 +452,7 @@ Note, to calculate all of the parameters, you need two levels – so there are c
 
 .. image:: media/UnifiedFit25.png
         :align: center
-        :width: 380px
+        :width: 280px
 
 
 In this case, parameters from one level can be used to calculate log-normal size distribution for the particles – which assumes the P is close to 4 (Porods law). The details are in the manuscript referenced on the panel. Please, read it.
@@ -506,7 +503,7 @@ p523
 
 .. image:: media/UnifiedFit26.png
         :align: center
-        :width: 380px
+        :width: 280px
 
 
 
@@ -514,7 +511,7 @@ And for size distribution ONLY… Display distribution. This will calculate the 
 
 .. image:: media/UnifiedFit27.png
         :align: center
-        :width: 380px
+        :width: 280px
 
 
 
@@ -544,7 +541,7 @@ Before I start with the methods… Here is some more description of input:
 
 .. image:: media/UnifiedFit28.png
         :align: center
-        :width: 380px
+        :width: 280px
 
 
 
@@ -558,7 +555,7 @@ Note, these models can be evaluated also for combination of Unified levels… On
 
 .. image:: media/UnifiedFit29.png
         :align: center
-        :width: 380px
+        :width: 280px
 
 This approach can be applied when the data are not measured on an absolute scale, but sample densities are known and the data cover a sufficient *q* range to determine the ratio *B/Q*. In this case, the porosity is calculated from :math:`I_{v}(q)=\frac{I(q)}{V} \propto \frac{2 \pi(\Delta \rho)^2 S_v}{q^4}=B_v q^{-4}`, and :math:`S_v` is calculated from :math:`S_v=\frac{\pi B \phi_p (1-\phi_p)}{Q}`. In our realization of this approach *B* and *Q* used are obtained from a Unified fit (see above) to the scattering data. Normally the relevant *Q* is for level-1 only. The chord lengths are calculated from:
 
@@ -573,7 +570,7 @@ This approach can be applied when the data are not measured on an absolute scale
 
 .. image:: media/UnifiedFit33.png
         :align: center
-        :width: 380px
+        :width: 280px
 
 
 This approach applies where the data are on an absolute intensity but the low *q* data are lacking so *Q* is not known. The sample density must be known so that :math:`\phi_p` can be calculated by :math:`\phi_p=\frac{\rho_s - \rho_{sam}}{\rho_s - \rho_p}=\frac{\rho_s - \rho_{sam}}{\rho_s}`. :math:`S_{v}=\frac{B_v}{\left ( 2\pi \Delta SLD \right )^{2}}` is used to compute :math:`S_v`. Then  :math:`\Delta \rho` is calculated from
@@ -594,7 +591,7 @@ using known chemical composition of the struts.
 
 .. image:: media/UnifiedFit37.png
         :align: center
-        :width: 380px
+        :width: 280px
 
 
 This approach is similar to approach 2 but the data cover a sufficient *q* range to calculate *Q\ :sub:`v`*. For porous materials where one of the two phases is air, *rho\ :sub:`s`* is calculated from
