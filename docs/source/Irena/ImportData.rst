@@ -7,14 +7,14 @@ I have included ASCII set of data from our USAXS experiment as example on which 
 
 **Comments:**
 
-When loading data for use with Irena macros, the user needs to decide ahead on naming system, which will be used. Unless you have USAXS data, do not use USAXS option, this IS NOT correct choice for users from other instruments. *Use “qrs” naming convention, where the wave with q vector starts with q\_\ andTheDataName, intensity wave is named r\_\ andTheDataName, and error wave s\_\ andTheDataName. This allows placing multiple data sets in one Igor folder, which I strongly discourage*. Note, that when Irena macros save results within Igor experiment, they **ASSUME**, that they can write simply solution into folder where the SAS data came from. Irena macros **WILL NOT** overwrite old results, but it may be impossible to figure out, which data the particular result belongs to…. To make best use of these macros, please use folder structure with folder names being the sample name.
+When loading data for use with Irena macros, the user needs to decide ahead on naming system, which will be used. Unless you have USAXS data, do not use USAXS option, this IS NOT correct choice for users from other instruments. *Use “qrs” naming convention, where the wave with q vector starts with q\_\ andTheDataName, intensity wave is named r\_\ andTheDataName, and error wave s\_\ andTheDataName. This allows placing multiple data sets in one Igor folder, which I strongly discourage*. Note, that when Irena macros save results within Igor experiment, they **ASSUME**, that they can write simply solution into folder where the SAS data came from. Irena macros **WILL NOT** overwrite old results, but it may be impossible to image out, which data the particular result belongs to…. To make best use of these macros, please use folder structure with folder names being the sample name.
 
 **YOU WERE WARNED!!!!**
 
 Description
 -----------
 
-.. figure:: media/ImportData1.png
+.. image:: media/ImportData1.png
         :align: center
         :width: 280px
 
@@ -35,7 +35,7 @@ NOTE: you can have ONLY one of the importers opened at any given time, they shar
 Importing ASCII SAS data
 ------------------------
 
-.. figure:: media/ImportData2.png
+.. image:: media/ImportData2.png
         :align: left
         :width: 380px
 
@@ -110,7 +110,7 @@ Some of the controls (checkboxes) do change some of the setting in other control
 Importing ASCII WAXS data
 --------------------------
 
-.. figure:: media/ImportData3.png
+.. image:: media/ImportData3.png
         :align: center
         :width: 380px
 
@@ -121,7 +121,7 @@ This was added for users of non-SAS data who had problems using the original ASC
 Importing Nexus canSAS data
 ---------------------------
 
-.. figure:: media/ImportData4.png
+.. image:: media/ImportData4.png
         :align: center
         :width: 380px
 
@@ -164,7 +164,7 @@ Keep in mind, that as every standard made by committee canSAS nexus is way too f
 Importing XML data
 ------------------
 
-.. figure:: media/ImportData5.png
+.. image:: media/ImportData5.png
         :align: center
         :width: 380px
 
@@ -181,20 +181,20 @@ Walk through Importing test file
 
 Using *Select data path* button select folder on the computer, where Irena data are installed, for example:
 
-.. figure:: media/ImportData6.png
+.. image:: media/ImportData6.png
         :align: center
         :width: 400px
 
 
 and in *Data extension* input “dat”. The following should be the panel:
 
-.. figure:: media/ImportData7.png
+.. image:: media/ImportData7.png
         :align: center
         :width: 380px
 
 Select the “Test data.dat” file and double click - or push *Test* and *Preview* buttons.
 
-.. figure:: media/ImportData8.png
+.. image:: media/ImportData8.png
         :align: center
         :width: 680px
 
@@ -202,21 +202,21 @@ Igor found 3 columns of data so 3 rows of checkboxes appeared. The *Preview* has
 
 Check cheboxes according to following screen and noticed, that *Create errors* checkbox becomes unavailable when any checkbox in the Err column is selected. Notice, that when checkboxes *Use file nms as Fldr Nms* and *Use QRS wave names* are checked, the names for folder and data wave names are filled in with default.
 
-.. figure:: media/ImportData9.png
+.. image:: media/ImportData9.png
         :align: center
         :width: 380px
 
 
 Now push *Import* and the data are imported. Kill the Import data panel and see in Data browser:
 
-.. figure:: media/ImportData10.png
+.. image:: media/ImportData10.png
         :align: center
         :width: 680px
 
 
 Here is bit more complicated example:
 
-.. figure:: media/ImportData11.png
+.. image:: media/ImportData11.png
         :align: center
         :width: 680px
 

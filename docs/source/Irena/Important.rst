@@ -37,7 +37,7 @@ This should open pdf file with form factors description – including simplified
 Check for updates
 -----------------
 
-.. figure:: media/Important1.png
+.. image:: media/Important1.png
    :align: center
    :height: 350px
 
@@ -52,7 +52,7 @@ Location of items in SAS menu
 
 The location of items in SAS menu keeps changing. Here is current (version 2.62) location to help you find what you need…:
 
-.. figure:: media/Important2.png
+.. image:: media/Important2.png
    :align: center
    :height: 380px
 
@@ -60,34 +60,34 @@ Submenus:
 
 Data Import & Export:
 
-.. figure:: media/Important3.png
+.. image:: media/Important3.png
    :align: center
    :width: 180px
 
 Support tools for plots:
 
-.. figure:: media/Important4.png
+.. image:: media/Important4.png
    :align: center
    :width: 180px
 
 
 Data Manipualtion:
 
-.. figure:: media/Important5.png
+.. image:: media/Important5.png
    :align: center
    :width: 180px
 
 
 Support and older tools:
 
-.. figure:: media/Important6.png
+.. image:: media/Important6.png
    :align: center
    :width: 180px
 
 
 About, Manuals, Remove Irena, help
 
-.. figure:: media/Important7.png
+.. image:: media/Important7.png
    :align: center
    :width: 180px
 
@@ -99,21 +99,22 @@ GUI controls and common controls
 
 From the Last menu Item you can get "About" panel stating current version and Igor versions, which it has been tested on.
 
-.. figure:: media/Important8.png
+.. image:: media/Important8.png
    :align: center
    :width: 280px
 
 Download and open Manual, request manuscript, sign up for mailing list and do few other operations you may find useful. Including "offloading" Irena package from the experiment, so it does not slow down the operations when you want to do something else. Or when you want to send file to someone who may not have Irena installed, remove Irena package so he/she does not get errors on load when Igor tries to load Irena
 unsuccessfully.
 
-**Configure default fonts and names**
 
-.. figure:: media/Important9.png
-      :align: left
+.. image:: media/Important9.png
+      :align: center
       :width: 350px
 
 
-“Configure default fonts and names” in the SAS menu will create panel with some controls common for all tools, like font type & size and how legend names are handled. NOTE: Panel controls are applied immediately to all existing panels, graph controls are applied ONLY to the newly created graphs (and only those which were upgraded to this behavior).
+**Conimage default fonts and names**
+
+“Conimage default fonts and names” in the SAS menu will create panel with some controls common for all tools, like font type & size and how legend names are handled. NOTE: Panel controls are applied immediately to all existing panels, graph controls are applied ONLY to the newly created graphs (and only those which were upgraded to this behavior).
 
 **Panels font and font sizes**
 
@@ -121,7 +122,7 @@ These controls enable user to customize font used on control panels  therefore t
 
 When these controls are run (and user is forced to run them if the Irena is loaded and preferences are not found), they save preferences in special folder Igor maintains for users. At the same time, the settings are applied to the current experiment.
 
-When this experiment is opened on another computer, the preferences from that computer are not reloaded, so the experiment will use preferences from the original computer. When the “Configure GUI and Graph defaults” is run, it will reload the computer defaults and apply them to the given experiment. Then user can change the fonts and font sizes as they wish. The new settings are saved on the computer – and within the experiment.
+When this experiment is opened on another computer, the preferences from that computer are not reloaded, so the experiment will use preferences from the original computer. When the “Conimage GUI and Graph defaults” is run, it will reload the computer defaults and apply them to the given experiment. Then user can change the fonts and font sizes as they wish. The new settings are saved on the computer – and within the experiment.
 
 *Note*, that Panel font and font size are platform specific, so same experiment may present differently looking panels on Mac and PC. Also, from version 2.62 this panel is common for Irena and Nika packages, so not everything you see in Irena applies.
 
@@ -129,13 +130,13 @@ When this experiment is opened on another computer, the preferences from that co
 
 If there are any issues with the behavior, please, let me know and I’ll see if I can make it more logical.
 
-Note the difference in Configure GUI and Graph defaults panels when different fonts are used. You can mess up the panels really well by wrong choices!
+Note the difference in Conimage GUI and Graph defaults panels when different fonts are used. You can mess up the panels really well by wrong choices!
 
 Defaults button returns the panel font choices to platform specific default state (Mac: Geneva size 9 and PC Tahoma size 12). Note, that there is no guarantee that these were your choices before. But these should be reasonable choices for most setups.
 
 **Graph controls**
 
-I am slowly adding in various parts of the whole package calls to these commonly stored values. This allows user to configure fonts for various screen sizes. This seems necessary to allow use of Mac/Win platforms with vastly different screen sizes and resolutions.
+I am slowly adding in various parts of the whole package calls to these commonly stored values. This allows user to conimage fonts for various screen sizes. This seems necessary to allow use of Mac/Win platforms with vastly different screen sizes and resolutions.
 
 Not all packages follow these controls yet, if you see issues in package of your choice, let me know and I will try to address them ASAP. Time is limited resource.
 
@@ -197,7 +198,7 @@ Little useful trick: Regular expression which means “not matching string xyz�
 
 Here is how to use it:
 
-.. figure:: media/Important10.png
+.. image:: media/Important10.png
       :align: center
       :width: 380px
 
@@ -206,21 +207,21 @@ This is how the default state looks – empty field for “Fldr” and “Wvs”
 
 See here, we have 4 samples measured and we have now 4 folders available.
 
-.. figure:: media/Important11.png
+.. image:: media/Important11.png
       :align: center
       :width: 380px
 
 
 Here is setting when I want to match Aunp string to be in each of the names:
 
-.. figure:: media/Important12.png
+.. image:: media/Important12.png
       :align: center
       :width: 380px
 
 
 and here is what is presented as result of the above choice:
 
-.. figure:: media/Important13.png
+.. image:: media/Important13.png
       :align: center
       :width: 380px
 
@@ -244,7 +245,7 @@ Irena generates **a lot of** windows, panels, graphs, notebooks... It really nee
 But this warning simply never works. So finally I was able to solve moving the content (not all, but most) up/down on panels:
 
 
-.. figure:: media/Important14.png
+.. image:: media/Important14.png
       :align: center
       :width: 380px
 
@@ -255,14 +256,14 @@ These are "arrows" which move the content of the panel up/down, so if your scree
 
 So here is the same area, but content was now moved bit higher, so one can reach to the bottom controls:
 
-.. figure:: media/Important15.png
+.. image:: media/Important15.png
       :align: center
       :width: 380px
 
 
 If you have a large display, you can zoom panels by dragging lower right corner - note mark:
 
-.. figure:: media/Important16.png
+.. image:: media/Important16.png
       :align: center
       :width: 30px
 
