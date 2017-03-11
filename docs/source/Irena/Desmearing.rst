@@ -47,7 +47,7 @@ I have included a file with an example data set with slit smeared data (smeared 
 
 Comment – if you need to go back in the routine, anytime you  can click on previous tab and return to that place… All from tabs to the right is forgotten and routine restarts on the tab, where you click. It is also possible to skip the smoothing tabs without any penalty – note, that if the smoothing parameters are set (the checkboxes are checked) the data WILL BE smoothed, even when you do not click on the tab…
 
-.. figure:: media/Desmearing1.png
+.. image:: media/Desmearing1.png
    :align: center
    :width: 780px
 
@@ -64,7 +64,7 @@ right.
 to select data range. And then push button “Trim”. You can also remove
 any spurious point with the other button and cursor A (the rounded one)
 
-.. figure:: media/Desmearing2.png
+.. image:: media/Desmearing2.png
    :align: center
    :width: 780px
 
@@ -73,7 +73,7 @@ any spurious point with the other button and cursor A (the rounded one)
 only if necessary. I strongly discourage this… However, the screen is
 next:
 
-.. figure:: media/Desmearing3.png
+.. image:: media/Desmearing3.png
    :align: center
    :width: 780px
 
@@ -92,7 +92,7 @@ extrapolate the data using one of selection of mathematical functions.
 Most useable one is “Power law with flat” and “powerlaw” or “flat”.
 These data suits best the Powerlaw with flat…
 
-.. figure:: media/Desmearing4.png
+.. image:: media/Desmearing4.png
    :align: center
    :width: 780px
 
@@ -103,7 +103,7 @@ is the extrapolated data.
 
 4. Desmearing
 
-.. figure:: media/Desmearing5.png
+.. image:: media/Desmearing5.png
    :align: center
    :width: 780px
 
@@ -133,7 +133,7 @@ Let’s select the “Fast nethod” here, for simplicity.
 
 Do one iteration:
 
-.. figure:: media/Desmearing6.png
+.. image:: media/Desmearing6.png
    :align: center
    :width: 780px
 
@@ -149,7 +149,7 @@ not readjust to a significant extent between consecutive desmearing
 iterations. Acceptable convergence is always at the judgement of the
 person doing the desmearing.
 
-.. figure:: media/Desmearing7.png
+.. image:: media/Desmearing7.png
    :align: center
    :width: 780px
 
@@ -165,7 +165,7 @@ iterations.)
 
 5. Final smoothing
 
-.. figure:: media/Desmearing8.png
+.. image:: media/Desmearing8.png
    :align: center
    :width: 780px
 

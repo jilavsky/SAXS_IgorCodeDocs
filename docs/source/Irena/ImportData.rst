@@ -79,7 +79,7 @@ Explanation of control available here:
 
 *“Scale imported data?”* if the data need to be scaled by some calibration factor… New input variable appears, if necessary.
 
-*“Slit Smear imported data?”* if the data need to be slit smeared… New input variable appears, if necessary. This is useful when pinhole data need to be smeared for use with USAXS/USANS data. Use Slit length in Q units [A:sup:`-1`]. Even if you have data in nm\ :sup:`-1` since the conversion to A is done first. NOTE: if you provide dq data (q-resolution) these will be for slit smeared data convoluted with the SlitLength. If you do not provide these data, new dQ wave will be created with Slit length assigned to each point as resolution.
+*“Slit Smear imported data?”* if the data need to be slit smeared… New input variable appears, if necessary. This is useful when pinhole data need to be smeared for use with USAXS/USANS data. Use Slit length in Q units [A\ :sup:`-1`]. Even if you have data in nm\ :sup:`-1` since the conversion to A is done first. NOTE: if you provide dq data (q-resolution) these will be for slit smeared data convoluted with the SlitLength. If you do not provide these data, new dQ wave will be created with Slit length assigned to each point as resolution.
 
 *"Remove Int<=0"* removes any negative (or equal 0) intensities during import.
 

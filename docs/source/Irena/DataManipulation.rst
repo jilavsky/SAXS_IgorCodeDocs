@@ -32,7 +32,7 @@ The tool allows the following data manipulations:
 
 **Panel description**
 
-.. figure:: media/DataManipulation1.png
+.. image:: media/DataManipulation1.png
            :align: left
            :width: 330px
 
@@ -194,7 +194,7 @@ things. If you have any ideas, let me know.
 
 **Introduction**
 
-.. figure:: media/DataManipulation2.png
+.. image:: media/DataManipulation2.png
            :align: left
            :width: 460px
 
@@ -251,7 +251,7 @@ on absolute scale.
 
 **GUI and controls**
 
-.. figure:: media/DataManipulation3.png
+.. image:: media/DataManipulation3.png
            :align: left
            :width: 460px
 
@@ -301,14 +301,14 @@ subset of folders in the listbox on right (bottom). Use buttons *Select
 All* and *Deselect All* - as well ctrl and shift – left mouse button to
 select ranges of data.
 
-.. figure:: media/DataManipulation4.png
+.. image:: media/DataManipulation4.png
            :align: center
            :width: 330px
 
 
 Now the Processing controls:
 
-.. figure:: media/DataManipulation5.png
+.. image:: media/DataManipulation5.png
            :align: center
            :width: 330px
 
@@ -319,19 +319,19 @@ statistics on Y values, Errors are not considered.
 
 Here is example for Subtract data:
 
-.. figure:: media/DataManipulation6.png
+.. image:: media/DataManipulation6.png
            :align: center
            :width: 330px
 
 with the second tab:
 
-.. figure:: media/DataManipulation7.png
+.. image:: media/DataManipulation7.png
            :align: center
            :width: 330px
 
 **Output options**
 
-.. figure:: media/DataManipulation8.png
+.. image:: media/DataManipulation8.png
            :align: center
            :width: 330px
 
@@ -345,7 +345,7 @@ data sets and therefore the names will be created on fly using the
 Will cause that a graph with results and source data will be presented
 when *Process data is pushed.*
 
-.. figure:: media/DataManipulation9.png
+.. image:: media/DataManipulation9.png
            :align: center
            :width: 390px
 
@@ -366,7 +366,7 @@ controls.
 
 **Average every N waves controls**
 
-.. figure:: media/DataManipulation10.png
+.. image:: media/DataManipulation10.png
            :align: center
            :width: 330px
 
@@ -383,11 +383,11 @@ between them and format them differently.
 
 **Subtract data controls**
 
-.. figure:: media/DataManipulation11.png
+.. image:: media/DataManipulation11.png
            :align: center
            :width: 330px
 
-.. figure:: media/DataManipulation12.png
+.. image:: media/DataManipulation12.png
             :align: center
             :width: 330px
 
@@ -403,11 +403,11 @@ long).
 Added around Irena version 2.5x, these tabs are processed after the
 processing and provide more options to modify the data.
 
-.. figure:: media/DataManipulation13.png
+.. image:: media/DataManipulation13.png
            :align: center
            :width: 330px
 
-.. figure:: media/DataManipulation14.png
+.. image:: media/DataManipulation14.png
             :align: center
             :width: 330px
 
@@ -490,7 +490,7 @@ Below is the GUI panel itself. ***Please NOTE : This tools is one large
 panel and requires 1280x800 screen size. It will NOT run on smaller
 screen sizes. ***
 
-.. figure:: media/DataManipulation15.png
+.. image:: media/DataManipulation15.png
            :align: center
            :width: 780px
 
@@ -500,7 +500,7 @@ Data selection and right side being processing and data view selection.
 
 **Data selection**
 
-.. figure:: media/DataManipulation16.png
+.. image:: media/DataManipulation16.png
            :align: left
            :width: 330px
 
@@ -584,14 +584,14 @@ To select continuous range of cells, click on the first one and then
 hold down shift key and click on the end of the range you want to
 select. You can select one column or two columns of cells like here:
 
-.. figure:: media/DataManipulation17.png
+.. image:: media/DataManipulation17.png
            :align: center
            :width: 330px
 
 
 However, what if you need this?
 
-.. figure:: media/DataManipulation18.png
+.. image:: media/DataManipulation18.png
            :align: center
            :width: 330px
 
@@ -607,7 +607,7 @@ This may be important, see processing/operations…
 
 **Operations and processing**
 
-.. figure:: media/DataManipulation19.png
+.. image:: media/DataManipulation19.png
            :align: left
            :width: 430px
 
@@ -656,7 +656,7 @@ with test data which are useless. Keep this in mind.
 
 Here are some values:
 
-.. figure:: media/DataManipulation20.png
+.. image:: media/DataManipulation20.png
            :align: left
            :width: 280px
 
@@ -676,7 +676,7 @@ doing optimization.
 
 The graph:
 
-.. figure:: media/DataManipulation21.png
+.. image:: media/DataManipulation21.png
            :align: center
            :width: 530px
 
@@ -690,7 +690,7 @@ of the cursors will be trimmed away.
 
 Folder strings:
 
-.. figure:: media/DataManipulation22.png
+.. image:: media/DataManipulation22.png
            :align: center
            :width: 550px
 
@@ -722,7 +722,7 @@ the selection for Data 1 and Data 2.
 
 This WILL WORK:
 
-.. figure:: media/DataManipulation23.png
+.. image:: media/DataManipulation23.png
            :align: left
            :width: 390px
 

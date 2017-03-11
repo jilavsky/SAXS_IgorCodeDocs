@@ -20,7 +20,7 @@ In the top part you need to select data type to be searched and example
 folder, in which are data types you want to “mine”. Therefore, you need
 to be able to find at least one folder with data you are looking for.
 
-.. figure:: media/DataMining1.png
+.. image:: media/DataMining1.png
    :align: left
    :width: 580px
 

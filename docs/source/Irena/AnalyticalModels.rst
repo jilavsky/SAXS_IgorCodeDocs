@@ -57,7 +57,7 @@ phase-separated (two- phase) systems. Here also correlations are
 characterized by an e-folding length ξ. The pair correlation function is
 give by (Debye-Bueche, 1949):
 
-.. figure:: media/AnalyticalModels1.png
+.. image:: media/AnalyticalModels1.png
    :align: center
    :width: 480px
 
@@ -65,7 +65,7 @@ give by (Debye-Bueche, 1949):
 The scattering cross section is obtained by taking the Fourier transform
 to obtain:
 
-.. figure:: media/AnalyticalModels2.png
+.. image:: media/AnalyticalModels2.png
    :align: center
    :width: 480px
 
@@ -73,7 +73,7 @@ to obtain:
 The prefactor can be expressed in terms of the volume fraction φ and
 contrast factor Δρ2 as:
 
-.. figure:: media/AnalyticalModels3.png
+.. image:: media/AnalyticalModels3.png
    :align: center
    :width: 480px
 
@@ -87,7 +87,7 @@ very large d-spacing (d>>ξ).
 
 This is the main screen:
 
-.. figure:: media/AnalyticalModels4.png
+.. image:: media/AnalyticalModels4.png
    :align: center
    :width: 780px
 
@@ -96,7 +96,7 @@ pin-hole type data (desmeared for USAXS instrument) or slit smeared
 data. Results are the same, the model is slit smeared with slit length
 if slit smeared data are used.
 
-.. figure:: media/AnalyticalModels5.png
+.. image:: media/AnalyticalModels5.png
    :align: center
    :width: 780px
 
@@ -122,7 +122,7 @@ every change of any parameter in this tool. Useful on fast machines.
 using the button “Estimate” if the knee area is selected first in the
 top graph:
 
-.. figure:: media/AnalyticalModels6.png
+.. image:: media/AnalyticalModels6.png
    :align: center
    :width: 780px
 
@@ -131,7 +131,7 @@ Checkbox “\ ***Use low-q slope***\ ” will enable controls for low-q
 power law slope. One can again select range of data where the power law
 dominates and Estimate slope with the button.
 
-.. figure:: media/AnalyticalModels7.png
+.. image:: media/AnalyticalModels7.png
    :align: center
    :width: 780px
 
@@ -142,7 +142,7 @@ are going to be fitted using standard Igor least-squares fit.
 Last item is “\ ***Background***\ ”, which should be reasonably guessed
 and then fitted as one of the parameters:
 
-.. figure:: media/AnalyticalModels8.png
+.. image:: media/AnalyticalModels8.png
    :align: center
    :width: 780px
 
@@ -150,7 +150,7 @@ and then fitted as one of the parameters:
 Now with good starting guesses one can fit the model – using the “Fit
 button”
 
-.. figure:: media/AnalyticalModels9.png
+.. image:: media/AnalyticalModels9.png
    :align: center
    :width: 780px
 
@@ -172,7 +172,7 @@ later.
 
 ***Results to Graph*** will paste results into graph for better view:
 
-.. figure:: media/AnalyticalModels10.png
+.. image:: media/AnalyticalModels10.png
    :align: center
    :width: 780px
 
@@ -186,7 +186,7 @@ and E. W. Kaler J. Chem. Phys., 1994, 101, 5343.
 
 The code is adopted form NIST SANS package. The formulas are:
 
-.. figure:: media/AnalyticalModels11.png
+.. image:: media/AnalyticalModels11.png
    :align: center
    :width: 280px
 
@@ -196,12 +196,12 @@ TS is scaling factor.
 
 Correlation length °ξ and repeat distance (d) are:
 
-.. figure:: media/AnalyticalModels12.png
+.. image:: media/AnalyticalModels12.png
    :align: center
    :width: 280px
 
 
-.. figure:: media/AnalyticalModels13.png
+.. image:: media/AnalyticalModels13.png
       :align: center
       :width: 280px
 
@@ -212,7 +212,7 @@ Note, that only the parameters TS, A, C\ :sub:`1`, and C\ :sub:`2` are
 user controlled. Parameter TS is added scaling factor, as there does not
 seem to be other way to scale the model to data.
 
-.. figure:: media/AnalyticalModels14.png
+.. image:: media/AnalyticalModels14.png
    :align: center
    :width: 780px
 
@@ -252,7 +252,7 @@ read the manuscripts.
 
 Ciccariello-benedetti GUI:
 
-.. figure:: media/AnalyticalModels15.png
+.. image:: media/AnalyticalModels15.png
    :align: center
    :width: 780px
 
@@ -290,7 +290,7 @@ created.
 
 1. Intensity vs Q graph. **PLEASE NOTE, this is still the ONLY graph you        can use to select the range fo data to be fitted.**
 
-2. Intensity \* Q\ :sup:`4` (or for slit smeared data as in the figure above: Intensity \* Q\ :sup:`3`). This is probably the best graph for this tool. Unluckily, making this one the “input” graph would make it cumbersome and complicated to use with other tools.
+2. Intensity \* Q\ :sup:`4` (or for slit smeared data as in the image above: Intensity \* Q\ :sup:`3`). This is probably the best graph for this tool. Unluckily, making this one the “input” graph would make it cumbersome and complicated to use with other tools.
 
 3. 1/sqrt(Intensity) vs Q\ :sup:`2`
 
@@ -301,7 +301,7 @@ Finally, one may want to know how would “ideal” case of the system described
 Here is slit smeared data set using the parameters from above, just with
 “Modeling” data only (no input data)
 
-.. figure:: media/AnalyticalModels16.png
+.. image:: media/AnalyticalModels16.png
    :align: center
    :width: 780px
 
@@ -309,7 +309,7 @@ Here is slit smeared data set using the parameters from above, just with
 and here is the same set of parameters, just with pihole-colimated data
 input:
 
-.. figure:: media/AnalyticalModels17.png
+.. image:: media/AnalyticalModels17.png
    :align: center
    :width: 780px
 

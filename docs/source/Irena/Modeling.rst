@@ -1,10 +1,9 @@
 Modeling II
 ===========
 
-This tool is replacement of original, long deprecated Modeling I which
-was removed in version 2.58.
+This tool is replacement of original, long deprecated Modeling I which was removed in version 2.58.
 
-.. figure:: media/Modeling1.png
+.. image:: media/Modeling1.png
    :align: left
    :height: 580px
 
@@ -38,139 +37,70 @@ penalty for the much more…
 Theory behind this tool
 -----------------------
 
-Actually, theory is the same as for Modeling I from chapter 7 – up to 10
-"populations" or models can be used : each can be either "Size
-Distribution of scatterers", "Unified level", or "Diffraction peak"; For
-teh Size distribution and Unified level the SAS from them can be
-calculated in dilute limit or after applying one of 5 available
-structure factors. For comments on used size distribution shapes
-(log-normal, LSW) please refer to chapter 7.3. It is important and
-useful to understand.
+Actually, theory is the same as for Modeling I from chapter 7 – up to 10 "populations" or models can be used : each can be either "Size Distribution of scatterers", "Unified level", or "Diffraction peak"; For the Size distribution and Unified level the SAS from them can be calculated in dilute limit or after applying one of 5 available structure factors. For comments on used size distribution shapes (log-normal, LSW) please refer to chapter 7.3. It is important and useful to understand.
 
-As of *Irena* version 2.40 this tool can also use “Unified level” for
-any population. **NOTE:** this is kind of simplified Unified level and
-the tool will complain (once every 24 hours) if you try to use more than
-one Unified level. It is not impossible, but it is strongly discouraged.
-If you need more Unified levels, you need “Unified fit” tool. There are
-various rules and relationships, which can be enforced in that tool. The
-reason for Unified level here is to enable one combine scattering from
-particulate system with the scattering from fractal system formed by
-these particles. Typical use is to describe low-q power law slope, which
-is mass fractal of primary particles, which then can be modeled
-correctly.
+As of *Irena* version 2.40 this tool can also use “Unified level” for any population. **NOTE:** this is kind of simplified Unified level and the tool will complain (once every 24 hours) if you try to use more than one Unified level. It is not impossible, but it is strongly discouraged. If you need more Unified levels, you need “Unified fit” tool. There are various rules and relationships, which can be enforced in that tool. The reason for Unified level here is to enable one combine scattering from particulate system with the scattering from fractal system formed by these particles. Typical use is to describe low-q power law slope, which is mass fractal of primary particles, which then can be modeled correctly.
 
-As of *Irena* version 2.43 this tool enables also use of "Diffraction
-peak" for any population. **NOTE:** this is simplified version of
-Diffraction tool and for now there is no way to include relationships
-between the peaks (to provide for specific structures) as the
-Diffraction tool allows. Fort more details on the terms, peak profiles
-etc. read the Diffraction tool chapter.
+As of *Irena* version 2.43 this tool enables also use of "Diffraction peak" for any population. **NOTE:** this is simplified version of Diffraction tool and for now there is no way to include relationships between the peaks (to provide for specific structures) as the Diffraction tool allows. Fort more details on the terms, peak profiles etc. read the Diffraction tool chapter.
 
-Since *Irena* version 2.53 the tool is aware of the units of Intensity
-(either in the wave note or set by user) and - ***for the Size
-distribution models*** - its GUI is changing depending on these units.
-What was originally called "Volume" of scatterers for size distribution
-is now:
+Since *Irena* version 2.53 the tool is aware of the units of Intensity (either in the wave note or set by user) and - ***for the Size distribution models*** - its GUI is changing depending on these units. What was originally called "Volume" of scatterers for size distribution is now:
 
--  "*Scale*" if data are on arbitrary scale. This value has no direct
-   physical meaning, except it may be relative measure of volume between
-   samples if the data are properly normalized.
+-  "*Scale*" if data are on arbitrary scale. This value has no direct physical meaning, except it may be relative measure of volume between samples if the data are properly normalized.
 
--  "*Fraction*" if data are on cm2/cm3 scale. This is what originally
-   was "Volume" as this were the default “units” the tool assumed.
-   However, note this is what in the dilute limit we call volume
-   fraction c, but for higher volume fractions this approximation (made
-   commonly!) is wrong, in calculations this represents really c(1-c)!!!
-   If you get this value >0.25 something is really wrong here and you do
-   not have physically meaningful model or correct data. This Fraction
-   should never get higher than 0.25, see graph below:
+-  "*Fraction*" if data are on cm2/cm3 scale. This is what originally was "Volume" as this were the default “units” the tool assumed. However, note this is what in the dilute limit we call volume fraction c, but for higher volume fractions this approximation (made commonly!) is wrong, in calculations this represents really c(1-c)!!! If you get this value >0.25 something is really wrong here and you do not have physically meaningful model or correct data. This Fraction should never get higher than 0.25, see graph below:
 
-.. figure:: media/Modeling2.png
+.. image:: media/Modeling2.png
       :align: center
       :width: 380px
 
 
--  "*Volume [cm3/g]*" if data are on cm2/g scale. This is if the SAS
-   data are calibrated per gram of sample.
+-  "*Volume [cm3/g]*" if data are on cm2/g scale. This is if the SAS data are calibrated per gram of sample.
 
 **What is size distribution**
 
-The size distribution is modeled as small angle scattering (SAS) using
-basic SAS formula:
+The size distribution is modeled as small angle scattering (SAS) using basic SAS formula:
 
-.. figure:: media/Modeling3.png
+.. image:: media/Modeling3.png
       :align: center
       :width: 380px
 
 
-where Δρ is contrast, F(Q,r) is scattering form factor, V(r) is the
-particle volume, N is the total number of scattering particles, Π(r) is
-the probability of occurrence of scatterer at size of r. This formula
-is, of course, replaced by summation formula with limited number of bins
-in radii. Therefore the formula coded in is following:
+where Δρ is contrast, F(Q,r) is scattering form factor, V(r) is the particle volume, N is the total number of scattering particles, Π(r) is the probability of occurrence of scatterer at size of r. This formula is, of course, replaced by summation formula with limited number of bins in radii. Therefore the formula coded in is following:
 
-.. figure:: media/Modeling4.png
+.. image:: media/Modeling4.png
       :align: center
       :width: 380px
 
 
-This formula has been coded very many times… Following are comments,
-which address specific parts of this formula.
+This formula has been coded very many times… Following are comments, which address specific parts of this formula.
 
-Three different distribution models are available – Gauss (Normal),
-Log-Normal, and LSW (Lifshitz-Slyozov-Wagner used in precipitation
-theory involving Ostwald Ripening).
+Three different distribution models are available – Gauss (Normal), Log-Normal, and LSW (Lifshitz-Slyozov-Wagner used in precipitation theory involving Ostwald Ripening).
 
-Automatic selection of radius distributions – ranges needed, bin widths
-etc. – with user selectable precision and number of steps. For details
-seem Irena manuscript which goes to details on this subject.
+Automatic selection of radius distributions – ranges needed, bin widths etc. – with user selectable precision and number of steps. For details seem Irena manuscript which goes to details on this subject.
 
-Number of form and structure factors are available. Note, that it is
-relatively easy to add other shapes in the code, so if anyone needs
-(really needs) another shape, let me know… Note, that calculation speed
-of different form factors varies significantly depending on calculations
-needed to calculate involved integrals.
+Number of form and structure factors are available. Note, that it is relatively easy to add other shapes in the code, so if anyone needs (really needs) another shape, let me know… Note, that calculation speed of different form factors varies significantly depending on calculations needed to calculate involved integrals.
 
 **Structure factors**
 
-The code includes number of Structure factors to account for interaction
-among the particles for non-dilute systems, which can be independently
-switched on or off for each population of the scatterers. **User should
-be aware of the crudeness of any of these calculations.**
+The code includes number of Structure factors to account for interaction among the particles for non-dilute systems, which can be independently switched on or off for each population of the scatterers. **User should be aware of the crudeness of any of these calculations.**
 
-The code used for calculations involves correcting intensity from a
-population of scatterers using this formula:
+The code used for calculations involves correcting intensity from a population of scatterers using this formula:
 
-Intensity\ :sub:`with interfernce`\ (Q, R) =Intensity\ :sub:`without
-interference` \* Structure factor
+Intensity\ :sub:`with interfernce`\ (Q, R) =Intensity\ :sub:`without interference` \* Structure factor
 
-Description and details on the structure factors (5 at this time I
-believe) are in the pdf file "Form and Structure description" which can
-be opened from the Irena menu.
+Description and details on the structure factors (5 at this time I believe) are in the pdf file "Form and Structure description" which can be opened from the Irena menu.
 
-**Remember**: these method accounts in very crude way ONLY for
-interaction for particles in the particular population. If there are
-interactions among particles from different populations – which is very
-likely – these calculations have NO WAY to account for it.
+**Remember**: these method accounts in very crude way ONLY for interaction for particles in the particular population. If there are interactions among particles from different populations – which is very likely – these calculations have NO WAY to account for it.
 
 **Important Information**
 
-The code uses for all size related parameters Angstroems (10:sup:`-10`
-m) or for Q vector (A:sup:`-1`). In the case of scattering contrast,
-number distribution and any other volume contents centimeters
-(10:sup:`-2` m).
+The code uses for all size related parameters Angstroems (10\ :sup:`-10` m) or for Q vector (A\ :sup:`-1`). In the case of scattering contrast, number distribution and any other volume contents centimeters (10\ :sup:`-2` m).
 
 This code uses either **Diameter** or **Radii** for scatterer size.
 
-**Distribution Ψ(r) and V(r)Ψ(r) and distribution of r.**
+**Distribution** :math:`\Psi (r)` and :math:`V(r) \Psi (r)` **and distribution of r.**
 
-The code can work with distribution defined as for number distribution
-N\*Ψ(r), where integral over Ψ(r) for all r is 1 and N is total number
-of scatterers or for volume distribution V\ :sub:`tot`\ \*Ψ(r), where
-integral over this term is equal total volume of scatterers. Internally,
-the code actually always works with number distributions (N\*Ψ(r)),
-which, in the second case is calculated from the total volume of
-scatterers.
+The code can work with distribution defined as for number distribution :math:`N * \Psi (r)`, where integral over :math:`\Psi (r)` for all r is 1 and N is total number of scatterers or for volume distribution :math:`V_{tot} * \Psi (r)`, where integral over this term is equal total volume of scatterers. Internally, the code actually always works with number distributions :math:`N * \Psi (r)`, which, in the second case is calculated from the total volume of scatterers.
 
 There are currently 3 different distributions built in the code, which
 can be used independently for any of up to 5 scatterers populations:
@@ -211,7 +141,7 @@ web
 (www.space.gc.ca/science/space\_science/paper\_reports/spacebound97/materials\_sciece/….)
 refer to distribution by Lifshitz, Slyozlov, and Wagner:
 
-.. figure:: media/Modeling5.png
+.. image:: media/Modeling5.png
       :align: center
       :width: 380px
 
@@ -283,11 +213,11 @@ really confusing to mix and match these models.
 
 Start tool from SAS menu. At this time it is titled “Modeling II”.
 
-.. figure:: media/Modeling6.png
+.. image:: media/Modeling6.png
       :align: left
       :width: 380px
 
-.. figure:: media/Modeling7.png
+.. image:: media/Modeling7.png
             :align: left
             :width: 380px
 
@@ -295,7 +225,7 @@ Start tool from SAS menu. At this time it is titled “Modeling II”.
 
 Note in following image, that the tool has somehow different GUI. The
 lower 2/3 of panel change depending on selection of radio-buttons “Data
-controls” and “Model controls”. See figure below. Also, if only one data
+controls” and “Model controls”. See image below. Also, if only one data
 set will be used, make sure the checkbox below “Data controls” is
 unchecked (only one tab “Input Data” is visible).
 
@@ -351,7 +281,7 @@ To load data into the tool use the red button “Add data” on the left top
 corner of the Input Data tab.
 
 
-.. figure:: media/Modeling8.png
+.. image:: media/Modeling8.png
       :align: left
       :width: 780px
 
@@ -408,12 +338,12 @@ Controls for any population appear when “\ **Use?**\ ” checkbox is
 selected… see below:
 
 
-.. figure:: media/Modeling9.png
+.. image:: media/Modeling9.png
       :align: left
       :width: 380px
 
 
-.. figure:: media/Modeling10.png
+.. image:: media/Modeling10.png
             :align: left
             :width: 380px
 
@@ -464,7 +394,7 @@ factors. To get this controls screen again, re-select the form factor
 and the screen will pop up.
 
 
-.. figure:: media/Modeling11.png
+.. image:: media/Modeling11.png
       :align: left
       :width: 380px
 
@@ -531,7 +461,7 @@ have their own screens and parameters can be fitted. See below for case
 example:
 
 
-.. figure:: media/Modeling12.png
+.. image:: media/Modeling12.png
       :align: left
       :width: 380px
 
@@ -583,12 +513,12 @@ be saved there.
 --------------------------------------------------------------------------
 
 
-.. figure:: media/Modeling13.png
+.. image:: media/Modeling13.png
       :align: left
       :width: 380px
 
 
-.. figure:: media/Modeling14.png
+.. image:: media/Modeling14.png
             :align: left
             :width: 380px
 
@@ -619,11 +549,11 @@ only and right choice as for fitting for multiple data sets only one G,
 B, and "Peak Intg. Intensity" can be calculated.
 
 
-.. figure:: media/Modeling15.png
+.. image:: media/Modeling15.png
       :align: left
       :width: 380px
 
-.. figure:: media/Modeling16.png
+.. image:: media/Modeling16.png
             :align: left
             :width: 380px
 
@@ -649,7 +579,7 @@ distribution but it was found easier to fit by two-levels Unified fit.
 
 2. Two diffraction peaks Q ~ 0.025 and 0.07 A\ :sup:`-1`
 
-.. figure:: media/Modeling17.png
+.. image:: media/Modeling17.png
             :align: center
             :width: 780px
 
@@ -658,7 +588,7 @@ Unified fit with two levels
 
 Selecting in 1P Model as "Unified level" we get appropriate controls:
 
-.. figure:: media/Modeling18.png
+.. image:: media/Modeling18.png
             :align: center
             :width: 380px
 
@@ -667,7 +597,7 @@ Selecting in 1P Model as "Unified level" we get appropriate controls:
 Next we can select with cursors the are where Guinier dominates in graph
 and use button "Fit Rg/G btwn csrs" to fit Rg and G: Here is the result:
 
-.. figure:: media/Modeling19.png
+.. image:: media/Modeling19.png
             :align: center
             :width: 780px
 
@@ -676,7 +606,7 @@ and use button "Fit Rg/G btwn csrs" to fit Rg and G: Here is the result:
 Note the blue curve that is the Guiner fit to the data. Next we select
 power law area at higher Q and fit the P/B:
 
-.. figure:: media/Modeling20.png
+.. image:: media/Modeling20.png
             :align: center
             :width: 780px
 
@@ -687,7 +617,7 @@ and that the scattering needs to be terminated at Rg of the next
 (smaller) Guinier area. Select 2P as Unified level and fit the Guinier
 area there also:
 
-.. figure:: media/Modeling21.png
+.. image:: media/Modeling21.png
             :align: center
             :width: 780px
 
@@ -697,7 +627,7 @@ The Rg of the 2P is about 467A, so we can now transfer this number to
 RgCO of the 1P and then we can also fit the B/P to higher Q values power
 law slope:
 
-.. figure:: media/Modeling22.png
+.. image:: media/Modeling22.png
             :align: center
             :width: 780px
 
@@ -709,7 +639,7 @@ checkbox there.
 
 Next we need to add the diffraction peaks, 3P will be the first peak:
 
-.. figure:: media/Modeling23.png
+.. image:: media/Modeling23.png
             :align: center
             :width: 780px
 
@@ -721,7 +651,7 @@ the top of the main graph here as that helps for you to see the peak.
 
 And next we will set the 4P as diffraction peak:
 
-.. figure:: media/Modeling24.png
+.. image:: media/Modeling24.png
             :align: center
             :width: 780px
 
@@ -730,7 +660,7 @@ residuals".
 
 Next we can fit the parameters and then push the "Tags to graph" button
 
-.. figure:: media/Modeling25.png
+.. image:: media/Modeling25.png
             :align: center
             :width: 780px
 
@@ -768,7 +698,7 @@ Qmax\_set1 = 0.28792
 
 Background\_set1 = 0.11996
 
-.. figure:: media/Modeling26.png
+.. image:: media/Modeling26.png
             :align: center
             :width: 780px
 
@@ -776,7 +706,7 @@ Background\_set1 = 0.11996
 
 LSQF2 main data window
 
-.. figure:: media/Modeling27.png
+.. image:: media/Modeling27.png
             :align: center
             :width: 780px
 
@@ -784,7 +714,7 @@ LSQF2 main data window
 
 Normalized residuals
 
-.. figure:: media/Modeling28.png
+.. image:: media/Modeling28.png
             :align: center
             :width: 780px
 
@@ -890,7 +820,7 @@ Fitting data with one input data set
 Select “data controls” radio button. Select data (‘Test Data’) and push
 red button “Add data”
 
-.. figure:: media/Modeling29.png
+.. image:: media/Modeling29.png
             :align: center
             :width: 780px
 
@@ -906,7 +836,7 @@ checkbox. Note that the Min and max fields appeared and are set to 0.1
 and 10x the value of our estimate. Uncheck the “Fit?” checkbox so the
 background is NOT fitted, when we run this next time…
 
-.. figure:: media/Modeling30.png
+.. image:: media/Modeling30.png
             :align: center
             :width: 780px
 
@@ -917,7 +847,7 @@ controls”. Check the checkbox “Auto recalc”. Make sure the
 “Interferences” checkbox is unchecked. Make sure that “Use?” checkbox
 for Pop 1 is checked and for all the others is unchecked.
 
-.. figure:: media/Modeling31.png
+.. image:: media/Modeling31.png
             :align: center
             :width: 780px
 
@@ -935,7 +865,7 @@ Let’s change values little bit to get better estimate of parameters…
 Reasonable starting point is may be with Min size ~ 100, Mean ~ 450, and
 Std. dev ~ 0.5 :
 
-.. figure:: media/Modeling32.png
+.. image:: media/Modeling32.png
             :align: center
             :width: 780px
 
@@ -946,7 +876,7 @@ controls” Use cursors to select in the graph input data between point 30
 and 73 and push button “Q from cursors”. This will set the Q min and Q
 max values.
 
-.. figure:: media/Modeling33.png
+.. image:: media/Modeling33.png
             :align: center
             :width: 780px
 
@@ -959,7 +889,7 @@ this subset of data. Select “Model controls” again. Check “Fit?” for
 Volume, Min size, Mean and Std Dev. Values for fitting limits should be
 set to relatively wide range.
 
-.. figure:: media/Modeling34.png
+.. image:: media/Modeling34.png
             :align: center
             :width: 780px
 
@@ -968,7 +898,7 @@ set to relatively wide range.
 Now push button “Fit model” at the bottom of the panel. The model should
 fit after few iterations…
 
-.. figure:: media/Modeling35.png
+.. image:: media/Modeling35.png
             :align: center
             :width: 780px
 
@@ -1013,7 +943,7 @@ and Std deviation. Try to fit to the data from 0.0015A\ :sup:`-1` to 0.5
 A\ :sup:`-1`\ … With little bit of luck (and a lot of calculations) you
 should get result similar to one below:
 
-.. figure:: media/Modeling36.png
+.. image:: media/Modeling36.png
             :align: center
             :width: 780px
 
@@ -1041,7 +971,7 @@ values are recorded. After the analysis, this dependence is analyzed and
 based on statistical analysis (number of fitted points and free
 parameters) the uncertainty of the parameter is estimated.
 
-.. figure:: media/Modeling37.png
+.. image:: media/Modeling37.png
             :align: center
             :width: 780px
 
@@ -1097,7 +1027,7 @@ from 22.704 to 33.271
 
 \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
 
-.. figure:: media/Modeling38.png
+.. image:: media/Modeling38.png
    :align: left
    :width: 580px
 
