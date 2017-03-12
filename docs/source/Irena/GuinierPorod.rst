@@ -40,7 +40,7 @@ Parameter description
 
 .. image:: media/GunierPorod2.png
    :align: left
-   :height: 45%
+   :height: 450px
 
 Note, that my experience from development of this tool is that getting fit with Guinier-Porod is much more challenging, especially for USAXS *slit smeared* data. So I had to write much more involved & careful procedures for fitting local parameters. This tool follows as much as possible the use of the Unified fit.
 
@@ -88,7 +88,7 @@ Below tabbed area we have Background (self explanatory I assume).
 
 .. image:: media/GunierPorod3.png
    :align: left
-   :height: 45%
+   :width: 45%
 
 **Model Parameters** (tabbed area):
 

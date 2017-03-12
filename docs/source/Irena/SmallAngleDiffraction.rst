@@ -76,7 +76,7 @@ Following are formulas for peak profiles Ψ(x) used for the peak profiles:
 
 where :math:`\sigma` is the Gaussian width, and :math:`\mu` is the center of the peak, and M is scaling factor.
 
-1. Modified Gaussian Function
+2. Modified Gaussian Function
 
 .. math::
 
@@ -84,7 +84,7 @@ where :math:`\sigma` is the Gaussian width, and :math:`\mu` is the center of the
 
 where d >=1 is the exponent that decides the falloff rate.
 
-1. Lorentz Function, Lorenz-squared (is just the same function squared)
+3. Lorentz Function, Lorenz-squared (is just the same function squared)
 
 .. math::
 
@@ -93,15 +93,19 @@ where d >=1 is the exponent that decides the falloff rate.
 
 where *a* is the Lorentzian width.
 
-1. Pseudo-Voigt Function
+4. Pseudo-Voigt Function
+
 
 .. math::
 
-    \Psi(x)=M *(\eta\frac{1}{1+x^2}+(1-\eta)exp(-(ln2)x^2)))
+      \Psi(x)=M *(\eta\frac{1}{1+x^2}+(1-\eta)exp(-(ln2)x^2)))
 
-where :math:`x=\frac{2(x-x_0)}{w}`, x\ :sub:`0` is the peak center, w is the FWHM, and :math:`0\leq \eta\leq 1`is a weight parameter.
+      x= \frac{2(x-x_0)}{w}
 
-1. Pearson type VII Function
+
+where :math:`x_0` is the peak center, w is the FWHM, and :math:`0\leq \eta \leq 1`  is a weight parameter.
+
+5. Pearson type VII Function
 
 .. math::
 
@@ -110,7 +114,7 @@ where :math:`x=\frac{2(x-x_0)}{w}`, x\ :sub:`0` is the peak center, w is the FWH
 where a is proportional to the FWHM, and m decides the rate at which the
 tail of the peak profile falls.
 
-1. Gumbel Function
+6. Gumbel Function
 
 .. math::
 
@@ -118,14 +122,14 @@ tail of the peak profile falls.
 
 where :math:`\beta` is the width and :math:`\mu` is the center of the peak.
 
-1. Skew normal function
+7. Skew normal function
 
 .. figure:: media/SmallAngleDiffraction15.png
    :align: center
    :width: 780px
 
 
-1. Percus-Yevick S(q) and Percus-Yevick S(q) multipled by Sphere F(q) are described in some detail in Form factor and Structure factor description (pdf file which you can open from SAS menu in Igor Pro). The code for P-Y S(q) is NIST code from NIST SANS data analysis
+8. Percus-Yevick S(q) and Percus-Yevick S(q) multipled by Sphere F(q) are described in some detail in Form factor and Structure factor description (pdf file which you can open from SAS menu in Igor Pro). The code for P-Y S(q) is NIST code from NIST SANS data analysis
    macros.
 
 “Display peaks” will display individual peaks. Note, data for individual peaks are never smeared.
@@ -145,7 +149,7 @@ Tabs for Peaks:
 
 .. figure:: media/SmallAngleDiffraction16.png
    :align: left
-   :width: 45%
+   :width: 300
 
 
 “Use” – use the peak. No need to use peaks in order, can be mixed-and-matched
