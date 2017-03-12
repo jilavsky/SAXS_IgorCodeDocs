@@ -1,16 +1,14 @@
 Plotting tools
 ==============
 
-**Introduction**
-
-This plotting tool is designed to be able to produce publication ready plots of variaous types of 1D data : SAXS/SANS and WAXS data, any of Irena results, and practically anything which one should display in XY type plot. It can also perform simple fits. The tool creates usual XY plot as default, but can also create few types of 3D plots - Contour plot, Waterfall plot and Gizmo plot. It can also create movies of either 2D plot and 3D plots.
-
-
 .. Figure:: media/Plotting1.png
    :align: left
    :width: 280px
    :figwidth: 300px
 
+**Introduction**
+
+This plotting tool is designed to be able to produce publication ready plots of variaous types of 1D data : SAXS/SANS and WAXS data, any of Irena results, and practically anything which one should display in XY type plot. It can also perform simple fits. The tool creates usual XY plot as default, but can also create few types of 3D plots - Contour plot, Waterfall plot and Gizmo plot. It can also create movies of either 2D plot and 3D plots.
 
 The tool allows creation of plot user styles, which can be applied quickly and reproducibly to numerous sets of data. New data types can be automatically created. Please note, that the formatting is saved ONLY if it is done through my custom made panels designed for this purpose.
 

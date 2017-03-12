@@ -9,17 +9,17 @@ Note, that this write up was written for studies of cement and therefore some of
 
 .. image:: media/Fractals1.png
    :align: center
-   :width: 580px
+   :width: 100%
 
 
 .. image:: media/Fractals2.png
       :align: center
-      :width: 580px
+      :width: 100%
 
 
 .. image:: media/Fractals2.png
          :align: center
-         :width: 580px
+         :width: 100%
 
 **Use**
 
@@ -33,7 +33,7 @@ Note, that the “Subtract background” variable next to data selection allows 
 
 .. image:: media/Fractals4.png
          :align: center
-         :width: 580px
+         :width: 100%
 
 
 Note, that you can combine ANY combination of the two mass fractals and two surface fractals.
@@ -64,12 +64,12 @@ Suggestions: check solution for particle aspect ratio 2 and 0.5, keep integral i
 
 .. image:: media/Fractals5.png
          :align: center
-         :width: 580px
+         :width: 100%
 
 
 .. image:: media/Fractals6.png
             :align: center
-            :width: 580px
+            :width: 40%
 
 
 Bottom picture shows updated Surface Fractal panel.

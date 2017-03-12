@@ -2,12 +2,14 @@
 Data manipulation tools
 =======================
 
+
+.. Figure:: media/DataManipulation1.png
+           :align: left
+           :width: 280px
+           :figwidth: 300px
+
 Data manipulation I
 -------------------
-
-.. image:: media/DataManipulation1.png
-           :align: left
-           :width: 40%
 
 This tool allows the user to modify data in many ways. It can work on one or two data sets at the same time. The data sets may or may not contain errors.
 

@@ -27,14 +27,6 @@ Nika was designed to provide number of methods to extract the data:
 
 Disclaimer:
 
-These macros represent a collaborative work in progress and it is very
-likely that not all features are finished at any given time. Therefore,
-some features may not work fully or at all. Please note, while I try my
-best to verify the results, no guarantees can be made as to the
-reliability of these results. Please, verify results in some other way.
-Please report any bugs to me, I will do my best to fix them ASAP. I
-provide limited support for users of these macros. Limited means that my
-time available for this support is limited. If you need help, e-mail
-Igor file to me with data so I can work on your data.
+These macros represent a collaborative work in progress and it is very likely that not all features are finished at any given time. Therefore, some features may not work fully or at all. Please note, while I try my best to verify the results, no guarantees can be made as to the reliability of these results. Please, verify results in some other way. Please report any bugs to me, I will do my best to fix them ASAP. I provide limited support for users of these macros. Limited means that my time available for this support is limited. If you need help, e-mail Igor file to me with data so I can work on your data.
 
 ilavsky@aps.anl.gov
