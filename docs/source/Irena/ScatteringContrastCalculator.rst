@@ -10,20 +10,20 @@ Basic calculator
 
 Select from menu “SAS” item “Scattering contrast calculator”:
 
-.. figure:: media/ScattContCalc1.png
+.. image:: media/ScattContCalc1.png
         :align: center
-        :width: 500px
+        :width: 85%
 
 
 This is the interface. At the top, select number of atoms in the material, set its density and check the check box if you want neutron data displayed. Let’s select 2 atoms, may be Al\ :sub:`2`\ O\ :sub:`3` (Corundum) with density of 4 and see neutron results. This is the picture after this selection
 
-.. figure:: media/ScattContCalc2.png
+.. image:: media/ScattContCalc2.png
         :align: center
-        :width: 500px
+        :width: 85%
 
 Use slider to select each element and check it’s properties – amount in molecule, Isotope etc. Input is done through Periodic system table (push Change element button). To continue, close the table…
 
-.. figure:: media/ScattContCalc3.png
+.. image:: media/ScattContCalc3.png
         :align: center
         :width: 320px
 
@@ -64,9 +64,9 @@ Anomalous calculator
 
 The package includes Cromer-Liberman code for calculating energy-dependent (anomaouls) effects. The button “Anomalous calculator” on the “Substance editor and Scattering contrast calculator” calls up new window…
 
-.. figure:: media/ScattContCalc4.png
+.. image:: media/ScattContCalc4.png
         :align: center
-        :width: 500px
+        :width: 85%
 
 Use of this tool:
 
@@ -76,9 +76,9 @@ To select two compounds hold shift. Then input right thickness and click “Reca
 
 **For single energy following appears:**
 
-.. figure:: media/ScattContCalc5.png
+.. image:: media/ScattContCalc5.png
         :align: center
-        :width: 500px
+        :width: 85%
 
 
 Note, that table on right got filled with all relevant numbers – f’ and f” , :math:`\mu`, and related values for each compound separately. Note, that f’ and f” are here with two different units as output – in electrons per molecule unit and in 10\ :sup:`10` cm\ :sup:`-2`. Lowest number is :math:`(\Delta \rho)^2` between the two compounds at this energy…
@@ -87,9 +87,9 @@ NOTE : line :math:`transm = exp(- \mu T)` is calculated transmission of your mat
 
 **For range of energies:**
 
-.. figure:: media/ScattContCalc6.png
+.. image:: media/ScattContCalc6.png
         :align: center
-        :width: 500px
+        :width: 85%
 
 
 Fill in the range of energies, number of steps you want to calculate
@@ -99,9 +99,9 @@ parameters. The push “Recalculate”.
 The buttons “Display” create graphs of appropriate parameter, see for
 example below:
 
-.. figure:: media/ScattContCalc7.png
+.. image:: media/ScattContCalc7.png
         :align: center
-        :width: 600px
+        :width: 100%
 
 
 Buttons “Save …” save the wave with the data into Igor folder of users
@@ -109,6 +109,6 @@ choice. The dialog should be easy to use and allows user to create new
 folder, select name for new data etc. Note, the data are saved as waves
 with so called “x-scaling”. To learn more read Igor manual.
 
-.. figure:: media/ScattContCalc8.png
+.. image:: media/ScattContCalc8.png
         :align: center
-        :width: 600px
+        :width: 100%

@@ -35,9 +35,10 @@ NOTE: you can have ONLY one of the importers opened at any given time, they shar
 Importing ASCII SAS data
 ------------------------
 
-.. image:: media/ImportData2.png
+.. Figure:: media/ImportData2.png
         :align: left
-        :width: 380px
+        :width: 300px
+        :Figwidth: 320px 
 
 Explanation of control available here:
 

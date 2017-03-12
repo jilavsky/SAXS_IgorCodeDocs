@@ -1,8 +1,7 @@
 Analytical models
 =================
 
-**This tool provides GUI for different models: Debye-Bueche,
-Treubner-Strey, Ciccariello-Benedetti**
+**This tool provides GUI for different models: Debye-Bueche, Treubner-Strey, Ciccariello-Benedetti**
 
 Debye-Bueche model for modeling structural in homogeneities in the gels.
 

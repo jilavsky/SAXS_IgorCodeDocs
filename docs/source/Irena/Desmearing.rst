@@ -49,7 +49,7 @@ Comment – if you need to go back in the routine, anytime you  can click on pre
 
 .. image:: media/Desmearing1.png
    :align: center
-   :width: 780px
+   :width: 100%
 
 
 This is GUI and graph after loading data. Only thing needed is to fill
@@ -66,7 +66,7 @@ any spurious point with the other button and cursor A (the rounded one)
 
 .. image:: media/Desmearing2.png
    :align: center
-   :width: 780px
+   :width: 100%
 
 
 2. Next step – it is possible to smooth data using spline smoothing, but
@@ -75,7 +75,7 @@ next:
 
 .. image:: media/Desmearing3.png
    :align: center
-   :width: 780px
+   :width: 100%
 
 
 Note the slider and checkbox – the checkbox switches on the smoothing,
@@ -94,7 +94,7 @@ These data suits best the Powerlaw with flat…
 
 .. image:: media/Desmearing4.png
    :align: center
-   :width: 780px
+   :width: 100%
 
 
 Note the colors: red are the original data, green are the original data
@@ -105,7 +105,7 @@ is the extrapolated data.
 
 .. image:: media/Desmearing5.png
    :align: center
-   :width: 780px
+   :width: 100%
 
 
 The desmearing can be done in steps – one at a time, 5 at a time,
@@ -135,7 +135,7 @@ Do one iteration:
 
 .. image:: media/Desmearing6.png
    :align: center
-   :width: 780px
+   :width: 100%
 
 
 Explanation: Red/green data are current desmeared data (see above about
@@ -151,7 +151,7 @@ person doing the desmearing.
 
 .. image:: media/Desmearing7.png
    :align: center
-   :width: 780px
+   :width: 100%
 
 
 For many data sets, 10-20 iterations are sufficient. Other data sets
@@ -167,7 +167,7 @@ iterations.)
 
 .. image:: media/Desmearing8.png
    :align: center
-   :width: 780px
+   :width: 100%
 
 
 Here one can smooth data… This is probably a better place to smooth, if

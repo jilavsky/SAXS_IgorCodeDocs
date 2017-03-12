@@ -5,6 +5,10 @@ Data manipulation tools
 Data manipulation I
 -------------------
 
+.. image:: media/DataManipulation1.png
+           :align: left
+           :width: 40%
+
 This tool allows the user to modify data in many ways. It can work on one or two data sets at the same time. The data sets may or may not contain errors.
 
 The tool allows the following data manipulations:
@@ -24,10 +28,6 @@ The tool allows the following data manipulations:
 7. Smooth data in linear or logarithmic scales or using spline smoothing with variable smoothing constant.
 
 **Panel description**
-
-.. image:: media/DataManipulation1.png
-           :align: left
-           :width: 330px
 
 In the top part user can select *First set data input* and S\ *econd set data input*. The behavior of these controls is always the same in all Irena macros system.
 

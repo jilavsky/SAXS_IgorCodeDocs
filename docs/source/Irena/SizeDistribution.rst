@@ -18,22 +18,22 @@ The difference in these two methods is in the applied constraint and it is this 
 
 The maximum entropy method was developed by Jennifer Potton et al., and supplied in the code package MAXE.FOR. Pete Jemian (jemian@anl.gov) has had his hands all over this code and in a few places, made some rather significant additions, resulting in the code package sizes.c. Most significant is the addition of the regularization method which is likely to succeed an finding a solution in many cases when the MaxEnt method fails to converge upon a solution. Please contact him with any questions regarding the implementation of these methods. (Point of fact, *both* are actually regularization methods.)
 
-    J.A. Potton, G.J. Daniell, and B.D. Rainford; ***Inst Phys Conf
-    Ser*** **#81, Chap. 3** (1986) 81-86
+    J.A. Potton, G.J. Daniell, and B.D. Rainford; Inst Phys Conf
+    Ser, #81, Chap. 3, (1986) 81-86
 
-    --- ***J Appl Cryst*** **21** (1988) 663-668
+    --- J Appl Cryst, 21 (1988) 663-668
 
-    --- ***J Appl Cryst*** **21** (1988) 891-897.
+    --- J Appl Cryst, 21 (1988) 891-897.
 
-    J. Skilling and R.K. Bryan; ***Mon Not R Astr Soc*** **211** (1984)
+    J. Skilling and R.K. Bryan; Mon Not R Astr Soc, 211 (1984)
     111-124.
 
-    Ian D. Culverwell and G.P. Clarke; ***Inst Phys Conf Ser*** **#81,
-    Chap. 3** (1986) 87-96.
+    Ian D. Culverwell and G.P. Clarke; Inst Phys Conf Ser, #81,
+    Chap. 3 (1986) 87-96.
 
 Literature citation for Maximum Entropy code in Irena macros bvy Pete Jemian
 
-Pete R. Jemian, Julia R. Weertman, Gabrielle G. Long, and Richard D. Spal; Characterization of 9Cr-1MoVNb Steel by Anomalous Small-Angle X-ray Scattering, **Acta Metall Mater 39** (1991) 2477-2487.
+Pete R. Jemian, Julia R. Weertman, Gabrielle G. Long, and Richard D. Spal; Characterization of 9Cr-1MoVNb Steel by Anomalous Small-Angle X-ray Scattering, *Acta Metall Mater 39* (1991) 2477-2487.
 
 Here *NP(r)* is described as a histogram size distribution where a fixed number of bins are defined over a given range of diameter with either constant diameter bins or constant proportional diameter bins. Solution of the histogram size distribution to the scattering equation 9.1 above is obtained by fitting the scattering calculated from trial distributions to the measured data and then revising the amplitudes of the trial histogram distribution based upon the applied constraints. The trial histogram size distribution is not forced to adhere to a particular functional form, such as Gaussian or log-normal. However, in the current formulation, all sizes of the scatterer are expected to have the same scattering contrast and morphology (shape, degree of interaction, aspect ratio, orientation, etc.).
 

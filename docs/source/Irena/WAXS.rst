@@ -27,7 +27,7 @@ Any of these data types will be converted to Two Theta [degrees] - Intensity - u
 
 .. image:: media/WAXS1.png
       :align: center
-      :width: 480px
+      :width: 420px
 
 In the SAS menu select “Powder Diffraction fitting = WAXS”.
 
@@ -43,25 +43,23 @@ Use cursors to select fitting range or define manually fitting 2Theta min/max va
 
 .. image:: media/WAXS2.png
       :align: center
-      :width: 480px
+      :width: 100%
 
 
 Here is example of the graph in default way. Displays the Intensity vs TwoTheta (TTH) in degrees. Weird units, I know.
 
 **Adding Diffraction lines (PDF2/4-type)**
 
-.. image:: media/WAXS3.png
-      :align: center
-      :width: 280px
-
 For basic phase analysis and orientation we usually use JCPDS PDF data. Irena has no way of hooking into the database and this may be developed later, if there is simple way. But the access to the database seems pretty expensive anyway and I assume most users will not have this access. There are ways to avoid the need at least somehow. Read further.
 
 
 On right had side of the Powder Diffraction/WAXS fits click on the "Diff. lines" tab. Most likely your Diffraction Lines listbox will be empty or contain some cards I distribute with Irena. There are not real JCPDS cards, these are calculated based on models as described below.
 
+
+.. image:: media/WAXS3.png
+      :width: 48%
 .. image:: media/WAXS4.png
-      :align: center
-      :width: 380px
+      :width: 48%
 
 **We need to fill it up. There are few choices**
 
@@ -75,7 +73,7 @@ Click button and locate the xml card. I have as example Cu card. Card is read an
 
 .. image:: media/WAXS5.png
       :align: center
-      :width: 380px
+      :width: 300px
 
 
 Allows you to select card to overwrite or create anew card with name you want. If you select card to overwrite, the new card name is not used. If Existing card is not selected, new name is used and card is create in current Igor experiment. You may want to export the card to computer in Irena location for future use.
@@ -86,7 +84,7 @@ If you choose the checkbox "Display HKL tags" you will also get tags to each pea
 
 .. image:: media/WAXS6.png
       :align: center
-      :width: 480px
+      :width: 100%
 
 
 Note, that you can change the color of these lines if you right click on the name of the card in the Listbox and select new color for that card. It should remember it.
@@ -110,7 +108,7 @@ When you Start the MPF2 with the button "Start Multipeak Fitting 2.0" you will p
 
 .. image:: media/WAXS8.png
       :align: center
-      :width: 480px
+      :width: 100%
 
 
 The process is to setup MPF2 now - select range of data using cursors which you want to fit, do autolocate.
@@ -118,12 +116,9 @@ The process is to setup MPF2 now - select range of data using cursors which you 
 You can zoom in, change fit parameters etc. Check the demo. You can add/edit peak if you select range of data with marquee (like for zoom) and right click there and select "Add or edit peaks".
 
 .. image:: media/WAXS9.png
-      :align: center
-      :width: 280px
-
+      :width: 48%
 .. image:: media/WAXS10.png
-            :align: center
-            :width: 280px
+      :width: 48%
 
 
 You can select Baseline function - MPF2 has constant, linear, cubic etc, I added two more - polynomial (up to 10th power, fit only as many parameters as you need, hold others at 0) and one, which combines measured background (select on panel in "Background if needed for fitting) and constant. In this case the background is scaled by fitted parameters - "transmission" and constant is another "flat" background.
@@ -136,7 +131,7 @@ Here is a fit:
 
 .. image:: media/WAXS11.png
       :align: center
-      :width: 480px
+      :width: 100%
 
 
 Now, when you have a good fit, you can use "Record Current MPDF2 Fit results".
@@ -155,7 +150,7 @@ I saved few fits of some other data and here are the results:
 
 .. image:: media/WAXS12.png
       :align: center
-      :width: 480px
+      :width: 100%
 
 
 This is Peak profile (Int vs d) for the Peak 2 from sample which was annealed and had multiple peaks changing.

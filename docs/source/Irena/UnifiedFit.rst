@@ -135,7 +135,7 @@ In the top part  select “Use Indra 2 data”, or “Use QRS data” or none ch
 
 .. image:: media/UnifiedFit2.png
    :align: center
-   :width: 600px
+   :width: 100%
 
 The two graphs which appear show selected data in two different views – top graph is log-log Intensity vs Q vector, bottom part is (Intensity \* Q\ :sup:`4`) vs Q vector.
 
@@ -154,7 +154,7 @@ Select the number of level 1, check Update Unified automatically (if used comput
 
 .. image:: media/UnifiedFit3.png
    :align: center
-   :width: 600px
+   :width: 100%
 
 **Description of the Tab area in the panel:**
 
@@ -168,13 +168,13 @@ Select point 76 – 87 on the top graph using cursors and check “Fit” checkb
 
 .. image:: media/UnifiedFit4.png
    :align: center
-   :width: 600px
+   :width: 100%
 
 The blue line in the graphs now is the Guinier fit. Next select points 84 to 92 with cursors, check boxes “Fit” next to B and P and push button “Fit P/B btwn cursors”. Now we get the power-law fit on this area:
 
 .. image:: media/UnifiedFit5.png
    :align: center
-   :width: 600px
+   :width: 100%
 
 
 The green line is local fit for the power law dependence. Notice, that the fit to the data in the modeled q range is now reasonably good, including our background estimate.
@@ -207,7 +207,7 @@ Ok, level 1 looks fine and the background also. Uncheck all fit boxes in the pan
 
 .. image:: media/UnifiedFit8.png
     :align: center
-    :width: 600px
+    :width: 100%
 
 The green and blue lines in at this time represent default values for level 2. If you click now on tab of 1. level, the blue and green lines will be set for local fits for level 1, if on tab with level 2, they represent local fits for level2., etc…
 
@@ -215,13 +215,13 @@ Let’s do local fits for level 2. Set cursors between points 31 and 48. Push �
 
 .. image:: media/UnifiedFit9.png
     :align: center
-    :width: 600px
+    :width: 100%
 
 Now we need to do something similar for power law dependence. Select points 47 to 63, reduce B to about 0.00001, select “fit” checkboxes there and do local fit. Following should be the result:
 
 .. image:: media/UnifiedFit10.png
     :align: center
-    :width: 600px
+    :width: 100%
 
 Now we can select area with this level only and optimize the parameters of Both Guinier part and Power law part together:
 
@@ -231,7 +231,7 @@ In this case the reason for error message is the fact, that power law slope star
 
 .. image:: media/UnifiedFit11.png
     :align: center
-    :width: 600px
+    :width: 100%
 
 
 And now is the time to broaden the data range and fit both levels together. It is not necessary to fit background, but should not hurt… Select points 31 to 103, check all parameters for level 1 and level 2 to fit and then fit.
@@ -240,14 +240,14 @@ Note, that in this case (this was mixture of two powders) the right setting for 
 
 .. image:: media/UnifiedFit12.png
     :align: center
-    :width: 600px
+    :width: 100%
 
 
 Last part, which may need to be solved, is the power law tail at smallest Qs from something large. To do so, we can use trick of this method – create level, which has really large Rg, but G is 0, This removes effectively Guinier area from the calculations. Then we are left with power-law only. To do so, create level 3 and select the tab with level 3. Set G to 0 and Rg is automatically set to 10\ :sup:`10`. Now we need to fix only the power-law part. Modifying the B and P manually is the best method in this case… A good guess clearly is about 3\*10\ :sup:`-7` for B and P roughly 4.
 
 .. image:: media/UnifiedFit13.png
     :align: center
-    :width: 600px
+    :width: 100%
 
 Now select wide range of Q’s – points 103, select parameters to fit (possibly all, but that will take longer) and make sure the limits (especially for level 3!!!) are set correctly. Note, that Level 3 Guinier parameters should not be fitted! Then push button fit.
 
@@ -255,7 +255,7 @@ And we receive nice solution:
 
 .. image:: media/UnifiedFit14.png
     :align: center
-    :width: 600px
+    :width: 100%
 
 Notice the standardized residuals in the top graphs are reasonable for all Q’s suggesting that we have right number of levels. It may be possible to improve the fit by including some correlations – the powder could have been compacted quite a bit, but I leave that to user to image out more…
 
@@ -378,7 +378,7 @@ This includes results in the graphs in text boxes:
 
 .. image:: media/UnifiedFit19.png
     :align: center
-    :width: 600px
+    :width: 100%
 
 Note, that only selected, applicable parameters for each level are included in the text boxes… The text boxes can be formatted (double click on the text box) to suit user output. But note, that the text boxes get redrawn (and therefore reset to default) next time user pushes the “Results to graph” button.
 

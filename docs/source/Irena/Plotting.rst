@@ -5,6 +5,13 @@ Plotting tools
 
 This plotting tool is designed to be able to produce publication ready plots of variaous types of 1D data : SAXS/SANS and WAXS data, any of Irena results, and practically anything which one should display in XY type plot. It can also perform simple fits. The tool creates usual XY plot as default, but can also create few types of 3D plots - Contour plot, Waterfall plot and Gizmo plot. It can also create movies of either 2D plot and 3D plots.
 
+
+.. Figure:: media/Plotting1.png
+   :align: left
+   :width: 280px
+   :figwidth: 300px
+
+
 The tool allows creation of plot user styles, which can be applied quickly and reproducibly to numerous sets of data. New data types can be automatically created. Please note, that the formatting is saved ONLY if it is done through my custom made panels designed for this purpose.
 
 The tasks, which can be done:
@@ -27,11 +34,6 @@ This tool can also display “results” – size distributions, Unified fits et
 
 Plotting tool I
 ---------------
-
-.. Figure:: media/Plotting1.png
-   :align: left
-   :width: 280px
-   :figwidth: 300px
 
 Select “Plotting I” from SAS menu.
 
@@ -77,7 +79,7 @@ Contour plot
 From version 2.52 this tool can create Contour plot. Load series of data in the tool (best through Scripting tool) and then push button "*Contour plot*". Contour plot is created:
 
 .. image:: media/Plotting16.png
-   :align: left
+   :align: center
    :width: 350px
 
 

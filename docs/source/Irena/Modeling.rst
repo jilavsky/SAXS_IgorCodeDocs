@@ -154,12 +154,9 @@ SINGLE input data set - size distribution
 This subchapter relates ONLY to *Size distribution* type of "population" in Modeling II. Please, use this to learn about the specific related to size distribution use and the types of parameters. Next chapter will describe use of Unified fit and Diffraction peaks. It is not easy to find nice case example data to produce one chapter together. Also, it may be really confusing to mix and match these models. Start tool from SAS menu, it is titled “Modeling II”.
 
 .. image:: media/Modeling6.png
-      :align: left
-      :width: 380px
-
+        :width: 45%
 .. image:: media/Modeling7.png
-            :align: left
-            :width: 380px
+        :width: 45%
 
 **GUI description**
 
@@ -188,7 +185,7 @@ To load data into the tool use the red button “Add data” on the left top cor
 
 .. image:: media/Modeling8.png
       :align: left
-      :width: 780px
+      :width: 100%
 
 
 Description of parameters on the Input data tab:
@@ -221,13 +218,9 @@ Controls for any population appear when “\ **Use?**\ ” checkbox is selected�
 
 
 .. image:: media/Modeling9.png
-      :align: left
-      :width: 380px
-
-
+      :width: 48%
 .. image:: media/Modeling10.png
-            :align: left
-            :width: 380px
+      :width: 48%
 
 Description of controls:
 
@@ -251,8 +244,7 @@ Description of controls:
 
 .. image:: media/Modeling11.png
       :align: left
-      :width: 380px
-
+      :width: 45%
 
 This is example of screen for Spheroid. Note, that there is one parameter for this Form factor (aspect ratio). This parameter can be fitted in this tool. By selecting “\ **Fit?**\ ” checkbox, low an high limits fields will appear.
 
@@ -299,7 +291,7 @@ with parameters ***width*** and ***MeanPos***:
 
 .. image:: media/Modeling12.png
       :align: left
-      :width: 320px
+      :width: 45%
 
 
 Note, that due to quirk in Igor way of controlling updates you need to hit enter twice to automatically recalculate the curve (when checkbox on main panel is selected)…
@@ -330,13 +322,9 @@ Comment: If user decides to do NOLY modeling with no real input data - by using 
 
 
 .. image:: media/Modeling13.png
-      :align: center
-      :width: 380px
-
-
+      :width: 48%
 .. image:: media/Modeling14.png
-            :align: center
-            :width: 380px
+      :width: 48%
 
 
 Select Model: “Unified level”, “Surface Fractal”, “Mass Fractal”, or "Diffraction peak". Note, that different controls appear in the panel.
