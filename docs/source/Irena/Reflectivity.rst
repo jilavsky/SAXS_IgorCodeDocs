@@ -1,17 +1,16 @@
 Reflectivity
 ============
 
+.. figure:: media/Reflectivity1.png
+   :align: left
+   :width: 300px
+   :figwidth: 320px
+
 This is relatively simple tool to model and fit X-ray and neutron reflectivity for up to 8 layers using recursive Parratt’s code (L. G. Parratt, *Phys Rev*, **95**\ (2), 359-369, 1954), as implemented for example in older code called “Parratt”. The code itself was provided by Andrew Nelson (Andrew_Nelson@users.sourceforge.net ). I have implemented only the GUI in manner similar to the rest of the Irena code. I will provide basic support for this package. Please note, that Andy has made more complex and capable version of his package “Mottofit” available for free download to other Igor users through http://motofit.sourceforge.net/ under GNU license. If you need more complex fitting, than my code allows, please use Andy’s powerful code. You may, however, have to learn little bit more of Igor.
 
 **Use of xop to speedup the calculations**
 
 The code uses optional abeles.xop and GenCurveFit.xop. These are both optional – but the increase in speed (especially abeles.xop) is major (factor of 5-10x). These xops can be downloaded from Andrew Nelson’s web site (listed above).
-
-.. figure:: media/Reflectivity1.png
-   :align: left
-   :width: 380px
-   :figwidth: 400px
-
 
 **Explanation**
 

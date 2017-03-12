@@ -39,7 +39,7 @@ Load data in Igor as seen in the above center and the follow next steps.
 
 Following GUI is available from SAS menu (under Pair Distance dist. Fnct.)
 
-.. image:: media/PairDIstanceDist5.png
+.. image:: media/PairDistanceDist5.png
       :align: center
       :width: 100%
 
@@ -52,7 +52,7 @@ PDDF modeling requires few right choices… Here are some suggestions how to get
 
 1. Maximum r. Generally this is maximum distance for p(r) (=PDDF) function. For relatively spherical particles it is close to 2\*Rg, for less spherical particles can get larger, may be up to 4\* Rg. It is important to guess large enough number, but not too large. To help, you can try using the button “Guess maximum”. In this case the code will attempt to fit one-level Unified fit to the data and provide guess for Rg. Maximum r is set to 2.5\*Rg. Here is result in this case:
 
-.. image:: media/PairDIstanceDist6.png
+.. image:: media/PairDistanceDist6.png
       :align: center
       :width: 100%
 
@@ -77,7 +77,7 @@ Uses least square fitting. I had better success with using fractional errors. Ag
 
 There is nothing more needed, just select range of data to fit (probably whole range, but can be limited using cursors) and push fit button:
 
-.. image:: media/PairDIstanceDist7.png
+.. image:: media/PairDistanceDist7.png
       :align: center
       :width: 100%
 
@@ -88,7 +88,7 @@ And here is result… One can see the PDDF, below graph are normalized residuals
 
 Select the tab with “Moore” and then see below:
 
-.. image:: media/PairDIstanceDist8.png
+.. image:: media/PairDistanceDist8.png
       :align: center
       :width: 100%
 
@@ -211,7 +211,7 @@ Real space: Rg = 15.252 +- 0.000-00 I(0) = 0.6555E+01 +- 0.000E+00 meaningful, e
 
 “Paste to Notebook” copies graph and somehow formatted summary of result into special notebook (created if necessary) for printing and future review.
 
-.. image:: media/PairDIstanceDist9.png
+.. image:: media/PairDistanceDist9.png
       :align: center
       :width: 100%
 
