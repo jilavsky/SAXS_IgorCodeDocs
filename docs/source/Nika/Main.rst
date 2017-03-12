@@ -10,16 +10,16 @@ Select “Main panel” from the “SAS 2D” menu. This will present the follow
 
 The panel has three major parts:
 
-#. Top is designed for 2D data selection. Here user selects which 2D image will be processed.
+**Top** is designed for 2D data selection. Here user selects which 2D image will be processed.
 
-#. Middle (tabbed area) is designed for controls of processing. This is the busiest area of the panel and each tab will be explained later.
+**Middle** (*tabbed area*) is designed for controls of processing. This is the busiest area of the panel and each tab will be explained later.
 
-#. Bottom contains buttons for main controls and 2D image controls.
+**Bottom** contains buttons for main controls and 2D image controls.
 
 Selecting data
 ---------------
 
-The macros can load selected data types. If appropriate file type is not found in the “Image type” popup menu at the top right corner, you will have to contact me so I add appropriate loader for your data.
+Nika can load number of different **Image types** - aka: file formats, file types - usually well described by file extension (e.g., tif). These are selected by "**Image type**" popup menu in top right corner. If appropriate file type is not found in the “Image type” popup menu, you will have to contact me so I can develop and add appropriate loader for your specific data. Note, that most data formats are binary data with some header, and if you can get description of your data format you can often use General Binary reader.
 
 Select appropriate type of data you have and then push “Select data path” button, dialog is presented, in which path to folder on the hard drive containing 2D images is selected. FInd the local path to data using this standard Igor dialog. and push OK when done.
 
@@ -36,7 +36,7 @@ Use the “Match” field to mask the file names with Regular expression. To mat
 Note, the files ending with “\_mask”. These are mask files created by Nika package, these were used to be tiff files, now they are hdf5 files… Separate chapter explains how mask is created.
 
 .. image:: media/Main3.png
-   :align: center
+   :align: left
    :width: 380px
 
 
@@ -48,38 +48,27 @@ As default Igor displays 0,0 of the image in the top left corner. This seems to 
 Sort order
 -----------
 
-Decides how the data are listed in the listbox.
+Decides how the data are listed in the listbox. Options:
 
-Four options:
+-  *None* – list as provided by OS.
+- *Sort* – the old method. Alphabetical (but numerical order may get wrong)
+- *Sort2* – alphabetical, but taking care of sorting out smaller number before larger ones.
+- *\_001.* – this one assumes, that end of file name, before extension, is number. Before number you need to have “\_” and after number must be “.” followed by extension.
+- *Invert \_001*
+- *Invert Sort*
+- *Invert Sort2*
 
-*None* – list as provided by OS.
-
-*Sort* – the old method. Alphabetical (but numerical order may get wrong)
-
-*Sort2* – alphabetical, but taking care of sorting out smaller number before larger ones.
-
-*\_001.* – this one assumes, that end of file name, before extension, is number. Before number you need to have “\_” and after number must be “.” Followed by extension.
-
-*Invert \_001*
-
-*Invert Sort*
-
-*Invert Sort2*
-
-All inverted sorting simply reverses the sorting logic.
-
-Try them and see, which works best for you.
+All inverted sorting simply reverses the sorting logic. Try them and see, which works best for you.
 
 Match
 ------
 
-Using RegEx now. This is Grep language using regular expressions, very powerful. For simplicity: match names containing (anywhere) test, just type in this field test. To match names starting with test type in ^test. Names ending with tif can be matched by tif$ and so on. Note that to match any single character you need to use .
+Using RegEx now. This is Grep language using regular expressions, very powerful. For simplicity: match names containing (anywhere) test, just type in this field test. To match names starting with test type in ^test. Names ending with tif can be matched by tif$ and so on. Note that to match any single character you need to use. Need to start quickly? See here: https://www.cheatography.com/davechild/cheat-sheets/regular-expressions/
 
-Side controls
--------------
+Side buttons
+------------
 
-There are few controls next to the Listbox where user can select the data:
-
+There are few buttnos next to the Listbox where user can select the data:
 
 Refresh:
  This button was removed in 1.66. The refresh and some other functionality was added to right click for most Listoboxes in Nika.
@@ -97,9 +86,7 @@ Following dialog is presented:
 
 Explanation of controls:
 
-“Select data path” – select path to folder with the configuration files
-
-Path is displayed below
+“Select data path” – select path to folder with the configuration files; Path is displayed below
 
 Left window – shows the names of configuration files found in this location
 
