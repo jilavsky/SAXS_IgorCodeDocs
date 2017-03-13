@@ -1,5 +1,9 @@
+.. _model.Guinier-Porod:
+
 Guinier-Porod
 =============
+
+.. index:: model; Guinier-Porod
 
 **Introduction**
 

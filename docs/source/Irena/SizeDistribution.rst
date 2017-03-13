@@ -1,12 +1,29 @@
+.. _model.size-distribution:
+
 Size Distribution
 ====================
 
-**Using maximum entropy, total-non negative least squares method and regularization**
+.. index:: 
+   model; size distribution
+   size distributions; model SAS data
+
+There are three methods to computer a size distribution from the measured SAS data:
+
+* :ref:`model.maxent`
+* :ref:`model.regularization`
+* :ref:`model.tnnls`
 
 Basic description of methods
 ----------------------------
 
-**Maximum entropy method**
+.. _model.maxent:
+
+Maximum entropy method
+~~~~~~~~~~~~~~~~~~~~~~
+
+.. index:: 
+   model; MaxEnt
+   model; Maximum entropy method
 
 Maximum entropy (MaxEnt) and regularization (maximizes smoothness) are two separate methods for obtaining size distributions from small-angle scattering data. Yet, we describe them together here since they share many common components. Both are versions of a constrained optimization of parameters which solve the scattering equation.
 
@@ -49,13 +66,26 @@ where :math:`\chi^2` describes the goodness of fit, *S* is the applied constrain
 
 For MaxEnt, the additional contraint is that the configurational entropy of the size distribution must be maximized. Rather than be bothered by what this means when compared with the thermodynamic entropy, you are asked to consider that this constraint enforces the principle that all histograms in the size distribution must have a positive amplitude. To make the calculation of the entropy, an additional reference level must be defined. Typically, this reference level (a.k.a., Sky Background, starting guess, *a priori* information) is about 0.01 of the maximum level of the final size distribution. One does not need to fine-tune this parameter and should never be concerned with adjustments less than one order of magnitude. Too high and this parameter will cause the solution to have upward tails at both low and high ends of the distribution. Too low and additional scatter will appear in the distribution. The MaxEnt constraint imposes no correlation on the amplitudes of adjacent bins in the calculated histogram size distribution.
 
-**Regularization method**
+.. _model.regularization:
+
+Regularization method
+~~~~~~~~~~~~~~~~~~~~~
+
+.. index:: 
+   model; Regularization method
 
 The regularization method implemented here maximizes the smoothness of the calculated histogram size distribution by minimizing the sum of the squared curvature deviations. The particular mathematics used here do not prevent the use of negative values for the amplitudes of the histogram size distribution and this is a noted behavior which must be considered to avoid. Often, it is possible to avoid the negative bins in the size distribution by adjusting the fitting range, the bins in the histogram size distribution, or the background.
 
 NOTE: since version 1.50 I modified the code to provide ONLY positive solutions. It is heavy-handed code change and likely not really mathematically correct. It may change a bit in the future.
 
-**Total non-negative least square method**
+.. _model.tnnls:
+
+Total non-negative least square method
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. index:: 
+   model; TNNLS
+   model; Total non-negative least square method
 
 This is implementation of the “Interior point method for totally nonnegative least square method”. I have found reference and method description for this method on line: Michael Merrit and Yin Zhang, Technical report TR04-08, Department of Computational and Applied Mathematics, Rice University, Houston, Texas, 77005, USA. This publication was from May 2004, I have found it on the web posted in December 2004, http://www.caam.rice.edu/caam/trs/2004/TR04-08.pdf
 

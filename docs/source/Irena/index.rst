@@ -1,5 +1,9 @@
+.. _irena:
+
 Irena manual
 ============
+
+.. index:: ! Irena manual
 
 Manual |release| for Irena version 2.62 for Igor 7.x
 

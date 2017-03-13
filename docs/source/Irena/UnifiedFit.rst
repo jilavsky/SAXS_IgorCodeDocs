@@ -1,9 +1,14 @@
+.. _unified-fit:
+
 Unified Fit
 ===========
 
+.. index:: 
+   model; Unified Fit
+
 **Introduction**
 
-The Unified fit uses code developed by Greg Beuacage to fit SAS data with levels composed of a Guinier part and a power law tail. The code handles various data for which the development of an exact scatterer model is difficult or impossible. The fitting code can handle some interparticle interference, fractal scatterers *etc*. For details, please see papers written by Greg Beuacage or, hopefully, in the future an included description.
+The Unified fit uses code developed by Greg Beaucage to fit SAS data with levels composed of a Guinier part and a power law tail. The code handles various data for which the development of an exact scatterer model is difficult or impossible. The fitting code can handle some interparticle interference, fractal scatterers *etc*. For details, please see papers written by Greg Beuacage or, hopefully, in the future an included description.
 
 **This is introduction written by Greg for this code**:
 

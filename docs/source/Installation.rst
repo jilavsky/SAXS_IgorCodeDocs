@@ -1,5 +1,9 @@
+.. _installation:
+
 Installation
 ============
+
+.. index:: ! installation
 
 Availability of the code
 ------------------------
@@ -8,11 +12,11 @@ For long time my packages were available from APS web site, *Irena* from: http:/
 
 For long time my packages were available from APS web site, *Nika* from: http://usaxs.xray.aps.anl.gov/staff/ilavsky/nika.html
 
-While this site is and will be available, future versions of the code will be available from Github:
+While this site is and will be available, future versions of the code will be available from :index:`Github`:
 
 https://github.com/jilavsky/SAXS_IgorCode
 
-Github depository will also be used for installations for Igor Pro 7 and higher. Igor 6 cannot install from GitHub due to inability to download files using https which Github requires today.
+Github repository will also be used for installations for Igor Pro 7 and higher. Igor 6 cannot install from GitHub due to inability to download files using https which Github requires today.
 
 Download latest GithubInstaller_IrenaNika_vX.YY.pxp package from :
 
@@ -28,6 +32,9 @@ https://github.com/jilavsky/SAXS_IgorInstaller/tree/master/Igor_GitHub.
 
 To test and use my code you can use demo version of Igor Pro - Igor pro will run on compuyter where it was not installed before for one month as full featured demo. To use this, find computer which did not have yet Igor Pro installed, install the latest version of Igor Pro 7 from https://www.wavemetrics.com, and you are set.
 
+.. _youtube:
+
+.. index:: Youtube channel
 
 Youtube channel for Irena and Nika
 ----------------------------------
@@ -46,6 +53,10 @@ The totally weird link to the channel is here:
 https://www.youtube.com/channel/UCDTzjGr3mAbRi3O4DJG7xHA
 
 This channel contains instructional movies how to install the package and how to use different tools. Please, watch it if you need help. It may help you
+
+.. _courses:
+
+.. index:: Courses
 
 Courses
 -------

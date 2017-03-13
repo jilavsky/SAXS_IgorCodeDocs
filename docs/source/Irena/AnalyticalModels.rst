@@ -1,5 +1,10 @@
+.. _analytical-models:
+
 Analytical models
 =================
+
+.. index::
+   model; analytical models
 
 **This tool provides GUI for different models: Debye-Bueche, Treubner-Strey, Ciccariello-Benedetti**
 
@@ -13,8 +18,13 @@ All models can be combined with low-Q Single Unified level. The controls have no
 
 For explanation of the Unified level control, please see Unified fit. In version 2.54 I have added ability to link RgCo to parameters from Debye-Bueche and Treubner-Strey models. Also I have (pre request) added plot of residuals.
 
+.. _model.Debye-Bueche-gels:
+
 Debye-Bueche model for gels
 ----------------------------
+
+.. index::
+   model; Debye-Bueche model for gels
 
 The theory is implemented in following form:
 
@@ -135,8 +145,13 @@ Buttons:
    :width: 580px
 
 
+.. _model.Treubner-Strey:
+
 Treubner-Strey for small-angle diffraction
 -------------------------------------------
+
+.. index::
+   model; Treubner-Strey for small-angle diffraction
 
 Treubner-Strey model follows the publications : Teubner, M; Strey, R. J. Chem. Phys., 1987, 87, 3195 and Schubert, K-V.; Strey, R.; Kline, S. R.; and E. W. Kaler J. Chem. Phys., 1994, 101, 5343.
 
