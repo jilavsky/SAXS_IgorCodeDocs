@@ -10,6 +10,4 @@ For more information see web sites:
 **Youtube movies :** https://www.youtube.com/channel/UCDTzjGr3mAbRi3O4DJG7xHA/about
 
 
-Contact
-=======
-Questions? Please contact :  ilavsky@aps.anl.gov
+**Contact**   Questions? Please contact :  ilavsky@aps.anl.gov

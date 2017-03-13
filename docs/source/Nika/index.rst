@@ -1,9 +1,24 @@
 Nika manual
 ===========
 
-This is manual for Nika package version: 1.7x
+Manual |release| for  Nika version: 1.75
 
 .. toctree::
    :maxdepth: 3
 
-   Nika_Introduction.rst
+   Introduction
+   Main
+   BCandGeometry
+   Mask
+   FloodField
+   OutputData
+   ImportDataTypes
+   Nexus
+   InstrumentSupport
+   Important
+
+Indices and tables
+------------------
+
+* :ref:`genindex`
+* :ref:`search`

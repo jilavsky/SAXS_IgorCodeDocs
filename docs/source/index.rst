@@ -10,8 +10,8 @@ Contents:
 
    help
    Installation
-   Irena/index.rst
-   Nika/index.rst
+   Irena/index
+   Nika/index
 
 Indices and tables
 ==================
