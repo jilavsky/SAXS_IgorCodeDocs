@@ -1,6 +1,9 @@
+.. _Nexus:
 
 NEXUS data
 ----------
+
+.. index:: Nexus files
 
 Nika has supported Nexus files for some time now, actually my own instrument is using Nexus files for raw data since about 2013 or so… Version 1.75 brings much better and complete support of Nexus files.
 

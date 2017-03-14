@@ -1,3 +1,5 @@
+.. index:: Mask Nika
+
 Mask
 ====
 

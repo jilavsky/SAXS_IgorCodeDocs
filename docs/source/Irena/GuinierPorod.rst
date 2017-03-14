@@ -42,7 +42,7 @@ Another words, as far as I can say, Guinier-Porod model is superior in limited n
 
 Parameter description
 
-.. image:: media/GunierPorod2.png
+.. figure:: media/GunierPorod2.png
    :align: left
    :width: 280px
    :figwidth: 300px

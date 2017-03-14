@@ -1,12 +1,16 @@
 Important Information
 =====================
 
+.. index:: Units used Irena
+
 The code uses for all size related parameters Angstroems (10\ :sup:`-10` m) or for Q vector (A\ :sup:`-1`). In the case of scattering contrast, number distribution and any other volume contents centimeters (10\ :sup:`-2` m).
 
 Output of the size is *usually* in particle diameters, but Modeling II is using radii as default (and diameters optionally), but read the graphs, the output may not be always the same. Output graph legend or panel text should be always correct.
 
 Slit smeared (USAXS) data
 -------------------------
+
+.. index:: Slit smeared data
 
 Fitting slit smeared data is major *Irena* **advantage**. It is nearly **ALWAYS** better to fit slit smeared data than to desmear the data and then fit them. However, some *Irena* tools have limitations when fitting smeared data: due to need to smear data and the way it is handled by *Irena* routine, the modeled range of data (the high-\ *q* selected for modeling and fitting) have to be larger than slit length. Typical slit length of the USAXS instrument is 0.02-0.03 A\ :sup:`-1`, so the high-\ *q* range needed to be at least 0.08 A\ :sup:`-1`. This means, that it is not possible to select for modeling data from small-qs to only 0.02 A\ :sup:`-1` ONLY.
 
@@ -15,15 +19,21 @@ This is fixed now for **Modeling, Unified Fit, and Size distribution** by adding
 Per point smeared data by Q resolution
 ---------------------------------------
 
+.. index:: Q resolution
+
 New in version 2.58 and only for Modeling II at this time, check the manual. This is a beast of issues but can be important!
 
 Kill all Irena panels and graphs
 --------------------------------
 
+.. index:: Close all Irena panels
+
 This menu item allows closing all Irena related windows – panels and graphs – to be closed at once. Very convenient…
 
 Open Irena pdf manual
 ---------------------
+
+.. index:: Manual, Open Manual
 
 In most cases this should open Irena manual in default pdf reader. If you are reading this, you probably managed. Better is to access manual on the web site:
 
@@ -32,10 +42,14 @@ http://saxs-igorcodedocs.readthedocs.io/en/latest/index.html
 Open Form factor description
 --------------------------------------
 
+.. index:: Form factors
+
 This should open pdf file with form factors description – including simplified code and graphs. These are form factors in the “central bank” of the Irena, available for use in packages, which use them.
 
 Check for updates
 -----------------
+
+.. index:: Update check
 
 .. image:: media/Important1.png
    :align: center
@@ -49,6 +63,8 @@ The buttons open appropriate web pages in your web browser.
 
 Location of items in SAS menu
 ------------------------------
+
+.. index:: Irena menu items
 
 The location of items in SAS menu keeps changing. Here is current (version 2.62) location to help you find what you need…:
 
@@ -140,8 +156,12 @@ I am slowly adding in various parts of the whole package calls to these commonly
 
 Not all packages follow these controls yet, if you see issues in package of your choice, let me know and I will try to address them ASAP. Time is limited resource.
 
+.. _DataSelection:
+
 Data selection
 ---------------
+
+.. index:: Data Selection Irena
 
 Data selection part of the panels is served by common package (mostly) and has more or less similar behavior – with modifications appropriate for each package. The purpose of these controls is to provide as much help to user to select appropriate data as possible. This is not easy task… Sometimes even it is not clear what the right help is.
 
@@ -235,8 +255,12 @@ in the name to be matched. And yes, between them is “.\*” without any spaces
 
 Match strings are tool-specific, so each tool has its own specific set of match strings.
 
+.. _SmallDisplayChallenge:
+
 Using Irena on small displays
 -----------------------------
+
+.. index:: Display problems
 
 Irena generates **a lot of** windows, panels, graphs, notebooks... It really needs large display, 1024x768 is realistically too small for useful work, but generally all panels are scaled to this size. But for whatever reason users insist on using tiny screens. So here is the first warning:
 
@@ -269,13 +293,18 @@ If you have a large display, you can zoom panels by dragging lower right corner 
 
 You can scale panels up or down, but they will not scale to smaller size than original size.
 
+.. _LargeDisplayChallenge:
+
 Using Irena on high resolution displays
 ---------------------------------------
+
 Igor has problems handling high resolution displays - 4k displays and similar - on Windows. Some users will set the resolution relatively high (may be 2.5 horizontally) but in order to be able to read the text on the screen they scale the font higher. Some combinations of resolutions and font scaling result in panels which are incorreclty populated with controls. If this happens, the only solution is to change resolution (typically to less points) and reduce the font scaling. Unluckily, this is the only solution provided by Wavemetrics to me.
 
 
 Use of XOP
 ----------
+
+.. index:: xop used
 
 Igor Pro enables use of external C-code to speed up some high cpu intensive operations. Note, that these binary pieces of code and bit-specific, so there is specific version for Igor 32bit and specific for Igor 64bit versions. They need to be properly located in Igor folder structure. Currently various optional xop program are available:
 
@@ -289,6 +318,8 @@ Igor Pro enables use of external C-code to speed up some high cpu intensive oper
 
 Genetic optimization
 --------------------
+
+.. index:: Genetic optimization
 
 Genetic optimization method is form of fitting from SAS data. It has been developed for optimization of reflectivity data but is very useful for cases where least square fitting may not find global minimum. It has been programmed for Igor by Andrew Nelson, who is also author of internal code for reflectivity tool.
 

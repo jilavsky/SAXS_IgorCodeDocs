@@ -1,5 +1,9 @@
+.. _FlodField:
+
 Flood field
 ===========
+
+.. index:: Flood field Nika
 
 This simple routine will help user to create “Flood field” – or as NIKA is calling Pix2D sensitivity field. This routine was revamped and upgraded in version 1.51 with more functionality.
 

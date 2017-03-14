@@ -1,3 +1,5 @@
+.. index:: Input 2D data type Nika
+
 Supported Data Types
 --------------------
 

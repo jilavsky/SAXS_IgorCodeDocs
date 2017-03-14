@@ -20,7 +20,7 @@ Manual |release| for  Nika version: 1.75
    Nexus
    InstrumentSupport
    Important
-
+  
 Indices and tables
 ------------------
 

@@ -1,3 +1,5 @@
+.. index:: Main panel Nika
+
 Main Panel
 ==========
 

@@ -3,7 +3,7 @@
 Installation
 ============
 
-.. index:: ! installation
+.. index:: ! Installation
 
 Availability of the code
 ------------------------

@@ -1,5 +1,9 @@
+.. _help:
+
 Help
 ====
+
+.. index:: Help
 
 For more information see web sites:
 

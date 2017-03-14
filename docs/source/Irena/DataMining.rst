@@ -1,3 +1,5 @@
+.. index:: Data mining
+
 Data mining tool
 =================
 

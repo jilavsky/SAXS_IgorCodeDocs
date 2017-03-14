@@ -1,4 +1,3 @@
-
 Data manipulation tools
 =======================
 
@@ -7,6 +6,8 @@ Data manipulation tools
            :align: left
            :width: 280px
            :figwidth: 300px
+
+.. index:: Data Manipulation I
 
 Data manipulation I
 -------------------
@@ -102,6 +103,8 @@ Results of above mathematical functions can be also smoothed by checking *Smooth
 3. Smoothing data. Select only data set 1 data, pas it through math part (modify, if necessary) and select smoothing method desired.
 
 Please, make sure you fill in properly the names of waves for output data. There is nothing I can do here to catch typos and mistakes…
+
+.. index:: Data Manipulation II
 
 Data manipulation II
 --------------------
@@ -244,6 +247,8 @@ The errors tabs can be used if the input data do not have proper uncertainties, 
 methods.
 
 Post processing enables you to further modify data after they were processed through the system - Scale them (e.g., put on absolute scale), Reduce number of points (log-q rebin the data) and set Intensity units to appropriate unit - cm\ :sup:`2`/cm:sup:`3`, cm\ :sup:`2`/g, or arbitrary, so *Irena* is aware of the data units.
+
+.. index:: Merge 2 data sets
 
 Data merging
 ------------

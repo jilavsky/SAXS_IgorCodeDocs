@@ -1,3 +1,5 @@
+.. index:: Instrument support Nika
+
 Instrument support
 ==================
 

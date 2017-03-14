@@ -1,3 +1,6 @@
+.. index:: Beam center, Sample detector distance, Geometry refinement, Distacne calibration, Standard calibration
+
+
 Beam Center and Geometry refinement
 ===================================
 

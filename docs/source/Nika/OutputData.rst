@@ -1,3 +1,5 @@
+.. index:: Nika output
+
 Output data
 ===========
 
