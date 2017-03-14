@@ -1,5 +1,11 @@
+.. model.pdf:
+
 Pair distance distribution function
 ===================================
+
+.. index:: 
+   model; PDF
+   model; Pair distance distribution function
 
 **Model description**
 

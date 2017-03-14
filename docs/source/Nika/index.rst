@@ -1,5 +1,9 @@
+.. _nika:
+
 Nika manual
 ===========
+
+.. index:: ! Nika manual
 
 Manual |release| for  Nika version: 1.75
 

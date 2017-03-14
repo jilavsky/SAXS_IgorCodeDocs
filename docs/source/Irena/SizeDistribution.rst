@@ -1,18 +1,35 @@
+.. _model.size-distribution:
+
 Size Distribution
 ====================
 
-**Using maximum entropy, total-non negative least squares method and regularization**
+.. index:: 
+   model; size distribution
+   size distributions; model SAS data
+
+There are three methods to computer a size distribution from the measured SAS data:
+
+* :ref:`model.maxent`
+* :ref:`model.regularization`
+* :ref:`model.tnnls`
 
 Basic description of methods
 ----------------------------
 
-**Maximum entropy method**
+.. _model.maxent:
+
+Maximum entropy method
+~~~~~~~~~~~~~~~~~~~~~~
+
+.. index:: 
+   model; MaxEnt
+   model; Maximum entropy method
 
 Maximum entropy (MaxEnt) and regularization (maximizes smoothness) are two separate methods for obtaining size distributions from small-angle scattering data. Yet, we describe them together here since they share many common components. Both are versions of a constrained optimization of parameters which solve the scattering equation.
 
 .. math::
 
-  I\left( Q \right) = \left| \Delta\varrho \right|^{2}\Sigma\left| F\left( Q,r \right) \right|^{2}V\left( r \right)\text{NP}\left( r \right)\text{dr}
+  I\left( Q \right) = \left| \Delta\varrho \right|^{2}\int{\left| F\left( Q,r \right) \right|^{2}V\left( r \right)N_p\left( r \right)\text{d}r}
 
 The difference in these two methods is in the applied constraint and it is this constraint which most heavily influences the differences between the two methods in the form of the result.
 
@@ -35,7 +52,7 @@ Literature citation for Maximum Entropy code in Irena macros bvy Pete Jemian
 
 Pete R. Jemian, Julia R. Weertman, Gabrielle G. Long, and Richard D. Spal; Characterization of 9Cr-1MoVNb Steel by Anomalous Small-Angle X-ray Scattering, *Acta Metall Mater 39* (1991) 2477-2487.
 
-Here *NP(r)* is described as a histogram size distribution where a fixed number of bins are defined over a given range of diameter with either constant diameter bins or constant proportional diameter bins. Solution of the histogram size distribution to the scattering equation 9.1 above is obtained by fitting the scattering calculated from trial distributions to the measured data and then revising the amplitudes of the trial histogram distribution based upon the applied constraints. The trial histogram size distribution is not forced to adhere to a particular functional form, such as Gaussian or log-normal. However, in the current formulation, all sizes of the scatterer are expected to have the same scattering contrast and morphology (shape, degree of interaction, aspect ratio, orientation, etc.).
+Here :math:`N_p(r)` is described as a histogram size distribution where a fixed number of bins are defined over a given range of diameter with either constant diameter bins or constant proportional diameter bins. Solution of the histogram size distribution to the scattering equation 9.1 above is obtained by fitting the scattering calculated from trial distributions to the measured data and then revising the amplitudes of the trial histogram distribution based upon the applied constraints. The trial histogram size distribution is not forced to adhere to a particular functional form, such as Gaussian or log-normal. However, in the current formulation, all sizes of the scatterer are expected to have the same scattering contrast and morphology (shape, degree of interaction, aspect ratio, orientation, etc.).
 
 In both MaxEnt and regularization methods, the measured data must be represented by the calculated data so that the goodness of fit criteria (sum of squared standardized residuals) is close to the number of measured data points used in the analysis, subject to an additional constraint. This imposes a high standard for the reported errors on the scattering intensity. The reported errors are expected to be estimates which are comparable to one standard deviation of the true intensity and that the difference between the measured intensity and the true intensity is within one standard deviation of 67% of the time and randomly distributed such that a summation over these differences has zero mean and unit RMS. If these conditions are not met, it is likely that artifacts in the derived size distribution will result. Often it is necessary to scale the reported errors by a factor to achieve converge of the MaxEnt method.
 
@@ -49,13 +66,26 @@ where :math:`\chi^2` describes the goodness of fit, *S* is the applied constrain
 
 For MaxEnt, the additional contraint is that the configurational entropy of the size distribution must be maximized. Rather than be bothered by what this means when compared with the thermodynamic entropy, you are asked to consider that this constraint enforces the principle that all histograms in the size distribution must have a positive amplitude. To make the calculation of the entropy, an additional reference level must be defined. Typically, this reference level (a.k.a., Sky Background, starting guess, *a priori* information) is about 0.01 of the maximum level of the final size distribution. One does not need to fine-tune this parameter and should never be concerned with adjustments less than one order of magnitude. Too high and this parameter will cause the solution to have upward tails at both low and high ends of the distribution. Too low and additional scatter will appear in the distribution. The MaxEnt constraint imposes no correlation on the amplitudes of adjacent bins in the calculated histogram size distribution.
 
-**Regularization method**
+.. _model.regularization:
+
+Regularization method
+~~~~~~~~~~~~~~~~~~~~~
+
+.. index:: 
+   model; Regularization method
 
 The regularization method implemented here maximizes the smoothness of the calculated histogram size distribution by minimizing the sum of the squared curvature deviations. The particular mathematics used here do not prevent the use of negative values for the amplitudes of the histogram size distribution and this is a noted behavior which must be considered to avoid. Often, it is possible to avoid the negative bins in the size distribution by adjusting the fitting range, the bins in the histogram size distribution, or the background.
 
 NOTE: since version 1.50 I modified the code to provide ONLY positive solutions. It is heavy-handed code change and likely not really mathematically correct. It may change a bit in the future.
 
-**Total non-negative least square method**
+.. _model.tnnls:
+
+Total non-negative least square method
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+.. index:: 
+   model; TNNLS
+   model; Total non-negative least square method
 
 This is implementation of the “Interior point method for totally nonnegative least square method”. I have found reference and method description for this method on line: Michael Merrit and Yin Zhang, Technical report TR04-08, Department of Computational and Applied Mathematics, Rice University, Houston, Texas, 77005, USA. This publication was from May 2004, I have found it on the web posted in December 2004, http://www.caam.rice.edu/caam/trs/2004/TR04-08.pdf
 
