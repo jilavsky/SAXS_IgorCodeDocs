@@ -1,7 +1,7 @@
 .. _model.reflectivity:
 
 .. index::
-    Model; Reflectivity
+    model; Reflectivity
     Reflectivity
 
 Reflectivity
@@ -82,7 +82,7 @@ Scale data using scaling factor to hit 1 at Q=0.
 
 If you set the system to "Auto update" you can use sliders to see how the reflectivity changes.
 
-You can fit the parameters using Least Square fitting, but more likely you want to use Genetic optimization. Note, however, that for Genetic optimization the low and high limits for parameters must be "reachable". The Gen. Opt. tests all of the parameter range to find optimum solution.
+You can fit the parameters using Least Square fitting, but more likely you want to use :ref:`Genetic optimization <important.GeneticOptimization>`. Note, however, that for Genetic optimization the low and high limits for parameters must be "reachable". The Gen. Opt. tests all of the parameter range to find optimum solution.
 
 You can insert/remove layer using the button, if you need to add/remove layer from the current system.
 

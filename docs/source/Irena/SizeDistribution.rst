@@ -115,7 +115,7 @@ Use of Size Distribution
 
 This program uses one complex interface – a complex graph and panel for data input and manipulation. To start, select “Size distribution” from “SAS” menu…
 
-On the panel, which gets created, starting from top are :ref:`standard data selection tools <DataSelection>` .
+On the panel, which gets created, starting from top are :ref:`standard data selection tools <DataSelection>`.  This package can also be scripted by :ref:`scripting tool <scripting_tool>`
 
 1. select the “Use QRS checkbox” (assuming you are using QRS named data as explained above).
 

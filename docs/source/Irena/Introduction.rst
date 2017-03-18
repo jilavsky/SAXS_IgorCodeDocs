@@ -1,8 +1,8 @@
 .. _introduction:
 
 .. index::
-    Introduction (Irena)
-
+    Introduction Irena
+    
 Introduction
 ============
 

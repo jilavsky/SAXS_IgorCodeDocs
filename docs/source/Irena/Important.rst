@@ -1,15 +1,131 @@
-.. _importnant.main:
+.. _important.main:
 
 Important Information
 =====================
 
-.. index:: Units used (Irena)
+.. index:: Units Irena
 
 The code uses for all size related parameters Angstroems (10\ :sup:`-10` m) or for Q vector (A\ :sup:`-1`). In the case of scattering contrast, number distribution and any other volume contents centimeters (10\ :sup:`-2` m).
 
 Output of the size is *usually* in particle diameters, but Modeling II is using radii as default (and diameters optionally), but read the graphs, the output may not be always the same. Output graph legend or panel text should be always correct.
 
-.. _importnant.slit_smeared:
+.. index:: Load packages Irena
+
+Loading the macros
+------------------
+
+:ref:`Install macros <installation>`
+
+Start Igor Pro
+
+In menu “Macros” select “Load Irena SAS macros”.
+
+Irena code is loaded and compiled. This can take a while. New menu “SAS” appears. This is where all the Irena macros are controlled from.
+
+.. index:: Unload packages Irena
+
+Unload the macros
+-----------------
+
+When you want to pass Igor experiment to someone without Irena installed, it is good idea to remove the Irena from current experiment. Removing the macros itself is achieved by selecting “Remove Irena package”, the very last item in the last “SAS” submenu. This will unload macros and put back in the “Macros” menu command to load Irena macros in teh future.
+
+.. index:: Data naming convenition; Introduction
+
+Data naming conventions
+-----------------------
+
+Data in Irena need to be stored within Igor experiment as "waves" which is Igor term for "array" of data. Typical SAXS or WAXS data will have x-axis (q vecor) and y-axis (intensity). Optionally we can have other information - intensity uncertainty, q-resolution etc. These are "input" data for Irena, typically either geenrated by Nika or Indra data reduction packages or imported from other data reduction apckages usign one of the :ref:`Data Import tools <import_data>`.
+
+Not only we have "input" data, but most Irena tools will generate some "output" data - e.g., Size distribution, Unified fit model intensity vs Q, etc. These are "Irena results".
+
+Irena uses strictly "Folder = sample" philosophy. It means, that within Igor experiment (to see it grpahically, open Data Browser - in Igor menu "Data", select "Data Browser") is located folder which name repesents your sample name. **Only one data set per folder.** Most Irena operations will pick the data from this folder and if user decides to save teh results from any modeling, return proper Irena result back to this folder. If more than one set of data is in a folder, it is impossible to figure out which data the result belongs to.
+
+Data manipualtions tools, which create a new (e.g., merged) data set will create a new folder.
+
+.. _important.QRS:
+
+.. index:: QRS names, Data naming convenition; QRS
+
+Data naming conventions - QRS
+-----------------------------
+
+This is data naming convention for data stored within Igor experiment, typically in folder root:SAS: in folders with folder name reflecting the sample name.
+
+**The wave names**
+
+*X-axis data*
+
+**q\_NameOfSample q vector in** A\ :sup:`-1`
+
+**t\_NameOfSample 2 theta, if output with respect to 2 theta in** degrees
+
+**d\_NameOfSample d for output with respect to d in** A
+
+*y axis data*
+
+**r\_NameOfSample intensity (if calibrated in whatever units – thickness is converted to cm, so it should be** cm\ :sup:`-1`)
+
+*error*
+
+**s\_NameOfSample error for intensity**
+
+*other*
+
+**w\_NameOfSample width of each bin of Q, d, or 2 theta.**
+
+.. index:: QIS names, Data naming convenition; QIS
+
+.. _important.QIS:
+
+Data naming conventions - QIS
+-----------------------------
+
+This is data naming convention for data stored within Igor experiment, typically in folder root:SAS: in folders with folder name reflecting the sample name. This is NIST modification to QRS system and Irena treats this "transparently" as QRS system.
+
+**The wave names**
+
+*X-axis data*
+
+**NameOfSample\_q q vector in** A\ :sup:`-1`
+
+*y axis data*
+
+**NameOfSample\_i intensity (if calibrated in whatever units – thickness is converted to cm, so it should be** cm\ :sup:`-1`)
+
+*error*
+
+**NameOfSample\_s error for intensity**
+
+.. _important.USAXSNames:
+
+.. index:: USAXS names, Data naming convenition; USAXS
+
+Data naming conventions - USAXS
+-------------------------------
+
+This is data naming convention for data stored within Igor experiment, required to be in folder root:USAXS: in folders with folder name reflecting the sample name. Note, that :ref:`slit smearing <important.slit_smeared>` is reflected in the names and Irena will understand teh difference. Irena switches on slit smearing based on the names.
+
+**The wave names**
+
+*X-axis data*
+
+**SMR_Qvec (slit smeared) - DSM_Qvec (pihole collimated) q vector in** A\ :sup:`-1`
+
+*y axis data*
+
+**SMR_Int (slit smeared) - DSM_Int (pihole collimated) intensity (if calibrated in whatever units – thickness is converted to cm, so it should be** cm\ :sup:`-1`)
+
+*error*
+
+**SMR_error (slit smeared) - DSM_error (pihole collimated) error for intensity**
+
+*other*
+
+**SMR_dQ (slit smeared) - DSM_dQ (pihole collimated) width of each bin of Q, d, or 2 theta.**
+
+
+
+.. _important.slit_smeared:
 
 Slit smeared (USAXS) data
 -------------------------
@@ -20,19 +136,19 @@ Fitting slit smeared data is major *Irena* **advantage**. It is nearly **ALWAYS*
 
 This is fixed now for **Modeling, Unified Fit, and Size distribution** by adding additional Q points (up to 100 new points) to extend the data to 10\* slit length and after the model is calculated and slit smeared, the data are truncated back to original user range. This is done automatically, behind user back – but note, that it can cost cpu and therefore increase time per calculation of the model. Therefore, it may be worthwhile to simply select high enough Qmax for fitting anyway.
 
+.. _important.Qresolution:
+
+.. index:: Q resolution Irena
+
 Per point smeared data by Q resolution
 ---------------------------------------
 
-.. _importnant.Qresolution:
-
-.. index:: Q resolution (Irena)
-
-New in version 2.58 and only for Modeling II at this time, check the manual. This is a beast of issues but can be important!
+New in version 2.58 and only for :ref:`Modeling <model.modeling>` at this time, check the manual. This is a :ref:`beast of issues <modeling_qresolution>` but can be important!
 
 Kill all Irena panels and graphs
 --------------------------------
 
-.. _importnant.KillPanels:
+.. _important.KillPanels:
 
 .. index:: Close all panels (Irena)
 
@@ -41,7 +157,7 @@ This menu item allows closing all Irena related windows – panels and graphs �
 Open Irena pdf manual
 ---------------------
 
-.. _importnant.OpenManual:
+.. _important.OpenManual:
 
 .. index:: Manual, Open Manual
 
@@ -52,18 +168,18 @@ http://saxs-igorcodedocs.readthedocs.io/en/latest/index.html
 Open Form factor description
 --------------------------------------
 
-.. _importnant.OpneFFDescription:
+.. _important.OpneFFDescription:
 
 .. index:: Form factors
 
 This should open pdf file with form factors description – including simplified code and graphs. These are form factors in the “central bank” of the Irena, available for use in packages, which use them.
 
+.. _important.UpdateCheck:
+
+.. index:: Update check Irena
+
 Check for updates
 -----------------
-
-.. _importnant.UpdateCheck:
-
-.. index:: Update check (Irena)
 
 .. image:: media/Important1.png
    :align: center
@@ -127,7 +243,7 @@ GUI controls and common controls
 
 **Manual, Manuscript, Mailing list, About...**
 
-.. _importnant.About:
+.. _important.About:
 
 From the Last menu Item you can get "About" panel stating current version and Igor versions, which it has been tested on.
 
@@ -146,7 +262,7 @@ unsuccessfully.
 
 .. index:: Configure defaults (Irena)
 
-.. _importnant.ConfigureDefaults:
+.. _important.ConfigureDefaults:
 
 **Configure image default fonts and names**
 
@@ -191,9 +307,9 @@ There are few checkboxes for data types, up to 4 popups with Data Folder, Wave w
 
 **Type of data:**
 
-**Indra 2 data** data from Indra package (DSM\_Int, etc.). Assumes data are in root:USAXS folder (or any subfolder) only.
+**Indra 2 data** data from :ref:`Indra package (DSM\_Int, etc.) <important.USAXSNames>`. Assumes data are in root:USAXS folder (or any subfolder) only.
 
-**QRS data** data with q\_name, r\_name (intensity) and optionally s\_name (error). Alternatively, to help users using NIST SANS data analysis package the option recognizes also "qis" system ("name\_q", "name\_i", "name\_s") and presents the data with this naming system as well.
+**QRS data** data with :ref:`q\_name, r\_name (intensity) and optionally s\_name (error) <important.QRS>`. Alternatively, to help users using NIST SANS data analysis package the option recognizes also :ref:`"qis" system ("name\_q", "name\_i", "name\_s") <important.QIS>` and presents the data with this naming system as well.
 NOTE: Irena now carries forward, if present, also w\_name wave, assumed to contain dq values. This is created by Nika or Data import packages and can be used for per-pixel smearing in Modeling II package. While it does not show in any GUI, if present, it is handled correctly.
 
 **Model** No data, tool will create q data using user input and intensity/error data will be set to 0. Then passed intot he tool so one can model with no measured data present. Available ONLY when appropriate.
@@ -328,8 +444,6 @@ Igor has problems handling high resolution displays - 4k displays and similar - 
 Use of XOP
 ----------
 
-.. index:: xop used
-
 Igor Pro enables use of external C-code to speed up some high cpu intensive operations. Note, that these binary pieces of code and bit-specific, so there is specific version for Igor 32bit and specific for Igor 64bit versions. They need to be properly located in Igor folder structure. Currently various optional xop program are available:
 
 1. Two by Andrew Nelson
@@ -339,6 +453,8 @@ Igor Pro enables use of external C-code to speed up some high cpu intensive oper
 2. XML loader (also by Andrew Nelson) necessary to load XML (CanSAS) file formats. You can download this general use XML xop from : http://www.igorexchange.com/project/XMLutils
 
 3. Version 2.53 added first form factor (Parallelepiped) which is  available ONLY xop library maintained by NIST reactor. Version 2.54 and higher can take advantage of speed improvements for some other form factor also (cylinder, spheroid). NIST colleagues (Steven Kline namely) were nice enough to provide me with updated versions of their xops and I suggest you use the ones available with my package.
+
+.. _important.GeneticOptimization:
 
 .. index:: Genetic optimization
 

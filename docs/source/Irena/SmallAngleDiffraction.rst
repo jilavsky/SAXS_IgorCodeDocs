@@ -178,7 +178,7 @@ Final controls:
    :width: 380px
 
 
-“Use genetic optimization?” – uses genetic optimization… Very slow fitting routine unlikely needed for this application. If needed, read explanation of the method in previous chapters.
+“Use genetic optimization?” – uses :ref:`genetic optimization <important.GeneticOptimization>`… Very slow fitting routine unlikely needed for this application. If needed, read explanation of the method in previous chapters.
 
 “Fit” – fits
 

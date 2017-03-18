@@ -1,6 +1,8 @@
 .. _Nexus:
 
-.. index:: Nexus files
+.. index::
+    Nexus standard
+    Nexus file format
 
 NEXUS data
 ----------
@@ -34,6 +36,9 @@ Nika supports two “classes” or “Application definitions”:
 
 Theoretically it is possible to store both in the same Nexus file. Nika for now (version 1.75) creates two files. Single file can be implemented easily, if anyone needs it.
 
+.. index::
+    NXsas
+
 Raw data Nexus – Nxsas – import/export
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
@@ -44,6 +49,10 @@ RAW data use of Nexus has advantage of including large amount of metadata in a w
 Nika has had Nexus file import for long time now, since it is used by APS USAXS/SAXS/WAXS instrument (=my own) and is available at any other instruments at the APS which are using epics AreaDetector software.
 
 Version 1.75 adds ability to also export RAW data Nexus file. It may be bit unexpected to have Nika create RAW data output, but in case users have data from instrument which produces only other types of data (tiff for example), you can tell Nika to export the tiff file to separate Nexus file with all metadata known to Nika. Such output file may be used as input to another Nexus capable data reduction software package. While I expect little use of this capability, it seemed like a good investment for user community.
+
+.. index::
+    canSAS, NXcanSAS
+
 
 Calibrated data Nexus – NXcanSAS – export
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -59,6 +68,9 @@ Nexus file is better way to save processed data than to export them to ASCII fil
 And, assuming the “downstream” software can read properly the Nexus NXcanSAS data, it should **simply** import the resulting file and it **should** all be easy and convenient for users…
 
 **Note**: *Should*\ … The Nexus standard is under development and it is committee work, in my experience things can complicated and confusing sometimes. I have tried to write the most standard file I can. There is bit too much flexibility in the Nexus NXcanSAS format to guarantee reliable data exchange under all conditions.
+
+.. index::
+    Nexus GUI Nika
 
 Nexus GUI description
 ~~~~~~~~~~~~~~~~~~~~~

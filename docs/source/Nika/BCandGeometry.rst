@@ -90,6 +90,9 @@ Get to this:
 
 This is already a good estimate of the beam center…
 
+.. index::
+    Calibration, Sample to detector distacne
+
 Calibrant & refinement
 ----------------------
 
@@ -170,6 +173,9 @@ If the refinement at the end fails, you get error message and no change to origi
 Otherwise, if successful, the results are pushed into the right variables in the main panel and all is done.
 
 Note, with Silver behenate for SAXS, there is only one line, so the processes is easier. But one cannot refine wavelength AND sample-to-detector distance. Note, the line width for Silver behenate needs to be significantly larger and also it is likely that the “Lineout Intg over “ needs to be larger…
+
+.. index::
+    Detector tilts
 
 Fitting data with tilts
 -----------------------

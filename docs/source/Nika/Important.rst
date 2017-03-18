@@ -1,16 +1,16 @@
 Important Information
 =====================
 
-.. index:: Units (Nika)
+.. index:: Units Nika
 
 The code uses for all size related parameters Angstroems (10\ :sup:`-10` m) or for Q vector (A\ :sup:`-1`). In the case of scattering contrast, number distribution and any other volume contents centimeters (10\ :sup:`-2` m).
 
-.. index:: Load packages (Nika)
+.. index:: Load packages Nika
 
 Loading the macros
 ------------------
 
-Install macros (see above)
+:ref:`Install macros <installation>`
 
 Start Igor Pro
 
@@ -19,7 +19,7 @@ In menu “Macros” select “Load Nika 2D SAS macros”.
 New menu “SAS 2D” appears. This is where all the Nika macros are
 controlled from.
 
-.. index:: Unload packages (Nika)
+.. index:: Unload packages Nika
 
 Unload the macros
 -----------------
@@ -28,7 +28,7 @@ There are two items on may wish to do to unload the macros from any experiment. 
 
 Then removing the macros itself is achieved by selecting “Remove Nika 1 macros” in the “SAS 2D” menu. This will unload macros and put back in the “Macros” menu command to load Nika macros, if necessary.
 
-.. index:: Configure defaults (Nika)
+.. index:: Configure defaults Nika
 
 Configure default fonts and names & Errors
 ------------------------------------------
@@ -60,12 +60,12 @@ Note the choice of GUI and Graph defaults panels when different fonts are used c
 
 Defaults button returns the panel font choices to platform specific default state (Mac: Geneva size 9 and PC Tahoma size 12). Note, that there is no guarantee that these were your choices before. But these should be reasonable choices for most setups.
 
-.. index:: Uncertainty (Nika)
+.. index:: Uncertainty Nika
 
 Error (uncertainty) estimates for points
 ----------------------------------------
 
-Up to version 1.42 Nika used “error” calculation, which seemed to produce reasonable numbers inmost cases. But one of the users realized, that it has error in it (bug) and fails in cases of really low intensities, which can be assumed to be Poisson distribution. Therefore, from version 1.43 Nika has three options for this calculation.
+Up to version 1.42 Nika used “error” calculation, which seemed to produce reasonable numbers in most cases. But one of the users realized, that it has error in it (bug) and fails in cases of really low intensities, which can be assumed to be Poisson distribution. Therefore, from version 1.43 Nika has three options for this calculation.
 
 1. Old method (default for compatibility reasons). As I said, it has a bug, but seem to work most of the time well enough.
 
@@ -75,7 +75,7 @@ Up to version 1.42 Nika used “error” calculation, which seemed to produce re
 
 Please note, that Standard error of mean (SEM) is miserably small for high-intensity instruments and generally is too small. At least in my experience. However, it seems to work fine for Pilatus detectors. Standard deviation was what I was trying to get with the old method – there should not be much difference between them most of the time.
 
-.. index:: Multiple configurations (Nika)
+.. index:: Multiple configurations Nika
 
 Configuration manager
 ---------------------
@@ -126,6 +126,22 @@ When loading saved configuration all Nika windows should be closed and after res
 “\ **Delete Saved Configuration**\ ” This will open dialog where you can select saved configuration and delete it. This way user can remove stored configurations when they are no more needed to save space (or confusion) in Igor experiment (file).
 
 There is no way at this time to rename saved configurations, except manually renaming the folder in the location (root:Packages:NikaGeometries). The Configuration manager needs to be restarted after this to figure out the new names.
+
+.. index:: Update check Nika
+
+Check for updates
+-----------------
+
+.. image:: media/ImportantUpdateCheck.jpg
+   :align: center
+   :height: 250px
+
+Nika will perform once-per month check for updates every 30 days. It checks installed versions of the packages and web available versions. It also reminds you about need to cite manuscripts related to the Nika. Please, cite those manuscripts as necessary.
+
+You can get this panel opened any time from SAS 2D> Check for updates
+
+The buttons open appropriate web pages in your web browser.
+
 
 .. index:: Extend Nika functionality
 

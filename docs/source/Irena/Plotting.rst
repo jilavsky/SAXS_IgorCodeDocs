@@ -40,7 +40,7 @@ Plotting tool I
 
 Select “Plotting I” from SAS menu.
 
-In the top part are :ref:`standard data selection tools <DataSelection>` . Select data in usual way and push button “Add data”. You can add multiple data sets. You cannot have the same data set twice, code will complain and refuse to do so. You can add data anytime later also.
+In the top part are :ref:`standard data selection tools <DataSelection>`. This package can also be scripted by :ref:`scripting tool <scripting_tool>`. Select data in usual way and push button “Add data”. You can add multiple data sets. You cannot have the same data set twice, code will complain and refuse to do so. You can add data anytime later also.
 
 Apply Graph style available in the popup “Graph style” or select the data type to plot on both axes. The needed data are created, if they do not exist.
 

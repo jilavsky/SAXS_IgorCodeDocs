@@ -1,4 +1,4 @@
-.. index:: Introduction (Nika)
+.. index:: Introduction Nika
 
 Introduction
 ============

@@ -136,7 +136,7 @@ Select “SAS” – “Unified fit”. Following is the screen you should see a
    :align: center
    :height: 400px
 
-In the top part are :ref:`standard data selection tools <DataSelection>` . Select “Use Indra 2 data”, or “Use QRS data” or none checkbox and then select data as seen below and push button graph.
+In the top part are :ref:`standard data selection tools <DataSelection>`.  this package can also be scripted by :ref:`scripting tool <scripting_tool>`. Select “Use Indra 2 data”, or “Use QRS data” or none checkbox and then select data as seen below and push button graph.
 
 .. image:: media/UnifiedFit2.png
    :align: center

@@ -1,7 +1,7 @@
 .. _model.modeling:
 
 .. index::
-    Model; Modeling
+    model; Modeling
     Modeling package
 
 Modeling II
@@ -166,7 +166,7 @@ This subchapter relates ONLY to *Size distribution* type of "population" in Mode
 
 **GUI description**
 
-In the top part are :ref:`standard data selection tools <DataSelection>` . Note in following image, that the tool has somehow different GUI. The lower 2/3 of panel change depending on selection of radio-buttons “Data controls” and “Model controls”. See image below. Also, if only one data set will be used, make sure the checkbox below “Data controls” is unchecked (only one tab “Input Data” is visible).
+In the top part are :ref:`standard data selection tools <DataSelection>`, this package can also be scripted by :ref:`scripting tool <scripting_tool>`.  Note in following image, that the tool has somehow different GUI. The lower 2/3 of panel change depending on selection of radio-buttons “Data controls” and “Model controls”. See image below. Also, if only one data set will be used, make sure the checkbox below “Data controls” is unchecked (only one tab “Input Data” is visible).
 Note, that there are few buttons just under the Data input popup controls: “\ **Remove all**\ ”, “\ **unUseAll**\ ” “\ **Config Graph**\ ” and “\ **Graph(reGraph)**\ ”. These are tools to control global behavior or resent the tool.
 
 “\ **Remove all**\ ” button removes all input data from the tool.
@@ -198,7 +198,17 @@ Description of parameters on the Input data tab:
 
 Checkbox “\ **Use?”** allows to select if this data set is used in the tool. This is really useful when multiple data sets are used.
 
-Checkbox “\ **Slit smeared**\ ” if slit smeared data re used, select. Note, that if checked field for slit length will appear.
+.. _modeling_qresolution:
+
+Checkbox “\ **Slit/Q resolution smeared**\ ” if slit smeared data are used - or if you want to account for Q smearing, select. New panel will appear. If you close this panel and need to reopen it, just uncheck and check the checkbox again.
+
+.. image:: media/Modeling39.jpg
+      :align: left
+      :width: 40%
+
+Number of various Q resolutions is now included. They are described on the panel in some detail. Note, that it is possible to have data which are both Slit smeared data AND at the same time require Pixel/Q smearing - for example from my APS USAXS instrument.
+
+More controls appear on this screen if necessary to guide you to provide correct values. These values may be calculated when appropriate or can be provided to Modeling as wave of values, in teh QRS naming system the wave name starts with \w_. Proper Q/pixel smearing can be challenge and its hadnling mathematially requires singificant amount of CPU power, so it is worth while to evaluate, if it is really necessary to deal with. For highly polydiperse systems on most X-ray instruments Q resolution is NOT necessary to consider. For monodispersed systems and/or SANS instruments it may be appropriate to address this. If you need more guidance, talk to me...
 
 **“Data”** field. This field contains path to data within Igor experiment. Cannot be edited.
 

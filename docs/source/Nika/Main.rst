@@ -1,4 +1,4 @@
-.. index:: Main panel (Nika)
+.. index:: Main panel Nika
 
 Main Panel
 ==========
@@ -832,6 +832,7 @@ The Uncertainty method can be changed in the “Configuration panel” available
    :align: center
    :width: 380px
 
+.. index:: Q resolution Nika
 
 Q-resolution calculations
 -------------------------

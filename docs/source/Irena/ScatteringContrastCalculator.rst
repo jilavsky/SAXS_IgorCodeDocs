@@ -1,4 +1,4 @@
-.. _scattering_contrsast_calculator:
+.. _scattering_contrast_calculator:
 
 .. index::
     Scattering Contrast Calculator; Free el. approx.
@@ -66,11 +66,12 @@ Button “New compound” will clear all settings in the tool to start creation 
 
 .. _Anomalous_Calculator:
 
+.. index::
+    Scattering Contrast Calculator; Anomalous
+    Scattering Contrast Calculator; Energy dependence
+
 Anomalous calculator
 --------------------
-
-.. index::
-    Scattering Contrast Calculator, Anomalous
 
 The package includes Cromer-Liberman code for calculating energy-dependent (anomaouls) effects. The button “Anomalous calculator” on the “Substance editor and Scattering contrast calculator” calls up new window…
 
@@ -92,6 +93,9 @@ To select two compounds hold shift. Then input right thickness and click “Reca
 
 
 Note, that table on right got filled with all relevant numbers – f’ and f” , :math:`\mu`, and related values for each compound separately. Note, that f’ and f” are here with two different units as output – in electrons per molecule unit and in 10\ :sup:`10` cm\ :sup:`-2`. Lowest number is :math:`(\Delta \rho)^2` between the two compounds at this energy…
+
+.. index::
+    Scattering Contrast Calculator; Transmission Calculation
 
 NOTE : line :math:`transm = exp(- \mu T)` is calculated transmission of your materials, with the thickness in the "Thickness" field and energy where this calculation was done. The thickness is same for each material and in [mm]. This can be easily used to pre-calculate necessary thickness of the sample before experiments. If you change the thickness, these transmission values get automatically recalculated.
 
