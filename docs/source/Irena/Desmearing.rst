@@ -1,3 +1,5 @@
+.. _data_desmearing:
+
 .. index:: Desmearing
 
 Desmearing
@@ -5,12 +7,7 @@ Desmearing
 
 Desmearing routine built in this package is using Lake method (reference), which has been originally programmed by Pete Jemian and then coded in Igor by me. There were some minor improvements over the years, but generally this method has proven itself many times to be robust and reliable. We have verified the function of this method by collecting data from the same sample using both slit-smeared and 2D collimated USAXS. We have verified this method repeatedly and every time the desmearing was blamed for artifacts and unexpected results, we have found another reason for problems. That said, desmearing is always going to increase noise on the data… Note, that the routine will correctly handle data with absolute intensity calibration.
 
-3/10/09 Change in desmearing tool. Per request the tool now allows both
-slit length (in direction perpendicular to the q direction) and slit
-width (in direction parallel with q direction). Further, the slit can
-now have shape of trapezoid, similar to what GNOM allows for instrument
-geometry. PLEASE NOTE: for historical reasons the parameters for Irena
-desmearing are ½ of the GNOM parameters.
+The tool now allows both slit length (in direction perpendicular to the q direction) and slit width (in direction parallel with q direction). Further, the slit can now have shape of trapezoid, similar to what GNOM allows for instrument geometry. PLEASE NOTE: for historical reasons the parameters for Irena desmearing are ½ of the GNOM parameters.
 
 This is the graph:
 
@@ -62,7 +59,7 @@ is the tabs from left to right. For each data set to be desmeared, this
 procedure must be followed, selecting in sequence the tabs from left to
 right.
 
-1. First step – trim useable data – small and high Q data… Use cursors
+1. First step – trim usable data – small and high Q data… Use cursors
 to select data range. And then push button “Trim”. You can also remove
 any spurious point with the other button and cursor A (the rounded one)
 

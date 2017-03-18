@@ -1,4 +1,6 @@
-.. index:: Nika output
+.. index::
+    Output data (Nika)
+    Export data (Nika)
 
 Output data
 ===========

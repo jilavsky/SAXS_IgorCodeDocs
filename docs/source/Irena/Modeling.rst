@@ -1,3 +1,9 @@
+.. _model.modeling:
+
+.. index::
+    Model; Modeling
+    Modeling package
+
 Modeling II
 ===========
 
@@ -160,7 +166,7 @@ This subchapter relates ONLY to *Size distribution* type of "population" in Mode
 
 **GUI description**
 
-Note in following image, that the tool has somehow different GUI. The lower 2/3 of panel change depending on selection of radio-buttons “Data controls” and “Model controls”. See image below. Also, if only one data set will be used, make sure the checkbox below “Data controls” is unchecked (only one tab “Input Data” is visible).
+In the top part are :ref:`standard data selection tools <DataSelection>` . Note in following image, that the tool has somehow different GUI. The lower 2/3 of panel change depending on selection of radio-buttons “Data controls” and “Model controls”. See image below. Also, if only one data set will be used, make sure the checkbox below “Data controls” is unchecked (only one tab “Input Data” is visible).
 Note, that there are few buttons just under the Data input popup controls: “\ **Remove all**\ ”, “\ **unUseAll**\ ” “\ **Config Graph**\ ” and “\ **Graph(reGraph)**\ ”. These are tools to control global behavior or resent the tool.
 
 “\ **Remove all**\ ” button removes all input data from the tool.

@@ -1,9 +1,9 @@
 .. _model.Guinier-Porod:
 
+.. index:: model; Guinier-Porod
+
 Guinier-Porod
 =============
-
-.. index:: model; Guinier-Porod
 
 **Introduction**
 
@@ -53,7 +53,7 @@ Note, that my experience from development of this tool is that getting fit with 
 
 **Main panel:**
 
-Main panel contains, as usually at the top part data selection controls. These are same as for the other Irena tools, so I am not going to explain them here. Just select the data naming system you are using, select data and then push button "*Graph data*".
+Main panel contains, in the top part :ref:`standard data selection tools <DataSelection>` . Select the data naming system you are using, select data and then push button "*Graph data*".
 
 Note, that this tool can be scripted by use of the Scripting tool, which can be opened by the button "*Scripting tool*".
 

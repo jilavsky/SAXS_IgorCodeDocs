@@ -1,3 +1,7 @@
+.. index:: Data Manipulation I
+
+.. _data_manipulation_1:
+
 Data manipulation tools
 =======================
 
@@ -6,8 +10,6 @@ Data manipulation tools
            :align: left
            :width: 280px
            :figwidth: 300px
-
-.. index:: Data Manipulation I
 
 Data manipulation I
 -------------------
@@ -32,7 +34,7 @@ The tool allows the following data manipulations:
 
 **Panel description**
 
-In the top part user can select *First set data input* and S\ *econd set data input*. The behavior of these controls is always the same in all Irena macros system.
+In the top part are :ref:`standard data selection tools <DataSelection>`. In the top part user can select *First set data input* and \ *Second set data input*.
 
 Select data naming convention used – Indra 2 (Folder names for sample names and then DSM\_Int, DSM\_Qvec, and DSM\_Error), “qrs” (suggested use of folder names for sample names [but not necessary], q\_sampleName for q vector, r\_sampleName for intensity and s\_sampleName for error. Or do not check any checkbox and all folders and waves will be listed (allows for ANY naming convention to be used).
 
@@ -105,6 +107,8 @@ Results of above mathematical functions can be also smoothed by checking *Smooth
 Please, make sure you fill in properly the names of waves for output data. There is nothing I can do here to catch typos and mistakes…
 
 .. index:: Data Manipulation II
+
+.. _data_manipulation_2:
 
 Data manipulation II
 --------------------
@@ -249,6 +253,8 @@ methods.
 Post processing enables you to further modify data after they were processed through the system - Scale them (e.g., put on absolute scale), Reduce number of points (log-q rebin the data) and set Intensity units to appropriate unit - cm\ :sup:`2`/cm:sup:`3`, cm\ :sup:`2`/g, or arbitrary, so *Irena* is aware of the data units.
 
 .. index:: Merge 2 data sets
+
+.. _data_merge:
 
 Data merging
 ------------

@@ -1,4 +1,4 @@
-.. index:: Instrument support Nika
+.. index:: Instrument support (Nika)
 
 Instrument support
 ==================

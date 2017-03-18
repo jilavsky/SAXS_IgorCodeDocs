@@ -1,6 +1,10 @@
+.. _introduction:
+
+.. index::
+    Introduction (Irena)
+
 Introduction
 ============
-
 
 Jan Ilavsky and Peter R. Jemian, *“Irena: tool suite for modeling and analysis of small-angle scattering”*, Journal of Applied Crystallography, vol. 42 (2009). Please e-mail me, if you need copy.
 

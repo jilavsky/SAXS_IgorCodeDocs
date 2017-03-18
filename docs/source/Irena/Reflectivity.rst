@@ -1,3 +1,9 @@
+.. _model.reflectivity:
+
+.. index::
+    Model; Reflectivity
+    Reflectivity
+
 Reflectivity
 ============
 
@@ -20,7 +26,7 @@ The select “Reflectivity” from the SAS menu:
 
 **Following are the parts of the panel**:
 
-1. The top part – data selection part is similar to the other tools in Irena – select type of data, data folder with the data, and wave names containing q, reflectivity and error. Push Graph to generate graphs. If you have resolution as single value, uncheck the “Resolution?” checkbox and insert value in the field, if you have resolution wave (q resolution), select it’s wave name here. NOTE: this wave must be in the same folder as the data are. Also, for now there are no checks on wave length, so make sure this wave has same number of points as data waves have.
+1. In the top part are :ref:`standard data selection tools <DataSelection>` . Select type of data, data folder with the data, and wave names containing q, reflectivity and error. Push Graph to generate graphs. If you have resolution as single value, uncheck the “Resolution?” checkbox and insert value in the field, if you have resolution wave (q resolution), select it’s wave name here. NOTE: this wave must be in the same folder as the data are. Also, for now there are no checks on wave length, so make sure this wave has same number of points as data waves have.
 
 2. Note that there are few controls : "*Oversample model?*" if selected model is calculated for 5x as many points as input data have. "*0 at the substrate*" if selected thickness is calculated starting at the substrate, not at the top as usually. "*L1 at the substrate*" if selected, the first layer is at the substrate.
 

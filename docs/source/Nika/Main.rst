@@ -1,4 +1,4 @@
-.. index:: Main panel Nika
+.. index:: Main panel (Nika)
 
 Main Panel
 ==========

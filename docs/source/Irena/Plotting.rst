@@ -1,3 +1,8 @@
+.. _Plotting_Tool_1:
+
+.. index::
+    Plotting tool I
+
 Plotting tools
 ==============
 
@@ -35,7 +40,7 @@ Plotting tool I
 
 Select “Plotting I” from SAS menu.
 
-Select data in usual way and push button “Add data”. You can add multiple data sets. You cannot have the same data set twice, code will complain and refuse to do so. You can add data anytime later also.
+In the top part are :ref:`standard data selection tools <DataSelection>` . Select data in usual way and push button “Add data”. You can add multiple data sets. You cannot have the same data set twice, code will complain and refuse to do so. You can add data anytime later also.
 
 Apply Graph style available in the popup “Graph style” or select the data type to plot on both axes. The needed data are created, if they do not exist.
 
@@ -262,6 +267,10 @@ To present time series of data from version 2.48 this tool can create movies. Us
 
 You can create sequence of 2D graphs or 3D graphs, in 2d graphs you can either add the data in between the frames or replace the data in between the frames. Few other controls allow you to control how the movie is going to look like. The 3D graph here is the Waterfall graph described above, Gizmo has its own movie creation tool provided by Wavemetrics.
 
+.. _Plotting_tool_2:
+
+.. index::
+    Plotting tool II
 
 Plotting tool II
 ----------------

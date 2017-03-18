@@ -1,11 +1,11 @@
 .. _model.size-distribution:
 
-Size Distribution
-====================
-
-.. index:: 
+.. index::
    model; size distribution
    size distributions; model SAS data
+
+Size Distribution
+====================
 
 There are three methods to computer a size distribution from the measured SAS data:
 
@@ -21,7 +21,7 @@ Basic description of methods
 Maximum entropy method
 ~~~~~~~~~~~~~~~~~~~~~~
 
-.. index:: 
+.. index::
    model; MaxEnt
    model; Maximum entropy method
 
@@ -71,7 +71,7 @@ For MaxEnt, the additional contraint is that the configurational entropy of the 
 Regularization method
 ~~~~~~~~~~~~~~~~~~~~~
 
-.. index:: 
+.. index::
    model; Regularization method
 
 The regularization method implemented here maximizes the smoothness of the calculated histogram size distribution by minimizing the sum of the squared curvature deviations. The particular mathematics used here do not prevent the use of negative values for the amplitudes of the histogram size distribution and this is a noted behavior which must be considered to avoid. Often, it is possible to avoid the negative bins in the size distribution by adjusting the fitting range, the bins in the histogram size distribution, or the background.
@@ -83,7 +83,7 @@ NOTE: since version 1.50 I modified the code to provide ONLY positive solutions.
 Total non-negative least square method
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. index:: 
+.. index::
    model; TNNLS
    model; Total non-negative least square method
 
@@ -115,7 +115,7 @@ Use of Size Distribution
 
 This program uses one complex interface – a complex graph and panel for data input and manipulation. To start, select “Size distribution” from “SAS” menu…
 
-On the panel, which gets created, starting from top:
+On the panel, which gets created, starting from top are :ref:`standard data selection tools <DataSelection>` .
 
 1. select the “Use QRS checkbox” (assuming you are using QRS named data as explained above).
 

@@ -1,3 +1,10 @@
+.. _model.waxs:
+
+.. index::
+   model; WAXS
+   WAXS
+   Powder diffraction
+
 Powder diffraction (WAXS) fitting
 =================================
 

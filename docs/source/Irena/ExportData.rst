@@ -1,7 +1,9 @@
-Export data
-===========
+.. _export_data:
 
 .. index:: Export data
+
+Export data
+===========
 
 Irena produces large number of data sets, which can sometimes be exported when created, but more often not. While the most convenient use of the data is within Igor experiment by ploting or processing further, many users may want to use another programs. And then it is imperative to export them as ASCII files. This is the tool for that…
 

@@ -1,11 +1,15 @@
+.. _importnant.main:
+
 Important Information
 =====================
 
-.. index:: Units used Irena
+.. index:: Units used (Irena)
 
 The code uses for all size related parameters Angstroems (10\ :sup:`-10` m) or for Q vector (A\ :sup:`-1`). In the case of scattering contrast, number distribution and any other volume contents centimeters (10\ :sup:`-2` m).
 
 Output of the size is *usually* in particle diameters, but Modeling II is using radii as default (and diameters optionally), but read the graphs, the output may not be always the same. Output graph legend or panel text should be always correct.
+
+.. _importnant.slit_smeared:
 
 Slit smeared (USAXS) data
 -------------------------
@@ -19,19 +23,25 @@ This is fixed now for **Modeling, Unified Fit, and Size distribution** by adding
 Per point smeared data by Q resolution
 ---------------------------------------
 
-.. index:: Q resolution
+.. _importnant.Qresolution:
+
+.. index:: Q resolution (Irena)
 
 New in version 2.58 and only for Modeling II at this time, check the manual. This is a beast of issues but can be important!
 
 Kill all Irena panels and graphs
 --------------------------------
 
-.. index:: Close all Irena panels
+.. _importnant.KillPanels:
+
+.. index:: Close all panels (Irena)
 
 This menu item allows closing all Irena related windows – panels and graphs – to be closed at once. Very convenient…
 
 Open Irena pdf manual
 ---------------------
+
+.. _importnant.OpenManual:
 
 .. index:: Manual, Open Manual
 
@@ -42,6 +52,8 @@ http://saxs-igorcodedocs.readthedocs.io/en/latest/index.html
 Open Form factor description
 --------------------------------------
 
+.. _importnant.OpneFFDescription:
+
 .. index:: Form factors
 
 This should open pdf file with form factors description – including simplified code and graphs. These are form factors in the “central bank” of the Irena, available for use in packages, which use them.
@@ -49,7 +61,9 @@ This should open pdf file with form factors description – including simplified
 Check for updates
 -----------------
 
-.. index:: Update check
+.. _importnant.UpdateCheck:
+
+.. index:: Update check (Irena)
 
 .. image:: media/Important1.png
    :align: center
@@ -113,6 +127,8 @@ GUI controls and common controls
 
 **Manual, Manuscript, Mailing list, About...**
 
+.. _importnant.About:
+
 From the Last menu Item you can get "About" panel stating current version and Igor versions, which it has been tested on.
 
 .. image:: media/Important8.png
@@ -128,9 +144,13 @@ unsuccessfully.
       :width: 350px
 
 
-**Conimage default fonts and names**
+.. index:: Configure defaults (Irena)
 
-“Conimage default fonts and names” in the SAS menu will create panel with some controls common for all tools, like font type & size and how legend names are handled. NOTE: Panel controls are applied immediately to all existing panels, graph controls are applied ONLY to the newly created graphs (and only those which were upgraded to this behavior).
+.. _importnant.ConfigureDefaults:
+
+**Configure image default fonts and names**
+
+“Configure image default fonts and names” in the SAS menu will create panel with some controls common for all tools, like font type & size and how legend names are handled. NOTE: Panel controls are applied immediately to all existing panels, graph controls are applied ONLY to the newly created graphs (and only those which were upgraded to this behavior).
 
 **Panels font and font sizes**
 
@@ -158,10 +178,10 @@ Not all packages follow these controls yet, if you see issues in package of your
 
 .. _DataSelection:
 
+.. index:: Data Selection Controls (Irena)
+
 Data selection
 ---------------
-
-.. index:: Data Selection Irena
 
 Data selection part of the panels is served by common package (mostly) and has more or less similar behavior – with modifications appropriate for each package. The purpose of these controls is to provide as much help to user to select appropriate data as possible. This is not easy task… Sometimes even it is not clear what the right help is.
 
@@ -257,10 +277,10 @@ Match strings are tool-specific, so each tool has its own specific set of match 
 
 .. _SmallDisplayChallenge:
 
+.. index:: Display problems; Small displays
+
 Using Irena on small displays
 -----------------------------
-
-.. index:: Display problems
 
 Irena generates **a lot of** windows, panels, graphs, notebooks... It really needs large display, 1024x768 is realistically too small for useful work, but generally all panels are scaled to this size. But for whatever reason users insist on using tiny screens. So here is the first warning:
 
@@ -295,11 +315,15 @@ You can scale panels up or down, but they will not scale to smaller size than or
 
 .. _LargeDisplayChallenge:
 
+.. index:: Display problems; High-res displays
+
 Using Irena on high resolution displays
 ---------------------------------------
 
 Igor has problems handling high resolution displays - 4k displays and similar - on Windows. Some users will set the resolution relatively high (may be 2.5 horizontally) but in order to be able to read the text on the screen they scale the font higher. Some combinations of resolutions and font scaling result in panels which are incorreclty populated with controls. If this happens, the only solution is to change resolution (typically to less points) and reduce the font scaling. Unluckily, this is the only solution provided by Wavemetrics to me.
 
+
+.. index:: XOP use
 
 Use of XOP
 ----------
@@ -316,10 +340,10 @@ Igor Pro enables use of external C-code to speed up some high cpu intensive oper
 
 3. Version 2.53 added first form factor (Parallelepiped) which is  available ONLY xop library maintained by NIST reactor. Version 2.54 and higher can take advantage of speed improvements for some other form factor also (cylinder, spheroid). NIST colleagues (Steven Kline namely) were nice enough to provide me with updated versions of their xops and I suggest you use the ones available with my package.
 
+.. index:: Genetic optimization
+
 Genetic optimization
 --------------------
-
-.. index:: Genetic optimization
 
 Genetic optimization method is form of fitting from SAS data. It has been developed for optimization of reflectivity data but is very useful for cases where least square fitting may not find global minimum. It has been programmed for Igor by Andrew Nelson, who is also author of internal code for reflectivity tool.
 

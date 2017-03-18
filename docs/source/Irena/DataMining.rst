@@ -1,8 +1,9 @@
+.. _data_mining:
+
 .. index:: Data mining
 
 Data mining tool
 =================
-
 
 This tool allows finding and tabulating various data from folders within Igor. At this moment it is just about functional and will be developed further.
 

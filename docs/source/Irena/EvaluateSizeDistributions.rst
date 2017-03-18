@@ -1,10 +1,10 @@
 .. _evaluate-size-distributions:
 
-Evaluate size distributions
-===========================
-
 .. index::
    size distributions; evaluate details from
+
+Evaluate size distributions
+===========================
 
 This is tool to obtain various details about size distributions – such
 as results from Size distribution, Modeling I and Modeling II tools.

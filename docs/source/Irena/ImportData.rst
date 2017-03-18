@@ -1,3 +1,8 @@
+.. _import_data:
+
+.. index::
+    Import data, Introduction
+
 Import data
 ===========
 
@@ -32,13 +37,16 @@ Each tool has its own screen and there are small differences in operations. This
 
 NOTE: you can have ONLY one of the importers opened at any given time, they share same working folder and when you try to open any one of these importers, it should force closing of any other opened panel for the other importers.
 
+.. index::
+    Import data; ASCII SAXS
+
 Importing ASCII SAS data
 ------------------------
 
 .. Figure:: media/ImportData2.png
         :align: left
         :width: 300px
-        :Figwidth: 320px 
+        :Figwidth: 320px
 
 Explanation of control available here:
 
@@ -108,6 +116,9 @@ NOTE: If the data contain header of data (typically number of lines with special
 
 Some of the controls (checkboxes) do change some of the setting in other controls. Generally the proper order, how to select and modify control is from top to bottom.
 
+.. index::
+    Import data; ASCII WAXS or other
+
 Importing ASCII WAXS data
 --------------------------
 
@@ -118,6 +129,9 @@ Importing ASCII WAXS data
 This tool is intended for other type of data, such as powder diffraction, which have x-axis, Intensity, Uncertainty and, optionally, x-resolution in ASCII file. Options here are bit more limited to only those, which seemed important for this purpose.
 
 This was added for users of non-SAS data who had problems using the original ASCII imported since it was doing things not appropriate for heir data.
+
+.. index::
+    Import data; canSAS Nexus
 
 Importing Nexus canSAS data
 ---------------------------
@@ -161,6 +175,10 @@ If you are missing data after import or foldernames make no sense, try using dif
 If all fails, send me the file and I’ll see if and how I can help.
 
 Keep in mind, that as every standard made by committee canSAS nexus is way too flexible for its own good and weird stuff happens. And not every file really follows required and suggested Nexus structure.
+
+
+.. index::
+    Import data; canSAS XML
 
 Importing XML data
 ------------------

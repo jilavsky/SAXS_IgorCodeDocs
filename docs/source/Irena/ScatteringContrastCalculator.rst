@@ -1,5 +1,12 @@
+.. _scattering_contrsast_calculator:
+
+.. index::
+    Scattering Contrast Calculator; Free el. approx.
+    Scattering Contrast Calculator; Neutrons
+
 Scattering contrast calculator
 ==============================
+
 
 **Introduction**
 
@@ -61,6 +68,9 @@ Button “New compound” will clear all settings in the tool to start creation 
 
 Anomalous calculator
 --------------------
+
+.. index::
+    Scattering Contrast Calculator, Anomalous
 
 The package includes Cromer-Liberman code for calculating energy-dependent (anomaouls) effects. The button “Anomalous calculator” on the “Substance editor and Scattering contrast calculator” calls up new window…
 

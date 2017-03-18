@@ -1,4 +1,4 @@
-.. index:: Input 2D data type Nika
+.. index:: Input 2D data types  (Nika)
 
 Supported Data Types
 --------------------

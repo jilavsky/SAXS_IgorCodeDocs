@@ -1,3 +1,8 @@
+.. _model.small_angle_diffraction:
+
+.. index::
+     model; small-angle diffraction
+
 Small-angle diffraction tool
 ============================
 

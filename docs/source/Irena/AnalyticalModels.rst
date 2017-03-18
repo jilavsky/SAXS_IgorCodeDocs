@@ -1,10 +1,10 @@
 .. _analytical-models:
 
-Analytical models
-=================
-
 .. index::
    model; analytical models
+
+Analytical models
+=================
 
 **This tool provides GUI for different models: Debye-Bueche, Treubner-Strey, Ciccariello-Benedetti**
 
@@ -80,7 +80,7 @@ This is the main screen:
    :align: center
    :width: 580px
 
-Data can be selected at the top part – as usually, one can use either pin-hole type data (desmeared for USAXS instrument) or slit smeared data. Results are the same, the model is slit smeared with slit length if slit smeared data are used.
+In the top part are :ref:`standard data selection tools <DataSelection>` . Data can be selected, user can use either pin-hole type data (or desmeared USAXS data) or slit smeared data. Results are the same, the model is slit smeared with slit length if slit smeared data are used.
 
 .. image:: media/AnalyticalModels5.png
    :align: center

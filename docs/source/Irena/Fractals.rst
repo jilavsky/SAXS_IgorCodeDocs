@@ -1,9 +1,9 @@
 .. _model.Fractal:
 
+.. index:: model; Fractal
+
 Fractal model
 =============
-
-.. index:: model; Fractal
 
 This model has been developed by Andrew J. Allen from NIST (Andrew.allen@nist.gov). The model allows to combine two volume and two mass fractals in much similar way as the Unified model does. The parameters from this model have advantage of being more “fractal-related” than the values from Unified. There is short pdf file included in the distribution, which served as basis for my design of this tool. Note, that this tool is actually port of Andrew's original Fortran code into Igor, my code was verified to give same results as this Fortran code.
 

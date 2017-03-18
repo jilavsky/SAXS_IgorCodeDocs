@@ -1,5 +1,10 @@
+.. _other_tools:
+
 Other Tools
 ===========
+
+.. index::
+    Create QRS structure
 
 QRS data folder creation tool
 -----------------------------
@@ -14,7 +19,7 @@ Start the tool from “SAS” “Create QRS folder structure”.
    :align: left
    :height: 580px
 
-   
+
 Note that all my imported data are in “root:SAS:ImportedData:” folder. They can be in any folder in the Igor experiment. Note few controls in the panel just created.
 
 “\ *Select folder with data”* this popup will list ONLY folders containing triplets of QRS named data. Select folder, which contains data you want to convert. In case of this example the “root:SAS:ImportedData:” folder
@@ -57,6 +62,9 @@ I assume, that your names are legal and valid. The code may fail on liberal name
 
 Logging feature
 ----------------
+
+.. index::
+    Logging feature
 
 This feature is not finished and works only for standard models. It is planned update for future to make sure these records are useful…
 

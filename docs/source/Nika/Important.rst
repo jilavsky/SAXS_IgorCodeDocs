@@ -1,11 +1,11 @@
 Important Information
 =====================
 
-.. index:: Units Used Nika
+.. index:: Units (Nika)
 
 The code uses for all size related parameters Angstroems (10\ :sup:`-10` m) or for Q vector (A\ :sup:`-1`). In the case of scattering contrast, number distribution and any other volume contents centimeters (10\ :sup:`-2` m).
 
-.. index:: Load packages Nika
+.. index:: Load packages (Nika)
 
 Loading the macros
 ------------------
@@ -19,7 +19,7 @@ In menu “Macros” select “Load Nika 2D SAS macros”.
 New menu “SAS 2D” appears. This is where all the Nika macros are
 controlled from.
 
-.. index:: Unload packages Nika
+.. index:: Unload packages (Nika)
 
 Unload the macros
 -----------------
@@ -28,7 +28,7 @@ There are two items on may wish to do to unload the macros from any experiment. 
 
 Then removing the macros itself is achieved by selecting “Remove Nika 1 macros” in the “SAS 2D” menu. This will unload macros and put back in the “Macros” menu command to load Nika macros, if necessary.
 
-.. index:: Configure defaults Nika
+.. index:: Configure defaults (Nika)
 
 Configure default fonts and names & Errors
 ------------------------------------------
@@ -60,7 +60,7 @@ Note the choice of GUI and Graph defaults panels when different fonts are used c
 
 Defaults button returns the panel font choices to platform specific default state (Mac: Geneva size 9 and PC Tahoma size 12). Note, that there is no guarantee that these were your choices before. But these should be reasonable choices for most setups.
 
-.. index:: Uncertainty Nika
+.. index:: Uncertainty (Nika)
 
 Error (uncertainty) estimates for points
 ----------------------------------------
@@ -75,7 +75,7 @@ Up to version 1.42 Nika used “error” calculation, which seemed to produce re
 
 Please note, that Standard error of mean (SEM) is miserably small for high-intensity instruments and generally is too small. At least in my experience. However, it seems to work fine for Pilatus detectors. Standard deviation was what I was trying to get with the old method – there should not be much difference between them most of the time.
 
-.. index:: Multiple configurations Nika
+.. index:: Multiple configurations (Nika)
 
 Configuration manager
 ---------------------

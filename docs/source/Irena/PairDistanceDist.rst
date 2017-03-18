@@ -1,11 +1,11 @@
-.. model.pdf:
+.. _model.pdf:
+
+.. index::
+   model; PDF
+   model; Pair distance distribution function
 
 Pair distance distribution function
 ===================================
-
-.. index:: 
-   model; PDF
-   model; Pair distance distribution function
 
 **Model description**
 
@@ -43,7 +43,7 @@ These data contain Q/Int/error and included is also GNOM generated PDDF in the s
 
 Load data in Igor as seen in the above center and the follow next steps.
 
-Following GUI is available from SAS menu (under Pair Distance dist. Fnct.)
+Following GUI is available from SAS menu (under Pair Distance dist. Fnct.) In the top part are :ref:`standard data selection tools <DataSelection>` .
 
 .. image:: media/PairDistanceDist5.png
       :align: center
