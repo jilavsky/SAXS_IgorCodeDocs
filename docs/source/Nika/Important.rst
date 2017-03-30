@@ -127,6 +127,58 @@ When loading saved configuration all Nika windows should be closed and after res
 
 There is no way at this time to rename saved configurations, except manually renaming the folder in the location (root:Packages:NikaGeometries). The Configuration manager needs to be restarted after this to figure out the new names.
 
+
+
+.. _SmallDisplayChallenge:
+
+.. _CheckIgorDisplayArea:
+
+.. index:: Display problems; Small displays, Check for display area
+
+Using Nika on small displays
+----------------------------
+
+Nika generates **a lot of** windows, panels, graphs, notebooks... It really needs large display, 1024x768 is simply too small for useful work. Current version of Irena requires at least 1100x 900 pixels display - but thi sis much more complciated on WIdowns with the high resolution displays...
+
+To aid users I have now added function which calculates what the area available for content is (in Igor pixel units). On start my code now checks and if available area is smaller than preset values (1100 x 900) the code provides warning in a dialog and instructions in History area. The code will still work, but some tools may refuse to run since the panels would not fit on the screen. Users can maximize Igor window (on Windows), change the display resolution, and/or reduce the Display screen settings ("dpi"). To recheck the size after changing the settings, use command "Check Igor display size" from the menu USAXS, SAS2D, or SAS>"Help, About, Manuals, Remove Irena".
+
+**GET LARGE ENOUGH DISPLAY. THEY ARE CHEAP NOW...**
+
+It is possible to move the content (not all, but most) up/down on panels, when needed with the arrows in top right corner:
+
+.. image:: media/Important14.png
+      :align: center
+      :width: 380px
+
+
+The two arrows at the top right corner of most panels - like here on plotting tool panel - move the content of the panel up/down, so if your screen is  too small vertically (usual problem), you can move the controls in the screen itself. However, this is a chllenge in Igor 7 and does not work too well.
+
+So here is the same area, but content was now moved bit higher, so one can reach to the bottom controls:
+
+.. image:: media/Important15.png
+      :align: center
+      :width: 380px
+
+
+If you have a large display, you can zoom panels by dragging lower right corner - note mark:
+
+.. image:: media/Important16.png
+      :align: center
+      :width: 30px
+
+You can scale panels up or down, but they will not scale to smaller size than original size.
+
+.. _LargeDisplayChallenge:
+
+.. index:: High-res displays
+
+Using Nika on high resolution displays
+--------------------------------------
+
+Igor has problems handling high resolution displays - 4k displays and similar - on Windows. Some users will set the resolution relatively high (may be 2.5 horizontally) but in order to be able to read the text on the screen they scale the font higher. Some combinations of resolutions and font scaling result in panels which are incorreclty populated with controls. If this happens, the only solution is to change resolution (typically to less points) and reduce the font scaling. Unluckily, this is the only solution provided by Wavemetrics to me.
+
+
+
 .. index:: Update check Nika
 
 Check for updates

@@ -393,26 +393,27 @@ Match strings are tool-specific, so each tool has its own specific set of match 
 
 .. _SmallDisplayChallenge:
 
-.. index:: Display problems; Small displays
+.. _CheckIgorDisplayArea:
+
+.. index:: Display problems; Small displays, Check for display area
 
 Using Irena on small displays
 -----------------------------
 
-Irena generates **a lot of** windows, panels, graphs, notebooks... It really needs large display, 1024x768 is realistically too small for useful work, but generally all panels are scaled to this size. But for whatever reason users insist on using tiny screens. So here is the first warning:
+Irena generates **a lot of** windows, panels, graphs, notebooks... It really needs large display, 1024x768 is simply too small for useful work. Current version of Irena requires at least 1100x 900 pixels display - but thi sis much more complciated on WIdowns with the high resolution displays...
 
-**DO NOT DO IT. GET LARGE ENOUGH DISPLAY. THEY ARE CHEAP NOW...**
+To aid users I have now added function which calculates what the area available for content is (in Igor pixel units). On start my code now checks and if available area is smaller than preset values (1100 x 900) the code provides warning in a dialog and instructions in History area. The code will still work, but some tools may refuse to run since the panels would not fit on the screen. Users can maximize Igor window (on Windows), change the display resolution, and/or reduce the Display screen settings ("dpi"). To recheck the size after changing the settings, use command "Check Igor display size" from the menu USAXS, SAS2D, or SAS>"Help, About, Manuals, Remove Irena".
 
-But this warning simply never works. So finally I was able to solve moving the content (not all, but most) up/down on panels:
+**GET LARGE ENOUGH DISPLAY. THEY ARE CHEAP NOW...**
 
+It is possible to move the content (not all, but most) up/down on panels, when needed with the arrows in top right corner:
 
 .. image:: media/Important14.png
       :align: center
       :width: 380px
 
 
-Note the two arrows at the top right corner of some panels, like here on plotting tool panel.
-
-These are "arrows" which move the content of the panel up/down, so if your screen is simply too small vertically (usual problem), you can move the controls in the screen itself.
+The two arrows at the top right corner of most panels - like here on plotting tool panel - move the content of the panel up/down, so if your screen is  too small vertically (usual problem), you can move the controls in the screen itself. However, this is a chllenge in Igor 7 and does not work too well.
 
 So here is the same area, but content was now moved bit higher, so one can reach to the bottom controls:
 
@@ -431,7 +432,7 @@ You can scale panels up or down, but they will not scale to smaller size than or
 
 .. _LargeDisplayChallenge:
 
-.. index:: Display problems; High-res displays
+.. index:: High-res displays
 
 Using Irena on high resolution displays
 ---------------------------------------
