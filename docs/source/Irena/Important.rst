@@ -400,9 +400,9 @@ Match strings are tool-specific, so each tool has its own specific set of match 
 Using Irena on small displays
 -----------------------------
 
-Irena generates **a lot of** windows, panels, graphs, notebooks... It really needs large display, 1024x768 is simply too small for useful work. Current version of Irena requires at least 1100x 900 pixels display - but thi sis much more complciated on WIdowns with the high resolution displays...
+Irena generates **a lot of** windows, panels, graphs, notebooks... It really needs large display, 1024x768 is simply too small for useful work. Current version of Irena requires at least 1100 x 900 pixels display - but this is much more complicated on Widowns with the high resolution displays...
 
-To aid users I have now added function which calculates what the area available for content is (in Igor pixel units). On start my code now checks and if available area is smaller than preset values (1100 x 900) the code provides warning in a dialog and instructions in History area. The code will still work, but some tools may refuse to run since the panels would not fit on the screen. Users can maximize Igor window (on Windows), change the display resolution, and/or reduce the Display screen settings ("dpi"). To recheck the size after changing the settings, use command "Check Igor display size" from the menu USAXS, SAS2D, or SAS>"Help, About, Manuals, Remove Irena".
+To aid users I have now added function which calculates what the area available for content is (in Igor pixel units). On start my code now checks and if available area is smaller than preset values (1100 x 900) the code provides warning in a dialog and instructions in History area. The code will still work, but some tools may refuse to run since the panels would not fit on the screen. On Windows users can change the display resolution and/or reduce the Display screen settings ("dpi"). On Macs users can increase the display resolution. To recheck the size after changing the settings, use command "Check Igor display size" from the menu USAXS, SAS2D, or SAS>"Help, About, Manuals, Remove Irena".
 
 **GET LARGE ENOUGH DISPLAY. THEY ARE CHEAP NOW...**
 
