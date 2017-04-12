@@ -2,7 +2,7 @@
 
 .. _LookupFunctions:
 
-.. index:: Extend Nika Functions
+.. index:: Extend Nika Lookup functions
 
 
 Parameters lookup functions
@@ -38,12 +38,14 @@ To read a specific value from this code I wrote following function:
 
   Function ReadThickness(FileName)
 	   string FileName
-      //if you need help with your function, make sure you send me your current version and include data and how it fails.
+      //if you need help with your function, make sure you send me your current version
+      //and include data and how it fails.
       //This function depends on rigid name structure and known and fixed text file content.
       //this function can be easily modified to return different values from the table
       //
       //To use this place this code in a text file with extension .ipf file in
-      //Documents/Wavemetrics/Igor Pro 7 User Procedures/Igor Procedures (or /Igor Pro 6 Igor Procedures/)
+      //Documents/Wavemetrics/Igor Pro 7 User Procedures/Igor Procedures
+      //(or /Igor Pro 6 Igor Procedures/)
       //ipf files placed in Igor Procedures folder are loaded always when Igor starts.
       //
       //Then in Nika : check "use sample Transmission (T)" checkbox and
@@ -57,10 +59,11 @@ To read a specific value from this code I wrote following function:
       //we need to return 5th element - thickness - (Igor is 0 based, so item 4)
       //
           // ----- here we go -----
-          //First check if path to data exists, this is symbolic path Nika uses to name location of the 2D data. Basically, images are here...
+          //First check if path to data exists, this is symbolic path Nika uses to name
+          //location of the 2D data. Basically, images are here...
       PathInfo Convert2Dto1DDataPath
-      if(V_Flag<1)					             //path does not exist - something bad happened...
-        Abort "Path to 2D data does not exist"	 //abort so user knows bad things happened.
+      if(V_Flag<1)					             //path does not exist
+        Abort "Path to 2D data does not exist"	 //abort
       endif
           //now figure out the name of the text file. The depends on naming system
       string TextFileName                 //place for the file name
@@ -68,10 +71,12 @@ To read a specific value from this code I wrote following function:
       NumOfSeparators = ItemsInList(FileName, "_")	//number of string parts separated by "_"
             //"_" is common seprator for user name parts, so we need to assume more than one.
             //Assume the last one is the XX.tif part
-      string EndStuff=StringFromList(NumOfSeparators-1, FileName, "_") //this is the XX.tif part
+      string EndStuff=StringFromList(NumOfSeparators-1, FileName, "_")
+                                                             //this is the XX.tif part
       TextFileName = ReplaceString(EndStuff, FileName, "")	 //remove the XX.tif part
-      TextFileName = removeEnding(TextFileName,"_")		     //remove "_", it needs to be removed
-      TextFileName = TextFileName+".txt"	                 //add .txt to the name, this should be the text file name now.
+      TextFileName = removeEnding(TextFileName,"_")		     //remove "_"
+      TextFileName = TextFileName+".txt"	                 //add .txt to the name
+                                                    //this should be the text file name now.
       //print TextFileName						             //for testing purposes
           //now we can open the file and read it line by line.
           //This can be done more efficiently, but if this file is not too long,
@@ -81,38 +86,48 @@ To read a specific value from this code I wrote following function:
           //Open the file as read only.
           //We need to eventually close it so it does not stay open!
       Open /P=Convert2Dto1DDataPath /R /T=".txt" refNum  as TextFileName
-          //iterate through first 9 lines - in my case example each text file had 9 lines of header and then one lin eper file info
+          //iterate through first 9 lines
+          //in my case example each text file had 9 lines of header
+          //and then one line per file info
       For(i=0;i<10;i+=1)		                    //9 lines of header info
         FreadLine refNum, aLine
         //print aLine		                         //for testing
       endfor
           //now we need to read and check each following line until we find the one with the right file name in it...
-      Do			                            //this loop could be done better, but this should be easier to understand and modify.
+      Do			                            //this loop could be done better
+                              //but this should be easier to understand and modify.
         i+=1			                        //line number, increment by +1
         FreadLine refNum, aLine					//read the line
-        if(strlen(aline)<1)						//if aLine is empty we are the end of this file, Abort, did not find line which we needed...
-          Abort "Info for the file name "+FileName+" was not found in the text file. Something is wrong here"
+        if(strlen(aline)<1)						//if aLine is empty we are the end of
+                              //this file, Abort, did not find line which we needed...
+          Abort "Date for the image name "+FileName+" was not found in the text file."
         endif
         if(GrepString(aLine, FileName ))		//check if it contains file name
           matched=1								//if yes, we have our line
           endif
       while(!matched)		     				//if matched, we can continue with this line, else back in the loop...
       close refNum						    	//important, close the file.
-          //now we have in string "aLine" the line from text file which contains the name of the file we are dealing with...
+          //now we have in string "aLine" the line from text file which
+          //contains the name of the file we are dealing with...
       //print aLine						        //for testing
           //note, in my case aLine is separated by tabs = '\t'
           //let's clean it up a bit,
-      aLine=ReplaceString("\t", aLine, ";")+";"	//replace '\t' with ; and add one ; at the end... Needed for lookup next
+      aLine=ReplaceString("\t", aLine, ";")+";"	//replace '\t' with ;
+                          //and add one ; at the end... Needed for lookup next
       //print aLine						        //for testing
           //so now we need to simply find the right number and return...
       variable result
-          //Now it depends, which item is what. Assume Thickness is fifth item (item 4, Nika is 0 based), for example...
+          //Now it depends, which item is what.
+          //Assume Thickness is fifth item (item 4, Igor is 0 based), for example...
           //Note: Nika expects thickness in [mm]
           //print str2num(StringFromList(4, aline, ";"))
-      result = str2num(StringFromList(4, aline, ";"))			//thickness [mm] 	//done, result has value we wanted...
-	      //This will work for reasonable number of lines/images in the text file listing (I guess up to hundred), will get really slow for large number (thousands) of lines/images.
-	      //If large number of images (=lines) is in the text file, the only efficient way is to load such large list in Igor first in separate folder in waves
-	      //and then look up in these waves - that avoids reading many times line by line from a text file. Can be done, but would be two step procedure.
+      result = str2num(StringFromList(4, aline, ";"))			//thickness [mm]
+        //done, result has value we wanted...
+        //This will work for reasonable number of lines/images in the text file listing
+        //(I guess up to hundred), will get really slow for large number (thousands) of lines/images.
+        //If large number of images (=lines) is in the text file, the only efficient way
+        //is to load such large list in Igor first in separate folder in waves
+        //and then look up in these waves - that avoids reading many times line by line from a text file. Can be done, but would be two step procedure.
       return result
   end
 
@@ -120,7 +135,8 @@ To read a specific value from this code I wrote following function:
 .. _LookupFunctions.LookupFromWaveNote:
 
 .. index::
-   Lookup Functions Nika; Metadata, Wave notes
+   Lookup Functions Nika; Metadata
+   Lookup Functions Nika; Wave notes
 
 Lookup from wavenote metadata
 -----------------------------
@@ -134,7 +150,7 @@ Helpful notes:
 
   Current 2D Dark  ...   root:Packages:Convert2Dto1D:DarkFieldData
 
-Following is example which my instrument uses to look up Ion chamber counts collected during exposure for normalization purposes. Similar code can be used to extract photodiode and ion chamber counts measured during transmission measurements on sample and empty (blank) image - and calculate transmission of each sample "on fly". 
+Following is example which my instrument uses to look up Ion chamber counts collected during exposure for normalization purposes. Similar code can be used to extract photodiode and ion chamber counts measured during transmission measurements on sample and empty (blank) image - and calculate transmission of each sample "on fly".
 
 .. code::
 
