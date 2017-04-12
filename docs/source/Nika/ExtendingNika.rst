@@ -19,17 +19,26 @@ Nika can be extended and customized to lookup parameters from various records. T
 Lookup from external text file
 ------------------------------
 
-This is an ugly workaround which has been used for long time with images (like tiff files) which do not easily enable storing metadata with the image itself. The main disadvantage of this method is a chance that metadata and image get separated. Also, usually this method is created ad hoc and also ad hoc modified. This makes it for very poor target for programming, as the code which handles such metadata is always changing. But, this is very common method and therefore needs to be supported.
+This is an ugly (obsolete) method which has been used for long time with images (like tiff files) which do not easily enable storing metadata with the image itself. The main disadvantage of this method is a chance that metadata and image get separated and generally it is cumbersome. Also, usually this method is created ad hoc and also ad hoc modified. This makes it for very poor target for programming, as the code which handles such metadata is always changing. But, this is widely used, common method, and therefore needs to be supported.
 
-There are two basic methods of how metadata are stored - at least form what I have seen. Potentiallt large text file in a folder with images (or just above the folder with these images) which contains one line of information for all images in that folder. And case where each (or few) images have associated text file (of similar anme to images names) containing smaller number of lines.
+There are two basic methods of how metadata are stored - at least from my experience. I used boht of these methods long time ago and still see many users with data stored this way.
 
-For the one large file the best method is to load the text content in Igor first in separate folder in waves and then look up these values from there. This can be done relatively efficiently.
+1.  One (potentially very large) text file in a folder with lots of images (or in the parent folder of the folder with these images). This text file contains one line of information for each image in that folder, usually with file name of the image within the line itself.
 
-Recently I was asked to help users with the second setup to write such functions. Here is an example of the resulting functions...
+2.  Many (smaller) text files, where each image (or few images) have one associated text file - usually with name related to the images name by simple recipy. This text file can now contain some header info and possibly, like in the case example below, smaller number of lines where each line relates to one of teh images.
 
-In this case we have a folder conating multiple "groups" of files belonging together. Each group has Number of Images with names similar to Image_file_01.tif, Image_file_02.tif, etc. Names are bascially ArbitraryString_XY.tif. Then we have associated text file, in this case names Image_file_refs.txt (that is ArbitraryString_refs.txt). Inside the test file are few lines of header with various other information (sample name, instrument conditions, etc.) and then lines with tab separated values such as date+time, Image_file_XY.tif, Monitor1, Monitor2, thickness, transmisison etc. In Igor this line looks like this:
-10/04/2017 15:54:04/t170410_refs_01.tif/t87.259/t87.145/t1/t45.457
-note that the  /t  is Igor for Tab.
+For the one large file the best method is to manually load the text content in Igor first in separate folder in waves and then look up these values from there. This can be done relatively efficiently and one can (and should) write Igor function which loads the text file so wave names and location of the waves are fixed and code then can rely on their presence.
+
+Recently I was asked to help users with the second setup - one text file for few images - to write look up functions. Below is an example of the resulting functions which you can modify with relatively little Igor expertise...
+
+In this case we have a folder containg multiple "groups" of files belonging together. Each group has some number of images with names similar to Image_file_01.tif, Image_file_02.tif, etc. Names are bascially "ArbitraryString_XY.tif". Then we have associated text file, in this case named Image_file_refs.txt (that is "ArbitraryString_refs.txt"). Inside the text file are few (9 in my case) lines of header with various common information (sample name, instrument conditions, etc.) and then lines with tab separated values for each image - such as date+time, file name, Monitor1, Monitor2, thickness, transmisison etc.
+
+In text editor or Igor history area this line looks like this:
+10/04/2017 15:54:04 170410_refs_01.tif  87.259 87.145  1  45.457
+
+In Igor debugger (and for Igor code) this line looks like this:
+10/04/2017 15:54:04\\t170410_refs_01.tif\\t87.259\\t87.145\\t1\\t45.457;
+note that the  "\\t"  is Igor for tab.
 
 To read a specific value from this code I wrote following function:
 
@@ -55,7 +64,8 @@ To read a specific value from this code I wrote following function:
       //this function reads from text file assuming name template:
       //image in name: ImageName_XX.tif ------> the text file name:  ImageName.txt
       //text file content line example:
-      //10/04/2017 15:54:04/t170410_refs_01.tif/t87.259/t87.145/t1/t45.457
+      //date time\tFileName\tMon1\tMon2\tThickness\tTransmission[%]
+      //10/04/2017 15:54:04\t170410_refs_01.tif\t87.259\t87.145\t1\t45.457
       //we need to return 5th element - thickness - (Igor is 0 based, so item 4)
       //
           // ----- here we go -----
@@ -76,8 +86,8 @@ To read a specific value from this code I wrote following function:
       TextFileName = ReplaceString(EndStuff, FileName, "")	 //remove the XX.tif part
       TextFileName = removeEnding(TextFileName,"_")		     //remove "_"
       TextFileName = TextFileName+".txt"	                 //add .txt to the name
-                                                    //this should be the text file name now.
-      //print TextFileName						 //for testing purposes
+                                      //this should be the text file name now.
+      //print TextFileName            //for testing purposes
           //now we can open the file and read it line by line.
           //This can be done more efficiently, but if this file is not too long,
           //we can simply read through this line by line. Makes it easier to understand...
@@ -108,21 +118,21 @@ To read a specific value from this code I wrote following function:
           endif
       while(!matched)           //if matched, we can continue with this line
                                 //else back in the loop...
-      close refNum						    	//important, close the file.
+      close refNum              //important, close the file.
           //now we have in string "aLine" the line from text file which
           //contains the name of the file we are dealing with...
       //print aLine						        //for testing
           //note, in my case aLine is separated by tabs = '\t'
           //let's clean it up a bit,
-      aLine=ReplaceString("\t", aLine, ";")+";"	//replace '\t' with ;
-                          //and add one ; at the end... Needed for lookup next
+      aLine=ReplaceString("\t", aLine, ";")+";"
+                  //replace '\t' with ; and append ; at the end...
       //print aLine						        //for testing
-          //so now we need to simply find the right number and return...
+          //now we need to find the right number and return it to Nika...
       variable result
           //Now it depends, which item is what.
           //Assume Thickness is fifth item (item 4, Igor is 0 based), for example...
           //Note: Nika expects thickness in [mm]
-          //print str2num(StringFromList(4, aline, ";"))
+      //print str2num(StringFromList(4, aline, ";"))
       result = str2num(StringFromList(4, aline, ";"))			//thickness [mm]
         //done, result has value we wanted...
         //This will work for reasonable number of lines/images in the text file listing
@@ -173,5 +183,5 @@ Following is example which my instrument uses to look up Ion chamber counts coll
         Print "I0 or I0gain value not found in the wave note of the sample file, setting to 1"
         I0=1
     endif
-	  return I0
+    return I0
   end
