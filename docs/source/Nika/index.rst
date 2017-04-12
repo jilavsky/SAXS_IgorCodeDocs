@@ -18,9 +18,10 @@ Manual |release| for  Nika version: 1.75
    OutputData
    ImportDataTypes
    Nexus
+   ExtendingNika
    InstrumentSupport
    Important
-  
+
 Indices and tables
 ------------------
 

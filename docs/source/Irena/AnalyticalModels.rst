@@ -187,6 +187,9 @@ the appropriate model to use.
 Ciccariello–Benedetti model for coated smooth surfaces
 ------------------------------------------------------
 
+.. index::
+   model; Ciccariello–Benedetti model
+
 This tools was coded using following manuscripts:
 
 Benedetti, A., S. Ciccariello, Coated Silicas and Small-angle X-ray intensity behavior, J. Appl. Cryst (1994) **27**, 249-256.
