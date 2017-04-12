@@ -77,7 +77,7 @@ To read a specific value from this code I wrote following function:
       TextFileName = removeEnding(TextFileName,"_")		     //remove "_"
       TextFileName = TextFileName+".txt"	                 //add .txt to the name
                                                     //this should be the text file name now.
-      //print TextFileName						             //for testing purposes
+      //print TextFileName						 //for testing purposes
           //now we can open the file and read it line by line.
           //This can be done more efficiently, but if this file is not too long,
           //we can simply read through this line by line. Makes it easier to understand...
@@ -93,19 +93,21 @@ To read a specific value from this code I wrote following function:
         FreadLine refNum, aLine
         //print aLine		                         //for testing
       endfor
-          //now we need to read and check each following line until we find the one with the right file name in it...
-      Do			                            //this loop could be done better
-                              //but this should be easier to understand and modify.
+          //now we need to read and check each following line until
+          //we find the one with the right file name in it...
+      Do			            //this loop could be done better
+                          //but this should be easier to understand and modify.
         i+=1			                        //line number, increment by +1
-        FreadLine refNum, aLine					//read the line
-        if(strlen(aline)<1)						//if aLine is empty we are the end of
+        FreadLine refNum, aLine		//read the line
+        if(strlen(aline)<1)		//if aLine is empty we are the end of
                               //this file, Abort, did not find line which we needed...
           Abort "Date for the image name "+FileName+" was not found in the text file."
         endif
-        if(GrepString(aLine, FileName ))		//check if it contains file name
-          matched=1								//if yes, we have our line
+        if(GrepString(aLine, FileName ))	//check if it contains file name
+          matched=1                         //if yes, we have our line
           endif
-      while(!matched)		     				//if matched, we can continue with this line, else back in the loop...
+      while(!matched)           //if matched, we can continue with this line
+                                //else back in the loop...
       close refNum						    	//important, close the file.
           //now we have in string "aLine" the line from text file which
           //contains the name of the file we are dealing with...
@@ -127,7 +129,8 @@ To read a specific value from this code I wrote following function:
         //(I guess up to hundred), will get really slow for large number (thousands) of lines/images.
         //If large number of images (=lines) is in the text file, the only efficient way
         //is to load such large list in Igor first in separate folder in waves
-        //and then look up in these waves - that avoids reading many times line by line from a text file. Can be done, but would be two step procedure.
+        //and then look up in these waves - that avoids reading many times line by line from a
+        //text file. Can be done, but would be two step procedure.
       return result
   end
 
