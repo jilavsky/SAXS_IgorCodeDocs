@@ -21,17 +21,17 @@ Lookup from external text file
 
 This is an ugly (obsolete) method which has been used for long time with images (like tiff files) which do not easily enable storing metadata with the image itself. The main disadvantage of this method is a chance that metadata and image get separated and generally it is cumbersome. Also, usually this method is created ad hoc and also ad hoc modified. This makes it for very poor target for programming, as the code which handles such metadata is always changing. But, this is widely used, common method, and therefore needs to be supported.
 
-There are two basic methods of how metadata are stored - at least from my experience. I used boht of these methods long time ago and still see many users with data stored this way.
+There are two basic methods of how metadata are stored - at least from my experience. I used both of these methods long time ago and still see many users with data stored this way.
 
 1.  One (potentially very large) text file in a folder with lots of images (or in the parent folder of the folder with these images). This text file contains one line of information for each image in that folder, usually with file name of the image within the line itself.
 
-2.  Many (smaller) text files, where each image (or few images) have one associated text file - usually with name related to the images name by simple recipy. This text file can now contain some header info and possibly, like in the case example below, smaller number of lines where each line relates to one of teh images.
+2.  Many (smaller) text files, where each image (or few images) have one associated text file - usually with name related to the images name by simple recipy. This text file can now contain some header info and possibly, like in the case example below, smaller number of lines where each line relates to one of the images.
 
 For the one large file the best method is to manually load the text content in Igor first in separate folder in waves and then look up these values from there. This can be done relatively efficiently and one can (and should) write Igor function which loads the text file so wave names and location of the waves are fixed and code then can rely on their presence.
 
 Recently I was asked to help users with the second setup - one text file for few images - to write look up functions. Below is an example of the resulting functions which you can modify with relatively little Igor expertise...
 
-In this case we have a folder containg multiple "groups" of files belonging together. Each group has some number of images with names similar to Image_file_01.tif, Image_file_02.tif, etc. Names are bascially "ArbitraryString_XY.tif". Then we have associated text file, in this case named Image_file_refs.txt (that is "ArbitraryString_refs.txt"). Inside the text file are few (9 in my case) lines of header with various common information (sample name, instrument conditions, etc.) and then lines with tab separated values for each image - such as date+time, file name, Monitor1, Monitor2, thickness, transmisison etc.
+In this case we have a folder containg multiple "groups" of files belonging together. Each group has some number of images with names similar to Image_file_01.tif, Image_file_02.tif, etc. Names are basically "ArbitraryString_XY.tif". Then we have associated text file, in this case named Image_file.txt (that is "ArbitraryString.txt"). Inside the text file are few (9 in my case) lines of header with various common information (sample name, instrument conditions, etc.) and then lines with tab separated values for each image - such as date+time, file name, Monitor1, Monitor2, thickness, transmisison etc.
 
 In text editor or Igor history area this line looks like this:
 10/04/2017 15:54:04 170410_refs_01.tif  87.259 87.145  1  45.457
@@ -57,9 +57,9 @@ To read a specific value from this code I wrote following function:
       //(or /Igor Pro 6 Igor Procedures/)
       //ipf files placed in Igor Procedures folder are loaded always when Igor starts.
       //
-      //Then in Nika : check "use sample Transmission (T)" checkbox and
-      //on tab "Par" check "Use fnct?" for Sa Transmisison in the field
-      //type ReadTransmission    (no " or ' , just the letters) with no parameters or ()
+      //Then in Nika : check "use sample Thickness (t)" checkbox and
+      //on tab "Par" check "Use fnct?" for Sa Thickness in the field
+      //type ReadThickness    (no " or ' , just the letters) with no parameters or ()
       //
       //this function reads from text file assuming name template:
       //image in name: ImageName_XX.tif ------> the text file name:  ImageName.txt
@@ -154,7 +154,7 @@ To read a specific value from this code I wrote following function:
 Lookup from wavenote metadata
 -----------------------------
 
-When Nika loads image with metadata - like the HDF5 images :ref:`Nexus <Nexus>` it appends the metadata information to image as wave note. It creates first from the metadata keyword=Value; string (KeyWord1=Value1;KeyWord2=Value2;...) so this info can be easily searched. YOu need to know the Keywords, of course, but then this is very easy to look up and calcuate what is needed...
+When Nika loads image with metadata - like the HDF5 images :ref:`Nexus <Nexus>` it appends the metadata information to image as wave note. It creates first from the metadata keyword=Value; string (KeyWord1=Value1;KeyWord2=Value2;...) so this info can be easily searched. You need to know the Keywords, of course, but then this is very easy to look up and calculate what is needed...
 
 Helpful notes:
   Current 2D Image ...   root:Packages:Convert2Dto1D:CCDImageToConvert
@@ -174,13 +174,16 @@ Following is example which my instrument uses to look up Ion chamber counts coll
         Abort "Image file not found"   //error message to user, this should not happen.
     endif
     string OldNOte=note(w2D)
-    //we are looking for data like this ...;I0_cts=56.5;I0_gain=1000000;...
+    //OldNOte should have data like this ...;I0_cts=56.5;I0_gain=1000000;...
     variable I0 = NumberByKey("I0_cts", OldNote  , "=" , ";")
     variable I0gain = NumberByKey("I0_gain", OldNote  , "=" , ";")
     //print SampleName+"   normalized I0 = "+num2str(I0 / I0gain)
     I0 = I0 / I0gain
-    if(numtype(I0)!=0)    //this is here to prevent bad failures, you can also abort if needed.
-        Print "I0 or I0gain value not found in the wave note of the sample file, setting to 1"
+    //check for failure when we get for some reason NaN (not a number)
+    if(numtype(I0)!=0)
+        //abort "Nan result found"     //you can abort if needed.
+        //or simply overwrite this to 1 and report to user.
+        Print "I0 or I0gain value not found, setting to 1"
         I0=1
     endif
     return I0
