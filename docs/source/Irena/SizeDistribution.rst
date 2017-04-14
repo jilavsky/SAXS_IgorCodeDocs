@@ -29,7 +29,7 @@ Maximum entropy (MaxEnt) and regularization (maximizes smoothness) are two separ
 
 .. math::
 
-  I\left( Q \right) = \left| \Delta\varrho \right|^{2}\int{\left| F\left( Q,r \right) \right|^{2}V\left( r \right)N_p\left( r \right)\text{d}r}
+  I\left( Q \right) = \left| \Delta\varrho \right|^{2}\int{\left| F\left( Q,r \right) \right|^{2}(V\left( r \right))^{2}N_p\left( r \right)\text{d}r}
 
 The difference in these two methods is in the applied constraint and it is this constraint which most heavily influences the differences between the two methods in the form of the result.
 
