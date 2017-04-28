@@ -17,7 +17,6 @@ This means, that under some combination of display resolution (number of pixels)
 .. image:: media/InCorrectScrRes.jpg
    :align: center
    :width: 380px
-   :figwidth: 320px
 
 
 Here is how to get to the controls. Right click on the desktop (of the OS, not Igor Pro).
