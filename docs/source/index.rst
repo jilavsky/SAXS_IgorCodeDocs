@@ -12,6 +12,7 @@ Contents:
    Installation
    Irena/index
    Nika/index
+   CommonIssues
 
 Indices and tables
 ==================
