@@ -6,13 +6,21 @@
     Missing controls on Panels
     Panel artifacts
 
+Common Issues
+=============
 
 Screen Resolution
-=================
+-----------------
 
-When using Windows 7, 8, or 10, typically with higher resolution displays (aka 4k, UHD, etc.) users often choose to set display number of pixels to high number but since the text and icons become small to read, they increase DPI - or as Windows 10 names it "Change the size of text, apps, and other items". This tells applications to scale up (if more than 100%) the windows so they can still be readable. Igor Pro 7 (at least 7.03 and below) does not handle this well enough - it seems that it can only scale panels up by full 100% steps (100%, 200%, 300%,...).
+Summary: For best performance select 100% DPI setting ("Change the size of text, apps, and other items" in Windows 10) with less pixels used for display. Ideal Irena/Nika display seems to be HD TV resolution (1920 x 1080) or similar. Vertically, Irena and Nika need up to ~830 pixels for some panels.
 
-This means, that under some combination of display resolution (number of pixels) and DPI settings user can have the bottoms of the panels cut off and controls  which should be there are missing. Unluckily, even after working with Weavemetrics on this the only solution I know about is to modify display settings. Here is example of panel which is missing bottom controls due to incorrect settings.
+**Explanation**:
+
+When using Windows 7, 8, or 10, typically with high resolution displays (aka 4k, UHD, etc.), users often choose to set display number of pixels to high number but since the text and icons become small to read, they increase DPI - or as Windows 10 names it "Change the size of text, apps, and other items". This tells applications to scale up (if more than 100%) the windows so they can still be readable even with large pixel displays. Igor Pro 7 (at least 7.03 and below) does not handle this well enough - it seems that it can only scale panels up by full 100% steps (100%, 200%, 300%,...).
+
+This means, that under some combination of **display resolution** (number of pixels) *and* **DPI settings** user can have the bottoms of the panels cut off and controls  which should be there are missing. Unluckily, even after working with Weavemetrics on this the only solution I know about is to modify display settings. Note, that future (as of 4/28/2017) versions of Irena and Nika will present users with error when they estimate that screen settings are incorrect.
+
+Here is example of panel which is **missing bottom controls** due to incorrect settings.
 
 .. image:: media/InCorrectScrRes.jpg
    :align: center
@@ -25,7 +33,7 @@ Here is how to get to the controls. Right click on the desktop (of the OS, not I
    :align: center
    :width: 220px
 
-Here is what you should see (again, Windows 10 - Windows 7 and 8 are similar). Note the slider is moved to higher than 100% setting.
+Here is what you should see (again, Windows 10; Windows 7 and 8 are slightly differnet and call teh setting *DPI*). Note the slider is moved to higher than 100% setting.
 
 
 .. image:: media/W10HighDPISet.jpg
@@ -38,13 +46,13 @@ Here is modified setting which is 100% now:
    :align: center
    :width: 380px
 
-And here is Same Igor panel with this setting:
+And here is the same Igor panel with this setting, note the opresence of the **bottom controls**:
 
 
 .. image:: media/CorrectScrRes.jpg
    :align: center
    :width: 380px
 
-You may need to set now display pixel resolution (numbers of pixels setting) to less pixels so you can actually read the text. Or get larger display.
+You may need to change now the display pixel resolution (numbers of pixels setting) to less pixels so you can actually read the text. Or get larger display.
 
-Note, that it shoudl be possible to use higher DPI settings with enough pixels on teh screen. ABove example was done with HD TV display setting (1920x1080 pixels). My display is UGH (aka 4k) display, capable of displaying 3840 x 2160 pixels. But at that resolution it is humanly impossible to read anything. Instead of raising the DPI to 200% I chose less pixels and 100% DPI.
+Note, that it should be possible to use higher DPI settings with enough pixels on the screen. Above example was done with HD TV display setting (1920x1080 pixels). My display is UHD (aka 4k) display, capable of displaying up to 3840 x 2160 pixels. But at that resolution it is basically humanly impossible to read anything. It is likely that I could use 4k setting AND 200% DPI setting, but I have seens some artifacts. Instead of raising the DPI to 200% I chose less pixels (HD resolutions) and 100% DPI. This has similar/same result with respect to size of text and icons, but Igor Pro works...
