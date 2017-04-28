@@ -25,7 +25,6 @@ Here is how to get to the controls. Right click on the desktop (of the OS, not I
 .. image:: media/W10AccToDPISett.jpg
    :align: center
    :width: 220px
-   :figwidth: 200px
 
 Here is what you should see (again, Windows 10 - Windows 7 and 8 are similar). Note the slider is moved to higher than 100% setting.
 
@@ -33,14 +32,12 @@ Here is what you should see (again, Windows 10 - Windows 7 and 8 are similar). N
 .. image:: media/W10HighDPISet.jpg
    :align: center
    :width: 380px
-   :figwidth: 350px
 
 Here is modified setting which is 100% now:
 
 .. image:: media/W10CorDPISett.jpg
    :align: center
    :width: 380px
-   :figwidth: 350px
 
 And here is Same Igor panel with this setting:
 
@@ -48,7 +45,6 @@ And here is Same Igor panel with this setting:
 .. image:: media/CorrectScrRes.jpg
    :align: center
    :width: 380px
-   :figwidth: 320px
 
 You may need to set now display pixel resolution (numbers of pixels setting) to less pixels so you can actually read the text. Or get larger display.
 
