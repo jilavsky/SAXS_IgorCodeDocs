@@ -33,18 +33,18 @@ Here is how to get to the controls. Right click on the desktop (of the OS, not I
    :align: center
    :width: 220px
 
-Here is what you should see (again, Windows 10; Windows 7 and 8 are slightly differnet and call teh setting *DPI*). Note the slider is moved to higher than 100% setting.
+Here is what you should see (again, Windows 10; Windows 7 and 8 are slightly different and call the setting *DPI*). Note the slider is moved to higher than 100% setting.
 
 
 .. image:: media/W10HighDPISet.jpg
    :align: center
-   :width: 380px
+   :width: 450px
 
 Here is modified setting which is 100% now:
 
 .. image:: media/W10CorDPISett.jpg
    :align: center
-   :width: 380px
+   :width: 450px
 
 And here is the same Igor panel with this setting, note the opresence of the **bottom controls**:
 
@@ -55,4 +55,4 @@ And here is the same Igor panel with this setting, note the opresence of the **b
 
 You may need to change now the display pixel resolution (numbers of pixels setting) to less pixels so you can actually read the text. Or get larger display.
 
-Note, that it should be possible to use higher DPI settings with enough pixels on the screen. Above example was done with HD TV display setting (1920x1080 pixels). My display is UHD (aka 4k) display, capable of displaying up to 3840 x 2160 pixels. But at that resolution it is basically humanly impossible to read anything. It is likely that I could use 4k setting AND 200% DPI setting, but I have seens some artifacts. Instead of raising the DPI to 200% I chose less pixels (HD resolutions) and 100% DPI. This has similar/same result with respect to size of text and icons, but Igor Pro works...
+Note, that it should be possible to use higher DPI settings with enough pixels on the screen. Above example was done with HD TV display setting (1920x1080 pixels). My display is 15 inch UHD (aka 4k) display, capable of displaying up to 3840 x 2160 pixels. But at that resolution it is basically humanly impossible to read anything. It is likely that I could use 4k setting AND 200% DPI setting, but I have seen some artifacts. Instead of raising the DPI to 200% I chose less pixels (HD resolutions) and 100% DPI. This has similar/same result with respect to size of text and icons, but Igor Pro works...

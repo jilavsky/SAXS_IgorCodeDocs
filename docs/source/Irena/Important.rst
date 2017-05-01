@@ -402,7 +402,7 @@ Using Irena on small displays
 
 Irena generates **a lot of** windows, panels, graphs, notebooks... It really needs large display, 1024x768 is simply too small for useful work. Current version of Irena requires at least 1100 x 900 pixels display - but this is much more complicated on Widowns with the high resolution displays...
 
-To aid users I have now added function which calculates what the area available for content is (in Igor pixel units). On start my code now checks and if available area is smaller than preset values (1100 x 900) the code provides warning in a dialog and instructions in History area. The code will still work, but some tools may refuse to run since the panels would not fit on the screen. On Windows users can change the display resolution and/or reduce the Display screen settings ("dpi"). On Macs users can increase the display resolution. To recheck the size after changing the settings, use command "Check Igor display size" from the menu USAXS, SAS2D, or SAS>"Help, About, Manuals, Remove Irena".
+To aid users I have now added function which calculates what the area available for content is (in Igor pixel units). On start my code now checks and if available area is smaller than preset values (1100 x 900) the code provides warning in a dialog and instructions in History area. The code will still work, but some tools may refuse to run since the panels would not fit on the screen. On Windows users can change the display resolution and/or reduce the Display screen settings ("dpi"). On Macs users can increase the display resolution. To recheck the size after changing the settings, use command "Check Igor display size" from the menu USAXS, SAS2D, or SAS>"Help, About, Manuals, Remove Irena". For more details if you have problems seeing panel content, please, see :ref:`GUI Controls Missing in Common Issues <GUIcontrolsMissing>`.
 
 **GET LARGE ENOUGH DISPLAY. THEY ARE CHEAP NOW...**
 
@@ -429,6 +429,8 @@ If you have a large display, you can zoom panels by dragging lower right corner 
       :width: 30px
 
 You can scale panels up or down, but they will not scale to smaller size than original size.
+
+NOTE: the setting of size is now persistent - in the current Igor Experiment that is - therefore, if you scale panel up and then close the panel, next time you recreate this panel, it will be rescaled for you to the same size. However, for usability in case you changed the display size in the mean time, the panel will be also imited in size to 50% width fo the current display AND 90% height of the current display. If you want to reset the panel to its default size, hold down shift/alt or cmd/ctrl key while creating the panel again. The size will be reset.
 
 .. _LargeDisplayChallenge:
 
