@@ -135,12 +135,18 @@ There is no way at this time to rename saved configurations, except manually ren
 
 .. index:: Display problems; Small displays, Check for display area
 
-Using Nika on small displays
-----------------------------
+Using Nika on small & large displays
+------------------------------------
 
-Nika generates **a lot of** windows, panels, graphs, notebooks... It really needs large display, 1024x768 is simply too small for useful work. Current version of Irena requires at least 1100x 900 pixels display - but thi sis much more complciated on WIdowns with the high resolution displays...
+Nika generates **a lot of** windows, panels, graphs, notebooks... It really needs large display, 1024x768 is simply too small for useful work. Current version of Nika requires at least 1100 x 900 pixels display - and this is much more complicated on Widowns with the high resolution displays - see :ref:`GUI Controls Missing in Common Issues <GUIcontrolsMissing>`....
 
-To aid users I have now added function which calculates what the area available for content is (in Igor pixel units). On start my code now checks and if available area is smaller than preset values (1100 x 900) the code provides warning in a dialog and instructions in History area. The code will still work, but some tools may refuse to run since the panels would not fit on the screen. Users can maximize Igor window (on Windows), change the display resolution, and/or reduce the Display screen settings ("dpi"). To recheck the size after changing the settings, use command "Check Igor display size" from the menu USAXS, SAS2D, or SAS>"Help, About, Manuals, Remove Irena".
+To aid users I have now added function which calculates what the area available for content is (in Igor pixel units). On start my code now checks and if available area is smaller than preset values (1100 x 900) the code provides warning in a dialog and instructions in History area. The code will still work, but some tools may refuse to run since the panels would not fit on the screen. Users can maximize Igor window (on Windows), change the display resolution, and/or reduce the Display screen settings ("dpi"), see :ref:`more info <GUIcontrolsMissing>`. To recheck the size after changing the settings, use command "Check Igor display size" from the menu USAXS, SAS2D, or SAS>"Help, About, Manuals, Remove Irena".
+
+.. _LargeDisplayChallenge:
+
+.. index:: High-res displays
+
+Igor 7 has problems handling high resolution displays - 4k displays and similar - on Windows 7, 8 and 10. If you have problems seeing panel content or simply anything else looks off, please, check :ref:`GUI Controls Missing in Common Issues <GUIcontrolsMissing>`.
 
 **GET LARGE ENOUGH DISPLAY. THEY ARE CHEAP NOW...**
 
@@ -168,15 +174,7 @@ If you have a large display, you can zoom panels by dragging lower right corner 
 
 You can scale panels up or down, but they will not scale to smaller size than original size.
 
-.. _LargeDisplayChallenge:
-
-.. index:: High-res displays
-
-Using Nika on high resolution displays
---------------------------------------
-
-Igor has problems handling high resolution displays - 4k displays and similar - on Windows. Some users will set the resolution relatively high (may be 2.5 horizontally) but in order to be able to read the text on the screen they scale the font higher. Some combinations of resolutions and font scaling result in panels which are incorreclty populated with controls. If this happens, the only solution is to change resolution (typically to less points) and reduce the font scaling. Unluckily, this is the only solution provided by Wavemetrics to me.
-
+NOTE: the setting of size is now persistent - in the current Igor Experiment that is - therefore, if you scale panel up and then close the panel, next time you recreate this panel, it will be rescaled for you to the same size. However, for usability in case you changed the display size in the mean time, the panel will be also imited in size to 50% width fo the current display AND 90% height of the current display. If you want to reset the panel to its default size, hold down shift/alt or cmd/ctrl key while creating the panel again. The size will be reset.
 
 
 .. index:: Update check Nika

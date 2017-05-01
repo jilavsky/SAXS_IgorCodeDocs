@@ -274,7 +274,7 @@ These controls enable user to customize font used on control panels  therefore t
 
 When these controls are run (and user is forced to run them if the Irena is loaded and preferences are not found), they save preferences in special folder Igor maintains for users. At the same time, the settings are applied to the current experiment.
 
-When this experiment is opened on another computer, the preferences from that computer are not reloaded, so the experiment will use preferences from the original computer. When the “Conimage GUI and Graph defaults” is run, it will reload the computer defaults and apply them to the given experiment. Then user can change the fonts and font sizes as they wish. The new settings are saved on the computer – and within the experiment.
+When this experiment is opened on another computer, the preferences from that computer are not reloaded, so the experiment will use preferences from the original computer. When the “Configure image GUI and Graph defaults” is run, it will reload the computer defaults and apply them to the given experiment. Then user can change the fonts and font sizes as they wish. The new settings are saved on the computer – and within the experiment.
 
 *Note*, that Panel font and font size are platform specific, so same experiment may present differently looking panels on Mac and PC. Also, from version 2.62 this panel is common for Irena and Nika packages, so not everything you see in Irena applies.
 
