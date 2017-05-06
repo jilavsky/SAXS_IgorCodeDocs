@@ -255,7 +255,7 @@ Download and open Manual, request manuscript, sign up for mailing list and do fe
 unsuccessfully.
 
 
-.. image:: media/Important9.png
+.. image:: media/Important9.jpg
       :align: center
       :width: 350px
 
@@ -267,6 +267,16 @@ unsuccessfully.
 **Configure image default fonts and names**
 
 “Configure image default fonts and names” in the SAS menu will create panel with some controls common for all tools, like font type & size and how legend names are handled. NOTE: Panel controls are applied immediately to all existing panels, graph controls are applied ONLY to the newly created graphs (and only those which were upgraded to this behavior).
+
+.. index:: DO NOT restore Panel Sizes
+           Panel size
+
+.. _important.DoNOTRestorePanelSizes:
+
+**DO NOT restore Panel Sizes**
+
+Do NOT restore Panel Sizes” controsl if panels are restored to last used size and position when eother they are recreated (they were closed and a tool is opened again) or when some existing experiment is reopened. Keep in mind, that if this checkbox is not selected, every time you scale up/down a panel, its position and size is recorded. When being recreated, the panel will move and scale back to its size. NOTE: Position and size is recorded ONLY when panel size is changed, not when it is just moved. If you want to overwrite hti sbehavior, hold down any modifier key (alt, cmd/ctrl/shift...).
+
 
 **Panels font and font sizes**
 
@@ -396,6 +406,8 @@ Match strings are tool-specific, so each tool has its own specific set of match 
 .. _CheckIgorDisplayArea:
 
 .. index:: Display problems; Small displays, Check for display area
+           Graphical Interface: Panel Scaling
+           Panel scaling
 
 Using Irena on small displays
 -----------------------------
@@ -430,7 +442,11 @@ If you have a large display, you can zoom panels by dragging lower right corner 
 
 You can scale panels up or down, but they will not scale to smaller size than original size.
 
-NOTE: the setting of size is now persistent - in the current Igor Experiment that is - therefore, if you scale panel up and then close the panel, next time you recreate this panel, it will be rescaled for you to the same size. However, for usability in case you changed the display size in the mean time, the panel will be also imited in size to 50% width fo the current display AND 90% height of the current display. If you want to reset the panel to its default size, hold down shift/alt or cmd/ctrl key while creating the panel again. The size will be reset.
+NOTE: the setting of size and position is now persistent - it is recorded as preference on the current computer. Therefore, if you scale panel up and then close the panel, next time you recreate this panel, it will be rescaled for you to the same size. Panel size and position will also be restored when an experiment is re-opened. This can cause panels to move around with respect to the positions in which they were stored when the Igor experiment was saved last time. If you do not like this, change the setting as indicated below.
+
+However, for usability in case you changed the display size in the mean time, the panel will be also imited in size to 50% width fo the current display AND 90% height of the current display. If you want to reset the panel to its default size, hold down shift/alt or cmd/ctrl key while creating the panel again. The size will be reset.
+
+There is override to thsi behavior in the Configure defaults (see above) panel, where you can choose not to have panel size and position restored.
 
 .. _LargeDisplayChallenge:
 

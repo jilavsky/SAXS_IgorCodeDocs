@@ -51,7 +51,7 @@ If there are any issues with the behavior, please, let me know and I’ll see if
 
 Since version 1.70 these controls are shared with *Irena* package, so they do not fight with each other (which was possible previously). The whole philosophy of this GUI control system is bit convoluted, so if you see some issues, let me know when and how the logic fails.
 
-.. image:: media/Important1.png
+.. image:: media/Important1.jpg
    :align: left
    :width: 380px
 
@@ -59,6 +59,16 @@ Since version 1.70 these controls are shared with *Irena* package, so they do no
 Note the choice of GUI and Graph defaults panels when different fonts are used can mess things us really well… You can mess up the panels really well by wrong choices!
 
 Defaults button returns the panel font choices to platform specific default state (Mac: Geneva size 9 and PC Tahoma size 12). Note, that there is no guarantee that these were your choices before. But these should be reasonable choices for most setups.
+
+.. index:: DO NOT restore Panel Sizes
+           Panel size
+
+.. _important.DoNOTRestorePanelSizes:
+
+**DO NOT restore Panel Sizes**
+
+Do NOT restore Panel Sizes” controsl if panels are restored to last used size and position when eother they are recreated (they were closed and a tool is opened again) or when some existing experiment is reopened. Keep in mind, that if this checkbox is not selected, every time you scale up/down a panel, its position and size is recorded. When being recreated, the panel will move and scale back to its size. NOTE: Position and size is recorded ONLY when panel size is changed, not when it is just moved. If you want to overwrite hti sbehavior, hold down any modifier key (alt, cmd/ctrl/shift...).
+
 
 .. index:: Uncertainty Nika
 
