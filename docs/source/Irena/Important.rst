@@ -270,12 +270,13 @@ unsuccessfully.
 
 .. index:: DO NOT restore Panel Sizes
            Panel size
+           Panel position and size restore
 
 .. _important.DoNOTRestorePanelSizes:
 
 **DO NOT restore Panel Sizes**
 
-Do NOT restore Panel Sizes” controsl if panels are restored to last used size and position when eother they are recreated (they were closed and a tool is opened again) or when some existing experiment is reopened. Keep in mind, that if this checkbox is not selected, every time you scale up/down a panel, its position and size is recorded. When being recreated, the panel will move and scale back to its size. NOTE: Position and size is recorded ONLY when panel size is changed, not when it is just moved. If you want to overwrite hti sbehavior, hold down any modifier key (alt, cmd/ctrl/shift...).
+Do NOT restore Panel Sizes” controls if panels are restored to the last used size and position when other they are recreated (they were closed and a tool is opened again) or when some existing experiment is reopened. Keep in mind, that if this checkbox is not selected, every time you scale up/down a panel, its position and size is recorded. When being recreated, the panel will move and scale back to its size. NOTE: Position and size is recorded ONLY when panel size is changed, not when it is just moved. If you want to overwrite hti sbehavior, hold down any modifier key (alt, cmd/ctrl/shift...).
 
 
 **Panels font and font sizes**

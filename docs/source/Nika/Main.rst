@@ -223,10 +223,19 @@ Most of the time the data in Small-angle scattering are normalized and not calib
 
 enables users to select which units of absolute intensity calibration they want to write in wave note of the data. Other packages (Irena) may use this information and then it may be critical to have the right one in there.
 
+.. index::
+   Nika: Sample name
+
 Sample Name
 ~~~~~~~~~~~
 
 This field has been added in version 1.75 and it is used with data formats which can contain sample name different, that the file name loaded in. Example of such format is Nexus NXsas. Actually, at this time it is the only file format which read, if set in cross-reference table – the sample name from metadata and does not use file name. Every else file format sets this field to file name (without extension). I hope to get more creative later.
+
+.. index::
+   Folder name length (Nika)
+   Sample namelength (Nika)
+   Name trimming (Nika)
+
 
 Name trimming
 ~~~~~~~~~~~~~
@@ -235,7 +244,7 @@ Name trimming
 
 Igor Pro has 32 character limit for names but many operating systems allow much longer names. Also, users are notorious for using file names as abstract.
 
-If Nika is suppose to save the data in Igor experiment, it needs to cut the name down to smaller size – and since it is using part of the name to describe how the data were reduced, it limits user useable length of the string to 20 characters…
+If Nika is suppose to save the data in Igor experiment, it needs to cut the name down to smaller size – and since it is using part of the name to describe how the data were reduced, it limits user useable length of the string to less characters… Current version will calculate maximum allowed length of the name based on what Nika wants to append to the name and trims if needed. Note, that this makes the length dependent on which processing is done for those data - circular average simply appends _C (2 characters) and two more are needed for q_, r_, or s_, so the length of name for circular average is 32-4=28. For sector average one can have e.g., _270_30 (along 270 deg, +/-30 deg sector), 7+2=9 characters, only 23 characters left for user name.
 
 .. image:: media/Main15.png
    :align: center

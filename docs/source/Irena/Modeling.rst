@@ -115,9 +115,7 @@ Gauss (normal), Log-Normal, LSW, and Ardell.
    Probability distributions: Log-Normal
 
 **Gauss** and **Log-Normal** distribution definitions were adopted from NIST
-engineering statistics handbook,
-`www.itl.nist.gov/div898/handbook/eda <http://www.itl.nist.gov/div898/handbook/eda>`__
-. See http://www.itl.nist.gov/div898/handbook/eda/section3/eda366.htm
+engineering statistics handbook. See http://www.itl.nist.gov/div898/handbook/eda/section3/eda366.htm
 
 Standard complicated log-normal distribution is defined as follows
 (Allen, A.J., Krueger, S., Skandan, G., Long, G.G., Hahn, H., Kerch,
