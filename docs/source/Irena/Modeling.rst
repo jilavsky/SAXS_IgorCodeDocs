@@ -97,11 +97,24 @@ Description and details on the structure factors are in the Igor help file or pd
 
 The code can work with distributions defined as *number distribution* :math:`N * \Psi (r)`, where integral over :math:`\Psi (r)` for all r is 1 and N is total number of scatterers or for *volume distribution* :math:`V_{tot} * \Psi (r)`, where integral over this term is equal total volume of scatterers. Internally, the code actually always works with number distributions :math:`N * \Psi (r)`, which, in the second case is calculated from the total volume of scatterers.
 
-There are currently 3 different distributions built in the code, which
-can be used independently for any of up to 5 scatterers populations:
-Gauss (normal), Log-Normal, LSW.
+.. _Probability Distribution:
 
-Gauss and Log-Normal distribution definitions were adopted from NIST
+.. index::
+   Probability distributions
+
+There are currently 4 different distributions built in the code, which
+can be used independently for any of up to 5 scatterers populations:
+Gauss (normal), Log-Normal, LSW, and Ardell.
+
+.. _Gauss Distribution:
+
+.. _Log-Normal Distribution:
+
+.. index::
+   Probability distributions: Gauss
+   Probability distributions: Log-Normal
+
+**Gauss** and **Log-Normal** distribution definitions were adopted from NIST
 engineering statistics handbook,
 `www.itl.nist.gov/div898/handbook/eda <http://www.itl.nist.gov/div898/handbook/eda>`__
 . See http://www.itl.nist.gov/div898/handbook/eda/section3/eda366.htm
@@ -126,7 +139,12 @@ The NIST definition is modified to be more elegant and parameters used by Irena 
 
 "Sdev" = sigma = ln((Dmed-Dmin)/(Dmode-Dmin))
 
-The LSW distribution has been accepted from a source by J. Nasser, A. K. Kuruvilla, and J. E. Smith Jr. These authors in their manuscript on the web (www.space.gc.ca/science/space\_science/paper\_reports/spacebound97/materials\_sciece/….) refer to distribution by Lifshitz, Slyozlov, and Wagner:
+.. _LSW Distribution:
+
+.. index::
+   Probability distributions: LSW
+
+The **LSW distribution** has been accepted from a source by J. Nasser, A. K. Kuruvilla, and J. E. Smith Jr. These authors in their manuscript on the web (www.space.gc.ca/science/space\_science/paper\_reports/spacebound97/materials\_sciece/….) refer to distribution by Lifshitz, Slyozlov, and Wagner:
 
 .. math::
     \Psi(r)=\frac{81}{2^{\frac{5}{3}}}\frac{\rho^2exp(-\frac{\rho}{1.5-\rho})}{(1.5-\rho)^2(3+p)^{\frac{7}{3}}}, \rho<1.5
@@ -134,9 +152,33 @@ The LSW distribution has been accepted from a source by J. Nasser, A. K. Kuruvil
 
 This is the particle size distribution predicted by LSW in their theory of Ostwald Ripening.
 
+.. _Ardell Distribution:
+
+.. index::
+   Probability distributions: Ardell
+
+**Ardell distribution** has been adopted per request (by our metallurgy colleagues) based on papers: Ardell, AJ and Ozolins, V., Trans-interface diffusion-controlled coarsening, Nature Materials, Vol. 4, pg. 309, April 2005 and Ardell, A.J., Quantitative predictions of the trans-interface diffusion-controlled theory of particle coarsening, Acta materialia 58 (2010), 4325-4331. Here are the formulas for the distribution:
+
+.. math::
+
+  A_F(z,n)=\frac{[z(n-1)]^{n-1}}{n^n(z-1)-z^n(n-1)^{n-1}}
+
+  A_P(x,n)=\int_{0}^{x}A_F(z,n)dz
+
+  A_H(z,n)=-3A_F(z,n)exp[A_P(z,n)]
+
+  \rho_{Ardell}(r,r_0,n)=A_H(\frac{r}{r_0},n)
+
+where n is between 2 and 3, resulting in this distribution as function of n:
+
+.. image:: media/Ardell.png
+        :width: 75%
+
+
+
 .. _RadiiDistribution:
 
-**Automatic rdii distribution** Each distribution in this type of problems needs an appropriate selection of radial bins. Appropriate selection is actually problem – too many bins cause too long calculation times, narrow range of radii causes some significant volume of scatterers to be neglected, etc. In this code I take a different approach, which is important to explain properly:
+**Automatic radii distribution** Each distribution in this type of problems needs an appropriate selection of radial bins. Appropriate selection is actually problem – too many bins cause too long calculation times, narrow range of radii causes some significant volume of scatterers to be neglected, etc. In this code I take a different approach, which is important to explain properly:
 
 For each distribution I create cumulative distribution (if exists using formula, if not numerically). Using user input value I select range of radii in which the value for cumulative distribution is between this value and (1-this value). This causes, that only the tails, for which the cumulative probability is below the user selected value are neglected, giving user full control of the precision in which we/she wants to model the data. Then radial bins are calculated, so their spacing for cumulative probability is the same. This causes that the bins have varying width – are narrowest around the areas, where probability function changes fast and wider in the tails. This should provide the best possible method for using the binning method, I hope…
 All of the code handles bins of varying width…
