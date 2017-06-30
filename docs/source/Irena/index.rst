@@ -31,6 +31,7 @@ Manual |release| for Irena version 2.62 for Igor 7.x
    DataMining
    EvaluateSizeDistributions
    Desmearing
+   FormStructureFactors
    OtherTools
 
 
