@@ -14,14 +14,14 @@ Form & Structure factors parameters
 -----------------------------------
 
 
-=====             =====           ======
+========          ========        ========
 Form Factor       Parameter       ParticlePar
------             ------          ------
+--------          --------        --------
 spheroid          AspectRatio     ParticlePar1
 Intg_Spheroid     AspectRatio     ParticlePar1
 Cylinders         Length   			  ParticlePar1
 CylindersAR       AspectRatio     ParticlePar1
-nified_Disc		    thickness  		  ParticlePar1
+Unified_Disc		    thickness  		  ParticlePar1
 Unified_Rod		    length 				  ParticlePar1
 Unified_RodAR	    AspectRatio		  ParticlePar1
 Unified_Sphere
@@ -63,9 +63,9 @@ Janus CS Mic 3    particle size here is core radius
 RectParallepid    particle size here is side a
 			            Side B ratio    ParticlePar1	// Ratio side B/A
 			            Side C ratio    ParticlePar2	// Ratio side C/A
-=====  			    	=====  			   	======
+========          ========        ========
 
-User			uses user provided functions.
+´User			uses user provided functions.
 			There are two user provided functions necessary -
 				F(q,R,par1,par2,par3,par4,par5)
 			and 	V(R,par1,par2,par3,par4,par5)
@@ -74,7 +74,7 @@ User			uses user provided functions.
 
 
 
-=====                =====          ======
+========             ========        ========
 Structure Fct        Parameter      ParticlePar
 Interferences        ref            Beaucage, G. (1995). J Appl Crystallogr 28, 717-728.
                      Par1           ETA (center-to-center distance)
@@ -102,7 +102,7 @@ Hayer Penfold MSA    ref            no reference given in NIST macros
 Interprecipitate     ref            Formula 6 in APPLIED PHYSICS LETTERS 93, 161904 (2008)
                      Par1           Distance L [A]
                      Par2           Sigma (root-mean-square deviation (ordering factor))
-=====                =====          ======
+========             ========        ========
 
 
 
