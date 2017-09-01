@@ -33,6 +33,7 @@ Manual |release| for Irena version 2.62 for Igor 7.x
    Desmearing
    FormStructureFactors
    OtherTools
+   FAQ
 
 
 Indices and tables

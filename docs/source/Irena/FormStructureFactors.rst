@@ -42,7 +42,7 @@ Fractal agg       FrRadOfPriPart  ParticlePar1  //radius of primary particle
 			            FractalDim      ParticlePar2  //Fractal dimension
 SphWHSLocMonoSq   Distance for HS model as ratio to part radius
                   Hard Sphere     model fraction
-Janus CS Mic 1    particle size is total size of the particle (R0 in the figure in description)
+Janus CS Mic 1    particle size   Is total size of the particle (R0 in the figure in description)
 			            Shell_Thickness ParticlePar1//shell thickness
 			            SolventRho      ParticlePar2	// rho for solvent
 			            CoreRho         ParticlePar3	// rho for core material
@@ -54,13 +54,13 @@ Janus CS Mi2 2    particle size here is shell thickness!!!
 			            CoreRho         ParticlePar3	// rho for core material
 			            Shell1Rho       ParticlePar4	// rho for shell 1
 			            Shell2Rho       ParticlePar5	// rho for shell 2
-Janus CS Mic 3    particle size here is core radius
+Janus CS Mic 3    Particle size   Is core radius
 			            Shell_Thickness ParticlePar1	// Shell Thickness A
 			            SolventRho      ParticlePar2	// rho for solvent
 			            CoreRho         ParticlePar3	// rho for core material
 			            Shell1Rho       ParticlePar4	// rho for shell 1
 			            Shell2Rho       ParticlePar5	// rho for shell 2
-RectParallepid    particle size here is side a
+RectParallepid    Particle size   Is side a
 			            Side B ratio    ParticlePar1	// Ratio side B/A
 			            Side C ratio    ParticlePar2	// Ratio side C/A
 ========          ========        ========
@@ -74,7 +74,7 @@ RectParallepid    particle size here is side a
 
 
 
-========             ========        ========
+========             ========       ========
 Structure Fct        Parameter      ParticlePar
 Interferences        ref            Beaucage, G. (1995). J Appl Crystallogr 28, 717-728.
                      Par1           ETA (center-to-center distance)
@@ -82,7 +82,7 @@ Interferences        ref            Beaucage, G. (1995). J Appl Crystallogr 28, 
 Hard Spheres         ref            Percus-Yevick model, PERCUS,YEVICK PHYS. REV. 110 1 (1958), THIELE J. CHEM PHYS. 39 474 (1968), WERTHEIM  PHYS. REV. LETT. 47 1462 (1981)
                      Par1           Radius [A]
                      Par2           Volume fraction (fraction)
-Square Well          ref             SHARMA,SHARMA, PHYSICA 89A,(1977),212, NOTE - depths >1.5kT and volume fractions > 0.08 give UNPHYSICAL RESULTS when compared to Monte Carlo simulations
+Square Well          ref            SHARMA,SHARMA, PHYSICA 89A,(1977),212, NOTE - depths >1.5kT and volume fractions > 0.08 give UNPHYSICAL RESULTS when compared to Monte Carlo simulations
                      Par1           Radius [A]
                      Par2           Volume fraction (fraction)
                      Par3           Well depth e/kT, dimensionless, positive values are attractive
