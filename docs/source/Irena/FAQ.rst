@@ -15,7 +15,8 @@ List of Subjects
 
 1.  :ref:`What to cite <FAQ.citation>`
 2.  :ref:`Do Modeling populations have requried order? <FAQ.ModelingPopsOrder>`
-3.  :ref:`What is RgCo in Unified fit and why do I need to understand it? <FAQ.RgCO>`
+3.  :ref:`Why does Modeling warn against use of multiple Unified levels? <FAQ.ModelingMultipleUFlevels>`
+4.  :ref:`What is RgCo in Unified fit and why do I need to understand it? <FAQ.RgCO>`
 
 
 
@@ -34,10 +35,15 @@ Jan Ilavsky and Peter R. Jemian, *“Irena: tool suite for modeling and analysis
 
 *Do modeling populations have required order?*
 ----------------------------------------------
-Unified fit tool requires specific order to "levels" used - level 1 must be smallest features in the syste, level 2 larger, and so on. This is bit challenging when a sequence of samples needs to be analyzed and new structure appears in teh middle of processing this sequence. Does the Modeling package have any requirements of the order of populations?
+Unified fit tool requires specific order to "levels" used - level 1 must be smallest features in the system, level 2 larger, and so on. This is bit challenging when a sequence of samples needs to be analyzed and a new structural level appears in the middle of processing this sequence. Does the Modeling package have any requirements of the order of populations?
 
 The simple answer is NO, it does not. You can have any order for Modeling populations as you wish. I personally start with setting pop1 to most dominating system and then keep adding the populations of scatterers as needed. Keep in mind, that this means MOdeling cannot have some nice features of Unified fit (linking of RgCO parameter) and that you need to keep much better track on what teh sizes do as you do fitting. *I strongly suggest to use field "What is this" for each population to keep track of them*.
 
+.. _FAQ.ModelingMultipleUFlevels:
+
+*Why does Modeling warn against use of multiple Unified levels?*
+----------------------------------------------------------------
+Unified fit tool requires specific order to "levels" used but MOdeling does not, see above. This specific order of levels enables the code to do some background checks for sensibility of a solution. It also enables users to conveniently link RgCO (see below) together as needed. None of this is possible in the Modeling tool. It is threfore strongly recommended to use Unified fit for fitting of data requiring multiple Unified levels - and not use Modeling tool for this purpose. For complex systems this may not be possible, though... There is nothing inherently wrong in using multiple Unified levels in Modeling tool, it is just more complicated and error prone.
 
 
 .. _FAQ.RgCO:
