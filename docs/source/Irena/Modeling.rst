@@ -4,8 +4,8 @@
     model; Modeling
     Modeling package
 
-Modeling II
-===========
+Modeling
+========
 
 .. Figure:: media/Modeling1.png
    :align: left

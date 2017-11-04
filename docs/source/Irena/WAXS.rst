@@ -57,7 +57,7 @@ Here is example of the graph in default way. Displays the Intensity vs TwoTheta 
 
 **Adding Diffraction lines (PDF2/4-type)**
 
-For basic phase analysis and orientation we usually use JCPDS PDF data. Irena has no way of hooking into the database and this may be developed later, if there is simple way. But the access to the database seems pretty expensive anyway and I assume most users will not have this access. There are ways to avoid the need at least somehow. Read further.
+For basic phase analysis and orientation we usually use JCPDS PDF data or alternative is free database of Amercian Mineralogist Crystal Strucutre Database (AMS) in http://rruff.geo.arizona.edu/AMS/amcsd.php. Irena has no way of hooking into the JCPDS or AMS database and this may be developed later, if there is simple way. But the access to the database seems pretty expensive anyway and I assume most users will not have this access. There are ways to avoid the need at least somehow. Read further.
 
 
 On right had side of the Powder Diffraction/WAXS fits click on the "Diff. lines" tab. Most likely your Diffraction Lines listbox will be empty or contain some cards I distribute with Irena. There are not real JCPDS cards, these are calculated based on models as described below.
@@ -84,6 +84,14 @@ Click button and locate the xml card. I have as example Cu card. Card is read an
 
 
 Allows you to select card to overwrite or create anew card with name you want. If you select card to overwrite, the new card name is not used. If Existing card is not selected, new name is used and card is create in current Igor experiment. You may want to export the card to computer in Irena location for future use.
+
+3. Import AMS txt cards
+
+The procedure is same as JCPDS card, except you point the file selector to the AMS_DATA.txt cards. Make sure you download from their database "diffraction data" and not crystal structures of other data.
+
+4. Manualy adding data
+
+This method creates empty table which you need to fill in with values manually - either type in or copy/paste from other programs, like Excel. You neeed at least d-spacing and Intensity, hkl are helpful. Do not bother with 2Theta values,they get created for wavelength you are using automatically.
 
 Now you can add it to the graph.
 
