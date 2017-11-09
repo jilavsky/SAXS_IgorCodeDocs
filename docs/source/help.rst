@@ -11,6 +11,8 @@ For more information see web sites:
 
 **Nika :** http://usaxs.xray.aps.anl.gov/staff/ilavsky/nika.html
 
+**Indra (USAXS) :** http://usaxs.xray.aps.anl.gov/staff/ilavsky/indra.html
+
 **Youtube movies :** https://www.youtube.com/channel/UCDTzjGr3mAbRi3O4DJG7xHA/about
 
 
