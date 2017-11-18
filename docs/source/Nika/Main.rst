@@ -3,7 +3,7 @@
 Main Panel
 ==========
 
-.. figure:: media/Main1.png
+.. figure:: media/Main1.jpg
    :align: left
    :width: 300px
    :figwidth: 320px
@@ -282,6 +282,9 @@ These are controls in the tabbed area.
 
 We will now go through each tab separately
 
+.. index::
+    Nika Main parameters
+
 Main
 ~~~~
 
@@ -304,6 +307,9 @@ Comment for Use of **Solid Angle Correction**: When selected, the data are divid
 
 Just remember, if you have obtained calibration constant, it is linked
 with the choice of the Solid angle correction.
+
+.. index::
+    Nika Processing parameters
 
 Param
 ~~~~~
@@ -364,6 +370,9 @@ These function need to be “look up” functions, which are called with image n
 
 *Let me point out once more here, that using some of these corrections together makes no sense… Choose wisely.*
 
+.. index::
+    Nika Mask
+
 Mask
 ~~~~
 
@@ -387,6 +396,9 @@ Mask color – allows to change color (red, green, blue, black) of the displayed
 
 Current mask name – shows name of last loaded mask file
 
+.. index::
+    Nika Empty/Blank, Nika dark
+
 Emp/Dark
 ~~~~~~~~
 
@@ -401,6 +413,9 @@ Button “Select path to mask, dark & pix sens, files” Selects path to data wi
 
 Further buttons load the Empty/Dark/Pixel sensitivity, allow Dezingering of these (same method as the sample dezingering as selected above). And at the bottom are listed the file names of the files loaded…
 
+.. index::
+    Nika Sector lineouts; Nika Circular lineout
+
 Sectors
 ~~~~~~~
 
@@ -409,7 +424,7 @@ Sectors
    :width: 380px
 
 
-This tab controls how data are processed when method using “ reverse Lookup tables” is used. This is the more suggested method for regular data processing. In this method Nika creates first lookup table for each sector defined and then can process much faster subsequent data files with the same geometry…
+This tab controls how data are processed when method using “reverse Lookup tables” is used. This is the more suggested method for regular data processing. In this method Nika creates first lookup table for each sector defined and then can process much faster subsequent data files with the same geometry…
 
 **Controls**:
 
@@ -438,6 +453,9 @@ Overwrite existing data if exist – if data with the same name exist, overwrite
 **Use input data name for output** – automatically name 1D data (with sector information added as DataName\_Angle\_width) by input data name.
 
 **ASCII data name** – if the above is not selected, this is place to place name for output file. Note, if there is nothing available for the code as sample name, it will ask for some…
+
+.. index::
+    Nika Polar transformation
 
 PolTrans
 ~~~~~~~~~
@@ -498,6 +516,9 @@ Use: pixels/q/d/2 theta
 Width and position
 
 Save lineout – this saves “qrs” data in SAS folder in current Igor experiment. Suggested folder/data name is offered through dialog and user can modify as needed. Note, that errors are simple sqrt(intensity) – another words, these errors are not very useful.
+
+.. index::
+    Nika Line profile
 
 LineProf
 ~~~~~~~~
@@ -575,6 +596,9 @@ This is line profile for transmission geometry.
    :width: 380px
 
 This is also for transmission geometry.
+
+.. index::
+    Nika Grazing incidence geometry
 
 ***GI\_Vertical line & GI\_Horizontal line***
 
@@ -733,33 +757,50 @@ is used)
 
 Note: next release of Irena package will have capabilities to use not only qrs data , but also q\ :sub:`x`\ rs, q\ :sub:`y`\ rs, and q\ :sub:`z`\ rs data.
 
+.. index::
+    Nika bottom controls
+
 Bottom controls
 ---------------
 
-.. image:: media/Main16.png
+.. image:: media/Main16.jpg
    :align: center
    :width: 100%
 
 
 These controls have following functions:
 
-“\ **Ave & Display selected file**\ ” will average all selected files, which are selected in the list box, and display them as one image. The program will just load and display the CCD images, including some processing (dezinging), if selected.
+“\ **Display only checkbox**\ ” Nika will average all selected files, which are selected in the list box, and display them as one image. The program will just load and display the images, including some processing (dezinging), if selected. but no calibration or otehr processing is done. This is really for preview of how the image looks like.
 
 Note, if more than 1 image is selected, the images are first AVERAGED – that is intensities for each pixel as summed together and then divided by number of images.
 
-“\ **Convert selected files 1 at time**\ ” will load one after another the files selected in the list box and process them according to selection in the tabbed area.
+“\ **Process sel. files individually**\ ” Nika will load one image at a time from the files selected in the list box and processeach individually according to selection in the tabbed area. For each input file you get all output data (whatever you selected above).
 
-“\ **Ave & Convert selected files**\ ” will average all selected files in the list box and process them according to selection in the tabbed area.
+“\ **Avergae all selected and process**\ ” Nika will average all selected files in the list box and process them - together as one input data - according to selection in the tabbed area. You get ONE output data (whatever you selected above) for all together. Typically used when multiple image of same condition are collected to improve statistics.
 
 Note, if more than 1 image is selected, the images are first AVERAGED – that is intensities for each pixel as summed together and then divided by number of images.
 
-“\ **Save displayed image**\ ” will save displayed image into tiff file for future use. This is method, how to for example average number of images and save them for single empty or blank image.
+“\ **Average N of selected and process**\ ” Nika will average Sequentially (in order) N selected files in the list box and process them - together as one input data - according to selection in the tabbed area. You get ONE output data (whatever you selected above) for each N images. Typically used when multiple image of same condition are collected to improve statistics.
+
+This opens further controls:
+
+.. image:: media/Main16a.jpg
+   :align: center
+   :width: 100%
+
+“\ **N =**\ ” This controls how many images Nika will avergae over.
 
 “\ **Skip Bad files**\ ” Enables to skip automatically processing of files, which have too low intensity (SetVariable control with limiting value appears when selected). Used to skip files which were accidentally NOT exposed in case of failing shutters or other issues.
+
+“\ **Min int =**\ ” This defines "bad image". Typically bad image has much lower intensity than good image (shutter did not open, instrument failed) and so one one set minimum intensity in image needed to consider such image a good one. If bad image is found, it is skipped. Note, that even bad images are counted in the "N" value.
 
 “\ **Display RAW data**\ ” will display in the image right of the panel the UNCORRECTED data file as loaded in. Values for the pixles are raw counts from the detector.
 
 “\ **Display Processed**\ ” will display in the image right of the panel the fully CORRECTED and CALIBRATED data. The values for the pixles should be directly absolute intensity in this case. This choice is not available, if image was loaded through using “\ **Ave & Display sel. Files(s)**\ ”. In this case no processing of the image was done. Use button “\ **Convert sel. Files 1 at time**\ ” or the other buttons…. Just remember, that only the last image is available for display.
+
+“\ **Colors**\ ” Choice of color scales. These are now remebered on a given computer, the the last one should be reused next time. Default is Terrain.
+
+“\ **Scale Img x**\ ” User can select how large the image shoudl be displayed on the screen. If input image is too large, set smaller so it fits on the screen (this should eb done automatically anyway), if it is small, scale up to have it cover larger fraction of the screen.
 
 “\ **Display beam center**\ ” will add circles in the image showing where beam center is set
 
@@ -771,6 +812,16 @@ Note, if more than 1 image is selected, the images are first AVERAGED – that i
 axes cannot be removed any other way.
 
 “\ **Image w/ Q axes with grid**\ ” Appends Qx/Qy (or Qz/Qy) axes to displayed image – with grid lines. Note, when unchecked, it has to recreate the image, since these Q axes cannot be removed any other way.
+
+“\ **Display Color Scale?**\ ” Appends color scale to image.
+
+“\ **User def. Min/Max?**\ ” Opens controls to set manually max and min intensity to display in the image. Does not change when new image is loaded.
+
+“\ **Sliders**\ ” Slide to set min and max intensity displayed in the image. Resets when new image is loaded.
+
+
+.. index::
+    Nika polarization correction
 
 Polarization correction
 -----------------------
@@ -824,6 +875,9 @@ For case, when polarization plane is vertical in Igor image (perpendicular to Ni
 
 with maximum correction (blue color).
 
+.. index::
+    Nika uncertainties
+
 Uncertainties (“Errors”)
 ------------------------
 
@@ -842,6 +896,9 @@ The Uncertainty method can be changed in the “Configuration panel” available
    :width: 380px
 
 .. index:: Q resolution Nika
+
+.. index::
+    Nika Q-resolution
 
 Q-resolution calculations
 -------------------------
