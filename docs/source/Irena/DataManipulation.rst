@@ -261,7 +261,7 @@ Data merging
 
 This tool is used to merge to segments of data covering overlapping q ranges. This is common situation for 9ID USAXS/SAXS/WAXS instrument, which collects data with three different geometries sequentially. Each data set for the same sample is reduced individually and then user has three individual segments of data, which can be combined together to create one new data set covering all of the q range.
 
-This tool can help to merge two data sets at time. It is designed to efficiently scale, subtract background, and optionally q-shift the data together as easily and as efficiently as possible. It can do it manually by selecting each data set individually or sequentially, by selecting sets of data sets and processing all at once.
+This tool can help to merge two data sets at time. It is designed to efficiently scale, subtract background, and optionally q-shift the data together as easily and as efficiently as possible. It can do it manually by selecting each data set individually or sequentially, by selecting sets of data sets and processing all at once. It can also fit Data 1 set of data with function dependence (power law, power law with background or Porod with background) and use the fit results to create smooth version fo the data. This sinigficantly improves fit between the two segments when Data 1 high-q area is very noisy.
 
 Please note, that the function of this tool is pretty limited. More functionality is available in the Data manipulation I and Data manipulation II. I do not plan to add other “missions” to this tool, use the other tools for anything, which is more advanced.
 
@@ -273,17 +273,25 @@ USAXS data: Inside root:USAXS: folder, name of the folder represents the sample 
 
 QRS data: Folder name represents the sample name and inside this folder you have three or four waves: Q\_SampleName, R\_SampleName (Intensity), S\_SampleName (Intensity uncertainty), optionally W\_SampleName (Q resolution). No other naming system is NOT supported at this time and if needed, will need to be added into the system (request it, justify and send examples…).
 
-What can be done: User selects the overlapping range of Qs for the data. The data are trimmed at these Qs! User selects method of merging, there are two available:
+**What can be done**:
 
-Merge : Code will optimize two parameters. Data 1 (low-q data, assumed to be the calibrated ones) are assumed to have potentially flat background at high-q. Data 2 (high-q data, assumed to need to be scaled to Data 1) will be scaled with scaling factor. This background and scaling factor are optimized using Igor Optimize function to minimize the misfit between the intensity points in the overlapping q range.
+*Optional Step - when "Merge method" is "Extrap. Data1 and Optimize"* : User can fit "First data set" end of data (high-q range for this set) with one of few funcitons. Code will tehn use the fitted parameters to replace the noisy fitted data with the smooth functional dependence. This helps with data which are noisy and where regular method of Optimizing overlap does not work too well...
 
-Merge 2 : In this case one more parameter is added – this is kind of specifics for USAXS/SAXS/WAXS instrument. In this case the SAXS instrument is moved in and out of the position and the move may not be perfectly reproducible and it is possible that the q calculated for the SAXS is not perfectly correct. Especially since USAXS q calibrations is very good. Here we add q shift for these Data 2 – the high q segment. This q shift is limited to be at most ½ of the q value for the first point on the second segment.
+*Main Step* :User selects the overlapping range of Qs for the data. The data are trimmed at these Qs! Code has 3 parameters of merging:
 
-Note, these two terms and functionality mirrors the Data manipulation I tool (it is the same code). The Data manipulation tool I creates new folder/waves with names modified by adding **“\_comb**\ ” at their end. This tool adds **“\_mrg**\ ” at the end.
+1.  Data 1 background - Data 1, low-q data, assumed to be the optionally absolutely calibrated, are assumed to have potentially flat background at high-q.
+2.  Data 2 scaling - Data 2, high-q data, need to be scaled to Data 1 with scaling factor.
+3.  Data 2 q-shift - Data 2 can have q shift if to compensate for any misalignment between the sectors. This is kind of specific for USAXS/SAXS/WAXS instrument at APS beamline 9ID. In this case the SAXS instrument is moved in and out of the position and the move may not be perfectly reproducible. It is therefore possible that the q calculated for the SAXS is not perfectly correct. Especially since USAXS q calibrations is very good. Therefore we can add q shift for Data 2 – the high q segment. This q shift is limited to be at most ½ of the q value for the first point on the second segment.
+
+Each parameter can be indivudally selected for optimization - or if known, can be inserted manually in the field. Keep in mind, that it is users job to set thevalue back to 0 or 1 if they decide not to use this parameter.
+
+These parameters are optimized using Igor Optimize function to minimize the misfit between the intensity points in the overlapping q range.
+
+Note, that Data manipulation I tool uses similar code. The Data manipulation tool I creates new folder/waves with names modified by adding **“\_comb**\ ” at their end. This tool adds **“\_mrg**\ ” at the end. User can change the term added to folder name in thelower right corner field on the panel.
 
 Below is the GUI panel itself. ***Please NOTE : This tools is one large panel and requires 1280x800 screen size. It will NOT run on smaller screen sizes. ***
 
-.. image:: media/DataManipulation15.png
+.. image:: media/DataManipulation15.jpg
            :align: center
            :width: 600px
 
@@ -292,13 +300,15 @@ The GUI is bit uncharacteristically one large panel with left part being Data se
 
 **Data selection**
 
-.. image:: media/DataManipulation16.png
+.. image:: media/DataManipulation16.jpg
            :align: left
            :width: 330px
 
-At the top are controls for Data 1 (low-q, calibrated data) and Data 2 (high-q, scaled) data sets.
+At the top are controls for Data 1 (low-q, calibrated data) and Data 2 (high-q, to be scaled) data sets.
 
 **USAXS, QRS(QIS) checkboxes** – which data naming system you are using?
+
+**DSM/2D colim? - SMR colim? checkboxes** – specific selection for USAXS data. If Slit smeared data are used (SMR_Int etc), use SMR checkbox, if desmeared data are used (DSM_Int etc.) use DSM checkbox. Note, that his also inserts "_u" or "_270" in Folder match string for Second data set. This si helping USAXS users select proper data for merging.
 
 **Start folder** – select folder, where the data start. Pick the highest folder you can (do not leave on root:), some of the features require that the names in the listbox are single folder name only. Some features will work fine even when the names are full or partial path to data. But it also is likely unreadable anyway. So pick the highest folder you can.
 
@@ -308,17 +318,15 @@ If you want to show only sample names with some string (e.g., “Jong”) in it,
 
 If you want to show only sample names, which do NOT contain some string (e.g., “Jong”), type in this field following string (without quotes) : “^((?!Jong).)\*$” Again, this is case sensitive.
 
-If you want to be more creative, you will need to become expert on Regular expressions. Google can help, I cannot
+If you want to be more creative, see notes below the listbox with some cheatsheet instructions. If you want more, you will need to become expert on Regular expressions. Google can help, I cannot...
 
 **Sort Folders** : This enables to sort the folder names using many different options. Hopefully, one is appropriate for your needs. If not, let me know and send me example of data, may be I can add it.
 
 **Sort USAXS/SAXS/WAXS data** button : On the APS 9ID USAXS the data are collected sequentially using relatively customary naming system and in this case it is possible for the code to identify (mostly) which Data 1 (USAXS) and Data 2 (SAXS or WAXS) belong together. This button will locate such pairs of data sets, reorder the listbox to show those at the top and select those, so these can be easily processed in batch.
 
-*More details*: On APS 9ID USAXS/SAXS/WAXS instrument, most of the time, we collect data using script generating code, which is given a sample name and told which segments to measure (USAXS, SAXS, and WAXS). Since the same code generates the commands sequence, names of the data are reliably the same. However, for historical reasons “order numbers” are expressed differently. Assume your sample is called SampleName, the USAXS adds “Sxyz\_” in front of the name (xyz is number), so it creates something like: S123\_SampleName. SAXS and WAXS add order number at the end of the name, so they create SampleName\_xzy as sample name. This guarantees uniqueness of the name. If the naming of the samples follows this logic, this button runs code which can identify the segments which have the same SampleName and pair them together.
+If USAXS/SAXS/WAXS data collection is done correctly, all three segments belonging to the same sample will have same "order" number - that is the "_0000" number which instrument attaches to user sample name. Note, that in Nika during reduction appends to the name segment designation similar to "_C" for circular average, "_u" for USAXS slit smeared data and "_270_30" for SAXS pinhole data. SOrting should manage this and still allign to the same lines appropriate names. User needs to check.
 
-In case same SampleName is used multiple times (same sample was measured multiple times or user screwed up) first Sxzy\_SampleName will be paired with first SampleName\_xzy data sety, second with second etc. The order comes from order provided by user from the “Sort Folders”, so user needs to be sufficiently smart when using this tool.
-
-Please check the “History area” in Igor pro (ctrl-J or cmd-J will get you command line and history area). The code will make record here on the matched and not matched data sets. Es in Nika for Q
+Please check the “History area” in Igor pro (ctrl-J or cmd-J will get you command line and history area). The code will make record here on the matched and not matched data sets.
 
 *It is unlikely data from any other source, than APS USAXS instrument, would work with this button. It is highly unlikely!*
 
@@ -352,60 +360,70 @@ This may be important, see processing/operations…
 
 **Operations and processing**
 
-.. image:: media/DataManipulation19.png
+.. image:: media/DataManipulation19.jpg
            :align: left
            :width: 430px
 
 
-Please note, that there is red colored vertical button between the data selection and graph which can save data or process and save data when appropriate. If the data loaded in the tool are not saved, the button is read, when the are, it changes color to grey.
+Please note, that there is red colored vertical button between the data selection and graph which can save data or process and save data when appropriate. If the data loaded in the tool are not saved, the button is read, when the are, it changes color to grey. There is pair of buttons at the top - "Process data" and "Save Data" which are each doing separately appropriate functions.
 
-The tool has two main modes of operation – kind of setup (Test mode) when user loads in two data sets and selects the proper range of Qs where data overlap and decides if the use of “Merge” or “Merge2” is appropriate.
+The tool has two main modes of operation
 
-Pick between the modes by use of the three checkboxes:
+1.  **Test mode**  when user loads in two data sets and selects the proper range of Qs where data overlap, sets all other parameters and conditions, can push many times the "Process data" button to test settings etc. If user decides to save data, there is "Save data" button for this. This is basic setup mode for selecting proper settings.
+2.  **Merge mode** which enables user to process - with settings selected using test mode - process many data sets quickly and efficiently.
 
-**Test mode checkbox** – in this case you can use buttons “Test Autoscale” (not very useful, just scales Data 2 to Data 1 using the selected Q range), “Test Merge” (will run Merge and show results), and “Test Merge2” (runs Merge 2 procedure). The data are not saved automatically and need to be saved manually.
+**Merge Method description**
 
-**Merge mode** and **Merge 2 mode** checkboxes – select which method is appropriate for your data and set this.
+There are currently two Merge methods. Some has been aleardy described above, but here are the details.
 
-**Process** **individually** checkbox – in this case user can pick (double click) on a Data 1 cell, then on Data 2 cell in the listbox. Code will automatically merge the data and show results. Depending on the checkbox “\ **Save immediately”** selection the merged data are either immediately saved (when “\ **Save immediately**\ ” is checked) or this saving is left to user (use the vertical button “Save data” between the Listbox and graph).
+1. **Optimized Overlap** This is the main part of the Data Merging tool. This is done always and is default method of this tool. If you push button "Reset merge params" this method is selected. If data have sufficiently good quality for both data sets over sufficient q/point range, this is preferred method. In this case the code will take the overlapping region in data and optimize values of all selected Parameters (Data 1 Backg., Data 2 Scaling , Data 2 Q shift). Any number of parameters can be selected. Value of the others, if known, can be put in by users manually. Default is to fit Data 1 Background and Data 2 scaling. Data 2 Q shift is assumed to be 0.
+2. **Extrap. Data1 and Optimize** This is optional part of the process. If selected, Data 1 is frist fitted with function selected in "Extrap fnc." popup (below the "Merge method popup") - options are Porod (Intensity = Backgr. + Const * Q\ :sup:`-4`), "Power Law" (Intensity = Const * Q\ :sup:`-P`) or "Power law w Backg" (Intensity = Backgr. + Const * Q\ :sup:`-P`). Range of data used for fitting is selcted by cursors C and D, which are placed in the graph when needed. The look like cross and have letters next to them:
+
+.. image:: media/DataManipulation20.jpg
+           :align: left
+           :width: 430px
+
+
+User needs to select proper range of data where the appropriate "Extrap. fnc."" is suitable. These data are then fitted and resulting parameters are being used to generat enew, smooth data points calculated from the functions for original Q values. These are generated for Data1 points between the cursor C and Cursor B (rectangular) which designated high-q range of Data 1 which is used for overlap optimization and for merged data. Thisis important - the code replaces original (noisy) data with smooth functional data. It leaves original uncertainties on the points. See step wise description bit later for use details.
+
+Other checkbox/controls functions:
+
+**Process** **individually** checkbox – in this case user can pick (double click) on a Data 1 cell, then on Data 2 cell in the listbox. Code will automatically merge the data and show results. Depending on the checkbox “\ **Save immediately”** selection the merged data are either immediately saved (when “\ **Save immediately**\ ” is checked) or this saving is left to user (use the vertical button “Save data” between the Listbox and graph or "Save data" button above the graph, same function in this case).
 
 **Process as sequence** checkbox – when checked, the code assumes that there are two ranges of data selected in the Listbox – same number of Data 1 and Data 2. It will assign first Data 1 selection to the first Data 2 selection, merge them and save them. The go on next selection (second Data 1 is merged with second Data 2 selected) etc.
 
 **Overwrite existing data** checkbox – if selected the tool will overwrite any prior data in the location where it is directed to save the merged data. I suspect this is what most people will want. If NOT selected, the code will create new, unique, target folder each time and user can create potentially huge number of garbage containing folders with test data which are useless. Keep this in mind.
 
-Here are some values:
+Here are values / chekcboxes:
 
-.. image:: media/DataManipulation20.png
+.. image:: media/DataManipulation21.jpg
            :align: left
            :width: 280px
 
 
-The top 3 values show the results of scaling/merging procedures. They are for information only and cannot be changed.
+The top 3 values show the values used for scaling/merging procedures. User can either check the "Fit?" checkbox next to them and have them Optimized each time or uncheck it and input proper value - if known. In the case above the Background and Scaling are fitted, Q shift is set to 0. This should be default use case.
 
 The **Data 1 Q max** is the end of the Q range (high Q of the low-q data segment). Defaults to point before last on Data 1 set. You can either change this value by typing in or by dragging the cursor B (rectangle) to new place.
 
-Data 2 Q min is the start of the Q range used for Data 2 (lowest considered Q for high-q segment). Defaults to the second point on the Data 2 and cannot be set lower due to mathematical reasons of the code doing optimization.
+**Data 2 Q start** is the start of the Q range used for Data 2 (lowest considered Q for high-q segment). Defaults to the second point on the Data 2 and cannot be set lower due to mathematical reasons of the code doing optimization.
 
-The graph:
+**Graph content:**
 
-.. image:: media/DataManipulation21.png
+.. image:: media/DataManipulation22.jpg
            :align: center
            :width: 530px
 
+Red are Data 1 plotted against left axis, Black are Data 2 plotted against right axis and Blue are Merged data. Cursors A (round one, on Black Data 2) and B (rectangular one, on red Data 1) are used to select overlap region which will be used for optimization. Points on Data 2 left of cursor A and on Data 1 right of cursor B are removed. Cursors C and D (crosses with letter designation) are present only when Method "Extrap. Data1 and Optimize" is selected and on Data 1. They are used to select range of data used to fit the function. Also, data points between cursor C and B are replaced during processing with calculated values from the result of the fit.
 
-Relatively easy to read – Red are Data 1, black are Data 2 (plotted against right axis) and Black are Merged data (autoscaled Data 2 for case of use of AutoScale).
+**Folder strings:**
 
-Use cursors to select overlapping range of data. Note, that data outside of the cursors will be trimmed away.
-
-Folder strings:
-
-.. image:: media/DataManipulation22.png
+.. image:: media/DataManipulation23.jpg
            :align: center
            :width: 550px
 
-These show full path to the Data 1 and Data 2. These two cannot be changed by user.
+These show full path to the Data 1 and Data 2. These two cannot be changed by user. "Modif" field bottom left can be used to set what modifier is used to create folder name for merged data - see below.
 
-Merged Data path is generated based on Data 1 path and depends on the type of data used (USAXS vs QRS). This one user can actually type into and assuming the path makes sense (the names are valid and it can be used as Igor Path), the path will be created and data saved there. Note, if you type in path which contains data already, those may be overwritten. The checkbox “\ **Overwrite existing data**\ ” really controls how the new path name is auto-created and does not control (for now) saving data. So if you are typing in path yourself, be careful to type in unique path or expect data to be potentially overwritten.
+Merged Data path+folder name is generated based on Data 1 path and depends on the type of data used (USAXS vs QRS). This one user can actually type into and assuming the path makes sense (the names are valid and it can be used as Igor Path), the path will be created and data saved there. Note, if you type in path which contains data already, those may be overwritten. The checkbox “\ **Overwrite existing data**\ ” really controls how the new path name is auto-created and does not control (for now) saving data. So if you are typing in path yourself, be careful to type in unique path or expect data to be potentially overwritten.
 
 **Sequence processing and data selection**
 
@@ -415,7 +433,7 @@ Note, that you MUST provide the right order in the listbox. That is why it is cr
 
 This WILL WORK:
 
-.. image:: media/DataManipulation23.png
+.. image:: media/DataManipulation24.png
            :align: left
            :width: 390px
 
@@ -430,3 +448,30 @@ Data from merged=root:USAXS:'07\_18\_Jan':S118\_Jong\_320nm\_40pct:;Data
 merged with=root:pinSAXS:Jong\_320nm\_40pct\_4001\_usx:;
 
 If these data would be already merged and these keys would already exist, new content is added, separated by “,” to these keys, so there would be multiple folder names in these fields in order these segments were added. Somehow I do not think this will cause much confusion.
+
+**Quick walk through procedure**
+
+Here is quick walk through data merging using the "Extrap. Data1 and Optimize" with example images. In this case we have two segmens of measurement which overlap very poorly as the scattering intensity in Data 1 (USAXS) is low at high-q. This will not work well with regular merge routine. Scaling and background subtraction in this case are very dependent on range of data selected for optimization - which suggests this is not reliable result. In this case I selected "Extrap. Data1 and Optimize" and using cursors C and D selected q range where data follow power law scattering and, in this case, where background is negligible. See next figure:
+
+
+.. image:: media/DataManipulation25.jpg
+           :align: left
+           :width: 690px
+
+I have selected "Power law" as Extrapolation function. I selected reasonable overlap q range - this is matter of try and test. I selected to fit Data 1 Background and Data 2 scaling. I am in test mode, I can push "Process data" button and see results.
+
+
+.. image:: media/DataManipulation26.jpg
+           :align: left
+           :width: 690px
+
+If I zoom in the data and look at them in detail, it should be clear what happened
+
+
+.. image:: media/DataManipulation27.jpg
+           :align: left
+           :width: 690px
+
+As you can see, original noisy Data 1 points (red data) are repalced between cursor C and B with smotth power law data (with original error bars). Those data are then merged with the Data 2 which are nearly perfectly scaled to Data 1, even though the overlap region is quite small (there are only 6 points of each data in the overlap region). Since the Data 1 are here approximated with lots more data points to create data for overlap, the robustness of this merging is much higher than when 6 noisy points are used. Also, since the cursor D is at lower q value than even cursor A, merging data are calculated from more, less noise, more robust points. Assuming the Power law is correct approximation of data in the selected range between cursor C and B, this is better way of merging data.
+
+Now I can push "Save Data" button and actually, in this case, use same setting for all of the data I have in the set, since they are all very similar.
