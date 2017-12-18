@@ -52,7 +52,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Irena'
+project = u'Indra'
 copyright = u'2017, Jan Ilavsky'
 author = u'Jan Ilavsky'
 

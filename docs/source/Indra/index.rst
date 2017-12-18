@@ -1,6 +1,6 @@
 .. _indra:
 
-Irena manual
+Indra manual
 ============
 
 .. index:: ! Indra manual
