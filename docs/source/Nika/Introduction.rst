@@ -1,3 +1,5 @@
+.. _Introduction_Nika:
+
 .. index:: Introduction Nika
 
 Introduction

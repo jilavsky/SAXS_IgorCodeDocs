@@ -4,6 +4,8 @@
 .. index::
     Reduce USAXS data, Introduction
 
+Reduce USAXS Flyscan data
+-------------------------
 
 **Comments:**
 
@@ -18,9 +20,9 @@ Igor is quite reliable and crashes rarely. But no software is crash proof and yo
     Collected data arrangement
 
 Collected data arrangement
---------------------------
+==========================
 
-When you collect data on USAXS/SAXS/WAXS instrument, your data are saved in folders related to your "spec" file name. Spec file itself is text file where instrument makes various records. The file name is created by adding MM_DD_ (month_day_) to the name staff selects, typically version of user name. When you collect USAXS data, a folder with the same name with appended "_usaxs" is created. For SAXS data we create folder with the same name with "_saxs" and for  WAXS with "_waxs". See below in the figure:
+When you collect data on 9IDC USAXS/SAXS/WAXS instrument, your data are saved in folders related to your "spec" file name. Spec file itself is text file where instrument makes various records. The file name is created by adding MM_DD_ (month_day_) to the name staff selects, typically version of user name. When you collect USAXS data, a folder with the same name with appended "_usaxs" is created. For SAXS data we create folder with the same name with "_saxs" and for  WAXS with "_waxs". See below in the figure:
 
 .. image:: media/USAXSComputerDataArrangement.jpg
         :align: center
@@ -30,8 +32,8 @@ After you reduce data from USAXS instrument, you will have in your Igor experime
 
 Assuming you did use scripts created by automatic routine or the manually typed commands in the script file were properly in order, there will be same number of USAXS, SAXS, and if measured WAXS files, with same names and important, same "order numbers" = end numbers "_XYZW" attached by the instrument, are the same for measurements which belong together. This is important in later data merging.
 
-USAXS data arrangement
-----------------------
+Reduced USAXS data arrangement
+==============================
 
 To see inside of the current Igor experiment, use DataBrowser (ctrl-B or cmd-B). Your data from USAXS instrument (not SAXS or WAXS) will be in folder root\:USAXS\:Sample_name_Folder
 
@@ -47,7 +49,7 @@ In the image above the "waves" are sorted in the order they are created. You can
 .. index::
     Reduce USAXS data, Flyscans
 .. index::
-    USAXS data reduction, FLyscans
+    USAXS data reduction, Flyscans
 
 Reduce Flyscan data procedure
 =============================
