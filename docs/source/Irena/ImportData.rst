@@ -33,7 +33,7 @@ In “Data import & export” from “SAS” menu select either:
 
 -  “Import canSAS XML data”.
 
-Each tool has its own screen and there are small differences in operations. This chapter descxribed ASCII importer in details and for the otehrs only the differences. So read the whole thing!
+Each tool has its own screen and there are small differences in operations. This chapter descxribed ASCII importer in details and for the others only the differences. So read the whole thing!
 
 NOTE: you can have ONLY one of the importers opened at any given time, they share same working folder and when you try to open any one of these importers, it should force closing of any other opened panel for the other importers.
 

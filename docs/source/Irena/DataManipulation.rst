@@ -275,7 +275,7 @@ QRS data: Folder name represents the sample name and inside this folder you have
 
 **What can be done**:
 
-*Optional Step - when "Merge method" is "Extrap. Data1 and Optimize"* : User can fit "First data set" end of data (high-q range for this set) with one of few funcitons. Code will tehn use the fitted parameters to replace the noisy fitted data with the smooth functional dependence. This helps with data which are noisy and where regular method of Optimizing overlap does not work too well...
+*Optional Step - when "Merge method" is "Extrap. Data1 and Optimize"* : User can fit "First data set" end of data (high-q range for this set) with one of few funcitons. Code will then use the fitted parameters to replace the noisy fitted data with the smooth functional dependence. This helps with data which are noisy and where regular method of Optimizing overlap does not work too well...
 
 *Main Step* :User selects the overlapping range of Qs for the data. The data are trimmed at these Qs! Code has 3 parameters of merging:
 
@@ -308,7 +308,7 @@ At the top are controls for Data 1 (low-q, calibrated data) and Data 2 (high-q, 
 
 **USAXS, QRS(QIS) checkboxes** – which data naming system you are using?
 
-**DSM/2D colim? - SMR colim? checkboxes** – specific selection for USAXS data. If Slit smeared data are used (SMR_Int etc), use SMR checkbox, if desmeared data are used (DSM_Int etc.) use DSM checkbox. Note, that his also inserts "_u" or "_270" in Folder match string for Second data set. This si helping USAXS users select proper data for merging.
+**DSM/2D colim? - SMR colim? checkboxes** – specific selection for USAXS data. If Slit smeared data are used (SMR_Int etc), use SMR checkbox, if desmeared data are used (DSM_Int etc.) use DSM checkbox. Note, that his also inserts "_u" or "_270" in Folder match string for Second data set. This is helping USAXS users select proper data for merging.
 
 **Start folder** – select folder, where the data start. Pick the highest folder you can (do not leave on root:), some of the features require that the names in the listbox are single folder name only. Some features will work fine even when the names are full or partial path to data. But it also is likely unreadable anyway. So pick the highest folder you can.
 

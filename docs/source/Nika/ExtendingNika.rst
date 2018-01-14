@@ -31,7 +31,7 @@ For the one large file the best method is to manually load the text content in I
 
 Recently I was asked to help users with the second setup - one text file for few images - to write look up functions. Below is an example of the resulting functions which you can modify with relatively little Igor expertise...
 
-In this case we have a folder containg multiple "groups" of files belonging together. Each group has some number of images with names similar to Image_file_01.tif, Image_file_02.tif, etc. Names are basically "ArbitraryString_XY.tif". Then we have associated text file, in this case named Image_file.txt (that is "ArbitraryString.txt"). Inside the text file are few (9 in my case) lines of header with various common information (sample name, instrument conditions, etc.) and then lines with tab separated values for each image - such as date+time, file name, Monitor1, Monitor2, thickness, transmisison etc.
+In this case we have a folder contains multiple "groups" of files belonging together. Each group has some number of images with names similar to Image_file_01.tif, Image_file_02.tif, etc. Names are basically "ArbitraryString_XY.tif". Then we have associated text file, in this case named Image_file.txt (that is "ArbitraryString.txt"). Inside the text file are few (9 in my case) lines of header with various common information (sample name, instrument conditions, etc.) and then lines with tab separated values for each image - such as date+time, file name, Monitor1, Monitor2, thickness, transmission etc.
 
 In text editor or Igor history area this line looks like this:
 10/04/2017 15:54:04 170410_refs_01.tif  87.259 87.145  1  45.457

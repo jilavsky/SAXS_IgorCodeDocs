@@ -770,7 +770,7 @@ Bottom controls
 
 These controls have following functions:
 
-“\ **Display only checkbox**\ ” Nika will average all selected files, which are selected in the list box, and display them as one image. The program will just load and display the images, including some processing (dezinging), if selected. but no calibration or otehr processing is done. This is really for preview of how the image looks like.
+“\ **Display only checkbox**\ ” Nika will average all selected files, which are selected in the list box, and display them as one image. The program will just load and display the images, including some processing (dezinging), if selected. but no calibration or other processing is done. This is really for preview of how the image looks like.
 
 Note, if more than 1 image is selected, the images are first AVERAGED – that is intensities for each pixel as summed together and then divided by number of images.
 

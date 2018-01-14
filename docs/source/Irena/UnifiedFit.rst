@@ -107,7 +107,7 @@ Where B is Porods constant – it is the value you get from Unified fit when P=4
 Until Irena release 2.55 this value was called “Surface/Volume” ratio as
 Greg Beaucage had in his original code. One of the users has
 investigated and got in touch with Dale Schaefer and result is, that
-this value has been renamed. It si now called “pi \* B /Q” and in help
+this value has been renamed. It is now called “pi \* B /Q” and in help
 it is also termed :math:`S/(V * \phi * (1- \phi )))`  Here is what it should be in
 formulas (note: Q\ :sub:`v` is invariant) :
 

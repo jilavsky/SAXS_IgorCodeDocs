@@ -27,7 +27,7 @@ Irena code is loaded and compiled. This can take a while. New menu “SAS” app
 Unload the macros
 -----------------
 
-When you want to pass Igor experiment to someone without Irena installed, it is good idea to remove the Irena from current experiment. Removing the macros itself is achieved by selecting “Remove Irena package”, the very last item in the last “SAS” submenu. This will unload macros and put back in the “Macros” menu command to load Irena macros in teh future.
+When you want to pass Igor experiment to someone without Irena installed, it is good idea to remove the Irena from current experiment. Removing the macros itself is achieved by selecting “Remove Irena package”, the very last item in the last “SAS” submenu. This will unload macros and put back in the “Macros” menu command to load Irena macros in the future.
 
 .. index:: Data naming convenition; Introduction
 
@@ -38,7 +38,7 @@ Data in Irena need to be stored within Igor experiment as "waves" which is Igor 
 
 Not only we have "input" data, but most Irena tools will generate some "output" data - e.g., Size distribution, Unified fit model intensity vs Q, etc. These are "Irena results".
 
-Irena uses strictly "Folder = sample" philosophy. It means, that within Igor experiment (to see it grpahically, open Data Browser - in Igor menu "Data", select "Data Browser") is located folder which name repesents your sample name. **Only one data set per folder.** Most Irena operations will pick the data from this folder and if user decides to save teh results from any modeling, return proper Irena result back to this folder. If more than one set of data is in a folder, it is impossible to figure out which data the result belongs to.
+Irena uses strictly "Folder = sample" philosophy. It means, that within Igor experiment (to see it grpahically, open Data Browser - in Igor menu "Data", select "Data Browser") is located folder which name repesents your sample name. **Only one data set per folder.** Most Irena operations will pick the data from this folder and if user decides to save the results from any modeling, return proper Irena result back to this folder. If more than one set of data is in a folder, it is impossible to figure out which data the result belongs to.
 
 Data manipualtions tools, which create a new (e.g., merged) data set will create a new folder.
 
@@ -103,7 +103,7 @@ This is data naming convention for data stored within Igor experiment, typically
 Data naming conventions - USAXS
 -------------------------------
 
-This is data naming convention for data stored within Igor experiment, required to be in folder root:USAXS: in folders with folder name reflecting the sample name. Note, that :ref:`slit smearing <important.slit_smeared>` is reflected in the names and Irena will understand teh difference. Irena switches on slit smearing based on the names.
+This is data naming convention for data stored within Igor experiment, required to be in folder root:USAXS: in folders with folder name reflecting the sample name. Note, that :ref:`slit smearing <important.slit_smeared>` is reflected in the names and Irena will understand the difference. Irena switches on slit smearing based on the names.
 
 **The wave names**
 

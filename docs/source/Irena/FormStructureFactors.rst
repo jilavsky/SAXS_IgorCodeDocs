@@ -663,7 +663,7 @@ The difference in absolute intensity here is surely related to different assumpt
 This is form factor or rectangular Parallelpiped, cuboid shape with side A x B x C and all angle 90 degrees.
 This form factor is ONLY available if NIST form factor xop is installed on the computer. If you install NIST SANS package http://www.ncnr.nist.gov/programs/sans/data/red_anal.html
 it installs xop which provides fast calculations of the various form factors. Since version 2.53 Irena will take advantage of some of these form factors.
-In the case of rectangular Parallelpiped see NIST form factor description. It seems they had to go to original manuscript and recreate the form factor from the German original,  Mittelbach and Porod, Acta Phys. Austriaca 14 (1961) 185-211, equations (1), (13), and (14) (in German!). Most publications citing this form factor seem to be wrong (I think there is error in Pedersen 1997 manuscript I was working with, Steven cites other manuscripts which seem to have bugs in tehm).
+In the case of rectangular Parallelpiped see NIST form factor description. It seems they had to go to original manuscript and recreate the form factor from the German original,  Mittelbach and Porod, Acta Phys. Austriaca 14 (1961) 185-211, equations (1), (13), and (14) (in German!). Most publications citing this form factor seem to be wrong (I think there is error in Pedersen 1997 manuscript I was working with, Steven cites other manuscripts which seem to have bugs in them).
 
 If you use this form factor, cite Steven Kline manuscript for NIST package: "Reduction and Analysis of SANS and USANS Data using Igor Pro", Kline, S. R. J Appl. Cryst. 39(6), 895 (2006).
 

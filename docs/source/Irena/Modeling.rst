@@ -248,7 +248,7 @@ Checkbox “\ **Slit/Q resolution smeared**\ ” if slit smeared data are used -
 
 Number of various Q resolutions is now included. They are described on the panel in some detail. Note, that it is possible to have data which are both Slit smeared data AND at the same time require Pixel/Q smearing - for example from my APS USAXS instrument.
 
-More controls appear on this screen if necessary to guide you to provide correct values. These values may be calculated when appropriate or can be provided to Modeling as wave of values, in teh QRS naming system the wave name starts with \w_. Proper Q/pixel smearing can be challenge and its hadnling mathematially requires singificant amount of CPU power, so it is worth while to evaluate, if it is really necessary to deal with. For highly polydiperse systems on most X-ray instruments Q resolution is NOT necessary to consider. For monodispersed systems and/or SANS instruments it may be appropriate to address this. If you need more guidance, talk to me...
+More controls appear on this screen if necessary to guide you to provide correct values. These values may be calculated when appropriate or can be provided to Modeling as wave of values, in the QRS naming system the wave name starts with \w_. Proper Q/pixel smearing can be challenge and its hadnling mathematially requires singificant amount of CPU power, so it is worth while to evaluate, if it is really necessary to deal with. For highly polydiperse systems on most X-ray instruments Q resolution is NOT necessary to consider. For monodispersed systems and/or SANS instruments it may be appropriate to address this. If you need more guidance, talk to me...
 
 **“Data”** field. This field contains path to data within Igor experiment. Cannot be edited.
 
@@ -488,7 +488,7 @@ Next we can fit the parameters and then push the "Tags to graph" button
 
 This is the best result with this model I was able to get.
 
-You can also now store the results in Notebook for export to Word  processor or as record of yoru results. Of course you should save your results in folder with "Save results".
+You can also now store the results in Notebook for export to Word  processor or as record of your results. Of course you should save your results in folder with "Save results".
 
 Here is the Notebook record of these results
 

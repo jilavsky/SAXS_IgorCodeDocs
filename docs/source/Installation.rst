@@ -1,4 +1,4 @@
-.. _installation:
+.. _Installation:
 
 Installation
 ============
@@ -30,7 +30,7 @@ Alternative download site is Github :
 
 https://github.com/jilavsky/SAXS_IgorInstaller/tree/master/Igor_GitHub.
 
-To test and use my code you can use demo version of Igor Pro - Igor pro will run on compuyter where it was not installed before for one month as full featured demo. To use this, find computer which did not have yet Igor Pro installed, install the latest version of Igor Pro 7 from https://www.wavemetrics.com, and you are set.
+To test and use my code you can use demo version of Igor Pro - Igor pro will run on computer where it was not installed before for one month as full featured demo. To use this, find computer which did not have yet Igor Pro installed, install the latest version of Igor Pro 7 from https://www.wavemetrics.com, and you are set.
 
 .. _youtube:
 
@@ -89,9 +89,9 @@ Open the file (in Igor 7) and select “Install Packages” > “Open GitHub GUI
 
 Push “Check packages versions” to check which versions are available on the GitHub site. Read instructions for what to do and how to pick the right one. This installer enables users to install also defined beta versions and even the current “master” version. But be careful, there are no guarantees that the master is fully debugged. I may be working on it.
 
-Here is explation of options:
-  #. Release version. One or more release versions may be availabel in the listing of releases. Pick latest unless you for some reason need prior release. Release version should work and be tested.
-  #. If you check "Include beta releases" you can pick from declared beta releases. If necessary, I may declare a release beta to distribute updated versions to smaller group of people. This relase should work but there may be changes modification which need testing.
+Here is expiation of options:
+  #. Release version. One or more release versions may be available in the listing of releases. Pick latest unless you for some reason need prior release. Release version should work and be tested.
+  #. If you check "Include beta releases" you can pick from declared beta releases. If necessary, I may declare a release beta to distribute updated versions to smaller group of people. This release should work but there may be changes modification which need testing.
   #. If you check "Include beta releases" you can also pick master - "master" is a current latest update committed to depository. My intention is to commit only code which works, but, well, it may be untested or being developed. Check wiki on Github page https://github.com/jilavsky/SAXS_IgorCode/wiki for release notes. It may give you an idea what has been changed.
 
 Keep in mind that you need xop support for the bit versions (32bit or 64bit) versions of Igor you are using! Do not forget to install them.

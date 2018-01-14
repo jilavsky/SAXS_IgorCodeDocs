@@ -11,8 +11,11 @@ Manual |release| for Indra (USAXS data reduction) version 1.93 for Igor 7.05 and
    :maxdepth: 4
 
    Introduction
-   DataReductionProcedure
-   DataReductionPanel
+   FlyscanDataReduction
+   StepscanDataReduction
+   SAXSDataReduction
+   WAXSDataReduction
+   MergeData
 
 Indices and tables
 ------------------

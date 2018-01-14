@@ -12,9 +12,9 @@ Nika has supported Nexus files for some time now, actually my own instrument is 
 What is Nexus
 ~~~~~~~~~~~~~
 
-**What si Nexus and why do I care???**
+**What is Nexus and why do I care???**
 
-Nexus si attempt of X-ray and Neutron (or likely Neutron and X-ray) communities to develop file format, which can be used to share and store data from X-ray and Neutron instrument in such way, that they are generally readable and usable. The file system uses HDF5 file format – this is binary container for data (similar to xls Excel format, pxp Igor format etc.) HDF5 is supported by many commercial packages and it support is available for most programming environments. It is free to use and well maintained. Simply put, HDF5 is useful form of storing data.
+Nexus is attempt of X-ray and Neutron (or likely Neutron and X-ray) communities to develop file format, which can be used to share and store data from X-ray and Neutron instrument in such way, that they are generally readable and usable. The file system uses HDF5 file format – this is binary container for data (similar to xls Excel format, pxp Igor format etc.) HDF5 is supported by many commercial packages and it support is available for most programming environments. It is free to use and well maintained. Simply put, HDF5 is useful form of storing data.
 
 Nexus provides description of how to store data and what to store – how to call various data (e.g., use “wavelength”) etc. For most of you this is useless information.
 

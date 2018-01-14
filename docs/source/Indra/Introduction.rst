@@ -32,15 +32,35 @@ What is USAXS/SAXS/WAXS instrument?
 -----------------------------------
 
 Details on USAXS instrument are in following publications:
-     1. Ilavsky, I., P. Jemian, A. J. Allen and G. G. Long (2004). Versatile USAXS (Bonse-Hart) facility for advanced materials research. Synchrotron Radiation Instrumentation. T. Warwick, J. Arthur, H. A. Padmore and J. Stohr. Melville, Amer Inst Physics. 705: 510-513.
+     1. Ilavsky, I., P. Jemian, A. J. Allen and G. G. Long (2004). Versatile USAXS (Bonse-Hart) facility for advanced materials research. Synchrotron Radiation Instrumentation. T. Warwick, J. Arthur, H. A. Padmore and J. Stohr. Melville, Amer. Inst. Physics. 705: 510-513.
      2. Ilavsky, J., P. R. Jemian, A. J. Allen, F. Zhang, L. E. Levine and G. G. Long (2009). "Ultra-small-angle X-ray scattering at the Advanced Photon Source." Journal of Applied Crystallography 42(3): 469-479.
      3. Zhang, F., A. J. Allen, L. E. Levine, J. Ilavsky and G. G. Long (2011). "Ultra-Small-Angle X-ray Scattering—X-ray Photon Correlation Spectroscopy: A New Measurement Technique for In-Situ Studies of Equilibrium and Nonequilibrium Dynamics." Metallurgical and Materials Transactions A 43(5): 1445-1453.
      4. Zhang, F., A. J. Allen, L. E. Levine, J. Ilavsky, G. G. Long and A. R. Sandy (2011). "Development of ultra-small-angle X-ray scattering–X-ray photon correlation spectroscopy." Journal of Applied Crystallography 44(1): 200-212.
      5. Ilavsky, J., A. J. Allen, L. E. Levine, F. Zhang, P. R. Jemian and G. G. Long (2012). "High-energy ultra-small-angle X-ray scattering instrument at the Advanced Photon Source." Journal of Applied Crystallography 45(6): 1318-1320.
      6. Ilavsky, J., F. Zhang, A. J. Allen, L. E. Levine, P. R. Jemian and G. G. Long (2013). "Ultra-Small-Angle X-ray Scattering Instrument at the Advanced Photon Source: History, Recent Development, and Current Status." Metallurgical and Materials Transactions a-Physical Metallurgy and Materials Science 44A(1): 68-76.
 
-Here will go main description...
+The USAXS/SAXS/WAXS instrument provides world-unique capabilities - or more details see https://usaxs.aps.anl.gov :
 
+Standard configuration (Si 220 crystals)
+
+  * Energy range ..........   10 - 24 keV
+  * Q range ...................    0.0001 to 6 [1/A] (max depends on energy used)
+  * Collection time ........  2 - 5 minutes
+  * Intensity range ........  up to 12 decades (depends on sample), desmeared
+  * Q resolution ............  ~ 0.00008 [1/A] in the USAXS range (up to ~0.1 [1/A])
+  * SAXS ....................... Q range ~ 0.03 to 1.3 [1/A]
+  * WAXS ...................... d spacing range approximately 6A to 0.8 A, depending on energy
+
+
+High resolution configuration (Si 440 crystals) - requires significant setup and alignment time, special request only
+
+  * Energy ....................  10 - 18 keV
+  * Q range ...................   0.00003 to 6 [1/A] (max depends on energy used)
+  * Collection time ........ 4 - 6 minutes
+  * Intensity range ........  up to 12 decades (depends on sample), desmeared
+  * Q resolution ............  ~ 0.00003 [1/A] in the USAXS range (up to ~0.1 [1/A])
+  * SAXS ....................... Q range ~0.03 - 1.3 [1/A]
+  * WAXS ...................... d spacing range approximately 6A to 0.8 A, depending on energy
 
 .. index::
     USAXS naming system

@@ -35,10 +35,10 @@ Next select Output options:
 
 ***File type descriptions:***
 
-**ASCII data** are data exported as ASCII (=text) with header information (see below for header separator) in columnar format, columns are separtated by tabs (white space). Exported can be anything - Q/Int/Uncertainty, Size distribution, Model fits,... Anything X-Y-(E) data can be exported this way - and imported in other packages. No conversions are done - what units and data type is selected, that si exported. This is most flexible and compatible export tool.
+**ASCII data** are data exported as ASCII (=text) with header information (see below for header separator) in columnar format, columns are separtated by tabs (white space). Exported can be anything - Q/Int/Uncertainty, Size distribution, Model fits,... Anything X-Y-(E) data can be exported this way - and imported in other packages. No conversions are done - what units and data type is selected, that is exported. This is most flexible and compatible export tool.
 *NOTE* DO NOT export slit smeared USAXS data - as of 2017-11 there is no package for data analysis I know about which ha s correctly implemented slit smearing compatible with my USAXS data. Export desmeared data or use Irena pac kage for analysis.
 
-**XYE GSAS-II compatible** are ASCII data specially formated so GSAS-II package can load them in. The tool will take Qvector - or - d spacing - or - Two theta + Intensity and Uncertainty data and export them with header in manner which is compatible with "xye" imported in GSAS-II and likely other powder diffraction/WAXS packages. Any input data care converted to TwoTheta-Intensity-Unceertainty and exported with proper header. Note that this is really useful ONLY for powder diffraction (WAXS) data reduced by Nika package, it is nto useful for SAXS or USAXS!
+**XYE GSAS-II compatible** are ASCII data specially formated so GSAS-II package can load them in. The tool will take Qvector - or - d spacing - or - Two theta + Intensity and Uncertainty data and export them with header in manner which is compatible with "xye" imported in GSAS-II and likely other powder diffraction/WAXS packages. Any input data care converted to TwoTheta-Intensity-Unceertainty and exported with proper header. Note that this is really useful ONLY for powder diffraction (WAXS) data reduced by Nika package, it is not useful for SAXS or USAXS!
 
 **Nexus** exports Nexus NXcanSAS data. This is HDF5 contained with data written in such way, that they are easily exchangeable among different software packages. This is future of SAS data formats. Irena can import such data if needed back - with all metadata properly passing through export and import. Since metadata names and keywords are defined in standard, all including units should be exchanged easily... SHOULD. *NOTE* DO NOT export slit smeared USAXS data - as of 2017-11 there is no package for data analysis I know about which ha s correctly implemented slit smearing compatible with my USAXS data. Export desmeared data or use Irena pac kage for analysis.
 
@@ -58,7 +58,7 @@ Next select Output options:
 
 *Header separator* - useful for ASCII only, change if different isd esired. Include spaces, if these are desired!!!
 
-***"Export Data & Notes"*** button does the job. If the data in the target location exist, you will be asked if you want to overwrite them. It may be easier to delete files from teh target location instead of overwriting, if you need to overwrite many. 
+***"Export Data & Notes"*** button does the job. If the data in the target location exist, you will be asked if you want to overwrite them. It may be easier to delete files from the target location instead of overwriting, if you need to overwrite many. 
 
 Multiple data set export option:
 

@@ -35,10 +35,15 @@ To use:
 
 This is support for APS beamline 9ID SAXS and WAXS instruments. This is my beamline and there is special handout for how to use this tool.
 
+RSoXS ALS soft energy instrument
+--------------------------------
+
+This is support for ALS RSoXS instrument. When selected, it allows users to use custom procedures for this instrument. Instructions are provided when user selects "Use RSoXS modifications" checkbox. 
+
 SSRL Mat SAXS
 -------------
 
-This is support for SSRL Materials science SAXS camera. When selected, it sets fixed parameters for this instrument and also sets up lookup functions appropriate to read header values recorded in thsi image format.
+This is support for SSRL Materials science SAXS camera. When selected, it sets fixed parameters for this instrument and also sets up lookup functions appropriate to read header values recorded in this image format.
 
 TPA
 ---

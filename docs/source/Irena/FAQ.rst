@@ -37,7 +37,7 @@ Jan Ilavsky and Peter R. Jemian, *“Irena: tool suite for modeling and analysis
 ----------------------------------------------
 Unified fit tool requires specific order to "levels" used - level 1 must be smallest features in the system, level 2 larger, and so on. This is bit challenging when a sequence of samples needs to be analyzed and a new structural level appears in the middle of processing this sequence. Does the Modeling package have any requirements of the order of populations?
 
-The simple answer is NO, it does not. You can have any order for Modeling populations as you wish. I personally start with setting pop1 to most dominating system and then keep adding the populations of scatterers as needed. Keep in mind, that this means MOdeling cannot have some nice features of Unified fit (linking of RgCO parameter) and that you need to keep much better track on what teh sizes do as you do fitting. *I strongly suggest to use field "What is this" for each population to keep track of them*.
+The simple answer is NO, it does not. You can have any order for Modeling populations as you wish. I personally start with setting pop1 to most dominating system and then keep adding the populations of scatterers as needed. Keep in mind, that this means MOdeling cannot have some nice features of Unified fit (linking of RgCO parameter) and that you need to keep much better track on what the sizes do as you do fitting. *I strongly suggest to use field "What is this" for each population to keep track of them*.
 
 .. _FAQ.ModelingMultipleUFlevels:
 
