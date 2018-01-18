@@ -7,8 +7,8 @@
 .. index::
     USAXS data reduction, Step scans
 
-Reduce step scanned data procedure
-==================================
+Reduce step scan data
+---------------------
 
 When you collect step scan USAXS data on USAXS instrument, your data are saved inside spec file. Spec file is where instrument makes various records, including the recorded data for step scans. The file name is created by adding MM_DD_ (month_day_) to the name staff provides, typically to user name. When you collect SAXS data, a folder with the same name with appended "_saxs" is created and for  WAXS with "_waxs".
 

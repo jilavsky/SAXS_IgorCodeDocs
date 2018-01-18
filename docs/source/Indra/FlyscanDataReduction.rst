@@ -136,7 +136,7 @@ Note that now there are two versions of your subtracted (and calibrated data). O
 Ignore most other stuff in the graph - the little dots are normalized residuals which we get if we slit smear the desmeared data and compare them with original slit smeared version. Ideally these are randomly distributed between +1 and -1. There are no controls in this desmearing tool, so if you need to handle cases where this routine does not work well enough, you need to save only slit smeared data and use dedicated package in irena, where you have a lot more controls. Note, that desmearing often (always) adds noise to the data,. Desmeared version will ALWAYS be more noisy. If you have noisy data to start, desmearing may make them unusable. If you plan to use Irena, there is no major reason to desmear the data, expect for presentation purposes. Irena has slit smearing of model built in.
 
 Important - sample specific - check
------------------------------------
+===================================
 
 **This step is critical and important!**
 

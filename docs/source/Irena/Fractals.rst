@@ -27,6 +27,8 @@ Note, that this write up was written for studies of cement and therefore some of
 
 **Use**
 
+*Important* : If you are using USAXS data, these must be desmeared, not slit smeared. The tool will not "see" the slit smeared data. Turns out, it was really difficult to use slit smeared data for users. 
+
 I do not have included real fractal data, but for purpose of GUI description and function description, the included data should be sufficient.
 
 Start the tool from SAS menu under “Fractal model”. GUI panel similar to all other tools appears, select “Use QRS data structure” and pick the data set available. The push “Graph” button to create graphs.
