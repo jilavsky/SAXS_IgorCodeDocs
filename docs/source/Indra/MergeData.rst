@@ -8,7 +8,7 @@
     USAXS/SAXS/WAXS data merge
 
 Merge USAXS/SAXS/WAXS data
-==========================
+--------------------------
 
 When you reduce USAXS/SAXS/WAXS data, your data are saved in Igor folders related to your sample name.  USAXS data in root\:USAXS\:Samplename and SAXS data are in  root\:SAXS\:Samplename_u (or Samplename_270_30). To see inside of the current Igor experiment, use DataBrowser (ctrl-B or cmd-B). See below in the figure:
 
@@ -23,7 +23,7 @@ Next we need to merge USAXS and SAXS data together. We will use Irena package to
     USAXS-SAXS data merge
 
 Data Merging panel
-------------------
+==================
 
 If needed, load Irena package by selecting "Load Irena SAS macros" from "Macros" menu. Select "Data Manipulation" from "SAS" menu, and from that submenu select "Merge two data sets".
 
@@ -76,7 +76,7 @@ To test the merge procedure, push button "Process data". You get Data overlayed 
         :width: 800px
         :Figwidth: 820px
 
-Now you have few options. You can simply push button "Save data" (there are two, both are orange to show, that data were not saved). Or you can check checkbox "Merge mode" and Process data either individually (double click on a data set from left column, right column and data will be processed and optionally saved automatically) or Process data sequentially, when you select range of files in each column and code will merge them sequentially. Code selects first from left column and merges with first in right column, seconds with second etc. Note, they do not have to lineup on the same lines. You can make non continuous selection in each column. More in :ref:`Data Merge tool  <data_merge>` tool manual in Irena manual.  
+Now you have few options. You can simply push button "Save data" (there are two, both are orange to show, that data were not saved). Or you can check checkbox "Merge mode" and Process data either individually (double click on a data set from left column, right column and data will be processed and optionally saved automatically) or Process data sequentially, when you select range of files in each column and code will merge them sequentially. Code selects first from left column and merges with first in right column, seconds with second etc. Note, they do not have to lineup on the same lines. You can make non continuous selection in each column. More in :ref:`Data Merge tool  <data_merge>` tool manual in Irena manual.
 
 
 .. Figure:: media/DataMerge8.jpg

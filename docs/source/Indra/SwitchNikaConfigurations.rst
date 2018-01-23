@@ -5,7 +5,7 @@
     Switch Nika Configurations
 
 Switch Nika Configurations
-==========================
+--------------------------
 
 In order to be able to reduce both SAXS and WAXS data in one Igor experiment we need to have two Nika configurations available. However, only one Nika configuration (for SAXS or WAXS) can be available at any given time. To do this we will use Nika's Configuration manager tool :
 
