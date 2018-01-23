@@ -58,7 +58,7 @@ This chapter walks reader through very simple (basic) reduction of USAXS data co
 
 Flyscanning is the most common method of data collection for the USAXS part of the USAXS/SAXS/WAXS instrument. If you were NOT told you used step scanning method, you probably used Flyscanning. *If you collected data using step scanning, see separate chapter.* Following this chapter on USAXS data reduction will be chapter on SAXS and then WAXS data reduction. Followed by merge data procedure. Note, that SAXS and WAXS data reduction uses Nika package and merging uses Irena package.
 
-*If you collected data using step scanning, see separate chapter.*
+>> *If you collected data using step scanning, see separate chapter.* <<
 
 
 Select "Load USAXS macros" from "Macros" menu. This will create "USAXS" menu and also open "Read me" notebook. Note, that it will take some time to compile the code, depending on the speed of your computer. Select "Import and reduced USAXS data" from the "USAXS menu".
@@ -135,10 +135,10 @@ Note that now there are two versions of your subtracted (and calibrated data). O
 
 Ignore most other stuff in the graph - the little dots are normalized residuals which we get if we slit smear the desmeared data and compare them with original slit smeared version. Ideally these are randomly distributed between +1 and -1. There are no controls in this desmearing tool, so if you need to handle cases where this routine does not work well enough, you need to save only slit smeared data and use dedicated package in irena, where you have a lot more controls. Note, that desmearing often (always) adds noise to the data,. Desmeared version will ALWAYS be more noisy. If you have noisy data to start, desmearing may make them unusable. If you plan to use Irena, there is no major reason to desmear the data, expect for presentation purposes. Irena has slit smearing of model built in.
 
-Important - sample specific - check
-===================================
+Important - Qmin range - check
+==============================
 
-**This step is critical and important!**
+**This is critical and important! - this is also SAMPLE SPECIFIC and each sample (or range of samples) may need different Qmin**
 
 1.    It is critical to set the rounded cursor on the main graph (cursor "A") correctly. This is sample dependent - the rounded cursor on the log-log Intensity vs q curve defines starting point in which we start with data subtraction. Note, that instrumental curve is raising at low-q values around Q^-8 or so. With this steep raise there can be observable linear difference in intensity, which has very high uncertainties. In the above graphs the round cursor is set to instrument resolution, but sample scattering at that q is weak. While the data look OK, their reliability is probably not very good. User needs to correct this and select starting point, where the sample intensity clearly deviates from instrumental background curve. This varies sample-per-sample. This is important USER FUNCTION and no code can handle this for users. In this case we need to move cursor few points higher to make sure the data we are getting are reliable and robust. You want there be clearly observable difference between sample and blank where the cursor is... See below.
 2.    Check for multiple scattering. Many samples (mainly powders) exhibit multiple scattering. Complicated for this place, but you need to check and if needed, ask staff. Samples will exhibit multiple scattering if the FWHM (full width of half maximum) of the peak profile fit for sample is significantly wider than Blank. If it is more than 20% wider, ask. At this energy (21keV) the FWHM for Blank and this sample are both ~2 arc seconds, so in this case if sample is 2.4 arc second or more, **ask, ask!**. FWHM is energy dependent, it may be different if you collect data at other energies.

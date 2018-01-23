@@ -14,6 +14,7 @@ Manual |release| for Indra (USAXS data reduction) version 1.93 for Igor 7.05 and
    FlyscanDataReduction
    StepscanDataReduction
    SAXSDataReduction
+   SwitchNikaConfigurations
    WAXSDataReduction
    MergeData
 

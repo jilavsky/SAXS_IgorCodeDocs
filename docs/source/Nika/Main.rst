@@ -23,15 +23,15 @@ Selecting data
 
 Nika can load number of different **Image types** - aka: file formats, file types - usually well described by file extension (e.g., tif). These are selected by "**Image type**" popup menu in top right corner. If appropriate file type is not found in the “Image type” popup menu, you will have to contact me so I can develop and add appropriate loader for your specific data. Note, that most data formats are binary data with some header, and if you can get description of your data format you can often use General Binary reader.
 
-Select appropriate type of data you have and then push “Select data path” button, dialog is presented, in which path to folder on the hard drive containing 2D images is selected. FInd the local path to data using this standard Igor dialog. and push OK when done.
+Select appropriate type of data you have and then push “Select data path” button, dialog is presented, in which path to folder on the hard drive containing 2D images is selected. Find the local path to data using this standard Igor dialog. and push OK when done.
 
-NOTE the “**Calibrated 2D data**?” checkbox. If selected, Nika expects 2D calibrated data – fully normalized and corrected data provided as one of the 2D formats, basically 2D image of Intensity, Q (vector), and uncertainity. Number of options is being current developed, the code currently handles EQSAXS (ORNL) and canSAS/Nexus. This part is under heavy development at this time, expect changes…
+NOTE the “**Calibrated 2D data**?” checkbox. If selected, Nika expects 2D calibrated data – fully normalized and corrected data provided as one of the 2D formats, basically 2D image of Intensity, Q (vector), and uncertainty. Number of options is being current developed, the code currently handles EQSAXS (ORNL) and canSAS/Nexus. This part is under heavy development at this time, expect changes…
 
 When valid path is selected, the Igor will check the folder and list all files of appropriate type (assuming the files have extensions) in the ListBox below the button.
 
 Here user can select one files, more files (by holding down shift key on Windows) and continuing selection (using the two pull down menus below the list Box)…
 
-Note, that from Nika ver. 1.66 Listoboxes have right click actions and users can refresh content and perform some functions from right click.
+Note, that from Nika ver. 1.66 Listboxes have right click actions and users can refresh content and perform some functions from right click.
 
 Use the “Match” field to mask the file names with Regular expression. To match part of the name, just use the string needed - so matching samples with \_15s in name, just add \_15s in the field. Regular expressions are very powerful, read on line how to use them.
 
@@ -52,7 +52,7 @@ Sort order
 
 Decides how the data are listed in the listbox. Options:
 
--  *None* – list as provided by OS.
+- *None* – list as provided by OS.
 - *Sort* – the old method. Alphabetical (but numerical order may get wrong)
 - *Sort2* – alphabetical, but taking care of sorting out smaller number before larger ones.
 - *\_001.* – this one assumes, that end of file name, before extension, is number. Before number you need to have “\_” and after number must be “.” followed by extension.
@@ -70,10 +70,10 @@ Using RegEx now. This is Grep language using regular expressions, very powerful.
 Side buttons
 ------------
 
-There are few buttnos next to the Listbox where user can select the data:
+There are few buttons next to the Listbox where user can select the data:
 
 Refresh:
- This button was removed in 1.66. The refresh and some other functionality was added to right click for most Listoboxes in Nika.
+ This button was removed in 1.66. The refresh and some other functionality was added to right click for most Listboxes in Nika.
 
 Save/Load Config
 ~~~~~~~~~~~~~~~~
@@ -123,7 +123,7 @@ Create Movie
 
 This opens panel, which is interface for ability to create movie from either 2D images or 1D lineouts…
 
-Note: The way this tool is designed, image is added every time any of the Convert butons is called. It is possible to use this tool to create movie from RAW data only manually (by manually adding each frame) when user wants to load the data inusing the “Ave & Display sel. files” button. Using this button you cannot use Automatic add function.
+Note: The way this tool is designed, image is added every time any of the Convert buttons is called. It is possible to use this tool to create movie from RAW data only manually (by manually adding each frame) when user wants to load the data in using the “Ave & Display sel. files” button. Using this button you cannot use Automatic add function.
 
 But the same result you can achieve by using convert buttons and simply not converting the data any way (not checking anything on “Main” tab and any of the “Sectors”, “Prev” and “LineProf” tabs. In this case you can add frames automatically, which is probably more useful…
 
@@ -146,7 +146,7 @@ The panel walks user through the steps necessary…
    c. 1D data. This is graph of the lineouts created by the code. NOTE: if you are creating more than one lineout from each image (like when using multiple sectors), all of these may be subsequently used! This may be good (movie of sequence of sectors on one image) or bad (for movies from many images). There is no way of skipping and using only specific sectors. Use Hook function to create that…
    You have relatively lot of controls of the graph, same as in the above options 1 and 2, as the data for this graph are a separate copy of your last data. When the old ones are overwritten, the new ones are “swapped” into the graph and replaced without modifications to the graph. So the graph should stay without major changes, unless set that way. For example, if Axis are set to auto scale, they may change. But if they are set to fixed start/end, they will stay fixed. At least I hope .
 
-   d. Use main 2D image. This one simply uses the Main 2D image. Seems very good choice - BUT: that image is recreated every time from scratch so there are very few controls available to user – you either like it and then use it, or you cannot use this method. You should, of course, use the controls on main panel to modify the image – like use RAwor Processed data, display sectors, beam center, colors, or Image with Q axes… That works, but you cannot control other things, such as zoom range etc.
+   d. Use main 2D image. This one simply uses the Main 2D image. Seems very good choice - BUT: that image is recreated every time from scratch so there are very few controls available to user – you either like it and then use it, or you cannot use this method. You should, of course, use the controls on main panel to modify the image – like use RAW or Processed data, display sectors, beam center, colors, or Image with Q axes… That works, but you cannot control other things, such as zoom range etc.
 
    e. Use user Hook function… This is advanced method. Here you can do whatever you want to create the image you want to append, just call the function: Movie\_UserHookFunction and if it exists, it will be called. This function MUST generate graph/image and leave it as the top image. This top image is added to the movie when called… Note: while this is advanced programming, this is way to get really what you want into the movie… Below is commented out example (present in the code also) which pulls up the main 2 D image and prints a note. You can add here any other formatting which you want to do or use…
 
@@ -190,7 +190,7 @@ Following dialog on Movie file control:
        :align: center
        :width: 380px
 
-Is Igor panel and here are your last chances to control what and how it gets created… I have limited information on what works best, so try this your self… Keep in mind, that while on PC you can create either mov file (Quicktime) or AVI file, it may be challenge to get avi files play on Mac. I suspect that considering the avi mess in video formats, you may have much better chance to play QUicktime movies (mov)… But there is no guarantee on unknown machines, that they will have Apple quicktime.
+Is Igor panel and here are your last chances to control what and how it gets created… I have limited information on what works best, so try this your self… Keep in mind, that while on PC you can create either mov file (Quicktime) or AVI file, it may be challenge to get avi files play on Mac. I suspect that considering the avi mess in video formats, you may have much better chance to play Quicktime movies (mov)… But there is no guarantee on unknown machines, that they will have Apple quicktime.
 
 Note, that every time Nika adds frame to the movie, it prints in the history area:
 
