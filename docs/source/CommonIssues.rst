@@ -76,7 +76,9 @@ This error appears when Installer does not make proper link to Igor Pro included
    :align: center
    :width: 380px
 
-Important here is that you see error on line containing HDF5Open... HDF5Close... etc. This is due to missing link/alias to the xop library or the library not being properly loaded. Here is how you fix this problem:
+Important here is that you see error on line containing HDF5Open... HDF5Close... etc. This is due to missing link/alias to the xop library or the library not being properly loaded. To learn more about Igor Extensions, run d in Igor command prompt: *DisplayHelpTopic "Igor Extensions"*
+
+Here is how you fix this problem:
 
 1.  If you just installed Irena/Nika/Indra, you need to **quit** Igor Pro and start it again; only creating New Experiment is not enough. These xop packages are loaded when Igor starts. So this HDF5.xop may not be loaded.
 
