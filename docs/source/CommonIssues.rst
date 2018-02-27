@@ -56,3 +56,43 @@ And here is the same Igor panel with this setting, note the opresence of the **b
 You may need to change now the display pixel resolution (numbers of pixels setting) to less pixels so you can actually read the text. Or get larger display.
 
 Note, that it should be possible to use higher DPI settings with enough pixels on the screen. Above example was done with HD TV display setting (1920x1080 pixels). My display is 15 inch UHD (aka 4k) display, capable of displaying up to 3840 x 2160 pixels. But at that resolution it is basically humanly impossible to read anything. It is likely that I could use 4k setting AND 200% DPI setting, but I have seen some artifacts. Instead of raising the DPI to 200% I chose less pixels (HD resolutions) and 100% DPI. This has similar/same result with respect to size of text and icons, but Igor Pro works...
+
+
+.. _HDF5xopError:
+
+
+.. index::
+    HDF5 error
+    Missing xop error
+    HDF5OpenFile error
+
+
+Error caused by missing HDF5 xop
+--------------------------------
+
+This error appears when Installer does not make proper link to Igor Pro included HDF5.xop or for some other reason this library is not loaded properly on Igor start. You will see something similar to:
+
+.. image:: media/HDF5xopError.jpg
+   :align: center
+   :width: 380px
+
+Important here is that you see error on line containing HDF5Open... HDF5Close... etc. This is due to missing link/alias to the xop library or the library not being properly loaded. Here is how you fix this problem:
+
+1.  If you just installed Irena/Nika/Indra, you need to **quit** Igor Pro and start it again; only creating New Experiment is not enough. These xop packages are loaded when Igor starts. So this HDF5.xop may not be loaded.
+
+2. If that does not work, you need to manually create shortcuts (Windows) or alias (OSX) between following files and locations. Note: Use aliases (shortcuts, links) and do not simply copy the files, with aliases, if you upgrade Igor to new version in the future, HDF5 library will be upgraded also.  During Igor upgrade the alias/Link target will be upgraded by Igor installer. Note, *HDF5.xop* is 32 bit version of the executable package, *HDF5-64.xop* is 64 bit version of executable package, and *HDF5 Help.ihf* is help file.
+
+3. (A) 32 bit versions of Igor Pro (Igor 6.37):
+
+*  Applications(OSX) or Program Files(win)/Igor Pro 6 Folder/More Extensions/File Loaders/*HDF5.xop*    ---  alias/link to --- Documents/Wavemetrics/Igor Pro 6 User Files/Igor Extensions/ *place alias here...*
+
+*  Applications(OSX) or Program Files(win)/Igor Pro 6 Folder/More Extensions/File Loaders/*HDF5 Help.ihf*    ---  alias/link to --- Documents/Wavemetrics/Igor Pro 6 User Files/Igor Extensions/ *place alias here...*
+
+   (B) 64 bit version of Igor Pro (7.x or in the future 8.x)
+
+*  Applications(OSX) or Program Files(win)/Igor Pro 7(or 8) Folder/More Extensions (64-bit)/File Loaders/*HDF5-64.xop*    ---  alias/link to --- Documents/Wavemetrics/Igor Pro 7(or 8) User Files/Igor Extensions (64-bit)/ *place alias here...*
+
+*  Applications(OSX) or Program Files(win)/Igor Pro 7(or 8) Folder/More Extensions/File Loaders/*HDF5 Help.ihf*    ---  alias/link to --- Documents/Wavemetrics/Igor Pro 7(or 8) User Files/Igor Extensions/ *place alias here...*
+
+
+Quit Igor Pro, restart and it should work now correctly.
