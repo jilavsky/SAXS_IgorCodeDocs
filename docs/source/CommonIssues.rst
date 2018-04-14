@@ -76,7 +76,7 @@ This error appears when Installer does not make proper link to Igor Pro included
    :align: center
    :width: 380px
 
-Important here is that you see error on line containing HDF5Open... HDF5Close... etc. This is due to missing link/alias to the xop library or the library not being properly loaded. To learn more about Igor Extensions, run d in Igor command prompt: *DisplayHelpTopic "Igor Extensions"*
+Important here is that you see error on line containing HDF5Open... HDF5Close... etc. This is due to missing link/alias to the xop library or the library not being properly loaded. To learn more about Igor Extensions, run in Igor command prompt: *DisplayHelpTopic "Igor Extensions"*
 
 Here is how you fix this problem:
 
@@ -97,4 +97,4 @@ Here is how you fix this problem:
 *  Applications(OSX) or Program Files(win)/Igor Pro 7(or 8) Folder/More Extensions/File Loaders/*HDF5 Help.ihf*    ---  alias/link to --- Documents/Wavemetrics/Igor Pro 7(or 8) User Files/Igor Extensions/ *place alias here...*
 
 
-Quit Igor Pro, restart and it should work now correctly.
+Quit Igor Pro, restart and it should work now correctly. If not, please contact me so I can identify the problem. 
