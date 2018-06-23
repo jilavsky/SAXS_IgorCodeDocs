@@ -163,17 +163,23 @@ Note, that use with slit smeared data is bit complicated here, background is not
 
 2.  Low-q power law slope. This is also quite common - data exhibit low-q power law slope. This could be grain boundaries, powder surfaces, scratches on the sample surfaces, large aggregates etc. There is huge number of possibilities for sources of power law scattering at low-q and if not subtracted, this impact resulting size distributions.
 
-We will fit here the low-q power law slope first. Select first five points with cursors. We have two options - two buttons :
+*First the low-q power law slope*
+
+Select first five points with cursors. We have two options - two buttons :
 
 * *"Fit Low Q B"* : this fits only power law scaling factor (B in Unified fit) and keeps existing power law slope itself (P from Unified fit). Default P is 4 = Porod's slope. This is often good assumption in case of scratches or powder grain surfaces. In this case (these are powders) keeping P=4 is correct choice. When the proper Q range is selected (possibly proper P is manually set) push bitton "Fit Low Q B"
 
-This is result of fit at low-q using fitting of only B parameter with P=4.
+* *"Fit Low Q B+P"* : this fits both power law scaling factor (B in Unified fit) and power law slope itself (P from Unified fit). This is often good assumption in case of second population of scatterers with wide size distribution. Do not use this to fit aggregates as this tool is missing RgCo parameter which would be needed to terminate the scattering from aggregates at the size of primary particles. This Size Distribution tool is really not suitable for fitting aggregated systems anyway.
+
+Below is result of fit at low-q using fitting of only B parameter with P=4.
 
 .. image:: media/SizeDistribution4.jpg
       :align: left
       :width: 100%
 
-Next is fitting of Flat background. As you can see, at high-q the red dashed line nearly touches the data (ignore the last point which is artifact). It si nearly correct (by accident here). Users can either manually change the background (type in value or use arrows on the right hand side of the set variable field). Or we can fit this. Set cursors between points 100 and 110 - this is area where flat background dominates.
+*Next is fitting of Flat background.*
+
+As you can see, at high-q the red dashed line nearly touches the data (ignore the last point which is artifact). It si nearly correct (by accident here). Users can either manually change the background (type in value or use arrows on the right hand side of the set variable field). Or we can fit this. Set cursors between points 100 and 110 - this is area where flat background dominates.
 
 * *"Fit Flat backg."* : this fits flat background assumption between the cursors.
 
@@ -204,6 +210,7 @@ Now, when new data are added in the tool using button "Graph" both B and Backgro
       :width: 100%
 
 
+   
 **Fitting parameters**
 
 Contrast (delta rho squared) – if this is properly inserted, the data are calibrated… Leave to 1 since the contrast is not known.
