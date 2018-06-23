@@ -110,8 +110,12 @@ Compare following two graphs, in which the Q fitting setting is vastly different
       :align: left
       :width: 100%
 
+.. _Size_Distribution:
+
 Use of Size Distribution
 ------------------------
+
+This manual is updated for Size distribution tool version in Irena 2.66 and higher, for older versions see prior versions of manuals.
 
 This program uses one complex interface – a complex graph and panel for data input and manipulation. To start, select “Size distribution” from “SAS” menu…
 
@@ -127,26 +131,75 @@ On the panel, which gets created, starting from top are :ref:`standard data sele
 
 New graph gets created.
 
-.. image:: media/SizeDistribution3.png
+.. image:: media/SizeDistribution3.jpg
       :align: left
       :width: 100%
 
 
-Leave the “Slit smeared data” set to no and “Slit length” set to NaN. If using the Indra data structure (USAXS data reduction), these fields are preselected in the proper form and should not have to be changed. If the data are from different instrument (as here) and are slit smeared the macro can be still used. Providing user selects correctly slit smeared data and inputs slit length in units of Q. I expect this case to be highly unlikely…
+Leave the “Slit smeared data” unchecked, unless you have slit smeared data. If using the Indra data structure (USAXS data), slit smearing is selected properly when needed and settings should not have to be changed. If the data would be from different instrument and would be slit smeared, then select slit smearing and insert slit length. I expect this case to be highly unlikely…
 
-Next we need to setup some parameters.
+Next we need to setup fitting parameters.
 
 **Distribution parameters**:
 
-Minimum diameter & Maximum diameter – both are in A. These are limits of fitted distribution. Set minimum to 25 and maximum to 10000
+Minimum diameter & Maximum diameter – both are in A. These are limits of fitted distribution. Set minimum to 25 and maximum to 10000 for the test data (these data are included with Irena distribution as Test data.dat).
 
-Bins in diameter – into how many bins you want to divide the range of diameters. 100 is a good number – more points may be really slow on slower computers.
+Bins in diameter – into how many bins you want to divide the range of diameters. 100 is a good number – more points may be slow on slower computers.
 
-Logaritmic binning – if yes, the bins are binned logarithmically – i.e., the bins at small sizes are smaller and at large sizes are larger, giving save width bins when plotted on axis logarithmically. This is very useful setting for the wide ranges of sizes measured using USAXS instrument. If no is selected here, the bins are all same width. Leave in yes for now…
+Logarithmic binning – if yes, the bins are binned logarithmically – i.e., the bins at small sizes are smaller and at large sizes are larger. This is useful setting when wide ranges of scatterer sizes is measured using wide q range (USAXS/SAXS type) instruments. If no is selected here, the bins are all same width. Leave in yes for now…
+
+**Background parameters**
+
+Current version of Size Distribution can use two functions for background and typically both may be needed. The background is subtracted from the data before fitting and in the graphs it is displayed as red dashed line. The purpose of next few paragraphs is to get this dashed line to match physically meaningful, defendable, estimate fo scattering which needs to be subtracted from the data.
+
+Note, that use with slit smeared data is bit complicated here, background is not slit smeared by the code and so it may be bit challenge to use.
+
+1.  Flat background. This is common for most SAXS and especially SANS instruments, that some amount of flat background is present in data. This is typically at high-q, often it may be solvent scattering and similar origin. While more complex background are possible, this tool assumes flat (fixed value) background independent of Q.
+
+2.  Low-q power law slope. This is also quite common - data exhibit low-q power law slope. This could be grain boundaries, powder surfaces, scratches on the sample surfaces, large aggregates etc. There is huge number of possibilities for sources of power law scattering at low-q and if not subtracted, this impact resulting size distributions.
+
+We will fit here the low-q power law slope first. Select first five points with cursors. We have two options - two buttons :
+
+* *"Fit Low Q B"* : this fits only power law scaling factor (B in Unified fit) and keeps existing power law slope itself (P from Unified fit). Default P is 4 = Porod's slope. This is often good assumption in case of scratches or powder grain surfaces. In this case (these are powders) keeping P=4 is correct choice. When the proper Q range is selected (possibly proper P is manually set) push bitton "Fit Low Q B"
+
+This is result of fit at low-q using fitting of only B parameter with P=4.
+
+.. image:: media/SizeDistribution4.jpg
+      :align: left
+      :width: 100%
+
+Next is fitting of Flat background. As you can see, at high-q the red dashed line nearly touches the data (ignore the last point which is artifact). It si nearly correct (by accident here). Users can either manually change the background (type in value or use arrows on the right hand side of the set variable field). Or we can fit this. Set cursors between points 100 and 110 - this is area where flat background dominates.
+
+* *"Fit Flat backg."* : this fits flat background assumption between the cursors.
+
+Here is result of the fitting:
+
+.. image:: media/SizeDistribution5.jpg
+      :align: left
+      :width: 100%
+
+*Optimizing of these "Background parameters" on data import* If one wants to analyze large number of data sets, especially using scripting tool, manual changes to these three parameters are highly inconvenient. Therefore there is add on tool in this part which allows optimization of these parameters automatically, when user pushes button "Graph". To achive this we need to seup what will be done and in what Q ranges.
+
+*Fit B/P/Bckg on "Graph"* When selected a new panel appears:
+
+.. image:: media/SizeDistribution6.jpg
+      :align: left
+      :width: 50%
+
+Select if you want to fit only B or P+B using "Fit B on Graph?" or "Fit B+P on Graph?". Here we use just the B. Select with cursors points 0 to 5 and push button "Read Qs from csrs" next to the two top Q vales. You can also type in Q values manually in these fields.
+
+Select "Fit Backg on Graph?" and select high-q data points 100 - 110 with cursors and push button "Read Qs from csrs" next to the two bottom Q vales. You can also type in Q values manually in these fields.
+
+You can test the fits using the button for "Fit ..." - they do same as in the main graph. You can test settings of the cursors for the different fits.
+
+Now, when new data are added in the tool using button "Graph" both B and Background will be optimized in the Q ranges selected. If you do not want to do this, simply uncheck the *Fit B/P/Bckg on "Graph"* checkbox and it will also close this secondary panel.
+
+.. image:: media/SizeDistribution7.jpg
+      :align: left
+      :width: 100%
+
 
 **Fitting parameters**
-
-Background this is flat background to be subtracted from data. The red line in the graph shows current value. Set correctly for this case to 0.1 or so
 
 Contrast (delta rho squared) – if this is properly inserted, the data are calibrated… Leave to 1 since the contrast is not known.
 
@@ -160,15 +213,13 @@ There are four ways to handle now errors in this tool. The method is selected by
 
 3. “Use % errors” – will create errors equal to n% of intensity. Field where to input the n appears. Errors are smoothed.
 
-4. “Use No errors” – use no errors – the weight of all points is the same. This is unlikely to be correct, but this case allows to use fitting in “scaled” space – Intensity \* Q\ :sup:`m` vs Q, where m = 0 to 4. This helps to mathematically better condition problem (similarly to using errors) and can yield sometimes good solution.
-
-**NOTE : at this time you cannot use this method (no errors) with MaxEnt or Regularization.**
+4. “Use No errors” – use no errors – the weight of all points is the same. This is unlikely to be correct, but this case allows to use fitting in “scaled” space – Intensity \* Q\ :sup:`m` vs Q, where m = 0 to 4. This helps to mathematically better condition problem (similarly to using errors) and can yield sometimes good solution. **NOTE : at this time you cannot use this method (no errors) with MaxEnt or Regularization, this is useful ONLY for IPG/TNNLS method.**
 
 **Comments:**
 
-MaxEnt works best with user errors or % errors.
+MaxEnt works best with user errors or % errors. Good User errors are preferred.
 
-IPG/TNNLS seems to work best with no errors and m = 2 -4. Reason is
+IPG/TNNLS seems to work best with no errors and m = 2 - 4. Reason is
 unclear.
 
 The errors displayed in the graph will change as different methods are
@@ -176,35 +227,35 @@ selected:
 
 User errors, multiplied by 10:
 
-.. image:: media/SizeDistribution4.png
+.. image:: media/SizeDistribution8.jpg
       :align: left
       :width: 100%
 
 
 SQRT errors, multiplied by 10:
 
-.. image:: media/SizeDistribution5.png
+.. image:: media/SizeDistribution9.jpg
       :align: left
       :width: 100%
 
 
 % errors, used 20%:
 
-.. image:: media/SizeDistribution6.png
+.. image:: media/SizeDistribution10.jpg
       :align: left
       :width: 100%
 
 
 No errors, selected to use I\*Q\ :sup:`3` vs Q “space” for fitting:
 
-.. image:: media/SizeDistribution7.png
+.. image:: media/SizeDistribution11.jpg
       :align: left
       :width: 100%
 
 
 **Particle shape**
 
-Particle shape model – the tool uses the same selection of form factors as Least square fitting. If you feel you really need another shape, I can put it in. Same comments apply WRT speed as mentioned in Least square fitting – “integrated spheroid” is using the most complex way to avoid possible artifacts, but is very slow. Spheroid AR 1 is fastest, others depend on complexity of math and integration. The code has been internally optimized to run as fast as possible.
+Particle shape model – the tool uses the smaller selection of form factors as Modeling tool. Adding more form factors makes no sense here, with enough size distribution everything looks like a sphere.
 
 Aspect ratio – anything, 1 is for sphere.
 
@@ -237,19 +288,33 @@ Has no additional controls.
 
 Buttons part
 
-**“Run fitting”** runs the above selected method.
+**Fit (no uncertainties)** runs the above selected method on the data, fitting the date between cursors after subtracting the background model (dashed red line).
 
-SAVE THE RESULTS button – if you do not push this, the data are not copied back into the sample folder and are overwritten with new data.
+**Fit (w/uncertainties)** runs the above selected method on the data, fitting the date between cursors after subtracting the background model (dashed red line). But this will run 10x and for each data set it will add noise on scale of the "errors" provided by user. Than results are analyzed and average size distritbuion with uncertainty for each size bin is generated. This enables users estimate uncertainty for the resulting size distribution. This is uncertainty related to "statistical uncertainty" of measured intensities.
 
-Getting fit.
+**Paste to Notebook** Makes notes in notebook Irena keeps for users. Users can add more material in this notebook.
 
-First select range of data using the cursors. Set rounded cursor on point about 30 and squared on point 89 or so. Note, that you can vary the range of fitted data between the fits.
+**Store in Data Folder** Resulting size distributions and intensity vs Q fit data are stored in the folder where the data came from. This will keep generating new "generations" of results (_0, _1, _2,...), so it can become real mess if sored too many times.
 
-Push button “Run internal MaxEnt”. Solution should be found as in the image below…
 
-If the parameters are too restrictive you may get error message, that solution was not found. In such case check minimum and maximum diameter settings, check the error multiplication factor etc. Generally I suggest starting with higher range of radii than needed and higher error multiplication factor. Then reduce as needed. Also check the shape.
+**Getting fit.**
 
-.. image:: media/SizeDistribution9.png
+OK, above in "Background parameters" we have already configured that we will want to subtract underlying Porod's scattering from low-q and flat background. We fitted the parameters and the dashed red line describes well what we want to subtract. Also, make sure the Minimum diameter is 25A and maximum diameter at least 10000.
+
+Next, let's select range of data using the cursors which will be fitted. Set rounded cursor on point about 13 and squared on point 92 or so. Note, that you can vary the range of fitted data between the fits.
+
+Scale the Errors up, set scaling to 4 or so.
+
+.. image:: media/SizeDistribution12.jpg
+      :align: left
+      :width: 100%
+
+
+Push button *"Fit (no uncertainties)”*. Solution should be found as in the image below…
+
+If the parameters are too restrictive you may get error message, that solution was not found. In such case check minimum and maximum diameter settings, check the error multiplication factor etc. Generally I suggest starting with higher range of diameters than needed and higher error multiplication factor. Then reduce as needed.
+
+.. image:: media/SizeDistribution13.jpg
       :align: left
       :width: 100%
 
@@ -260,9 +325,9 @@ This is rough fit for the data in the graph – and for purpose of description o
 
 The green points are the original data points.
 
-The red points (top part of graph) are points selected for fitting (without background)
+The red squares (top part of graph) are points selected for fitting (without background)
 
-The blue line (very difficult to see) is the fit obtained by the fitting routine
+The blue line is the fit obtained by the fitting routine
 
 The bar graph is the particle volume distribution (use top and right axis)
 
@@ -270,9 +335,11 @@ In the low graph
 
 The red dots are normalized residuals. Ideally these should be random within +1 and –1, this structure suggests some misfits in some areas.
 
-To get better results one now needs to play with the parameters. I suggest reducing maximum diameter to about 4000A, reducing multiply errors by to 3, fixing the MaxENt sky background and the running the same routine again. Following is the result:
+To get better results one now needs to play with the parameters. I suggest reducing multiply errors by to 3.
 
-.. image:: media/SizeDistribution10.png
+IMPORTANT: you need to fix the MaxENt sky background when that "Suggested" red block appear, simply push the button. Running the same routine again. Following is the result:
+
+.. image:: media/SizeDistribution14.jpg
       :align: left
       :width: 100%
 
@@ -281,21 +348,21 @@ This shows, that we have bimodal distribution of scatterers. By the way, these d
 
 And now the IPG/TNNLS method:
 
-.. image:: media/SizeDistribution11.png
+.. image:: media/SizeDistribution15.jpg
       :align: left
       :width: 100%
 
 
 This is solution with user errors. Note, that the solution is basically very similar to MaxEnt.
 
-.. image:: media/SizeDistribution12.png
+.. image:: media/SizeDistribution16.jpg
       :align: left
       :width: 100%
 
 
 And here is solution with no errors, but scaling by Q\ :sup:`3`. Less noisy. Note, that in this case the IPG/TNNLS method is stopped by the Maximum number of iterations. Less number of iterations, less noisy solution – but may not be close to measured data…
 
-**NOTE : at this time you cannot use this method (no errors) with MaxEnt or Regularization.**
+**NOTE : at this time you should not use this method (no errors) with MaxEnt or Regularization.**
 
 Saving the data copies waves with results into folder where the measured data originated. Also, it is possible to have various generations of data saved. In order to give user chance to find what each saved result is, following dialog is presented:
 
@@ -414,3 +481,14 @@ Note, that the tool can provide calculations of volume with uncertainities:
 
 
 The uncertainties are exported and plotted. More support in Irena needs to be added as needed.
+
+Uncertainty analysis of Size distribution
+------------------------------------------
+
+.. image:: media/SizeDistribution17.jpg
+      :align: left
+      :width: 100%
+
+Graph of size distribution has number of useful bits of information. You can display data with log or linear axes. You can use the trust bar or remove it. The code automatically calculates volume fraction - if the dat are on absolute intensity scale and user provides correct contrast, the value here is volume fraction of the scatterers. Code also calculates Rg fro the system using all of the diameters.
+
+And using button "Calculate Parameters" one can select range of size distribution data and get Tag with useful information about that range of data.
