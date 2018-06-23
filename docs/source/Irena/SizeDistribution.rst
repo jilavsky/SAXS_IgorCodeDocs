@@ -12,6 +12,9 @@ There are three methods to computer a size distribution from the measured SAS da
 * :ref:`model.maxent`
 * :ref:`model.regularization`
 * :ref:`model.tnnls`
+* :ref:`Size_Distribution`
+* :ref:`UncertaintyAnalysis`
+
 
 Basic description of methods
 ----------------------------
@@ -109,6 +112,8 @@ Compare following two graphs, in which the Q fitting setting is vastly different
 .. image:: media/SizeDistribution2.png
       :align: left
       :width: 100%
+
+
 
 .. _Size_Distribution:
 
@@ -463,6 +468,8 @@ where user can image out what happened.
 Further some parameters are also saved in the string with name
 “SizesParameters\_0” such as MeanSizeOfDistribution.
 
+.. _UncertaintyAnalysis:
+
 Uncertainty analysis of Size distribution
 ------------------------------------------
 
@@ -482,8 +489,8 @@ Note, that the tool can provide calculations of volume with uncertainities:
 
 The uncertainties are exported and plotted. More support in Irena needs to be added as needed.
 
-Uncertainty analysis of Size distribution
-------------------------------------------
+Graph information and controls
+------------------------------
 
 .. image:: media/SizeDistribution17.jpg
       :align: left
