@@ -239,98 +239,6 @@ Disk (cylinder) with radius 500A and length 50A.
 
 Since Irena version 2.54 Cylinders will use NIST xop to speed up its calculations.
 
-.. _FormFactors.UnifiedSphere:
-
-.. index::
-    Form Factors; Unified Shpere
-
-**Unified_Sphere - removed in version 2.67**
-^^^^^^^^^^^^^^^^^^
-
-This is formula from Unified fit model by Greg Beaucage (see Unified tool and documentation for it). The parameters are calculated from the code in the manual for each different shape. Specific formulas for these shapes were provided by Dale Schaefer...
-
-This is the code:
-	G1=1
-	P1=4
-	Rg1=sqrt(3/5)*radius
-	B1=1.62*G1/Rg1^4
-	QstarVector=qvalue/(erf(qvalue*Rg1/sqrt(6)))^3
-	F^2 = G1*exp(-qvalue^2*Rg1^2/3)+(B1/QstarVector^P1)
-
-Example for R=50A compared with the spheroid with aspect ratio =1
-
-.. Figure:: media/FormFactor_UFSphere.png
-   :align: left
-   :width: 420px
-   :figwidth: 400px
-
-
-.. _FormFactors.UnifiedRod:
-
-.. index::
-    Form Factors; Unified Rod
-    Form Factors; Unified Rod AR
-
-**Unified_Rod - removed in version 2.67**
-^^^^^^^^^^^^^
-**Unified_RodAR - removed in version 2.67**
-^^^^^^^^^^^^^^^^^
-
-This is formula from Unified fit model by Greg Beaucage (see Unified tool and documentation for it). The parameters are calculated from the code in the manual for each different shape. Specific formulas for these shapes were provided by Dale Schaefer...
-
-This is the code:
-          G2 =1
-          Rg2=sqrt(Radius^2/2+Length^2/12)
-          B2=G2*pi/length
-          P2=1
-          Rg1=sqrt(3)*Radius/2
-          RgCO2=Rg1
-          G1=2*G2*Radius/(3*Length)
-          B1=4*G2*(Length+Radius)/(Radius^3*Length^2)
-          P1=4
-          QstarVector=qvalue/(erf(qvalue*Rg2/sqrt(6)))^3
-          A=G2*exp(-qvalue^2*Rg2^2/3)+(B2/QstarVector^P2) * exp(-RGCO2^2 * qvalue^2/3)
-          QstarVector=qvalue/(erf(qvalue*Rg1/sqrt(6)))^3
-          F^2 = A + G1*exp(-qvalue^2*Rg1^2/3)+(B1/QstarVector^P1)
-
-Example for R=50A and length 500A compared with the cylinder
-
-.. Figure:: media/FormFactor_UFCylinder.png
-   :align: left
-   :width: 420px
-   :figwidth: 400px
-
-.. _FormFactors.UnifiedDisk:
-
-.. index::
-    Form Factors; Unified Disk
-
-**Unified_Disk - removed in version 2.67**
-^^^^^^^^^^^^^^^^
-
-This is formula from Unified fit model by Greg Beaucage (see Unified tool and documentation for it). The parameters are calculated from the code in the manual for each different shape. Specific formulas for these shapes were provided by Dale Schaefer...
-
-This is the code:
-     	G2=1
-	Rg2=sqrt(Radius^2/2+thickness^2/12)
-	B2=G2*2/(radius^2)//dws guess
-	P2=2
-	Rg1=sqrt(3)*thickness/2// Kratky and glatter = Thickness/2
-	RgCO2=1.1*Rg1
-	G1=2*G2*thickness^2/(3*radius^2)
-	B1=4*G2*(thickness+Radius)/(Radius^3*thickness^2)//same as rod
-	P1=4
-	QstarVector=Q/(erf(Q*Rg2/sqrt(6)))^3
-	A=G2*exp(-Q^2*Rg2^2/3)+(B2/QstarVector^P2) * exp(-RGCO2^2 * Q^2/3)
-	QstarVector=Q/(erf(Q*Rg1/sqrt(6)))^3
-	F^2 = A + G1*exp(-Q^2*Rg1^2/3)+(B1/QstarVector^P1)
-
-Example for R=250A and thickness 10A compared with the cylinder
-
-.. Figure:: media/FormFactor_UFDisk.png
-   :align: left
-   :width: 420px
-   :figwidth: 400px
 
 .. _FormFactors.CoreShell:
 
@@ -377,9 +285,8 @@ Example, Radius 50A, skin thickness 10A, contrast ratio 0.6
 .. Figure:: media/FormFactor_CoreShell.png
    :align: left
    :width: 420px
-   :figwidth: 400px
 
-.. _FormFactors.CoreShellPresipitate:
+.. _FormFactors.CoreShellPrecipitate:
 
 .. index::
     Form Factors; CoreShell precipitate
@@ -405,7 +312,6 @@ Example, Radius 50A, Core Rho 110, Shell Rho 85, Solvent Rho 90; note, this inte
 .. Figure:: media/FormFactor_CoreShellPrecip.png
    :align: left
    :width: 420px
-   :figwidth: 400px
 
 .. _FormFactors.CoreShellCylinder:
 
@@ -431,7 +337,6 @@ Shell volume = pi * (R+r)^2 * (L+2*r)  -  pi * R^2 * L
 .. Figure:: media/FormFactor_CoreShellCyl.png
    :align: left
    :width: 420px
-   :figwidth: 400px
 
 
 .. _FormFactors.FractalAggregate:
@@ -473,7 +378,6 @@ Example for R=100A, radius of primary particle 10 A and fractal dimension 2.5.
 .. Figure:: media/FormFactor_FractAggreg.png
    :align: left
    :width: 420px
-   :figwidth: 400px
 
 Comment: Note, that this is not scaled correctly at all... I have no idea why - apparently this formula is either wrongly coded or plainly does not behave right.
 
@@ -491,14 +395,12 @@ Description of the model:
 .. Figure:: media/FormFactor_CoreShellShell1.png
    :align: left
    :width: 420px
-   :figwidth: 400px
 
 Scattering Length Density Rho:
 
 .. Figure:: media/FormFactor_CoreShellShell2.png
    :align: left
    :width: 420px
-   :figwidth: 400px
 
 
 List of Model Parameters:
@@ -563,14 +465,12 @@ which describes scattering from the particle on the left of the Figure 1 from th
 .. Figure:: media/FormFactor_Janus1.png
    :align: left
    :width: 420px
-   :figwidth: 400px
 
 Example of results:
 
 .. Figure:: media/FormFactor_Janus2.png
    :align: left
    :width: 420px
-   :figwidth: 400px
 
 Note: the results in the above graph are scaled to F^2(Q=0) = 1. Since the formula inclused scattering length densities, normalization by the volume does not result in F^2(Q=0) = 1. This may result in unexpected problems with absolute calibration.
 
@@ -615,7 +515,6 @@ Mean radius 40A, width 0.3A (Gauss), Shell thickness 10A,
 .. Figure:: media/FormFactor_Janus3.png
    :align: left
    :width: 420px
-   :figwidth: 400px
 
 **Janus CoreShell Micelle 2:**
 Core radius 30A, Mean radius 40A, width 0.3A (Gauss) :
@@ -623,7 +522,6 @@ Core radius 30A, Mean radius 40A, width 0.3A (Gauss) :
 .. Figure:: media/FormFactor_Janus4.png
    :align: left
    :width: 420px
-   :figwidth: 400px
 
 
 **Janus CoreShell Micelle 1:**
@@ -632,14 +530,12 @@ Pseudo sphere (shell thickness = 0), Radius = 40 A,
 .. Figure:: media/FormFactor_Janus5.png
    :align: left
    :width: 420px
-   :figwidth: 400px
 
 **Real sphere**, contrast   14903.5 (Au-water):
 
 .. Figure:: media/FormFactor_Janus6.png
    :align: left
    :width: 420px
-   :figwidth: 400px
 
 Note the suspicious difference in calibrations. See note above about my suspicion on the problem here...
 
@@ -648,14 +544,12 @@ Real core shell system (pick shell contrast 34.95). Use "Whole particle" as volu
 .. Figure:: media/FormFactor_Janus7.png
    :align: left
    :width: 420px
-   :figwidth: 400px
 
 Janus CoreShell Micelle 1, fake the core shell with same contrast (34.95) for both shells. Recall that the total size of the CoreShell in Irena is radius of core ("Radius")+ shell thickness; while for Janus CoreShell Micelle 1 it is just Radius (see figure).
 
 .. Figure:: media/FormFactor_Janus8.png
    :align: left
    :width: 420px
-   :figwidth: 400px
 
 The difference in absolute intensity here is surely related to different assumptions on volume of particle.
 
@@ -681,15 +575,13 @@ Cuboid, 60A sides:
 .. Figure:: media/FormFactor_Parallelepip1.png
    :align: left
    :width: 420px
-   :figwidth: 400px
 
 
 Hereis Parallelepiped with sides 60A, 120A, 180A:
 
 .. Figure:: media/FormFactor_Parallelepip2.png
    :align: left
-   :width: 420px
-   :figwidth: 400px
+   :width: 400px
 
 
 Note, Irena assumed some size distribution (narrow, but some) while NIST package, assumes monodispersed particle. Therefore the differences in oscillations.
@@ -731,7 +623,7 @@ Function IR1T_ExampleSphereFFPoints(Q,radius, par1,par2,par3,par4,par5)	//Sphere
 	variable Q, radius, par1,par2,par3,par4,par5
 
 	variable QR=Q*radius
-  
+
 	return (3/(QR*QR*QR))*(sin(QR)-(QR*cos(QR)))
 end
 
@@ -980,3 +872,100 @@ IR2_StickyHS_Struct			this is sticky hard spheres
 IR2_SquareWellStruct			this is Square well
 IR2_HayterPenfoldMSA		this is HayterPenfoldMSA
 IR2_InterPrecipitateSF		this is InterPrecipitate
+
+
+
+Following Form factors have been removed from Irena in version 2.67
+-------------------------------------------------------------------
+
+.. _FormFactors.UnifiedSphere:
+
+.. index::
+    Form Factors; Unified Sphere
+
+**Unified_Sphere - removed in version 2.67**
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This is formula from Unified fit model by Greg Beaucage (see Unified tool and documentation for it). The parameters are calculated from the code in the manual for each different shape. Specific formulas for these shapes were provided by Dale Schaefer...
+
+This is the code:
+	G1=1
+	P1=4
+	Rg1=sqrt(3/5)*radius
+	B1=1.62*G1/Rg1^4
+	QstarVector=qvalue/(erf(qvalue*Rg1/sqrt(6)))^3
+	F^2 = G1*exp(-qvalue^2*Rg1^2/3)+(B1/QstarVector^P1)
+
+Example for R=50A compared with the spheroid with aspect ratio =1
+
+.. Figure:: media/FormFactor_UFSphere.png
+   :align: left
+   :width: 420px
+   :figwidth: 400px
+
+
+.. _FormFactors.UnifiedRod:
+
+.. index::
+    Form Factors; Unified Rod
+    Form Factors; Unified Rod AR
+
+**Unified_Rod - removed in version 2.67**
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**Unified_RodAR - removed in version 2.67**
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This is formula from Unified fit model by Greg Beaucage (see Unified tool and documentation for it). The parameters are calculated from the code in the manual for each different shape. Specific formulas for these shapes were provided by Dale Schaefer...
+
+This is the code:
+          G2 =1
+          Rg2=sqrt(Radius^2/2+Length^2/12)
+          B2=G2*pi/length
+          P2=1
+          Rg1=sqrt(3)*Radius/2
+          RgCO2=Rg1
+          G1=2*G2*Radius/(3*Length)
+          B1=4*G2*(Length+Radius)/(Radius^3*Length^2)
+          P1=4
+          QstarVector=qvalue/(erf(qvalue*Rg2/sqrt(6)))^3
+          A=G2*exp(-qvalue^2*Rg2^2/3)+(B2/QstarVector^P2) * exp(-RGCO2^2 * qvalue^2/3)
+          QstarVector=qvalue/(erf(qvalue*Rg1/sqrt(6)))^3
+          F^2 = A + G1*exp(-qvalue^2*Rg1^2/3)+(B1/QstarVector^P1)
+
+Example for R=50A and length 500A compared with the cylinder
+
+.. Figure:: media/FormFactor_UFCylinder.png
+   :align: left
+   :width: 420px
+   :figwidth: 400px
+
+.. _FormFactors.UnifiedDisk:
+
+.. index::
+    Form Factors; Unified Disk
+
+**Unified_Disk - removed in version 2.67**
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This is formula from Unified fit model by Greg Beaucage (see Unified tool and documentation for it). The parameters are calculated from the code in the manual for each different shape. Specific formulas for these shapes were provided by Dale Schaefer...
+
+This is the code:
+     	G2=1
+	Rg2=sqrt(Radius^2/2+thickness^2/12)
+	B2=G2*2/(radius^2)//dws guess
+	P2=2
+	Rg1=sqrt(3)*thickness/2// Kratky and glatter = Thickness/2
+	RgCO2=1.1*Rg1
+	G1=2*G2*thickness^2/(3*radius^2)
+	B1=4*G2*(thickness+Radius)/(Radius^3*thickness^2)//same as rod
+	P1=4
+	QstarVector=Q/(erf(Q*Rg2/sqrt(6)))^3
+	A=G2*exp(-Q^2*Rg2^2/3)+(B2/QstarVector^P2) * exp(-RGCO2^2 * Q^2/3)
+	QstarVector=Q/(erf(Q*Rg1/sqrt(6)))^3
+	F^2 = A + G1*exp(-Q^2*Rg1^2/3)+(B1/QstarVector^P1)
+
+Example for R=250A and thickness 10A compared with the cylinder
+
+.. Figure:: media/FormFactor_UFDisk.png
+   :align: left
+   :width: 420px
