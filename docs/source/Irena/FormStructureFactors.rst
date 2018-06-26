@@ -2,7 +2,6 @@
 
 .. index::
     model; Form Factors
-		model; Structure Factors
     Form and Structure Factors
 
 Form Factors & Structure factors
@@ -10,30 +9,32 @@ Form Factors & Structure factors
 
 This is list of available form factor and structure factors in Irena package.
 
-Form & Structure factors parameters
------------------------------------
+Form factors & their parameters
+-------------------------------
 
 
 ========          ========        ========
 Form Factor       Parameter       ParticlePar
 --------          --------        --------
-spheroid          AspectRatio     ParticlePar1
+Spheroid          AspectRatio     ParticlePar1
 Intg_Spheroid     AspectRatio     ParticlePar1
-Cylinders         Length   			  ParticlePar1
-CylindersAR       AspectRatio     ParticlePar1
-Unified_Disc		    thickness  		  ParticlePar1
-Unified_Rod		    length 				  ParticlePar1
-Unified_RodAR	    AspectRatio		  ParticlePar1
-Unified_Sphere
-Tube              length	        ParticlePar1	//length in A
-                  WallThickness   ParticlePar2	//in A
-                  CoreRho         ParticlePar3  //rho  [10^10 cm-2]  (not delta rho squared!!!) of core material
-                  ShellRho        ParticlePar4  //rho [10^10 cm-2]   (not delta rho squared!!!) of shell material
-                  SolventRho      ParticlePar5  //rho [10^10 cm-2]   (not delta rho squared!!!) of surrounding medium  (air=0)
+Cylinder          Length   			  ParticlePar1
+CylinderAR        AspectRatio     ParticlePar1
 CoreShell	        CoreShellThick  ParticlePar1 //skin thickness in Angstroms
                   CoreRho         ParticlePar2  //rho [10^10 cm-2]   (not delta rho squared!!!) of core material
                   ShellRho        ParticlePar3  //rho  [10^10 cm-2]  (not delta rho squared!!!) of shell material
                   SolventRho      ParticlePar4  //rho [10^10 cm-2]   (not delta rho squared!!!) of surrounding medium  (air=0)
+CoreShellShell    CoreShellThick1 ParticlePar1 //skin thickness in Angstroms
+                  CoreShellThick2 ParticlePar2 //skin thickness in Angstroms
+                  SolventRho      ParticlePar3 //rho [10^10 cm-2]   (not delta rho squared!!!) of surrounding medium  (air=0)
+                  CoreRho         ParticlePar4  //rho [10^10 cm-2]   (not delta rho squared!!!) of core material
+                  Shell 1 Rho     ParticlePar5  //rho  [10^10 cm-2]  (not delta rho squared!!!) of shell material
+                  Shell 2 Rho     ParticlePar6  //rho  [10^10 cm-2]  (not delta rho squared!!!) of shell material
+CoreShellCylinder Length	        ParticlePar1	//length in A
+                  WallThickness   ParticlePar2	//in A
+                  CoreRho         ParticlePar3  //rho  [10^10 cm-2]  (not delta rho squared!!!) of core material
+                  ShellRho        ParticlePar4  //rho [10^10 cm-2]   (not delta rho squared!!!) of shell material
+                  SolventRho      ParticlePar5  //rho [10^10 cm-2]   (not delta rho squared!!!) of surrounding medium  (air=0)
 CoreShellPrec	    CoreShellThick  Is calculated for each size, so the avergae contrast of the core+shell is same as contrast of the solvent.
 		              CoreRho         ParticlePar2 //rho [10^10 cm-2]   (not delta rho squared!!!) of core material
 		              ShellRho        ParticlePar3  //rho  [10^10 cm-2]  (not delta rho squared!!!) of shell material
@@ -65,16 +66,22 @@ RectParallepid    Particle size   Is side a
 			            Side C ratio    ParticlePar2	// Ratio side C/A
 ========          ========        ========
 
-´User			uses user provided functions.
-			There are two user provided functions necessary -
-				F(q,R,par1,par2,par3,par4,par5)
-			and 	V(R,par1,par2,par3,par4,par5)
-			the names for these need to be provided in strings...
-				the input is q and R in angstroms
+.. index::
+		model; User Form Factor
 
+**User Form Factor**
+--------------------
 
+is flexible option to use when Irena does not have the specific form factor a user need. It uses user provided functions for Form factor and Volume of a scatterer. Details are provided :ref:`later in this document <FormFactors.User>`. `Github Irena depository
+<https://github.com/jilavsky/SAXS_IgorCode/tree/master/User%20form%20factors%20for%20Irena/>`_ has place where users can share their form factors. Instructions how to download are on this page. If you have Form factor to share, please, send it to ilavsky@aps.anl.gov.
 
-========             ========       ========
+.. index::
+		model; Structure Factors
+
+Structure factors & their parameters
+------------------------------------
+
+=============        ========       ========
 Structure Fct        Parameter      ParticlePar
 Interferences        ref            Beaucage, G. (1995). J Appl Crystallogr 28, 717-728.
                      Par1           ETA (center-to-center distance)
@@ -237,7 +244,7 @@ Since Irena version 2.54 Cylinders will use NIST xop to speed up its calculation
 .. index::
     Form Factors; Unified Shpere
 
-**Unified_Sphere**
+**Unified_Sphere - removed in version 2.67**
 ^^^^^^^^^^^^^^^^^^
 
 This is formula from Unified fit model by Greg Beaucage (see Unified tool and documentation for it). The parameters are calculated from the code in the manual for each different shape. Specific formulas for these shapes were provided by Dale Schaefer...
@@ -264,9 +271,9 @@ Example for R=50A compared with the spheroid with aspect ratio =1
     Form Factors; Unified Rod
     Form Factors; Unified Rod AR
 
-**Unified_Rod**
+**Unified_Rod - removed in version 2.67**
 ^^^^^^^^^^^^^
-**Unified_RodAR**
+**Unified_RodAR - removed in version 2.67**
 ^^^^^^^^^^^^^^^^^
 
 This is formula from Unified fit model by Greg Beaucage (see Unified tool and documentation for it). The parameters are calculated from the code in the manual for each different shape. Specific formulas for these shapes were provided by Dale Schaefer...
@@ -298,7 +305,7 @@ Example for R=50A and length 500A compared with the cylinder
 .. index::
     Form Factors; Unified Disk
 
-**Unified_Disk**
+**Unified_Disk - removed in version 2.67**
 ^^^^^^^^^^^^^^^^
 
 This is formula from Unified fit model by Greg Beaucage (see Unified tool and documentation for it). The parameters are calculated from the code in the manual for each different shape. Specific formulas for these shapes were provided by Dale Schaefer...
@@ -691,28 +698,40 @@ Note, Irena assumed some size distribution (narrow, but some) while NIST package
 
 .. index::
     Form Factors; User
+		model; User Form Factor
 
-**User**
-^^^^^^^^
+**User Form Factor**
+--------------------
 
-To use "User" form factor you will need to supply two functions:
-1. Form factor itself
-2. Volume of particle function
-Both have to be supplied. Use of form factors which would include volume scaling within is possible, but MUCH more challenging due to other parts of code. If you  really insist on doing so, contact me and I will create rules and explanation.
+is flexible option to use when Irena does not have the specific form factor a user need. It uses user provided functions for Form factor and Volume of a scatterer. User provided functions need to be in the form of:
 
-Both functions must work with radius in Angstroems and Q in inverse Angstroems.
-Both have to declare following parameters, in following order:
+F(q,R,par1,par2,par3,par4,par5) = Form factor itself
 
-Form factor: 	Q, radius, par1,par2,par3,par4,par5
-Volume :	radius, par1,par2,par3,par4,par5
+V(R,par1,par2,par3,par4,par5) = Volume of particle function
 
-These function are not required to use these 5 user parameters, but they have to declare them.
+the names for these need to be provided in strings, the input of these function is q [1/A] and R [A]. These function must decl;are the 5 parameters, but they are not required to use them internally, when not needed. Graphical interface for the controls of the User Form Factor opens when User form factor is selected (or reselected if needed). The GUI opens together with text document describing how to use and some demo functions:
 
+.. Figure:: media/FormFactorUserGUI.jpg
+   :align: left
+   :width: 420px
+   :figwidth: 400px
 
-Examples for sphere:
+.. Figure:: media/FormFactorInstructions.jpg
+   :align: left
+   :width: 620px
+   :figwidth: 600px
+
+`Github Irena depository
+<https://github.com/jilavsky/SAXS_IgorCode/tree/master/User%20form%20factors%20for%20Irena/>`_ has place where users can share their form factors. Instructions how to download are on this page. If you have Form factor to share, please, send it to ilavsky@aps.anl.gov.
+
+Example of these functions for sphere:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 Function IR1T_ExampleSphereFFPoints(Q,radius, par1,par2,par3,par4,par5)	//Sphere Form factor
 	variable Q, radius, par1,par2,par3,par4,par5
+
 	variable QR=Q*radius
+  
 	return (3/(QR*QR*QR))*(sin(QR)-(QR*cos(QR)))
 end
 
@@ -723,7 +742,7 @@ Function IR1T_ExampleSphereVolume(radius, par1,par2,par3,par4,par5)		//returns t
 end
 
 **Testing and using Form factors in users own code**
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+----------------------------------------------------
 
 To verify that the form factor works for you and to use the form factor if your own functions use following process and functions:
 
@@ -753,21 +772,31 @@ Note, that if the IR1T_GenerateGMatrix function returns wave of NaN values if un
 **Example of code:**
 
 make/N=100 Q_wave
-Q_wave=0.001+p/100
-	//will create 100 points wave with values 0.001 to 1) values
-Make/O/D R_FF
-	//makes some place for form factor
+
+Q_wave=0.001+p/100   //will create 100 points wave with values 0.001 to 1) values
+
+Make/O/D R_FF       //makes some place for form factor
+
 make R_dist
+
 R_dist=50
+
 //or
+
 //make/N=3 R_dist
-//R_dist={10,50,100}
-	//creates R distribution and sets values
+
+//R_dist={10,50,100}    	//creates R distribution and sets values
+
 IR1T_GenerateGMatrix(R_FF,Q_wave,R_dist,powerFct,"form factor name",param1,param2,param3,param4,param5, "", "")
-	//Note, above lines belong on one line together!
-	// replace powerFct with 0, 1,or 2!
+
+//Note, above lines belong on one line together!
+
+// replace powerFct with 0, 1,or 2!
+
 // replace "form factor name" with name of form factor you want to use
+
 Display R_FF vs Q_wave
+
 ModifyGraph log=1
 	//creates log-log graph of
 

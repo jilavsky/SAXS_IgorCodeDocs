@@ -65,9 +65,9 @@ As a point of fact, both MaxEnt and regularization are regularized methods of so
 
     \Xi = \chi - \alpha S
 
-where :math:`\chi^2` describes the goodness of fit, *S* is the applied constraint, and :math:`\alpha` is a Lagrange mutiplier used to ensure that the solution fits the measured data to some extent.
+where :math:`\chi^2` describes the goodness of fit, *S* is the applied constraint, and :math:`\alpha` is a Lagrange multiplier used to ensure that the solution fits the measured data to some extent.
 
-For MaxEnt, the additional contraint is that the configurational entropy of the size distribution must be maximized. Rather than be bothered by what this means when compared with the thermodynamic entropy, you are asked to consider that this constraint enforces the principle that all histograms in the size distribution must have a positive amplitude. To make the calculation of the entropy, an additional reference level must be defined. Typically, this reference level (a.k.a., Sky Background, starting guess, *a priori* information) is about 0.01 of the maximum level of the final size distribution. One does not need to fine-tune this parameter and should never be concerned with adjustments less than one order of magnitude. Too high and this parameter will cause the solution to have upward tails at both low and high ends of the distribution. Too low and additional scatter will appear in the distribution. The MaxEnt constraint imposes no correlation on the amplitudes of adjacent bins in the calculated histogram size distribution.
+For MaxEnt, the additional constraint is that the configurational entropy of the size distribution must be maximized. Rather than be bothered by what this means when compared with the thermodynamic entropy, you are asked to consider that this constraint enforces the principle that all histograms in the size distribution must have a positive amplitude. To make the calculation of the entropy, an additional reference level must be defined. Typically, this reference level (a.k.a., Sky Background, starting guess, *a priori* information) is about 0.01 of the maximum level of the final size distribution. One does not need to fine-tune this parameter and should never be concerned with adjustments less than one order of magnitude. Too high and this parameter will cause the solution to have upward tails at both low and high ends of the distribution. Too low and additional scatter will appear in the distribution. The MaxEnt constraint imposes no correlation on the amplitudes of adjacent bins in the calculated histogram size distribution.
 
 .. _model.regularization:
 
@@ -113,14 +113,14 @@ Compare following two graphs, in which the Q fitting setting is vastly different
       :align: left
       :width: 100%
 
-
+Next is desxription of how to use the tool.
 
 .. _Size_Distribution:
 
 Use of Size Distribution
 ------------------------
 
-This manual is updated for Size distribution tool version in Irena 2.66 and higher, for older versions see prior versions of manuals.
+This manual is updated for Size distribution tool version in Irena 2.67 and higher, for older versions see prior versions of manual. Test Igor experiment is available on following location:
 
 This program uses one complex interface – a complex graph and panel for data input and manipulation. To start, select “Size distribution” from “SAS” menu…
 
@@ -155,7 +155,7 @@ Logarithmic binning – if yes, the bins are binned logarithmically – i.e., th
 
 **Background parameters**
 
-Current version of Size Distribution can use two functions for background and typically both may be needed. The background is subtracted from the data before fitting and in the graphs it is displayed as red dashed line. The purpose of next few paragraphs is to get this dashed line to match physically meaningful, defendable, estimate fo scattering which needs to be subtracted from the data.
+Current version of Size Distribution can use two functions for background and often both may be needed - but not always. Note, that until 2018 release of Irena v2.66 this tool had only Flat Background. The background is subtracted from the data before fitting and in the graphs it is displayed as red dashed line. The purpose of next few paragraphs is to get this dashed line to match physically meaningful, defendable, estimate fo scattering which needs to be subtracted from the data.
 
 Note, that use with slit smeared data is bit complicated here, background is not slit smeared by the code and so it may be bit challenge to use.
 
@@ -167,7 +167,7 @@ Note, that use with slit smeared data is bit complicated here, background is not
 
 Select first five points with cursors. We have two options - two buttons :
 
-* *"Fit Low Q B"* : this fits only power law scaling factor (B in Unified fit) and keeps existing power law slope itself (P from Unified fit). Default P is 4 = Porod's slope. This is often good assumption in case of scratches or powder grain surfaces. In this case (these are powders) keeping P=4 is correct choice. When the proper Q range is selected (possibly proper P is manually set) push bitton "Fit Low Q B"
+* *"Fit Low Q B"* : this fits only power law scaling factor (B in Unified fit) and keeps existing power law slope itself (P from Unified fit). Default P is 4 = Porod's slope. This is often good assumption in case of scratches or powder grain surfaces. In this case (these are powders) keeping P=4 is correct choice. When the proper Q range is selected (possibly proper P is manually set) push button "Fit Low Q B"
 
 * *"Fit Low Q B+P"* : this fits both power law scaling factor (B in Unified fit) and power law slope itself (P from Unified fit). This is often good assumption in case of second population of scatterers with wide size distribution. Do not use this to fit aggregates as this tool is missing RgCo parameter which would be needed to terminate the scattering from aggregates at the size of primary particles. This Size Distribution tool is really not suitable for fitting aggregated systems anyway.
 
@@ -179,7 +179,7 @@ Below is result of fit at low-q using fitting of only B parameter with P=4.
 
 *Next is fitting of Flat background.*
 
-As you can see, at high-q the red dashed line nearly touches the data (ignore the last point which is artifact). It si nearly correct (by accident here). Users can either manually change the background (type in value or use arrows on the right hand side of the set variable field). Or we can fit this. Set cursors between points 100 and 110 - this is area where flat background dominates.
+As you can see, at high-q the red dashed line nearly touches the data (ignore the last point which is artifact). It is nearly correct (by accident here). Users can either manually change the background (type in value or use arrows on the right hand side of the set variable field). Or we can fit this. Set cursors between points 100 and 110 - this is area where flat background dominates.
 
 * *"Fit Flat backg."* : this fits flat background assumption between the cursors.
 
@@ -189,28 +189,31 @@ Here is result of the fitting:
       :align: left
       :width: 100%
 
-*Optimizing of these "Background parameters" on data import* If one wants to analyze large number of data sets, especially using scripting tool, manual changes to these three parameters are highly inconvenient. Therefore there is add on tool in this part which allows optimization of these parameters automatically, when user pushes button "Graph". To achive this we need to seup what will be done and in what Q ranges.
+*Optimizing of these "Background parameters" on data import*
 
-*Fit B/P/Bckg on "Graph"* When selected a new panel appears:
+If one wants to analyze large number of data sets, especially using scripting tool, manual changes to these three parameters are highly inconvenient. Therefore there is add on tool in this part which allows optimization of these parameters automatically, when user pushes button "Graph". To achieve this we need to setup what will be done and in what Q ranges.
+
+Checkbox : *Fit B/P/Bckg on "Graph"*
+
+When selected a new panel appears:
 
 .. image:: media/SizeDistribution6.jpg
       :align: left
       :width: 50%
 
-Select if you want to fit only B or P+B using "Fit B on Graph?" or "Fit B+P on Graph?". Here we use just the B. Select with cursors points 0 to 5 and push button "Read Qs from csrs" next to the two top Q vales. You can also type in Q values manually in these fields.
+Select if you want to fit only B or P+B using "Fit B on Graph?" or "Fit B+P on Graph?". Here we will use just the B, so check checkbox *"Fit B on Graph?"*. Set cursors on points 0 to 5 and push button "Read Qs from csrs" next to the two top Q vales. You can also type in Q values manually in these fields.
 
-Select "Fit Backg on Graph?" and select high-q data points 100 - 110 with cursors and push button "Read Qs from csrs" next to the two bottom Q vales. You can also type in Q values manually in these fields.
+Check *"Fit Backg on Graph?"* and select high-q data points 100 - 110 with cursors and push button "Read Qs from csrs" next to the two bottom Q vales. You can also type in Q values manually in these fields.
 
 You can test the fits using the button for "Fit ..." - they do same as in the main graph. You can test settings of the cursors for the different fits.
 
-Now, when new data are added in the tool using button "Graph" both B and Background will be optimized in the Q ranges selected. If you do not want to do this, simply uncheck the *Fit B/P/Bckg on "Graph"* checkbox and it will also close this secondary panel.
+Now, when new data are added in the tool using button "Graph" both B and Background will be optimized in the Q ranges selected. If you do not want to do this, simply uncheck the *Fit B/P/Bckg on "Graph"* checkbox and it will also close this secondary panel. Note: you can close this panel if not needed anymore, to reopen simply uncheck and check the checkbox *Fit B/P/Bckg on "Graph"* on the main panel.
 
 .. image:: media/SizeDistribution7.jpg
       :align: left
       :width: 100%
 
 
-   
 **Fitting parameters**
 
 Contrast (delta rho squared) – if this is properly inserted, the data are calibrated… Leave to 1 since the contrast is not known.
@@ -219,9 +222,9 @@ Contrast (delta rho squared) – if this is properly inserted, the data are cali
 
 There are four ways to handle now errors in this tool. The method is selected by four checkboxes lined vertically next to the “Background and Contrast” fields…
 
-1. “Use user errors” use erros input as wave. In this case the field: “Multiply errors by”is available and errors can be scaled as needed. Start with high multiplier and reduce as necessary to reach solution, which is both close to the data but not too noisy.
+1. “Use user errors” use error input as wave. In this case the field: “Multiply errors by”is available and errors can be scaled as needed. Start with high multiplier and reduce as necessary to reach solution, which is both close to the data but not too noisy.
 
-2. “Use sqrt errors” – will create errors equal to square root of intensity (standard Poission error estimate). You can multiply these errors by error multiplier. Errors are smoothed.
+2. “Use sqrt errors” – will create errors equal to square root of intensity (standard Poisson error estimate). You can multiply these errors by error multiplier. Errors are smoothed.
 
 3. “Use % errors” – will create errors equal to n% of intensity. Field where to input the n appears. Errors are smoothed.
 
@@ -302,11 +305,11 @@ Buttons part
 
 **Fit (no uncertainties)** runs the above selected method on the data, fitting the date between cursors after subtracting the background model (dashed red line).
 
-**Fit (w/uncertainties)** runs the above selected method on the data, fitting the date between cursors after subtracting the background model (dashed red line). But this will run 10x and for each data set it will add noise on scale of the "errors" provided by user. Than results are analyzed and average size distritbuion with uncertainty for each size bin is generated. This enables users estimate uncertainty for the resulting size distribution. This is uncertainty related to "statistical uncertainty" of measured intensities.
+**Fit (w/uncertainties)** runs the above selected method on the data, fitting the date between cursors after subtracting the background model (dashed red line). But this will run 10x and for each data set it will add noise on scale of the "errors" provided by user. Than results are analyzed and average size distribution with uncertainty for each size bin is generated. This enables users estimate uncertainty for the resulting size distribution. This is uncertainty related to "statistical uncertainty" of measured intensities.
 
 **Paste to Notebook** Makes notes in notebook Irena keeps for users. Users can add more material in this notebook.
 
-**Store in Data Folder** Resulting size distributions and intensity vs Q fit data are stored in the folder where the data came from. This will keep generating new "generations" of results (_0, _1, _2,...), so it can become real mess if sored too many times.
+**Store in Data Folder** Resulting size distributions and intensity vs Q fit data are stored in the folder where the data came from. This will keep generating new "generations" of results (_0, _1, _2,...), so it can become real mess if saved too many times.
 
 
 **Getting fit.**
