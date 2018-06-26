@@ -42,7 +42,7 @@ The simple answer is NO, it does not. You can have any order for Modeling popula
 
 *What do I do if I need different Form Factor?*
 -----------------------------------------------
-If you need different Form Factor than is included in Irena, you can write your own functions. Alternatively, you can modify Form Factors (or Structure Factors) included in NIST Igor data analysis package. If you need help, you can contact me and I can help, especially if the Form Factor function is included in the NIST package. :ref:`More details are available here <FormFactors.User>``
+If you need different Form Factor than is included in Irena, you can write your own functions. Alternatively, you can modify Form Factors (or Structure Factors) included in NIST Igor data analysis package. If you need help, you can contact me and I can help, especially if the Form Factor function is included in the NIST package. :ref:`More details are available here <FormFactors.User>`
 
 
 .. _FAQ.ModelingMultipleUFlevels:
