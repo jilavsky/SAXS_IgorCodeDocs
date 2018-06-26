@@ -141,7 +141,6 @@ graph for R = 50A
 .. Figure:: media/FormFactor_sphere.png
    :align: left
    :width: 420px
-   :figwidth: 400px
 
 
 
@@ -158,14 +157,12 @@ AR = 10
 .. Figure:: media/FormFactor_SpheroidAR10.png
    :align: left
    :width: 420px
-   :figwidth: 400px
 
 AR=0.1
 
 .. Figure:: media/FormFactor_SpheroidAR01.png
    :align: left
    :width: 420px
-   :figwidth: 400px
 
 Since Irena version 2.54 Spheroid with aspect ratio !=1 will use NIST xop to speed up its calculations.
 
@@ -190,21 +187,18 @@ AR = 1 (sphere)
 .. Figure:: media/FormFactor_IntgSphere.png
    :align: left
    :width: 420px
-   :figwidth: 400px
 
 AR=10 (Spheroid)
 
 .. Figure:: media/FormFactor_IntgSphAR10.png
    :align: left
    :width: 420px
-   :figwidth: 400px
 
 AR=0.1 (spheroid)
 
 .. Figure:: media/FormFactor_IntgSphAR01.png
    :align: left
    :width: 420px
-   :figwidth: 400px
 
 .. _FormFactors.Cylinder:
 
@@ -228,14 +222,12 @@ Cylinder with length 500A and radius 50A.
 .. Figure:: media/FormFactor_Cylinder.png
    :align: left
    :width: 420px
-   :figwidth: 400px
 
 Disk (cylinder) with radius 500A and length 50A.
 
 .. Figure:: media/FormFactor_Disk.png
    :align: left
    :width: 420px
-   :figwidth: 400px
 
 Since Irena version 2.54 Cylinders will use NIST xop to speed up its calculations.
 
@@ -606,12 +598,10 @@ the names for these need to be provided in strings, the input of these function 
 .. Figure:: media/FormFactorUserGUI.jpg
    :align: left
    :width: 420px
-   :figwidth: 400px
 
 .. Figure:: media/FormFactorInstructions.jpg
    :align: left
    :width: 620px
-   :figwidth: 600px
 
 `Github Irena depository
 <https://github.com/jilavsky/SAXS_IgorCode/tree/master/User%20form%20factors%20for%20Irena/>`_ has place where users can share their form factors. Instructions how to download are on this page. If you have Form factor to share, please, send it to ilavsky@aps.anl.gov.
@@ -721,7 +711,6 @@ Note, that this model is, for most practical purposes, close to Hard spheres mod
 .. Figure:: media/StructureFactor_Interferences.png
    :align: left
    :width: 420px
-   :figwidth: 400px
 
 
 .. _StructureFactors.HardSpheres:
@@ -740,7 +729,6 @@ This is graph of NIST model and Irena implementation.
 .. Figure:: media/StructureFactor_HardSpheres.png
    :align: left
    :width: 420px
-   :figwidth: 400px
 
 .. _StructureFactors.StickyHardSpheres:
 
@@ -756,7 +744,6 @@ The code for this structure factor has been copied from NIST SAS macros (Kline, 
 .. Figure:: media/StructureFactor_StickyHS.png
    :align: left
    :width: 420px
-   :figwidth: 400px
 
 
 .. _StructureFactors.SquareWell:
@@ -774,7 +761,6 @@ The code for this structure factor has been copied from NIST SAS macros (Kline, 
 .. Figure:: media/StructureFactor_SquareWell.png
    :align: left
    :width: 420px
-   :figwidth: 400px
 
 
 .. _StructureFactors.HayerPenfoldMSA:
@@ -791,7 +777,6 @@ The code for this structure factor has been copied from NIST SAS macros (Kline, 
 .. Figure:: media/StructureFactor_HPSA.png
    :align: left
    :width: 420px
-   :figwidth: 400px
 
 
 This is graph fro standard NIST set of parameters for both Irena package (black line) and NIST package (red dots). Both assume ONLY structure factor (Form factor is set to 1). The parameters were:
@@ -828,7 +813,6 @@ The code for this structure factor has been created on user request for study of
 .. Figure:: media/StructureFactor_Interprecipitate.png
    :align: left
    :width: 420px
-   :figwidth: 400px
 
 
 Structure factor has two parameters - L distance and sigma  - root-mean-square deviation (ordering factor):
@@ -849,16 +833,14 @@ This is model of the SF for L=200 and Sigma=20 (Sigma/L=10). I have no way of te
 
 Users can use built in library in their own code using following calls:
 
-1. initialize by calling: IR2S_InitStructureFactors()
-	this is where the list of known structure factors is:
-	SVAR ListOfStructureFactors=root:Packages:StructureFactorCalc:ListOfStructureFactors
+1. initialize by calling: IR2S_InitStructureFactors() this is where the list of known structure factors is:
 
-2. use by calling: IR2S_CalcStructureFactor(SFname,Qvalue,Param1,Param2,Param3,Param4,Param5,Param6)
+SVAR ListOfStructureFactors=root\:Packages\:StructureFactorCalc:ListOfStructureFactors
 
-I(Q) = I(Q, dilute limit) * IR2S_CalcStructureFactor(SFname,Qvalue,Param1,Param2,Param3,Param4,Param5,Param6)
+2. use by calling:
+ IR2S_CalcStructureFactor(SFname,Qvalue,Par1,Par2,Par3,Par4,Par5,Par6)
 
-	//Dilute system;Interferences;HardSpheres;SquareWell;StickyHardSpheres;HayterPenfoldMSA
-
+I(Q) = I(Q, dilute limit) * IR2S_CalcStructureFactor(SFname,Qvalue,Par1,Par2,Par3,Par4,Par5,Par6)
 
 3. Get panel by calling:
 IR2S_MakeSFParamPanel(TitleStr,SFStr,P1Str,FitP1Str,LowP1Str,HighP1Str,P2Str,FitP2Str,LowP2Str,HighP2Str,P3Str,FitP3Str,LowP3Str,HighP3Str,P4Str,FitP4Str,LowP4Str,HighP4Str,P5Str,FitP5Str,LowP5Str,HighP5Str, P6Str,FitP6Str,LowP6Str,HighP6Str,SFUserSFformula)
@@ -901,7 +883,6 @@ Example for R=50A compared with the spheroid with aspect ratio =1
 .. Figure:: media/FormFactor_UFSphere.png
    :align: left
    :width: 420px
-   :figwidth: 400px
 
 
 .. _FormFactors.UnifiedRod:
