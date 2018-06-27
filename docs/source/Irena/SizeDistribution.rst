@@ -14,6 +14,7 @@ There are three methods to computer a size distribution from the measured SAS da
 * :ref:`model.tnnls`
 * :ref:`Size_Distribution`
 * :ref:`UncertaintyAnalysis`
+* :ref:`GraphInformationAndControls`
 
 
 Basic description of methods
@@ -108,12 +109,15 @@ Compare following two graphs, in which the Q fitting setting is vastly different
    :align: left
    :width: 100%
 
+|
 
 .. image:: media/SizeDistribution2.png
       :align: left
       :width: 100%
 
-Next is desxription of how to use the tool.
+|
+
+Next is description of how to use the tool.
 
 .. _Size_Distribution:
 
@@ -177,6 +181,8 @@ Below is result of fit at low-q using fitting of only B parameter with P=4.
       :align: left
       :width: 100%
 
+|
+
 *Next is fitting of Flat background.*
 
 As you can see, at high-q the red dashed line nearly touches the data (ignore the last point which is artifact). It is nearly correct (by accident here). Users can either manually change the background (type in value or use arrows on the right hand side of the set variable field). Or we can fit this. Set cursors between points 100 and 110 - this is area where flat background dominates.
@@ -188,6 +194,8 @@ Here is result of the fitting:
 .. image:: media/SizeDistribution5.jpg
       :align: left
       :width: 100%
+
+|
 
 *Optimizing of these "Background parameters" on data import*
 
@@ -214,6 +222,7 @@ Now, when new data are added in the tool using button "Graph" both B and Backgro
       :align: left
       :width: 100%
 
+|
 
 **Fitting parameters**
 
@@ -268,6 +277,7 @@ No errors, selected to use I\*Q\ :sup:`3` vs Q “space” for fitting:
       :align: left
       :width: 100%
 
+|
 
 **Particle shape**
 
@@ -407,11 +417,12 @@ Therefore it is possible to start from where he/she left off. Also it is possibl
 .. image:: media/SizeDistribution15.png
       :align: left
       :width: 380px
+      :figwidth: 100%
 
 
-*Comment:* each of these waves contains WaveNote (see below at the bottom of the image), which contains most of the details about how the particular results were obtained:
+*Comment:* each of these waves contains WaveNote, which contains most of the details about how the particular results were obtained. The names and meaning depends a bit on method used.
 
-| These are the parameters:
+| This is example of the parameters:
 |    SizesDataFrom=root:'Test data':
 |    SizesIntensity=Intensity
 |    SizesQvector=Qvector
@@ -461,6 +472,8 @@ Note, that the tool can provide calculations of volume with uncertainities:
 
 The uncertainties are exported and plotted. More support in Irena needs to be added as needed.
 
+.. _GraphInformationAndControls:
+
 Graph information and controls
 ------------------------------
 
@@ -468,6 +481,10 @@ Graph information and controls
       :align: left
       :width: 100%
 
-Graph of size distribution has number of useful bits of information. You can display data with log or linear axes. You can use the trust bar or remove it. The code automatically calculates volume fraction - if the dat are on absolute intensity scale and user provides correct contrast, the value here is volume fraction of the scatterers. Code also calculates Rg fro the system using all of the diameters.
+Graph of size distribution has number of useful bits of information:
 
-And using button "Calculate Parameters" one can select range of size distribution data and get Tag with useful information about that range of data.
+- You can display data with log or linear axes
+- You can use the trust bar or remove it
+- The code automatically calculates volume fraction over all of the fitted size distribution - if the data are on absolute intensity scale and user provides correct contrast, the value here is volume fraction of the scatterers.
+- Code also calculates Rg fro the system using all of the diameters.
+- Using button "Calculate Parameters" one can select range of size distribution data and get Tag with useful information about that range of data.
