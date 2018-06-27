@@ -141,6 +141,7 @@ graph for R = 50A
 .. Figure:: media/FormFactor_sphere.png
    :align: left
    :width: 420px
+   :figwidth: 100%
 
 
 
@@ -157,12 +158,14 @@ AR = 10
 .. Figure:: media/FormFactor_SpheroidAR10.png
    :align: left
    :width: 420px
+   :figwidth: 100%
 
 AR=0.1
 
 .. Figure:: media/FormFactor_SpheroidAR01.png
    :align: left
    :width: 420px
+   :figwidth: 100%
 
 Since Irena version 2.54 Spheroid with aspect ratio !=1 will use NIST xop to speed up its calculations.
 
@@ -187,18 +190,21 @@ AR = 1 (sphere)
 .. Figure:: media/FormFactor_IntgSphere.png
    :align: left
    :width: 420px
+   :figwidth: 100%
 
 AR=10 (Spheroid)
 
 .. Figure:: media/FormFactor_IntgSphAR10.png
    :align: left
    :width: 420px
+   :figwidth: 100%
 
 AR=0.1 (spheroid)
 
 .. Figure:: media/FormFactor_IntgSphAR01.png
    :align: left
    :width: 420px
+   :figwidth: 100%
 
 .. _FormFactors.Cylinder:
 
@@ -222,12 +228,14 @@ Cylinder with length 500A and radius 50A.
 .. Figure:: media/FormFactor_Cylinder.png
    :align: left
    :width: 420px
+   :figwidth: 100%
 
 Disk (cylinder) with radius 500A and length 50A.
 
 .. Figure:: media/FormFactor_Disk.png
    :align: left
    :width: 420px
+   :figwidth: 100%
 
 Since Irena version 2.54 Cylinders will use NIST xop to speed up its calculations.
 
@@ -277,6 +285,7 @@ Example, Radius 50A, skin thickness 10A, contrast ratio 0.6
 .. Figure:: media/FormFactor_CoreShell.png
    :align: left
    :width: 420px
+   :figwidth: 100%
 
 .. _FormFactors.CoreShellPrecipitate:
 
@@ -304,6 +313,7 @@ Example, Radius 50A, Core Rho 110, Shell Rho 85, Solvent Rho 90; note, this inte
 .. Figure:: media/FormFactor_CoreShellPrecip.png
    :align: left
    :width: 420px
+   :figwidth: 100%
 
 .. _FormFactors.CoreShellCylinder:
 
@@ -329,6 +339,7 @@ Shell volume = pi * (R+r)^2 * (L+2*r)  -  pi * R^2 * L
 .. Figure:: media/FormFactor_CoreShellCyl.png
    :align: left
    :width: 420px
+   :figwidth: 100%
 
 
 .. _FormFactors.FractalAggregate:
@@ -370,6 +381,7 @@ Example for R=100A, radius of primary particle 10 A and fractal dimension 2.5.
 .. Figure:: media/FormFactor_FractAggreg.png
    :align: left
    :width: 420px
+   :figwidth: 100%
 
 Comment: Note, that this is not scaled correctly at all... I have no idea why - apparently this formula is either wrongly coded or plainly does not behave right.
 
@@ -387,12 +399,14 @@ Description of the model:
 .. Figure:: media/FormFactor_CoreShellShell1.png
    :align: left
    :width: 420px
+   :figwidth: 100%
 
 Scattering Length Density Rho:
 
 .. Figure:: media/FormFactor_CoreShellShell2.png
    :align: left
    :width: 420px
+   :figwidth: 100%
 
 
 List of Model Parameters:
@@ -457,12 +471,14 @@ which describes scattering from the particle on the left of the Figure 1 from th
 .. Figure:: media/FormFactor_Janus1.png
    :align: left
    :width: 420px
+   :figwidth: 100%
 
 Example of results:
 
 .. Figure:: media/FormFactor_Janus2.png
    :align: left
    :width: 420px
+   :figwidth: 100%
 
 Note: the results in the above graph are scaled to F^2(Q=0) = 1. Since the formula inclused scattering length densities, normalization by the volume does not result in F^2(Q=0) = 1. This may result in unexpected problems with absolute calibration.
 
@@ -507,12 +523,14 @@ Mean radius 40A, width 0.3A (Gauss), Shell thickness 10A,
 .. Figure:: media/FormFactor_Janus3.png
    :align: left
    :width: 420px
+   :figwidth: 100%
 
 **Janus CoreShell Micelle 2:**
 Core radius 30A, Mean radius 40A, width 0.3A (Gauss) :
 
 .. Figure:: media/FormFactor_Janus4.png
    :align: left
+   :figwidth: 100%
    :width: 420px
 
 
@@ -522,12 +540,14 @@ Pseudo sphere (shell thickness = 0), Radius = 40 A,
 .. Figure:: media/FormFactor_Janus5.png
    :align: left
    :width: 420px
+   :figwidth: 100%
 
 **Real sphere**, contrast   14903.5 (Au-water):
 
 .. Figure:: media/FormFactor_Janus6.png
    :align: left
    :width: 420px
+   :figwidth: 100%
 
 Note the suspicious difference in calibrations. See note above about my suspicion on the problem here...
 
@@ -536,12 +556,14 @@ Real core shell system (pick shell contrast 34.95). Use "Whole particle" as volu
 .. Figure:: media/FormFactor_Janus7.png
    :align: left
    :width: 420px
+   :figwidth: 100%
 
 Janus CoreShell Micelle 1, fake the core shell with same contrast (34.95) for both shells. Recall that the total size of the CoreShell in Irena is radius of core ("Radius")+ shell thickness; while for Janus CoreShell Micelle 1 it is just Radius (see figure).
 
 .. Figure:: media/FormFactor_Janus8.png
    :align: left
    :width: 420px
+   :figwidth: 100%
 
 The difference in absolute intensity here is surely related to different assumptions on volume of particle.
 
@@ -567,6 +589,7 @@ Cuboid, 60A sides:
 .. Figure:: media/FormFactor_Parallelepip1.png
    :align: left
    :width: 420px
+   :figwidth: 100%
 
 
 Hereis Parallelepiped with sides 60A, 120A, 180A:
@@ -574,6 +597,7 @@ Hereis Parallelepiped with sides 60A, 120A, 180A:
 .. Figure:: media/FormFactor_Parallelepip2.png
    :align: left
    :width: 400px
+   :figwidth: 100%
 
 
 Note, Irena assumed some size distribution (narrow, but some) while NIST package, assumes monodispersed particle. Therefore the differences in oscillations.
@@ -598,10 +622,12 @@ the names for these need to be provided in strings, the input of these function 
 .. Figure:: media/FormFactorUserGUI.jpg
    :align: left
    :width: 420px
+   :figwidth: 100%
 
 .. Figure:: media/FormFactorInstructions.jpg
    :align: left
    :width: 620px
+   :figwidth: 100%
 
 `Github Irena depository
 <https://github.com/jilavsky/SAXS_IgorCode/tree/master/User%20form%20factors%20for%20Irena/>`_ has place where users can share their form factors. Instructions how to download are on this page. If you have Form factor to share, please, send it to ilavsky@aps.anl.gov.
@@ -711,7 +737,7 @@ Note, that this model is, for most practical purposes, close to Hard spheres mod
 .. Figure:: media/StructureFactor_Interferences.png
    :align: left
    :width: 420px
-
+   :figwidth: 100%
 
 .. _StructureFactors.HardSpheres:
 
@@ -729,6 +755,7 @@ This is graph of NIST model and Irena implementation.
 .. Figure:: media/StructureFactor_HardSpheres.png
    :align: left
    :width: 420px
+   :figwidth: 100%
 
 .. _StructureFactors.StickyHardSpheres:
 
@@ -744,6 +771,7 @@ The code for this structure factor has been copied from NIST SAS macros (Kline, 
 .. Figure:: media/StructureFactor_StickyHS.png
    :align: left
    :width: 420px
+   :figwidth: 100%
 
 
 .. _StructureFactors.SquareWell:
@@ -761,6 +789,7 @@ The code for this structure factor has been copied from NIST SAS macros (Kline, 
 .. Figure:: media/StructureFactor_SquareWell.png
    :align: left
    :width: 420px
+   :figwidth: 100%
 
 
 .. _StructureFactors.HayerPenfoldMSA:
@@ -777,6 +806,7 @@ The code for this structure factor has been copied from NIST SAS macros (Kline, 
 .. Figure:: media/StructureFactor_HPSA.png
    :align: left
    :width: 420px
+   :figwidth: 100%
 
 
 This is graph fro standard NIST set of parameters for both Irena package (black line) and NIST package (red dots). Both assume ONLY structure factor (Form factor is set to 1). The parameters were:
@@ -813,6 +843,7 @@ The code for this structure factor has been created on user request for study of
 .. Figure:: media/StructureFactor_Interprecipitate.png
    :align: left
    :width: 420px
+   :figwidth: 100%
 
 
 Structure factor has two parameters - L distance and sigma  - root-mean-square deviation (ordering factor):
@@ -883,7 +914,7 @@ Example for R=50A compared with the spheroid with aspect ratio =1
 .. Figure:: media/FormFactor_UFSphere.png
    :align: left
    :width: 420px
-
+   :figwidth: 100%
 
 .. _FormFactors.UnifiedRod:
 
@@ -918,7 +949,7 @@ Example for R=50A and length 500A compared with the cylinder
 .. Figure:: media/FormFactor_UFCylinder.png
    :align: left
    :width: 420px
-   :figwidth: 400px
+   :figwidth: 100%
 
 .. _FormFactors.UnifiedDisk:
 
@@ -950,3 +981,4 @@ Example for R=250A and thickness 10A compared with the cylinder
 .. Figure:: media/FormFactor_UFDisk.png
    :align: left
    :width: 420px
+   :figwidth: 100%
