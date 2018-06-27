@@ -12,6 +12,9 @@ There are three methods to computer a size distribution from the measured SAS da
 * :ref:`model.maxent`
 * :ref:`model.regularization`
 * :ref:`model.tnnls`
+
+Following is description of tool use and controls:
+
 * :ref:`Size_Distribution`
 * :ref:`UncertaintyAnalysis`
 * :ref:`GraphInformationAndControls`
