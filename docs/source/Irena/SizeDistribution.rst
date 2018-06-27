@@ -200,6 +200,7 @@ When selected a new panel appears:
 .. image:: media/SizeDistribution6.jpg
       :align: left
       :width: 50%
+      :figwidth: 100%
 
 Select if you want to fit only B or P+B using "Fit B on Graph?" or "Fit B+P on Graph?". Here we will use just the B, so check checkbox *"Fit B on Graph?"*. Set cursors on points 0 to 5 and push button "Read Qs from csrs" next to the two top Q vales. You can also type in Q values manually in these fields.
 
@@ -216,7 +217,7 @@ Now, when new data are added in the tool using button "Graph" both B and Backgro
 
 **Fitting parameters**
 
-Contrast (delta rho squared) – if this is properly inserted, the data are calibrated… Leave to 1 since the contrast is not known.
+Contrast (:math:`\left| \Delta\varrho \right|^{2}`) – if this is properly inserted, the data are calibrated… Leave to 1 since the contrast is not known.
 
 **Error handling**
 
@@ -338,21 +339,19 @@ This is rough fit for the data in the graph – and for purpose of description o
 
 **Now let's get to explanations**:
 
-The green points are the original data points.
+| Top part of the graph:
+|   The green points with error bars are the original data points.
+|   The red squares are points selected for fitting (background subtracted)
+|   The blue line is the fit Intensioty obtained by the fitting routine
+|   The bar graph is the particle volume distribution (use top and right axis)
+|   The red-green-yellow line at the top is "Trust indicator"
 
-The red squares (top part of graph) are points selected for fitting (without background)
-
-The blue line is the fit obtained by the fitting routine
-
-The bar graph is the particle volume distribution (use top and right axis)
-
-In the low graph
-
-The red dots are normalized residuals. Ideally these should be random within +1 and –1, this structure suggests some misfits in some areas.
+| In the bottom part of the graph:
+| The red dots are normalized residuals. Ideally these should be random within +1 and –1, this structure suggests some misfits in some areas.
 
 To get better results one now needs to play with the parameters. I suggest reducing multiply errors by to 3.
 
-IMPORTANT: you need to fix the MaxENt sky background when that "Suggested" red block appear, simply push the button. Running the same routine again. Following is the result:
+IMPORTANT: you need to fix the MaxEnt sky background when that "Suggested" red block appear, simply push the button. Running the same routine again. Following is the result:
 
 .. image:: media/SizeDistribution14.jpg
       :align: left
@@ -397,83 +396,46 @@ If user tries to start Size distribution macros in folder, where saved solution 
 
 Therefore it is possible to start from where he/she left off. Also it is possible to start fresh - just hit cancel in this dialog - when parameters are left in the state they are left in after last fitting (or in default if this macro was not yet run in this experiment.
 
-Resulting waves:
-
-Following waves are created in the folder with data, when saved from this macro (\_0, \_1, \_2, etc are different generations of solutions saved by user):
-
-SizesNumberDistribution\_0
-
-Contains number distribution data
-
-SizesVolumeDistribution\_0
-
-Contains volume distribution data
-
-SizesDistDiameter\_0
-
-Contains Diameters for the other waves which need it
-
-SizesFitIntensity\_0
-
-Contains Intensity of the model
-
-SizesFitQvector\_0
-
-Contains Q vectors for the above Intensity wave
+| *Resulting waves:*
+| Following waves are created in the folder with data, when saved from this macro (\_0, \_1, \_2, etc are different generations of solutions saved by user):
+| SizesNumberDistribution\_0 : Contains number distribution data
+| SizesVolumeDistribution\_0 : Contains volume distribution data
+| SizesDistDiameter\_0 : Contains Diameters for the other waves which need it
+| SizesFitIntensity\_0 : Contains Intensity of the model
+| SizesFitQvector\_0 : Contains Q vectors for the above Intensity wave
 
 .. image:: media/SizeDistribution15.png
       :align: left
       :width: 380px
 
 
-Comment, each of these waves contains WaveNote (see below at the bottom of the image), which contains most of the details about how the particular results were obtained:
+*Comment:* each of these waves contains WaveNote (see below at the bottom of the image), which contains most of the details about how the particular results were obtained:
 
-These are the parameters:
-
-SizesDataFrom=root:'Test data':
-
-SizesIntensity=Intensity
-
-SizesQvector=Qvector
-
-SizesError=Error
-
-RegNumPoints=40
-
-RegRmin=12.5
-
-RegRmax=2000
-
-RegErrorsMultiplier=3
-
-RegLogRBinning=yes
-
-RegParticleShape=Spheroid
-
-RegBackground=0.12
-
-RegAspectRatio=1
-
-RegScatteringContrast=1
-
-RegSlitSmearedData=No
-
-StartFitQvalue=0.001783
-
-EndFitQvalue=0.068163
-
-RegIterations=12
-
-RegChiSquared=60.45
-
-RegFinalAparam=1.8853e+07
-
-UsersComment=Result from Sizes Wed, Sep 11, 2002 5:12:42 PM
-
-Wname=SizesDistributionVolumeFD\_0
+| These are the parameters:
+|    SizesDataFrom=root:'Test data':
+|    SizesIntensity=Intensity
+|    SizesQvector=Qvector
+|    SizesError=Error
+|    RegNumPoints=40
+|    RegRmin=12.5
+|    RegRmax=2000
+|    RegErrorsMultiplier=3
+|    RegLogRBinning=yes
+|    RegParticleShape=Spheroid
+|    RegBackground=0.12
+|    RegAspectRatio=1
+|    RegScatteringContrast=1
+|    RegSlitSmearedData=No
+|    StartFitQvalue=0.001783
+|    EndFitQvalue=0.068163
+|    RegIterations=12
+|    RegChiSquared=60.45
+|    RegFinalAparam=1.8853e+07
+|    UsersComment=Result from Sizes Wed, Sep 11, 2002 5:12:42 PM
+|    Wname=SizesDistributionVolumeFD\_0
 
 Most of these parameters should have self explanatory names. This is
-where user can image out what happened.
+where user can figure out what happened.
 
 Further some parameters are also saved in the string with name
 “SizesParameters\_0” such as MeanSizeOfDistribution.

@@ -354,22 +354,23 @@ This form factor was requested by Dale Schaefer and I cannot very well guarantee
 
 code:
 
-	f = IR1T_CalcSphereFormFactor(Qw[p],(2*Param1))
-	//calculates the F(Q,r) part fo formula
-	//this is same as for sphere of diameter = 2*Param1
-	//(= radius of primary particle, which is hard sphere)
-	//fractal part is next
-	F^2 =f^2 * IR1T_CalculateFractAggSQPoints(Qw[p],currentR,Param1, Param2)
+|	 f = IR1T_CalcSphereFormFactor(Qw[p],(2 * Param1))
+|	      //calculates the F(Q,r) part fo formula
+|	      //this is same as for sphere of diameter = 2 * Param1
+|	      //(= radius of primary particle, which is hard sphere)
+|	      //fractal part is next
+|	      F^2 =f^2 * IR1T_CalculateFractAggSQPoints(Qw[p],currentR,Param1, Param2)
 
-where
-IR1T_CalculateFractAggSQPoints(Qvalue,R,r0, D) is
-	   QR=Qvalue*R
-	   part1=1
-	   part2=(qR*r0/R)^-D
- 	   part3=D*(exp(gammln(D-1)))
-	   part5= (1+(qR)^-2)^((D-1)/2)
-	   part4=abs(sin((D-1)*atan(qR)))
-	    return (part1+part2*part3*part4/part5)
+where:
+
+| IR1T_CalculateFractAggSQPoints(Qvalue,R,r0, D) is
+|     QR=Qvalue * R
+|     part1=1
+|     part2=(qR * r0/R)^-D
+|     part3=D * (exp(gammln(D-1)))
+|     part5= (1+(qR)^-2)^((D-1)/2)
+|     part4=abs(sin((D-1) * atan(qR)))
+|     return (part1+part2 * part3 * part4/part5)
 
 Note, that parameters are :
 Param1 - radius of primary particle
@@ -484,38 +485,40 @@ Note: the results in the above graph are scaled to F^2(Q=0) = 1. Since the formu
 
 This FF is implemented twice...
 
-"Janus CoreShell Micelle 1"		... particle size is total size of the particle (R0 in the figure in description), parameters:
-	Shell_Thickness=ParticlePar1			//shell thickness A
-	CoreRho=ParticlePar2				// rho for core material
-	Shell1Rho=ParticlePar3			// rho for shell 1 material
-	Shell2Rho=particlePar4			// rho for shell 2 material
-	SolventRho=ParticlePar5			// rho for solvent material
+| "Janus CoreShell Micelle 1"		... particle size is total size of the particle (R0 in the figure in description), parameters:
+|	Shell_Thickness=ParticlePar1			//shell thickness A
+|	CoreRho=ParticlePar2				// rho for core material
+|	Shell1Rho=ParticlePar3			// rho for shell 1 material
+|	Shell2Rho=particlePar4			// rho for shell 2 material
+|	SolventRho=ParticlePar5			// rho for solvent material
 
-"Janus CoreShell Micelle 2"		... particle size here is shell thickness!!! This may be _very_ confusing!!!!, parameters:
-	Core_Size=ParticlePar1			// Core radius A
-	CoreRho=ParticlePar2				// rho for core material
-	Shell1Rho=ParticlePar3			// rho for shell 1 material
-	Shell2Rho=particlePar4			// rho for shell 2 material
-	SolventRho=ParticlePar5			// rho for solvent material
+| -
+| "Janus CoreShell Micelle 2"		... particle size here is shell thickness!!! This may be *very* confusing!!!!, parameters:
+|	Core_Size=ParticlePar1			// Core radius A
+|	CoreRho=ParticlePar2				// rho for core material
+|	Shell1Rho=ParticlePar3			// rho for shell 1 material
+|	Shell2Rho=particlePar4			// rho for shell 2 material
+|	SolventRho=ParticlePar5			// rho for solvent material
 
-"Janus CoreShell Micelle 3"		... particle size is radius of the core (Ri in the figure in description), parameters:
-	Shell_Thickness=ParticlePar1			//shell thickness A
-	CoreRho=ParticlePar2				// rho for core material
-	Shell1Rho=ParticlePar3			// rho for shell 1 material
-	Shell2Rho=particlePar4			// rho for shell 2 material
-	SolventRho=ParticlePar5			// rho for solvent material
+| -
+| "Janus CoreShell Micelle 3"		... particle size is radius of the core (Ri in the figure in description), parameters:
+|	Shell_Thickness=ParticlePar1			//shell thickness A
+|	CoreRho=ParticlePar2				// rho for core material
+|	Shell1Rho=ParticlePar3			// rho for shell 1 material
+|	Shell2Rho=particlePar4			// rho for shell 2 material
+|	SolventRho=ParticlePar5			// rho for solvent material
 
 
 The reason for the two implementations is, that in usual implementation the shell thickness is fixed while the particle size has size distribution - but this is possible ONlY if core has distribution of sizes. This may be incorrect, as someone can have monodispersed cores, but distribution of shell thicknesses.
 
 Note, that the "Janus CoreShell Micelle 2 and 3" will not work with some of the tools in Irena as all assume size represents total size (core+shell). Be warned, results will be difficult to present meaningfully! You are on your own...
 
-Model comparison:
-Core (Au): 		131.5 10^10cm^-1
-Shell 1	(Al2O3)	34.95 10^10
-Shell 2	(ZrO2)		46.27 10^10
-Solvant (H2O)		9.42 10^10
-volume = 0.05
+| Model comparison:
+| Core (Au): 		131.5 10^10cm^-1
+| Shell 1	(Al2O3)	34.95 10^10
+| Shell 2	(ZrO2)		46.27 10^10
+| Solvant (H2O)		9.42 10^10
+| volume = 0.05
 
 **Janus CoreShell Micelle 1:**
 Mean radius 40A, width 0.3A (Gauss), Shell thickness 10A,
@@ -635,19 +638,16 @@ the names for these need to be provided in strings, the input of these function 
 Example of these functions for sphere:
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Function IR1T_ExampleSphereFFPoints(Q,radius, par1,par2,par3,par4,par5)	//Sphere Form factor
-	variable Q, radius, par1,par2,par3,par4,par5
+| Function IR1T_ExampleSphereFFPoints(Q,radius, par1,par2,par3,par4,par5)	//Sphere Form factor
+| 	variable Q, radius, par1,par2,par3,par4,par5
+| 	variable QR=Q * radius
+| 	return (3/(QR * QR * QR)) * (sin(QR)-(QR * cos(QR)))
+| end
 
-	variable QR=Q*radius
-
-	return (3/(QR*QR*QR))*(sin(QR)-(QR*cos(QR)))
-end
-
-Function IR1T_ExampleSphereVolume(radius, par1,par2,par3,par4,par5)		//returns the sphere volume
-	variable radius, par1,par2,par3,par4,par5
-
-	return ((4/3)*pi*radius*radius*radius)
-end
+| Function IR1T_ExampleSphereVolume(radius, par1,par2,par3,par4,par5)		//returns the sphere volume
+| 	variable radius, par1,par2,par3,par4,par5
+| 	return ((4/3) * pi * radius * radius * radius)
+| end
 
 **Testing and using Form factors in users own code**
 ----------------------------------------------------
@@ -658,9 +658,10 @@ To verify that the form factor works for you and to use the form factor if your 
 2. Generate intensity wave (will be redimesnioned as necessary, so the only thing is, it should be double precision).
 3. Generate distributipon of radii wave - if you want to use single R, create wave with single point
 4. decide what you want to calculate:
-	F^2			powerFct=0
-	V*F^2		powerFct=1
-	V^2 * F^2		powerFct=2
+
+| 	F^2			    powerFct=0
+| 	V * F^2		  powerFct=1
+| 	V^2 * F^2		powerFct=2
 
 5. Run following command:
 IR1T_GenerateGMatrix(R_FF,Q_wave,R_dist,powerFct,"form factor name",param1,param2,param3,param4,param5, "", "")
@@ -677,31 +678,22 @@ The param1 - param5 are form factor parameters, as desribed in chapter 1, the ""
 Note, that if the IR1T_GenerateGMatrix function returns wave of NaN values if unknown name of form factor is passed in.
 
 
-**Example of code:**
+| **Example of code:**
+| make/N=100 Q_wave
+| Q_wave=0.001+p/100   //will create 100 points wave with values 0.001 to 1) values
+| Make/O/D R_FF       //makes some place for form factor
+| make R_dist
+| R_dist=50
 
-make/N=100 Q_wave
+or
 
-Q_wave=0.001+p/100   //will create 100 points wave with values 0.001 to 1) values
-
-Make/O/D R_FF       //makes some place for form factor
-
-make R_dist
-
-R_dist=50
-
-//or
-
-//make/N=3 R_dist
-
-//R_dist={10,50,100}    	//creates R distribution and sets values
-
-IR1T_GenerateGMatrix(R_FF,Q_wave,R_dist,powerFct,"form factor name",param1,param2,param3,param4,param5, "", "")
-
-//Note, above lines belong on one line together!
-
-// replace powerFct with 0, 1,or 2!
-
-// replace "form factor name" with name of form factor you want to use
+| make/N=3 R_dist
+| R_dist={10,50,100}    	//creates R distribution and sets values
+| IR1T_GenerateGMatrix(R_FF,Q_wave,R_dist,powerFct,"form factor name",param1,param2,param3,param4,param5, "", "")
+|
+| Note, above lines belong on one line together!
+| replace powerFct with 0, 1,or 2!
+|  replace "form factor name" with name of form factor you want to use
 
 Display R_FF vs Q_wave
 
