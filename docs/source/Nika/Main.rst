@@ -224,12 +224,28 @@ Most of the time the data in Small-angle scattering are normalized and not calib
 enables users to select which units of absolute intensity calibration they want to write in wave note of the data. Other packages (Irena) may use this information and then it may be critical to have the right one in there.
 
 .. index::
+   Nika: Image Statistics
+
+Calc. Stats.
+~~~~~~~~~~~~
+When checked, Nika will calculate statistics of the image. What is calculated depends on what is doen with image - you always get raw image statistics, but if image is processes, processed/calibrated statistics is calculated also. Notebook with the statistics is attached right of the image:
+
+.. image:: media/ImageStatistics1.jpg
+   :align: center
+   :width: 100%
+
+
+enables users to select which units of absolute intensity calibration they want to write in wave note of the data. Other packages (Irena) may use this information and then it may be critical to have the right one in there.
+
+
+.. index::
    Nika: Sample name
 
 Sample Name
 ~~~~~~~~~~~
 
 This field has been added in version 1.75 and it is used with data formats which can contain sample name different, that the file name loaded in. Example of such format is Nexus NXsas. Actually, at this time it is the only file format which read, if set in cross-reference table – the sample name from metadata and does not use file name. Every else file format sets this field to file name (without extension). I hope to get more creative later.
+**NOTE** : for space reasons the controls of this setting are now on "SAVE" tab, where other export options are. Sorry, no space on main panel.
 
 .. index::
    Folder name length (Nika)
@@ -376,7 +392,7 @@ These function need to be “look up” functions, which are called with image n
 Mask
 ~~~~
 
-.. image:: media/Main22.png
+.. image:: media/Main22.jpg
    :align: center
    :width: 380px
 
@@ -402,7 +418,7 @@ Current mask name – shows name of last loaded mask file
 Emp/Dark
 ~~~~~~~~
 
-.. image:: media/Main23.png
+.. image:: media/Main23.jpg
    :align: center
    :width: 380px
 
@@ -414,12 +430,20 @@ Button “Select path to mask, dark & pix sens, files” Selects path to data wi
 Further buttons load the Empty/Dark/Pixel sensitivity, allow Dezingering of these (same method as the sample dezingering as selected above). And at the bottom are listed the file names of the files loaded…
 
 .. index::
+    Nika Fix background Oversubtraction
+
+
+*"Fix Background Oversubtraction"* - when checked, Nika will attempt to fix cases where background is stronger than sample+background scattering (after sample is fully processed). Another words, Nika will attempt to prevent negative intensities in processed data. This is done to prevent problems to downstream software, where some software (e.g. Irena) does not like negative intensity (which is physically meaningless).
+Now, this is bit tricky how to do this. This method is basically very simplistic, after processing, calibration, subtraction, etc., Nika will check if any point of resulting 1D data is negative. If so, Nika will find the most negative point (let's ay it has intensity value of I1 < 0) and then add - to ALL points - 1.5 * abs(I1). This shifts the whole scattering intensity curve up by 1.5 * abs(I1), which may cause troubles for absolute intensity calibration etc if this value is not negligible compared to data with signal. *So think hard if this is right. It works quite well for samples which have high-noise weak background at high-q.*
+
+
+.. index::
     Nika Sector lineouts; Nika Circular lineout
 
 Sectors
 ~~~~~~~
 
-.. image:: media/Main24.png
+.. image:: media/Main24.jpg
    :align: center
    :width: 380px
 
@@ -541,7 +565,7 @@ You can only set one line profile at a time, unless you manually create multiple
 
 **Controls:**
 
-.. image:: media/Main28.png
+.. image:: media/Main28.jpg
    :align: center
    :width: 380px
 
@@ -550,6 +574,8 @@ You can only set one line profile at a time, unless you manually create multiple
 .. image:: media/Main29.png
    :align: center
    :width: 100%
+
+**NOTE:** some controls from the lower graph tab are moved to next tab, so this image is slightly obsolete. Will be fixed later.
 
 New controls here:
 
@@ -757,6 +783,54 @@ is used)
 
 Note: next release of Irena package will have capabilities to use not only qrs data , but also q\ :sub:`x`\ rs, q\ :sub:`y`\ rs, and q\ :sub:`z`\ rs data.
 
+
+.. index::
+    Nika SAVE tab
+    Nika Export data
+    Nika Export Nexus
+    Nika Export ASCII
+    Nika data name
+
+
+Save tab
+~~~~~~~~
+
+This tab is intended to control all data saving in Nika.
+
+
+.. image:: media/Main49.jpg
+   :align: center
+   :width: 380px
+
+**Store data controls:**
+
+This controls how data re stored in Igor. Note, that if you want to *Create 1D graph*, *Store data in Igor* must be checked also and the code will do so. *Overwrite existing data if exists* will overwrite data in Igor if the same name data already exist. If you process same data set multiple times for testing, check it. If you process many files, uncheck it as this will prevent accidental overwriting of the data in case their names end up to be same.
+
+**Name data controls:**
+
+This controls how data are named when imported. Here is where user can select how the names are created using either imported image name with optionally some trimming, user can write Igor Function which will provide the necessary name etc.
+
+**Export data controls:**
+
+This controls if the data will be automatically exported as they are processed. This is quite useful if other programs, such as sasView, are going to be used for data analysis. Options are
+
+*Export to ASCII* This allows users to ASCII data (4 columns, Q, Intensity, Uncertainty and Qresolution) into text files.
+
+*GSAS* Should export GSAS compatible ASCII data.
+
+*Export to Nexus* This allows users to export NXcanSAS 1D data to NEXUS. As of version 1.80 this should work for sasView. This required some modifications which I did not expect as sasView cannot load standard NXcanSAS file, the file has to be quite specific.
+
+.. image:: media/Main50.jpg
+   :align: center
+   :width: 380px
+
+Checking the checkbox *Export Nexus* brings up dialog for Nexus Export and import. In this case the important part is Bottom part. User needs to setup export path (folder on drive) and select what will be exported. **SUGGESTION** use ONLY the top option "Save data in canSAS Nexus File". This will create individual Nexus file for each data set. Second option "Append processed 1D data to Nexus" will append multiple data sets in single file. When I tried this, file with ~40 images hang sasView badly and I needed to kill it.
+
+"Append processed 2D data to Nexus" will append the calibrated 2D data in the file. It is not obvious if there is any program which can accept these data, so, even though there is standard on this, it makes little to no sense to do.
+
+*Create NEW Nexus (NXsas) file with RAW data"* this is interesting option, it allows you to take tiff file or any other source file Nika can read and make it into RAW data nexus file. Note, this is RAW data file with metadata Nika knows. This should be possible then to use for further data reduction. Not sure how useful and meaningful this is.
+
+
 .. index::
     Nika bottom controls
 
@@ -765,8 +839,7 @@ Bottom controls
 
 .. image:: media/Main16.jpg
    :align: center
-   :width: 100%
-
+   :width: 70%
 
 These controls have following functions:
 
@@ -786,7 +859,7 @@ This opens further controls:
 
 .. image:: media/Main16a.jpg
    :align: center
-   :width: 100%
+   :width: 70%
 
 “\ **N =**\ ” This controls how many images Nika will avergae over.
 
