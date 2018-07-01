@@ -18,7 +18,7 @@ Summary: For best performance select 100% DPI setting ("Change the size of text,
 
 When using Windows 7, 8, or 10, typically with high resolution displays (aka 4k, UHD, etc.), users often choose to set display number of pixels to high number but since the text and icons become small to read, they increase DPI - or as Windows 10 names it "Change the size of text, apps, and other items". This tells applications to scale up (if more than 100%) the windows so they can still be readable even with large pixel displays. Igor Pro 7 (at least 7.03 and below) does not handle this well enough - it seems that it can only scale panels up by full 100% steps (100%, 200%, 300%,...).
 
-This means, that under some combination of **display resolution** (number of pixels) *and* **DPI settings** user can have the bottoms of the panels cut off and controls  which should be there are missing. Unluckily, even after working with Weavemetrics on this the only solution I know about is to modify display settings. Note, that future (as of 4/28/2017) versions of Irena and Nika will present users with error when they estimate that screen settings are incorrect.
+This means, that under some combination of **display resolution** (number of pixels) *and* **DPI settings** user can have the bottoms of the panels cut off and controls  which should be there are missing. Unluckily, even after working with Wavemetrics on this the only solution I know about is to modify display settings. Note, that future (as of 4/28/2017) versions of Irena and Nika will present users with error when they estimate that screen settings are incorrect.
 
 Here is example of panel which is **missing bottom controls** due to incorrect settings.
 
@@ -46,7 +46,7 @@ Here is modified setting which is 100% now:
    :align: center
    :width: 450px
 
-And here is the same Igor panel with this setting, note the opresence of the **bottom controls**:
+And here is the same Igor panel with this setting, note the presence of the **bottom controls**:
 
 
 .. image:: media/CorrectScrRes.jpg
@@ -90,11 +90,11 @@ Here is how you fix this problem:
 
 *  Applications(OSX) or Program Files(win)/Igor Pro 6 Folder/More Extensions/File Loaders/*HDF5 Help.ihf*    ---  alias/link to --- Documents/Wavemetrics/Igor Pro 6 User Files/Igor Extensions/ *place alias here...*
 
-   (B) 64 bit version of Igor Pro (7.x or in the future 8.x)
+   (B) 64 bit version of Igor Pro (7.x or 8.x)
 
 *  Applications(OSX) or Program Files(win)/Igor Pro 7(or 8) Folder/More Extensions (64-bit)/File Loaders/*HDF5-64.xop*    ---  alias/link to --- Documents/Wavemetrics/Igor Pro 7(or 8) User Files/Igor Extensions (64-bit)/ *place alias here...*
 
 *  Applications(OSX) or Program Files(win)/Igor Pro 7(or 8) Folder/More Extensions/File Loaders/*HDF5 Help.ihf*    ---  alias/link to --- Documents/Wavemetrics/Igor Pro 7(or 8) User Files/Igor Extensions/ *place alias here...*
 
 
-Quit Igor Pro, restart and it should work now correctly. If not, please contact me so I can identify the problem. 
+Quit Igor Pro, restart and it should work now correctly. If not, please contact me so I can identify the problem.

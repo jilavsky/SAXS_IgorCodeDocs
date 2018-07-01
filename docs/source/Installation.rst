@@ -8,9 +8,9 @@ Installation
 Availability of the code
 ------------------------
 
-For long time my packages were available from APS web site, *Irena* from: http://usaxs.xray.aps.anl.gov/staff/ilavsky/irena.html
+For long time my packages were available from APS web site, *Irena* from: https://usaxs.xray.aps.anl.gov/software/irena
 
-For long time my packages were available from APS web site, *Nika* from: http://usaxs.xray.aps.anl.gov/staff/ilavsky/nika.html
+For long time my packages were available from APS web site, *Nika* from: https://usaxs.xray.aps.anl.gov/software/nika
 
 While this site is and will be available, future versions of the code will be available from :index:`Github`:
 
@@ -20,11 +20,11 @@ Github repository will also be used for installations for Igor Pro 7 and higher.
 
 Download latest GithubInstaller_IrenaNika_vX.YY.pxp package from :
 
-http://usaxs.xray.aps.anl.gov/staff/ilavsky/irena.html
+https://usaxs.xray.aps.anl.gov/software/irena
 
 or
 
-http://usaxs.xray.aps.anl.gov/staff/ilavsky/nika.html
+https://usaxs.xray.aps.anl.gov/software/nika
 
 Alternative download site is Github :
 
@@ -65,19 +65,19 @@ Over the last few years I have had many courses at the APS and around the world 
 
 http://small-angle.aps.anl.gov
 
-http://small-angle.aps.anl.gov/courses/Irena_Nika_courses_report.html
+https://small-angle.aps.anl.gov/future-courses
 
 
 Instructions for installation
 -----------------------------
 
-To install the macros, please install first Igor Pro, version 7.x. *Irena* version 2.62 is the last one which works with Igor Pro 6 latest release (6.37) and is available for the aps web site. Any higher releases require  Igor 7, which was released July 2016.
+To install the macros, please install first Igor Pro, version 8.x (or at least 7.05). *Irena* version 2.62 is the last one which works with Igor Pro 6 latest release (6.37) and is available for the aps web site. Any higher releases require  Igor 8 (or 7.05), which was released May 2018 (Igor 7 was released July 2016). Igor 6 is therefore really old and should be upgraded as soon as possible. 
 
 Movies with instructions and explanation are available on my :ref:`YouTube channel <YouTubeChannel>`.
 
 There are two main ways to install the macros:
 
-**Igor 7 (32 or 64 bit versions)**
+**Igor 7 (32 or 64 bit versions) of Igor 8 (64 bit)**
 
 .. image:: media/Introduction1.png
    :align: center
@@ -85,7 +85,7 @@ There are two main ways to install the macros:
 
 Download latest version of GitHub installer “GHInstaller\_IrenaNika\_vXYZ.pxp”, latest version should be available here: http://usaxs.xray.aps.anl.gov/staff/ilavsky/irena.html
 
-Open the file (in Igor 7) and select “Install Packages” > “Open GitHub GUI”. GUI (left) and Instructions open.
+Open the file (in Igor 7 or 8) and select “Install Packages” > “Open GitHub GUI”. GUI (left) and Instructions open.
 
 Push “Check packages versions” to check which versions are available on the GitHub site. Read instructions for what to do and how to pick the right one. This installer enables users to install also defined beta versions and even the current “master” version. But be careful, there are no guarantees that the master is fully debugged. I may be working on it.
 
@@ -96,7 +96,7 @@ Here is expiation of options:
 
 Keep in mind that you need xop support for the bit versions (32bit or 64bit) versions of Igor you are using! Do not forget to install them.
 
-**Igor 6.37 32bit version.**
+**Igor 6.37 32bit version = obsolete version no more maintained.**
 
 .. image:: media/Introduction2.png
    :align: center

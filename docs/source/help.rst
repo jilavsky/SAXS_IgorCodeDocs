@@ -7,11 +7,11 @@ Help
 
 For more information see web sites:
 
-**Irena :** http://usaxs.xray.aps.anl.gov/staff/ilavsky/irena.html
+**Irena :** https://usaxs.xray.aps.anl.gov/software/irena
 
-**Nika :** http://usaxs.xray.aps.anl.gov/staff/ilavsky/nika.html
+**Nika :** https://usaxs.xray.aps.anl.gov/software/nika
 
-**Indra (USAXS) :** http://usaxs.xray.aps.anl.gov/staff/ilavsky/indra.html
+**Indra (USAXS) :** https://usaxs.xray.aps.anl.gov/software/indra
 
 **Youtube movies :** https://www.youtube.com/channel/UCDTzjGr3mAbRi3O4DJG7xHA/about
 
