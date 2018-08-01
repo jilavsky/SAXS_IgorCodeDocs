@@ -6,7 +6,15 @@
 Slit smearing in Irena
 ======================
 
-Slit smearing is built in Irena and is transparent in most of the tools (exception is Guinier-Porod model which seems to be impossible to setup with local fits when using slit smeared data). Smearing of model is intended to work mainly with APS USAXS data - that is with, as described below, approximation of rectangular one dimensional slit. We have verified the function of this method by collecting data from the same sample using both slit-smeared and 2D collimated USAXS. We have verified this method repeatedly and every time the slit smearing was blamed for artifacts and unexpected results, we have found another reason for problems. Since desmearing is always going to increase noise on the data, it is **usually** preferable to fit slit smeared data directly with model with slit smearing included, instead of desmearing the data... Note, that data with absolute intensity calibration are handled correctly.
+Slit smearing is built in Irena and is transparent in most of the tools except:
+
+  - Guinier-Porod model which seems to be impossible to setup with local fits when using slit smeared data. I have disabled slit smearing in this tool altogether as it was nightmare to use.
+  - Unified fit. This one allows use of slit smearing fine, but when you do local fits (Power law fit mainly) the fit values are pinhole equivalents. It usually works fine, but gets bit confusing.
+  - Modeling. Here slit smearing works just fine, but if you use Unified level, local fits also result in pinhole equivalents which is bit confusing.
+
+Smearing of model is intended to work mainly with APS USAXS data - that is with, as described below, approximation of rectangular one dimensional slit. For APS USAXS the slit width is very small (0.00008 1/A) and then one can approximate this geometry as purely slit smeared with only slit length and assume infinitely small slit width. Also, we can assume the slit shape is rectangle as in the Figure below. If this is not satisfied, one needs to desmear the data and used desmeared data in Irena (and use setting for regular, pinhole like data).
+
+We have verified the function of this method by collecting data from the same sample using both slit-smeared and 2D collimated USAXS. We have verified this method repeatedly and every time the slit smearing was blamed for artifacts and unexpected results, we have found another reason for problems. Since desmearing is always going to increase noise on the data, it is **usually** preferable to fit slit smeared data directly with model with slit smearing included, instead of desmearing the data... Note, that data with absolute intensity calibration are handled correctly.
 
 **However, keep in mind that slit smearing and desmearing procedures make assumption of isotropic scattering from the sample, so if samples scatter anisotropically, use of slit smeared data - and slit smeared instruments in general - should be strongly discouraged.**
 
@@ -14,11 +22,10 @@ Slit smearing is built in Irena and is transparent in most of the tools (excepti
    :align: center
    :width: 100%
 
-The Figure 4 from J. Appl. Cryst. (2009). 42, 469–479, doi:10.1107/S0021889809008802 shows the definition of slit smearing geometry definition used in Irena. First note, that the smearing is by **finite slit length** and optionally **finite slit width**. Slit length is perpendicular to high-q resolution direction (perpendicular to the vertical q direction in figure above). Detector total horizontal opening is actually 2 x Slit length. For APS USAXS the slit width is very small (0.00008 1/A) and then one can approximate this geometry as purely slit smeared with only slit length and assume infinitely small slit width. Also, we can assume the slit shape is rectangle as in the Figure above.
+The Figure 4 from J. Appl. Cryst. (2009). 42, 469–479, doi:10.1107/S0021889809008802 shows the definition of slit smearing geometry definition used in this manual. First note, that the smearing is by **finite slit length** and optionally **finite slit width**. Slit length is perpendicular to high-q resolution direction (perpendicular to the vertical q direction in figure above). Detector total horizontal opening is actually 2 x Slit length. Slit width is perpendicular to the q direction and is given by detector system (= instrument hardware). Again, total detector opening in the q direction here is 2 * Slit width.
 
-If this is not satisfied, one needs to desmear the data and used desmeared data in irena (and use setting for regular, pinhole like data).
 
-**NOTE** : Slit length is NOT q-resolution. Slit width actually can be considered q-resolution of the instrument and is sometimes presumed that way. But while slit width is something given by instrument geometry and detector system, final data q-resolution may be lower due to data processing, binning, etc. It can get bit confusing to users. But, slit length assumed in Irena is always perpendicular to the q-resolution direction. Also, Indra and Nika packages produced dQ values represent final post-processing q-resolution, which includes effects of slit width combined with data handling, averaging, etc.  Therefore dQ exists for Slit smeared data and can be much worse than slit width of the original instrument! Do NOT confuse these two "resolution" values...
+**NOTE** : Slit length is NOT q-resolution. Slit width actually could be considered q-resolution of the instrument and is sometimes presumed that way. But while slit width is something given by instrument geometry and detector system, final data q-resolution may be lower due to data processing, binning, etc. It can get bit confusing to users. But, slit length assumed in Irena is always perpendicular to the q-resolution direction. Also, Indra and Nika packages produce dQ values and those represent final post-processing q-resolution, which includes effects of slit width combined with data handling, averaging, etc.  *Therefore dQ exists for Slit smeared data and can be much worse than slit width of the original instrument! Do NOT confuse these two "resolution" values...*
 
 
 .. index:: Desmearing
