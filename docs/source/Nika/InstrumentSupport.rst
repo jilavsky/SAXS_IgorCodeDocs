@@ -35,20 +35,19 @@ This is support for APS beamline 9ID SAXS and WAXS instruments. This is my beaml
 12ID-C SAXS using Gold detector
 -------------------------------
 
-This is support for APS beamline 12ID-C SAXS instruments. Instructions provided when option is selected. Note: you need folder of tiff files, spec file and optionally also beamline data reduction script (typically inside the folder).
+This is support for APS beamline 12ID-C SAXS instrument. Short instructions are displayed when option is selected. Note: you need folder of tiff files, spec file and optionally also beamline data reduction script (typically inside the folder, called "goldnormengavg").
 
 To use follow these steps:
 
 * Load Nika and select in SAS2D > Instrument Configurations > APS 12ID-C SAXS with Gold detector
-* You will get instructions and Open file dialog which is looking for spec file. This is typically file name with two letters followed by two digits for each of day, month and year (e.g., tl081418) and no extension. This file contains record of exposures and parameters for each image collected. Select this file and it will be imported in Igor in lookup table.
-* Next is choice of reading beamline parameters and/or mask definition into Nika - this is available ONLY if file called "goldnormengavg" is found. This file contains distance, pixel size, beam center, mask and other parameters needed for data reduction. If you read these parameters and/or beamline defined mask, any parameters currently in Nika will be replaced with the new ones.
+* Instructions will be displayed as well as Open file dialog which is looking for spec file. This is typically file name with two letters followed by two digits for each of day, month, and year (e.g., tl081418) and no extension. This file contains record of exposures and parameters for each image collected. Select this file and it will be imported in Igor in lookup table.
+* Next dialog is choice of reading beamline parameters and/or mask definition into Nika - this is available ONLY if file called "goldnormengavg" is found. This file contains distance, pixel size, beam center, mask and other parameters needed for data reduction. If you read these parameters and/or beamline defined mask, any parameters currently in Nika will be replaced with the new ones.
 * You MAY get dialog looking for any of your images to be able to create mask. If you get it, select any of the tiff images with your data and the size of this image will be used to create mask.
 * In the tab "Em/Dk" select proper blank (empty) image for your data.
-* Configure any data reduction options and output options in Nika.
-* You may choose to perform better calibration using AgBehenate image (if available) and/or design your own mask.
-* Rest of Nika use is same as with other instruments. Note, that Nika will, for each image, pull from records normalization values (I0), calculate transmission (using Blank image selected) and also pull wavelength. No other parameters are routinely pulled from records. Sorely missing is obviously thickness and any absolute calibration values. They are simply not available...
-* If you need some other parameters from the spec file - like LakeShore temperature, motor positions, etc. - the lookup table is in root\:Packages\:Nika_12IDCLookups in waves of names provided by beamline. You can display the table or write a piece of Igor code which will utilize these values as needed. 
-
+* Configure any other data reduction options and output options in Nika.
+* You may want to perform better instrument calibration using AgBehenate image (if available) and/or design your own mask.
+* Rest of Nika use is same as with other instruments. Note, that Nika will, for each image, pull from records normalization values (I0, I0 for blank), calculate transmission (using Blank image selected) and also pull wavelength. No other parameters are routinely pulled from records. Sorely missing is obviously thickness and any absolute calibration constant. They are not available. You can choose to calculate absolute intensity calibration parameter if you have standard (e.g., Glassy Carbon) measurement available.
+* If you need some other parameters from the spec file - like LakeShore temperature, motor positions, etc. - the lookup table is in root\:Packages\:Nika_12IDCLookups in waves with names provided by beamline. You can display the table or write a piece of Igor code which will utilize these values as needed.
 
 
 .. _Nika.ALS_RSoXS:
