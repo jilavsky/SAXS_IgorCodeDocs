@@ -87,7 +87,7 @@ Interferences        ref            Beaucage, G. (1995). J Appl Crystallogr 28, 
                      Par1           ETA (center-to-center distance)
                      Par2           Pack (number of particles In nearest neighbor sphere)
 Hard Spheres         ref            Percus-Yevick model, PERCUS,YEVICK PHYS. REV. 110 1 (1958), THIELE J. CHEM PHYS. 39 474 (1968), WERTHEIM  PHYS. REV. LETT. 47 1462 (1981)
-                     Par1           Radius [A]
+                     Par1           Radius [A] (center-to-center distance between particles is 2\*Par1)
                      Par2           Volume fraction (fraction)
 Square Well          ref            SHARMA,SHARMA, PHYSICA 89A,(1977),212, NOTE - depths >1.5kT and volume fractions > 0.08 give UNPHYSICAL RESULTS when compared to Monte Carlo simulations
                      Par1           Radius [A]
@@ -739,9 +739,9 @@ Note, that this model is, for most practical purposes, close to Hard spheres mod
 **HardSpheres**
 ^^^^^^^^^^^^^^^
 
-The code for this structure factor has been copied from NIST SAS macros (Kline, S. R. (2006). J Appl Crystallogr 39, 895-900). Please, give them credit when using this structure factor. (http://www.ncnr.nist.gov/programs/sans/data/data_anal.html)Åc
+The code for this structure factor has been copied from NIST SAS macros (Kline, S. R. (2006). J Appl Crystallogr 39, 895-900). Please, give them credit when using this structure factor. (http://www.ncnr.nist.gov/programs/sans/data/data_anal.html)
 
-This is graph of NIST model and Irena implementation.
+This is graph of NIST model and Irena implementation. Some info on HS parameters: The Radius is half distance between the centers of neighboring particles, so center-to-center distance is 2\*RHS. The volume fraction is real Hard spheres volume fraction. If the sample is inhomogeneous, the volume fraction calculated from absolutely calibrated intensity of small angle scattering may be different (typically smaller) that structure factor volume fraction.
 
 
 .. Figure:: media/StructureFactor_HardSpheres.png
