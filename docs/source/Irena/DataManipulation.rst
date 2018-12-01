@@ -9,7 +9,7 @@ List of Tools
 ----------------
 
 1.  :ref:`Data Manipulation 1 - one or two data sets <data_manipulation_1>`
-2.  :ref:`Data Manipualtion 2 - many data sets <data_manipulation_2>`
+2.  :ref:`Data Manipulation 2 - many data sets <data_manipulation_2>`
 3.  :ref:`Data Merge - two data segments <data_merge>`
 
 Data manipulation I
@@ -266,11 +266,11 @@ Post processing enables you to further modify data after they were processed thr
 Data merging
 ------------
 
-This tool is used to merge to segments of data covering overlapping q, two-theta, or d ranges. The tool can handle SAXS as well as WAXS data. This is common situation for 9ID USAXS/SAXS/WAXS instrument, which collects data with three different geometries sequentially. Each data set for the same sample is reduced individually and then user has three individual segments of data, which can be combined together to create one new data set covering all of the q range.
+This tool is used to merge to segments of data covering overlapping q, two-theta (tth), or d ranges. The tool can handle SAXS as well as WAXS data. This is common situation for 9ID USAXS/SAXS/WAXS instrument, which collects data with three different geometries sequentially. Each data set for the same sample is reduced individually and then user has three individual segments of data, which can be combined together to create one new data set covering all of the q range.
 
-It should be pointed out, that this is generally **BAD IDEA** . Data from segments collected at different distances or using different detectors will invariably have different resolutions, uncertainties, etc. Better data analysis software should allow to analyze data consisting of multiple independent segments, where the differences in resolution and uncertainties calculations can be handled better. **You have been warned. Proceed at your own peril.**
+It should be pointed out, that this is generally **BAD IDEA**. Data from segments collected at different distances or using different detectors will invariably have different resolutions, uncertainties, etc. Better data analysis software (e.g., Irena Modeling package or GSAS-II) should allow to analyze data consisting of multiple independent segments, where the differences in resolution and uncertainties calculations can be handled better. **You have been warned. Proceed at your own peril.**
 
-This tool can help to merge two data sets at time. It is designed to efficiently scale second data set, subtract background from the first data set, and optionally q-shift any ONE of the two data sets - and merge the data together as easily and as efficiently as possible. It can do it manually by selecting each data set individually or sequentially, by selecting sets of data sets and processing all at once. It can also fit Data 1 set of data with function dependence (power law, power law with background or Porod with background) and use the fit results to create smooth version fo the data. This significantly improves fit between the two segments when Data 1 high-q area is very noisy.
+This tool can help to merge two data sets at time. It is designed to efficiently scale second data set, subtract background from the first data set, and optionally q/d/tth-shift any *ONE* of the two data sets - and merge the data together as easily and as efficiently as possible. It can do it manually by selecting each data set individually or sequentially, by selecting sets of data sets and processing all at once. It can also fit Data 1 set of data with function dependence (power law, power law with background or Porod with background) and use the fit results to create smooth version fo the data. This significantly improves fit between the two segments when Data 1 high-q area is very noisy.
 
 Please note, that the function of this tool is pretty limited. More functionality is available in the Data manipulation I and Data manipulation II. I do not plan to add other “missions” to this tool, use the other tools for anything, which is more advanced.
 
@@ -278,23 +278,25 @@ Please note, that the function of this tool is pretty limited. More functionalit
 
 Data requirements: To merge two data sets you need to have data of one of the two naming structures:
 
-USAXS data: Inside root:USAXS: folder, name of the folder represents the sample name and the data are named SMR\_Int/SMR\_Qvec/SMR\_Error or DSM\_Int/DSM\_Qvec/DSM\_Error. Optionally you can have SMR/DSM\_dQ which is Q resolution wave. These data are, if present, properly passed through the calculations.
+*USAXS data*: Inside root:USAXS: folder, name of the folder represents the sample name and the data are named SMR\_Int/SMR\_Qvec/SMR\_Error or DSM\_Int/DSM\_Qvec/DSM\_Error. Optionally you can have SMR/DSM\_dQ which is Q resolution wave. These data are, if present, properly passed through the calculations.
 
-QRS data: Folder name represents the sample name and inside this folder you have three or four waves: Q\_SampleName, R\_SampleName (Intensity), S\_SampleName (Intensity uncertainty), optionally W\_SampleName (Q resolution). You can also have data Irena & Nika consider QRS also : consisting of d\_SampleName, R\_SampleName (Intensity), S\_SampleName or t\_SampleName, R\_SampleName (Intensity), S\_SampleName. The difference is that wave starting with t contains (x-axis) expressed in two-theta (in degrees) and wave starting with d contains d-spacings. No other naming system is NOT supported at this time and if needed, will need to be added into the system (request it, justify and send examples…).
+*QRS data*: Folder name represents the sample name and inside this folder you have three or four waves: Q\_SampleName, R\_SampleName (Intensity), S\_SampleName (Intensity uncertainty), optionally W\_SampleName (Q resolution). You can also have data Irena & Nika consider QRS also : consisting of d\_SampleName, R\_SampleName (Intensity), S\_SampleName or t\_SampleName, R\_SampleName (Intensity), S\_SampleName. The difference is that wave starting with t contains (x-axis) expressed in two-theta (in degrees) and wave starting with d contains d-spacing (in Angstroms).
+
+No other naming system is supported at this time and if needed, it will need to be added into the system (request it, justify and send examples…).
 
 **What can be done**:
 
-*Optional Step - when "Merge method" is "Extrap. Data1 and Optimize"* : User can fit "First data set" end of data (high-q range for this set) with one of few functions. Code will then use the fitted parameters to replace the noisy fitted data with the smooth functional dependence. This helps with data which are noisy and where regular method of Optimizing overlap does not work too well...
+*Main Step*: User selects the overlapping range of Qs for the data. The data are trimmed at these Qs! Code has 4 parameters of merging, 0, 1, 2 or 3 can be optimized at the same time :
 
-*Main Step* :User selects the overlapping range of Qs for the data. The data are trimmed at these Qs! Code has 4 parameters of merging, up to 3 can be optimized at the same time :
+1.  Data 1 background - Data 1 = lower-q data, assumed to be the correctly (e.g., absolutely) calibrated, are expected to have potentially flat background at high-q.
+2.  Data 2 scaling - Data 2 = higher-q data, need to be scaled to Data 1 with scaling factor.
+3.  Data 1 or 2 q/d/tth-shift - Data 1 or 2 can have q (d or t) shifted if to compensate for any misalignment between the segments. Typically this means user or staff failed to properly calibrate the instrument and it is strongly suggested to fix the calibration and reduce the data again to fix this misfit.  Allowed q/d/t shift is limited to be at most ½ of the q value for the first point on the second segment. This may not work as well for d type data which are kind of unique case anyway.
 
-1.  Data 1 background - Data 1, low-q data, assumed to be the optionally absolutely calibrated, are assumed to have potentially flat background at high-q.
-2.  Data 2 scaling - Data 2, high-q data, need to be scaled to Data 1 with scaling factor.
-3.  Data 1 or 2 q-shift - Data 1 or 2 can have q (d or t) shifted if to compensate for any misalignment between the segments. Typically this means user or staff failed to properly calibrate the instrument and it is strongly suggested to fix the calibration and reduce the data again to fix this misfit.  Allowed q/d/t shift is limited to be at most ½ of the q value for the first point on the second segment. This may not work as well for d type data which are kind of unique case anyway.
+Each parameter can be individually selected for optimization - or if known, can be inserted manually in the field. Keep in mind, that it is user's job to set the value back to 0 or 1 if they decide not to use this parameter.
 
-Each parameter can be individually selected for optimization - or if known, can be inserted manually in the field. Keep in mind, that it is users job to set the value back to 0 or 1 if they decide not to use this parameter.
+These parameters are optimized using Igor Optimize function to minimize the misfit between the intensity points in the overlapping q/d/tth range.
 
-These parameters are optimized using Igor Optimize function to minimize the misfit between the intensity points in the overlapping q range.
+*Optional - when "Merge method" is "Extrap. Data1 and Optimize"*: User can fit "First data set" end of data (high-q range for this set) with one of few functions. Code will then use the fitted parameters to replace the noisy fitted data with the smooth functional dependence. This helps with data which are noisy and where regular method of Optimizing overlap does not work too well...
 
 Note, that Data manipulation I tool uses similar code. The Data manipulation tool I creates new folder/waves with names modified by adding **“\_comb**\ ” at their end. This tool adds **“\_mrg**\ ” at the end. User can change the term added to folder name in the lower right corner field on the panel.
 
@@ -302,7 +304,7 @@ Below is the GUI panel itself. ***Please NOTE : This tools is one large panel an
 
 .. image:: media/DataManipulation15.jpg
            :align: center
-           :width: 600px
+           :width: 750px
 
 
 The GUI is bit uncharacteristically one large panel with left part being Data selection and right side being processing and data view selection.
@@ -319,7 +321,7 @@ At the top are controls for Data 1 (low-q, calibrated data) and Data 2 (high-q, 
 
 **DSM/2D colim? - SMR colim? checkboxes** – specific selection for USAXS data. If Slit smeared data are used (SMR_Int etc), use SMR checkbox, if desmeared data are used (DSM_Int etc.) use DSM checkbox. Note, that his also inserts "_u" or "_270" in Folder match string for Second data set. This is helping USAXS users select proper data for merging.
 
-**Start folder** – select folder, where the data start. Pick the highest folder you can (do not leave on root:), some of the features require that the names in the listbox are single folder name only. Some features will work fine even when the names are full or partial path to data. But it also is likely unreadable anyway. So pick the highest folder you can.
+**Start folder** – select folder, where the data are located. Pick the highest folder you can (do not leave on root:), some of the features require that the names in the listbox are single folder name only. Some features will work fine even when the names are full or partial path to data. So pick the highest folder you can.
 
 **Folder match string (RegEx)** : Use this field to mask as well the data names as possible. Here are some suggestions:
 
@@ -403,14 +405,14 @@ Other checkbox/controls functions:
 
 **Overwrite existing data** checkbox – if selected the tool will overwrite any prior data in the location where it is directed to save the merged data. I suspect this is what most people will want. If NOT selected, the code will create new, unique, target folder each time and user can create potentially huge number of garbage containing folders with test data which are useless. Keep this in mind.
 
-**Here are values / checkboxes for optimization **
+**Here are values / checkboxes for optimization**
 
 .. image:: media/DataManipulation21.jpg
            :align: left
            :width: 280px
 
 
-The top 3 values show the values used for scaling/merging procedures. Note the space between the Data 1 Background and Data 2 scaling. If your Data 1 data are QRS data (NOT USAXS data) then there will be option to "D 1 Q/d/tth shift". This allows at that moment to shift Data 1 in Q/d/tth. Only one of the segments can be shifted via optimization. User can punch in numbers manually, but it is likely impossible to suggest at all!!!!
+The top 4 values show the values used for scaling/merging procedures. Note the space between the Data 1 Background and Data 2 scaling. If your Data 1 data are USAXS data the  option to "D 1 Q/d/tth shift" will NOT be available, USAXS calibration is guaranteed. "D 1 Q/d/tth shift" allows at to shift Data 1 in Q/d/tth, "D 2 Q/d/tth shift" can shift Data 2. Only one of the data segments can be shifted via optimization. User can punch in numbers manually, but it is likely impossible to suggest at all!!!!
 
  User can either check the "Fit?" checkbox next to them and have them Optimized each time or uncheck it and input proper value - if known. In the case above the Background and Scaling are fitted, Q shift is set to 0. This should be default use case.
 
