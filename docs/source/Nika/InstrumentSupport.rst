@@ -14,7 +14,7 @@ Currently there are these instruments supported:
 3.  :ref:`ALS RSoXS soft energy SAXS <Nika.ALS_RSoXS>`
 4.  :ref:`SSRL Mat SAXS <Nika.SSRL_MatSAXS>`
 5.  :ref:`TPA <Nika.TPA>`
-6.  :ref:`APS 6ID DND SAXS/WAXS <Nika.5ID_DND>`
+6.  :ref:`APS 5ID DND SAXS/WAXS <Nika.5ID_DND>`
 
 .. _Nika.9IDC_Instrument:
 
@@ -95,24 +95,33 @@ Other instrument setups can be added on request. Provide me with enough data and
 DND CAT (APS 5ID) SAXS camera
 -----------------------------
 
-DND CAT provides users with data, which are organized in specific folder structure. The data are reduced using scripts based on fit2d at the beamline. However, if users wants to process data later in different manner, they have to contact beamline staff and whole process is cumbersome.
+DND CAT provides users with data, which are organized in specific folder structure. The data are reduced using scripts based on GSAS-II at the beamline. However, if users wants to process data later in different manner, they have to contact beamline staff and whole process is cumbersome.
 
 Nika DND support is build on presence of evaluated data in text file, where header contains all necessary information for data reduction. Therefore, user opens this text file and the Tiff file with the processed image is found automatically (if user did not change the folder structure). Alternatively, user can point the Nika to the image files, when asked.
 
 The data can then be reprocessed – for example different sectors can be analyzed etc.
 
-Note, that the user needs to make a new mask, but other parameters (beam center, wavelength, calibration constant s well as sample transmission and thickness) are loaded from the header.
+Note, that the user needs to make a new mask, but other parameters (beam center, wavelength, calibration constant as well as sample transmission and thickness) are loaded from the header.
 
-To use:
+The following are instructions which you will get when you select: **"SAS 2D"->"Instrument configurations"--> "DND CAT"**
 
-1. select DND/txt as file type and point find data in the right folder. It is likely something like:…/APSCycle/YourName/Month/processing/data/plot\_files
+*Instructions for use of DND CAT special configuration*
 
-2. select and display one or more of the text files which contains current configuration and display. If the folder structure is correct, tiff image is found automatically. If not, Nika will ask for the image location. It should be necessary only once, unless the images are in different places.
+0. Open Nika's main panel, if needed.
 
-3. Select “Instrument configurations” >> “DND CAT”. Select configuration from the listed names of the text fie(s) which were loaded already. This will set wavelength, pixel sizes, distance, and centers… Also it will set proper calibration configuration and functions, which should be used. Note: Dark was already subtracted from these files, so you need only the few parameters listed (thickness, calibration constant and transmission).
+1. Select "DND/txt" as image type. Check "Display only" as processing method so you do not get errors if mask/parameters are not correct.
 
-4. Create and use mask.
+2. Using "Select data path" load one txt file located in .../APSCycle/YourName/Month/processing/plot_files, these are the txt files you want to see in the file list. Nika will find tiff files on its own.
 
-5. If you have empty run measurements, select the checkbox for “\ **subtract empty”**. Do not change values for “\ **Use I0/I0emp**\ ” or value of 1 for I0. This is important to scale properly Empty and Sample incoming intensities and measurement times.
+        Note, you can load DND processed 1D ASCII data from these files directly into the Irena package using ASCII loader. Q is second column, Intensity is third and error is fourth. Nika is needed only if you want to reprocess the 2D->1D data again, for example if you need sector averages, different mask, etc.
+        ´
+3. Now, run the Configuration function again... Select in the "SAS 2D"->"Instrument configurations"--> "DND CAT". Select name.txt file with the same name as tiff file you want to process. This will configure the Nika properly (for that detector!!!, there are 3 detectors on DND SAXS), including wavelength, distance, etc. Correct checkboxes will be checked and functions set to provide same data processing as DND suggests to do (see below).
 
-6. Select proper reduction parameters (circular, sector etc…).
+4. Create mask. You need to create it or load it if you have already created it. Make sure you use the correct image file to create it - with the three different image files associated with each sample, it is bit complicated. Nika does not like when mask and image dimension do not match.
+
+5. Set Nika processing & output options you want = set tabs "Sect.", "LineProf" and "Save/Exp". Set Processing options (checkboxes), likely you need "Process sel. files individually"
+
+6. To reduce image, select the text file with the same name as the tiff file you want to process and "Process image(s)". Nika will parse parameters (wavelength, calibration values, thickness,...) from this txt file, locate the tiff file, load it, and process as described. If you do circular average, you should get what the text file contains. It is good to check that you actually get the same output before using Nika to do different types of processing (e.g., sectors). If something does not match, let me know...
+
+
+This document contains also description I obtained for DND CAT on how data should be processed as well as information where strings with the header from each text file are, in case you need more parameters.
