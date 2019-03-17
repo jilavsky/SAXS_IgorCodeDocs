@@ -59,6 +59,14 @@ The code does not know about any “name extensions”, so data named “R\_myNa
 
 I assume, that your names are legal and valid. The code may fail on liberal names (names with spaces and other weird characters). I need to test that later. This should not be a problem, since most users with the data needing this treatment should have standard (non-liberal) names, or the code used to create these should not work..
 
+.. _ResultsNotebook:
+
+Results Notebook
+----------------
+Various tools have button called “\ **Save results (notebook)**\ ” “\ **Paste to Notebook**\ ” or similar. This button saves data in internal notebook, created by *Irena* called *ResultsNotebook*.  What is copied depends on the tool, typically a graph, source of data and summary of results.
+
+You can close this notebook and time, it is not killed, it is just hidden. YOu can reopen it from Irena menu *SAS* > *Support tools* > *Show Results Notebook*  You can save the notebook as RFT file, which then can be edited in any Word processor.
+
 
 Logging feature
 ----------------
