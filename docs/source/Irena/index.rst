@@ -27,6 +27,8 @@ Manual |release| for Irena version 2.68 for Igor 8.0 and higher (will still work
    Fractals
    PairDistanceDist
    Reflectivity
+   3DAggregate
+   AnisotropyAnalysis
    ScatteringContrastCalculator
    DataMining
    EvaluateSizeDistributions
