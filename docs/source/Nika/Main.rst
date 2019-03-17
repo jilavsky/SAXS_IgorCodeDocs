@@ -544,6 +544,8 @@ Save lineout – this saves “qrs” data in SAS folder in current Igor experim
 .. index::
     Nika Line profile
 
+.. _LineProfileTool:
+
 LineProf
 ~~~~~~~~
 
