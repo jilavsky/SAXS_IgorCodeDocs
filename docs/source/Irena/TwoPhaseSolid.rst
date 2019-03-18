@@ -6,9 +6,16 @@
 Two Phase Solid model
 =====================
 
-**This tool generates 3D RANDOM representation (voxelgram) of Two Phase Solid material, current version uses method used in SAXSMorph, I plan to add  similar methods (e.g., Quintanilla cited below) when I can. For details on the science behind it see paper : B. Ingham, et.al., SAXSMorph: a program for generating representative morphologies for two-phase materials from small-angle X-ray and neutron scattering data, J. Appl. Cryst. 44 (2011) 221-224, https://doi.org/10.1107/S0021889810048557 , and J. Quintanilla, Versatility and robustness of Gaussian random ﬁelds for modelling random media, Modelling Simul. Mater. Sci. Eng. 15 (2007) S337–S351, https://iopscience.iop.org/article/10.1088/0965-0393/15/4/S02/meta, and other papers on this subject**
+**This tool generates 3D RANDOM representation (voxelgram) of Two Phase Solid material, current version uses method used in SAXSMorph, I plan to add  similar methods (e.g., Quintanilla cited below) when I can. For details on the science behind it see paper : B. Ingham, et.al., SAXSMorph: a program for generating representative morphologies for two-phase materials from small-angle X-ray and neutron scattering data, J. Appl. Cryst. 44 (2011) 221-224, and J. Quintanilla, Versatility and robustness of Gaussian random ﬁelds for modelling random media, Modelling Simul. Mater. Sci. Eng. 15 (2007) S337–S351, and other papers on this subject**
 
-This model is applicable **ONLY to TWO PHASE SOLID MATERIALS** It is critical users understand its limitations and use this model appropriately. Further, it is critical to understand, that this model represents scattering system in a box with specific (user defined) size with some (user defined) resolution. Practical limit on resolution (size/voxel size) seems to be about 100. This means, that the range of scatterer sizes, which can be measured is probably something like 20-40. This limits the q range which this model can fit to less than two decades in q.
+*Links to papers from above*
+
+https://doi.org/10.1107/S0021889810048557
+
+https://iopscience.iop.org/article/10.1088/0965-0393/15/4/S02/meta
+
+
+This model is applicable **ONLY to TWO PHASE SOLID MATERIALS** It is critical users understand its limitations and use this model appropriately. Further, it is critical to understand, that this model represents scattering system in a box with specific (user defined) size with some (user defined) resolution. Practical limit on resolution (size/voxel size) seems to be about 100. This means, that the range of scatterer sizes, which can be measured is probably something like 20-40. This limits the q range which this model can fit to something like 1 to 1.5 decades in q.
 
 This is random "visualization tool" = this tool will generate one of MANY possible shapes of the arrangement of material, which will have same or similar scattering curve. Intensity which the two phase structure should scatter is back calculated.
 
