@@ -50,24 +50,25 @@ Here is example of Unified fit with two levels - if this is mass fractal system,
 
 .. image:: media/3DAggregate0.jpg
    :align: center
-   :height: 680px
+   :width: 720px
 
 
 This is the main screen:
 
 .. image:: media/3DAggregate1.jpg
    :align: center
-   :height: 580px
+   :height: 500px
 
-In the top part are  options to use results from Unified fit using modified version of :ref:`standard data selection tools <DataSelection>` . This is simply lookup tool, user can as well pick the needed numbers from *Analyze Results* in *Unified fit*. Data can be selected, in the case in the figure above we are using whatever values are in the current Unified Fit tool working directory and assume, that levels 2/1 represent the Mass Fractal. Based on this the code extracted needed parameters. The most interesting are z = degree of aggregation and d\ :sub:`f`.
+In the top part are  options to use results from Unified fit using modified version of :ref:`standard data selection tools <DataSelection>` . This is simply lookup tool, user can as well pick the needed numbers from *Analyze Results* in *Unified fit*. Data can be selected from Stored Unified Fit results or - as in the picture above - from current Unified fit working directory, using whatever values are in the current Unified Fit tool. This is result of the last Unified fit fit or manual change...   By default we assume, that levels 2/1 represent the Mass Fractal, but it can be changed by using the popup "Level" as needed. Based on these selections, the code extracts needed parameters and presents them in table - not, the most useful ones are repeated below the "Grow Aggregate" in blue color. These are your target values, what your aggregate should have to represent the Mass fractal scattering. *The most interesting are z = degree of aggregation and d\ :sub:`f`.*
 
-Now, the parameters user uses to control growth are:
+The parameters user uses to control growth are:
+-----------------------------------------------
 
 * Degree of aggregation "z" - this is how many particles will be in the aggregate.
-* Sticking probability - this is how likely is when a new particle arrives nearby any particle which is already part of the aggregate to stick. Value varies from 10 to 100%.
-* Sticking method. There are three values here 1, 2 and 3. Sticking method describes how close must a new particles arrive to existing ones to be allowed to stick. Value of 3 allows particle to stick if it is relatively far (sqrt(3)), value of 2 means it has to be closer (sqrt(2)) and 1 means it has to arrive really close (1). These distances relate to which neighbor it needs to be within the system which is simple cubic lattice.: 1 is neighbor in one direction (x or y or z direction only), 2 is neighbor also in xy, xz, etc - in plane neighbor, and 3 is neighbor in volume (xyz neighbor).
+* Sticking probability - this is probability of sticking in the Monte Carlo method - when a new particle arrives nearby any existing aggregate particle, how likely it is to stick. Value varies from 10 to 100%.
+* Sticking method. There are three values here 1, 2 and 3. Sticking method describes how close must a new particles arrive to existing ones to be allowed to stick. These distances relate to which neighbor it needs to be within the system which is simple cubic lattice, which is used to move particles around. 1 is really nearest neighbor in one direction only (x or y or z direction only), 2 is neighbors include also in plane neighbors (xy, xz, etc), and 3 are neighbors also in body direction (including xyz neighbor). Value of 3 allows particle to stick if it is relatively far from any aggregate particle (distance of sqrt(3)), value of 2 means it has to be closer (distance of sqrt(2)) and 1 means it has to arrive really close (distance of 1).
 
-Using different combinations of sticking probability and Sticking method results in different structures. User needs to test various combinations to find ones which create particles which match his/her scattering.
+Using different combinations of *sticking probability* and *Sticking method* results in different structures. And of course, as any proper Monte Carlo method, results are random... User needs to test various combinations to find a combination which creates aggregates which have parameters which match parameters of his/her scattering.
 
 *Note: lower Sticking probability and larger z values significantly increase run time.* Watch history area where progress is presented and final parameters are listed also.
 
@@ -78,7 +79,7 @@ Using different combinations of sticking probability and Sticking method results
    :width: 580px
 
 
-This is not very good result, but also not too far. I have d\ :sub:`f` of about 2.15 (and need 2.4) c about 1.5 (and need 1.4) and d\ :sub:`min` about 1.44 (and need 1.7).
+This is not very good result, but also not too far. I have d\ :sub:`f` of about 2.15 (and need 2.4); c about 1.5 (and need 1.4); and d\ :sub:`min` about 1.44 (and need 1.7).
 
 Button “\ **Summary Table**\ ” displays Notebook with model summaries - and adds in there current results summary, see below. This can be used to follow how results depend on model input parameters.
 
@@ -86,7 +87,7 @@ Button “\ **Summary Table**\ ” displays Notebook with model summaries - and 
    :align: center
    :width: 480px
 
-Button “\ **Store Current Aggregate**\ ” stores the current aggregate result (including the 3D aggregate data) in separate folder, where they can then be found, displayed etc. See list in Listbox below, I just added there the current result:
+Button “\ **Store Current Aggregate**\ ” stores the current aggregate result (including the 3D aggregate data) in separate folder, where they can then be found, displayed etc. It also adds results into the Table as the button "Summary Table". For stored 3D aggregates see list in Listbox below, I just added there the current result:
 
 
 .. image:: media/3DAggregate4.jpg
@@ -96,4 +97,4 @@ Button “\ **Store Current Aggregate**\ ” stores the current aggregate result
 
 Button “\ **Display 3D graph**\ ” Displays in the Listbox selected 3D results in Gizmo. If nothing is selected, current result in working directory (if exists) is presented.
 
-Button “\ **Calcualte 1D Int.**\ ” Calcualtes 1D intensity of the Aggregate based on its parameters. If Unified fit log-log plot exists, it will add it there, if not, it creates it own graph. *NOTE: DOES NOT WORK YET* More functionality needs to be added...
+Button “\ **Calculate 1D Int.**\ ” Calcualtes 1D intensity of the Aggregate based on its parameters. If Unified fit log-log plot exists, it will add it there, if not, it creates it own graph. *NOTE: DOES NOT WORK YET* More functionality needs to be added...
