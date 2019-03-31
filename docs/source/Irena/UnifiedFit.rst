@@ -32,7 +32,14 @@ The intensity from each level is summed and the intensity from one level, i, is 
 
 .. math::
 
-    I_{i}\left( q \right) = G_{i}e^{- \frac{q^{2}R_{g}^{2}}{3}} + e^{- \frac{q^{2}R_{\text{gco}}^{2}}{3}}B_{i}\left\{ \frac{{(\operatorname{erf}\left( \frac{qR_{g}}{\sqrt{6}} \right))}^{3}}{q} \right\}^{P_{i}}
+    I_{i}\left( q \right) = G_{i}e^{- \frac{q^{2}R_{g,i}^{2}}{3}} + e^{- \frac{q^{2}R_{\text{gco,i}}^{2}}{3}}B_{i}\left\{ \frac{{(\operatorname{erf}\left( \frac{qR_{g,i}}{\sqrt{6}} \right))}^{3}}{q} \right\}^{P_{i}}
+
+intensity from many levels (Irena has option of up to 5 levels) is:
+
+.. math::
+
+    I\left( q \right) = \sum_{i=1}^N  G_{i}e^{- \frac{q^{2}R_{g,i}^{2}}{3}} + e^{- \frac{q^{2}R_{\text{gco,i}}^{2}}{3}}B_{i}\left\{ \frac{{(\operatorname{erf}\left( \frac{qR_{g,i}}{\sqrt{6}} \right))}^{3}}{q} \right\}^{P_{i}}
+
 
 This equation includes a) above if R\ :sub:`gco` = Rg\ :sub:`(i-1)` is the previous smaller Rg e.g. the primary particles from a mass fractal level. If there is no such dependence R\ :sub:`gco` = Rg\ :sub:`(i-1)` is set to 0 or it could be set to an independent size under unusual circumstances
 
