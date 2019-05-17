@@ -1,5 +1,5 @@
 .. index::
-   Nika; Main panel Nika
+    Nika; Main panel Nika
 
 
 Main Panel
@@ -21,7 +21,7 @@ The panel has three major parts:
 **Bottom** contains buttons for main controls and 2D image controls.
 
 .. index::
-   Nika; Selecting data
+    Nika; Selecting data
 
 Selecting data
 ---------------
@@ -124,7 +124,7 @@ Enables user to store the current main 2D image in Igor Experiment for reference
 There is NO WAY to load these images back into Nika at this time. It can be done manually, but not through Nika menus & functions.
 
 .. index::
-   Nika; Create movie
+    Nika; Create movie
 
 Create Movie
 ~~~~~~~~~~~~
@@ -205,7 +205,7 @@ Note, that every time Nika adds frame to the movie, it prints in the history are
 “Added frame with data : xxxxxxxxxxxx.tif to movie”. This tells you what you added…
 
 .. index::
-   Nika; Live processing
+    Nika; Live processing
 
 Live processing
 ~~~~~~~~~~~~~~~
@@ -235,11 +235,11 @@ Most of the time the data in Small-angle scattering are normalized and not calib
 enables users to select which units of absolute intensity calibration they want to write in wave note of the data. Other packages (Irena) may use this information and then it may be critical to have the right one in there.
 
 .. index::
-   Nika: Image Statistics
+    Nika: Image Statistics
 
 Calc. Stats.
 ~~~~~~~~~~~~
-When checked, Nika will calculate statistics of the image. What is calculated depends on what is doen with image - you always get raw image statistics, but if image is processes, processed/calibrated statistics is calculated also. Notebook with the statistics is attached right of the image:
+When checked, Nika will calculate statistics of the image. What is calculated depends on what is done with image - you always get raw image statistics, but if image is processes, processed/calibrated statistics is calculated also. Notebook with the statistics is attached right of the image:
 
 .. image:: media/ImageStatistics1.jpg
    :align: center
@@ -250,7 +250,7 @@ enables users to select which units of absolute intensity calibration they want 
 
 
 .. index::
-   Nika: Sample name
+    Nika: Sample name
 
 Sample Name
 ~~~~~~~~~~~
@@ -260,7 +260,7 @@ This field has been added in version 1.75 and it is used with data formats which
 
 .. index::
    Folder name length (Nika)
-   Sample namelength (Nika)
+   Sample name length (Nika)
    Name trimming (Nika)
 
 
@@ -296,14 +296,14 @@ My\_Name\_is\_\_long\_for
 Etc…
 
 .. index::
-   Nika; Batch processing
+    Nika; Batch processing
 
 Batch processing (no images)
 ----------------------------
 
-*This is way to significantly seep up processing of images in Nika.*
+*This is way to significantly speed up processing of images in Nika.*
 
-Testing has shown that up to 75% of time to process a single image in Nika can be spent by displaying the images, drawing into the images, and graphing the 1D data. And printing notes in the history area. Most of the time this is acceptable and images help users to understand what is happening. However, when processing large number of images this can needlessly slow down processing. The checkbox *Batch Proc. (no images)* controls how Nika behaves. If this checkbox is selected, Nika will stop all updates toward users and simply display a panel *Nika is batch Processing data* (see next figure) stating that it is working. During this time Nika is running, but the only thing changing user can see is the red *Sample Name* on the main panel.
+Testing has shown that up to 75% of time to process data in Nika can be spent on displaying the images, drawing into the images, and graphing the 1D data. And printing notes in the history area. Most of the time this is acceptable and images help users to understand what is happening. However, when processing large number of images this can needlessly slow down processing. The checkbox *Batch Proc. (no images)* speeds up processing by preventing needless image display. If this checkbox is selected, Nika will stop all image displays, updates of opened graphs and to indicate it is working will just display a panel *Nika is batch Processing data* (see next figure). While this panel is up, Nika is running, but the only thing changing user can see is the red *Sample Name* on the main panel. When the selected batch of samples (batch is selected in the *Select input data* listbox) this panel will disappear.
 
 .. image:: media/Main_BatchProcessing1.jpg
    :align: center
@@ -320,7 +320,7 @@ Also, notes are printed in the history area during the start and after the end o
 **If the batch processing hits error and stops :** Nothing bad happened. Close manually the panel *Nika is batch Processing data* (it can be killed as any other panel), fix the problem, and start again from where Nika stopped.
 
 .. index::
-   Nika; Tabbed controls
+    Nika; Tabbed controls
 
 Controls in tabs
 ----------------
@@ -633,7 +633,7 @@ This tool calculate intensity, intensity uncertainty and *q, q\ :sub:`y`*, and *
 
 **IMPORTANT:**
 
-Of course, GISAXS community had to adopt different definition of Qx, Qy,a nd Qz than I did years ago, and therefore, this tool uses somehow different definitions than rest of Nika. So the horizontal direction (x-direction for Nika) is the Qy direction. Vertical direction on the detector is “y” direction for Nika, but it is direction of Qz. Please, keep this in mind… For those adventurous souls, who actually read my code, keep in mind at some point the code switches on your the x-y image coordinates to y-z-(x) GISAXS coordinates… Sorry. No other fix I would know about.
+Of course, GISAXS community had to adopt different definition of Qx, Qy,a nd Qz than I did years ago, and therefore, this tool uses somehow different definitions than rest of Nika. So the horizontal direction (x-direction for Nika) is the Qy direction. Vertical direction on the detector is “y” direction for Nika; but it is direction of Qz. Please, keep this in mind… For those adventurous souls, who actually read my code, keep in mind at some point the code switches on your the x-y image coordinates to y-z-(x) GISAXS coordinates… Sorry. No other fix I would know about.
 
 *For now these are the available profiles:*
 
@@ -995,7 +995,7 @@ with maximum correction (blue color).
     Nika uncertainties
 
 .. index::
-   Nika; uncertainties
+    Nika; uncertainties
 
 
 Uncertainties (“Errors”)
