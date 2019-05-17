@@ -1,12 +1,14 @@
-.. index:: Main panel Nika
+.. index::
+   Nika; Main panel Nika
+
 
 Main Panel
 ==========
 
 .. figure:: media/Main1.jpg
    :align: left
-   :width: 300px
-   :figwidth: 320px
+   :width: 340px
+   :figwidth: 360px
 
 Select “Main panel” from the “SAS 2D” menu. This will present the following panel:
 
@@ -17,6 +19,9 @@ The panel has three major parts:
 **Middle** (*tabbed area*) is designed for controls of processing. This is the busiest area of the panel and each tab will be explained later.
 
 **Bottom** contains buttons for main controls and 2D image controls.
+
+.. index::
+   Nika; Selecting data
 
 Selecting data
 ---------------
@@ -118,6 +123,9 @@ Enables user to store the current main 2D image in Igor Experiment for reference
 
 There is NO WAY to load these images back into Nika at this time. It can be done manually, but not through Nika menus & functions.
 
+.. index::
+   Nika; Create movie
+
 Create Movie
 ~~~~~~~~~~~~
 
@@ -195,6 +203,9 @@ Is Igor panel and here are your last chances to control what and how it gets cre
 Note, that every time Nika adds frame to the movie, it prints in the history area:
 
 “Added frame with data : xxxxxxxxxxxx.tif to movie”. This tells you what you added…
+
+.. index::
+   Nika; Live processing
 
 Live processing
 ~~~~~~~~~~~~~~~
@@ -283,6 +294,33 @@ And remove “SIMPLYTOO\_long\_for” and trim end :
 My\_Name\_is\_\_long\_for
 
 Etc…
+
+.. index::
+   Nika; Batch processing
+
+Batch processing (no images)
+----------------------------
+
+*This is way to significantly seep up processing of images in Nika.*
+
+Testing has shown that up to 75% of time to process a single image in Nika can be spent by displaying the images, drawing into the images, and graphing the 1D data. And printing notes in the history area. Most of the time this is acceptable and images help users to understand what is happening. However, when processing large number of images this can needlessly slow down processing. The checkbox *Batch Proc. (no images)* controls how Nika behaves. If this checkbox is selected, Nika will stop all updates toward users and simply display a panel *Nika is batch Processing data* (see next figure) stating that it is working. During this time Nika is running, but the only thing changing user can see is the red *Sample Name* on the main panel.
+
+.. image:: media/Main_BatchProcessing1.jpg
+   :align: center
+   :width: 480px
+
+Also, notes are printed in the history area during the start and after the end of this batch processing :
+
+.. image:: media/Main_BatchProcessing2.jpg
+   :align: center
+   :width: 580px
+
+**Suggestion:**  Process one or two images first and verify the settings are correct and all parameters are correctly set. When you check the parameters and understand, that all is working right, you can run larger number of images in batch mode.
+
+**If the batch processing hits error and stops :** Nothing bad happened. Close manually the panel *Nika is batch Processing data* (it can be killed as any other panel), fix the problem, and start again from where Nika stopped.
+
+.. index::
+   Nika; Tabbed controls
 
 Controls in tabs
 ----------------
@@ -836,6 +874,9 @@ Checking the checkbox *Export Nexus* brings up dialog for Nexus Export and impor
 .. index::
     Nika bottom controls
 
+.. index::
+   Nika; Bottom Controls
+
 Bottom controls
 ---------------
 
@@ -953,6 +994,10 @@ with maximum correction (blue color).
 .. index::
     Nika uncertainties
 
+.. index::
+   Nika; uncertainties
+
+
 Uncertainties (“Errors”)
 ------------------------
 
@@ -973,7 +1018,7 @@ The Uncertainty method can be changed in the “Configuration panel” available
 .. index:: Q resolution Nika
 
 .. index::
-    Nika Q-resolution
+    Nika; Q-resolution
 
 Q-resolution calculations
 -------------------------
