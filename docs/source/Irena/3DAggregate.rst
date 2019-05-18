@@ -10,13 +10,11 @@ Mass Fractal Aggregate model
 
 This tool is applicable **ONLY to mass fractals** It is critical users understand its limitations and the meaning (and reliability of) mass fractal aggregate parameters as used in the tool. These are listed below.
 
-This is "visualization tool" - it is NOT fitting of data. Data are first fitted by Unified fit and, *assuming users have mass fractal*, fractal parameters describing the Mass Fractal system they have are calculated. Users then can use this tool to *RANDOMLY* generate a mass fractal aggregate. That is user generates using Monte Carlo method each time one of *MANY* possible shapes of this mass fractal. If the mass fractal shape has same or similar fractal parameters  properties it is assumed that it looks like what is inside the sample. So, this is NOT fitting, it is random shape generation and user need to vary *model growth parameters* until model with suitably similar mass fractal parameters is grown. Once proper growth parameters are found, user can grow number of representative shapes.
+This is "visualization tool" - it is NOT fitting of data. Data are first fitted by Unified fit and, *assuming users have mass fractal*, fractal parameters describing the Mass Fractal system they have are calculated. Users then can use this tool to *RANDOMLY* generate one or more mass fractal aggregates. That is: user generates using Monte Carlo method each time one of *MANY* possible shapes of this mass fractal. If the mass fractal shape has same or similar fractal parameters  properties it is assumed that it looks similar to what the aggregate inside the sample looks like. So, this is NOT fitting, it is random shape generation and user need to vary *model growth parameters* until model with suitably similar mass fractal parameters is grown. Once proper growth parameters are found, user can grow number of representative shapes.
 
 *Keep in mind, that this is really random process and same growth parameters will result in wide ranging models. One needs to run many times and see, how the results vary. Store results which are close to your target data, you may never recreate them.*
 
 *Some parts of the code generate randomly errors or failures. I will be trying to find a solution fo those which are errors, some are simply results of random growth. In any case, solution is to run model again. There are some specific conditions which seem to fail all the time. Select different parameters.*
-
-TODO: I plan to add some kind of scripting tool to enable easier model generation. This is monkey work. 
 
 .. _MassFractalAggregateModel.Parameters:
 
@@ -64,14 +62,14 @@ Here is example of data provided by one of the authors of the method and associa
    :width: 720px
 
 
-Now, when we have the Unified fit results above, we can either run directly the *Mass Fractal Aggregate* tool, or first save the results of Unified fit in a folder where the data came from (*Store in Data Folder*). Important is, that we have needed numbers which will guide our modeling. Here is the main panel::
+Now, when we have the Unified fit results above, we can either run directly the *Mass Fractal Aggregate* tool, or first save the results of Unified fit in a folder where the data came from (*Store in Data Folder*). Important is, that we have needed numbers which will guide our modeling. Here is the main panel:
 
-.. image:: media/3DAggregate1.jpg
+.. image:: media/3DAggregate2.jpg
    :align: center
-   :height: 500px
+   :width: 450px
 
 *Let me describe the content of this panel:*
-In the top part are options to use results from Unified fit using modified version of :ref:`standard data selection tools <DataSelection>` . This is simply lookup tool, user can as well pick the needed numbers from *Analyze Results* in *Unified fit*. Data can be selected from Stored Unified Fit results or - as in the picture above - from current Unified fit working directory, using whatever values are in the current Unified Fit tool. This is result of the last Unified fit fit or manual change...   By default we assume, that levels 2/1 represent the Mass Fractal, but it can be changed by using the popup "Level" as needed. NOTE: The values are updated after user selects or reselects the Level choices, so if the numbers are stale, just reselect that popup display and values will be updated. Based on these selections, the code extracts needed parameters and presents them in table - and the most useful ones are repeated below the "Grow Aggregate" in blue color. These are your target values, what your aggregate should have to represent the Mass fractal scattering. *The most interesting are z = degree of aggregation and d\ :sub:`f`.*
+In the top part are options to use results from Unified fit using modified version of :ref:`standard data selection tools <DataSelection>` . This is simply lookup tool, user can as well pick the needed numbers from *Analyze Results* in *Unified fit*. Data can be selected from Stored Unified Fit results or - as in the picture above - from current Unified fit working directory, using whatever values are in the current Unified Fit tool. This is result of the last Unified fit fit or manual change...   By default we assume, that levels 2/1 represent the Mass Fractal, but it can be changed by using the popup "Level" as needed. NOTE: The values are updated after user selects or reselects the Level choices, so if the numbers are stale, just reselect that popup display and values will be updated. Based on these selections, the code extracts needed parameters and presents them in table - and the most useful ones are repeated below the "Grow Aggregate" in blue color. These are your target values, what your aggregate should have to represent the Mass fractal scattering. *The most interesting are z = degree of aggregation and d\ :sub:`f` *
 
 The parameters user uses to control growth are:
 -----------------------------------------------
@@ -84,18 +82,25 @@ Using different combinations of *sticking probability* and *Sticking method* res
 
 *Note: lower Sticking probability and larger z values significantly increase run time.* Watch history area where progress is presented and final parameters are listed also.
 
-*This MAY BE SLOW* Push Button “\ **Grow Aggregate, do 1D and 3D graphs**\ ” and this will create the aggregate and display it in Gizmo as well as calculate 1D intensity data and overlay them over the data from source folder. Below is result which run on my high-end Macbook Pro for about 15 seconds:
+*This MAY BE SLOW* Push Button “\ **Grow 1 Agg, graph**\ ” and this will create the aggregate and display it in Gizmo as well as calculate 1D intensity data and overlay them over the data from source folder. Below is result which run on my high-end MacBook Pro for about 15 seconds:
 
 .. image:: media/3DAggregate4.jpg
    :align: center
    :width: 780px
 
 
-This is relatively pretty good result, it is unlikely that all parameters will be matched exactly - or even very close.  I have d\ :sub:`f` of about 2.15 (and need 2.2); c about 1.2 (and need 1.2); and d\ :sub:`min` about 1.78 (and need 1.9). I think this is a winner for this model. Also note, that the fit in teh 1D intensity vs Q is reasonably good.
+This is relatively pretty good result, it is unlikely that all parameters will be matched exactly - or even very close.  I have d\ :sub:`f` of about 2.09 (and need 2.2); c about 1.21 (and need 1.2); and d\ :sub:`min` about 1.72 (and need 1.9). I think this is close to a winner for this model. Also note, that the fit in the 1D intensity vs Q is reasonably good.
 
-Button “\ **Summary Table**\ ” displays Notebook with model summaries - and adds in there current results summary, see below. This can be used to follow how results depend on model input parameters adn amke notes -se my own note below the result.
+*NOTE* : growth of aggregate can fail if too compact particle is grown. When this happens, simply try again.
 
-Button “\ **Store Current Aggregate**\ ” stores the current aggregate result (including the 3D aggregate data) in separate folder, where they can then be found, displayed etc. It also adds results into the Table as the button "Summary Table". For stored 3D aggregates see list in Listbox below, I just added there the current result. Description in the table describes what parameetrs were used to create that mass fractal.
+*This WILL BE SLOW* Push Button “\ **Grow N Agg**\ ” and this will create N aggregates sequentially (N is selected in the pull down menu next to this button, default is 5), display it in Gizmo as well as calculate 1D intensity data, overlay them over the data from source folder, save the aggregate and store achieved results in notebook. These results can be the evaluated using button *Compare Stored*, see below.
+
+*NOTE* : When too compact particle is grown, it is skipped and nothing is saved. It is therefore common, that you end up with less than N saved aggregates to evaluate. 
+
+
+Button “\ **Summary Table**\ ” displays Notebook with model summaries - and adds in there current results summary, see below. This can be used to follow how results depend on model input parameters and make notes.
+
+Button “\ **Store Current Aggregate**\ ” stores the current aggregate result (including the 3D aggregate data) in separate folder, where they can then be found, displayed etc. It also adds results into the Table as the button "Summary Table". For stored 3D aggregates see list in Listbox below, I just added there the current result. Description in the table describes what parameters were used to create that mass fractal.
 
 
 .. image:: media/3DAggregate6.jpg
@@ -130,3 +135,21 @@ Button “\ **Monte Carlo 1D Int.**\ ” Calculates 1D intensity of the Aggregat
 .. image:: media/3DAggregate7.jpg
    :align: center
    :width: 380px
+
+
+Button “\ **Compare Stored.**\ ” If users run multiple aggregate growths (either manually or using *Grow N Agg.* button), thy may have many different aggregates stored. This is Monte Carlo method, so each time we run the model, we get slightly different result. It is therefore critical to be able to somehow evaluate which one is closest to the target parameters. This button will plot three main parameters of all saved aggregates to enable comparison. Note the numbering of the folders for easy navigation.
+
+
+.. image:: media/3DAggregate11.jpg
+   :align: center
+   :width: 380px
+
+In this plot one can easily see, that while most model match value for c, model 21 is closest for d\ :sub:`f`  and d\ :sub:`min`. We can then select the model 21 in the Listbox *Saved 3D Mass aggregates* and generate 3D and 1D models of it using the buttons. Here is the best result we got at  this time:
+
+
+.. image:: media/3DAggregate12.jpg
+   :align: center
+   :width: 680px
+
+
+Button “\ **Delete all Stored**\ ” This button will delete ALL stored 3D Aggregates. It also closes all graphs for this tool to be able to delete these stored aggregates.
