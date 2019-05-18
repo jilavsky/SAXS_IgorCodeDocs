@@ -69,7 +69,9 @@ Now, when we have the Unified fit results above, we can either run directly the 
    :width: 450px
 
 *Let me describe the content of this panel:*
-In the top part are options to use results from Unified fit using modified version of :ref:`standard data selection tools <DataSelection>` . This is simply lookup tool, user can as well pick the needed numbers from *Analyze Results* in *Unified fit*. Data can be selected from Stored Unified Fit results or - as in the picture above - from current Unified fit working directory, using whatever values are in the current Unified Fit tool. This is result of the last Unified fit fit or manual change...   By default we assume, that levels 2/1 represent the Mass Fractal, but it can be changed by using the popup "Level" as needed. NOTE: The values are updated after user selects or reselects the Level choices, so if the numbers are stale, just reselect that popup display and values will be updated. Based on these selections, the code extracts needed parameters and presents them in table - and the most useful ones are repeated below the "Grow Aggregate" in blue color. These are your target values, what your aggregate should have to represent the Mass fractal scattering. *The most interesting are z = degree of aggregation and d\ :sub:`f` *
+In the top part are options to use results from Unified fit using modified version of :ref:`standard data selection tools <DataSelection>` . This is simply lookup tool, user can as well pick the needed numbers from *Analyze Results* in *Unified fit*. Data can be selected from Stored Unified Fit results or - as in the picture above - from current Unified fit working directory, using whatever values are in the current Unified Fit tool. This is result of the last Unified fit fit or manual change...   By default we assume, that levels 2/1 represent the Mass Fractal, but it can be changed by using the popup "Level" as needed. NOTE: The values are updated after user selects or reselects the Level choices, so if the numbers are stale, just reselect that popup display and values will be updated. Based on these selections, the code extracts needed parameters and presents them in table - and the most useful ones are repeated below the "Grow Aggregate" in blue color. These are your target values, what your aggregate should have to represent the Mass fractal scattering.
+
+The most interesting are z = degree of aggregation and d\ :sub:`f`
 
 The parameters user uses to control growth are:
 -----------------------------------------------
@@ -82,21 +84,28 @@ Using different combinations of *sticking probability* and *Sticking method* res
 
 *Note: lower Sticking probability and larger z values significantly increase run time.* Watch history area where progress is presented and final parameters are listed also.
 
+*NOTE* : growth of aggregate can fail if too compact particle is grown. When this happens, simply try again.
+
+*No of test paths* This is internal parameter which is defining how many different attempts to pass through the aggregate code does to calculate the resulting parameters. Higher number results in better statistical validity of the numbers for c, d\ :sub:`f`, d\ :sub:`min`, etc. But takes longer time. 2.5k seems kind of good compromise.
+
+*Primary Rg[A]* This gives the whole aggregate real size - copy here size of primary particle Rg.
+
+Grow the particles:
+-------------------
+
+OK, now we can grow the particles. First try growing one particle - see next button - and if all works as expected, grow multiple particles (and go and get coffee, it may take some time). Note, that this is CPU intensive calculation.
+
 *This MAY BE SLOW* Push Button “\ **Grow 1 Agg, graph**\ ” and this will create the aggregate and display it in Gizmo as well as calculate 1D intensity data and overlay them over the data from source folder. Below is result which run on my high-end MacBook Pro for about 15 seconds:
 
 .. image:: media/3DAggregate4.jpg
    :align: center
    :width: 780px
 
+This is relatively pretty good result, it is unlikely that all parameters will be matched exactly - or even very close.  It may be useful to use "Analyze uncertainties" in Unified fit to understand the precision with which the parameters are known. I have d\ :sub:`f` of about 2.09 (and need 2.2); c about 1.21 (and need 1.2); and d\ :sub:`min` about 1.72 (and need 1.9). I think this is close to a winner for this model. Also note, that the fit in the 1D intensity vs Q is reasonably good.
 
-This is relatively pretty good result, it is unlikely that all parameters will be matched exactly - or even very close.  I have d\ :sub:`f` of about 2.09 (and need 2.2); c about 1.21 (and need 1.2); and d\ :sub:`min` about 1.72 (and need 1.9). I think this is close to a winner for this model. Also note, that the fit in the 1D intensity vs Q is reasonably good.
+*This WILL BE SLOW* Push Button “\ **Grow N Agg**\ ” and this will create N aggregates sequentially (N is selected in the pull down menu next to this button, default is 5, max is 50), display it in Gizmo as well as calculate 1D intensity data, overlay them over the data from source folder, save the aggregate and store achieved results in notebook. These results can be the evaluated using button *Compare Stored*, see below.
 
-*NOTE* : growth of aggregate can fail if too compact particle is grown. When this happens, simply try again.
-
-*This WILL BE SLOW* Push Button “\ **Grow N Agg**\ ” and this will create N aggregates sequentially (N is selected in the pull down menu next to this button, default is 5), display it in Gizmo as well as calculate 1D intensity data, overlay them over the data from source folder, save the aggregate and store achieved results in notebook. These results can be the evaluated using button *Compare Stored*, see below.
-
-*NOTE* : When too compact particle is grown, it is skipped and nothing is saved. It is therefore common, that you end up with less than N saved aggregates to evaluate. 
-
+*NOTE* : When too compact particle is grown, it is skipped and nothing is saved. It is therefore common, that you end up with less than N saved aggregates to evaluate.
 
 Button “\ **Summary Table**\ ” displays Notebook with model summaries - and adds in there current results summary, see below. This can be used to follow how results depend on model input parameters and make notes.
 
@@ -149,7 +158,7 @@ In this plot one can easily see, that while most model match value for c, model 
 
 .. image:: media/3DAggregate12.jpg
    :align: center
-   :width: 680px
+   :width: 780px
 
 
 Button “\ **Delete all Stored**\ ” This button will delete ALL stored 3D Aggregates. It also closes all graphs for this tool to be able to delete these stored aggregates.
