@@ -101,15 +101,22 @@ OK, now we can grow the particles. First try growing one particle - see next but
    :align: center
    :width: 780px
 
-This is relatively pretty good result, it is unlikely that all parameters will be matched exactly - or even very close.  It may be useful to use "Analyze uncertainties" in Unified fit to understand the precision with which the parameters are known. I have d\ :sub:`f` of about 2.09 (and need 2.2); c about 1.21 (and need 1.2); and d\ :sub:`min` about 1.72 (and need 1.9). I think this is close to a winner for this model. Also note, that the fit in the 1D intensity vs Q is reasonably good.
+This is relatively good result. It is unlikely that all parameters will be matched exactly - or even very close. Note in the first graph with data the slope (d\ :sub:`f`) has uncertaintiy of 0.1, it is unreasonable to try to match this value more precisely. It may be useful to use "Analyze uncertainties" in Unified fit to understand the precision with which the parameters are known. I have d\ :sub:`f` of about 2.09 (and need 2.2); c about 1.21 (and need 1.2); and d\ :sub:`min` about 1.72 (and need 1.9). I think this is close to acceptable for this model. Also note, that the fit in the 1D intensity vs Q is reasonably good.
 
 *This WILL BE SLOW* Push Button “\ **Grow N Agg**\ ” and this will create N aggregates sequentially (N is selected in the pull down menu next to this button, default is 5, max is 50), display it in Gizmo as well as calculate 1D intensity data, overlay them over the data from source folder, save the aggregate and store achieved results in notebook. These results can be the evaluated using button *Compare Stored*, see below.
 
 *NOTE* : When too compact particle is grown, it is skipped and nothing is saved. It is therefore common, that you end up with less than N saved aggregates to evaluate.
 
-Button “\ **Summary Table**\ ” displays Notebook with model summaries - and adds in there current results summary, see below. This can be used to follow how results depend on model input parameters and make notes.
+Button “\ **Summary Table**\ ” displays Notebook with model summaries - and adds in there current results summary, see below. This can be used to follow how results depend on model input parameters and make notes. See below image for a record from one model run. This record needs to be created manually when growing one aggregate, but is created automatically, when growing N aggregates.
 
-Button “\ **Store Current Aggregate**\ ” stores the current aggregate result (including the 3D aggregate data) in separate folder, where they can then be found, displayed etc. It also adds results into the Table as the button "Summary Table". For stored 3D aggregates see list in Listbox below, I just added there the current result. Description in the table describes what parameters were used to create that mass fractal.
+
+.. image:: media/3DAggregate13.jpg
+   :align: center
+   :width: 380px
+
+
+
+Button “\ **Store Current Aggregate**\ ” stores the current aggregate result (including the 3D aggregate data) in separate folder, where they can then be found, displayed etc. It also adds results into the ListBox *Saved 3D Mass Fract Aggregate*, see list in Listbox below. I just added there the current result. Description in the table describes resulting parameters achieved for that Mass Fractal Aggregate. You can then select a line and generate 3D and 1D graphs etc. 
 
 
 .. image:: media/3DAggregate6.jpg
