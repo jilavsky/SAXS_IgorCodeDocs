@@ -410,23 +410,41 @@ Scattering Length Density Rho:
    :figwidth: 100%
 
 
-List of Model Parameters:
+List of Model Parameters (used in formulas):
+
 R1 : core radius
+
 R2 : outer radius of the first shell
+
 R3 : outer radius of the second shell
-: scattering length density of the matrix
- : scattering length density of the core
-: scattering length density of the first shell
- : scattering length density of the second shell
+
+:m:`\rho`_{0} : scattering length density of the matrix
+
+:m:`\rho`_{1} : scattering length density of the core
+
+:m:`\rho`_{2} : scattering length density of the first shell
+
+:m:`\rho`_{3} : scattering length density of the second shell
+
 First-order Bessel function of the first kind is defined as
+
+.. math::
+
+    J_{1}(x)=\frac{sin(x) - x*cos(x)}{x^2}
 
 Volume is defined as
 
-add formula here
+.. math::
+
+    V_{i}(r)=\frac{4\pi R_{i}^3}{3}
 
 Form factor of the core-shell-shell structure is:
 
-add formula here...
+.. math::
+
+    F(q)=\frac{3V_{1}}{qR_{1}}(\rho_1-\rho_2)J_{1}(qR_{1})+\frac{3V_{2}}{qR_{2}}(\rho_2-\rho_3)J_{1}(qR_{2})+\frac{3V_{3}}{qR_{3}}(\rho_3-\rho_0)J_{1}(qR_{3})
+
+**NOTE** Input parameters of the model are NOT :m:`R_{2}` or :m:`R_{3}` for the shells, but are thicknesses of those shells. This is to make the GUI understandable and compatible with section of use of radii or diameters. So, in this case we have "particle size" = 
 
 Volume definition depends on the setting of global parameter described in Core-shell form factor and is either:
 Whole particle volume = 4/3 * pi * (R+r)^3
@@ -439,7 +457,7 @@ Make sure your choice is appropriate
 .. _FormFactors.ShphereWHSLocMonoSq:
 
 .. index::
-    Form Factors; Shpere w HS Loc Mono Sq
+    Form Factors; Sphere w HS Loc Mono Sq
 
 **SphereWHSLocMonoSq**
 ^^^^^^^^^^^^^^^^^^^^^^
