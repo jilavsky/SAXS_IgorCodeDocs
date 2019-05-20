@@ -444,24 +444,33 @@ Form factor of the core-shell-shell structure is:
 
     F(q)=\frac{3V_{1}}{qR_{1}}(\rho_1-\rho_2)J_{1}(qR_{1})+\frac{3V_{2}}{qR_{2}}(\rho_2-\rho_3)J_{1}(qR_{2})+\frac{3V_{3}}{qR_{3}}(\rho_3-\rho_0)J_{1}(qR_{3})
 
-**NOTE** Input parameters of the model are NOT :m:`R_{2}` or :m:`R_{3}` for the shells, but are thicknesses of those shells. This is to make the GUI understandable and compatible with section of use of radii or diameters. So, in this case we have:
+**NOTE -- GUI panel input parameters -- NOTE**
+______________________________________________
 
-* "particle size" = R1 - this is the dimension controlled by Modeling package.
+Input parameters in the GUI panel are NOT :math:`R_{2}` or :math:`R_{3}` for the shells, but are *thicknesses* of those shells. This is to make the GUI understandable and compatible with selection of the use of radii or diameter for "size". So, in this case we have:
 
-* "Shell 1 thickness" = R2 - R1, this is thickness of the shell 1 in A.
+* "particle size" = :math:`R_{1}` - this is the dimension of the particle as defined by Modeling package. This is what your Mean size reflects.
 
-* "Shell 2 thickness" = R3 - R2, this is thickness of the shell 2 in A.
+* "Shell 1 thickness" = :math:`R_{2}` - :math:`R_{1}`, this is thickness of the shell 1 in [A].
+
+* "Shell 2 thickness" = :math:`R_{3}` - :math:`R_{2}`, this is thickness of the shell 2 in [A].
 
 Volume definition depends on the setting of global parameter described in Core-shell form factor and is either:
 
-Whole particle volume = 4/3 * pi * (R+r)^3,
+Whole particle
 
-Core volume = 4/3 * pi * R^3
+:math:`V_{i}(r)=\frac{4\pi (R+r)^3}{3}`
 
-Shell volume = 4/3 * pi * (R+r)^3  -  4/3 * pi * R^3
+Core volume
 
-**Where shell thickness "r" is sum of the two shell thicknesses (R3-R1).
-Make sure your choice is appropriate**
+:math:`V_{i}(r)=\frac{4\pi R^3}{3}`
+
+Shell volume
+
+:math:`V_{i}(r)=\frac{4\pi (R+r)^3}{3} - \frac{4\pi R^3}{3}`
+
+**Where shell thickness "r" is sum of the two shell thicknesses form GUI (in A), i.e., :math:`r = R_{3}-R_{1}` in the graph above.
+Make sure your choice of volume formula is appropriate, especially if you want to do absolute calibrated calculations.**
 
 
 .. _FormFactors.ShphereWHSLocMonoSq:
