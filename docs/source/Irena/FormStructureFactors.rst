@@ -418,13 +418,13 @@ R2 : outer radius of the first shell
 
 R3 : outer radius of the second shell
 
-:m:`\rho`_{0} : scattering length density of the matrix
+:math:`\rho_{0}` : scattering length density of the matrix
 
-:m:`\rho`_{1} : scattering length density of the core
+:math:`\rho_{1}` : scattering length density of the core
 
-:m:`\rho`_{2} : scattering length density of the first shell
+:math:`\rho_{2}` : scattering length density of the first shell
 
-:m:`\rho`_{3} : scattering length density of the second shell
+:math:`\rho_{3}` : scattering length density of the second shell
 
 First-order Bessel function of the first kind is defined as
 
@@ -444,14 +444,24 @@ Form factor of the core-shell-shell structure is:
 
     F(q)=\frac{3V_{1}}{qR_{1}}(\rho_1-\rho_2)J_{1}(qR_{1})+\frac{3V_{2}}{qR_{2}}(\rho_2-\rho_3)J_{1}(qR_{2})+\frac{3V_{3}}{qR_{3}}(\rho_3-\rho_0)J_{1}(qR_{3})
 
-**NOTE** Input parameters of the model are NOT :m:`R_{2}` or :m:`R_{3}` for the shells, but are thicknesses of those shells. This is to make the GUI understandable and compatible with section of use of radii or diameters. So, in this case we have "particle size" = 
+**NOTE** Input parameters of the model are NOT :m:`R_{2}` or :m:`R_{3}` for the shells, but are thicknesses of those shells. This is to make the GUI understandable and compatible with section of use of radii or diameters. So, in this case we have:
+
+* "particle size" = R1 - this is the dimension controlled by Modeling package.
+
+* "Shell 1 thickness" = R2 - R1, this is thickness of the shell 1 in A.
+
+* "Shell 2 thickness" = R3 - R2, this is thickness of the shell 2 in A.
 
 Volume definition depends on the setting of global parameter described in Core-shell form factor and is either:
-Whole particle volume = 4/3 * pi * (R+r)^3
+
+Whole particle volume = 4/3 * pi * (R+r)^3,
+
 Core volume = 4/3 * pi * R^3
+
 Shell volume = 4/3 * pi * (R+r)^3  -  4/3 * pi * R^3
-Where shell thickness "r" is sum of the two shell thicknesses (R3-R1).
-Make sure your choice is appropriate
+
+**Where shell thickness "r" is sum of the two shell thicknesses (R3-R1).
+Make sure your choice is appropriate**
 
 
 .. _FormFactors.ShphereWHSLocMonoSq:
