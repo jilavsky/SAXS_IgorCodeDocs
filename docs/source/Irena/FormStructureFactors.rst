@@ -130,9 +130,9 @@ Form Factor description
 ^^^^^^^^^^^^
 uses sphere form factor for aspect ratio between 0.99 and 1.01:
 
-	F^2 =   3/(QR^3))*(sin(QR)-(QR*cos(QR))
+:math:`F^2(Q,R)=\frac{3(sin(QR)-(QR)cos(QR))}{(QR)^3}`
 
-volume : 	V=((4/3)*pi*radius^3)
+volume :math:`V(R)=\frac{4\pi R^3}{3}`
 
 This calculation approximates integral over R as rectangle (compare with Integrated spheroid).
 
@@ -178,12 +178,12 @@ Since Irena version 2.54 Spheroid with aspect ratio !=1 will use NIST xop to spe
 ^^^^^^^^^^^^^^^^^^^^^^^
 
 same code as in the spheroid, but in this case the code integrates over the width of the R bin.
-Note, the bin star and end points are calcualted linearly (even for log-binned data) as half way distance:
+Note, the bin star and end points are calculated linearly (even for log-binned data) as half way distance:
 	Rstart = (Rn + Rn-1)/2
 	Rend  =  (Rn + Rn+1)/2
-	Uses adaptive steps to integrate essel function oscillations of the form factor over the width of the bin in R  - note, the averaging is done including the volume of particles involved. This code is quite convoluted and time consuming. Its only reasonable use is for cases with wide bins in radius (R), when this removes some of the bessel function oscillations.
+	Uses adaptive steps to integrate Bessel function oscillations of the form factor over the width of the bin in R  - note, the averaging is done including the volume of particles involved. This code is quite convoluted and time consuming. Its only reasonable use is for cases with wide bins in radius (R), when this removes some of the Bessel function oscillations.
 
-Examples with R width 40A, average size 50A (that means R varies from 30 to 70A). Note that the bessel function oscillations are somewho smooth out. With wider bins in R these oscillations may disappear all together.
+Examples with R width 40A, average size 50A (that means R varies from 30 to 70A). Note that the Bessel function oscillations are somehow smooth out. With wider bins in R these oscillations may disappear all together.
 
 AR = 1 (sphere)
 
@@ -218,8 +218,11 @@ AR=0.1 (spheroid)
 The code uses the following code to calculate form factor for cylinder. Note, that also this code is doing the same integration as integrated spheroid above (see 2).
 
 Form factor = integral over (Ft) for Alpha = 0 to pi/2, Ft is below:
+
 LargeBes=sin(0.5*Qvalue*length*Cos(Alpha)) / LargeBesArg
+
 SmallBessDivided=BessJ(1, Qvalue*radius*Sin(Alpha))/Qvalue*radius*Sin(Alpha)
+
 Ft  = LargeBes*SmallBessDivided
 
 Examples
@@ -248,34 +251,49 @@ Since Irena version 2.54 Cylinders will use NIST xop to speed up its calculation
 **CoreShell**
 ^^^^^^^^^^^^^
 
-One thing to remeber: the total radius of this particle is core radius + shell thickness... If you use diameter as dimension of the particle (new in Irena version 2.53), the total diameter of the particle is diameter+2*shell thickness.
+One thing to remember: the total radius of this particle is core radius + shell thickness... If you use diameter as dimension of the particle (new in Irena version 2.53), the total diameter of the particle is diameter+2*shell thickness.
 Note, this form factor calculation also includes integration over the width of bin in radii (same as integrated spheroid and cylinder).
 
-Note: Input form factor parameter for core/shell/solvant is rho in
+Note: Input form factor parameter for core/shell/solvent is rho in
 [1010 cm-2] - this is very important to keep in mind.
 
 Note, that there is volume definition choice you need to do: Whole particle, core, or shell, as appropriate for given problem. This volume definition is used for all volume calculations for this particle. It is global parameter for all core shell cylinder or core shell calls in the WHOLE EXPERIMENTÅc.
 
 Code (heavily simplified!):
 
-	RhoDelta = CoreRho - ShellRho
-	//core
-	Result1=(3/(Q*R)^3)*(sin(Q*R)-(Q*R*cos(Q*R)))  * RhoDelta * (4/3 * pi * R^3)
+:math:`\Delta\rho=\rho_{core} - \rho_{shell}`
 
-	//Now add the shell (skin) , thickness Rshell
-	r = R+Rshell
-	RhoDelta = ShellRho - SolventRho
-	Result2 = (3/(Q*r)^3)*(sin(Q*r)-(Q*r*cos(Q*r))) * RhoDelta * (4/3 * pi * r^3)
+//core
 
-	//summ them together and normalize by the total particle volume
-	F^2 =( result1 + result2 )^2 / Volume
+:math:`Result_{core}(Q,R)=\frac{3(sin(QR)-QRcos(QR))}{(QR)^3} - \Delta\rho \frac{4\pi R^3}{3}`
 
-Volume definition depends on the setting of above discussed global parameter and is either:
-Whole particle volume = 4/3 * pi * (R+r)^3
-Core volume = 4/3 * pi * R^3
-Shell volume = 4/3 * pi * (R+r)^3  -  4/3 * pi * R^3
+//Now add the shell (skin) , thickness is called Rshell
 
-Make sure your choice is appropriate
+:math:`r = R+R_{shell}` this is radius of the core+shell
+
+:math:`\Delta\rho=\rho_{shell} - \rho_{solvent}`
+
+:math:`Result_{shell}(Q,r)=\frac{3(sin(Qr)-Qrcos(Qr))}{(Qr)^3} - \Delta\rho \frac{4\pi r^3}{3}`
+
+//summ them together and normalize by the total particle volume
+
+:math:`F^2(Q,R,r)=\frac{(Result_{core}(Q,R) + Result_{shell}(Q,r))^2}{V_{i}(R,r)}`
+
+Volume definition depends on the setting of global parameter described in Core-shell form factor and is either:
+
+Whole particle volume
+
+:math:`V_{i}(r)=\frac{4\pi (R+r)^3}{3}`
+
+Core volume
+
+:math:`V_{i}(r)=\frac{4\pi R^3}{3}`
+
+Shell volume
+
+:math:`V_{i}(r)=\frac{4\pi (R+r)^3}{3} - \frac{4\pi R^3}{3}`
+
+**Make sure your choice of volume formula is appropriate, especially if you want to do absolute calibrated calculations.**
 
 Note, that to my surprise these calculations (copied from NIST Form factors) do not normalize correctly to 1 at low q. The reason is that the weighting is done by volume and contrast. I'll need to look into this again and in detail...
 
@@ -295,7 +313,7 @@ Example, Radius 50A, skin thickness 10A, contrast ratio 0.6
 **CoreShellPrecipitate**
 ^^^^^^^^^^^^^^^^^^^^^^^^
 
-This is unique form factor, which - even for dilute sytem - results in "diffraction peak" type scattering. It is a very special case, when coreshell particle is formed from matrix and as it is formed, the core chemistry/rho deviates from matrix chemistry/rho. If the diffusion in the matrix is not fast enough, the chemistry around the particle changes, which results in rho changing in the other direction. Therefore one can end with coreshell particle which has higher-then-solvent rho core surounded by lower-then-solvent rho shell (or the other way). With average rho same as matrix. In such case at low-qs the particle "disappers" since we are probing material on larger length scales, and on average at those length scales the rho is the same. Fro example of this type of precipitation see:
+This is unique form factor, which - even for dilute system - results in "diffraction peak" type scattering. It is a very special case, when core shell particle is formed from matrix and as it is formed, the core chemistry/rho deviates from matrix chemistry/rho. If the diffusion in the matrix is not fast enough, the chemistry around the particle changes, which results in rho changing in the other direction. Therefore one can end with core shell particle which has higher-then-solvent rho core surrounded by lower-then-solvent rho shell (or the other way). With average rho same as matrix. In such case at low-qs the particle "disappears" since we are probing material on larger length scales, and on average at those length scales the rho is the same. Fro example of this type of precipitation see:
 
 Imhoff, S.D., et al., Kinetic transition in the growth of Al nanocrystals in Al-Sm alloys. Journal of Applied Physics, 2012. 111(6): p. 063525-9.
 
@@ -303,10 +321,11 @@ Remember, that by basic nature of this logic, the rho of the core/shell needs to
 
 The particle volume is always volume of the core. I think no other logic makes too much sense.
 
-Code uses regular coreshell form factor (see above). For each size the shell thickness is calculated so the average rho of the particle matches the rho of the solvent. First we calculate:
-ShellVolume = CoreVolume*(SolventRho - CoreRho) / (ShellRho - SolventRho)
-Then we calculate the shell thickness for known ShellVolume and known core radius.
-Core volume = 4/3 * pi * R^3
+Code uses regular core shell form factor (see above). For each size the shell thickness is calculated so the average rho of the particle matches the rho of the solvent. First we calculate:
+
+:math:`ShellVolume=\frac{CoreVolume(SolventRho - CoreRho)}{ShellRho - SolventRho}` Then we calculate the shell thickness for known ShellVolume and known core radius.
+
+Core volume = :math:`\frac{4}{3} \pi R^3`
 
 Example, Radius 50A, Core Rho 110, Shell Rho 85, Solvent Rho 90; note, this internally resolves to shell thickness of 35.5A.
 
@@ -332,9 +351,11 @@ Code  which is being used is direct copy of NIST Core shell cylinder.
 Note, that there is volume definition choice you need to do: Whole particle, core, or shell, as appropriate for given problem. This volume definition is used for all volume calculations for this particle. It is global parameter for all core shell cylinder or core shell calls in the WHOLE EXPERIMENTÅc.
 
 Volume definition depends on the setting of above discussed global parameter and is either:
-Whole particle volume =  pi * (R+r)^2 * (L+2*r)
-Core volume = pi * R^2 * L
-Shell volume = pi * (R+r)^2 * (L+2*r)  -  pi * R^2 * L
+Whole particle volume =  :math:`\pi*(R+r)^2*(L+2r)`
+
+Core volume = :math:`\pi R^2L`
+
+Shell volume = :math:`\pi*(R+r)^2*(L+2r) - \pi R^2L`
 
 .. Figure:: media/FormFactor_CoreShellCyl.png
    :align: left
@@ -469,7 +490,7 @@ Shell volume
 
 :math:`V_{i}(r)=\frac{4\pi (R+r)^3}{3} - \frac{4\pi R^3}{3}`
 
-**Where shell thickness "r" is sum of the two shell thicknesses form GUI (in A), i.e., :math:`r = R_{3}-R_{1}` in the graph above.
+**Where shell thickness "r" is sum of the two shell thicknesses form GUI (in A), i.e.,** :math:`r = R_{3}-R_{1}` **in the graph above.
 Make sure your choice of volume formula is appropriate, especially if you want to do absolute calibrated calculations.**
 
 
@@ -518,7 +539,7 @@ Example of results:
    :width: 420px
    :figwidth: 100%
 
-Note: the results in the above graph are scaled to F^2(Q=0) = 1. Since the formula inclused scattering length densities, normalization by the volume does not result in F^2(Q=0) = 1. This may result in unexpected problems with absolute calibration.
+Note: the results in the above graph are scaled to F^2(Q=0) = 1. Since the formula included scattering length densities, normalization by the volume does not result in F^2(Q=0) = 1. This may result in unexpected problems with absolute calibration.
 
 This FF is implemented twice...
 
@@ -759,9 +780,11 @@ This is list of library of structure factors. These structure factors enable to 
 
 This is original structure factor in Irena package. It has been provided as part of Unified fit model by Gregg Beaucage and is listed in his publication: Beaucage, G. (1995). Chapter 9 in ÅgHybrid Organic-Inorganic CompositesÅh, ACS symposium Series 585, edited by J. E. Mark, C. Y-C. Lee, and P. A. Bianconi, 207th National Meeting of the American Chemical Society, San Diego, CA, March 13-17, 1994. American Chemical Society, Washington, DC 1995. Pg. 97 – 111.
 
+.. math::
+    S(Q)=\frac{1}{1+k\frac{3(sin(Q\xi)-q\xi(cos(Q\xi)))}{(Q\xi)^3}}
 
 
-Note, that this model is, for most practical purposes, close to Hard spheres model with different definition of the parameters k (ÅgpackÅh) and ƒÄ (ÅgETAÅh). Modeling II extends the capabilities by including three more structure factors using code available from NIST Igor package (ref). Included are now: Hard spheres, Square Well, and Sticky Hard Spheres, which can be used in addition to interferences model above and no structure factor (dilute limit).
+Note, that this model is, for most practical purposes, close to Hard spheres model with different definition of the parameters k ("Pack") and :math:`\xi` ("ETA"). Modeling extends the capabilities by including three more structure factors using code available from NIST Igor package (ref). Included are now: Hard spheres, Square Well, and Sticky Hard Spheres, which can be used in addition to interferences model above and no structure factor (dilute limit).
 
 .. Figure:: media/StructureFactor_Interferences.png
    :align: left
@@ -866,7 +889,7 @@ Important note: this is comment from original NIST codeÅc.
 **InterPrecipitate**
 ^^^^^^^^^^^^^^^^^^^^
 
-The code for this structure factor has been created on user request for study of precipitation in metals. It is based on formula 6 from APPLIED PHYSICS LETTERS 93, 161904 (2008), Study of nanoprecipitates in a nickel-based superalloy using small-angle neutron scattering and transmission electron microscopy by : E-Wen Huang, Peter K. Liaw, Lionel Porcar, Yun Liu, Yee-Lang Liu, Ji-Jung Kai, and Wei-Ren Chen. This manuscript refers for this formula to paper by R. Giordano, A. Grasso, and J. Teixeira, Phys. Rev. A 43, 6894 (1991). I did not look up original reference, so check it youself to make sure theformula is OKÅc
+The code for this structure factor has been created on user request for study of precipitation in metals. It is based on formula 6 from APPLIED PHYSICS LETTERS 93, 161904 (2008), Study of nanoprecipitates in a nickel-based superalloy using small-angle neutron scattering and transmission electron microscopy by : E-Wen Huang, Peter K. Liaw, Lionel Porcar, Yun Liu, Yee-Lang Liu, Ji-Jung Kai, and Wei-Ren Chen. This manuscript refers for this formula to paper by R. Giordano, A. Grasso, and J. Teixeira, Phys. Rev. A 43, 6894 (1991). I did not look up original reference, so check it yourself to make sure thef ormula is OKÅc
 
 
 .. Figure:: media/StructureFactor_Interprecipitate.png
@@ -877,13 +900,17 @@ The code for this structure factor has been created on user request for study of
 
 Structure factor has two parameters - L distance and sigma  - root-mean-square deviation (ordering factor):
 
+.. math::
+    S(Q,L,\sigma)=2\{\frac{1-\exp[-(Q^2\sigma^2)/4]cos(QL)}{1-2\exp[-(Q^2\sigma^2)/4]cos(QL)+\exp[-(Q^2\sigma^2)/2]} \}-1
+
 
 In Igor code this is programmed:
 
-top = 1 - exp(-(Q^2*sigma^2)/4)*cos(Q*L)
-bot = 1-2*exp(-(Q^2 * sigma^2)/4)* cos(Q*L) + exp(-(Q^2*sigma^2)/2)
+top = :math:`1 - \exp(-(Q^2\sigma^2)/4)cos(QL)`
 
-S(Q,L,sigma) = 2*(top/bot) - 1
+bot = :math:`1-2\exp(-(Q^2 \sigma^2)/4)cos(QL) + \exp(-(Q^2\sigma^2)/2)`
+
+:math:`S(Q,L,\sigma) = 2\frac{top}{bot} - 1`
 
 This is model of the SF for L=200 and Sigma=20 (Sigma/L=10). I have no way of testing this so this formula has not been checked against any data.
 
