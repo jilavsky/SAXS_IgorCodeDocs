@@ -36,7 +36,14 @@ Next select Output options:
 ***File type descriptions:***
 
 **ASCII data** are data exported as ASCII (=text) with header information (see below for header separator) in columnar format, columns are separtated by tabs (white space). Exported can be anything - Q/Int/Uncertainty, Size distribution, Model fits,... Anything X-Y-(E) data can be exported this way - and imported in other packages. No conversions are done - what units and data type is selected, that is exported. This is most flexible and compatible export tool.
-*NOTE* DO NOT export slit smeared USAXS data - as of 2017-11 there is no package for data analysis I know about which ha s correctly implemented slit smearing compatible with my USAXS data. Export desmeared data or use Irena pac kage for analysis.
+*NOTE* DO NOT export slit smeared USAXS data - as of 2017-11 there is no package for data analysis I know about which ha s correctly implemented slit smearing compatible with my USAXS data. Export desmeared data or use Irena package for analysis.
+
+*For standard Q/d/2Theta - Intensity - ... :*
+The first column is Q (or d, or twoTheta), second is intensity, third is uncertainty to intensity, and fourth is q (d, or 2-Theta) resolution.
+
+Now, more details : *Q* is [1/A], d is in [A], 2-Theta in degrees. *Intensity* may be on absolute scale - or may not, depending on what user does in Nika or what the data were imported. *Uncertainty* to intensity - this depends on user setting in Nika, where there are three different methods for uncertainty calculation. This is pain as there is no clear ideal uncertainty calculation method. Users should always assume these uncertainties are “estimated” values. But no one can do any better anyway… *Q* (d, twoTheta) resolution is convolution of pixel size, beam size (if set in Nika) and Nika’s binning of Q points (unless you use max number of points). It has Q units and is used to smear models in packages which can do so. It is rarely used - sasView can use that and Irena Modeling can use it also.  Luckily, it is rarely needed. So this one you can most likely ignore.
+*If you use Indra (USAXS) data reduction* the uncertainty is estimated value using quite complicated formula in Indra and q-resolution is calculated from number of parameters of the USAXS instrument. You can trust those values quite well.
+
 
 **XYE GSAS-II compatible** are ASCII data specially formated so GSAS-II package can load them in. The tool will take Qvector - or - d spacing - or - Two theta + Intensity and Uncertainty data and export them with header in manner which is compatible with "xye" imported in GSAS-II and likely other powder diffraction/WAXS packages. Any input data care converted to TwoTheta-Intensity-Unceertainty and exported with proper header. Note that this is really useful ONLY for powder diffraction (WAXS) data reduced by Nika package, it is not useful for SAXS or USAXS!
 
@@ -58,7 +65,7 @@ Next select Output options:
 
 *Header separator* - useful for ASCII only, change if different isd esired. Include spaces, if these are desired!!!
 
-***"Export Data & Notes"*** button does the job. If the data in the target location exist, you will be asked if you want to overwrite them. It may be easier to delete files from the target location instead of overwriting, if you need to overwrite many. 
+***"Export Data & Notes"*** button does the job. If the data in the target location exist, you will be asked if you want to overwrite them. It may be easier to delete files from the target location instead of overwriting, if you need to overwrite many.
 
 Multiple data set export option:
 

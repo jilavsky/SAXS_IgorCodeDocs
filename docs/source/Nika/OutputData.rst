@@ -76,26 +76,4 @@ CalibrationFormula=1\*((Sa2D));CurrentMaskFileName=A mask\_mask;QvectorNumberPoi
 ASCII export
 ------------
 
-ASCII files with following data are stored in the selected folder:
-
-# CalibrationFormula=1\*((Sa2D))
-
-# CurrentMaskFileName=A mask\_mask
-
-# QvectorNumberPoints=300
-
-# AngularSector=150
-
-# AngularHalfWidth=5
-
-0.01601654 0 0
-
-0.0163735 1537 39.20459
-
-0.01655496 1467 38.30144
-
-0.01673842 1416 999.0073
-
-0.01692392 1505 38.79433
-
-The columns contain first q, second intensity and third error…
+see :ref:`ASCII export from Irena <export_data>`
