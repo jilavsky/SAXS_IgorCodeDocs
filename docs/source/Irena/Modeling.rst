@@ -667,14 +667,14 @@ Anyway, select background, Volume for each f the populations, Mean size, and Std
             :align: center
             :width: 480px
 
-Uncertainity evaluation
+Uncertainty evaluation
 -----------------------
 
 This script enables to analyze uncertainties of parameters of the Modeling II, same method as Unified fit (chapter 6.6). There are two different types of analysis one can imagine:
 
 1. Effect of input data uncertainties on the results. This analysis is done by running same fitting analysis (with all parameters fitted) on variations of data. These variations are created by adding Gaussian noise on input data. The Gaussian noise is scaled to have same standard deviation as input data uncertainties ("errors"). Analysis on these randomly modified data is run multiple times and statistical analysis on the results for each parameter is performed.
 
-2. Stability of each parameter separately. This is bit more complicated - analyzed parameter is fixed, step wise, in range of values user specifies. Other user-selected parameters are fitted and chi-square values are recorded. After the analysis, this dependence is analyzed and based on statistical analysis (number of fitted points and free parameters) the uncertainty of the parameter is estimated.
+2. Stability of each parameter separately. This is bit more complicated - analyzed parameter is fixed, step wise, in range of values user specifies. Other user-selected parameters are fitted and chi-square values are recorded. After the analysis, this dependence is analyzed and based on statistical analysis (number of fitted points and free parameters) the uncertainty of the parameter is estimated. This method is based on chapter 11 "Testing the fit" in "Data Reduction and Error Analysis" P. Bevington and D. K. Robinson, available here (http://hosting.astro.cornell.edu/academics/courses/astro3310/Books/Bevington_opt.pdf). The calculation of Chi-Square target based on number of degrees of freedom is obtained by using data from table C4 in this book and approximating them with polynomial function for ease of calculation.
 
 .. image:: media/Modeling37.png
             :align: center
