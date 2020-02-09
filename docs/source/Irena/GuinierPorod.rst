@@ -83,7 +83,7 @@ Below tabbed area we have Background (self explanatory I assume).
 
 "*Fix limits*" This button will reset limits around current values for the parameters. Easiest way to fix limits if you get "reached fitting limit" message after the fit.
 
-"*Results ->Data Folder*" Copies the current results into the data folder so they can be later exported, plotted, their wave note checked for parameters etc. Simply creates what Irena calls "results".
+"*Results ->Data Folder*" Copies the current results into the data folder so they can be later exported, plotted, their wave note checked for parameters etc. Simply creates what Irena calls "results". These are saved as "GuinierPorodFitIntensity_Y" and "GuinierPorodFitQvector_Y", where Y is order number selected so any previously stored results are not overwritten. There is now option to export just the main fit (default and one used if using scripting tool) or export Level fits also. In this case each used level has its intensity-Q exported as "GuinierPorodIntLevelX_Y" and "GuinierPorodQvecLevelX_Y". 
 
 "*Results ->Graphs*" Adds tags into the graph with parameters listing. Easy way of creating annotated graph with results.
 

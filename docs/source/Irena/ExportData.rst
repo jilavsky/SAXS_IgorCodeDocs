@@ -5,7 +5,7 @@
 Export data
 ===========
 
-Irena produces large number of data sets, which can sometimes be exported when created, but more often not. While the most convenient use of the data is within Igor experiment by ploting or processing further, many users may want to use another programs. And then it is imperative to export them as ASCII files. This is the tool for that…
+Irena produces large number of data sets, which can sometimes be exported when created, but more often not. While the most convenient use of the data is within Igor experiment by plotting or processing further, many users may want to use another programs. And then it is imperative to export them as ASCII files. This is the tool for that…
 
 .. image:: media/DataExport1.jpg
 
@@ -35,7 +35,7 @@ Next select Output options:
 
 ***File type descriptions:***
 
-**ASCII data** are data exported as ASCII (=text) with header information (see below for header separator) in columnar format, columns are separtated by tabs (white space). Exported can be anything - Q/Int/Uncertainty, Size distribution, Model fits,... Anything X-Y-(E) data can be exported this way - and imported in other packages. No conversions are done - what units and data type is selected, that is exported. This is most flexible and compatible export tool.
+**ASCII data** are data exported as ASCII (=text) with header information (see below for header separator) in columnar format, columns are separated by tabs (white space). Exported can be anything - Q/Int/Uncertainty, Size distribution, Model fits,... Anything X-Y-(E) data can be exported this way - and imported in other packages. No conversions are done - what units and data type is selected, that is exported. This is most flexible and compatible export tool.
 *NOTE* DO NOT export slit smeared USAXS data - as of 2017-11 there is no package for data analysis I know about which ha s correctly implemented slit smearing compatible with my USAXS data. Export desmeared data or use Irena package for analysis.
 
 *For standard Q/d/2Theta - Intensity - ... :*

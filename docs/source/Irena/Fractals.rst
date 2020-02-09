@@ -5,9 +5,19 @@
 Fractal model
 =============
 
-This model has been developed by Andrew J. Allen from NIST (Andrew.allen@nist.gov). The model allows to combine two volume and two mass fractals in much similar way as the Unified model does. The parameters from this model have advantage of being more “fractal-related” than the values from Unified. There is short pdf file included in the distribution, which served as basis for my design of this tool. Note, that this tool is actually port of Andrew's original Fortran code into Igor, my code was verified to give same results as this Fortran code.
+This model has been developed by Andrew J. Allen from NIST (Andrew.allen@nist.gov). The model allows to combine two volume and two mass fractals in much similar way as the Unified model does. The parameters from this model have advantage of being more “fractal-related” than the values from Unified. There is short pdf file included in the distribution, which served as basis for my design of this tool. Note, that this tool is actually port of Andrew's original Fortran code into Igor, my code was verified to give same results as this Fortran code. Citation for this model all users should cite is: G. Gadikota, F. Zhang, A.J. Allen; “Towards understanding the microstructural and structural changes in natural hierarchical materials for energy recovery: In-operando multi-scale X-ray scattering characterization of Na- and Ca-montmorillonite on heating to 1150 °C,” (with supplementary material) Fuel, 196, 195-209 (2017). DOI: 10.1016/j.fuel.2017.01.092
 
-Note, that this write up was written for studies of cement and therefore some of the terms are material-specifically called.
+
+Important points  to proper analysis using this model are:
+  Make realistic initial estimates of the parameters - including fixing any flat background term so it is effectively subtracted out from the model (can be refined slightly in a final fit). Porod law fitting can be used in an appropriate q-range to do this. This also has the advantage of providing a total surface area, St from which the “rough” surface-fractal surface area, Ssf, can be subtracted out to give the volume-fractal surface area, Svf, etc.
+
+  The eta parameter should also probably be fixed at ≈ 0.5 initially (again some final refinement can be considered when everything else is done.
+
+**The key problem for the user in all this is the following:**
+If you have just one volume-fractal and one surface-fractal component, plus a background, there are in principle 9 fitting parameters. However, for each region of the scattering curve that has essentially one curvature, you typically only need 3 fit parameters for fit convergence in that region.
+So, to fit everything you really need to see at least 3 distinct regions of the USAXS/SAXS curve, and just 3 of the above parameters (a different 3 in each case) need to be dominant in each regime! A sensible trial of reasonable parameter values should be experimented with first, then fit parameters introduced progressively using what is known (at least qualitatively) to help discover and refine what is unknown quantitatively. Usually, I like to get semi-respectable fits for the whole curve, then focus on particular regions of the data to refine one set of component parameters, then fix most of these and move on to the next region, etc.
+
+Note, that the short write up below was written for studies of cement and therefore some of the terms are material-specifically called.
 
 **Model description**
 
@@ -21,13 +31,9 @@ Note, that this write up was written for studies of cement and therefore some of
       :width: 100%
 
 
-.. image:: media/Fractals2.png
-         :align: center
-         :width: 100%
-
 **Use**
 
-*Important* : If you are using USAXS data, these must be desmeared, not slit smeared. The tool will not "see" the slit smeared data. Turns out, it was really difficult to use slit smeared data for users. 
+*Important* : If you are using USAXS data, these must be desmeared, not slit smeared. The tool will not "see" the slit smeared data. Turns out, it was really difficult to use slit smeared data for users.
 
 I do not have included real fractal data, but for purpose of GUI description and function description, the included data should be sufficient.
 

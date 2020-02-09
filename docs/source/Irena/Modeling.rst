@@ -16,7 +16,7 @@ Modeling
 
 This tool is : **advanced; complicated; challenging to use – but really powerful**
 
-The use of this tool is recommended to everyone who is trying to model small angle scattering from complciated system which requires combination of different models. It is challenging, but it is very capable.
+The use of this tool is recommended to everyone who is trying to model small angle scattering from complicated system which requires combination of different models. It is challenging, but it is very capable.
 
 **Features**
 
@@ -75,7 +75,7 @@ This formula has been coded very many times… Following are comments, which add
 
 Three different distribution models are available – Gauss (Normal), Log-Normal, and LSW (Lifshitz-Slyozov-Wagner used in precipitation theory involving Ostwald Ripening).
 
-Irena uses by default automatic selection of :ref:`radia <RadiiDistribution>` distribution – ranges needed, bin widths etc. – with user selectable precision and number of steps. For details see Irena manuscript which goes to details on this subject. ALternatively, user can select to provide radii distrubution definition parameetrs manually and therefore generate distribution of his/her choosing. Default automatic method is likely the best for very large fractionof users.
+Irena uses by default automatic selection of :ref:`radia <RadiiDistribution>` distribution – ranges needed, bin widths etc. – with user selectable precision and number of steps. For details see Irena manuscript which goes to details on this subject. Alternatively, user can select to provide radii distribution definition parameters manually and therefore generate distribution of his/her choosing. Default automatic method is likely the best for very large fraction of users.
 
 Number of form and structure factors are available. Note, that it is relatively easy to add other shapes in the code, so if anyone needs (really needs) another shape, let me know… Calculation speed of different form factors varies significantly depending on calculations needed to calculate involved integrals.
 
@@ -85,13 +85,13 @@ The code includes number of Structure factors to account for interaction among t
 
 The code used for calculations involves correcting intensity from a population of scatterers using this formula:
 
-Intensity\ :sub:`with interfernce`\ (Q, R) =Intensity\ :sub:`without interference` (Q,R) \* Structure factor (Q,R)
+Intensity\ :sub:`with interference`\ (Q, R) =Intensity\ :sub:`without interference` (Q,R) \* Structure factor (Q,R)
 
 Description and details on the structure factors are in the Igor help file or pdf file "Form and Structure description" which can be opened from the Irena menu.
 
 **Remember**: these method accounts in very crude way ONLY for interaction for particles in the particular population. If there are interactions among particles from different populations – which is very likely – these calculations have NO WAY to account for it.
 
-**Important Information** The code uses for all size related parameters Angstroems (10\ :sup:`-10` m) or for Q vector (A\ :sup:`-1`). In the case of scattering contrast, number distribution and any other volume contents centimeters (10\ :sup:`-2` m). This code uses either **Diameter** or **Radii** for scatterer size.
+**Important Information** The code uses for all size related parameters Angstroms (10\ :sup:`-10` m) or for Q vector (A\ :sup:`-1`). In the case of scattering contrast, number distribution and any other volume contents centimeters (10\ :sup:`-2` m). This code uses either **Diameter** or **Radii** for scatterer size.
 
 **Distributions** :math:`\Psi (r)` and :math:`V(r) \Psi (r)` **and distribution of r.**
 
