@@ -62,7 +62,15 @@ Most parameters should be closely related to the ones mentioned above in descrip
 
 **Correlation length** – distance between the particles
 
-**Particle aspect ratio** – 1 if particles are basically spheres, larger than 1 – elongated particles, lower than 1 prolated particles. Particles are always spheroids.
+**Particle aspect ratio (beta)** – Particles are spheroids with this aspect ratio - their dimensions are R x R x beta\*R. Most often aspect ratio should be *1* if particles are approximately spheres (most common), larger than *1* are elongated spheroids (~cigars), lower than *1* for prolated particles (~disks). Note, that the code uses monodispersed Form factors (sphere or spheroid) and this results in Bessel function oscillations at high-q values. This is rarely realistic and unless there is Surface fractal at higher q values, model looks weird.
+
+
+**Use UF Particle Form Factor** Starting from Irena version 2.70 you can choose checkbox "Use UF Particle Form Factor". In this case code will use Unified Fit Sphere form factor which is approximate Form factor for sphere using Unified Fit model. Aspect ratio beta is not used (it is 1 since this is sphere). Note, in the figure below that there are no oscillations at high-q. 
+
+.. image:: media/Fractals4a.jpg
+         :align: center
+         :width: 100%
+
 
 **Contrast** – contrast…
 
