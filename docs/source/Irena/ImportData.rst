@@ -6,7 +6,7 @@
 Import data
 ===========
 
-This chapter describes how to import various types of 1D SAS and WAXS deata in Irena. Irena has various importers - for ASCII, HDF5 canSAS Nexus, & canSAS XML. *Users of Indra 2 or Nika produced data can skip this chapter.*
+This chapter describes how to import various types of 1D SAS and WAXS data in Irena. Irena has various importers - for ASCII, HDF5 canSAS Nexus, & canSAS XML. *Users of Indra 2 or Nika produced data can skip this chapter.*
 
 I have included ASCII set of data from our USAXS experiment as example on which user can play and test capabilities, they can be found where the Irena macros are installed, typically Documents/Wavemetrics/Igor Pro 7 folder/User Procedures/Irena/Example Data/.
 
@@ -33,7 +33,7 @@ In “Data import & export” from “SAS” menu select either:
 
 -  “Import canSAS XML data”.
 
-Each tool has its own screen and there are small differences in operations. This chapter descxribed ASCII importer in details and for the others only the differences. So read the whole thing!
+Each tool has its own screen and there are small differences in operations. This chapter described ASCII importer in details and for the others only the differences. So read the whole thing!
 
 NOTE: you can have ONLY one of the importers opened at any given time, they share same working folder and when you try to open any one of these importers, it should force closing of any other opened panel for the other importers.
 

@@ -8,11 +8,13 @@ Unified Fit
 
 **Introduction**
 
-The Unified fit uses code developed by Greg Beaucage to fit SAS data with levels composed of a Guinier part and a power law tail. The code handles various data for which the development of an exact scatterer model is difficult or impossible. The fitting code can handle some interparticle interference, fractal scatterers *etc*. For details, please see papers written by Greg Beuacage or, hopefully, in the future an included description.
+The Unified fit uses code developed by Greg Beaucage to fit SAS data with levels composed of a Guinier part and a power law tail. The code handles various data for which the development of an exact scatterer model is difficult or impossible. The fitting code can handle some inter-particle interference, fractal scatterers *etc*. For details, please see papers written by Greg Beaucage or, hopefully, in the future an included description.
 
 **This is introduction written by Greg for this code**:
 
 *This fit uses the function described in*
+
+https://en.wikipedia.org/wiki/Unified_scattering_function
 
 http://www.eng.uc.edu/~gbeaucag/PDFPapers/Beaucage2.pdf
 
@@ -69,7 +71,9 @@ So the Unified needs to accommodate multiple levels each of which can potentiall
 * Rgco\ :sub:`i`
 * k
 
-where Rgco\ :sub:`i` is usually Rg\ :sub:`(i-1)`, as shown above, for hierarchical structures (k is 1.06 for mass fractals and 1 for others)
+Where *Rgco\ :sub:`i`* is usually Rg\ :sub:`(i-1)` - this is valid for hierarchical structures or other systems where one mass of material has multiple length scales (e.g., rod, disk, ellipsoid). Using this parameter one can "join" two levels to represent one more complex structure - mass fractal aggregate level with primary particle level, or level representing the large dimension of spheroid with level representing the small dimension etc.
+
+*k* is a constant equal to 1 for solid primary particles and is approximately equal to 1.06 for mass fractal aggregates. Value of 1.06 is obtained from an integral of the correlation function for a mass fractal of dimension.
 
 Each level must also have the answer to at least three questions:
 
@@ -273,21 +277,29 @@ Notice the standardized residuals in the top graphs are reasonable for all Q’s
 
 **Correlations**
 
-If inter-particle interference is not negligible, then for reasonably weak interferences the code has built in simple model for modeling those. This is simple model, which is realistically valid only for gasses and is only approximation. For details see publications by Beaucage.
+If inter-particle interference is not negligible, then for reasonably weak interferences the code has built in simple model for modeling those. Unified Fit uses Born−Green closure of the Ornstein−Zernike equation which was ﬁrst proposed to describe the distribution of hard spheres similar to the Percus−Yevick closure. For details see publications by Beaucage, for example extensive and recent publication https://dx.doi.org/10.1021/acs.macromol.9b02429.
 
 .. image:: media/UnifiedFit15.png
     :align: center
     :height: 400px
 
-**User should be aware of the crudeness of these calculations.**
+**User should be aware of the approximate nature of these calculations.**
 
 The code used for calculations involves correcting intensity from a level using this formula:
 
-Intensity\ :sub:`with interfernce`\ (Q, R) =Intensity\ :sub:`without interference` \* (1+*pack*\ \* SphereAmplitude(Q, *Eta*))
+.. math::
 
-Where the *pack* and *Eta* are the two parameters of this model. Note, that this is supposed to be valid for spheres.
+    I_{iterf}\left( q \right) = \frac{I_{dilute}\left( q \right)}{1+pack*S(Q,\eta)}
 
-**Remember**: this method accounts in very crude way ONLY for interaction for particles in the particular population. If there are interactions among particles from different populations – which is very likely – these calculations have NO WAY to account for it.
+Where the *pack* and *:math:`\eta`* are the two parameters of this model. The function S(Q,:math:`\eta`) is the spherical amplitude function which reﬂects the organization of nearest-neighbor aggregates in a rough sphere around an aggregate:
+
+.. math::
+
+    S(Q,\eta)=3(\frac{sin(Q\eta)-Q\eta\ cos(Q\eta)}{(Q\eta)^3})
+
+*The packing factor pack* reflects the adherence to organization in a spherical shell through the ratio of occupied to available volume. For spherical particles, pack varies from 0, indicating no correlations, to 5.92, for closest packed structures. However, for mass fractal aggregates, pack can have much higher values because the asymmetric nano aggregates can align and possibly interpenetrate, resulting in a higher packing density than spheres. For example, pack could be a very large number for highly asymmetric objects such as lamellae.
+
+**Remember**: this method accounts in only approximate way for interaction for particles in the particular population. If there are complicated interactions among particles from different populations these calculations can only in limited way account for it.
 
 When checkbox is selected for correlations, new windows appear – :math:`\eta` (distance between the layers) and Pack (fill of the first layer). Smaller the Pack, less interference. The :math:`\eta` should not ever be smaller than size of particles, and actually should be larger…
 
