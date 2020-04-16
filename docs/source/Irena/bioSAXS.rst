@@ -7,7 +7,7 @@ List of Tools
 ----------------
 
 1.  :ref:`Import bioSAXS ASCII data <import_bioSAXS_ASCII>`
-2.  :ref:`Average, Subtract, Scale  <average_subtract_scale>`
+2.  :ref:`BioSAXS data manipulation - Average, Subtract, Scale  <average_subtract_scale>`
 3.  :ref:`Basic Fits <basic_fits>`
 
 .. _import_bioSAXS_ASCII:
@@ -120,6 +120,12 @@ Locate data using “\ *Select data path”* button. This will populate the list
 
 So, lets assume the graph looks OK. **Check the Q scale - in case the Q values are 10x larger than you expect, you have Q in 1/nm and need to check the checkbox "Convert Q from [1/nm]"** Select files which you want to import - or just select all using button "Select all".
 
+.. Figure:: media/ImportDataBio4.jpg
+        :align: left
+        :width: 300px
+        :Figwidth: 320px
+
+
 Next decide, if you have many files per one sample - typically multiple measurements you want to average first - or if you have one file per sample. If you have many files (our example) you should check "Group by Samples?" option. If you have one file per sample, you should uncheck this checkbox or your data structure will be too complicated.
 
 If the "Group by Sample?" is checked, code will assume that string before the last number separated by "_" - that is before "_00023.dat" is the name and create subfolder for that sample. That is **VERY convenient** in this case, you'll see it later. See in the figure below, how the data structure looks like: your data were imported in root\:SAXS. In there, for each sample name code created folder with name based on the file name (without the last "_000xx" number). It placed all individual data inside its own folders with names which now2 include that last number to make sure the names match the file names. Inside each individual folder code placed your q values in wave called "q_sampleName", intensity in "r_samplename" and errors in "s_samplename". This is what is knowns as QRS naming system Irena uses :ref:`QRS naming system <important.QRS>`.
@@ -127,20 +133,15 @@ If the "Group by Sample?" is checked, code will assume that string before the la
 However, if you have only one measurement per sample, using this grouping just buries your data to deeper folder structure. In that case, do NOT do it, it will just keep annoying you.
 
 
-.. Figure:: media/ImportDataBio4.jpg
-        :align: left
-        :width: 300px
-        :Figwidth: 320px
-
-
+-----
 
 
 .. _average_subtract_scale:
 
 .. index:: bioSAXS Average, Subtract, Scale
 
-Average, Subtract, Scale bioSAXS Data
--------------------------------------
+BioSAXS Data manipulation - Average, Subtract, Scale
+----------------------------------------------------
 
 This chapter describes how to use Average, Subtract, Scale tool for bioSAXS data. Irena has other Data manipulation tools. These are described here :ref:`Data Manipulation 1 <data_manipulation_1>` and :ref:`Data Manipulation 2 <data_manipulation_2>`
 
@@ -303,6 +304,8 @@ In the figure I displayed only data which are subtracted ("sub" in the Folder ma
 Note, that the name changes by adding _scaled but leaves the _sub in there. From future use, these are subtracted_scaled data...
 
 
+-----
+
 .. _basic_fits:
 
 .. index:: Basic Fits
@@ -367,6 +370,6 @@ User can select multiple data sets in the listbox, method to use, Q range to use
         :width: 700px
         :Figwidth: 420px
 
-In the Figure one can see results of run of Spheroid model on sequence of data sets. Code run 5 data sets, created new folder in Igor experiment root\:SpheroidFitResults and stored there many waves with results of the model. It then created a table with these values and displayed for user. User can now go and manually utilize the model results in their own graphs or subsequence processing. I also stored data in notebook, but that is not shown here - it contains summary of resulting values and  graph for each sample which was run. 
+In the Figure one can see results of run of Spheroid model on sequence of data sets. Code run 5 data sets, created new folder in Igor experiment root\:SpheroidFitResults and stored there many waves with results of the model. It then created a table with these values and displayed for user. User can now go and manually utilize the model results in their own graphs or subsequence processing. I also stored data in notebook, but that is not shown here - it contains summary of resulting values and  graph for each sample which was run.
 
 *Delete Existing results* This button will close  table with results and delete the folder  root\:SpheroidFitResults (or similarly named folder with results from different fitting model). Be careful, there is no recovery for this.
