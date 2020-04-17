@@ -321,6 +321,8 @@ This is tool developed to be able to plot many Irena/Indra/Nika data types quick
 
 **Data Selection**
 
+Understanding data selection tools makes user life easier. In the Data selection part of the panel you need to define sufficiently the data you want to look inside. There is detailed description on how to use this widget system :ref:`Multi Data selection <DataSelectionMulti>`. Please refer to that page for details.
+
 Left side of the panel is Data selection. This Data selection set of widgets is common to many tools now, so it is important to understand it well...
 
 *Data type* Irena recognizes few data types.
@@ -342,6 +344,55 @@ Left side of the panel is Data selection. This Data selection set of widgets is 
 
 Learn to use the "Folder Match" and Sorting folders, it helps a lot!
 
+**Graph controls**
+
+This tool can control any graph. Note, that for some graphs these controls may not be appropriate. It is critical to understand, how the graph which is being used is controlled. First, few details about Igor graph terminology. User can see the terms listed below by selecting the graph and hitting ctrl/cmd-Y which opens Igor own Window Control panel.
+
+Every Graph has *Graph Window name* - this is Igor name used to address it. Typically user does not see this name but it is critically important, since it is unique name for the graph. It also must be proper Igor name - single word, starting with letter. In this tool this is displayed in red in the right top part of the panel - in the next part we will call this *controlled graph*. See image.  If the graph was created by this tool, the name will be "MultiDataPlot_XYZ", where XYZ is number starting from 0 and selected to make the name unique.
+
+.. Figure:: media/MultiDataPlot2.jpg
+        :align: left
+        :width: 400px
+        :Figwidth: 390px
+
+Next is *Graph Title* which is user changeable string. This string is present by this tool to something meaningful (if possible) and user can change it. This is any string, spaces, characters, numbers, symbols... This is what is seen by user in the top bar of each graph. Make is sensible and understandable.
+
+If user wants to change to which the tool writes, user can change the *Graph Windows name* (red) selection by using *Select Graph* pulldown menu. This menu offers selection of graphs available (see figure). First choice is always top graph, which can be any graph created by anyone. Next are other graphs created by THIS TOOL ONLY. This is to prevent users from having to deal with lots of Irena work graphs etc. If you want this tool to control graph which was not created by this tool, make it first top graph, then select it through this menu as top graph and you can add data, change the title, apply formatting etc.
+
+.. Figure:: media/MultiDataPlot3.jpg
+        :align: left
+        :width: 400px
+        :Figwidth: 390px
+
+*New graph* button creates a new graph. Note, that adding data into graph "none" in the *Graph window name* will also create a new graph.
+
 **Adding data**
 
-One data set can be added to graph by double clicking on the name. Note, that any data set can be in a graph only once, so if you try to add it second time, code will do nothing. 
+One data set can be added to graph by double clicking on the name. Note, that any data set can be in a graph only once, so if you try to add it second time, code will do nothing.
+
+NOTE: Appending data by double click to graph does not apply formatting.
+
+*Append to selected graph* button adds all selected data in the listbox to target graph.
+
+NOTE: Appending data to graph by button DOES apply formatting.
+
+
+**Formatting graphs**
+
+There are two ways to apply formatting to a graph.
+
+*There are predefined types of data to plot, X-Y, Guinier, Kratky etc.* If needed, this tool will create necessary data. This sets also options on the panel and applies the choices to the controlled graph. Note, this can seriously change the graph you are looking at. Make a new graph if you do not want to change data displayed in the controlled graph...
+
+*Individual controls* presented on the panel, such as legends, log scaling, offsets etc. These are individually applied to the controlled graph. These controls may be added as users need more, at this time there are basic control for axis, traces, and legends.
+
+*Apply Style* will apply predefined styles, such as log-log, lin-lin, Volume Size distribution, etc. This does not change data, it simply changes setting for axis, labels, etc.
+
+*Apply all formatting* button will apply all selected formatting to the controlled graph.
+
+*Apply Formatting automatically* checkbox will force the tool to apply formatting automatically when a data set is added to a graph. This is shortcut to reduce number of buttons user need to push.
+
+*Export as jpg* will save the controlled graph as jpeg file for user.
+
+*Export as tiff* will save controlled graph as high resolution tiff file.
+
+*Export as pxp* will save controlled graph as Igor experiment. This is very convenient way to store copy of the graph - with all formatting and data for future use as it becomes individual experiment which one cannot change accidentally. I strongly suggest saving individual Igor experiments for each graph used in paper etc.

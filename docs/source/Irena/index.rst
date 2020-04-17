@@ -17,6 +17,7 @@ Manual |release| for Irena version 2.69 for Igor 8.0 and higher (will still work
    ScriptingTool
    Plotting
    DataManipulation
+   MetadataBrowser
    Modeling
    UnifiedFit
    SizeDistribution
