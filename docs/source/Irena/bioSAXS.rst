@@ -9,6 +9,9 @@ List of Tools
 1.  :ref:`Import bioSAXS ASCII data <import_bioSAXS_ASCII>`
 2.  :ref:`BioSAXS data manipulation - Average, Subtract, Scale  <average_subtract_scale>`
 3.  :ref:`Basic Fits <basic_fits>`
+4.  :ref:`PDDF and Molecular weight <bioSAXS_PDDF>``
+
+------
 
 .. _import_bioSAXS_ASCII:
 
@@ -83,7 +86,7 @@ Select ASCII data import from “BioSAS” menu. You get GUI, which presents var
 .. Figure:: media/ImportDataBio2.jpg
         :align: left
         :width: 300px
-        :Figwidth: 320px
+        :Figwidth: 350px
 
 Explanation of control available here:
 
@@ -116,14 +119,14 @@ Locate data using “\ *Select data path”* button. This will populate the list
 .. Figure:: media/ImportDataBio3.jpg
         :align: left
         :width: 500px
-        :Figwidth: 420px
+        :Figwidth: 550px
 
 So, lets assume the graph looks OK. **Check the Q scale - in case the Q values are 10x larger than you expect, you have Q in 1/nm and need to check the checkbox "Convert Q from [1/nm]"** Select files which you want to import - or just select all using button "Select all".
 
 .. Figure:: media/ImportDataBio4.jpg
         :align: left
         :width: 300px
-        :Figwidth: 320px
+        :Figwidth: 350px
 
 
 Next decide, if you have many files per one sample - typically multiple measurements you want to average first - or if you have one file per sample. If you have many files (our example) you should check "Group by Samples?" option. If you have one file per sample, you should uncheck this checkbox or your data structure will be too complicated.
@@ -173,7 +176,7 @@ The main GUI is here:
 .. Figure:: media/AverageBioSAXS1.jpg
         :align: left
         :width: 600px
-        :Figwidth: 550px
+        :Figwidth: 650px
 
 The tool can do three things quickly and easily... It is not meant for more complicated processing. It also assumes, that you follow the procedure in order - Average - Subtract - and optionally Scale. Any other order may cause major troubles.
 
@@ -184,7 +187,7 @@ Understanding data selection tools makes user life easier. In the Data selection
 .. Figure:: media/AverageBioSAXS2.jpg
         :align: left
         :width: 500px
-        :Figwidth: 420px
+        :Figwidth: 550px
 
 
 *Start Fldr.* Here you can select at which location in data tree code will start looking for the data. In this case we look fro data from root:
@@ -212,7 +215,7 @@ To add data, we have tow options.
 .. Figure:: media/AverageBioSAXS3.jpg
         :align: left
         :width: 500px
-        :Figwidth: 420px
+        :Figwidth: 550px
 
 In this graph I simply double clicked on the Sbuf1_00033_00005: and it was added to the graph. You can add all data sets you want, but it may get tedious after few data sets.
 
@@ -228,7 +231,7 @@ In this graph I simply double clicked on the Sbuf1_00033_00005: and it was added
 .. Figure:: media/AverageBioSAXS4.jpg
         :align: left
         :width: 500px
-        :Figwidth: 420px
+        :Figwidth: 550px
 
 In the graph code adds the black averaged data set and saves the data.
 
@@ -257,7 +260,7 @@ In this case it is better to set starting folder as root\:SAXS\: (or whatever th
 .. Figure:: media/SubtractBioSAXS1.jpg
         :align: left
         :width: 500px
-        :Figwidth: 420px
+        :Figwidth: 550px
 
 To process a data set, follow the instructions on the panel.
 
@@ -270,7 +273,7 @@ To process a data set, follow the instructions on the panel.
 .. Figure:: media/SubtractBioSAXS2.jpg
         :align: left
         :width: 500px
-        :Figwidth: 420px
+        :Figwidth: 550px
 
 
 Now, if you have many data sets from which you need to subtract same buffer, with same scaling, you can run this in sequence. Select all data sets you want to process (Careful *DO NOT* select buffer measurement). Then use *Sub. Buffer On Selected* button and all data sets selected in the listbox will be processed in sequence.
@@ -296,7 +299,7 @@ If needed, user can scale more or less any data (Int-Q-Error) using Scale operat
 .. Figure:: media/ScaleBioSAXS1.jpg
         :align: left
         :width: 500px
-        :Figwidth: 420px
+        :Figwidth: 550px
 
 
 In the figure I displayed only data which are subtracted ("sub" in the Folder match (RegEx)). I added data set into the graph and scaled by factor of 10. Code created a note in the history area:
@@ -329,7 +332,7 @@ Implemented models:
 .. Figure:: media/SimpleFitsBioSAXS1.jpg
         :align: left
         :width: 500px
-        :Figwidth: 420px
+        :Figwidth: 550px
 
 **Selecting data**
 
@@ -344,13 +347,13 @@ Select Q range to fit a specific model and push button *Fit Current (One) Datase
 .. Figure:: media/SimpleFitsBioSAXS2.jpg
         :align: left
         :width: 500px
-        :Figwidth: 420px
+        :Figwidth: 550px
 
 
 .. Figure:: media/SimpleFitsBioSAXS3.jpg
         :align: left
         :width: 500px
-        :Figwidth: 420px
+        :Figwidth: 550px
 
 
 Note value for chi-square for goodness of fit.
@@ -372,8 +375,235 @@ User can select multiple data sets in the listbox, method to use, Q range to use
 .. Figure:: media/SimpleFitsBioSAXS4.jpg
         :align: left
         :width: 700px
-        :Figwidth: 420px
+        :Figwidth: 750px
 
 In the Figure one can see results of run of Spheroid model on sequence of data sets. Code run 5 data sets, created new folder in Igor experiment root\:SpheroidFitResults and stored there many waves with results of the model. It then created a table with these values and displayed for user. User can now go and manually utilize the model results in their own graphs or subsequence processing. I also stored data in notebook, but that is not shown here - it contains summary of resulting values and  graph for each sample which was run.
 
 *Delete Existing results* This button will close  table with results and delete the folder  root\:SpheroidFitResults (or similarly named folder with results from different fitting model). Be careful, there is no recovery for this.
+
+
+
+------
+
+.. _bioSAXS_PDDF:
+
+.. index:: bioSAXS PDDF and Molecular weight
+
+bioSAXS PDDF and Molecular weight
+---------------------------------
+
+
+This chapter describes how to use bioSAXS PDDF and Molecular weight tool in Irena. This tool allows users to calculate Molecular weight using few different methods. It also allows users to utilize four different methods to generate PDDF from the SAXS data.
+
+**PDDF methods available and requirements**
+
+Following methods are implemented :
+
+1. GNOM from ATSAS package. Users must have ATSAS (tested with version from February 2020; gnom -v returned : ATSAS 3.0.1 (r12314)).
+2. autoGNOM - executable name is datGNOM from ATSAS package. Users must have ATSAS (tested with version from February 2020; datgnom -v returned : ATSAS 3.0.1 (r12314)).
+3. Irena regularization method for PDDF (see :ref:`Irena PDDF <model.pdf>`)
+4. Moore method from Irena for PDDF (see :ref:`Irena PDDF <model.pdf>`)
+
+**Molecular weight methods available and requirements**
+
+Following methods are implemented :
+
+1. SAXSMoW2 method, reference: SAXSMoW 2.0: Online calculator of the molecular weight of proteins in dilute solution from experimental SAXS data measured on a relative scale, Vassili Piiadov, Evandro Ares de Araújo, Mario Oliveira Neto, Aldo Felix Craievich, and Igor Polikarpov, DOI: 10.1002/pro.3528, Protein Science 2019, Vol. 28, 454–463. This is method implemented in this tool: http://saxs.ifsc.usp.br
+2. Rambo-Tainer methods, see Accurate assessment of mass, models and resolution by small-angle scattering, Robert P. Rambo and John A. Tainer, doi:10.1038/nature12070, Nature, Vol. 496, 2013.
+3. Use of absolute intensity calibration and contrast estimate.
+
+
+.. Figure:: media/BioPDDF1.jpg
+        :align: left
+        :width: 800px
+        :Figwidth: 850px
+
+
+**GUI description**
+
+1. The PDDF panel contains hopefully familiar left column data selection tools, see :ref:`MultiData selection tools <DataSelectionMulti>`. This tool is set to handle ONLY QRS data type, if you need another data type (like USAXS), it can be added with some minor work. With these controls use selects one - or more - data sets for processing. *Double click* adds data set into the top graph so one can do analysis. It is possible to setup many data sets for analysis and run a sequence on them.
+2. Next is middle column of controls, which contains tabbed interface. Details are later, but basically this area contains controls on data range selection, tabbed interface has the two methods used - PDDF and Molecular Weight analysis, and bellow the tabbed interface are results and how to handle the results.
+3. The right hand side of the panel contains two graph areas. The top graph shows log-log Intensity vs Q vector data. Bottom shows appropriate data depending on tab selected - either PDDF graph or I(Q)\*Q vs Q plot and the integration of this plot for Rambo-Tainer method.
+4. Few other controls are around the edges of the panel and these are help controls which are useful for user operations, but are not primary operations.
+
+
+**Adding data**
+
+To add data, make appropriate starting folder selection and proper set *Folder match (RegEx)* if needed. Typically, you may want to show only subtracted data, like in example used here. In that case you put "sub" in this field and only data which have "sub" in name (results of buffer subtraction) will show. Double click will add data to graph.
+
+When processing data sequentially, user need to select multiple data in the data selection Listbox. This can be done by holding down shift and selecting range or holding down ctrl/cmd and clicking on specific data names. Users also should use *Sort Folders* to make sure data are processed in meaningful sequence. This makes it easier to plot results, as they are already sorted according to whatever user needs.
+
+**PDDF controls**
+
+The main control here is *Method checkboxes* - four options are available, default is GNOM, optional are autoGNOM, Irena Regularization, and Moore. Each has its own selection fo controls. which are listed below:
+
+*Rmin==0?* this is applicable only to GNOM and forces GNOM to set PDDF so at Rmin (=0 A) the PDDF=0. Default is checked.
+
+*Rmax==0?* this is applicable to GNOM and forces GNOM to set PDDF=0 at Dmax value. Default is checked.
+
+*Alfa in* this is applicable only to GNOM and is input value for alfa. If set to 0 (default), this command is skipped and GNOM is run without setting starting alfa condition.
+
+*R pnts* this is applicable to most methods, sets real space number of bins. If =0 this parameter is not passed to programs which allow it (GNOM or autoGNOM). Irena tools require this parameter and default is 100 for those. Default is 0 unless Regularization or Moore is selected, then it is 100.
+
+*Dmax estimate* This parameter is applicable for all methods. User needs to set meaningful value. Default is 30, which is likely wrong for any sample.
+
+*Num Func* This parameter is applicable only to Moore method. Default is 100.
+
+*Det Num Functions?* This checkbox is applicable only to Moore method. Default is unchecked.
+
+*Fit Max Size* This checkbox is applicable only to Moore method. Default is checked.
+
+
+**Molecular weight controls**
+
+These calculations need sometimes either density or scattering length of material studied. The code has these values for Protein and Nucleic Acid.  User needs to select correct material using the checkboxes *Protein* and *Nucleic Acid*.
+
+*Fit Rg and Calculate MW* button will fit Guinier law on the data - twice. One without flat background and second time with the flat background. This way code gets Reciprocal fitting values and the background used in this method. User needs to set cursors in the graph since fitting of the Guinier law is done between the cursors.
+
+*Qmax 8/Rg* this is for SAXSMoW and Rambo-Tainer methods, sets Qmax for integration to 8/Rg (formula 7 in SAXSMoW paper).
+
+*Qmax I(0)/200* this is for SAXSMoW2 and Rambo-Tainer methods, sets Qmax for integration to Q when I(Q) = I(0)/200 (see SAXSMoW paper formula 8).
+
+*Qmax* user can put any Qmax here. Be careful...
+
+*Auto find background* Applicable only to Rambo-Tainer method. In this method - for samples with poorly subtracted buffer - Qmax and background cause large uncertainties. By fitting flat background code can estimate the flat background Which may improve stability of the results. Checking this checkbox uses the fitted flat background for subtraction.
+
+*Subtract background* Applicable only to Rambo-Tainer method. Will actually subtract the background for analysis.
+
+*Flat background* this is value which will be subtracted. User can change as needed. See later.
+
+*C [mg/ml]* this is concentration, which is needed for method using GNOM output results (Real space results) which relies on absolute calibration of the data. In this case code needs to know contrast (provided by choice between Protein and Nucleic acid), concentration, and absolute intensity.
+
+**Mol Weight Results**
+
+In this are are summarized results from both tabs. Results obtained from PDDF are called "Real Space results" while results obtained using Intensity fitting are "Reciprocal space results".
+
+*Reciprocal space results* Are obtained from Guinier fit to the data (button on the Mol Weight tab). First we present fitting results and partial data: Rg, I(0), and Porod volume. Next are Molecular weights calculated based on SAXSMoW method and Rambo-Tainer method.
+
+*Real Space* results. These depends on number of conditions. First, all are available ONLY when user uses GNOM or autoGNOM. Absolute intensity estimate MW depends on, well, absolute intensity calibration of the data. Again, we present first Porod volume, Rg, and I(0). Then SAXSMoW method calculating the Molecular weight, but this time using GNOM fitted intensity to the data. And finally, the estimate using GNOM parameters and depending on absolute intensity and concentration.
+
+**Save results controls**
+
+*Folder* selecting this checkbox will save results of the fit into the folder with data. This way one can probe the results later with :ref:`Metadata Browser <MetadataBrowser>` or plot them with one of the Irena :ref:`Plotting tools <Plotting_Tools>`. Number of waves are saved which contain PDDF, Intensity fit etc. Hopefully with meaningful names. If user used GNOM or autoGNOM, code will also save whole GNOM out file as text wave in the folder.
+
+*Notebook* selecting this checkbox will save results in Igor Notebook record. Results are summarized and  graphs inserted.
+
+*Waves* selecting this checkbox will save results in waves in folder with specific name. These can then be plotted or put in table by users. Meaningful names should be easy to understand.
+
+*GNOM out* selecting this checkbox will be useful ONLY, if GNOM or autoGNOM is used. If checked, code will create folder outside Igor, on user hard drive, in the folder where current Igor experiment is located. Lets assume current Igor experiment is called "MyTestAnalysis" and is located in MyDocuments folder. PDDF code will create a new folder called "MyTestAnalysis_GNOM_OUT" folder there and place in this folder copies of GNOM.out files which were generated during analysis. Files are named by using data names in Igor, e.g. BSA_SASDA32_sub data will have BSA_SASDA32_sub.out in that location. Same name files in export location are overwritten.
+
+*Save PDDF results* This button will save results as instructed by the checkbox settings. Selecting checkboxes themselves does nothing until this button is pressed.
+
+*Open Table and Notebook* will open the table with wave and Notebook, if such data were saved by checkbox selection.
+
+*Delete results waves* will remove the folder with results and kill the table.
+
+*Overwrite output* overwrites output data so user does not have to answer questions when data are already found.
+
+*Sleep between sets* this is setting in seconds, when running sequence of GNOM fits, this will force code to sleep between the samples to give user time to inspect the fits and note if some sample need s to be revised later. Default is 0.
+
+*Display error bars* Error bars are useful but can be distracting. User has choice to see or not see them.
+
+*Autoscale graph* - graphs embedded in panels do not react to usual autoscale command (ctrl/cmd-A) in Igor, so one either has to right click and select Autoscale or use this button.
+
+**How to fit Molecular weight**
+
+This will walk users through the Molecular weight fitting. As noted above, there are four different method, the most used one will be likely using GNOM which is available as part of ATSAS package. This one will be used for this example, the other methods have minor differences in controls which will be only marginally mentioned.
+
+1. Add data in the graph by double clicking on the data, in our example we use BSA data available here: http://saxs.ifsc.usp.br/SASDA32.dat which are used as example for SAXSMoW tool: http://saxs.ifsc.usp.br. Warning: when importing these data, convert Q unit from 1/nm to 1/Angstrom, these data use 1/nm for Q.
+2. Go to Tab for Mol. Weight. Select with cursors data from Q around 0.02 to 0.1. NOTE: circle cursor A must be at low-Q, square cursor B must be at high-Q. Hit button *Fit Rg and calculate MW*.
+
+.. Figure:: media/BioPDDF2.jpg
+        :align: left
+        :width: 800px
+        :Figwidth: 850px
+
+3. Now, we have a good fit and therefore good values for Rg and I(0). Now we need to make sure the right Q range is used for SAXSMoW method. Check *Qmax 8/Rg* and values should update. This fixed Qmax for both methods used here to about 0.28 [1/A]. Users can make different choices here and discussion on what is right is not part of this manual.
+4. If you look on the blue curve in the bottom graph, you can see, that the integration of Q\*I(Q) does not reach plateau. It should in order for Rambo-Tainer method to work as this integration is effectively version of invariant. This is due to poor subtraction of buffer for this sample. Check The *Autofind Backg?* checkbox and re run the *Fit Rg and calculate MW*.
+5. Now we have value in the *Flat background* which code found as first guess of the flat background in this measurement. Check the *Subtract Background?* checkbox. This changes the blue curve in lower figure which now nearly reaches plateau. Tweaking the *Flat background* to about 0.16 will make the intergation of the Q\*I(Q) reach plateau at around Q=0.25 and integration to any value above that is returning pretty much same value. This suggest we subtracted proper background -assuming the differences are due to incorrect buffer subtraction and that can be approximated as flat background...
+
+Now, this suggests, that we now have reasonable solution and obtained two approximations of Molecular weight.
+
+
+.. Figure:: media/BioPDDF3.jpg
+        :align: left
+        :width: 800px
+        :Figwidth: 850px
+
+
+**How to fit PDDF**
+
+Now we will fit PDDF using GNOM to these data. Note, that the Rg is around 30A, suggesting we need to assume max size around 70-90A. Switch to PDDF tab, this will clear the bottom graph.
+
+1. Select radiobutton *GNOM* if it is not selected. Check the checboxes *Rmin==0* and *Rmax==0* set *Alfa in* =0 and *R pnts in* =0, set *Dmax Est*=90.
+2. Select Q range for fitting. Only data between cursors will be exported in dat file for GNOM. Data from Q=0.013 to Q=0.13 are suitable for fitting, even though it does not seem to matter too much on this very good sample.
+3. Now push button *Run PDDF on current data*. When running first time you will get a dialog to find where GNOM executable file is located. Read the instructions and hit button OK.
+
+.. Figure:: media/BioPDDF4.jpg
+        :align: left
+        :width: 300px
+        :Figwidth: 350px
+
+4. In the next system dialog, locate Folder (directory) in ATSAS folder called "bin" and select that directory. This is where the binaries for gnom and autognom are.
+
+.. Figure:: media/BioPDDF5.jpg
+        :align: left
+        :width: 300px
+        :Figwidth: 350px
+
+5. Code will write out dat file as input for gnom in system provided temp directory and run gnom with appropriate command flags as selected in the GUI. It will wait for gnom to finish and read the OUT file in. It will then run through some calculations and present the results.
+
+.. Figure:: media/BioPDDF6.jpg
+        :align: left
+        :width: 800px
+        :Figwidth: 850px
+
+
+**Description of results**
+
+Running GNOM or autoGNOM provides following results:
+1. PDDF displayed in the graph (and saved as needed in notebook or folder)
+2. Fit to the data displayed in the log-log Int/Q plot. The blue points represent GNOM fitted results.
+3. GNOM calculated I(0), Rg, and Porod volume, these are called *Real Space* results.
+4. Using GNOM calculated Intensity/Q model code will use SAXSMoW2 method to calculate Molecular weight. This is called *Real space SAXSMoW2 MW*.
+
+
+**Save the results**
+
+Here are examples how the data are saved, in pictures...
+
+.. Figure:: media/BioPDDF7.jpg
+        :align: center
+        :width: 600px
+        :Figwidth: 650px
+
+Figure above shows record in Notebook.
+
+.. Figure:: media/BioPDDF8.jpg
+        :align: center
+        :width: 900px
+        :Figwidth: 950px
+
+
+.. Figure:: media/BioPDDF9.jpg
+        :align: center
+        :width: 400px
+        :Figwidth: 450px
+
+The two figure above show record created in Igor experiment. A folder called root:PDDFFitResults will be created, waves which can be seen in the figure are created and every time user saves new results a new line is added to each of the waves. These waves are used to create the table seen in the figure above. Old data are not overwritten, unless used deletes them all using the button on the panel. Therefore, same data set can be in the table many times.
+
+.. Figure:: media/BioPDDF11.jpg
+        :align: center
+        :width: 400px
+        :Figwidth: 450px
+
+Figure shgows which wave are saved in Data folder with the data. Multiple "generations" can be saved, data are not over written. User needs to delete them manually, if necessary. These are seen by rest of irena as *Irena results*.
+
+
+.. Figure:: media/BioPDDF10.jpg
+        :align: center
+        :width: 600px
+        :Figwidth: 650px
+
+
+And finally, this is GNOM out file saved where this experiment called "BioSAXS manual 1.pxp" is located. New folder is created and all OUT files are saved there. Out file of the same name will be overwritten. User is warned by dialog which asks for permission to overwrite the out file.

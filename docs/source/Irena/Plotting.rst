@@ -1,4 +1,4 @@
-.. _Plotting_Tool_1:
+.. _Plotting_Tools:
 
 .. index::
     Plotting tool I

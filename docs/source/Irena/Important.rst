@@ -415,7 +415,7 @@ MultiData selection
 .. Figure:: media/MultiDataSelectionTools1.jpg
         :align: left
         :width: 300px
-        :Figwidth: 290px
+        :Figwidth: 350px
 
 
 *Data type* Irena recognizes few data types.
