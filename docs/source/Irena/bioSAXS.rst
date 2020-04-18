@@ -9,7 +9,7 @@ List of Tools
 1.  :ref:`Import bioSAXS ASCII data <import_bioSAXS_ASCII>`
 2.  :ref:`BioSAXS data manipulation - Average, Subtract, Scale  <average_subtract_scale>`
 3.  :ref:`Basic Fits <basic_fits>`
-4.  :ref:`PDDF and Molecular weight <bioSAXS_PDDF>``
+4.  :ref:`PDDF and Molecular weight <bioSAXS_PDDF>`
 
 ------
 
