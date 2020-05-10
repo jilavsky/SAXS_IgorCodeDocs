@@ -104,14 +104,18 @@ If you choose the checkbox "Display HKL tags" you will also get tags to each pea
 
 Note, that you can change the color of these lines if you right click on the name of the card in the Listbox and select new color for that card. It should remember it.
 
-.. image:: media/WAXS7.png
+.. image:: media/WAXS7.jpg
       :align: center
       :width: 280px
+
+*Distance correction* - tweak Stick positions - from beta version 2.692 (05/2020) I added new control below the buttons, "Correct distance" value. This is to enable tweaking of sticks angular positions in case the transmission geometry has slightly incorrect calibration. This value should be 1 but in case the detector was slightly further or closer to sample than standard, user can tweak the value up/down. This will shit *sticks* for the JPCDS/AMS cards ONLY. One can therefore improve the match between the sticks and peak positions. Note: it shifts (logically) all sticks the same amount. It has no impact on the data, only on sticks ANGULAR positions (not the d-spacing which is ion the tables). Reopening of the WAXS tool resets this value to 1.
 
 
 **Peak fitting**
 
-The Tab "Peak Fit" on the panel contains tools to do peak fitting. It uses Multipeak Fit 2.0 ("MPF2") package from Wavemetrics, which actually has nice help and demo Igor experiment. The demo experiment can be found in
+The Tab "Peak Fit" on the panel contains tools to do peak fitting. Important note : *Currently the only two peak shapes, which are properly processed and recorded by Irena WAXS code are Gaussian and Lorenz.* While other shapes can be fitted, when recorded by WAXS tool, some parameters cannot be properly saved and processed later. Limit your use to Gaussian and Lorenz peak shapes, please.
+
+*Peak fitting* uses Multipeak Fit 2.0 ("MPF2") package from Wavemetrics, which actually has nice help and demo Igor experiment. The demo experiment can be found in
 
 File>Example Experiments>Curve Fitting>Multi-peak Fit 2 demo
 
@@ -151,7 +155,7 @@ Here is a fit:
 
 Now, when you have a good fit, you can use "Record Current MPDF2 Fit results".
 
-This will copy lots of interesting results data into the folder in "results are stored here" root:WAXSFitResults: XYZST..... whatever you give here - XYZST - will be cleaned up to be acceptable folder name and such folder will be created for your results data.
+This will copy lots of interesting results data into the folder in "results are stored here" root\:WAXSFitResults\: XYZST..... whatever you give here - XYZST - will be cleaned up to be acceptable folder name and such folder will be created for your results data.
 
 Each sample gets folder in there which will contain tables of results, each peak profile, etc.
 

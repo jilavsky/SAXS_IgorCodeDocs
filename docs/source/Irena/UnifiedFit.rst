@@ -22,13 +22,15 @@ http://www.eng.uc.edu/~gbeaucag/PDFPapers/Beaucage1.pdf
 
 http://www.eng.uc.edu/~gbeaucag/PDFPapers/ma970373t.pdf
 
+http://www.eng.uc.edu/~beaucag/PDFPapers/UnifiedWithCorrelations.pdf
+
 The basic function is composed of a series of structural levels, each with the possibility to be
 
 a) associated with the previous smaller size level :math:`R_{gcutoff2} = Rg_1`
 
 b) to follow mass fractal restrictions (calculate B for the mass fractal power law :math:`I = B q^{-p}`
 
-c) to display spherical Correlations (Interference) as described by  :math:`I(q) = I(q)/(1+p f(q \eta))` where p is a packing factor :math:`p = v_{H}/v_{O}` for v\ :sub:`H` = hard sphere volume and v\ :sub:`O` is occupied volume and :math:`f(q\eta)` is the sphere amplitude function for spherical Correlations (Interference)
+c) to display spherical Correlations (Interference) as described by  :math:`I(q) = I(q)/(1+p f(q \eta))` where p is a packing factor :math:`p = 8 \* v_{H}/v_{O}` for v\ :sub:`H` = hard sphere volume and v\ :sub:`O` is occupied volume - for more details, see below. And :math:`f(q\eta)` is the sphere amplitude function for spherical Correlations (Interference)
 
 The intensity from each level is summed and the intensity from one level, i, is given by:
 
@@ -49,7 +51,7 @@ This equation can include b) if B\ :sub:`i` is calculated using B\ :sub:`i` = (G
 
 The equation can include c) by multiplying the entire level I\ :sub:`i`\ (q) by a function that follows the Born-Green approximation for Correlations (multiple particle Correlations) and this works well for weak Correlations of any type but becomes more restricted to spherical Correlations as the Correlations become stronger. The measure of the strength of the Correlations is the packing factor p = 8 v\ :sub:`H`/v\ :sub:`O` as described above and for spherical particles this value can be 0 (no Correlations) to about 5.92 (calculated for FCC or HCP packing).
 
-The packing factor for FCC is p=8\*v\ :sub:`H`/v\ :sub:`O` = 8\*(pi\*sqrt(2)/6)=5.92 - this is basically the total volume of lattice points in FCC divided by the volume of the lattice (provided to me by one nice Irena user).
+*The packing factor - more details*. Explanation provided in citation by Greg Beaucage which introduced the correlations (http://www.eng.uc.edu/~beaucag/PDFPapers/UnifiedWithCorrelations.pdf) describes "p" as equal to 8 times the ratio of the volume in the phase, v\ :sub:`H`, to average "hard-core" volume of a phase, v\ :sub:`O`.  This is bit confusing to everyone I know as the term phase here is not clear. My best (may be approximate) understanding is, that it is basically 8\*volume occupied by the phase in the nearest neighbor layer volume. Keep in mind, that while nearest neighbor layer volume is simply volume of space around the particle with the thickness = diameter of the particle, the volume of a phase, v\ :sub:`H`, of (assumed spherical) particles, inside it is limited in how many of these spheres can fit there. These spheres have space left between the particles. For FCC the maximum volume, which can be occupied can be easily calculated, and this give maximum p=8\*v\ :sub:`H`/v\ :sub:`O` = 8\*(pi\*sqrt(2)/6)=5.92. In this case we have 6 nearest neighbors (spheres) with volume v\ :sub:`H` inside total volume of v\ :sub:`O` in the nearest neighbor layer around the particle. Note, that as far as I can say, the p in Correlations is approximately 8 \* hard spheres structure factor volume fraction. 
 
 If particles are asymmetric, *e.g.,* rods or sheets the packing the
 number can be much higher and the spherical function becomes less
