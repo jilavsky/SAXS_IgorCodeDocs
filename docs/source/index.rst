@@ -8,8 +8,8 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-   Help
-   IgorModifications 
+   help
+   IgorModifications
    Installation
    Irena/index
    Nika/index
