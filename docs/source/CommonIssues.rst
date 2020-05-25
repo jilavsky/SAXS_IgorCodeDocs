@@ -2,12 +2,12 @@
 .. _GUIcontrolsMissing:
 
 .. index::
-    Common Display issues
+    Common Display problems
     Missing controls on Panels
     Panel artifacts
 
-Common Issues
-=============
+Common problems
+===============
 
 Screen Resolution
 -----------------
@@ -59,7 +59,6 @@ Note, that it should be possible to use higher DPI settings with enough pixels o
 
 
 .. _HDF5xopError:
-
 
 .. index::
     HDF5 error

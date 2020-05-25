@@ -328,6 +328,8 @@ Implemented models:
 * Spheroid
 * Guinier Rod
 * Guinier Sheet
+* Volume distribution
+* Number distribution
 
 .. Figure:: media/SimpleFitsBioSAXS1.jpg
         :align: left
@@ -336,7 +338,7 @@ Implemented models:
 
 **Selecting data**
 
-Understanding data selection tools makes user life easier. In the Data selection part of the panel you need to define sufficiently the data you want to look inside. There is detailed description on how to use this widget system :ref:`Multi Data selection <DataSelectionMulti>`. Please refer to that page for details. This tool can use two types of data - USAXS and QRS. All data which DO NOT come from APS USAXS instrument use QRS naming system. Only if you have our USAXS data, you should use USAXS data type. For everyone else, use *QRS* naming system that is how your data came through ASCII importer or through Nika.
+Understanding data selection tools makes user life easier. In the Data selection part of the panel you need to define sufficiently the data you want to look inside. There is detailed description on how to use this widget system :ref:`Multi Data selection <DataSelectionMulti>`. Please refer to that page for details. This tool can use three types of data - USAXS, QRS (SAXS or WAXS) as well as Irena results (results saved by other Irena tools). All SAXS/WAXS data which DO NOT come from APS USAXS instrument use QRS naming system. Only if you have our USAXS data, you should use USAXS data type. For everyone else, use *QRS* naming system that is how your data came through ASCII importer or through Nika. For Irena results, there are two meaningful tools to be applied - Volume and Number Size distribution results.
 
 You need to select *Start fldr* (e.g., "root\:SAXS\:") and data type using *Folder Match* (e\.g., "sub").
 
@@ -381,7 +383,7 @@ In the Figure one can see results of run of Spheroid model on sequence of data s
 
 *Delete Existing results* This button will close  table with results and delete the folder  root\:SpheroidFitResults (or similarly named folder with results from different fitting model). Be careful, there is no recovery for this.
 
-
+*To display & further process* the results stored in the results folder, you can use :ref:`DataBrowser additions <DataBrowser additions>`.
 
 ------
 

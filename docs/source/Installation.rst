@@ -3,20 +3,20 @@
 Installation
 ============
 
-.. index:: ! Installation
+..index:: Installation
 
 Availability of the code
 ------------------------
 
-For long time my packages were available from APS web site, *Irena* from: https://usaxs.xray.aps.anl.gov/software/irena
+Web site for *Irena* is: https://usaxs.xray.aps.anl.gov/software/irena
 
-For long time my packages were available from APS web site, *Nika* from: https://usaxs.xray.aps.anl.gov/software/nika
+Web site for *Nika* is: https://usaxs.xray.aps.anl.gov/software/nika
 
-While this site is and will be available, future versions of the code will be available from :index:`Github`:
+Current, prior, and future versions of the code are available from :index:`Github`:
 
 https://github.com/jilavsky/SAXS_IgorCode
 
-Github repository will also be used for installations for Igor Pro 7 and higher. Igor 6 cannot install from GitHub due to inability to download files using https which Github requires today.
+Github repository is used for installations for Igor Pro 7 and higher. Igor 6 cannot install from GitHub due to inability to download files using https which Github requires today.
 
 Download latest GithubInstaller_IrenaNika_vX.YY.pxp package from :
 
@@ -30,7 +30,7 @@ Alternative download site is Github :
 
 https://github.com/jilavsky/SAXS_IgorInstaller/tree/master/Igor_GitHub.
 
-To test and use my code you can use demo version of Igor Pro - Igor pro will run on computer where it was not installed before for one month as full featured demo. To use this, find computer which did not have yet Igor Pro installed, install the latest version of Igor Pro 7 from https://www.wavemetrics.com, and you are set.
+To test and use my code you can use demo version of Igor Pro - Igor pro will run on computer where it was not installed before for one month as full featured demo. To use this, find computer which did not have yet Igor Pro installed, install the latest version of Igor Pro from https://www.wavemetrics.com, and you are set.
 
 .. _youtube:
 
@@ -71,13 +71,17 @@ https://small-angle.aps.anl.gov/future-courses
 Instructions for installation
 -----------------------------
 
-To install the macros, please install first Igor Pro, version 8.x (or at least 7.05). *Irena* version 2.62 is the last one which works with Igor Pro 6 latest release (6.37) and is available for the aps web site. Any higher releases require  Igor 8 (or 7.05), which was released May 2018 (Igor 7 was released July 2016). Igor 6 is therefore really old and should be upgraded as soon as possible. 
+To install the macros, please install first Igor Pro, version 8.03 or higher. Igor Pro 8 was released May 2018.
+
+*Igor 7*  :index:`Igor 7.08`: is last supported by *Irena* version 2.69 and *Nika* version 1.82 which are included in **February2020** release. Igor Pro 7 was released July 2016 and is not obsolete. Upgrade.
+
+ *Igor 6*  :index:`Igor 6.37`: is last supported by *Irena* version 2.62 and *Nika* version 1.761 - and you need the latest Igor Pro 6 release (6.37). This version  and is available for the APS web site. Upgrade.
 
 Movies with instructions and explanation are available on my :ref:`YouTube channel <YouTubeChannel>`.
 
 There are two main ways to install the macros:
 
-**Igor 7 (32 or 64 bit versions) of Igor 8 (64 bit)**
+**Igor 8.03+ (64 bit) and Igor 9(beta at this time)**
 
 .. image:: media/Introduction1.png
    :align: center
@@ -85,7 +89,7 @@ There are two main ways to install the macros:
 
 Download latest version of GitHub installer “GHInstaller\_IrenaNika\_vXYZ.pxp”, latest version should be available here: http://usaxs.xray.aps.anl.gov/staff/ilavsky/irena.html
 
-Open the file (in Igor 7 or 8) and select “Install Packages” > “Open GitHub GUI”. GUI (left) and Instructions open.
+Open the file (in Igor 8.03+) and select “Install Packages” > “Open GitHub GUI”. GUI (left) and Instructions open.
 
 Push “Check packages versions” to check which versions are available on the GitHub site. Read instructions for what to do and how to pick the right one. This installer enables users to install also defined beta versions and even the current “master” version. But be careful, there are no guarantees that the master is fully debugged. I may be working on it.
 
@@ -95,6 +99,10 @@ Here is expiation of options:
   #. If you check "Include beta releases" you can also pick master - "master" is a current latest update committed to depository. My intention is to commit only code which works, but, well, it may be untested or being developed. Check wiki on Github page https://github.com/jilavsky/SAXS_IgorCode/wiki for release notes. It may give you an idea what has been changed.
 
 Keep in mind that you need xop support for the bit versions (32bit or 64bit) versions of Igor you are using! Do not forget to install them.
+
+**Igor 7.08 obsolete version no more maintained.**
+
+Follow above instructions for Igor Pro 8 using Installer version 1.10: https://github.com/jilavsky/SAXS_IgorInstaller/blob/master/Igor_GitHub/GHInstaller_IrenaNika_v1.10.pxp?raw=true BUT install version denoted as **February2020**, that is the last Igor Pro 7 tested version. Even that one has some limitations on Igor Pro 7.08 compared to Igor Pro 8.03 and higher. 
 
 **Igor 6.37 32bit version = obsolete version no more maintained.**
 
