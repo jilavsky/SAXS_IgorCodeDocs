@@ -26,6 +26,8 @@ The last three options in the right click menu in the figure are added by Irena 
 
 **Clone this window with data** will duplicate the graph and make copy of data displayed in this graph. Duplicate graph is Igor function available in "Edit menu", "Duplicate graph" (ctrl/cmd D). This command creates exact copy (with new name) of the top graph. My code does more - it first duplicates the graph and then creates copies of all data in a new folder located in root folder. It then redirects the new graph copy to use these copies of the data. This is especially useful, when user wants to have a copy of graph which relies on temporary data, like most of "work" graphs of Irena. This will work for 1D graphs only (not image graphs) and may fail under some conditions.
 
+**Make limits Nice** This will scale graph to closest "nice" limits - round to nearest (min down and max up) number with 1 significant digit. Axis with range of 0.0123 - 1892 will get scaled to 0.01 to 2000. For now this is set same for both log and linear axes. If this needs to be changed, provide feedback how. 
+
 ------
 
 .. index::
