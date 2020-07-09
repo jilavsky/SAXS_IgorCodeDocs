@@ -394,10 +394,59 @@ In the Figure one can see results of run of Spheroid model on sequence of data s
 Concentration series extrapolation
 ----------------------------------
 
-This tool is used to subtract buffer from data measured with different concentrations, scale data by the concentration and extrapolate to concentration 0. Concentration and buffer scaling are optimized to obtain optimal concentrations.
+This tool is used to subtract buffer from data measured with different concentrations, scale data by the concentration and extrapolate to concentration 0. Concentration and buffer scaling can be optimized to obtain optimal concentrations.
+
+*Requirement* User needs at least three and at most five different concentration samples measured, reduced and normalized. User needs also buffers - either one buffer for each sample or same buffer for all samples. Reuse of buffers is allowed. User needs to have reasonable guess for concentration. For our test we have series of samples measured at 2, 4, and 8mg/ml concentrations and one buffer, same for all. The main GUI is below.
 
 
+.. Figure:: media/ConcSeries1.jpg
+        :align: left
+        :width: 700px
+        :Figwidth: 750px
 
+Use controls and selections on the left side of the panel to select samples. For example, in this case the names of samples end with avg, so we can reduce number fo samples displayed by adding avg in Folder Match field. We can also set Start folder etc.
+
+Set *Same buffer for all?*
+
+Select *Number of Concentrations*, select *Protein?* or *Nucleic Acid?* if appropriate.
+
+Add samples in the Sample and Buffer Name fields. *To add samples in the right fields, use right click menu when clicking on the sample name in the Listbox.*
+
+.. Figure:: media/ConcSeries2.jpg
+        :align: left
+        :width: 700px
+        :Figwidth: 750px
+
+Next fill the Input Concentrations (*SamX Conc Inp*) in gm/ml. If you selected *Protein?* or *Nucleic Acid?* code will calculate estimate for buffer scaling based on empirical formula. Else, the value is left as is. In that case, make sure it is close to 1. When done, push *Plot data*.
+
+
+.. Figure:: media/ConcSeries3.jpg
+        :align: left
+        :width: 700px
+        :Figwidth: 750px
+
+Next we need to select optimization/fitting conditions. Select using *Fit?* what you want to optimize. At least one concentration (*suggested the highest one*) must stay unchecked. The code will not allow the maximum concentration to be checked if user tries to select too many checkboxes. Next you need to also select Q range using cursors in which the data will be evaluated. When done, push button *Subtract & Plot".
+
+.. Figure:: media/ConcSeries4.jpg
+        :align: left
+        :width: 700px
+        :Figwidth: 750px
+
+This graph now shows subtracted data plotted against right axis based on our estimates.
+
+Next is *Optimization/Fitting*. If estimates look OK, use button *Optimize and Extrapolate* button to run optimization. Optimization takes some time, on my test data and fast Mac it takes about 6-10 seconds. After optimization is finished, code will extrapolate the intensity (using least square fitting for each Q point) to concentration = 0. Since the data at high-q values is routinely quite noisy, data above *Roll Over Q* value are replaced with values for highest concentration measured (no extrapolation done).
+
+*Fitting Error* Fitting error field provides information about final misfit of the data. Lower number is better fit. Sometimes there are few local minima which are close to global minimum and it may be worth trying few optimization runs to see, how low one can get with the *Fitting error*.
+
+*Save Data* Pushing this button user can save these extrapolated data as zero concentration extrapolated data. By default code will set the *Output Sample name* field to name of the highest concetration sample. Code will try to remove "avg" string from the end and appends "zConc" string. User can change the name as they want. NOTE: It has to be meaningful name for Igor Pro, little to no checking is done at this time.
+
+Data, for rest of Irena are "QRS" data, to be able to easily find them, set *Folder Match String* to zConc (it is case sensitive!). See figure below to see resulting data obtained on this data set. 
+
+
+.. Figure:: media/ConcSeries5.jpg
+        :align: left
+        :width: 700px
+        :Figwidth: 750px
 
 
 ------
