@@ -8,8 +8,9 @@ List of Tools
 
 1.  :ref:`Import bioSAXS ASCII data <import_bioSAXS_ASCII>`
 2.  :ref:`BioSAXS data manipulation - Average, Subtract, Scale  <average_subtract_scale>`
-3.  :ref:`Basic Fits <basic_fits>`
-4.  :ref:`PDDF and Molecular weight <bioSAXS_PDDF>`
+3.  :ref:`BioSAXS concentration series  <Concentration_Series>`
+4.  :ref:`Basic Fits <basic_fits>`
+5.  :ref:`PDDF and Molecular weight <bioSAXS_PDDF>`
 
 ------
 
@@ -384,6 +385,20 @@ In the Figure one can see results of run of Spheroid model on sequence of data s
 *Delete Existing results* This button will close  table with results and delete the folder  root\:SpheroidFitResults (or similarly named folder with results from different fitting model). Be careful, there is no recovery for this.
 
 *To display & further process* the results stored in the results folder, you can use :ref:`DataBrowser additions <DataBrowser additions>`.
+
+
+------
+
+.. _Concentration_Series:
+
+Concentration series extrapolation
+----------------------------------
+
+This tool is used to subtract buffer from data measured with different concentrations, scale data by the concentration and extrapolate to concentration 0. Concentration and buffer scaling are optimized to obtain optimal concentrations.
+
+
+
+
 
 ------
 
