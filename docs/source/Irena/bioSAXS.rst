@@ -425,7 +425,7 @@ Next fill the Input Concentrations (*SamX Conc Inp*) in gm/ml. If you selected *
         :width: 700px
         :Figwidth: 750px
 
-Next we need to select optimization/fitting conditions. Select using *Fit?* what you want to optimize. At least one concentration (*suggested the highest one*) must stay unchecked. The code will not allow the maximum concentration to be checked if user tries to select too many checkboxes. Next you need to also select Q range using cursors in which the data will be evaluated. When done, push button *Subtract & Plot".
+Next we need to select optimization/fitting conditions. Select using *Fit?* what you want to optimize. At least one concentration (*suggested the highest one*) must stay unchecked. The code will not allow the maximum concentration to be checked if user tries to select too many checkboxes. Next you need to also select Q range using cursors in which the data will be evaluated. When done, push button *Subtract & Plot*
 
 .. Figure:: media/ConcSeries4.jpg
         :align: left
@@ -434,13 +434,13 @@ Next we need to select optimization/fitting conditions. Select using *Fit?* what
 
 This graph now shows subtracted data plotted against right axis based on our estimates.
 
-Next is *Optimization/Fitting*. If estimates look OK, use button *Optimize and Extrapolate* button to run optimization. Optimization takes some time, on my test data and fast Mac it takes about 6-10 seconds. After optimization is finished, code will extrapolate the intensity (using least square fitting for each Q point) to concentration = 0. Since the data at high-q values is routinely quite noisy, data above *Roll Over Q* value are replaced with values for highest concentration measured (no extrapolation done).
+Next is *Optimization/Fitting*. If estimates look OK, use button *Optimize and Extrapolate* button to run optimization. Optimization takes some time, on my test data and fast Mac it takes about 6-10 seconds. After optimization is finished, code will extrapolate the intensity for cocentration 0. Th sis done using least square fitting of line for each Q point and extrapolating to 0 concentration. Since the data obtained this way at high-q values is usually quite noisy, data above *Roll Over Q* value are replaced with values for highest concentration measured (no extrapolation done).
 
 *Fitting Error* Fitting error field provides information about final misfit of the data. Lower number is better fit. Sometimes there are few local minima which are close to global minimum and it may be worth trying few optimization runs to see, how low one can get with the *Fitting error*.
 
-*Save Data* Pushing this button user can save these extrapolated data as zero concentration extrapolated data. By default code will set the *Output Sample name* field to name of the highest concetration sample. Code will try to remove "avg" string from the end and appends "zConc" string. User can change the name as they want. NOTE: It has to be meaningful name for Igor Pro, little to no checking is done at this time.
+*Save Data* Pushing this button user can save these extrapolated data as zero concentration extrapolated data. By default code will set the *Output Sample name* field to name of the highest concetration sample. Code will remove "avg" string from the end (if present) and append "zConc" string. User can change the name as they want. NOTE: Output Sampe Name string has to be meaningful name for Igor Pro - single word starting with letter - little to no checking is done at this time.
 
-Data, for rest of Irena are "QRS" data, to be able to easily find them, set *Folder Match String* to zConc (it is case sensitive!). See figure below to see resulting data obtained on this data set. 
+Resulting new data, for rest of Irena are "QRS" data type with zConc appened to end of the name. NOTE: this zConc is appended by default, but user can change it - in which case user should remember what the name is. To be able to easily find them, set *Folder Match String* to zConc (it is case sensitive!). See figure below to see resulting data obtained on this data set.
 
 
 .. Figure:: media/ConcSeries5.jpg
@@ -448,6 +448,8 @@ Data, for rest of Irena are "QRS" data, to be able to easily find them, set *Fol
         :width: 700px
         :Figwidth: 750px
 
+
+------
 
 ------
 

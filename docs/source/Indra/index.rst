@@ -11,6 +11,7 @@ Manual |release| for Indra (USAXS data reduction) version 1.97 for Igor 8.0  and
    :maxdepth: 4
 
    Introduction
+   SamplePlateSurvey
    FlyscanDataReduction
    StepscanDataReduction
    SAXSDataReduction
