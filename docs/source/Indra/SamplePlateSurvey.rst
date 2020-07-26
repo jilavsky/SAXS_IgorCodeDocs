@@ -183,6 +183,53 @@ In this tab user can select various options. The most common one will be options
 
 *Display all samples in image*    Will show red dots and names in the image for all samples in the table. useful when looking for open space in mostly filled table.
 
+**Hook function**
+
+Sometimes we need to modify data collection in way which is rare and difficult to put in GUI. For this purpose we have checkbox *Run Export hook function?*. If this checkbox is checked, code will run for export a "hook" function. This function needs to be modified in the code (or one can use overwrite). Below is example, which for each (non-Blank) position collects actually 5 different positions. Center (defined one) and one up, down, left and right from the center position. This is used to get average over wider area to get larger statistical average.
+
+
+ Function IN3S_ExportHookFunction(Command, SampleName,SX, SY, Thickness, MD)
+
+	 string Command, SampleName,SX, SY, Thickness, MD
+
+  	//this hook function will modify output of the command file for given line. This needs to be customized for specific need.
+
+	 SVAR nbl=root\:Packages\:SamplePlateSetup\:NotebookName
+
+	 //in this case it will write each command in notebook multiple times, in original position and then +/- 1mm in sx and sy
+
+	 //center
+
+	 Notebook $nbl text="      "+Command+"        "+SX+"      "+SY+"      "+Thickness+"      \""+SampleName+"\"  \r"
+
+	 //and now the variations, only if Sample Name is NOT Blank or Empty
+
+	 if(!StringMatch(SampleName, "*Blank*")&&!StringMatch(SampleName, "*Empty*"))
+
+		 string TempStr
+
+		 TempStr = num2str(str2num(SX)-1)
+
+		 Notebook $nbl text="      "+Command+"        "+TempStr+"      "+SY+"      "+Thickness+"      \""+SampleName+"_R"+"\"  \r"
+
+		 TempStr = num2str(str2num(SX)+1)
+
+		 Notebook $nbl text="      "+Command+"        "+TempStr+"      "+SY+"      "+Thickness+"      \""+SampleName+"_L"+"\"  \r"
+
+		 TempStr = num2str(str2num(SY)-1)
+
+		 Notebook $nbl text="      "+Command+"        "+SX+"      "+TempStr+"      "+Thickness+"      \""+SampleName+"_B"+"\"  \r"
+
+		 TempStr = num2str(str2num(SY)+1)
+
+		 Notebook $nbl text="      "+Command+"        "+SX+"      "+TempStr+"      "+Thickness+"      \""+SampleName+"_T"+"\"  \r"
+
+	 endif
+
+   end
+
+
+
 *******
 
 **Bottom controls**
