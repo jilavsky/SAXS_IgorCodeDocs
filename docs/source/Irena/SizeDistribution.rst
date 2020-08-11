@@ -7,7 +7,7 @@
 Size Distribution
 ====================
 
-There are three methods to computer a size distribution from the measured SAS data:
+This tool includes three methods to computer a size distribution from the measured SAS data:
 
 * :ref:`model.maxent`
 * :ref:`model.regularization`
@@ -22,6 +22,39 @@ Following is description of tool use and controls:
 
 Basic description of methods
 ----------------------------
+
+**Assumptions:**
+
+This is the main formula:
+
+.. math::
+
+  I\left( Q \right) = \left| \Delta\varrho \right|^{2}\int{\left| F\left( Q,r \right) \right|^{2}(V\left( r \right))^{2}N_p\left( r \right)\text{d}r}
+
+Which means that:
+
+* All particles are the same shape (typically spheres)
+* All particles have the same contrast
+* Calculations are done under dilute limit assumption:
+  * No inter particle effects (no structure factor)
+  * Volume fraction so low, that contrast of each particle is :math:`\left| \Delta\varrho \right|^{2} = \left| \varrho_p - \varrho_{maj} \right|^{2}`.
+
+The last condition of volume fraction is important to explain more. For example in invariant formula :
+
+:math:`Invariant = \phi *(1-\phi) * \left| \Delta\varrho \right|^{2} *2*\pi^{2}`
+
+we make approximation and replace the :math:`\phi *(1-\phi)` with :math:`\phi` for simplicity and call it volume fraction. Same is done in this tool - and it is valid for small values of :math:`\phi`. It is usually correct since we assume that concentration of scatterers must be small enough that structure factor effects can be ignored. However *SOME* users apply this Size Distribution tool to high concentration, highly polydispersed, systems, where typical structure factor effects are not visible. BUT, they do not realize the fallout of this. *It is critical here to understand the impact of this!*
+
+For systems where concentration fo scatterers is higher than small, let's say above few %, the contrast of each scatterer is NOT :math:`\left| \Delta\varrho \right|^{2} = \left| \varrho_p - \varrho_{maj} \right|^{2}`. In these systems the majority phase scattering length :math:`\varrho_{maj}` needs to be corrected as the average density & chemistry surrounding each individual scatterer is mixed phase with mixture of main phase + scatterer phase. Effectively we get similar "correction" as we see in invariant, that the volume calculated from either invariant or sum of all size bins in size distribution is NOT volume but is really Volume\*(1-Volume). This has important implication : **Maximum simple "volume" obtained from Size distribution sum over all size bins is 0.25 (0.5 for scatterers * 0.5 for main phase).** If you get more, something is wrong, it is physically impossible to get more than 0.25!
+
+To get real volume fraction for high concentration systems users need to do this high concentration correction themselves. The code does not try to do so as it would get impossible to do correctly if the data are not on absolute scale. *Therefore the code does not attempt to make any high concentration correction.*
+
+**Also note** It gets even more complicated. As we get to high concentrations, both scatterer and main phase "dimensions" scatter. It is therefore impossible to distinguish which photon or neutron scatter from "dimension" of scatterer and which  from "dimension" of main phase. Also, Babinnet principle is telling us, that we do not even know which phase is which phase - so scattering from 30% porous solid has same invariant (scattered intensity) as scattering from 70% porous solid. Be VERY careful to apply Size distribution tools on any higher concentration systems. You can get in real trouble really quickly. This is minefield which requires good understanding of theory and how these tools approximate the model. And yes, this all is actually hidden in the main formula of this tool. It is just not so obvious.
+
+**You have been warned. DO NOT publish garbage I keep seeing, like size distribution with 80% volume fraction. There is no such thing, something is WRONG**
+
+
+
 
 .. _model.maxent:
 
