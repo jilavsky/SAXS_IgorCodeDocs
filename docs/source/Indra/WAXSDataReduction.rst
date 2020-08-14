@@ -16,12 +16,6 @@ When you collect data on USAXS instrument, your data are saved in folders relate
         :align: center
         :width: 480px
 
-After you reduce data from USAXS instrument, you will have in your Igor experiment data arranged in data folders also - in this case you will have USAXS data in root\:WAXS\:Samplename.
-To see inside of the current Igor experiment, use DataBrowser (ctrl-B or cmd-B).
-
-.. image:: media/USAXSComputerDataArrangement.jpg
-        :align: center
-        :width: 480px
 
 Reduced WAXS data arrangement
 =============================
@@ -62,9 +56,10 @@ Nika will open selected file and read from this file all calibration values we h
 
 1.  All parameters will be read and inserted in proper Nika fields.
 2.  Nika will open the selected image and display it.
-3.  Nika will set proper selection of checkboxes for calibration and insert proper names of lookup functions, which find/calculate for each sample thickness, transmission, and normalization values. Nika will create default Mask.
-4.  **IMPORTANT** - by default Nika is set to use Q for x-axis. This is useful if you want to merge USAXS+SAXS+WAXS data together. If you want, you can use two-theta or d spacing for x-axis. Note, that for Diffraction tool in Irena this is not important (it converts any x-axis to two-theta) and for export to GSAS-II compatible file also (it also converts to two-theta).
-5.  Nika will display for user the tab, where user needs to find the correct "Blank" - aka: "Empty" - for the samples user wants to reduce.
+3.  Nika will set proper selection of checkboxes for calibration and insert proper names of lookup functions, which find/calculate for each sample thickness, transmission, and normalization values.
+4.  **MASK:** Depending on Checkbox "Mask Less sensitive pixels" Nika will create one of two masks - in unchecked, default Mask covering only edges and the gap between the tiles. If checked, Nika will also cover pixels between the chips of the detector which are typically slightly lower sensitivity (like 1% or so). Usually these less sensitive points have little impact, but sometimes they are important. :ref:`see <reduce_WAXS_data_mask>`.
+5.  **IMPORTANT** - by default Nika is set to use Q for x-axis. This is useful if you want to merge USAXS+SAXS+WAXS data together. If you want, you can use two-theta or d spacing for x-axis. Note, that for Diffraction tool in Irena this is not important (it converts any x-axis to two-theta) and for export to GSAS-II compatible file also (it also converts to two-theta).
+6.  Nika will display for user the tab, where user needs to find the correct "Blank" - aka: "Empty" - for the samples user wants to reduce.
 
 Next step is to select the proper Blank - if needed, right click in the panel and select "Match Blank" or whatever else needed. Either double click on the file or select the file and click "Load Empty".
 
@@ -84,8 +79,30 @@ Here is example of Sample and Blank loaded and displayed side-by-side.
 
 Next is simply - select sample or samples which should be processed and click on button "Process images". Nika will process all selected files. .
 
-
 .. Figure:: media/WAXSProcessedDataImg.jpg
         :align: left
         :width: 700px
+        :Figwidth: 820px
+
+
+.. _reduce_WAXS_data_mask:
+
+Impact of different Mask selection
+==================================
+
+Depending on data dynamic range, noise and overall intensity, sometimes we can see impact of pixels at the edges of chips, which have been fused together to form the tiles of the detector. This is common for all Pilatus detectors after some time and at some X-ray energies. Dectris does calibrate their detector sensitivity at specific (typically X-ray tube) energies, but over time and at other energies, this does not work as well. In these cases we can trade number of pixels for quality of data and mask of these lower intensity pixels. Unless we could, somehow, create flat field. Following image shows data without and with masking of less sensitive pixels:
+
+
+.. Figure:: media/WAXSimpactOfLessSensitivePixels.jpg
+        :align: left
+        :width: 700px
+        :Figwidth: 820px
+
+
+and here is how the mask looks like:
+
+
+.. Figure:: media/WAXSMaskedLessSensitivePixels.jpg
+        :align: left
+        :width: 400px
         :Figwidth: 820px
