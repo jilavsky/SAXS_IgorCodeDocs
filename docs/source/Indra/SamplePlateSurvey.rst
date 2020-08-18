@@ -97,7 +97,7 @@ User can also create image of the plate using *Create Image* button, which will 
 
 -----
 
-**Example** Assume that user you have received two Acrylic plates and want to populate a table for each and fill in sample names and positions. The following steps are needed to generate table with positions and display image of the plate to guide in sample mounting.
+**Example** Assume that as user you have received two Acrylic plates and want to populate a table for each and fill in sample names and positions. The following steps are needed to generate table with positions and display image of the plate to guide in sample mounting.
   1.  Start the tool.
   2.  Select the correct *Template*  (e.g., 9x9 Acrylic/magnetic plate" which is default)
   3.  Push button *Populate table* (needed lines will be added automatically)
@@ -112,7 +112,7 @@ Result is table, pre filled with center positions for each sample position. Posi
   5. *Set Name* for the plate into easy to identify name which is clearly related to the plate in front of your (e.g., Plate5 if the Plate has sticker "Plate#5").
   6. *Save Position Set* using the button in the bottom left corner.
   7. Use steps 3-6 to create a table for second plate and populate it with sample names/positions.
-  8. Save Igor Experiment with meaningful name (e.g. "MyName_USAXS_20200805.pxp"). Send this experiment to staff. Following other instructions at the top of this page ship the plates with samples mounted to the instrument.
+  8. Save Igor Experiment with meaningful name (e.g. "MyName_USAXS_20200805.pxp"). Send this experiment to staff or drop it to control computer through NXclient or shared Box folder. Following other instructions at the top of this page ship the plates with samples mounted to the instrument.
 
 ******
 
@@ -141,27 +141,28 @@ Here user needs to fill the important details needed by USAXS/SAXS/WAXS instrume
 
 *Set line as Blank*    Writes in Sample name string Blank
 
-*Write same name to all empty*    Asks for string and inputs this string into all empty Sample Name fields. Useful when all samples have same prefix and user needs to just append index or code.
+*Set as Dist. Std. AgbehLaB6*    Writes in Sample name string "AgBehenateLaB6" to indicate position is used by standard.
+
+*Write same name*    Asks for string and where to write inputs; write this this string into all indicated Sample Name fields. Useful when many samples have same prefix and user needs to just append index or code.
+
+*Write same thickness*    Asks for value and where to write inputs; writes this thickness value as instructed. Useful when many samples have same thickness. Note the default thickness on second tab if all samples have same thickness.
 
 *Same Sx to all empty*    Asks user for sx value and this one is filled in all empty sx fields in the table. SX fields which contain any number are not changed.
 
 *Same Sy to all empty*    Asks user for sy value and this one is filled in all empty sy fields in the table. SY fields which contain any number are not changed.
 
-*Increment sx from selected row*    Takes value for sx in the selected row, asks user for step and inserts incremented sx values to all higher rows. Step can be negative. Great if user needs to step through the sample at fixed distances.
+*Increment Sx from selected row*    Takes value for sx in the selected row, asks user for step and inserts incremented sx values to all higher rows. Step can be negative. Great if user needs to step through the sample at fixed distances.
 
-*Increment sy from selected row*    Takes value for sy in the selected row, asks user for step and inserts incremented sy values to all higher rows. Step can be negative. Great if user needs to step through the sample at fixed distances.
+*Increment Sy from selected row*    Takes value for sy in the selected row, asks user for step and inserts incremented sy values to all higher rows. Step can be negative. Great if user needs to step through the sample at fixed distances.
 
 *Copy row values to Table Clipboard*    Copies values in selected row into string ("Table Clipboard") and saves it for later use. There is only ONE Table Clipboard string available to users, copying new row in Table Clipboard will overwrite existing content.
 
 *Paste Table Clipboard to row*    Pastes the values stored in above "Copy" command into the selected row. Overwrites existing values. Note: Table Clipboard is not emptied by this command, same content can be pasted many times.
 
+*Insert new row with Table Clipboard*    Creates a new row and pastes the values stored in above "Copy" command into the selected row. Note: Table Clipboard is not emptied by this command, same content can be pasted many times.
 
-In order to create a new row with some content, user has two obvious choices :
-  * Duplicate a row, in which case a new row with the same content as the one being duplicated is created. But the new row is next the duplicate row. There is no "Move row" function at this time.
-  * Copy row content in Table Clipboard, insert empty row in suitable place and paste the content of Table Clipboard there.
 
-The second method is great if user forgets to insert enough Blank measurements. Copy Blank location, insert number of empty lines throughout the table and paste in those new lines Blank parameters from Table Clipboard.
-
+NOTE: for now Table Clipboard handles only ONE line at time and only one line can be selected in the table anyway. More lines may be coming later.
 *******
 
 **Option Controls**
@@ -177,6 +178,10 @@ In this tab user can select various options. The most common one will be options
 
 *Default sample thickness*    Can be set for set of samples (e.g., NMR tubes are 4mm ID) and then thickness does not have to be provided in the Sample table.
 
+*Run Export Hook function?*    User can modify existing example Hook function in the code which will somehow modify the table input when writing to command file. Example is to measure each sample in multiple places offset by some distance etc. See the **Hook function** below.
+
+*USAXS time, SAXS time, WAXS time*    These values are used to calculate total run time (see bottom of the panel). NOTE, that these values are NOT transferred to epics, so user must set these in epics on their own.
+
 *Default Command file name* - do not change unless you really know what you are doing. Name of macro file being exported.
 
 *GUI Controls* are rarely needed.   *Display individual controls*    Will enable user to choose - per sample - when to run which measurement segment. Basically, bad idea unless you know why you need it. Talk to staff, but "DO NOT DO IT".
@@ -188,45 +193,25 @@ In this tab user can select various options. The most common one will be options
 Sometimes we need to modify data collection in way which is rare and difficult to put in GUI. For this purpose we have checkbox *Run Export hook function?*. If this checkbox is checked, code will run for export a "hook" function. This function needs to be modified in the code (or one can use overwrite). Below is example, which for each (non-Blank) position collects actually 5 different positions. Center (defined one) and one up, down, left and right from the center position. This is used to get average over wider area to get larger statistical average.
 
 
- Function IN3S_ExportHookFunction(Command, SampleName,SX, SY, Thickness, MD)
-
-	 string Command, SampleName,SX, SY, Thickness, MD
-
-  	//this hook function will modify output of the command file for given line. This needs to be customized for specific need.
-
-	 SVAR nbl=root\:Packages\:SamplePlateSetup\:NotebookName
-
-	 //in this case it will write each command in notebook multiple times, in original position and then +/- 1mm in sx and sy
-
-	 //center
-
-	 Notebook $nbl text="      "+Command+"        "+SX+"      "+SY+"      "+Thickness+"      \""+SampleName+"\"  \r"
-
-	 //and now the variations, only if Sample Name is NOT Blank or Empty
-
-	 if(!StringMatch(SampleName, "*Blank*")&&!StringMatch(SampleName, "*Empty*"))
-
-		 string TempStr
-
-		 TempStr = num2str(str2num(SX)-1)
-
-		 Notebook $nbl text="      "+Command+"        "+TempStr+"      "+SY+"      "+Thickness+"      \""+SampleName+"_R"+"\"  \r"
-
-		 TempStr = num2str(str2num(SX)+1)
-
-		 Notebook $nbl text="      "+Command+"        "+TempStr+"      "+SY+"      "+Thickness+"      \""+SampleName+"_L"+"\"  \r"
-
-		 TempStr = num2str(str2num(SY)-1)
-
-		 Notebook $nbl text="      "+Command+"        "+SX+"      "+TempStr+"      "+Thickness+"      \""+SampleName+"_B"+"\"  \r"
-
-		 TempStr = num2str(str2num(SY)+1)
-
-		 Notebook $nbl text="      "+Command+"        "+SX+"      "+TempStr+"      "+Thickness+"      \""+SampleName+"_T"+"\"  \r"
-
-	 endif
-
-   end
+| Function IN3S_ExportHookFunction(Command, SampleName,SX, SY, Thickness, MD)
+|    	string Command, SampleName,SX, SY, Thickness, MD
+|    	//this hook function will modify output of the command file for given line. This needs to be customized for specific need.
+|	    SVAR nbl=root\:Packages\:SamplePlateSetup\:NotebookName
+|	    //in this case it will write each command in notebook multiple times, in original position and then +/- 1mm in sx and sy center
+|	    Notebook $nbl text="      "+Command+"        "+SX+"      "+SY+"      "+Thickness+"      \""+SampleName+"\"  \r"
+|	    //and now the variations, only if Sample Name is NOT Blank or Empty
+|	    if(!StringMatch(SampleName, "\*Blank\*") && !StringMatch(SampleName, "\*Empty\*"))
+|		     string TempStr
+|		     TempStr = num2str(str2num(SX)-1)
+|		     Notebook $nbl text="      "+Command+"        "+TempStr+"      "+SY+"      "+Thickness+"      \""+SampleName+"_R"+"\"  \r"
+|		     TempStr = num2str(str2num(SX)+1)
+|		     Notebook $nbl text="      "+Command+"        "+TempStr+"      "+SY+"      "+Thickness+"      \""+SampleName+"_L"+"\"  \r"
+|		     TempStr = num2str(str2num(SY)-1)
+|		     Notebook $nbl text="      "+Command+"        "+SX+"      "+TempStr+"      "+Thickness+"      \""+SampleName+"_B"+"\"  \r"
+|		     TempStr = num2str(str2num(SY)+1)
+|	        Notebook $nbl text="      "+Command+"        "+SX+"      "+TempStr+"      "+Thickness+"      \""+SampleName+"_T"+"\"  \r"
+| 	  endif
+| end
 
 
 
@@ -243,6 +228,10 @@ There are few buttons in this area. These are actions run when user finishes set
 *Export cmd file* will save the command file, as text, with name in the "Default command file name" field (usaxs.mac is strongly suggested) on your *Desktop*.
 
 *Dialog Export cmd file* will save the command file through save-as dialog, so user can pick any location on user computer and optionally change the name as needed.
+
+*Estimated run time [min]*  best guess how long this will take to collect (if all works as expected). Uses the "USAXS, SAXS, and WAXS times". Again, user must set the times in epics controls on their own.
+
+*Last Info/Warning*  Note what was done last. Some events do not have any obvious visible response, so this tell you, what happened last.
 
 *******
 
@@ -280,12 +269,29 @@ At the beamline the button *Beamline survey* will open a new panel. This panel c
 
 *Drive to SX/SY on row change?* if this checkbox is selected, when user changes row, the code will move to sx and sy positions from that row, if possible. It does not matter if the row is changed by button or by selecting a row in the Sample Table.
 
+*Go 0,0* button will move instrument to sx=0 and sy=0.
+
 *Save values* button will save current sx and sy motor positions in selected row in Sample Table. It will also copy in that row Sample Name and Thickness.
+
+
 
 **Bottom part**
 
-these are simply motor controls, similar to our standard epics motor GUI. There is SX and SY values - motor positions read from epics. Arrows will make change motor positions by the step value below. Epics is updated about 10x second by background procedure.
+these are  motor controls, similar to our standard epics motor GUI. There is SX and SY values - motor positions read from epics. Arrows will make change motor positions by the step value below. Epics is updated about 10x second by background procedure.
 
 *Step controls* Steps can be changed multiple different ways. User can select the value and type in the field. Arrows up/down next to the step value change step by 1mm up or down. Button "x 0.1" makes the step 10x smaller and button "x 10" makes the step 10x larger.
+
+*Set SX 0* button will redefine current sx position as 0.
+
+*Set SY 0* button will redefine current sy position as 0.
+
+*STOP motors* button will attempt to issue to our controller All stop. Not all motors will stop, some are driven differently and will not obey. This is "oops" button.
+
+*Open Slits Large* button will open slits to large size for radiography.
+
+*USAXS slits* button will redefine move slits to USAXS sizes.
+
+*SWAXS slits* button will redefine move slits to SAXS/WAXS sizes.
+
 
 Beamline survey should be disabled for all installations except at the beamline computers. Even at beamline computers, this tool will not move motors if instrument indicates that it is collecting data. Also, this tool does not know anything about epics limits and any other errors or failures in epics, so if motors do not work properly, check epics. Call staff. **DO NOT GET CREATIVE.**

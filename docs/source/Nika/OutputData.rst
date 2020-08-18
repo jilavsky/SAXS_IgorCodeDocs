@@ -1,6 +1,10 @@
+.. _QRSdataDescription:
+
 .. index::
     Output data Nika
     Export data Nika
+    QRS data type
+
 
 Output data
 ===========
@@ -13,7 +17,7 @@ QRS - Internal in Igor
    :width: 100%
 
 
-Data are internally stored (if selected) within Igor experiment in folder root:SAS: in folders with
+Data are internally stored (if selected) within Igor experiment in folder root\:SAS\: in folders with
 
 nameOfSample\_C being the circular average
 
