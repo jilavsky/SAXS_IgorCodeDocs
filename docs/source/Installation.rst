@@ -3,7 +3,8 @@
 Installation
 ============
 
-..index:: Installation
+.. index::
+  Installation
 
 Availability of the code
 ------------------------
@@ -102,7 +103,7 @@ Keep in mind that you need xop support for the bit versions (32bit or 64bit) ver
 
 **Igor 7.08 obsolete version no more maintained.**
 
-Follow above instructions for Igor Pro 8 using Installer version 1.10: https://github.com/jilavsky/SAXS_IgorInstaller/blob/master/Igor_GitHub/GHInstaller_IrenaNika_v1.10.pxp?raw=true BUT install version denoted as **February2020**, that is the last Igor Pro 7 tested version. Even that one has some limitations on Igor Pro 7.08 compared to Igor Pro 8.03 and higher. 
+Follow above instructions for Igor Pro 8 using Installer version 1.10: https://github.com/jilavsky/SAXS_IgorInstaller/blob/master/Igor_GitHub/GHInstaller_IrenaNika_v1.10.pxp?raw=true BUT install version denoted as **February2020**, that is the last Igor Pro 7 tested version. Even that one has some limitations on Igor Pro 7.08 compared to Igor Pro 8.03 and higher.
 
 **Igor 6.37 32bit version = obsolete version no more maintained.**
 

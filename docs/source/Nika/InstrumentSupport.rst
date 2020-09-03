@@ -11,18 +11,27 @@ Currently there are these instruments supported:
 
 1.  :ref:`APS 9ID-C USAXS/SAXS/WAXS <Nika.9IDC_Instrument>`
 2.  :ref:`APS 12ID-C SAXS/WAXS <Nika.12IDC_Instrument>`
-3.  :ref:`ALS RSoXS soft energy SAXS <Nika.ALS_RSoXS>`
-4.  :ref:`SSRL Mat SAXS <Nika.SSRL_MatSAXS>`
-5.  :ref:`TPA <Nika.TPA>`
-6.  :ref:`APS 5ID DND SAXS/WAXS <Nika.5ID_DND>`
+3.  :ref:`APS 12ID-B SAXS/WAXS <Nika.12IDB_Instrument>`
+4.  :ref:`ALS RSoXS soft energy SAXS <Nika.ALS_RSoXS>`
+5.  :ref:`SSRL Mat SAXS <Nika.SSRL_MatSAXS>`
+6.  :ref:`TPA <Nika.TPA>`
+7.  :ref:`APS 5ID DND SAXS/WAXS <Nika.5ID_DND>`
+8.  :ref:`SMI NSLS-II  <Nika.SMI_NSLSII>`
+
+
+For other instrument scientists:
+--------------------------------
+Other instrument setups can be added on request. Provide me with enough data and description and I can write support for your instrument.
+
+
 
 .. _Nika.9IDC_Instrument:
 
 .. index::
     Nika; 9ID-C instrument support
 
-9ID/15ID SAXS - WAXS
---------------------
+9ID SAXS - WAXS
+---------------
 
 This is support for APS beamline 9ID SAXS and WAXS instruments. This is my beamline and there are instructions for how to use this tool. These instructions open when you select this choice. There is also Youtube movie which walks users on how to reduce their data.
 
@@ -48,6 +57,20 @@ To use follow these steps:
 * You may want to perform better instrument calibration using AgBehenate image (if available) and/or design your own mask.
 * Rest of Nika use is same as with other instruments. Note, that Nika will, for each image, pull from records normalization values (I0, I0 for blank), calculate transmission (using Blank image selected) and also pull wavelength. No other parameters are routinely pulled from records. Sorely missing is obviously thickness and any absolute calibration constant. They are not available. You can choose to calculate absolute intensity calibration parameter if you have standard (e.g., Glassy Carbon) measurement available.
 * If you need some other parameters from the spec file - like LakeShore temperature, motor positions, etc. - the lookup table is in root\:Packages\:Nika_12IDCLookups in waves with names provided by beamline. You can display the table or write a piece of Igor code which will utilize these values as needed.
+
+
+.. _Nika.12IDB_Instrument:
+
+.. index::
+    Nika; 12ID-B instrument support
+
+
+12ID-B SAXS WAXS
+----------------
+
+This code may or may not work at this time. We are still working some details on how to move data from beamline software to Nika. Some test case provide do work, but some do not.
+
+
 
 
 .. _Nika.ALS_RSoXS:
@@ -82,9 +105,20 @@ TPA
 
 This supports data from Australian SANS instrument. Not much more details provided yet and this code is not under development.
 
-For other instrument scientists:
 
-Other instrument setups can be added on request. Provide me with enough data and description and I can write support for your instrument.
+.. _Nika.SMI_NSLSII:
+
+.. index::
+    Nika; SMI NSLS-II instrument support
+
+
+Soft Matter Interfaces SMI at NSLS-II
+-------------------------------------
+
+This instrument - 12-ID SAXS/GISAXS instrument (https://www.bnl.gov/ps/beamlines/beamline.php?r=12-ID) can generate data which conform to 2D calibrated Nexus canSAS standard. Nika can load these and generate circular or sector profiles or lineouts along arbitrary line. To do this, check "Calibrated 2D data?" and select canSAS/Nexus as Image type. Note, that when using input Calibrated 2D data, your data processing is severely limited. Also, at this time the beam center must be in the image or Nika will not be able to get properly azimuthal angles. It probably can be fixed if needed, so let me know if you run into troubles. 
+
+If you have other canSAS/Nexus data from another instrument, please, provide me with sample. There seems to be just enough flexibility in the standard, that I cannot guarantee that Nika can read them without testing and possibly tuning the code.
+
 
 .. _Nika.5ID_DND:
 
