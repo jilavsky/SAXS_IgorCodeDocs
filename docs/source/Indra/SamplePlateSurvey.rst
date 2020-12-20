@@ -6,7 +6,7 @@
 Sample Plate Setup tool
 =======================
 
-Most users of our instrument have many samples which need to be measured. Over time we have developed various sample holders, which can hold up to 100 (at this time) of samples at once. Using these sample holders makes experiments lot more efficient, convenient, and suitable for remote experiments or mail-in experiments. The *Sample Plate Setup* tool described here is part of Indra (USAXS) package from August 1, 2020. *You therefore need version which was released after August 1, 2020*. If there is normal or at least beta version released after 8/1/2020, use that release. Until new release is available, install the latest Master version (instructions are in the movie or in the help in installer).
+Most users of our instrument have many samples which need to be measured. Over time we have developed various sample holders, which can hold up to 100 (at this time) of samples at once. Using these sample holders makes experiments lot more efficient, convenient, and suitable for remote experiments or mail-in experiments. The *Sample Plate Setup* tool described here is part of Indra (USAXS) package from September 2020 release.
 
 *Purpose*
 
@@ -33,10 +33,11 @@ While you are mounting the samples, keep in mind, that the samples need to be sh
 
 Fill the table in the tool while you mount the samples - or after you mounted all the samples. How to do it depends on your preferences. Here are some obvious options:
   * Fill the table with names and positions manually. Create suitable number of lines in Sample Table and start typing.
-  * If image of the sample plate is available, fill names for all samples in the table (do not forget to add Blanks) and then select a row in the table and right click in the image on place where the sample is located and write the values there.
+  * If image of the sample plate is available, fill names for all samples in the table (do not forget to add Blanks, distributed throughout the data collection about every 10 sample measurements) and then select a row in the table and right click in the image on place where the sample is located and write the values there.
   * At the beamline, where "Beamline survey" works, you can be adding lines with new samples using the "Beamline survey tool".
   * If all samples have same thickness (or thickness is unknown), set default thickness in the "Options control" and leave the Thickness column empty. If sample thickness varies, write thickness to those which do not have default thickness, leave empty for those which do.
   * Sample Names need to be suitable name for our instrument - string, starting with letter, no spaces, only letters, numbers, and "_". When a name is written in the table column "Sample name", the name is checked and if needed, converted in suitable string. If you do not like what you see, make different choice for name.
+  * Check below description of right click options for the Table controls. There are many useful right click commands you can use to make the setup of table easier.
 
 Verify positions and names. If plate image is available, use the image to show you where sample for each row is.
 
@@ -71,7 +72,7 @@ Tool Description
  * Top Controls
  * Tab with Sample Table
  * Tab with Options control
- * Bottom area with save and output buttons.
+ * Bottom area with output buttons.
  * And message which reports to user last action he/she did!
 
 Controls in each of these areas are described below. The main purpose of this tool is to help users fill the "Sample Table" with Sample names, sx, sy, thickness and in the future metadata. This tool should make that easy, convenient, and reliable. *At the beamline* this tool can also be used for survey of sample positions, tweaking and fine tuning sx and sy for measurements and creating the command file.
@@ -95,6 +96,8 @@ User can also create image of the plate using *Create Image* button, which will 
 
 *Current set name* This is name for the current set of positions. Random name is generated when buttons are used. User should change this name into meaningful name related to the sample plates they are using. It REALLY helps if  it is easy to identify for anyone - sample plates may have numbers, so use "AcrylicPlate5" or anything sensible.
 
+*Save Position Set* This button will save the current sample set in this Igor experiment, it is then available as Saved sample set in *Select Saved set*. Note, that if this button is disabled, current sample set was not changed.
+
 -----
 
 **Example** Assume that as user you have received two Acrylic plates and want to populate a table for each and fill in sample names and positions. The following steps are needed to generate table with positions and display image of the plate to guide in sample mounting.
@@ -110,7 +113,7 @@ User can also create image of the plate using *Create Image* button, which will 
 
 Result is table, pre filled with center positions for each sample position. Positions are indexed, in millimeters, with respect to top right corner, which is defined as sx=0 and sy=0. First two openings are designated for beamline use. Others are for users to use. The red marker in the image shows position of the currently selected row of samples in the table. See later *Images* for more functionality description. Fill the table for Plate 1, mounting up to 79 samples on this plate.
   5. *Set Name* for the plate into easy to identify name which is clearly related to the plate in front of your (e.g., Plate5 if the Plate has sticker "Plate#5").
-  6. *Save Position Set* using the button in the bottom left corner.
+  6. *Save Position Set* using the button under the plate name.
   7. Use steps 3-6 to create a table for second plate and populate it with sample names/positions.
   8. Save Igor Experiment with meaningful name (e.g. "MyName_USAXS_20200805.pxp"). Send this experiment to staff or drop it to control computer through NXclient or shared Box folder. Following other instructions at the top of this page ship the plates with samples mounted to the instrument.
 
@@ -126,22 +129,22 @@ Here user needs to fill the important details needed by USAXS/SAXS/WAXS instrume
 
 *Important note* - any line with no Sample name in it is considered empty line and will be skipped when creating command file. Fill Sample Names only for used positions and you can leave the other lines in there. Or delete. See later.
 
-*Right click menu* on the *Sample Table* provide lots of useful functionality:
+*Right click menu* on the *Sample Table* provide lots of useful functionality. Note, that you can select one line or multiple lines, to select range of lines hold down shift and to pick and choose disjoint lines, hold down ctrl/cmd buttons. Note, that some of the tools use only the top (first) line selected...
 
 .. Figure:: media/SamplePlate3.jpg
            :align: left
            :width: 480px
            :figwidth: 500px
 
-*Insert new line*    Inserts one row in the selected row, moving the rest down.
+*Insert new lines*    Inserts one row in the selected row, moving the rest down.
 
-*Delete selected line*    Deletes selected row, rest moves up.
+*Delete selected lines*    Deletes selected rows, rest moves up.
 
-*Duplicate selected line*    Inserts a new row in the Sample Table. The new row is filled with values from the row which is being duplicated. Useful when you need to measure sample twice in positions close together. Duplicate line, change sx and/or sy and done.
+*Duplicate selected lines*    Inserts a new row in the Sample Table. The new row is filled with values from the row which is being duplicated. Useful when you need to measure sample twice in positions close together. Duplicate line, change sx and/or sy and done.
 
-*Set line as Blank*    Writes in Sample name string Blank
+*Set lines as Blank*    Writes in Sample name string Blank
 
-*Set as Dist. Std. AgbehLaB6*    Writes in Sample name string "AgBehenateLaB6" to indicate position is used by standard.
+*Set as Dist. Std. AgbehLaB6*    Writes in Sample names string "AgBehenateLaB6" to indicate positions are used by standard.
 
 *Write same name*    Asks for string and where to write inputs; write this this string into all indicated Sample Name fields. Useful when many samples have same prefix and user needs to just append index or code.
 
@@ -155,14 +158,15 @@ Here user needs to fill the important details needed by USAXS/SAXS/WAXS instrume
 
 *Increment Sy from selected row*    Takes value for sy in the selected row, asks user for step and inserts incremented sy values to all higher rows. Step can be negative. Great if user needs to step through the sample at fixed distances.
 
-*Copy row values to Table Clipboard*    Copies values in selected row into string ("Table Clipboard") and saves it for later use. There is only ONE Table Clipboard string available to users, copying new row in Table Clipboard will overwrite existing content.
+*Copy row values to Clipboard*    Copies values in selected rows into "Table Clipboard" and saves it for later use. There is only ONE Table Clipboard available to users, copying selected rows in Table Clipboard will overwrite existing content.
 
-*Paste Table Clipboard to row*    Pastes the values stored in above "Copy" command into the selected row. Overwrites existing values. Note: Table Clipboard is not emptied by this command, same content can be pasted many times.
+*Paste Clipboard to rows*    Pastes the values stored in above "Copy" command into the selected rows. Overwrites existing values. Note: Table Clipboard is not emptied by this command, same content can be pasted many times. Important: *you need to select same number of rows as target as is in Clipboard stored*
 
-*Insert new row with Table Clipboard*    Creates a new row and pastes the values stored in above "Copy" command into the selected row. Note: Table Clipboard is not emptied by this command, same content can be pasted many times.
+*Insert new rowS with Table Clipboard*    Creates a new Arrows and pastes the values stored in above "Copy" command into the selected row. Note: Table Clipboard is not emptied by this command, same content can be pasted many times. In this case all rows from clipboard are pastes as block below the top selected row in the table. To make this most obvious, select just one row and content will be all pasted as one block below it.
 
 
-NOTE: for now Table Clipboard handles only ONE line at time and only one line can be selected in the table anyway. More lines may be coming later.
+NOTE: Table Clipboard can handle one or many selected lines from the table. Most tools handle multiple selected lines, hopefully logically...
+
 *******
 
 **Option Controls**
@@ -192,25 +196,27 @@ In this tab user can select various options. The most common one will be options
 
 Sometimes we need to modify data collection in way which is rare and difficult to put in GUI. For this purpose we have checkbox *Run Export hook function?*. If this checkbox is checked, code will run for export a "hook" function. This function needs to be modified in the code (or one can use overwrite). Below is example, which for each (non-Blank) position collects actually 5 different positions. Center (defined one) and one up, down, left and right from the center position. This is used to get average over wider area to get larger statistical average.
 
+*Display Hook Function* button will copy the hook function in main Procedure file in Igor experiment for user to edit and modify. Code below is what you get:
 
-| Function IN3S_ExportHookFunction(Command, SampleName,SX, SY, Thickness, MD)
-|    	string Command, SampleName,SX, SY, Thickness, MD
-|    	//this hook function will modify output of the command file for given line. This needs to be customized for specific need.
-|	    SVAR nbl=root\:Packages\:SamplePlateSetup\:NotebookName
-|	    //in this case it will write each command in notebook multiple times, in original position and then +/- 1mm in sx and sy center
-|	    Notebook $nbl text="      "+Command+"        "+SX+"      "+SY+"      "+Thickness+"      \""+SampleName+"\"  \r"
-|	    //and now the variations, only if Sample Name is NOT Blank or Empty
-|	    if(!StringMatch(SampleName, "\*Blank\*") && !StringMatch(SampleName, "\*Empty\*"))
-|		     string TempStr
-|		     TempStr = num2str(str2num(SX)-1)
-|		     Notebook $nbl text="      "+Command+"        "+TempStr+"      "+SY+"      "+Thickness+"      \""+SampleName+"_R"+"\"  \r"
-|		     TempStr = num2str(str2num(SX)+1)
-|		     Notebook $nbl text="      "+Command+"        "+TempStr+"      "+SY+"      "+Thickness+"      \""+SampleName+"_L"+"\"  \r"
-|		     TempStr = num2str(str2num(SY)-1)
-|		     Notebook $nbl text="      "+Command+"        "+SX+"      "+TempStr+"      "+Thickness+"      \""+SampleName+"_B"+"\"  \r"
-|		     TempStr = num2str(str2num(SY)+1)
-|	        Notebook $nbl text="      "+Command+"        "+SX+"      "+TempStr+"      "+Thickness+"      \""+SampleName+"_T"+"\"  \r"
-| 	  endif
+
+| override Function IN3S_ExportHookFunction(listWaveG, LBSelectionWvG)
+|   	wave listWaveG, LBSelectionWvG
+|   	//  Modify this function as needed, for example comment out lines etc.
+|   	//  These are parameters:
+|   	//		IN3S_WriteListOfCommands(listWaveG, LBSelectionWvG, sxOffset, syOffset, TitleModifier)
+|   	//	1. Keep the wave names listWaveG, LBSelectionWvG as they are. These contain info for all samples.
+|   	//	2. Change the sxOffset and syOffset [mm] (these values are added to the sx and sy in the table).
+|   	//	3. Change the TitleModifier, this is appended to the sample name.
+|	    //	4. make sure you have "Run Export Hook function" checkbox checked and compiled procedures.
+|	   //************************************************************************************************
+|	  //this measures right of center position
+|	  IN3S_WriteListOfCommands(listWaveG, LBSelectionWvG, -1, 0, "_R")
+|	  //this measures top of center position
+|	  IN3S_WriteListOfCommands(listWaveG, LBSelectionWvG, 0, -1, "_T")
+|	  //this measures left of center position
+|	  IN3S_WriteListOfCommands(listWaveG, LBSelectionWvG, 1, 0, "_L")
+|	  //this measures bottom of center position
+|	  IN3S_WriteListOfCommands(listWaveG, LBSelectionWvG, 0, 1, "_B")
 | end
 
 
@@ -220,8 +226,6 @@ Sometimes we need to modify data collection in way which is rare and difficult t
 **Bottom controls**
 
 There are few buttons in this area. These are actions run when user finishes setting up the top parts of this panel.
-
-*Save Position Set* - will save - inside this Igor experiment - the position set in the Sample table. Name is at the top of the table.
 
 *Preview cmd file* will create Igor notebook with the commands for inspection.
 

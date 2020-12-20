@@ -341,7 +341,7 @@ Please check the “History area” in Igor pro (ctrl-J or cmd-J will get you co
 
 *It is unlikely data from any other source, than APS USAXS instrument, would work with this button. It is highly unlikely!*
 
-***Data selections Listbox - operations***
+**Data selections Listbox - operations**
 
 This is important, please read carefully:
 
@@ -387,8 +387,9 @@ The tool has two main modes of operation
 
 There are currently two Merge methods. Some has been already described above, but here are the details.
 
-1. **Optimized Overlap** This is the main part of the Data Merging tool. This is done always and is default method of this tool. If you push button "Reset merge params" this method is selected. If data have sufficiently good quality for both data sets over sufficient q/point range, this is preferred method. In this case the code will take the overlapping region in data and optimize values of all selected Parameters (Data 1 Backg., Data 2 Scaling, Data 1 or 2 Q shift). Any number of parameters can be selected. Value of the others, if known, can be put in by users manually. Default is to fit Data 1 Background and Data 2 scaling. Data 1 and 2 Q shift is assumed to be 0.
-2. **Extrap. Data1 and Optimize** This is optional part of the process. If selected, Data 1 is first fitted with function selected in "Extrap fnc." popup (below the "Merge method popup") - options are Porod (Intensity = Backgr. + Const * Q\ :sup:`-4`), "Power Law" (Intensity = Const * Q\ :sup:`-P`) or "Power law w Backg" (Intensity = Backgr. + Const * Q\ :sup:`-P`). Range of data used for fitting is selected by cursors C and D, which are placed in the graph when needed. The look like cross and have letters next to them:
+1. **Optimized Overlap** This is the main part of the Data Merging tool. This is done always and is default method of this tool. If you push button "Reset merge params" this method is selected. If data have sufficiently good quality for both data sets over sufficient q/point range, this is preferred method. In this case the code will take the overlapping region in data and optimize values of all selected Parameters (Data 1 Backg., Data 2 Scaling, Data 1 or 2 Q shift). Any number of parameters can be selected. Value of the others, if known, can be put in by users manually. Default is to fit Data 1 Background and Data 2 scaling. Data 1 and 2 Q shift is assumed to be 0. Combined data contain Data 1 from their minimum Q to the high Q of overlap region. Data 2 start at low Q of overlap region and go to their high Q. In the overlap region you have both Data 1 and Data 2 points.
+1. **Optimized Overlap, trim Data1** This is same method as "Optimized Overlap", but when data are combined, Data1 are used only to the low Q of the overlap region. Then Data 2 start. Therefore, there is not region in which there would be both Data 1 and Data 2 points. Overlapping region is using ONLY Data 2. This often results in less noise in the overlapping region, especially on USAXS where high Q may be very noisy and have high uncertainties. 
+3. **Extrap. Data1 and Optimize** This is optional part of the process. If selected, Data 1 is first fitted with function selected in "Extrap fnc." popup (below the "Merge method popup") - options are Porod (Intensity = Backgr. + Const * Q\ :sup:`-4`), "Power Law" (Intensity = Const * Q\ :sup:`-P`) or "Power law w Backg" (Intensity = Backgr. + Const * Q\ :sup:`-P`). Range of data used for fitting is selected by cursors C and D, which are placed in the graph when needed. The look like cross and have letters next to them:
 
 .. image:: media/DataManipulation20.jpg
            :align: left
