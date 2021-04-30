@@ -158,14 +158,14 @@ Here user needs to fill the important details needed by USAXS/SAXS/WAXS instrume
 
 *Increment Sy from selected row*    Takes value for sy in the selected row, asks user for step and inserts incremented sy values to all higher rows. Step can be negative. Great if user needs to step through the sample at fixed distances.
 
-*Copy row values to Clipboard*    Copies values in selected rows into "Table Clipboard" and saves it for later use. There is only ONE Table Clipboard available to users, copying selected rows in Table Clipboard will overwrite existing content.
+*Copy row values to Clipboard*    Copies values in selected rows into "Clipboard" and saves it for later use. There is only ONE Clipboard available to users, copying selected rows in Clipboard will overwrite all existing content in the Clipboard.
 
-*Paste Clipboard to rows*    Pastes the values stored in above "Copy" command into the selected rows. Overwrites existing values. Note: Table Clipboard is not emptied by this command, same content can be pasted many times. Important: *you need to select same number of rows as target as is in Clipboard stored*
+*Paste Clipboard to rows*    Paste the values stored using above "Copy row values to Clipboard" command into the selected rows. Overwrites existing values.  *Important: you need to select same number of target rows as is in Clipboard stored EXCEPT when only single row is stored in Clipboard. If only one row is stored, its (same) content is copied in each selected row. When multiple rows are stored, content of each stored row pasted (in order) in selected target rows.* Note: Clipboard is not emptied by this command, same content can be pasted many times.
 
-*Insert new rowS with Table Clipboard*    Creates a new Arrows and pastes the values stored in above "Copy" command into the selected row. Note: Table Clipboard is not emptied by this command, same content can be pasted many times. In this case all rows from clipboard are pastes as block below the top selected row in the table. To make this most obvious, select just one row and content will be all pasted as one block below it.
+*Insert new rows with Clipboard*    Inserts needed number of new rows below the top selected row and pastes the values stored by above "Copy row values to Clipboard" command into the new rows. In this case all rows from clipboard are pasted as single block below the *top selected row* in the table. Even if rows in Clipboard were originally not contiguous range (clipboard has no record of original position of the content). *If multiple lines* are selected, *ONLY the TOP selected row* is considered for location and other selections are ignored. Note: Table Clipboard is not emptied by this command, same content can be pasted many times.
 
 
-NOTE: Table Clipboard can handle one or many selected lines from the table. Most tools handle multiple selected lines, hopefully logically...
+Table Clipboard can now handle one or many selected lines from the table. Most tools handle multiple selected lines, hopefully logically... If more functionality is needed, let me know.
 
 *******
 
