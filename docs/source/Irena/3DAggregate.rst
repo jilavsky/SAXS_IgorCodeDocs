@@ -76,17 +76,27 @@ The most interesting are z = degree of aggregation and d\ :sub:`f`
 The parameters user uses to control growth are:
 -----------------------------------------------
 
-* Degree of aggregation "z" - this is how many particles will be in the aggregate.
-* Sticking probability - this is probability of sticking in the Monte Carlo method - when a new particle arrives nearby any existing aggregate particle, how likely it is to stick. Value varies from 10 to 100%.
-* Sticking method. There are three values here 1, 2 and 3. Sticking method describes how close must a new particles arrive to existing ones to be allowed to stick. These distances relate to which neighbor it needs to be within the system which is simple cubic lattice, which is used to move particles around. 1 is really nearest neighbor in one direction only (x or y or z direction only), 2 is neighbors include also in plane neighbors (xy, xz, etc), and 3 are neighbors also in body direction (including xyz neighbor). Value of 3 allows particle to stick if it is relatively far from any aggregate particle (distance of sqrt(3)), value of 2 means it has to be closer (distance of sqrt(2)) and 1 means it has to arrive really close (distance of 1).
+* *Degree of aggregation* "z" - this is how many particles will be in the aggregate.
+* *Sticking probability* (SP) - this is probability of sticking in the Monte Carlo method - when a new particle arrives nearby any existing aggregate particle, how likely it is to stick. Value varies from 10 to 100%.
+* *Sticking method*. There are three values here 1, 2 and 3. Sticking method describes how close must a new particles arrive to existing ones to be allowed to stick. These distances relate to which neighbor it needs to be within the system which is simple cubic lattice, which is used to move particles around. 1 is really nearest neighbor in one direction only (x or y or z direction only), 2 is neighbors include also in plane neighbors (xy, xz, etc), and 3 are neighbors also in body direction (including xyz neighbor). Value of 3 allows particle to stick if it is relatively far from any aggregate particle (distance of sqrt(3)), value of 2 means it has to be closer (distance of sqrt(2)) and 1 means it has to arrive really close (distance of 1).
+* *Multi Particle Attraction* - this controls SP (sticking probability) value, when new particle approaches existing aggregate and finds one or more neighbors. Options are:  "Neutral;Positive;Negative;". When *Neutral* probability of attaching does not depend on number of particles in nearest neighbor sphere around the new position. When *Attractive* more particles increase the probability of attaching. Probability SP for 1 particle is value set in GUI by user. SP for 2 particles is (GUI value+100)/2 and for 3 or more it is (GUI value+300)/4. When *Repulsive* more particles decrease the probability of attaching. Probability SP for 1 particle is value set in GUI by user. SP for 2 particles is (GUI value+10)/2 and for 3 or more it is (GUI value+30)/4. When *Not Allowed* particle cannot attach to place where it would have more than one neighbor. Probability SP for 1 particle is value set in GUI by user. SP for 2 particles is 1% and for 3 or more it is 0%. *Consequence* - negative creates larger, more open particles, positive creates more compact particles.
 
-Using different combinations of *sticking probability* and *Sticking method* results in different structures. And of course, as any proper Monte Carlo method, results are random... User needs to test various combinations to find a combination which creates aggregates which have parameters which match parameters of his/her scattering.
+Using different combinations of *sticking probability*, *Sticking method*, and *Multi Particle Attraction* results in different structures. And of course, as any proper Monte Carlo method, results are random... User needs to test various combinations to find a combination which creates aggregates which have parameters which match parameters of his/her scattering.
 
-*Note: lower Sticking probability and larger z values significantly increase run time.* Watch history area where progress is presented and final parameters are listed also.
+Simplified:
+
+1.  to grow compact particle set sticking method 1, low sticking probability and Attractive, I got df up to 2.55
+
+2.  to grow open particle, set sticking method 3, high sticking probability and Repulsive/Not Allowed, I got df below 1.8 this way.
+
+
+*Note: Larger z values significantly increase run time.* Watch history area where progress is presented and final parameters are listed also.
+
+... 2021-06 changed lots of code "under the hood" and growth and evaluations are MUCH faster. Aggregate with z = 250 growth and analysis is (on my high end i7 MacBook Pro) between 5-20 seconds. Aggregate with z = 500 may be 30-60 seconds. This is order or more improvement against prior state. Larger aggregates are likely much longer.
 
 *NOTE* : growth of aggregate can fail if too compact particle is grown. When this happens, simply try again.
 
-*No of test paths* This is internal parameter which is defining how many different attempts to pass through the aggregate code does to calculate the resulting parameters. Higher number results in better statistical validity of the numbers for c, d\ :sub:`f`, d\ :sub:`min`, etc. But takes longer time. 2.5k seems kind of good compromise.
+*Max paths/end* This is internal parameter which is defining how many different attempts to pass through the aggregate code does from each end particle to calculate the resulting parameters. Higher number results in better statistical validity of the numbers for c, d\ :sub:`f`, d\ :sub:`min`, etc. But takes longer time. 1.5k seems kind of good compromise. For smaller Aggregates (smaller z values), 1.5k is large enough that all paths to each may be found (note, there may be more than one path from between two ends). For larger Aggregates (z values) number of paths from each end may be larger. This imposed limit is here to prevent very long runs. The code now uses multithreading and aborting the run may be challenge. ´
 
 *Primary Rg[A]* This gives the whole aggregate real size - copy here size of primary particle Rg.
 
@@ -95,13 +105,13 @@ Grow the particles:
 
 OK, now we can grow the particles. First try growing one particle - see next button - and if all works as expected, grow multiple particles (and go and get coffee, it may take some time). Note, that this is CPU intensive calculation.
 
-*This MAY BE SLOW* Push Button “\ **Grow 1 Agg, graph**\ ” and this will create the aggregate and display it in Gizmo as well as calculate 1D intensity data and overlay them over the data from source folder. Below is result which run on my high-end MacBook Pro for about 15 seconds:
+*This MAY BE SLOW* Push Button “\ **Grow 1 Agg, graph**\ ” and this will create the aggregate and display it in Gizmo as well as calculate 1D intensity data and overlay them over the data from source folder. Below is result which run on my high-end MacBook Pro for about 5 seconds:
 
 .. image:: media/3DAggregate4.jpg
    :align: center
    :width: 780px
 
-This is relatively good result. It is unlikely that all parameters will be matched exactly - or even very close. Note in the first graph with data the slope (d\ :sub:`f`) has uncertaintiy of 0.1, it is unreasonable to try to match this value more precisely. It may be useful to use "Analyze uncertainties" in Unified fit to understand the precision with which the parameters are known. I have d\ :sub:`f` of about 2.09 (and need 2.2); c about 1.21 (and need 1.2); and d\ :sub:`min` about 1.72 (and need 1.9). I think this is close to acceptable for this model. Also note, that the fit in the 1D intensity vs Q is reasonably good.
+This is relatively good result. It is unlikely that all parameters will be matched exactly - or even very close. Note in the first graph with data the slope (d\ :sub:`f`) has uncertainty of 0.1, it is unreasonable to try to match this value more precisely. It may be useful to use "Analyze uncertainties" in Unified fit to understand the precision with which the parameters are known. I have d\ :sub:`f` of about 2.09 (and need 2.2); c about 1.21 (and need 1.2); and d\ :sub:`min` about 1.72 (and need 1.9). I think this is close to acceptable for this model. Also note, that the fit in the 1D intensity vs Q is reasonably good.
 
 *This WILL BE SLOW* Push Button “\ **Grow N Agg**\ ” and this will create N aggregates sequentially (N is selected in the pull down menu next to this button, default is 5, max is 50), display it in Gizmo as well as calculate 1D intensity data, overlay them over the data from source folder, save the aggregate and store achieved results in notebook. These results can be the evaluated using button *Compare Stored*, see below.
 
@@ -116,7 +126,7 @@ Button “\ **Summary Table**\ ” displays Notebook with model summaries - and 
 
 
 
-Button “\ **Store Current Aggregate**\ ” stores the current aggregate result (including the 3D aggregate data) in separate folder, where they can then be found, displayed etc. It also adds results into the ListBox *Saved 3D Mass Fract Aggregate*, see list in Listbox below. I just added there the current result. Description in the table describes resulting parameters achieved for that Mass Fractal Aggregate. You can then select a line and generate 3D and 1D graphs etc. 
+Button “\ **Store Current Aggregate**\ ” stores the current aggregate result (including the 3D aggregate data) in separate folder, where they can then be found, displayed etc. It also adds results into the ListBox *Saved 3D Mass Fract Aggregate*, see list in Listbox below. I just added there the current result. Description in the table describes resulting parameters achieved for that Mass Fractal Aggregate. You can then select a line and generate 3D and 1D graphs etc.
 
 
 .. image:: media/3DAggregate6.jpg
