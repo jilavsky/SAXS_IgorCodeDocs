@@ -109,6 +109,9 @@ Hayer Penfold MSA    ref            no reference given in NIST macros
 Interprecipitate     ref            Formula 6 in APPLIED PHYSICS LETTERS 93, 161904 (2008)
                      Par1           Distance L [A]
                      Par2           Sigma (root-mean-square deviation (ordering factor))
+DisorderedCrystal    ref            https://en.wikipedia.org/wiki/Structure_factor#Finite_crystals_with_disorder_of_the_second_kind
+                     Par1           Distance a [A]
+                     Par2           Sigma (root-mean-square deviation (ordering factor))
 ========             ========        ========
 
 
@@ -913,6 +916,35 @@ bot = :math:`1-2\exp(-(Q^2 \sigma^2)/4)cos(QL) + \exp(-(Q^2\sigma^2)/2)`
 :math:`S(Q,L,\sigma) = 2\frac{top}{bot} - 1`
 
 This is model of the SF for L=200 and Sigma=20 (Sigma/L=10). I have no way of testing this so this formula has not been checked against any data.
+
+
+.. _StructureFactors.DisorderedCrystal:
+
+.. index::
+    Structure Factors; DisorderedCrystal
+
+
+**DisorderedCrystal**
+^^^^^^^^^^^^^^^^^^^^^
+
+The code for this structure factor has been created on user request. Formula can be found on wikipedia: https://en.wikipedia.org/wiki/Structure_factor#Finite_crystals_with_disorder_of_the_second_kind and is this figrue: https://wikimedia.org/api/rest_v1/media/math/render/svg/2fcf3e7d435e9a597a2f872ad0df72bd4352bbbd (8/12/2021)
+
+
+.. Figure:: media/StructureFactor_DisordredCrystal.jpg
+   :align: left
+   :width: 420px
+   :figwidth: 100%
+
+
+Structure factor has two parameters - distance a and sigma  - presumed Gausian distribution width (ordering factor). Formulas are here: 
+
+:math:`r = \exp(-Q^2\sigma^2/2)`
+
+.. math::
+    S(Q,a,\sigma)=\{\frac{1-r^2}{1+r^2-2rcos(Qa)} \}
+
+
+This is model of the SF for L=800 and Sigma=50. I have no way of testing this so this formula has not been checked against any data.
 
 
 **Calling the library and use**
