@@ -936,7 +936,7 @@ The code for this structure factor has been created on user request. Formula can
    :figwidth: 100%
 
 
-Structure factor has two parameters - distance a and sigma  - presumed Gausian distribution width (ordering factor). Formulas are here: 
+Structure factor has two parameters - distance a and sigma  - presumed Gausian distribution width (ordering factor). Formulas are here:
 
 :math:`r = \exp(-Q^2\sigma^2/2)`
 
