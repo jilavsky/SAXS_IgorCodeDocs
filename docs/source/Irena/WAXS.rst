@@ -91,7 +91,7 @@ The procedure is same as JCPDS card, except you point the file selector to the A
 
 4. Manually adding data
 
-This method creates empty table which you need to fill in with values manually - either type in or copy/paste from other programs, like Excel. You neeed at least d-spacing and Intensity, hkl are helpful. Do not bother with 2Theta values,they get created for wavelength you are using automatically.
+This method creates empty table which you need to fill in with values manually - either type in or copy/paste from other programs, like Excel. You neeed at least d-spacing and Intensity, hkl are helpful. Do not bother with 2Theta values, they get created for wavelength you are using automatically.
 
 Now you can add it to the graph.
 

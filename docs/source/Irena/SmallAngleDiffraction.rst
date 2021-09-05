@@ -71,6 +71,9 @@ Where :math:`\Psi (Q)` is function of the three or four peak parameters – scal
 
 I suspect, that right selection is based on experience and what really fits right. Note, that the parameters are always evaluated for Ψ(Q) only… This is *VERY* important to understand and if you see cases, when these assumptions are wrong, please, let me know…
 
+
+.. _PeaksShapes:
+
 Following are formulas for peak profiles Ψ(x) used for the peak profiles:
 
 1. Gaussian Function
