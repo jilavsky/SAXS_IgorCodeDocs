@@ -89,7 +89,7 @@ Allows you to select card to overwrite or create anew card with name you want. I
 
 The procedure is same as JCPDS card, except you point the file selector to the AMS_DATA.txt cards. Make sure you download from their database "diffraction data" and not crystal structures of other data.
 
-4. Manualy adding data
+4. Manually adding data
 
 This method creates empty table which you need to fill in with values manually - either type in or copy/paste from other programs, like Excel. You neeed at least d-spacing and Intensity, hkl are helpful. Do not bother with 2Theta values,they get created for wavelength you are using automatically.
 

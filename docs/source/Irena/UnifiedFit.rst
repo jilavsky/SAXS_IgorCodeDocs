@@ -62,7 +62,7 @@ common sense would dictate. The correlation function follows closely the
 development of Fournet in Guinier and Fournet and in Fournet's PhD
 dissertation where it is better described but is in French...
 
-So the Unified needs to accommodate multiple levels each of which can potentially have 8 parameters (including spherical Correlations):
+So the Unified needs to accommodate multiple levels each of which can potentially have 7 parameters (including spherical Correlations):
 
 * Rg\ :sub:`i`
 * G\ :sub:`i`
@@ -71,17 +71,17 @@ So the Unified needs to accommodate multiple levels each of which can potentiall
 * :math:`\eta` :sub:`i`
 * pack\ :sub:`i`
 * Rgco\ :sub:`i`
-* k
 
 Where *Rgco\ :sub:`i`* is usually Rg\ :sub:`(i-1)` - this is valid for hierarchical structures or other systems where one mass of material has multiple length scales (e.g., rod, disk, ellipsoid). Using this parameter one can "join" two levels to represent one more complex structure - mass fractal aggregate level with primary particle level, or level representing the large dimension of spheroid with level representing the small dimension etc.
 
-*k* is a constant equal to 1 for solid primary particles and is approximately equal to 1.06 for mass fractal aggregates. Value of 1.06 is obtained from an integral of the correlation function for a mass fractal of dimension.
+8-23-2021 removed the k from GUI and force k = 1 for P>3 and k = 1.06 for P<3. This is recommendation from Greg Beaucage to prevent users from forgetting about it.  *k* is a constant equal to 1 for solid primary particles and is approximately equal to 1.06 for mass fractal aggregates. Value of 1.06 is obtained from an integral of the correlation function for a mass fractal of dimension.
 
 Each level must also have the answer to at least three questions:
 
 * Are there Correlations: qCor\ :sub:`i`
-* Is this a Mass Fractal: qMF\ :sub:`i`
 * Does this level terminate at high-q in the next lower level Rg: q\ :sub:`PL` (PowerLimit) That is, is this a hierarchical structure build from the previous smaller level. A third option is to let the power law limit float as a free parameter although this is rarely appropriate.
+
+8-23-2021 removed this option: * Is this a Mass Fractal: qMF\ :sub:`i` - seems it is lot more complicated and we need to address this better in the future.
 
 As Gregg wrote me: “We have several options for coding the Unified function.
 
@@ -176,7 +176,7 @@ Select the number of level 1, check Update Unified automatically (if used comput
 
 **Description of the Tab area in the panel:**
 
-This area changes according to parameter selection etc. I have tried to put in this as much “smarts” as possible to help user make right choices, so parameters, which are not applicable at any given time should be invisible… Anyway, each parameter has most controls grouped on one line – that is current parameter value, checkbox *Fit* and (if Fit is selected) limits – low and high fitting limits. Further more underneath the parameters is the parameter step variable. This allows the user to select the magnitude that a parameters changes by pushing the arrows at the end of it’s field. This allows user to “walk” the parameters into their starting condition as best as possible. There are also buttons for local fits. If the checkbox “Is it correlated system” is selected, new parameters appear. Also the screen changes, if the checkbox “Is it mass fractal from lower level” is selected….
+This area changes according to parameter selection etc. I have tried to put in this as much “smarts” as possible to help user make right choices, so parameters, which are not applicable at any given time should be invisible… Anyway, each parameter has most controls grouped on one line – that is current parameter value, checkbox *Fit* and (if Fit is selected) limits – low and high fitting limits. Further more underneath the parameters is the parameter step variable. This allows the user to select the magnitude that a parameters changes by pushing the arrows at the end of it’s field. This allows user to “walk” the parameters into their starting condition as best as possible. There are also buttons for local fits. If the checkbox “Is it correlated system” is selected, new parameters appear.
 
 The new red line in the graphs represents the results f the model for default values of level 1. Now, we need to make this level fit the smaller particles Guinier and Power at Q ~ 0.025 A\ :sup:`-1`. This shoulder is better visible in the bottom graph. Also we need to include appropriate background…
 

@@ -41,9 +41,14 @@ Theory behind this tool
 
 Modeling II can use up to 10 "populations" or models : each can be either "Size Distribution of scatterers", "Unified level", “Surface Fractal”, “Mass Fractal”, or "Diffraction peak"; For the Size distribution and Unified level the SAS from them can be calculated in dilute limit or after applying one of 5 available structure factors.
 
-**NOTE: “Unified level” :** this is kind of simplified Unified level and the tool will complain (once every 24 hours) if you try to use more than one Unified level. It is not impossible, but it is strongly discouraged. If you need more Unified levels, you need “Unified fit” tool. There are various rules and relationships, which can be enforced in that tool. The reason for Unified level here is to enable one combine scattering from particulate system with the scattering from fractal system formed by these particles. Typical use is to describe low-q power law slope, which is mass fractal of primary particles, which then can be modeled correctly.
+**NOTE: “Unified level” :** this is kind of simplified Unified level and the tool will complain (once every 24 hours) if you try to use more than one Unified level. It is not impossible, but it is discouraged. If you need more Unified levels, you need “Unified fit” tool. There are various rules and relationships, which can be enforced in that tool. The reason for Unified level here is to enable one combine scattering from particulate system with the scattering from fractal system formed by these particles. Typical use is to describe low-q power law slope, which is mass fractal of primary particles, which then can be modeled correctly. For more details, read: :ref:`Unified Fit <unified-fit>`.
 
-**NOTE: "Diffraction peak" :** this is simplified version of Diffraction tool and for now there is no way to include relationships between the peaks (to provide for specific structures) as the Diffraction tool allows. Fort more details on the terms, peak profiles etc. read the Diffraction tool chapter.
+**NOTE: "Diffraction peak" :** this is simplified version of Diffraction tool and for now there is no way to include relationships between the peaks (to provide for specific structures) as the Diffraction tool allows. Fort more details on the terms, peak profiles etc. read the Diffraction tool chapter, :ref:`Diffraction Peaks<PeaksShapes>`.
+
+**NOTE: "Mass Fractal" and "Surface Fractal" :** These are analytical formulas of mass fractal and surface fractal. The use and parameters copy dedictaed tool :ref:`Fractal model<model.Fractal>` For details see also  :ref:`Mass and Surface Fractals <MassAndSurfaceFractals>`.
+
+
+.. _SizeDistributionDescription:
 
 **NOTE: "Size distribution models" :** the tool is aware of the units of Intensity (either in the wave note or set by user) and its GUI is changing depending on these units. What was originally called "Volume" of scatterers for size distribution is now:
 
@@ -408,7 +413,7 @@ Here is fitting example when complicated data set is fitted with two Unified lev
 
 Bellow are data, the data were identified to be composed of two types of components :
 
-1. Low Q scattering of some size distribution of highly asymmetric particles with two Guinier areas ~ 0.0003 and 0.004 A\ :sup:`-1` connected by power law slope. This system may be fitable by size distribution but it was found easier to fit by two-levels Unified fit.
+1. Low Q scattering of some size distribution of highly asymmetric particles with two Guinier areas ~ 0.0003 and 0.004 A\ :sup:`-1` connected by power law slope. This system may be fit-able by size distribution but it was found easier to fit by two-levels Unified fit.
 
 2. Two diffraction peaks Q ~ 0.025 and 0.07 A\ :sup:`-1`
 

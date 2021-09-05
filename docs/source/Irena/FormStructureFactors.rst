@@ -681,7 +681,7 @@ F(q,R,par1,par2,par3,par4,par5) = Form factor itself
 
 V(R,par1,par2,par3,par4,par5) = Volume of particle function
 
-the names for these need to be provided in strings, the input of these function is q [1/A] and R [A]. These function must decl;are the 5 parameters, but they are not required to use them internally, when not needed. Graphical interface for the controls of the User Form Factor opens when User form factor is selected (or reselected if needed). The GUI opens together with text document describing how to use and some demo functions:
+the names for these need to be provided in strings, the input of these function is q [1/A] and R [A]. These function must declare the 5 parameters, but they are not required to use them internally, when not needed. Graphical interface for the controls of the User Form Factor opens when User form factor is selected (or reselected if needed). The GUI opens together with text document describing how to use and some demo functions:
 
 .. Figure:: media/FormFactorUserGUI.jpg
    :align: left
@@ -716,8 +716,8 @@ Example of these functions for sphere:
 To verify that the form factor works for you and to use the form factor if your own functions use following process and functions:
 
 1. Generate Q wave with Qs for which the data are to be calculated
-2. Generate intensity wave (will be redimesnioned as necessary, so the only thing is, it should be double precision).
-3. Generate distributipon of radii wave - if you want to use single R, create wave with single point
+2. Generate intensity wave (will be redimensioned as necessary, so the only thing is, it should be double precision).
+3. Generate distribution of radii wave - if you want to use single R, create wave with single point
 4. decide what you want to calculate:
 
 | 	F^2			    powerFct=0
@@ -865,21 +865,22 @@ The code for this structure factor has been copied from NIST SAS macros (Kline, 
 
 
 This is graph fro standard NIST set of parameters for both Irena package (black line) and NIST package (red dots). Both assume ONLY structure factor (Form factor is set to 1). The parameters were:
-Diameter (A)	41.5  NOTE: Irena uses here radius, which is converted to diameter inside the structure factor. This is to keep consistency with other structure factors.
-Charge	19
-Volume Fraction	0.0192
-Temperature(K)	298
-monovalent salt conc. (M)	0
-dielectric constant of solvent	78
+
+| Diameter (A)	41.5  NOTE: Irena uses here radius, which is converted to diameter inside the structure factor. This is to keep consistency with other structure factors.
+| Charge	19
+| Volume Fraction	0.0192
+| Temperature(K)	298
+| monovalent salt conc. (M)	0
+| dielectric constant of solvent	78
+
 Units are mentioned in the help for each filed on the Structure factor panel (you may have to enable help on Mac, it is shown always on PC in the bottom left corner of the Igor window).
-Important note: this is comment from original NIST codeÅc.
-//      *** NOTE ****  THIS CALCULATION REQUIRES THAT THE NUMBER OF
-//                     Q-VALUES AT WHICH THE S(Q) IS CALCULATED BE
-//                     A POWER OF 2
-//!!!!! this is at this time NOT enforced in Irena implementation...
-//  I am not sure if this is really problem or not.
-//    How do I find out? Users need to test this for me and if necessary, I need to try it out.
-// in my testing there was NO problem with the results when the number of q pointds was arbitrary number of points...
+
+Important note: this is comment from original NIST code.
+
+| **NOTE**     THIS CALCULATION REQUIRES THAT THE NUMBER OF
+|              Q-VALUES AT WHICH THE S(Q) IS CALCULATED BE
+|              A POWER OF 2
+| this is at this time NOT enforced in Irena implementation... I am not sure if this is really problem or not. How do I find out? Users need to test this for me and if necessary, I need to try it out. In my testing there was NO problem with the results when the number of q pointds was arbitrary number of points...
 
 
 
@@ -927,7 +928,19 @@ This is model of the SF for L=200 and Sigma=20 (Sigma/L=10). I have no way of te
 **DisorderedCrystal**
 ^^^^^^^^^^^^^^^^^^^^^
 
-The code for this structure factor has been created on user request. Formula can be found on wikipedia: https://en.wikipedia.org/wiki/Structure_factor#Finite_crystals_with_disorder_of_the_second_kind and is this figrue: https://wikimedia.org/api/rest_v1/media/math/render/svg/2fcf3e7d435e9a597a2f872ad0df72bd4352bbbd (8/12/2021)
+The code for this structure factor has been created on user request. Formula can be found on wikipedia: https://en.wikipedia.org/wiki/Structure_factor#Finite_crystals_with_disorder_of_the_second_kind and is this equation from the web site :
+
+https://wikimedia.org/api/rest_v1/media/math/render/svg/2fcf3e7d435e9a597a2f872ad0df72bd4352bbbd (linked on 8/12/2021)
+
+Structure factor has two parameters - distance "a" and Gausian distribution width = ordering factor :math:`\sigma`. Formulas are here:
+
+:math:`r = \exp(-Q^2\sigma^2/2)`
+
+.. math::
+    S(Q,a,\sigma)=\frac{1-r^2}{1+r^2-2rcos(Qa)}
+
+
+This is model of the SF for L=800 and Sigma=50. I have no way of testing this so this formula has not been checked against any data.
 
 
 .. Figure:: media/StructureFactor_DisordredCrystal.jpg
@@ -936,28 +949,18 @@ The code for this structure factor has been created on user request. Formula can
    :figwidth: 100%
 
 
-Structure factor has two parameters - distance a and sigma  - presumed Gausian distribution width (ordering factor). Formulas are here:
-
-:math:`r = \exp(-Q^2\sigma^2/2)`
-
-.. math::
-    S(Q,a,\sigma)=\{\frac{1-r^2}{1+r^2-2rcos(Qa)} \}
-
-
-This is model of the SF for L=800 and Sigma=50. I have no way of testing this so this formula has not been checked against any data.
-
-
 **Calling the library and use**
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 Users can use built in library in their own code using following calls:
 
-1. initialize by calling: IR2S_InitStructureFactors() this is where the list of known structure factors is:
+1. initialize by calling: IR2S_InitStructureFactors()
 
-SVAR ListOfStructureFactors=root\:Packages\:StructureFactorCalc:ListOfStructureFactors
+this is where the list of known structure factors is:  SVAR ListOfStructureFactors=root\:Packages\:StructureFactorCalc:ListOfStructureFactors
 
 2. use by calling:
- IR2S_CalcStructureFactor(SFname,Qvalue,Par1,Par2,Par3,Par4,Par5,Par6)
+
+IR2S_CalcStructureFactor(SFname,Qvalue,Par1,Par2,Par3,Par4,Par5,Par6)
 
 I(Q) = I(Q, dilute limit) * IR2S_CalcStructureFactor(SFname,Qvalue,Par1,Par2,Par3,Par4,Par5,Par6)
 

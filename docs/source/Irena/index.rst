@@ -5,7 +5,7 @@ Irena manual
 
 .. index:: ! Irena manual
 
-Manual |release| for Irena version 2.69 for Igor 8.0 and higher (will still work on Igor 7.05)
+Manual |release| for Irena version 2.71 for Igor 8.0 and higher (will NOT work on Igor 7)
 
 .. toctree::
    :maxdepth: 4
@@ -19,6 +19,7 @@ Manual |release| for Irena version 2.69 for Igor 8.0 and higher (will still work
    DataManipulation
    MetadataBrowser
    Modeling
+   ModelingModels
    UnifiedFit
    SizeDistribution
    AnalyticalModels

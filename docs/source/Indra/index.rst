@@ -5,7 +5,7 @@ Indra manual
 
 .. index:: ! Indra manual
 
-Manual |release| for Indra (USAXS data reduction) version 1.97 for Igor 8.0  and higher (will work still on Igor 7.05)
+Manual |release| for Indra (USAXS data reduction) version 1.99 for Igor 8.0  and higher (will NOT work on Igor 7.05)
 
 .. toctree::
    :maxdepth: 4
