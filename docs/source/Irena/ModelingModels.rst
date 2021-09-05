@@ -6,7 +6,14 @@
 Model description
 ==================
 
-Here we describe math behind different models of scattering available in Modeling package. As noted in the page for Modeling package itself, any population can be arbitrarily “switched on and off”. Any population also can be one of : **"Size distribution", “Unified level”, “Surface fractal”, “Mass Fractal”, or "Diffraction peak"**; allowing to model really complex small-angle scattering data. These population models are described here.
+Here we describe math behind different models of scattering available in Modeling package. Any population can be one of :
+ | **"Size distribution"**
+ | **“Unified level”**
+ | **“Surface fractal”**
+ | **“Mass Fractal”**
+ | **"Diffraction peak"**
+
+allowing to model really complex small-angle scattering data. These population models are described here.
 
 
 Size distribution
@@ -19,11 +26,77 @@ Unified Fit
 
 Unified fit is using formula explained in Unified fit model, :ref:`Unified Fit <unified-fit>`.
 
+.. _DiffractionPeaksProfiles:
 
 Diffraction Peaks
 -----------------
 
-Diffraction peaks are using peaks shapes from Small-Angle Diffraction tool, these are listed here :ref:`Small Angle Diffraction <PeaksShapes>`.
+Diffraction peak shapes are used in Small-Angle Diffraction tool as well as Modeling. Following are formulas for peak profiles Ψ(x) used for the peak profiles:
+
+1. Gaussian Function
+
+.. math::
+
+    \Psi(x)=M * exp(-\frac{(x-\mu)^2}{2\sigma^2})
+
+where :math:`\sigma` is the Gaussian width, and :math:`\mu` is the center of the peak, and M is scaling factor.
+
+2. Modified Gaussian Function
+
+.. math::
+
+    \Psi(x)=M * exp(-\frac{(x-\mu)^d}{2\sigma^d})
+
+where d >=1 is the exponent that decides the falloff rate.
+
+3. Lorentz Function, Lorenz-squared (is just the same function squared)
+
+.. math::
+
+    \Psi(x)=M *\frac{a}{\pi(a^2+(x-\mu)^2)}
+
+
+where *a* is the Lorentzian width.
+
+4. Pseudo-Voigt Function
+
+
+.. math::
+
+      \Psi(x)=M *(\eta\frac{1}{1+x^2}+(1-\eta)exp(-(ln2)x^2)))
+
+      x= \frac{2(x-x_0)}{w}
+
+
+where :math:`x_0` is the peak center, w is the FWHM, and :math:`0\leq \eta \leq 1`  is a weight parameter.
+
+5. Pearson type VII Function
+
+.. math::
+
+    \Psi(x)=M *\left [ 1+\frac{(x-\mu)^2)}{ma^2} \right ]^{-m}
+
+where a is proportional to the FWHM, and m decides the rate at which the
+tail of the peak profile falls.
+
+6. Gumbel Function
+
+.. math::
+
+    \Psi(x)=\frac{1}{\beta}exp(\frac{x-\mu}{\beta})exp(-exp(\frac{x-\mu}{\beta})))
+
+where :math:`\beta` is the width and :math:`\mu` is the center of the peak.
+
+7. Skew normal function
+
+.. figure:: media/SmallAngleDiffraction15.png
+   :align: center
+   :width: 780px
+
+
+8. Percus-Yevick S(q) and Percus-Yevick S(q) multipled by Sphere F(q) are described in some detail in Form factor and Structure factor description (pdf file which you can open from SAS menu in Igor Pro). The code for P-Y S(q) is NIST code from NIST SANS data analysis
+   macros.
+
 
 
 .. _MassAndSurfaceFractals:

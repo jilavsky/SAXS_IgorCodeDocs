@@ -71,74 +71,7 @@ Where :math:`\Psi (Q)` is function of the three or four peak parameters – scal
 
 I suspect, that right selection is based on experience and what really fits right. Note, that the parameters are always evaluated for Ψ(Q) only… This is *VERY* important to understand and if you see cases, when these assumptions are wrong, please, let me know…
 
-
-.. _PeaksShapes:
-
-Following are formulas for peak profiles Ψ(x) used for the peak profiles:
-
-1. Gaussian Function
-
-.. math::
-
-    \Psi(x)=M * exp(-\frac{(x-\mu)^2}{2\sigma^2})
-
-where :math:`\sigma` is the Gaussian width, and :math:`\mu` is the center of the peak, and M is scaling factor.
-
-2. Modified Gaussian Function
-
-.. math::
-
-    \Psi(x)=M * exp(-\frac{(x-\mu)^d}{2\sigma^d})
-
-where d >=1 is the exponent that decides the falloff rate.
-
-3. Lorentz Function, Lorenz-squared (is just the same function squared)
-
-.. math::
-
-    \Psi(x)=M *\frac{a}{\pi(a^2+(x-\mu)^2)}
-
-
-where *a* is the Lorentzian width.
-
-4. Pseudo-Voigt Function
-
-
-.. math::
-
-      \Psi(x)=M *(\eta\frac{1}{1+x^2}+(1-\eta)exp(-(ln2)x^2)))
-
-      x= \frac{2(x-x_0)}{w}
-
-
-where :math:`x_0` is the peak center, w is the FWHM, and :math:`0\leq \eta \leq 1`  is a weight parameter.
-
-5. Pearson type VII Function
-
-.. math::
-
-    \Psi(x)=M *\left [ 1+\frac{(x-\mu)^2)}{ma^2} \right ]^{-m}
-
-where a is proportional to the FWHM, and m decides the rate at which the
-tail of the peak profile falls.
-
-6. Gumbel Function
-
-.. math::
-
-    \Psi(x)=\frac{1}{\beta}exp(\frac{x-\mu}{\beta})exp(-exp(\frac{x-\mu}{\beta})))
-
-where :math:`\beta` is the width and :math:`\mu` is the center of the peak.
-
-7. Skew normal function
-
-.. figure:: media/SmallAngleDiffraction15.png
-   :align: center
-   :width: 780px
-
-
-8. Percus-Yevick S(q) and Percus-Yevick S(q) multipled by Sphere F(q) are described in some detail in Form factor and Structure factor description (pdf file which you can open from SAS menu in Igor Pro). The code for P-Y S(q) is NIST code from NIST SANS data analysis
-   macros.
+**Diffraction peaks profiles** are described in :ref:`Peak Profiles <DiffractionPeaksProfiles>`.
 
 “Display peaks” will display individual peaks. Note, data for individual peaks are never smeared.
 

@@ -1,4 +1,4 @@
-.. _model.FormStructureFactors:
+.. _FormStructureFactors:
 
 .. index::
     model; Form Factors
