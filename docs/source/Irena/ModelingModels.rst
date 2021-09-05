@@ -23,7 +23,7 @@ Unified fit is using formula explained in Unified fit model, :ref:`Unified Fit <
 Diffraction Peaks
 -----------------
 
-Diffraction peaks are using peaks shapes from Small-Angle Diffraction tool, these are listed here :ref:`Diffraction Peaks <PeaksShapes>`.
+Diffraction peaks are using peaks shapes from Small-Angle Diffraction tool, these are listed here :ref:`Small Angle Diffraction <PeaksShapes>`.
 
 
 .. _MassAndSurfaceFractals:
