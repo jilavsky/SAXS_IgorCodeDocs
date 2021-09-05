@@ -23,7 +23,7 @@ Unified fit is using formula explained in Unified fit model, :ref:`Unified Fit <
 Diffraction Peaks
 -----------------
 
-Diffraction peaks are suing peaks shapes from Small-Angle Diffraction tool, these are listed here :ref:`Diffraction Peaks<PeaksShapes>`
+Diffraction peaks are using peaks shapes from Small-Angle Diffraction tool, these are listed here :ref:`Diffraction Peaks <PeaksShapes>`.
 
 
 .. _MassAndSurfaceFractals:
@@ -31,9 +31,9 @@ Diffraction peaks are suing peaks shapes from Small-Angle Diffraction tool, thes
 Surface and Mass Fractal
 ------------------------
 
-This model was developed for analysis of cement fractal systems, see : https://www.nature.com/articles/nmat1871, for more details see :ref:`Fractal model<model.Fractal>`. Siumilarly top Unified fit, if you can use dedicated Fractals model tool, use that one. It is simpler to use.
+This model was developed for analysis of cement fractal systems, see : https://www.nature.com/articles/nmat1871, for more details see :ref:`Fractal model <model.Fractal>`. Similarly top Unified fit, if you can use dedicated Fractals model tool, use that one. It is simpler to use.
 
-Summary of theory is presented here as well as in page for dedicated model tool. The model predicts :math:`Q^{-Dv}`scattering (i.e. between Q -1 and Q -3 ) for mass- or volume fractals, and :math:`Q^{6-Ds}`scattering (i.e. between Q -3 and Q -4 ) for surface-fractals. In the model function for dΣ/dΩ as a function of Q, there are four components:
+Summary of theory is presented here as well as in page for dedicated model tool. The model predicts Q\ :sup:`Dv`\  scattering (i.e. between Q\ :sup:`-1`\  and Q\ :sup:`-3`\  ) for mass- or volume fractals, and Q\ :sup:`6-Ds`\   scattering (i.e. between Q\ :sup:`-3`\  and Q\ :sup:`-4`\ ) for surface-fractals. In the model function for dΣ/dΩ as a function of Q, there are four components:
 
 dΣ/dΩ = {VOLUME FRACTAL + SINGLE GLOBULE} TERM + SURFACE FRACTAL + FLAT BACKGROUND SCATTERING
 
@@ -52,7 +52,7 @@ The first volume-fractal term contains :math:`\Phi_{CSH}` , :math:`\xi_{v}`, and
 .. image:: media/FractalsModels2b.jpg
         :width: 70%
 
-In fitting the data, the need to incorporate R\ :sub:`c`\ with η, and a well-defined single-globule term (in addition to the volume-fractal) in the first bracket of eq. [1], is strong evidence for a solid volume-fractal phase. A well-defined single-globule term arises because, unlike the case of fractal pores in clays and porous rocks, nearest-neighbor solid particles cannot exist inside each other, i.e., their centers cannot approach, on average, to within R\ :sub:`c`\. This correlation-hole effect means that, for length-scales of order R\ :sub:`o`\, the individual particles are seen as distinct objects, even when incorporated into an aggregated structure. For a spheroid of aspect ratio, β, the form-factor for a single globule, F\ :sup:`2`\ (Q), is given by:
+In fitting the data, the need to incorporate R\ :sub:`c`\  with η, and a well-defined single-globule term (in addition to the volume-fractal) in the first bracket of eq. [1], is strong evidence for a solid volume-fractal phase. A well-defined single-globule term arises because, unlike the case of fractal pores in clays and porous rocks, nearest-neighbor solid particles cannot exist inside each other, i.e., their centers cannot approach, on average, to within R\ :sub:`c`\. This correlation-hole effect means that, for length-scales of order R\ :sub:`o`\, the individual particles are seen as distinct objects, even when incorporated into an aggregated structure. For a spheroid of aspect ratio, β, the form-factor for a single globule, F\ :sup:`2`\ (Q), is given by:
 
 
 .. image:: media/FractalsModels3.jpg
