@@ -14,12 +14,12 @@ Manual |release| for Irena version 2.71 for Igor 8.0 and higher (will NOT work o
    Important
    ImportData
    ExportData
-   ScriptingTool
    Plotting
    DataManipulation
    MetadataBrowser
    Modeling
    ModelingModels
+   SimpleFits
    UnifiedFit
    SizeDistribution
    AnalyticalModels
@@ -39,6 +39,8 @@ Manual |release| for Irena version 2.71 for Igor 8.0 and higher (will NOT work o
    Desmearing
    FormStructureFactors
    OtherTools
+   AnalyzeResults
+   ScriptingTool
    FAQ
 
 

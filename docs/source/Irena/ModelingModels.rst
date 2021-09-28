@@ -13,7 +13,9 @@ Here we describe math behind different models of scattering available in Modelin
  | **“Mass Fractal”**
  | **"Diffraction peak"**
 
-allowing to model really complex small-angle scattering data. These population models are described here.
+allowing to model really complex small-angle scattering data. Some other tools - Small-angle diffraction, Fractals model - use some of these models also. 
+
+These population models are described here.
 
 
 Size distribution
