@@ -16,7 +16,7 @@ Implemented models:
 .. Figure:: media/AnalyzeResultsSD1.jpg
         :align: left
         :width: 700px
-        :Figwidth: 550px
+        :Figwidth: 750px
 
 **Selecting data**
 
@@ -49,6 +49,6 @@ Here is picture of tool while used:
 .. Figure:: media/AnalyzeResultsSD2.jpg
         :align: left
         :width: 700px
-        :Figwidth: 550px
+        :Figwidth: 750px
 
 Add data into the graph (double click), select range with cursors, check if you want Mercury intrusion porosimetry graph and hit "Calculate Results". Save results as needed. For multiple data sets, set all correctly for one, test and then select range fo data in listbox and use "Evaluate sequence" to run on many quickly.
