@@ -19,6 +19,7 @@ Form Factor       Parameter       ParticlePar
 Spheroid          AspectRatio     ParticlePar1
 Intg_Spheroid     AspectRatio     ParticlePar1
 Cylinder          Length   			  ParticlePar1
+Disk              Radius          ParticlePar1
 CylinderAR        AspectRatio     ParticlePar1
 CoreShell	        CoreShellThick  ParticlePar1 //skin thickness in Angstroms
                   CoreRho         ParticlePar2  //rho [10^10 cm-2]   (not delta rho squared!!!) of core material
@@ -215,10 +216,13 @@ AR=0.1 (spheroid)
     Form Factors; Cylinder
     Form Factors; CylinderAR
 
-**Cylinder** and **CylinderAR**
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+**Cylinder**, **Disk**, and **CylinderAR**
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-The code uses the following code to calculate form factor for cylinder. Note, that also this code is doing the same integration as integrated spheroid above (see 2).
+The code uses the following code to calculate form factor for cylinder. Note, that also this code is doing the same integration as integrated spheroid above (see 2). There are three variants available:
+ | Cylinder "size" is radius. User needs to define *length*, which can be fitted, but no size distribution. Length can be smaller (thickness) or larger (length) than radius, making this disk or cylinder.
+ | Disk "size" is thickness. User needs to define *radius*, which can be fitted, but no size distribution. Most likely radius>thickness.
+ | CylinderAR has fixed aspect ratio, which can be fitted. Therefore the same size distribution is applied to both radius and length/thickness.
 
 Form factor = integral over (Ft) for Alpha = 0 to pi/2, Ft is below:
 
@@ -243,7 +247,7 @@ Disk (cylinder) with radius 500A and length 50A.
    :width: 420px
    :figwidth: 100%
 
-Since Irena version 2.54 Cylinders will use NIST xop to speed up its calculations.
+Since Irena version 2.54 Cylinders will use NIST xop to speed up its calculations. If the xop is not available, Igor will use all available cores to speed up the calculations.
 
 
 .. _FormFactors.CoreShell:
