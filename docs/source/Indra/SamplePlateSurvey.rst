@@ -90,6 +90,8 @@ It is important to understand, that user can create multiple *Position sets* whi
 *Templates* If user is using a standard sample plate we designed and pre-programmed in the tool, like our Acrylic plate which has 9x9 samples, user can populate the table with predefined positions for this plate. Number of our common plates are predefined, more will be added over time. Optionally, user can choose "Generic grid holder" which through dialog asks for starting sx/sy position, step in sx and step in sy and number of positions vertically and horizontally. User can therefore create rectangular grid of positions quickly.
 User can also create image of the plate using *Create Image* button, which will create scaled version of the sample plate and provide some cool features. See later *Images* for more functionality description.
 
+*Import image* This allows user to import image taken by camera (jpg, tiff, png,...) with the sample plate. Image is imported and separate image is display with controls which enable user to select corners of rectangular are and assign dimensions in mm to this area. Image is then straightened and cropped. This create custom image which can be used same as can be created for some templates using *Create Image* button.
+
 *Select Saved set* If user saved a "Set of positions" (= filled table) using the button *Save Positions Set* (at the bottom of this panel), a sample set will be stored in this Igor experiment. Using this popup menu, user can select this saved positions set and using button *Load saved Position Set* can restore the positions in the table. Existing set of positions is overwritten, so save your positions first under suitable name, if you do not want to loose those. There is no undo here.
 
 *Beamline survey* this button opens special tool for survey of positions at the beamline. This tool will open only at the beamline. It is described at the bottom of this help page, if needed.
@@ -114,8 +116,9 @@ User can also create image of the plate using *Create Image* button, which will 
 Result is table, pre filled with center positions for each sample position. Positions are indexed, in millimeters, with respect to top right corner, which is defined as sx=0 and sy=0. First two openings are designated for beamline use. Others are for users to use. The red marker in the image shows position of the currently selected row of samples in the table. See later *Images* for more functionality description. Fill the table for Plate 1, mounting up to 79 samples on this plate.
   5. *Set Name* for the plate into easy to identify name which is clearly related to the plate in front of your (e.g., Plate5 if the Plate has sticker "Plate#5").
   6. *Save Position Set* using the button under the plate name.
-  7. Use steps 3-6 to create a table for second plate and populate it with sample names/positions.
-  8. Save Igor Experiment with meaningful name (e.g. "MyName_USAXS_20200805.pxp"). Send this experiment to staff or drop it to control computer through NXclient or shared Box folder. Following other instructions at the top of this page ship the plates with samples mounted to the instrument.
+  7. Use steps 3-6 to create a table for second plate and populate it with sample names/positions. Note, that as you populate the table row which is being edited will have red dot displayed in the image (if it exists) with sx and sy locations and sample name.
+  8. Check your work. Either move row-by-row and check that red dot and name match location of that sample in the image. Or, on "Option Controls" select "Display all samples in image" and all sample positions will be displayed with their names attached.
+  9. Save Igor Experiment with meaningful name (e.g. "MyName_USAXS_20200805.pxp"). Send this experiment to staff or drop it to control computer through NXclient or shared Box folder. Following other instructions at the top of this page ship the plates with samples mounted to the instrument.
 
 ******
 
@@ -182,6 +185,8 @@ In this tab user can select various options. The most common one will be options
 
 *Default sample thickness*    Can be set for set of samples (e.g., NMR tubes are 4mm ID) and then thickness does not have to be provided in the Sample table.
 
+*Export order*    Controls in which order the segments will be collected. Default is USAXS-SAXS-WAXS.
+
 *Run Export Hook function?*    User can modify existing example Hook function in the code which will somehow modify the table input when writing to command file. Example is to measure each sample in multiple places offset by some distance etc. See the **Hook function** below.
 
 *USAXS time, SAXS time, WAXS time*    These values are used to calculate total run time (see bottom of the panel). NOTE, that these values are NOT transferred to epics, so user must set these in epics on their own.
@@ -190,7 +195,7 @@ In this tab user can select various options. The most common one will be options
 
 *GUI Controls* are rarely needed.   *Display individual controls*    Will enable user to choose - per sample - when to run which measurement segment. Basically, bad idea unless you know why you need it. Talk to staff, but "DO NOT DO IT".
 
-*Display all samples in image*    Will show red dots and names in the image for all samples in the table. useful when looking for open space in mostly filled table.
+*Display all samples in image*    Will show red dots and names in the image for all samples in the table. Useful when looking for open space in mostly filled table.
 
 **Hook function**
 
@@ -229,7 +234,9 @@ There are few buttons in this area. These are actions run when user finishes set
 
 *Preview cmd file* will create Igor notebook with the commands for inspection.
 
-*Export cmd file* will save the command file, as text, with name in the "Default command file name" field (usaxs.mac is strongly suggested) on your *Desktop*.
+*Export cmd file* will save the command file for current "Sample Table", as text, with name in the "Default command file name" field (usaxs.mac is strongly suggested) on your *Desktop*. If you are working on usaxspc7 or usaxspc11, this usaxs.mac will be also sftp to instrument working directory.
+
+*Append to cmd file* this will append to the end of prior command file measurements from current Sample Table. This enables users to combine multiple tables together. Note, that this really works only when "usaxs.mac" is used as export file name. First export the usaxs.mac for the first table with *Export cmd file*. This is saved on your *Desktop*. Then use *Append to cmd file* for subsequent tables (as many as needed) and more measurements will be attached to this usaxs.mac. If you are working on usaxspc7 or usaxspc11, updated usaxs.mac will be also sftp to instrument working directory.
 
 *Dialog Export cmd file* will save the command file through save-as dialog, so user can pick any location on user computer and optionally change the name as needed.
 
@@ -241,15 +248,15 @@ There are few buttons in this area. These are actions run when user finishes set
 
 **Images**
 
-Images of sample plates provide multiple functionality for users. If they are defined for some Template, user can create such image using button *Create Image*. If they are not defined, user get error message. Images are very helpful, since they serve as visual guidance when mounting the samples. Pick row in which you want to place sample and red marker will show position on the plate. The purpose is to minimize mistakes.
+Images of sample plates provide multiple functionality for users. If they are defined for some Template, user can create such image using button *Create Image*. Alternatively, user can use *Import image* to import jpg/tiff... image of the sample holder and trim/scale it in subsequent step (see more below). If they are not defined, user get error message. Images are very helpful, since they serve as visual guidance when mounting the samples. Pick row in which you want to place sample and red marker will show position on the plate. The purpose is to minimize mistakes.
 
 There is right click menu for the image - user can right click (or control/cmd click) on position in the image and select one of two right click menu options.
     a.  *Write position* - this will write sx and sy for the position of the click into the currently selected row in the table.
     b.  *Append line with position* this will append a new line at the end of the table with the sx and sy positions of the right click.
 
-Note that the image is in real millimeters and has grid lines, image can be zoomed in and out without loss of functionality.
+Note that the image has calibration in millimeters and has grid lines, image can be zoomed in and out without loss of functionality.
 
-Images may not exist for all plates beamline has. Future functionality which is not implemented yet will be that user will be able to take a picture of the plate, import image in the tool. Then user will define the four corners with their sx and sy coordinates, image will be straightened, cropped and displayed in this tool. Such image will provide same functionality as the pre defined plates. But this is under development and may not work yet.
+Images may not exist for all plates beamline has.
 
 ******
 
@@ -281,7 +288,7 @@ At the beamline the button *Beamline survey* will open a new panel. This panel c
 
 **Bottom part**
 
-these are  motor controls, similar to our standard epics motor GUI. There is SX and SY values - motor positions read from epics. Arrows will make change motor positions by the step value below. Epics is updated about 10x second by background procedure.
+these are  motor controls, similar to our standard epics motor GUI. There is SX and SY values - motor positions read from epics. Arrows will change target motor position by the step value. Epics is updated about 10x second by background procedure, readback of the position (above the target setVariable) changes as motor is moving. When target and readback agree, motor stopped moving.
 
 *Step controls* Steps can be changed multiple different ways. User can select the value and type in the field. Arrows up/down next to the step value change step by 1mm up or down. Button "x 0.1" makes the step 10x smaller and button "x 10" makes the step 10x larger.
 
@@ -297,5 +304,28 @@ these are  motor controls, similar to our standard epics motor GUI. There is SX 
 
 *SWAXS slits* button will redefine move slits to SAXS/WAXS sizes.
 
+*Sync w/epics* button will sync sx and sy target and readback with what is their real position at the instrument. This may be needed when someone combines controls of sx and sy from epics and Igor. Igor does not update positions from epics under some conditions.
 
 Beamline survey should be disabled for all installations except at the beamline computers. Even at beamline computers, this tool will not move motors if instrument indicates that it is collecting data. Also, this tool does not know anything about epics limits and any other errors or failures in epics, so if motors do not work properly, check epics. Call staff. **DO NOT GET CREATIVE.**
+
+
+******
+
+**Import image**
+
+This is used to import rectangular sample holder image, taken by camera, assign dimensions, trim edges, straighten parallax and convert into image same as when using our own sample holder. Here is example of steps:
+
+1.  Use *Import image* button and fins suitable jpg, tiff, png, bmp or other image. All images are converted to greyscale in Igor. I assume imported image is RBV and tested this on iPhone jpg images.
+
+.. Figure:: media/SamplePlate6.jpg
+           :align: left
+           :width: 730px
+           :figwidth: 750px
+
+2.  Select corners of rectangular area for which you know the dimensions in millimeters and which you want to trim around with cursors. In the image above we have cursors A, B, C, D in the corners of our liquid sample holder. Selected area has real world dimensions 220mm horizontal and 75mm vertical. Image has parallax and meeds to be trimmed. Using button *Trim image* I can generate the Sample plate image, which can be used for survey of samples.
+
+
+.. Figure:: media/SamplePlate7.jpg
+           :align: left
+           :width: 730px
+           :figwidth: 750px
