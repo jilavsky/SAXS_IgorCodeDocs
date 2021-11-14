@@ -84,9 +84,6 @@ These buttons and checkboxes control, how the data are fitted and results saved.
 Debye-Bueche model for gels
 ----------------------------
 
-.. index::
-   model; Debye-Bueche model for gels
-
 The theory (https://onlinelibrary.wiley.com/iucr/itc/Ha/ch5o8v0001/sec5o8o3o1o4/) is implemented in following form:
 
 .. math::
@@ -135,9 +132,6 @@ In this plot we use Eta and Corr length, wavelentgth is read from header or can 
 
 .. _model.Treubner-Strey:
 
-.. index::
-   model; Treubner-Strey
-
 Treubner-Strey for small-angle diffraction
 -------------------------------------------
 
@@ -174,9 +168,6 @@ This is example of plot of Treubner-Strey model on arbitrary data, I do not seem
 \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
 
 .. _model.Ciccariello_Benedetti:
-
-.. index::
-   model; Ciccariello_Benedetti
 
 
 Ciccariello–Benedetti model for coated smooth surfaces
@@ -217,9 +208,6 @@ Note, that one may need to select also SAS background and set fitting limits and
 
 .. _model.Hermans:
 
-.. index::
-   model; Hermans model
-
 Hermans model for lamellar systems
 -----------------------------------
 
@@ -236,9 +224,6 @@ For details see: https://doi.org/10.1016/j.polymer.2021.124281
 
 .. _model.Modfied_Hermans:
 
-.. index::
-   model; Modified Hermans model
-
 Modified Hermans model for lamellar systems
 -------------------------------------------
 
@@ -254,9 +239,6 @@ For details see: https://doi.org/10.1016/j.polymer.2021.124281
 \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
 
 .. _model.Unified-Born-Green:
-
-.. index::
-   model; Unified-Born-Green
 
 Unified Born Green model for lamellar systems
 ---------------------------------------------
