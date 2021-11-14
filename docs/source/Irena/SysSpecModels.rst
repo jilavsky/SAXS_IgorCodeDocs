@@ -1,7 +1,7 @@
 .. _System_specific_Models:
 
 .. index::
-   model; analytical models, polymers, lamellar structures
+   model; lamellar structures
 
 System specific models
 ======================
