@@ -22,6 +22,7 @@ Manual |release| for Irena version 2.71 for Igor 8.0 and higher (will NOT work o
    SimpleFits
    UnifiedFit
    SizeDistribution
+   SysSpecModels
    SmallAngleDiffraction
    bioSAXS
    WAXS
