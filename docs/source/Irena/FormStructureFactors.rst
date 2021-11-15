@@ -344,9 +344,9 @@ Since Irena version 2.54 Spheroid with aspect ratio !=1 will use NIST xop to spe
 
 same code as in the spheroid, but in this case the code integrates over the width of the R bin.
 Note, the bin star and end points are calculated linearly (even for log-binned data) as half way distance:
-	Rstart = (Rn + Rn-1)/2
-	Rend  =  (Rn + Rn+1)/2
-	Uses adaptive steps to integrate Bessel function oscillations of the form factor over the width of the bin in R  - note, the averaging is done including the volume of particles involved. This code is quite convoluted and time consuming. Its only reasonable use is for cases with wide bins in radius (R), when this removes some of the Bessel function oscillations.
+ |	Rstart = (Rn + Rn-1)/2
+ |	Rend  =  (Rn + Rn+1)/2
+ |	Uses adaptive steps to integrate Bessel function oscillations of the form factor over the width of the bin in R  - note, the averaging is done including the volume of particles involved. This code is quite convoluted and time consuming. Its only reasonable use is for cases with wide bins in radius (R), when this removes some of the Bessel function oscillations.
 
 Examples with R width 40A, average size 50A (that means R varies from 30 to 70A). Note that the Bessel function oscillations are somehow smooth out. With wider bins in R these oscillations may disappear all together.
 
@@ -1131,16 +1131,16 @@ I(Q) = I(Q, dilute limit) * IR2S_CalcStructureFactor(SFname,Qvalue,Par1,Par2,Par
 
 3. Get panel by calling:
 IR2S_MakeSFParamPanel(TitleStr,SFStr,P1Str,FitP1Str,LowP1Str,HighP1Str,P2Str,FitP2Str,LowP2Str,HighP2Str,P3Str,FitP3Str,LowP3Str,HighP3Str,P4Str,FitP4Str,LowP4Str,HighP4Str,P5Str,FitP5Str,LowP5Str,HighP5Str, P6Str,FitP6Str,LowP6Str,HighP6Str,SFUserSFformula)
-	to disallow fitting of parameters, simply set FitP1Str="" etc.
-then do not have to set low and high limits ...
+
+to disallow fitting of parameters, simply set FitP1Str="" etc. Then you do not have to set low and high limits ...
 
 Structure factors package...
 IR2_OldInterferences			this is roughly hard spheres (close to Percus-Yevick model, not exactly), the ETA = 2* radius and Phi = 8 * vol. fraction for PC model.
 IR2_HardSphereStruct		this is Percus-Yevick model
 IR2_StickyHS_Struct			this is sticky hard spheres
-IR2_SquareWellStruct			this is Square well
+IR2_SquareWellStruct		this is Square well
 IR2_HayterPenfoldMSA		this is HayterPenfoldMSA
-IR2_InterPrecipitateSF		this is InterPrecipitate
+IR2_InterPrecipitateSF	this is InterPrecipitate
 
 
 

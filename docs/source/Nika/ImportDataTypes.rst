@@ -93,7 +93,7 @@ These are file types, which Nika can load natively. These can be loaded on any p
 
 .. index:: input image; FITS
 
-*FITS* .... This is one case of use of Flexible Image Transport System (FITS), R. J. Hanisch et al.: FITS standard, Astronomy & Astrophysics 376, 359–380 (2001)). It is likely going to fail on other files, but it is not clear how this is used in SAXS community at this time.
+*FITS* .... This is one case of use of Flexible image Transport System (FITS), R. J. Hanisch et al.: FITS standard, Astronomy & Astrophysics 376, 359–380 (2001)). It is likely going to fail on other files, but it is not clear how this is used in SAXS community at this time.
 
 .. index:: input image; mpa/Univ of Cincinnati
 
@@ -165,7 +165,7 @@ Function. Fuji image plate readers (BAS2000 or BAS2500) may be attached to hardw
 
 **Pilatus**
 
-.. image:: media/ImportDataTypes4.png
+.. Figure:: media/ImportDataTypes4.png
    :align: center
    :width: 380px
 

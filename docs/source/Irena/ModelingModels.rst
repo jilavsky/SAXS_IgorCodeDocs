@@ -115,22 +115,22 @@ dΣ/dΩ = {VOLUME FRACTAL + SINGLE GLOBULE} TERM + SURFACE FRACTAL + FLAT BACKG
 
 These components are incorporated into the full theoretical expression as follows:
 
-.. image:: media/FractalsModels1.jpg
+.. Figure:: media/FractalsModels1.jpg
         :width: 100%
 
 
 The first volume-fractal term contains :math:`\Phi_{CSH}` , :math:`\xi_{v}`, and the mean radius, R\ :sub:`o`\ , and shape aspect ratio, β, of the building-block C-S-H gel globules in the volume-fractal phase, here assumed to be spheroids. It also contains a local volume fraction, η, and the mean correlation-hole radius, R\ :sub:`c`\, the mean nearest-neighbor separation of the gel-globule centers. R\ :sub:`c`\, assumed to be weighted over spheroid surface-contacts, is given by:
 
-.. image:: media/FractalsModels2a.jpg
+.. Figure:: media/FractalsModels2a.jpg
         :width: 70%
 
-.. image:: media/FractalsModels2b.jpg
+.. Figure:: media/FractalsModels2b.jpg
         :width: 70%
 
 In fitting the data, the need to incorporate R\ :sub:`c`\  with η, and a well-defined single-globule term (in addition to the volume-fractal) in the first bracket of eq. [1], is strong evidence for a solid volume-fractal phase. A well-defined single-globule term arises because, unlike the case of fractal pores in clays and porous rocks, nearest-neighbor solid particles cannot exist inside each other, i.e., their centers cannot approach, on average, to within R\ :sub:`c`\. This correlation-hole effect means that, for length-scales of order R\ :sub:`o`\, the individual particles are seen as distinct objects, even when incorporated into an aggregated structure. For a spheroid of aspect ratio, β, the form-factor for a single globule, F\ :sup:`2`\ (Q), is given by:
 
 
-.. image:: media/FractalsModels3.jpg
+.. Figure:: media/FractalsModels3.jpg
         :width: 80%
 
 

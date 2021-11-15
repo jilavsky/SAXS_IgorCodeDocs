@@ -27,7 +27,7 @@ Tool overview and use
 
 The use of the tool will be demonstrated on Debye-Bueche model, but is similar for all models. The tool uses new generation data selection tool, used by Muti Sample Plotting tool, all bioSAXS tools, etc. In the top part are controls which allow users to choose what data will be listed in the listbox. Choices are USAXS data or QRS data, USAXS can be slit smeared or desmeared and one can use "Folder match string" (uses Regular expressions, see bottom of panel for hints how to use them).
 
-.. image:: media/SysSpecModels01.jpg
+.. Figure:: media/SysSpecModels01.jpg
    :align: center
    :width: 480px
 
@@ -121,7 +121,7 @@ very large d-spacing (d>>ξ).
 
 This is the typical plot:
 
-.. image:: media/SysSpecModels_DB1.jpg
+.. Figure:: media/SysSpecModels_DB1.jpg
    :align: center
    :width: 680px
 
@@ -158,7 +158,7 @@ Example of the GUI with results:
 
 Note, that only the parameters TS, A, C\ :sub:`1`, and C\ :sub:`2` are user controlled. Parameter TS is added scaling factor, as there does not seem to be other way to scale the model to data.
 
-.. image:: media/SysSpecModels_TS1.jpg
+.. Figure:: media/SysSpecModels_TS1.jpg
    :align: center
    :width: 580px
 
@@ -185,7 +185,7 @@ In summary, this model assumes that on surfaces of porous media is present const
 
 Ciccariello-benedetti example:
 
-.. image:: media/SysSpecModels_BC1.jpg
+.. Figure:: media/SysSpecModels_BC1.jpg
    :align: center
    :width: 580px
 
@@ -213,7 +213,7 @@ Hermans model for lamellar systems
 
 For details see: https://doi.org/10.1016/j.polymer.2021.124281
 
-.. image:: media/SysSpecModels_Her1.jpg
+.. Figure:: media/SysSpecModels_Her1.jpg
    :align: center
    :width: 580px
 
@@ -230,7 +230,7 @@ Modified Hermans model for lamellar systems
 For details see: https://doi.org/10.1016/j.polymer.2021.124281
 
 
-.. image:: media/SysSpecModels_ModHer1.jpg
+.. Figure:: media/SysSpecModels_ModHer1.jpg
    :align: center
    :width: 580px
 
@@ -247,7 +247,7 @@ For details see: https://doi.org/10.1016/j.polymer.2021.124281
 
 
 
-.. image:: media/SysSpecModels_UBG1.jpg
+.. Figure:: media/SysSpecModels_UBG1.jpg
    :align: center
    :width: 580px
 

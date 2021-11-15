@@ -76,13 +76,13 @@ very large d-spacing (d>>ξ).
 
 This is the main screen:
 
-.. image:: media/AnalyticalModels4.png
+.. Figure:: media/AnalyticalModels4.png
    :align: center
    :width: 580px
 
 In the top part are :ref:`standard data selection tools <DataSelection>` . Data can be selected, user can use either pin-hole type data (or desmeared USAXS data) or slit smeared data. Results are the same, the model is slit smeared with slit length if slit smeared data are used.
 
-.. image:: media/AnalyticalModels5.png
+.. Figure:: media/AnalyticalModels5.png
    :align: center
    :width: 580px
 
@@ -101,14 +101,14 @@ Lower Button “\ **Graph**\ ” will calculate model and place result in the gr
 
 **Eta** and **corrLength** – model parameters. Can be estimated using the button “Estimate” if the knee area is selected first in the top graph:
 
-.. image:: media/AnalyticalModels6.png
+.. Figure:: media/AnalyticalModels6.png
    :align: center
    :width: 580px
 
 
 Checkbox “\ **Use low-q slope**\ ” will enable controls for low-q power law slope. One can again select range of data where the power law dominates and Estimate slope with the button.
 
-.. image:: media/AnalyticalModels7.png
+.. Figure:: media/AnalyticalModels7.png
    :align: center
    :width: 580px
 
@@ -116,14 +116,14 @@ Checkbox “\ **Use low-q slope**\ ” will enable controls for low-q power law 
 
 Last item is “\ **Background**\ ”, which should be reasonably guessed and then fitted as one of the parameters:
 
-.. image:: media/AnalyticalModels8.png
+.. Figure:: media/AnalyticalModels8.png
    :align: center
    :width: 580px
 
 
 Now with good starting guesses one can fit the model – using the “Fit button”
 
-.. image:: media/AnalyticalModels9.png
+.. Figure:: media/AnalyticalModels9.png
    :align: center
    :width: 580px
 
@@ -140,7 +140,7 @@ Buttons:
 
 **Results to Graph** will paste results into graph for better view:
 
-.. image:: media/AnalyticalModels10.png
+.. Figure:: media/AnalyticalModels10.png
    :align: center
    :width: 580px
 
@@ -176,7 +176,7 @@ Example of the GUI with results:
 
 Note, that only the parameters TS, A, C\ :sub:`1`, and C\ :sub:`2` are user controlled. Parameter TS is added scaling factor, as there does not seem to be other way to scale the model to data.
 
-.. image:: media/AnalyticalModels14.png
+.. Figure:: media/AnalyticalModels14.png
    :align: center
    :width: 580px
 
@@ -202,7 +202,7 @@ In summary, this model assumes that on surfaces of porous media is present const
 
 Ciccariello-benedetti GUI:
 
-.. image:: media/AnalyticalModels15.png
+.. Figure:: media/AnalyticalModels15.png
    :align: center
    :width: 580px
 
@@ -241,14 +241,14 @@ Finally, one may want to know how would “ideal” case of the system described
 
 Here is slit smeared data set using the parameters from above, just with “Modeling” data only (no input data)
 
-.. image:: media/AnalyticalModels16.png
+.. Figure:: media/AnalyticalModels16.png
    :align: center
    :width: 580px
 
 
 and here is the same set of parameters, just with pihole-colimated data input:
 
-.. image:: media/AnalyticalModels17.png
+.. Figure:: media/AnalyticalModels17.png
    :align: center
    :width: 580px
 

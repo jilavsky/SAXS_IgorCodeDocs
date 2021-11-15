@@ -124,7 +124,7 @@ This tool serves for modification of many data sets at once. In can average wave
 
 **Introduction**
 
-.. image:: media/DataManipulation2.png
+.. Figure:: media/DataManipulation2.png
            :align: left
            :width: 460px
 
@@ -146,7 +146,7 @@ What is not done yet: As written now, the code simply dumps any errors provided 
 
 **GUI and controls**
 
-.. image:: media/DataManipulation3.png
+.. Figure:: media/DataManipulation3.png
            :align: left
            :width: 460px
 
@@ -170,14 +170,14 @@ In this area user should try to select as best as possible the data to be used.
 
 *Enable Manual selection* – if selected, user can manually select only subset of folders in the listbox on right (bottom). Use buttons *Select All* and *Deselect All* - as well ctrl and shift – left mouse button to select ranges of data.
 
-.. image:: media/DataManipulation4.png
+.. Figure:: media/DataManipulation4.png
            :align: center
            :width: 330px
 
 
 Now the Processing controls:
 
-.. image:: media/DataManipulation5.png
+.. Figure:: media/DataManipulation5.png
            :align: center
            :width: 330px
 
@@ -185,19 +185,19 @@ Above example is for *Average Waves*, and you can choose to create statistics (e
 
 Here is example for Subtract data:
 
-.. image:: media/DataManipulation6.png
+.. Figure:: media/DataManipulation6.png
            :align: center
            :width: 330px
 
 with the second tab:
 
-.. image:: media/DataManipulation7.png
+.. Figure:: media/DataManipulation7.png
            :align: center
            :width: 330px
 
 **Output options**
 
-.. image:: media/DataManipulation8.png
+.. Figure:: media/DataManipulation8.png
            :align: center
            :width: 330px
 
@@ -207,7 +207,7 @@ Note the "Append to name" varies based on tool used. When the folder and data na
 
 Will cause that a graph with results and source data will be presented when *Process data is pushed.*
 
-.. image:: media/DataManipulation9.png
+.. Figure:: media/DataManipulation9.png
            :align: center
            :width: 390px
 
@@ -221,7 +221,7 @@ If the results look good and you like them, use *Save data* button, which will s
 
 **Average every N waves controls**
 
-.. image:: media/DataManipulation10.png
+.. Figure:: media/DataManipulation10.png
            :align: center
            :width: 330px
 
@@ -233,9 +233,9 @@ Note that plotting is bit challenging in this case, so do not expect perfect res
 
 **Subtract data controls**
 
-.. image:: media/DataManipulation11.png
+.. Figure:: media/DataManipulation11.png
            :width: 45%
-.. image:: media/DataManipulation12.png
+.. Figure:: media/DataManipulation12.png
            :width: 45%
 
 Select “\ *Subtract data”* checkbox to get the data selection controls.
@@ -249,9 +249,9 @@ long).
 
 Added around Irena version 2.5x, these tabs are processed after the processing and provide more options to modify the data.
 
-.. image:: media/DataManipulation13.png
+.. Figure:: media/DataManipulation13.png
           :width: 45%
-.. image:: media/DataManipulation14.png
+.. Figure:: media/DataManipulation14.png
           :width: 45%
 
 The errors tabs can be used if the input data do not have proper uncertainties, have none to start with or processing makes the original not practical. You can create Errors (Uncertainties) with two different
@@ -302,7 +302,7 @@ Note, that Data manipulation I tool uses similar code. The Data manipulation too
 
 Below is the GUI panel itself. ***Please NOTE : This tools is one large panel and requires 1280x800 screen size. It will NOT run on smaller screen sizes. ***
 
-.. image:: media/DataManipulation15.jpg
+.. Figure:: media/DataManipulation15.jpg
            :align: center
            :width: 750px
 
@@ -311,7 +311,7 @@ The GUI is bit uncharacteristically one large panel with left part being Data se
 
 **Data selection**
 
-.. image:: media/DataManipulation16.jpg
+.. Figure:: media/DataManipulation16.jpg
            :align: left
            :width: 330px
 
@@ -353,14 +353,14 @@ To select separate individual cells, hold down CMD or Ctrl key and click on the 
 
 To select continuous range of cells, click on the first one and then hold down shift key and click on the end of the range you want to select. You can select one column or two columns of cells like here:
 
-.. image:: media/DataManipulation17.png
+.. Figure:: media/DataManipulation17.png
            :align: center
            :width: 330px
 
 
 However, what if you need this?
 
-.. image:: media/DataManipulation18.png
+.. Figure:: media/DataManipulation18.png
            :align: center
            :width: 330px
 
@@ -371,7 +371,7 @@ This may be important, see processing/operations…
 
 **Operations and processing**
 
-.. image:: media/DataManipulation19.jpg
+.. Figure:: media/DataManipulation19.jpg
            :align: left
            :width: 430px
 
@@ -391,7 +391,7 @@ There are currently two Merge methods. Some has been already described above, bu
 1. **Optimized Overlap, trim Data1** This is same method as "Optimized Overlap", but when data are combined, Data1 are used only to the low Q of the overlap region. Then Data 2 start. Therefore, there is not region in which there would be both Data 1 and Data 2 points. Overlapping region is using ONLY Data 2. This often results in less noise in the overlapping region, especially on USAXS where high Q may be very noisy and have high uncertainties. 
 3. **Extrap. Data1 and Optimize** This is optional part of the process. If selected, Data 1 is first fitted with function selected in "Extrap fnc." popup (below the "Merge method popup") - options are Porod (Intensity = Backgr. + Const * Q\ :sup:`-4`), "Power Law" (Intensity = Const * Q\ :sup:`-P`) or "Power law w Backg" (Intensity = Backgr. + Const * Q\ :sup:`-P`). Range of data used for fitting is selected by cursors C and D, which are placed in the graph when needed. The look like cross and have letters next to them:
 
-.. image:: media/DataManipulation20.jpg
+.. Figure:: media/DataManipulation20.jpg
            :align: left
            :width: 430px
 
@@ -408,7 +408,7 @@ Other checkbox/controls functions:
 
 **Here are values / checkboxes for optimization**
 
-.. image:: media/DataManipulation21.jpg
+.. Figure:: media/DataManipulation21.jpg
            :align: left
            :width: 280px
 
@@ -423,7 +423,7 @@ The **Data 1 Q max** is the end of the Q range (high Q of the low-q data segment
 
 **Graph content:**
 
-.. image:: media/DataManipulation22.jpg
+.. Figure:: media/DataManipulation22.jpg
            :align: center
            :width: 530px
 
@@ -431,7 +431,7 @@ Red are Data 1 plotted against left axis, Black are Data 2 plotted against right
 
 **Folder strings:**
 
-.. image:: media/DataManipulation23.jpg
+.. Figure:: media/DataManipulation23.jpg
            :align: center
            :width: 550px
 
@@ -447,7 +447,7 @@ Note, that you MUST provide the right order in the listbox. That is why it is cr
 
 This WILL WORK:
 
-.. image:: media/DataManipulation24.png
+.. Figure:: media/DataManipulation24.png
            :align: left
            :width: 390px
 
@@ -465,24 +465,24 @@ If these data would be already merged and these keys would already exist, new co
 
 **Quick walk through procedure**
 
-Here is quick walk through data merging using the "Extrap. Data1 and Optimize" with example images. In this case we have two segmens of measurement which overlap very poorly as the scattering intensity in Data 1 (USAXS) is low at high-q. This will not work well with regular merge routine. Scaling and background subtraction in this case are very dependent on range of data selected for optimization - which suggests this is not reliable result. In this case I selected "Extrap. Data1 and Optimize" and using cursors C and D selected q range where data follow power law scattering and, in this case, where background is negligible. See next figure:
+Here is quick walk through data merging using the "Extrap. Data1 and Optimize" with example Figures. In this case we have two segmens of measurement which overlap very poorly as the scattering intensity in Data 1 (USAXS) is low at high-q. This will not work well with regular merge routine. Scaling and background subtraction in this case are very dependent on range of data selected for optimization - which suggests this is not reliable result. In this case I selected "Extrap. Data1 and Optimize" and using cursors C and D selected q range where data follow power law scattering and, in this case, where background is negligible. See next figure:
 
 
-.. image:: media/DataManipulation25.jpg
+.. Figure:: media/DataManipulation25.jpg
            :align: left
            :width: 690px
 
 I have selected "Power law" as Extrapolation function. I selected reasonable overlap q range - this is matter of try and test. I selected to fit Data 1 Background and Data 2 scaling. I am in test mode, I can push "Process data" button and see results.
 
 
-.. image:: media/DataManipulation26.jpg
+.. Figure:: media/DataManipulation26.jpg
            :align: left
            :width: 690px
 
 If I zoom in the data and look at them in detail, it should be clear what happened
 
 
-.. image:: media/DataManipulation27.jpg
+.. Figure:: media/DataManipulation27.jpg
            :align: left
            :width: 690px
 

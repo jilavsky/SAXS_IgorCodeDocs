@@ -52,19 +52,19 @@ The value z which is one of the inputs of the 3D aggregate model, d\ :sub:`min`,
 
 Here is example of data provided by one of the authors of the method and associated Unified fit with two levels. This is mass fractal system, there we have primary particle size (approx. 320A Rg), mass fractal with dimension of ~2.23 and large Rg of about 2332 A.
 
-.. image:: media/3DAggregate0.jpg
+.. Figure:: media/3DAggregate0.jpg
    :align: center
    :width: 420px
 
 
-.. image:: media/3DAggregate1.jpg
+.. Figure:: media/3DAggregate1.jpg
    :align: center
    :width: 720px
 
 
 Now, when we have the Unified fit results above, we can either run directly the *Mass Fractal Aggregate* tool, or first save the results of Unified fit in a folder where the data came from (*Store in Data Folder*). Important is, that we have needed numbers which will guide our modeling. Here is the main panel:
 
-.. image:: media/3DAggregate2.jpg
+.. Figure:: media/3DAggregate2.jpg
    :align: center
    :width: 450px
 
@@ -107,7 +107,7 @@ OK, now we can grow the particles. First try growing one particle - see next but
 
 *This MAY BE SLOW* Push Button “\ **Grow 1 Agg, graph**\ ” and this will create the aggregate and display it in Gizmo as well as calculate 1D intensity data and overlay them over the data from source folder. Below is result which run on my high-end MacBook Pro for about 5 seconds:
 
-.. image:: media/3DAggregate4.jpg
+.. Figure:: media/3DAggregate4.jpg
    :align: center
    :width: 780px
 
@@ -117,10 +117,10 @@ This is relatively good result. It is unlikely that all parameters will be match
 
 *NOTE* : When too compact particle is grown, it is skipped and nothing is saved. It is therefore common, that you end up with less than N saved aggregates to evaluate.
 
-Button “\ **Summary Table**\ ” displays Notebook with model summaries - and adds in there current results summary, see below. This can be used to follow how results depend on model input parameters and make notes. See below image for a record from one model run. This record needs to be created manually when growing one aggregate, but is created automatically, when growing N aggregates.
+Button “\ **Summary Table**\ ” displays Notebook with model summaries - and adds in there current results summary, see below. This can be used to follow how results depend on model input parameters and make notes. See below Figure for a record from one model run. This record needs to be created manually when growing one aggregate, but is created automatically, when growing N aggregates.
 
 
-.. image:: media/3DAggregate13.jpg
+.. Figure:: media/3DAggregate13.jpg
    :align: center
    :width: 380px
 
@@ -129,28 +129,28 @@ Button “\ **Summary Table**\ ” displays Notebook with model summaries - and 
 Button “\ **Store Current Aggregate**\ ” stores the current aggregate result (including the 3D aggregate data) in separate folder, where they can then be found, displayed etc. It also adds results into the ListBox *Saved 3D Mass Fract Aggregate*, see list in Listbox below. I just added there the current result. Description in the table describes resulting parameters achieved for that Mass Fractal Aggregate. You can then select a line and generate 3D and 1D graphs etc.
 
 
-.. image:: media/3DAggregate6.jpg
+.. Figure:: media/3DAggregate6.jpg
    :align: center
    :width: 380px
 
 
 Button “\ **Display 1D graph**\ ” Pulls Int/Q data from folder where parameters came from and creates a new graph ("Mass Fractal Aggregate 1D Data Plot"). Note, does not append any model data, for that you need to push buttons *Calculate 1D Int.* and/or *Monte Carlo 1D Int.*
 
-.. image:: media/3DAggregate10.jpg
+.. Figure:: media/3DAggregate10.jpg
    :align: center
    :width: 380px
 
 
 Button “\ **Display 3D graph**\ ” Displays in the Listbox selected Mass Fractal result in Gizmo. If nothing is selected, current result in working directory (if exists) is presented.
 
-.. image:: media/3DAggregate9.jpg
+.. Figure:: media/3DAggregate9.jpg
    :align: center
    :width: 380px
 
 
 Button “\ **Calculate 1D Int.**\ ” Calculates 1D intensity of the Aggregate based on its parameters and appends the calculated intensity of the aggregate to "Mass Fractal Aggregate 1D Data Plot". Model data are matched to measured data using area under the curve over middle part of the q range, where curves are likely to overlap. Keep in mind, this model predicts SHAPE of the 1D curve, not absolute intensity, of course...
 
-.. image:: media/3DAggregate8.jpg
+.. Figure:: media/3DAggregate8.jpg
    :align: center
    :width: 380px
 
@@ -158,7 +158,7 @@ Button “\ **Calculate 1D Int.**\ ” Calculates 1D intensity of the Aggregate 
 Button “\ **Monte Carlo 1D Int.**\ ” Calculates 1D intensity of the Aggregate using Monte Carlo method and appends the calculated intensity of the aggregate to "Mass Fractal Aggregate 1D Data Plot". This is not working very well and takes a long time. Also, for numerical reasons and really poor sampling, the results are noisy and not very representative of higher Q values, see graph below - the blue curve is calculation using Monte Carlo calculation of PDF and conversion into Intensity vs Q. It is kind of close and really nice it proves the model matches the data, but not very helpful. I suggest users to ignore it for now...
 
 
-.. image:: media/3DAggregate7.jpg
+.. Figure:: media/3DAggregate7.jpg
    :align: center
    :width: 380px
 
@@ -166,14 +166,14 @@ Button “\ **Monte Carlo 1D Int.**\ ” Calculates 1D intensity of the Aggregat
 Button “\ **Compare Stored.**\ ” If users run multiple aggregate growths (either manually or using *Grow N Agg.* button), thy may have many different aggregates stored. This is Monte Carlo method, so each time we run the model, we get slightly different result. It is therefore critical to be able to somehow evaluate which one is closest to the target parameters. This button will plot three main parameters of all saved aggregates to enable comparison. Note the numbering of the folders for easy navigation.
 
 
-.. image:: media/3DAggregate11.jpg
+.. Figure:: media/3DAggregate11.jpg
    :align: center
    :width: 380px
 
 In this plot one can easily see, that while most model match value for c, model 21 is closest for d\ :sub:`f`  and d\ :sub:`min`. We can then select the model 21 in the Listbox *Saved 3D Mass aggregates* and generate 3D and 1D models of it using the buttons. Here is the best result we got at  this time:
 
 
-.. image:: media/3DAggregate12.jpg
+.. Figure:: media/3DAggregate12.jpg
    :align: center
    :width: 780px
 

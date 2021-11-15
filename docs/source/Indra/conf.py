@@ -143,12 +143,12 @@ html_theme = 'alabaster'
 #
 # html_short_title = None
 
-# The name of an image file (relative to this directory) to place at the top
+# The name of an Image file (relative to this directory) to place at the top
 # of the sidebar.
 #
 # html_logo = None
 
-# The name of an image file (relative to this directory) to use as a favicon of
+# The name of an Image file (relative to this directory) to use as a favicon of
 # the docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
 #
@@ -254,9 +254,9 @@ latex_elements = {
      #
      # 'preamble': '',
 
-     # Latex figure (float) alignment
+     # Latex Image (float) alignment
      #
-     # 'figure_align': 'htbp',
+     # 'Image_align': 'htbp',
 }
 
 # Grouping the document tree into LaTeX files. List of tuples
@@ -267,7 +267,7 @@ latex_documents = [
      u'Jan Ilavsky', 'manual'),
 ]
 
-# The name of an image file (relative to this directory) to place at the top of
+# The name of an Image file (relative to this directory) to place at the top of
 # the title page.
 #
 # latex_logo = None

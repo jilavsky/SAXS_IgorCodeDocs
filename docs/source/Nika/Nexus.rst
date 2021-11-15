@@ -59,7 +59,7 @@ Calibrated data Nexus – NXcanSAS – export
 
 OK, export of processed 1D or 2D data into a Nexus file is obvious need for Nika – we can save the 1D corrected/normalized/calibrated and reduced – or 2D corrected/normalized/calibrated data (let’s call them together “\ **processed**\ ”) to separate Nexus file and then load those into “downstream” packages, such as *Irena*. We could even save the same data into Nexus file containing raw NXsas data set already, the only reason why I have not implemented this is that those files get kind of large and that may be inconvenient. But if anyone actually needs it, let me know and I’ll add the option, it is simple at this time…
 
-.. image:: media/Nexus1.png
+.. Figure:: media/Nexus1.png
    :align: left
    :width: 380px
 
@@ -77,14 +77,14 @@ Nexus GUI description
 
 Version 1.75 adds new interface for handling Nexus data. You will get this interface by two different methods:
 
-1. Select Nexus as import file in “Image type” on main panel
+1. Select Nexus as import file in “Figure type” on main panel
 
 2. Select “Export to Nexus” on either Sectors tab or Line profile tab.
 
-In each case you get following Panel related to both Import and Export Nexus components of Nika. Set the controls which relate to your needs, ignore the others. Controls should sync between main panel and Nexus control panel, even though there may be some rough edges in this synchronization – or some may even be impossible. You cannot Change Image input type from Nexus panel as that requires choice of different defined type. You can get in situation, that import of Nexus file will not work if it is selected as file type in Main Nika panel while it is unselected in Nexus panel, for example. Nika has no clue what to do in this case… I am sure there are other settings, which fail to make sense and work – if you find a combination, let me know and I will try to fix it.
+In each case you get following Panel related to both Import and Export Nexus components of Nika. Set the controls which relate to your needs, ignore the others. Controls should sync between main panel and Nexus control panel, even though there may be some rough edges in this synchronization – or some may even be impossible. You cannot Change Figure input type from Nexus panel as that requires choice of different defined type. You can get in situation, that import of Nexus file will not work if it is selected as file type in Main Nika panel while it is unselected in Nexus panel, for example. Nika has no clue what to do in this case… I am sure there are other settings, which fail to make sense and work – if you find a combination, let me know and I will try to fix it.
 
 
-    **This part conimages NXsas raw data import.**
+    **This part conFigures NXsas raw data import.**
 
 The checkbox “\ *Input file is Nexus*\ ” should be selected.
 
@@ -94,7 +94,7 @@ If you want o see, what is inside the file in Igor HDF5Browser, select a file an
 
 “\ *Read Params on Import*? – this will enable automatic reading of a Nika parameter from Nexus file. This will enable table in the tab “\ *Param X-ref*\ ” which you need to first fill correctly.
 
-.. image:: media/Nexus2.png
+.. Figure:: media/Nexus2.png
    :align: center
    :width: 380px
 
@@ -107,16 +107,16 @@ Table contains Nika parameters in column 1, NexusPath in column 2 - this is “a
 
 To fill manually, right click on the NexusPath field and you will get choices:
 
-.. image:: media/Nexus3.png
+.. Figure:: media/Nexus3.png
    :width: 45%
-.. image:: media/Nexus4.png
+.. Figure:: media/Nexus4.png
    :width: 45%
 
 You can use “\ *Mask Nexus name*\ ” – insert string and push enter - which will use Regular expressions to limit number of choices in right click popup. Compare left and right picture above.
 
 You can try “\ *Guess links*\ ” button which will check if proper standard best fits to the Nika values are present, and if yes, it will fill that parameter to that line.
 
-.. image:: media/Nexus5.png
+.. Figure:: media/Nexus5.png
    :align: center
    :width: 380px
 
@@ -124,9 +124,9 @@ Unluckily, some parameters can be in many different locations and there is no gu
 
 If you need to resent the list, push button “\ *Reset list*\ ”.
 
-**This part conimages NXcanSAS or NXsas data export.**
+**This part conFigures NXcanSAS or NXsas data export.**
 
-.. image:: media/Nexus6.png
+.. Figure:: media/Nexus6.png
    :align: center
    :width: 380px
 
@@ -141,8 +141,8 @@ Select path where to put the new files using “\ *Select path for Export*\ ” 
 
 “\ *Append processed 1D data to Nexus*?” will append each processed sector, circular average or line profile to a Nexus file which is named as noted above. You cannot change the name template at this time. Note, that if you try to save same sector to existing file, that sector in that file sis overwritten and replaced with new content. Make sure you do not loose data this way.
 
-“\ *Append processed 2D data to Nexus*?” will append 2D (area) data to the Nexus file. These will be fully reduced, normalized and if done also absolutely calibrated data – perfect data for 2D modeling software. It is the same image as you see when you use “Display processed” on the main Nika panel – fully corrected 2D data before reduction to 1D.
+“\ *Append processed 2D data to Nexus*?” will append 2D (area) data to the Nexus file. These will be fully reduced, normalized and if done also absolutely calibrated data – perfect data for 2D modeling software. It is the same Figure as you see when you use “Display processed” on the main Nika panel – fully corrected 2D data before reduction to 1D.
 
 “Rebin 2D data before appending” – this is not working right in version 2.75 and since no one can likely use it downstream, do not use it at this time. It will be fixed later and hopefully 2D fitting program will be also created later.
 
-“Create NEW Nexus file with RAW data?” check if you have input file different than Nexus and want to create Nexus NXsas (RAW data) file. You can include also Blank and Mask images in the same file. I do not believe there is much need for this, but it is simple functionality. Not sure if there is program which can read these data better than the read (Tiff/whatever) images you have. Note, the name template cannot be changed and the new Nexus file will be stored in Export path location same as Nika 1D/2D processed (NXcanSAS) Nexus files. Note, that the processed data Nexus file will have \_Nika in name to clearly show what they are.
+“Create NEW Nexus file with RAW data?” check if you have input file different than Nexus and want to create Nexus NXsas (RAW data) file. You can include also Blank and Mask Figures in the same file. I do not believe there is much need for this, but it is simple functionality. Not sure if there is program which can read these data better than the read (Tiff/whatever) Figures you have. Note, the name template cannot be changed and the new Nexus file will be stored in Export path location same as Nika 1D/2D processed (NXcanSAS) Nexus files. Note, that the processed data Nexus file will have \_Nika in name to clearly show what they are.

@@ -18,20 +18,20 @@ Main GUI
 
 This is the main screen:
 
-.. image:: media/AnisotropySys1.jpg
+.. Figure:: media/AnisotropySys1.jpg
    :align: center
    :height: 480px
 
 In the top part are :ref:`standard data selection tools <DataSelection>` . Data can be selected using standard Irena selection system. You can use Nika generated pair of  az_dataName and r_dataName (uncertainty wave is optional) when checkbox "Nika Az data" is checked or arbitrary named data if it is unchecked. Note, that you MUST provide data for azimuthal angle **in degrees**. Select data and push “\ **Graph data**\ ”  button. Graph of data is generated:
 
-.. image:: media/AnisotropySys2.jpg
+.. Figure:: media/AnisotropySys2.jpg
    :align: center
    :width: 580px
 
 
 Select the peak area with cursors - set cursors below half intensity point on each side of the peak. The maximum peak must be reasonably far from 0/360 degrees. In other words, you cannot have the peak split *exactly* by 0/360 degrees value. Internally data are extended to either side, if needed, so you can be relatively close to 0 or 360, but you need to have enough of the peak in view to get reasonable peak position fit. Select suitable Peak profile shape (Gauss or Lorenzian) and push button "Fit Peak". Code will run through complete analysis and fill the table with results:
 
-.. image:: media/AnisotropySys3.jpg
+.. Figure:: media/AnisotropySys3.jpg
    :align: center
    :width: 680px
 

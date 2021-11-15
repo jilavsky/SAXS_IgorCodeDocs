@@ -181,7 +181,7 @@ This should open pdf file with form factors description – including simplified
 Check for updates
 -----------------
 
-.. image:: media/Important1.png
+.. Figure:: media/Important1.png
    :align: center
    :height: 350px
 
@@ -198,7 +198,7 @@ Location of items in SAS menu
 
 The location of items in SAS menu keeps changing. Here is current (version 2.62) location to help you find what you need…:
 
-.. image:: media/Important2.png
+.. Figure:: media/Important2.png
    :align: center
    :height: 380px
 
@@ -206,34 +206,34 @@ Submenus:
 
 Data Import & Export:
 
-.. image:: media/Important3.png
+.. Figure:: media/Important3.png
    :align: center
    :width: 180px
 
 Support tools for plots:
 
-.. image:: media/Important4.png
+.. Figure:: media/Important4.png
    :align: center
    :width: 180px
 
 
 Data Manipualtion:
 
-.. image:: media/Important5.png
+.. Figure:: media/Important5.png
    :align: center
    :width: 180px
 
 
 Support and older tools:
 
-.. image:: media/Important6.png
+.. Figure:: media/Important6.png
    :align: center
    :width: 180px
 
 
 About, Manuals, Remove Irena, help
 
-.. image:: media/Important7.png
+.. Figure:: media/Important7.png
    :align: center
    :width: 180px
 
@@ -247,7 +247,7 @@ GUI controls and common controls
 
 From the Last menu Item you can get "About" panel stating current version and Igor versions, which it has been tested on.
 
-.. image:: media/Important8.png
+.. Figure:: media/Important8.png
    :align: center
    :width: 280px
 
@@ -255,7 +255,7 @@ Download and open Manual, request manuscript, sign up for mailing list and do fe
 unsuccessfully.
 
 
-.. image:: media/Important9.jpg
+.. Figure:: media/Important9.jpg
       :align: center
       :width: 350px
 
@@ -264,9 +264,9 @@ unsuccessfully.
 
 .. _important.ConfigureDefaults:
 
-**Configure image default fonts and names**
+**Configure Figure default fonts and names**
 
-“Configure image default fonts and names” in the SAS menu will create panel with some controls common for all tools, like font type & size and how legend names are handled. NOTE: Panel controls are applied immediately to all existing panels, graph controls are applied ONLY to the newly created graphs (and only those which were upgraded to this behavior).
+“Configure Figure default fonts and names” in the SAS menu will create panel with some controls common for all tools, like font type & size and how legend names are handled. NOTE: Panel controls are applied immediately to all existing panels, graph controls are applied ONLY to the newly created graphs (and only those which were upgraded to this behavior).
 
 .. index:: DO NOT restore Panel Sizes
            Panel size
@@ -293,13 +293,13 @@ When this experiment is opened on another computer, the preferences from that co
 
 If there are any issues with the behavior, please, let me know and I’ll see if I can make it more logical.
 
-Note the difference in Conimage GUI and Graph defaults panels when different fonts are used. You can mess up the panels really well by wrong choices!
+Note the difference in ConFigure GUI and Graph defaults panels when different fonts are used. You can mess up the panels really well by wrong choices!
 
 Defaults button returns the panel font choices to platform specific default state (Mac: Geneva size 9 and PC Tahoma size 12). Note, that there is no guarantee that these were your choices before. But these should be reasonable choices for most setups.
 
 **Graph controls**
 
-I am slowly adding in various parts of the whole package calls to these commonly stored values. This allows user to conimage fonts for various screen sizes. This seems necessary to allow use of Mac/Win platforms with vastly different screen sizes and resolutions.
+I am slowly adding in various parts of the whole package calls to these commonly stored values. This allows user to conFigure fonts for various screen sizes. This seems necessary to allow use of Mac/Win platforms with vastly different screen sizes and resolutions.
 
 Not all packages follow these controls yet, if you see issues in package of your choice, let me know and I will try to address them ASAP. Time is limited resource.
 
@@ -365,7 +365,7 @@ Little useful trick: Regular expression which means “not matching string xyz�
 
 Here is how to use it:
 
-.. image:: media/Important10.png
+.. Figure:: media/Important10.png
       :align: center
       :width: 380px
 
@@ -374,21 +374,21 @@ This is how the default state looks – empty field for “Fldr” and “Wvs”
 
 See here, we have 4 samples measured and we have now 4 folders available.
 
-.. image:: media/Important11.png
+.. Figure:: media/Important11.png
       :align: center
       :width: 380px
 
 
 Here is setting when I want to match Aunp string to be in each of the names:
 
-.. image:: media/Important12.png
+.. Figure:: media/Important12.png
       :align: center
       :width: 380px
 
 
 and here is what is presented as result of the above choice:
 
-.. image:: media/Important13.png
+.. Figure:: media/Important13.png
       :align: center
       :width: 380px
 
@@ -446,7 +446,7 @@ MultiData selection
 
 *Results generation* options are Latest, and from _0 to _10.
 
-*And even more complicated are no defined data selection* In this case user needs to provide regular expression, which provides way to get uniquely wave in folder. In the figure you can see regular expressions to match QRS naming system. But, this is very flexible and user can principally design suitable regular expressions for whatever is needed.
+*And even more complicated are no defined data selection* In this case user needs to provide regular expression, which provides way to get uniquely wave in folder. In the image you can see regular expressions to match QRS naming system. But, this is very flexible and user can principally design suitable regular expressions for whatever is needed.
 
 .. Figure:: media/MultiDataSelectionTools3.jpg
         :align: left
@@ -476,7 +476,7 @@ To aid users I have now added function which calculates what the area available 
 
 It is possible to move the content (not all, but most) up/down on panels, when needed with the arrows in top right corner:
 
-.. image:: media/Important14.png
+.. Figure:: media/Important14.png
       :align: center
       :width: 380px
 
@@ -485,14 +485,14 @@ The two arrows at the top right corner of most panels - like here on plotting to
 
 So here is the same area, but content was now moved bit higher, so one can reach to the bottom controls:
 
-.. image:: media/Important15.png
+.. Figure:: media/Important15.png
       :align: center
       :width: 380px
 
 
 If you have a large display, you can zoom panels by dragging lower right corner - note mark:
 
-.. image:: media/Important16.png
+.. Figure:: media/Important16.png
       :align: center
       :width: 30px
 

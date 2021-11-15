@@ -36,9 +36,9 @@ Open the tool, which you want to script and make a fit on representative data se
 
 Open the main window - left is with SAXS data selected, right is with Irena results selected:
 
-.. image:: media/ScriptingTool1.png
+.. Figure:: media/ScriptingTool1.png
             :width: 45%
-.. image:: media/ScriptingTool2.png
+.. Figure:: media/ScriptingTool2.png
             :width: 45%
 
 Select starting folder and from the list of folders here select the ones you want to process. Select type of data to be processed… Note, that if you select "Results" you can use only Plotting tool I. The controls hopefully make sense - which tool results, which type of results (e.g., volume or number size distribution?) and which generation. remember, each tool can create multiple "generations" of results - each push of "save" button creates new one (\_1, \_2,...). Latest picks highest number found.

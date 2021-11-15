@@ -44,7 +44,7 @@ Youtube channel for Irena and Nika
 
 I have Youtube channel for instructional movies. Search for example “Ilavsky Irena” on Youtube and you will see something like this:
 
-.. image:: media/Introduction0.png
+.. Figure:: media/Introduction0.png
    :align: center
    :width: 420px
 
@@ -84,7 +84,7 @@ There are two main ways to install the macros:
 
 **Igor 8.03+ (64 bit) and Igor 9(beta at this time)**
 
-.. image:: media/Introduction1.png
+.. Figure:: media/Introduction1.png
    :align: center
    :width: 420px
 
@@ -107,7 +107,7 @@ Follow above instructions for Igor Pro 8 using Installer version 1.10: https://g
 
 **Igor 6.37 32bit version = obsolete version no more maintained.**
 
-.. image:: media/Introduction2.png
+.. Figure:: media/Introduction2.png
    :align: center
    :width: 420px
 

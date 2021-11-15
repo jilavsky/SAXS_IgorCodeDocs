@@ -76,7 +76,7 @@ Importing ASCII SAS data
 ------------------------
 
 
-.. image:: media/ImportDataBio1.jpg
+.. Figure:: media/ImportDataBio1.jpg
         :align: center
         :width: 280px
 
@@ -132,7 +132,7 @@ So, lets assume the graph looks OK. **Check the Q scale - in case the Q values a
 
 Next decide, if you have many files per one sample - typically multiple measurements you want to average first - or if you have one file per sample. If you have many files (our example) you should check "Group by Samples?" option. If you have one file per sample, you should uncheck this checkbox or your data structure will be too complicated.
 
-If the "Group by Sample?" is checked, code will assume that string before the last number separated by "_" - that is before "_00023.dat" is the name and create subfolder for that sample. That is **VERY convenient** in this case, you'll see it later. See in the figure below, how the data structure looks like: your data were imported in root\:SAXS. In there, for each sample name code created folder with name based on the file name (without the last "_000xx" number). It placed all individual data inside its own folders with names which now2 include that last number to make sure the names match the file names. Inside each individual folder code placed your q values in wave called "q_sampleName", intensity in "r_samplename" and errors in "s_samplename". This is what is knowns as QRS naming system Irena uses :ref:`QRS naming system <important.QRS>`.
+If the "Group by Sample?" is checked, code will assume that string before the last number separated by "_" - that is before "_00023.dat" is the name and create subfolder for that sample. That is **VERY convenient** in this case, you'll see it later. See in the image below, how the data structure looks like: your data were imported in root\:SAXS. In there, for each sample name code created folder with name based on the file name (without the last "_000xx" number). It placed all individual data inside its own folders with names which now2 include that last number to make sure the names match the file names. Inside each individual folder code placed your q values in wave called "q_sampleName", intensity in "r_samplename" and errors in "s_samplename". This is what is knowns as QRS naming system Irena uses :ref:`QRS naming system <important.QRS>`.
 
 However, if you have only one measurement per sample, using this grouping just buries your data to deeper folder structure. In that case, do NOT do it, it will just keep annoying you.
 
@@ -265,7 +265,7 @@ In this case it is better to set starting folder as root\:SAXS\: (or whatever th
 
 To process a data set, follow the instructions on the panel.
 
-* In the figure select root\:SAXS\: and code is showing only names containing "ave" in the name.
+* In the image select root\:SAXS\: and code is showing only names containing "ave" in the name.
 * In the controls next to selection Listbox select buffer name.
 * Double click sample name (e.g., second name in the listbox). The code has added the buffer and sample in the graph.
 * (Optional) tweak Scale Buffer value, if needed. Normally should be 1.
@@ -303,7 +303,7 @@ If needed, user can scale more or less any data (Int-Q-Error) using Scale operat
         :Figwidth: 550px
 
 
-In the figure I displayed only data which are subtracted ("sub" in the Folder match (RegEx)). I added data set into the graph and scaled by factor of 10. Code created a note in the history area:
+In the image I displayed only data which are subtracted ("sub" in the Folder match (RegEx)). I added data set into the graph and scaled by factor of 10. Code created a note in the history area:
 
   Scaled data from root\:SAXS\:Sst288p326_00036\:Sst288p326_00036_sub\:   and saved into new folder :    root\:SAXS\:Sst288p326_00036\:Sst288p326_00036_sub_scaled
 
@@ -361,7 +361,7 @@ Next is *Optimization/Fitting*. If estimates look OK, use button *Optimize and E
 
 *Save Data* Pushing this button user can save these extrapolated data as zero concentration extrapolated data. By default code will set the *Output Sample name* field to name of the highest concetration sample. Code will remove "avg" string from the end (if present) and append "zConc" string. User can change the name as they want. NOTE: Output Sampe Name string has to be meaningful name for Igor Pro - single word starting with letter - little to no checking is done at this time.
 
-Resulting new data, for rest of Irena are "QRS" data type with zConc appened to end of the name. NOTE: this zConc is appended by default, but user can change it - in which case user should remember what the name is. To be able to easily find them, set *Folder Match String* to zConc (it is case sensitive!). See figure below to see resulting data obtained on this data set.
+Resulting new data, for rest of Irena are "QRS" data type with zConc appened to end of the name. NOTE: this zConc is appended by default, but user can change it - in which case user should remember what the name is. To be able to easily find them, set *Folder Match String* to zConc (it is case sensitive!). See image below to see resulting data obtained on this data set.
 
 
 .. Figure:: media/ConcSeries5.jpg
@@ -509,7 +509,7 @@ This will walk users through the Molecular weight fitting. As noted above, there
 
 3. Now, we have a good fit and therefore good values for Rg and I(0). Now we need to make sure the right Q range is used for SAXSMoW method. Check *Qmax 8/Rg* and values should update. This fixed Qmax for both methods used here to about 0.28 [1/A]. Users can make different choices here and discussion on what is right is not part of this manual.
 4. If you look on the blue curve in the bottom graph, you can see, that the integration of Q\*I(Q) does not reach plateau. It should in order for Rambo-Tainer method to work as this integration is effectively version of invariant. This is due to poor subtraction of buffer for this sample. Check The *Autofind Backg?* checkbox and re run the *Fit Rg and calculate MW*.
-5. Now we have value in the *Flat background* which code found as first guess of the flat background in this measurement. Check the *Subtract Background?* checkbox. This changes the blue curve in lower figure which now nearly reaches plateau. Tweaking the *Flat background* to about 0.16 will make the intergation of the Q\*I(Q) reach plateau at around Q=0.25 and integration to any value above that is returning pretty much same value. This suggest we subtracted proper background -assuming the differences are due to incorrect buffer subtraction and that can be approximated as flat background...
+5. Now we have value in the *Flat background* which code found as first guess of the flat background in this measurement. Check the *Subtract Background?* checkbox. This changes the blue curve in lower image which now nearly reaches plateau. Tweaking the *Flat background* to about 0.16 will make the intergation of the Q\*I(Q) reach plateau at around Q=0.25 and integration to any value above that is returning pretty much same value. This suggest we subtracted proper background -assuming the differences are due to incorrect buffer subtraction and that can be approximated as flat background...
 
 Now, this suggests, that we now have reasonable solution and obtained two approximations of Molecular weight.
 
@@ -566,7 +566,7 @@ Here are examples how the data are saved, in pictures...
         :width: 600px
         :Figwidth: 650px
 
-Figure above shows record in Notebook.
+Image above shows record in Notebook.
 
 .. Figure:: media/BioPDDF8.jpg
         :align: center
@@ -579,14 +579,14 @@ Figure above shows record in Notebook.
         :width: 400px
         :Figwidth: 450px
 
-The two figure above show record created in Igor experiment. A folder called root:PDDFFitResults will be created, waves which can be seen in the figure are created and every time user saves new results a new line is added to each of the waves. These waves are used to create the table seen in the figure above. Old data are not overwritten, unless used deletes them all using the button on the panel. Therefore, same data set can be in the table many times.
+The two images above show record created in Igor experiment. A folder called root:PDDFFitResults will be created, waves which can be seen in the image are created and every time user saves new results a new line is added to each of the waves. These waves are used to create the table seen in the image above. Old data are not overwritten, unless used deletes them all using the button on the panel. Therefore, same data set can be in the table many times.
 
 .. Figure:: media/BioPDDF11.jpg
         :align: center
         :width: 400px
         :Figwidth: 450px
 
-Figure shgows which wave are saved in Data folder with the data. Multiple "generations" can be saved, data are not over written. User needs to delete them manually, if necessary. These are seen by rest of irena as *Irena results*.
+Image shows which wave are saved in Data folder with the data. Multiple "generations" can be saved, data are not over written. User needs to delete them manually, if necessary. These are seen by rest of irena as *Irena results*.
 
 
 .. Figure:: media/BioPDDF10.jpg

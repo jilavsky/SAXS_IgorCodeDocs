@@ -40,7 +40,7 @@ The select “Reflectivity” from the SAS menu:
 
 When data are selected, following graphs appear:
 
-.. image:: media/Reflectivity2.png
+.. Figure:: media/Reflectivity2.png
    :align: left
    :width: 100%
 
@@ -48,9 +48,9 @@ Note, that the top graph is log-log plot of reflectivity vs Q, medium is reflect
 
 Now, I have very good values for these particular data (thanks to Dale Schaefer for providing the data and solution!!), see the tabs below:
 
-.. image:: media/Reflectivity3.png
+.. Figure:: media/Reflectivity3.png
    :width: 45%
-.. image:: media/Reflectivity4.png
+.. Figure:: media/Reflectivity4.png
    :width: 45%
 
 
@@ -58,7 +58,7 @@ Input these values and SLD for substrate of (real part) 2.073 and imaginary part
 
 Then push button “Graph model” you should get really good match to data:
 
-.. image:: media/Reflectivity5.png
+.. Figure:: media/Reflectivity5.png
    :align: left
    :width: 100%
 

@@ -51,7 +51,7 @@ If there are any issues with the behavior, please, let me know and I’ll see if
 
 Since version 1.70 these controls are shared with *Irena* package, so they do not fight with each other (which was possible previously). The whole philosophy of this GUI control system is bit convoluted, so if you see some issues, let me know when and how the logic fails.
 
-.. image:: media/Important1.jpg
+.. Figure:: media/Important1.jpg
    :align: left
    :width: 380px
 
@@ -108,7 +108,7 @@ NOTE:
 
 Here is the GUI:
 
-.. image:: media/Important2.png
+.. Figure:: media/Important2.png
    :align: left
    :width: 380px
 
@@ -119,7 +119,7 @@ Here is the GUI:
 
 Note, if the Configuration already exists, you will get dialog:
 
-.. image:: media/Important3.png
+.. Figure:: media/Important3.png
    :align: left
    :width: 380px
 
@@ -135,7 +135,7 @@ When loading saved configuration all Nika windows should be closed and after res
 
 “\ **Delete Saved Configuration**\ ” This will open dialog where you can select saved configuration and delete it. This way user can remove stored configurations when they are no more needed to save space (or confusion) in Igor experiment (file).
 
-There is no way at this time to rename saved configurations, except manually renaming the folder in the location (root:Packages:NikaGeometries). The Configuration manager needs to be restarted after this to figure out the new names.
+There is no way at this time to rename saved configurations, except manually renaming the folder in the location (root:Packages:NikaGeometries). The Configuration manager needs to be restarted after this to image out the new names.
 
 
 
@@ -162,7 +162,7 @@ Igor 7 has problems handling high resolution displays - 4k displays and similar 
 
 It is possible to move the content (not all, but most) up/down on panels, when needed with the arrows in top right corner:
 
-.. image:: media/Important14.png
+.. Figure:: media/Important14.png
       :align: center
       :width: 380px
 
@@ -171,14 +171,14 @@ The two arrows at the top right corner of most panels - like here on plotting to
 
 So here is the same area, but content was now moved bit higher, so one can reach to the bottom controls:
 
-.. image:: media/Important15.png
+.. Figure:: media/Important15.png
       :align: center
       :width: 380px
 
 
 If you have a large display, you can zoom panels by dragging lower right corner - note mark:
 
-.. image:: media/Important16.png
+.. Figure:: media/Important16.png
       :align: center
       :width: 30px
 
@@ -192,7 +192,7 @@ NOTE: the setting of size is now persistent - in the current Igor Experiment tha
 Check for updates
 -----------------
 
-.. image:: media/ImportantUpdateCheck.jpg
+.. Figure:: media/ImportantUpdateCheck.jpg
    :align: center
    :height: 250px
 
@@ -221,17 +221,17 @@ List of hook functions:
 +-------------------------------------------------+------------------------------------------------------+------------------------------------------------------------------------------------------+
 | Nika\_Hook\_AfterDisplayLineout(int,Qvec,Err)   | NI1A\_DisplayLineoutAfterProc                        | After lineout is displayed so user can change it as needed                               |
 +-------------------------------------------------+------------------------------------------------------+------------------------------------------------------------------------------------------+
-| ModifyImportedImageHook(ImageName)              | NI1BC\_BmCntrCreateImage                             | Modifies image after import. E.g., enables user to trim image to ROI only etc.           |
+| ModifyImportedimageHook(imageName)              | NI1BC\_BmCntrCreateimage                             | Modifies image after import. E.g., enables user to trim image to ROI only etc.           |
 |                                                 | NI1A\_ImportThisOneFile                              |                                                                                          |
 |                                                 | NI1A\_LoadEmptyOrDark                                |                                                                                          |
-|                                                 | NI1M\_MaskCreateImage                                |                                                                                          |
-|                                                 | NI1\_FloodCreateAppendImage                          |                                                                                          |
+|                                                 | NI1M\_MaskCreateimage                                |                                                                                          |
+|                                                 | NI1\_FloodCreateAppendimage                          |                                                                                          |
 +-------------------------------------------------+------------------------------------------------------+------------------------------------------------------------------------------------------+
-| PilatusHookFunction(ImageName)                  | NI1A\_UniversalLoader                                | After Piltus image is loaded so one can modify it as needed.                             |
+| PilatusHookFunction(imageName)                  | NI1A\_UniversalLoader                                | After Piltus image is loaded so one can modify it as needed.                             |
 +-------------------------------------------------+------------------------------------------------------+------------------------------------------------------------------------------------------+
-| ImportedImageHookFunction(ImageName)            | NI1A\_UniversalLoader                                | After loading any image just at the end. Can be used to modify loaded image as needed.   |
+| ImportedimageHookFunction(imageName)            | NI1A\_UniversalLoader                                | After loading any image just at the end. Can be used to modify loaded image as needed.   |
 +-------------------------------------------------+------------------------------------------------------+------------------------------------------------------------------------------------------+
-| AfterDisplayImageHook()                         | Various places after Nika displays detector image.   | Can be used to modify displayed image. Note – works on top image.                        |
+| AfterDisplayimageHook()                         | Various places after Nika displays detector image.   | Can be used to modify displayed image. Note – works on top image.                        |
 +-------------------------------------------------+------------------------------------------------------+------------------------------------------------------------------------------------------+
 | Movie\_UserHookFunction()                       | NI1A\_MovieCallUserHookFunction                      | In movie tool – create or modify image used for movie. See GUI.                          |
 +-------------------------------------------------+------------------------------------------------------+------------------------------------------------------------------------------------------+
@@ -245,7 +245,7 @@ and simply prints in history area image statistics.
 
 .. code::
 
-    Function ImportedImageHookFunction(NewWaveName)
+    Function ImportedimageHookFunction(NewWaveName)
        wave NewWaveName
        wavestats NewWaveName
      end
@@ -255,6 +255,6 @@ detector image
 
 .. code::
 
-    Function AfterDisplayImageHook()
+    Function AfterDisplayimageHook()
         SetAxis/R left 50,0
      end

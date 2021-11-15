@@ -23,7 +23,7 @@ In Guinier-Porod model each level represent ONLY one particulate system. For par
 
 See pictures copied from the Hammouda manuscript for particle with one dimension (sphere) and two major dimensions (cylinder):
 
-.. image:: media/GunierPorod1.png
+.. Figure:: media/GunierPorod1.png
    :align: center
    :height: 480px
 
@@ -91,7 +91,7 @@ Below tabbed area we have Background (self explanatory I assume).
 
 "*Uncertainty evaluation*" Evaluation of uncertainty same as available in Unified fit and Modeling II.
 
-.. image:: media/GunierPorod3.png
+.. Figure:: media/GunierPorod3.png
    :align: left
    :width: 45%
 
@@ -110,7 +110,7 @@ Compared to the GP model as described in the manual we have few more parameters 
 Here is example of relatively simple data, which can be fitted by UF two
 level model:
 
-.. image:: media/GunierPorod4.png
+.. Figure:: media/GunierPorod4.png
    :align: center
    :width: 100%
 
@@ -119,27 +119,27 @@ Let's walk through the procedure...
 
 1. Select "*Number of levels"* as 1. Select with cursors range of data, where the Guinier area is and push button "*1. Fit Rg1/G w/csrs*". DO not worry about checkbox "Fit?", starting parameters, or limits. All is handled automatically. Note that "*Display local (Porod & Guinier) fits?*" checkbox is set automatically for you.
 
-.. image:: media/GunierPorod5.png
+.. Figure:: media/GunierPorod5.png
         :align: center
         :width: 100%
 
 
 We get Guinier fit which should make some sense. Move cursors to higher Qs above the Guinier area where Power-law (Porods law) should apply. Hit button "*2. Fit P w/csrs*".:
 
-.. image:: media/GunierPorod6.png
+.. Figure:: media/GunierPorod6.png
         :align: center
         :width: 100%
 
 
 Fit looks good. Now we can push the button "*Graph Model*" (or simply check the checkbox "*Update automatically"*) and we should see current GP model:
 
-.. image:: media/GunierPorod7.png
+.. Figure:: media/GunierPorod7.png
    :align: center
    :width: 100%
 
 Now we can add some background (0.03 is good guess reading high-Q value from the graph), select range of data where Guinier area and power law slope influence the data (including high Q where background has impact). Check the checkboxes "*Fit?*" for G, P, Rg1, and background. Then do the fit (with the "*Fit*" button).
 
-.. image:: media/GunierPorod8.png
+.. Figure:: media/GunierPorod8.png
    :align: center
    :width: 100%
 
@@ -147,14 +147,14 @@ If we reach the limits, we can push the button "*Fix limits?*" and run again - o
 
 Next we need to add S1 area as the data do have power law slope following from the Guinier area. We can select the low q power law slope and use button "*3. Fit S1 w/csrs*".
 
-.. image:: media/GunierPorod9.png
+.. Figure:: media/GunierPorod9.png
    :align: center
    :width: 100%
 
 
 I disabled here the automatic updates to make this clearer... So now we are adding the slope S1. With the slope around 1.6 we are looking at particle somewhere between rod (S1=1) and disk (S1=2)... We should now select data from the point where rounded cursor ("A") is now and high-q, add checkbox "*Fit"* for S1 and fit the whole range of data.
 
-.. image:: media/GunierPorod10.png
+.. Figure:: media/GunierPorod10.png
    :align: center
    :width: 100%
 
@@ -165,7 +165,7 @@ But we see the low-q power law slope. Something else is likely there. Depends on
 
 Add level 2 in the system (popup menu "*Number of levels*") and click on tab of level 2. Set Rg2 to 1e6. This is important as it switches internally the calculations to handle case when only power law slope exists... Use now button "*2. Fit P w/csrs"*.
 
-.. image:: media/GunierPorod11.png
+.. Figure:: media/GunierPorod11.png
    :align: center
    :width: 100%
 
@@ -174,7 +174,7 @@ Note that the G and P have changed. For fitting purposes of he level 2 one needs
 
 Now I select the whole range of data. For level 2 I fit P and G, for level 1 I fit P, Rg1, G, S1, and I also fit background. I can disable fitting limits for simplicity; it will not cause problems in this case.
 
-.. image:: media/GunierPorod12.png
+.. Figure:: media/GunierPorod12.png
    :align: center
    :width: 100%
 
@@ -183,20 +183,20 @@ Above is the best - justified purely by scattering - model for these data.
 
 One can modify it more by adding some physics into it - like power law slope of 5 at low Q makes typically no sense, slope steeper than 4 is unusual and surely very rare on low-q data... Since the data there are of limited range to guarantee reliably power law fit anyway, we can therefore force P=4 for level 2 (Porod). The quality of the fit will decrease a bit, but the result will be more physically justifiable. We might also know that the level 1 particle has another main dimension (may be 400nm?) and so we might be able to put that in. Even though it is not justifiable based on SAXS data, it may help to make the results more physically appropriate, if we have good justification for it. Here is what we would get...
 
-.. image:: media/GunierPorod13.png
+.. Figure:: media/GunierPorod13.png
    :align: center
    :width: 100%
 
 
 When we are done, we can store the results in the data folder using button "*Results->Data Folder*". Remember to set meaningful title in the dialog:
 
-.. image:: media/GunierPorod14.png
+.. Figure:: media/GunierPorod14.png
    :align: center
    :width: 580px
 
 
 The tool will save, as does the Unified fit and other tools, "Results" waves with Intensity and Q vector: "*GuinierPorodFitIntensity\_N*", "*GuinierPorodFitQvector\_N*", where N is "order" number. Every time you save new results, this order number will increase - so keep the number of saved results to sensible number and make notes... Both of these waves have in their wave notes all the GP parameters. These can be exported through ASCII exporter, they can be plotted, you can extract values through "Data mining" tool, etc. Also, if you decide to load the data from this folder again into the GP tool, you get a choice and can recover the current parameters:
 
-.. image:: media/GunierPorod15.png
+.. Figure:: media/GunierPorod15.png
    :align: center
    :width: 580px

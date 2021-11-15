@@ -20,7 +20,7 @@ but the graph will become crowded very soon…
 
 Select “Evaluate size distributions” from the SAS menu.
 
-.. image:: media/EvaluateSizeDistributions1.png
+.. Figure:: media/EvaluateSizeDistributions1.png
    :align: center
    :width: 100%
 
@@ -132,7 +132,7 @@ are some cases when this is useful…
 with them opens. Few other controls appear also:
 
 
-.. image:: media/EvaluateSizeDistributions2.png
+.. Figure:: media/EvaluateSizeDistributions2.png
    :align: center
    :width: 200px
 
@@ -145,7 +145,7 @@ material and the mercury…
 **Example**
 
 
-.. image:: media/EvaluateSizeDistributions3.png
+.. Figure:: media/EvaluateSizeDistributions3.png
    :align: center
    :width: 100%
 
@@ -157,7 +157,7 @@ has its own axis on right) and blue is cumulative specific surfaced area
 curves checkbox was selected, MIP graph was created:
 
 
-.. image:: media/EvaluateSizeDistributions4.png
+.. Figure:: media/EvaluateSizeDistributions4.png
    :align: center
    :width: 380px
 
@@ -170,7 +170,7 @@ Example of comparison of two data sets and use of tags to display
 results for both:
 
 
-.. image:: media/EvaluateSizeDistributions5.png
+.. Figure:: media/EvaluateSizeDistributions5.png
    :align: center
    :width: 100%
 

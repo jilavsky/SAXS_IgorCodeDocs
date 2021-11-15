@@ -31,7 +31,7 @@ For the one large file the best method is to manually load the text content in I
 
 Recently I was asked to help users with the second setup - one text file for few images - to write look up functions. Below is an example of the resulting functions which you can modify with relatively little Igor expertise...
 
-In this case we have a folder contains multiple "groups" of files belonging together. Each group has some number of images with names similar to Image_file_01.tif, Image_file_02.tif, etc. Names are basically "ArbitraryString_XY.tif". Then we have associated text file, in this case named Image_file.txt (that is "ArbitraryString.txt"). Inside the text file are few (9 in my case) lines of header with various common information (sample name, instrument conditions, etc.) and then lines with tab separated values for each image - such as date+time, file name, Monitor1, Monitor2, thickness, transmission etc.
+In this case we have a folder contains multiple "groups" of files belonging together. Each group has some number of images with names similar to image_file_01.tif, image_file_02.tif, etc. Names are basically "ArbitraryString_XY.tif". Then we have associated text file, in this case named image_file.txt (that is "ArbitraryString.txt"). Inside the text file are few (9 in my case) lines of header with various common information (sample name, instrument conditions, etc.) and then lines with tab separated values for each image - such as date+time, file name, Monitor1, Monitor2, thickness, transmission etc.
 
 In text editor or Igor history area this line looks like this:
 10/04/2017 15:54:04 170410_refs_01.tif  87.259 87.145  1  45.457
@@ -62,7 +62,7 @@ To read a specific value from this code I wrote following function:
       //type ReadThickness    (no " or ' , just the letters) with no parameters or ()
       //
       //this function reads from text file assuming name template:
-      //image in name: ImageName_XX.tif ------> the text file name:  ImageName.txt
+      //image in name: imageName_XX.tif ------> the text file name:  imageName.txt
       //text file content line example:
       //date time\tFileName\tMon1\tMon2\tThickness\tTransmission[%]
       //10/04/2017 15:54:04\t170410_refs_01.tif\t87.259\t87.145\t1\t45.457
@@ -75,7 +75,7 @@ To read a specific value from this code I wrote following function:
       if(V_Flag<1)					             //path does not exist
         Abort "Path to 2D data does not exist"	 //abort
       endif
-          //now figure out the name of the text file. The depends on naming system
+          //now image out the name of the text file. The depends on naming system
       string TextFileName                 //place for the file name
       variable NumOfSeparators            //need a number
       NumOfSeparators = ItemsInList(FileName, "_")	//number of string parts separated by "_"
@@ -157,7 +157,7 @@ Lookup from wavenote metadata
 When Nika loads image with metadata - like the HDF5 images :ref:`Nexus <Nexus>` it appends the metadata information to image as wave note. It creates first from the metadata keyword=Value; string (KeyWord1=Value1;KeyWord2=Value2;...) so this info can be easily searched. You need to know the Keywords, of course, but then this is very easy to look up and calculate what is needed...
 
 Helpful notes:
-  Current 2D Image ...   root:Packages:Convert2Dto1D:CCDImageToConvert
+  Current 2D image ...   root:Packages:Convert2Dto1D:CCDimageToConvert
 
   Current 2D Empty ...   root:Packages:Convert2Dto1D:EmptyData
 
@@ -169,9 +169,9 @@ Following is example which my instrument uses to look up Ion chamber counts coll
 
   Function FindI0(SampleName)
     string sampleName
-    Wave/Z w2D = root:Packages:Convert2Dto1D:CCDImageToConvert //this is actually the current image
+    Wave/Z w2D = root:Packages:Convert2Dto1D:CCDimageToConvert //this is actually the current image
     if(!WaveExists(w2D))
-        Abort "Image file not found"   //error message to user, this should not happen.
+        Abort "image file not found"   //error message to user, this should not happen.
     endif
     string OldNOte=note(w2D)
     //OldNOte should have data like this ...;I0_cts=56.5;I0_gain=1000000;...

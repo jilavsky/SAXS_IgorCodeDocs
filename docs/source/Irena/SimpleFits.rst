@@ -32,7 +32,7 @@ You need to select *Start fldr* (e.g., "root\:SAXS\:") and data type using *Fold
 
 **Add data using double click** Add data using double click. Data are always added to the top graph as log-Intensity vs log-Q. For some (Guinier, Porod,...) the lower graph presents linearization plot. For some (Sphere) no linearization plot is presented.
 
-Select Q range to fit a specific model and push button *Fit Current (One) Dataset*. Results are presented, see figure with really ugly Guinier fit or much better fit for spheroid...
+Select Q range to fit a specific model and push button *Fit Current (One) Dataset*. Results are presented, see image with really ugly Guinier fit or much better fit for spheroid...
 
 .. Figure:: media/SimpleFitsBioSAXS2.jpg
         :align: left
@@ -67,7 +67,7 @@ User can select multiple data sets in the listbox, method to use, Q range to use
         :width: 700px
         :Figwidth: 750px
 
-In the Figure one can see results of run of Spheroid model on sequence of data sets. Code run 5 data sets, created new folder in Igor experiment root\:SpheroidFitResults and stored there many waves with results of the model. It then created a table with these values and displayed for user. User can now go and manually utilize the model results in their own graphs or subsequence processing. I also stored data in notebook, but that is not shown here - it contains summary of resulting values and  graph for each sample which was run.
+In the image one can see results of run of Spheroid model on sequence of data sets. Code run 5 data sets, created new folder in Igor experiment root\:SpheroidFitResults and stored there many waves with results of the model. It then created a table with these values and displayed for user. User can now go and manually utilize the model results in their own graphs or subsequence processing. I also stored data in notebook, but that is not shown here - it contains summary of resulting values and  graph for each sample which was run.
 
 *Delete Existing results* This button will close  table with results and delete the folder  root\:SpheroidFitResults (or similarly named folder with results from different fitting model). Be careful, there is no recovery for this.
 

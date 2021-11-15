@@ -22,34 +22,34 @@ This means, that under some combination of **display resolution** (number of pix
 
 Here is example of panel which is **missing bottom controls** due to incorrect settings.
 
-.. image:: media/InCorrectScrRes.jpg
+.. Figure:: media/InCorrectScrRes.jpg
    :align: center
    :width: 380px
 
 
 Here is how to get to the controls. Right click on the desktop (of the OS, not Igor Pro).
 
-.. image:: media/W10AccToDPISett.jpg
+.. Figure:: media/W10AccToDPISett.jpg
    :align: center
    :width: 220px
 
 Here is what you should see (again, Windows 10; Windows 7 and 8 are slightly different and call the setting *DPI*). Note the slider is moved to higher than 100% setting.
 
 
-.. image:: media/W10HighDPISet.jpg
+.. Figure:: media/W10HighDPISet.jpg
    :align: center
    :width: 450px
 
 Here is modified setting which is 100% now:
 
-.. image:: media/W10CorDPISett.jpg
+.. Figure:: media/W10CorDPISett.jpg
    :align: center
    :width: 450px
 
 And here is the same Igor panel with this setting, note the presence of the **bottom controls**:
 
 
-.. image:: media/CorrectScrRes.jpg
+.. Figure:: media/CorrectScrRes.jpg
    :align: center
    :width: 380px
 
@@ -71,7 +71,7 @@ Error caused by missing HDF5 xop
 
 This error appears when Installer does not make proper link to Igor Pro included HDF5.xop or for some other reason this library is not loaded properly on Igor start. You will see something similar to:
 
-.. image:: media/HDF5xopError.jpg
+.. Figure:: media/HDF5xopError.jpg
    :align: center
    :width: 380px
 

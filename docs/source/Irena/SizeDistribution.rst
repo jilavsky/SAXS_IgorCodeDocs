@@ -141,13 +141,13 @@ Trust regions – in version 2.57 I have added color indications about which siz
 
 Compare following two graphs, in which the Q fitting setting is vastly different:
 
-.. image:: media/SizeDistribution1.png
+.. Figure:: media/SizeDistribution1.png
    :align: left
    :width: 100%
 
 |
 
-.. image:: media/SizeDistribution2.png
+.. Figure:: media/SizeDistribution2.png
       :align: left
       :width: 100%
 
@@ -176,7 +176,7 @@ On the panel, which gets created, starting from top are :ref:`standard data sele
 
 New graph gets created.
 
-.. image:: media/SizeDistribution3.jpg
+.. Figure:: media/SizeDistribution3.jpg
       :align: left
       :width: 100%
 
@@ -213,7 +213,7 @@ Select first five points with cursors. We have two options - two buttons :
 
 Below is result of fit at low-q using fitting of only B parameter with P=4.
 
-.. image:: media/SizeDistribution4.jpg
+.. Figure:: media/SizeDistribution4.jpg
       :align: left
       :width: 100%
 
@@ -227,7 +227,7 @@ As you can see, at high-q the red dashed line nearly touches the data (ignore th
 
 Here is result of the fitting:
 
-.. image:: media/SizeDistribution5.jpg
+.. Figure:: media/SizeDistribution5.jpg
       :align: left
       :width: 100%
 
@@ -241,7 +241,7 @@ Checkbox : *Fit B/P/Bckg on "Graph"*
 
 When selected a new panel appears:
 
-.. image:: media/SizeDistribution6.jpg
+.. Figure:: media/SizeDistribution6.jpg
       :align: left
       :width: 50%
       :figwidth: 100%
@@ -254,7 +254,7 @@ You can test the fits using the button for "Fit ..." - they do same as in the ma
 
 Now, when new data are added in the tool using button "Graph" both B and Background will be optimized in the Q ranges selected. If you do not want to do this, simply uncheck the *Fit B/P/Bckg on "Graph"* checkbox and it will also close this secondary panel. Note: you can close this panel if not needed anymore, to reopen simply uncheck and check the checkbox *Fit B/P/Bckg on "Graph"* on the main panel.
 
-.. image:: media/SizeDistribution7.jpg
+.. Figure:: media/SizeDistribution7.jpg
       :align: left
       :width: 100%
 
@@ -288,28 +288,28 @@ selected:
 
 User errors, multiplied by 10:
 
-.. image:: media/SizeDistribution8.jpg
+.. Figure:: media/SizeDistribution8.jpg
       :align: left
       :width: 100%
 
 
 SQRT errors, multiplied by 10:
 
-.. image:: media/SizeDistribution9.jpg
+.. Figure:: media/SizeDistribution9.jpg
       :align: left
       :width: 100%
 
 
 % errors, used 20%:
 
-.. image:: media/SizeDistribution10.jpg
+.. Figure:: media/SizeDistribution10.jpg
       :align: left
       :width: 100%
 
 
 No errors, selected to use I\*Q\ :sup:`3` vs Q “space” for fitting:
 
-.. image:: media/SizeDistribution11.jpg
+.. Figure:: media/SizeDistribution11.jpg
       :align: left
       :width: 100%
 
@@ -333,7 +333,7 @@ MaxEnt Sky Background. While this is relatively complicated number internally, n
 
 **IPG/TNNLS**
 
-.. image:: media/SizeDistribution8.png
+.. Figure:: media/SizeDistribution8.png
       :align: left
       :width: 100%
 
@@ -367,7 +367,7 @@ Next, let's select range of data using the cursors which will be fitted. Set rou
 
 Scale the Errors up, set scaling to 4 or so.
 
-.. image:: media/SizeDistribution12.jpg
+.. Figure:: media/SizeDistribution12.jpg
       :align: left
       :width: 100%
 
@@ -376,7 +376,7 @@ Push button *"Fit (no uncertainties)”*. Solution should be found as in the ima
 
 If the parameters are too restrictive you may get error message, that solution was not found. In such case check minimum and maximum diameter settings, check the error multiplication factor etc. Generally I suggest starting with higher range of diameters than needed and higher error multiplication factor. Then reduce as needed.
 
-.. image:: media/SizeDistribution13.jpg
+.. Figure:: media/SizeDistribution13.jpg
       :align: left
       :width: 100%
 
@@ -399,7 +399,7 @@ To get better results one now needs to play with the parameters. I suggest reduc
 
 IMPORTANT: you need to fix the MaxEnt sky background when that "Suggested" red block appear, simply push the button. Running the same routine again. Following is the result:
 
-.. image:: media/SizeDistribution14.jpg
+.. Figure:: media/SizeDistribution14.jpg
       :align: left
       :width: 100%
 
@@ -408,14 +408,14 @@ This shows, that we have bimodal distribution of scatterers. By the way, these d
 
 And now the IPG/TNNLS method:
 
-.. image:: media/SizeDistribution15.jpg
+.. Figure:: media/SizeDistribution15.jpg
       :align: left
       :width: 100%
 
 
 This is solution with user errors. Note, that the solution is basically very similar to MaxEnt.
 
-.. image:: media/SizeDistribution16.jpg
+.. Figure:: media/SizeDistribution16.jpg
       :align: left
       :width: 100%
 
@@ -426,7 +426,7 @@ And here is solution with no errors, but scaling by Q\ :sup:`3`. Less noisy. Not
 
 Saving the data copies waves with results into folder where the measured data originated. Also, it is possible to have various generations of data saved. In order to give user chance to find what each saved result is, following dialog is presented:
 
-.. image:: media/SizeDistribution13.png
+.. Figure:: media/SizeDistribution13.png
       :align: left
       :width: 380px
 
@@ -435,7 +435,7 @@ Here user can write ANYTHING, as long as it is bracketed by the QUOTES. The QUOT
 
 If user tries to start Size distribution macros in folder, where saved solution to this method exists, he/she is presented with dialog, which allows one to recover most of the parameters used for that solution.
 
-.. image:: media/SizeDistribution14.png
+.. Figure:: media/SizeDistribution14.png
       :align: left
       :width: 380px
 
@@ -450,7 +450,7 @@ Therefore it is possible to start from where he/she left off. Also it is possibl
 | SizesFitIntensity\_0 : Contains Intensity of the model
 | SizesFitQvector\_0 : Contains Q vectors for the above Intensity wave
 
-.. image:: media/SizeDistribution15.png
+.. Figure:: media/SizeDistribution15.png
       :align: left
       :width: 380px
       :figwidth: 100%
@@ -494,14 +494,14 @@ Uncertainty analysis of Size distribution
 
 If "Fit (w/uncertainties)" is used, 10 fits with data varied by data modified by Gaussian noise scaled to ORIGINAL uncertainties is run and statistical analysis is done on each bin. Here is example of results:
 
-.. image:: media/SizeDistribution16.png
+.. Figure:: media/SizeDistribution16.png
       :align: left
       :width: 100%
 
 
 Note, that the tool can provide calculations of volume with uncertainities:
 
-.. image:: media/SizeDistribution17.png
+.. Figure:: media/SizeDistribution17.png
       :align: left
       :width: 100%
 
@@ -513,7 +513,7 @@ The uncertainties are exported and plotted. More support in Irena needs to be ad
 Graph information and controls
 ------------------------------
 
-.. image:: media/SizeDistribution17.jpg
+.. Figure:: media/SizeDistribution17.jpg
       :align: left
       :width: 100%
 

@@ -22,9 +22,9 @@ Igor is quite reliable and crashes rarely. But no software is crash proof and yo
 Collected data arrangement
 ==========================
 
-When you collect data on 9IDC USAXS/SAXS/WAXS instrument, your data are saved in folders related to your "spec" file name. Spec file itself is text file where instrument makes various records. The file name is created by adding \MM_DD_ (\month_day_) to the name staff selects, typically version of user name. When you collect USAXS data, a folder with the same name with appended "_usaxs" is created. For SAXS data we create folder with the same name with "_saxs" and for  WAXS with "_waxs". See below in the figure:
+When you collect data on 9IDC USAXS/SAXS/WAXS instrument, your data are saved in folders related to your "spec" file name. Spec file itself is text file where instrument makes various records. The file name is created by adding \MM_DD_ (\month_day_) to the name staff selects, typically version of user name. When you collect USAXS data, a folder with the same name with appended "_usaxs" is created. For SAXS data we create folder with the same name with "_saxs" and for  WAXS with "_waxs". See below in the Image:
 
-.. image:: media/USAXSComputerDataArrangement.jpg
+.. Figure:: media/USAXSComputerDataArrangement.jpg
         :align: center
         :width: 480px
 
@@ -37,11 +37,11 @@ Reduced USAXS data arrangement
 
 To see inside of the current Igor experiment, use DataBrowser (ctrl-B or cmd-B). Your data from USAXS instrument (not SAXS or WAXS) will be in folder root\:USAXS\:Sample_name_Folder
 
-.. image:: media/USAXSIgorDataArrangement.jpg
+.. Figure:: media/USAXSIgorDataArrangement.jpg
         :align: center
         :width: 480px
 
-In the image above the "waves" are sorted in the order they are created. You can ignore most of them, but two sets:
+In the Figure above the "waves" are sorted in the order they are created. You can ignore most of them, but two sets:
   1.  SMR_Int, SMR_Qvec, SMR_Error, and SMR_dQ. These are SLIT SMEARED version of your data. These are created first and are (usually ) absolutely calibrated, fully corrected Intensity-q-error-resolution data. These are used by Irena for modeling.
   2.  DSM_Int, DSM_Qvec, DSM_Error, and DSM_dQ. These are present if you desmear the data. These are pinhole equivalent data which can be used by ANY data analysis software.
 

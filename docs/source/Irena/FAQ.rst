@@ -46,9 +46,6 @@ The simple answer is NO, it does not. You can have any order for Modeling popula
 -----------------------------------------------
 If you need different Form Factor than is included in Irena, you can write your own functions. Alternatively, you can modify Form Factors (or Structure Factors) included in NIST Igor data analysis package. If you need help, you can contact me and I can help, especially if the Form Factor function is included in the NIST package. :ref:`More details are available here <FormFactors.User>`
 
-
-.. _FAQ.ModelingMultipleUFlevels:
-
 *Why does Modeling warn against use of multiple Unified levels?*
 ----------------------------------------------------------------
 Unified fit tool requires specific order to "levels" used but Modeling does not, see above. This specific order of levels enables the code to do some background checks for sensibility of a solution. It also enables users to conveniently link RgCO (see below) together as needed. None of this is possible in the Modeling tool. It is therefore strongly recommended to use Unified fit for fitting of data requiring multiple Unified levels - and not use Modeling tool for this purpose. For complex systems this may not be possible, though... There is nothing inherently wrong in using multiple Unified levels in Modeling tool, it is just more complicated and error prone.

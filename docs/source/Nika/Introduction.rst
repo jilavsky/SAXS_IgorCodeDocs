@@ -27,7 +27,7 @@ Nika was designed to provide number of methods to extract the data:
 
 #. Intensity along linear path but for Grazing incidence geometry
 
-#. Intensity vs azimuthal angle image intended for manual inspection of geometry.
+#. Intensity vs azimuthal angle Figure intended for manual inspection of geometry.
 
 Disclaimer:
 

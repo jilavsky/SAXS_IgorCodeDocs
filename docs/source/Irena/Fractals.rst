@@ -21,12 +21,12 @@ Note, that the short write up below was written for studies of cement and theref
 
 **Model description**
 
-.. image:: media/Fractals1.png
+.. Figure:: media/Fractals1.png
    :align: center
    :width: 100%
 
 
-.. image:: media/Fractals2.png
+.. Figure:: media/Fractals2.png
       :align: center
       :width: 100%
 
@@ -43,7 +43,7 @@ Note, that the “Subtract background” variable next to data selection allows 
 
 **Select “Use mass fractal 1” for starters and other checkboxes as in image below:**
 
-.. image:: media/Fractals4.png
+.. Figure:: media/Fractals4.png
          :align: center
          :width: 100%
 
@@ -70,7 +70,7 @@ Most parameters should be closely related to the ones mentioned above in descrip
 **Polydispersity index** When you choose checkbox "Use UF Particle Form Factor", Polydispersity index (PDI) becomes available. This is value representing size distribution of primary particles. PDI=1 is completely monodispersed system, PDI=3 is when Porod's region completely merges with Guinier area and highly polydispersed system has PDI up to 10. I expect typical systems to need PDI between 1 - 5
 
 
-.. image:: media/Fractals4a.jpg
+.. Figure:: media/Fractals4a.jpg
          :align: center
          :width: 100%
 
@@ -85,12 +85,12 @@ Suggestions: check solution for particle aspect ratio 2 and 0.5, keep integral i
 
 **Now select “Use Surf Fractal 1” and deselect the mass fractal:**
 
-.. image:: media/Fractals5.png
+.. Figure:: media/Fractals5.png
          :align: center
          :width: 100%
 
 
-.. image:: media/Fractals6.png
+.. Figure:: media/Fractals6.png
             :align: center
             :width: 40%
 

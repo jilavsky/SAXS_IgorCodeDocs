@@ -88,9 +88,9 @@ It is important to understand, that user can create multiple *Position sets* whi
 *Add Sample Positions* will append more lines to the end of the "Sample Table". Both of these buttons use the "Lines =" value to decide, how many lines are created. Default value is 20, user can change the number as needed.
 
 *Templates* If user is using a standard sample plate we designed and pre-programmed in the tool, like our Acrylic plate which has 9x9 samples, user can populate the table with predefined positions for this plate. Number of our common plates are predefined, more will be added over time. Optionally, user can choose "Generic grid holder" which through dialog asks for starting sx/sy position, step in sx and step in sy and number of positions vertically and horizontally. User can therefore create rectangular grid of positions quickly.
-User can also create image of the plate using *Create Image* button, which will create scaled version of the sample plate and provide some cool features. See later *Images* for more functionality description.
+User can also create image of the plate using *Create image* button, which will create scaled version of the sample plate and provide some cool features. See later *images* for more functionality description.
 
-*Import image* This allows user to import image taken by camera (jpg, tiff, png,...) with the sample plate. Image is imported and separate image is display with controls which enable user to select corners of rectangular are and assign dimensions in mm to this area. Image is then straightened and cropped. This create custom image which can be used same as can be created for some templates using *Create Image* button.
+*Import image* This allows user to import image taken by camera (jpg, tiff, png,...) with the sample plate. image is imported and separate image is display with controls which enable user to select corners of rectangular are and assign dimensions in mm to this area. Image is then straightened and cropped. This create custom image which can be used same as can be created for some templates using *Create image* button.
 
 *Select Saved set* If user saved a "Set of positions" (= filled table) using the button *Save Positions Set* (at the bottom of this panel), a sample set will be stored in this Igor experiment. Using this popup menu, user can select this saved positions set and using button *Load saved Position Set* can restore the positions in the table. Existing set of positions is overwritten, so save your positions first under suitable name, if you do not want to loose those. There is no undo here.
 
@@ -106,14 +106,14 @@ User can also create image of the plate using *Create Image* button, which will 
   1.  Start the tool.
   2.  Select the correct *Template*  (e.g., 9x9 Acrylic/magnetic plate" which is default)
   3.  Push button *Populate table* (needed lines will be added automatically)
-  4.  Push button *Create Image*
+  4.  Push button *Create image*
 
 .. Figure:: media/SamplePlate2.jpg
            :align: left
            :width: 830px
            :figwidth: 850px
 
-Result is table, pre filled with center positions for each sample position. Positions are indexed, in millimeters, with respect to top right corner, which is defined as sx=0 and sy=0. First two openings are designated for beamline use. Others are for users to use. The red marker in the image shows position of the currently selected row of samples in the table. See later *Images* for more functionality description. Fill the table for Plate 1, mounting up to 79 samples on this plate.
+Result is table, pre filled with center positions for each sample position. Positions are indexed, in millimeters, with respect to top right corner, which is defined as sx=0 and sy=0. First two openings are designated for beamline use. Others are for users to use. The red marker in the image shows position of the currently selected row of samples in the table. See later *images* for more functionality description. Fill the table for Plate 1, mounting up to 79 samples on this plate.
   5. *Set Name* for the plate into easy to identify name which is clearly related to the plate in front of your (e.g., Plate5 if the Plate has sticker "Plate#5").
   6. *Save Position Set* using the button under the plate name.
   7. Use steps 3-6 to create a table for second plate and populate it with sample names/positions. Note, that as you populate the table row which is being edited will have red dot displayed in the image (if it exists) with sx and sy locations and sample name.
@@ -246,9 +246,9 @@ There are few buttons in this area. These are actions run when user finishes set
 
 *******
 
-**Images**
+**Image**
 
-Images of sample plates provide multiple functionality for users. If they are defined for some Template, user can create such image using button *Create Image*. Alternatively, user can use *Import image* to import jpg/tiff... image of the sample holder and trim/scale it in subsequent step (see more below). If they are not defined, user get error message. Images are very helpful, since they serve as visual guidance when mounting the samples. Pick row in which you want to place sample and red marker will show position on the plate. The purpose is to minimize mistakes.
+Image of sample plates provide multiple functionality for users. If they are defined for some Template, user can create such image using button *Create image*. Alternatively, user can use *Import image* to import jpg/tiff... Image of the sample holder and trim/scale it in subsequent step (see more below). If they are not defined, user get error message. Images are very helpful, since they serve as visual guidance when mounting the samples. Pick row in which you want to place sample and red marker will show position on the plate. The purpose is to minimize mistakes.
 
 There is right click menu for the image - user can right click (or control/cmd click) on position in the image and select one of two right click menu options.
     a.  *Write position* - this will write sx and sy for the position of the click into the currently selected row in the table.
@@ -270,7 +270,7 @@ At the beamline the button *Beamline survey* will open a new panel. This panel c
            :figwidth: 350px
 
 
-*The top part* are numbers related to row selected in the *Sample Table*. In the figure Sample Table in the main panel has selected row 3 (rows numbering is zero based, the first one is row=0, so this is actually fourth row). The buttons "Row down" and "Row up" let user move between rows. Another option to move to different row is to select different row in the Sample Table. This tool will sync. Note, than when there is no more rows at the end of the Sample table, a new empty row will be added when button "Row down" is pushed.
+*The top part* are numbers related to row selected in the *Sample Table*. In the image Sample Table in the main panel has selected row 3 (rows numbering is zero based, the first one is row=0, so this is actually fourth row). The buttons "Row down" and "Row up" let user move between rows. Another option to move to different row is to select different row in the Sample Table. This tool will sync. Note, than when there is no more rows at the end of the Sample table, a new empty row will be added when button "Row down" is pushed.
 
 *Sa Name* and *Sa Thickness* are Sample name and thickness from the Sample table on the main panel. User can edit them here and when button "Save Values" is pushed, these are copied into the table in the selected row. Sample Name and thickness are both checked for sensibility and cleaned up if necessary.
 

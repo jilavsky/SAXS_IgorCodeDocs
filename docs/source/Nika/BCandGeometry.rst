@@ -21,12 +21,12 @@ Main tool is located in the menu under name: “Beam center and geometry cor.”
 
 This tool creates control panel:
 
-.. image:: media/BCandGeometry1.png
+.. Figure:: media/BCandGeometry1.png
    :align: center
    :width: 480px
 
 
-First select path to data, as using the other tools… Select appropriate type of data. Select “dezinger” if needed and number of passes of this process. Check log image if you wish to see log of intensity, but all calculations are done with original intensity… Create image by pushimg “Make Image” button.
+First select path to data, as using the other tools… Select appropriate type of data. Select “dezinger” if needed and number of passes of this process. Check log image if you wish to see log of intensity, but all calculations are done with original intensity… Create image by pushimg “Make image” button.
 
 If needed (high background samples) you can select “\ *Subtr. Blank*\ **”** checkbox – and need to load Empty measurements (“Blank image”, image without sample but with X-rays on) through the main panel. This is used to subtract that from measured data. It is sometimes needed to have better diffraction peaks.
 
@@ -39,21 +39,21 @@ Beam center using attenuated beam
 
 Load in the image containing attenuated beam :
 
-.. image:: media/BCandGeometry2.png
+.. Figure:: media/BCandGeometry2.png
    :align: center
    :width: 100%
 
 
 Zoom in the area with the beam using Igor controls (select the area and right-click on Windows, select Expand. Select reasonably small area, fitting over large areas takes a long time.
 
-.. image:: media/BCandGeometry3.png
+.. Figure:: media/BCandGeometry3.png
    :align: center
    :width: 100%
 
 
 Push “Fit 2D Gaussian” button:
 
-.. image:: media/BCandGeometry4.png
+.. Figure:: media/BCandGeometry4.png
    :align: center
    :width: 100%
 
@@ -67,7 +67,7 @@ If image with attenuated beam is not available, following method may help to get
 
 This is image with CeO powder standard collected on 2D area detector:
 
-.. image:: media/BCandGeometry5.png
+.. Figure:: media/BCandGeometry5.png
    :align: center
    :width: 100%
 
@@ -76,14 +76,14 @@ Check the “Display circle” checkbox and use slider to scale the circle to si
 
 So from this:
 
-.. image:: media/BCandGeometry6.png
+.. Figure:: media/BCandGeometry6.png
    :align: center
    :width: 100%
 
 
 Get to this:
 
-.. image:: media/BCandGeometry7.png
+.. Figure:: media/BCandGeometry7.png
    :align: center
    :width: 100%
 
@@ -100,21 +100,21 @@ On the next tab pick the calibrant to use and in tab refinement insert reasonabl
 
 **Note, that you have to have also appropriate size of the pixels set in the main panel**:
 
-.. image:: media/BCandGeometry8.png
+.. Figure:: media/BCandGeometry8.png
    :align: center
    :width: 100%
 
 
 In the tab “Calibrant” now select “Display?” Checkbox. This will add circles where using current parameters should be the lines and two lines around each of this line.
 
-.. image:: media/BCandGeometry9.png
+.. Figure:: media/BCandGeometry9.png
    :align: center
    :width: 100%
 
 
 Note detail here:
 
-.. image:: media/BCandGeometry10.png
+.. Figure:: media/BCandGeometry10.png
    :align: center
    :width: 100%
 
@@ -122,7 +122,7 @@ The white line is calculated position of the diffraction from current parameters
 
 See here:
 
-.. image:: media/BCandGeometry11.png
+.. Figure:: media/BCandGeometry11.png
    :align: center
    :width: 100%
 
@@ -131,7 +131,7 @@ If needed make the width between the two red lines wider as necessary – it is 
 
 The line profile is taken over width (number of pixels on image) perpendicular to the radial direction as set in “Lineout Intg. Over (pix)” on “Calibrant” tab. This value is ONLY one for all diffraction lines. Depending on quality of the lines this may be narrow or broad. If the lines are broken up, with spots, wider will help, but too wide will reduce precision.
 
-.. image:: media/BCandGeometry12.png
+.. Figure:: media/BCandGeometry12.png
    :align: center
    :width: 100%
 
@@ -142,7 +142,7 @@ Select number of “sectors’ to use (see below is set to 60). This how many di
 
 NOTE: Even, if the image covers only small part of the 360 degrees (when beam stop is or beyond the edge of the detector) the analysis is done only every 360/number\_of\_sectors (in example 360/60=12) degrees. Therefore you may need to increase this number of sectors significantly to make sure you have enough points in which the positions of diffraction ring are analyzed.
 
-.. image:: media/BCandGeometry13.png
+.. Figure:: media/BCandGeometry13.png
    :align: center
    :width: 100%
 
@@ -163,7 +163,7 @@ When ready, push “Run refinement” and observe:
 
 As refinement progresses, dotted red line on the image indicates which direction/line are being evaluated and “Profile fit window” graph shows the intensity vs pixel data there and fitted Gaussien profile. Observe and judge quality. If the quality is poor and data are misfit, it is likely that results of refinement will be bad…
 
-.. image:: media/BCandGeometry14.png
+.. Figure:: media/BCandGeometry14.png
    :align: center
    :width: 100%
 
@@ -184,7 +184,7 @@ Finally version 1.49 adds good code to fit tilts and deal with them – both in 
 
 The following data were collected with about 45 degree tilt in one direction:
 
-.. image:: media/BCandGeometry15.png
+.. Figure:: media/BCandGeometry15.png
    :align: center
    :width: 100%
 
@@ -193,14 +193,14 @@ Note the deformed diffraction profiles which resemble (but are NOT) ellipses.
 
 Above is the best guess of beam center using the circle. Other parameters are reasonable well known, so one can choose LaBr6 as calibrant:
 
-.. image:: media/BCandGeometry16.png
+.. Figure:: media/BCandGeometry16.png
    :align: center
    :width: 100%
 
 
 You can see that circles are not a good fit.
 
-.. image:: media/BCandGeometry17.png
+.. Figure:: media/BCandGeometry17.png
    :align: center
    :width: 100%
 
@@ -209,7 +209,7 @@ However, selecting horizontal tilt of 45 degrees makes this a good guess.
 
 Now we can run refinement for Beam center, Sa-Det distance, and tilts and we should get very good fit:
 
-.. image:: media/BCandGeometry18.png
+.. Figure:: media/BCandGeometry18.png
    :align: center
    :width: 100%
 
@@ -224,7 +224,7 @@ Note that 45 degrees and -45 degrees are NOT the same tilt. There is 90 degrees 
 
 Here is example of above data reduced with correctly fitted tilt and with tilt 5 degrees off:
 
-.. image:: media/BCandGeometry19.png
+.. Figure:: media/BCandGeometry19.png
    :align: center
    :width: 100%
 

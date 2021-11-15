@@ -56,7 +56,7 @@ Modeling II can use up to 10 "populations" or models : each can be either "Size 
 
 -  "*Fraction*" if data are on cm2/cm3 scale. This is what originally was "Volume" as this were the default “units” the tool assumed. However, note this is what in the dilute limit we call volume fraction c, but for higher volume fractions this approximation (made commonly!) is wrong, in calculations this represents really c(1-c)!!! If you get this value >0.25 something is really wrong here and you do not have physically meaningful model or correct data. This Fraction should never get higher than 0.25, see graph below:
 
-.. image:: media/Modeling2.png
+.. Figure:: media/Modeling2.png
       :align: center
       :width: 380px
 
@@ -174,7 +174,7 @@ This is the particle size distribution predicted by LSW in their theory of Ostwa
 
 where n is between 2 and 3, resulting in this distribution as function of n:
 
-.. image:: media/Ardell.png
+.. Figure:: media/Ardell.png
         :width: 75%
 
 
@@ -204,9 +204,9 @@ SINGLE input data set - size distribution
 
 This subchapter relates ONLY to *Size distribution* type of "population" in Modeling II. Please, use this to learn about the specific related to size distribution use and the types of parameters. Next chapter will describe use of Unified fit and Diffraction peaks. It is not easy to find nice case example data to produce one chapter together. Also, it may be really confusing to mix and match these models. Start tool from SAS menu, it is titled “Modeling II”.
 
-.. image:: media/Modeling6.png
+.. Figure:: media/Modeling6.png
         :width: 45%
-.. image:: media/Modeling7.png
+.. Figure:: media/Modeling7.png
         :width: 45%
 
 **GUI description**
@@ -234,7 +234,7 @@ The data available in the test.pxp file distributed with the Irena package are i
 To load data into the tool use the red button “Add data” on the left top corner of the Input Data tab.
 
 
-.. image:: media/Modeling8.png
+.. Figure:: media/Modeling8.png
       :align: left
       :width: 100%
 
@@ -247,7 +247,7 @@ Checkbox “\ **Use?”** allows to select if this data set is used in the tool.
 
 Checkbox “\ **Slit/Q resolution smeared**\ ” if slit smeared data are used - or if you want to account for Q smearing, select. New panel will appear. If you close this panel and need to reopen it, just uncheck and check the checkbox again.
 
-.. image:: media/Modeling39.jpg
+.. Figure:: media/Modeling39.jpg
       :align: left
       :width: 40%
 
@@ -278,9 +278,9 @@ Note the checkbox “\ **Number Dist?”** – if checked the distribution will 
 Controls for any population appear when “\ **Use?**\ ” checkbox is selected… see below:
 
 
-.. image:: media/Modeling9.png
+.. Figure:: media/Modeling9.png
       :width: 48%
-.. image:: media/Modeling10.png
+.. Figure:: media/Modeling10.png
       :width: 48%
 
 Description of controls:
@@ -303,7 +303,7 @@ Description of controls:
 
 “\ **Form Factor”** – select form factor from list of available form factors. May open another control screen for parameters of the form factors. To get this controls screen again, re-select the form factor and the screen will pop up.
 
-.. image:: media/Modeling11.png
+.. Figure:: media/Modeling11.png
       :align: left
       :width: 45%
 
@@ -350,7 +350,7 @@ with parameters ***width*** and ***MeanPos***:
 **“Structure factor”** Popup allows selection of one of included structure factors (see pdf file with description). The structure factors have their own screens and parameters can be fitted. See below for case example:
 
 
-.. image:: media/Modeling12.png
+.. Figure:: media/Modeling12.png
       :align: left
       :width: 45%
 
@@ -382,9 +382,9 @@ Comment: If user decides to do NOLY modeling with no real input data - by using 
 --------------------------------------------------------------------------
 
 
-.. image:: media/Modeling13.png
+.. Figure:: media/Modeling13.png
       :width: 48%
-.. image:: media/Modeling14.png
+.. Figure:: media/Modeling14.png
       :width: 48%
 
 
@@ -398,11 +398,11 @@ Note also, that "Peak Intg. intensity" in "Diffraction peak" model is calculated
 
 While the choices above are open for discussion, logically these are the only and right choice as for fitting for multiple data sets only one G, B, and "Peak Intg. Intensity" can be calculated.
 
-.. image:: media/Modeling15.png
+.. Figure:: media/Modeling15.png
           :align: center
           :width: 380px
 
-.. image:: media/Modeling16.png
+.. Figure:: media/Modeling16.png
           :align: center
           :width: 380px
 
@@ -417,7 +417,7 @@ Bellow are data, the data were identified to be composed of two types of compone
 
 2. Two diffraction peaks Q ~ 0.025 and 0.07 A\ :sup:`-1`
 
-.. image:: media/Modeling17.png
+.. Figure:: media/Modeling17.png
             :align: center
             :width: 480px
 
@@ -426,7 +426,7 @@ Bellow are data, the data were identified to be composed of two types of compone
 
 Selecting in 1P Model as "Unified level" we get appropriate controls:
 
-.. image:: media/Modeling18.png
+.. Figure:: media/Modeling18.png
             :align: center
             :width: 480px
 
@@ -434,7 +434,7 @@ Selecting in 1P Model as "Unified level" we get appropriate controls:
 
 Next we can select with cursors the are where Guinier dominates in graph and use button "Fit Rg/G btwn csrs" to fit Rg and G: Here is the result:
 
-.. image:: media/Modeling19.png
+.. Figure:: media/Modeling19.png
             :align: center
             :width: 480px
 
@@ -442,7 +442,7 @@ Next we can select with cursors the are where Guinier dominates in graph and use
 
 Note the blue curve that is the Guiner fit to the data. Next we select power law area at higher Q and fit the P/B:
 
-.. image:: media/Modeling20.png
+.. Figure:: media/Modeling20.png
             :align: center
             :width: 480px
 
@@ -450,7 +450,7 @@ Note the blue curve that is the Guiner fit to the data. Next we select power law
 
 Note that the slope P is close to 2 so this looks like plane-like object and that the scattering needs to be terminated at Rg of the next (smaller) Guinier area. Select 2P as Unified level and fit the Guinier area there also:
 
-.. image:: media/Modeling21.png
+.. Figure:: media/Modeling21.png
             :align: center
             :width: 480px
 
@@ -458,7 +458,7 @@ Note that the slope P is close to 2 so this looks like plane-like object and tha
 
 The Rg of the 2P is about 467A, so we can now transfer this number to RgCO of the 1P and then we can also fit the B/P to higher Q values power law slope:
 
-.. image:: media/Modeling22.png
+.. Figure:: media/Modeling22.png
             :align: center
             :width: 480px
 
@@ -468,7 +468,7 @@ Note, that on the "Data controls" set of tabs in the "Data 1" tab I have already
 
 Next we need to add the diffraction peaks, 3P will be the first peak:
 
-.. image:: media/Modeling23.png
+.. Figure:: media/Modeling23.png
             :align: center
             :width: 480px
 
@@ -478,7 +478,7 @@ Note, I have played with these data already and found "SkewedNormal" shape to be
 
 And next we will set the 4P as diffraction peak:
 
-.. image:: media/Modeling24.png
+.. Figure:: media/Modeling24.png
             :align: center
             :width: 480px
 
@@ -487,7 +487,7 @@ residuals".
 
 Next we can fit the parameters and then push the "Tags to graph" button
 
-.. image:: media/Modeling25.png
+.. Figure:: media/Modeling25.png
             :align: center
             :width: 480px
 
@@ -512,14 +512,14 @@ Qmin\_set1 = 0.00018493
 Qmax\_set1 = 0.28792
 Background\_set1 = 0.11996
 
-.. image:: media/Modeling26.png
+.. Figure:: media/Modeling26.png
             :align: center
             :width: 480px
 
 
 LSQF2 main data window
 
-.. image:: media/Modeling27.png
+.. Figure:: media/Modeling27.png
             :align: center
             :width: 480px
 
@@ -527,7 +527,7 @@ LSQF2 main data window
 
 Normalized residuals
 
-.. image:: media/Modeling28.png
+.. Figure:: media/Modeling28.png
             :align: center
             :width: 480px
 
@@ -591,7 +591,7 @@ Fitting data with one input data set
 
 Select “data controls” radio button. Select data (‘Test Data’) and push red button “Add data”
 
-.. image:: media/Modeling29.png
+.. Figure:: media/Modeling29.png
             :align: center
             :width: 480px
 
@@ -601,7 +601,7 @@ Name the data “Alumina powder” in the “User name” field.
 
 Let’s also select the background immediately here. Set cursor (square) to area of flat background (around point 100) and read value of intensity there from the reader below the graph. It should be around 0.12 or so. Type 0.11 into the “Bckg” field and check the “Fit?” checkbox. Note that the Min and max fields appeared and are set to 0.1 and 10x the value of our estimate. Uncheck the “Fit?” checkbox so the background is NOT fitted, when we run this next time…
 
-.. image:: media/Modeling30.png
+.. Figure:: media/Modeling30.png
             :align: center
             :width: 480px
 
@@ -609,7 +609,7 @@ Let’s also select the background immediately here. Set cursor (square) to area
 
 Now, let’s go to “Model controls”. Check the radio button “Model controls”. Check the checkbox “Auto recalc”. Make sure the “Interferences” checkbox is unchecked. Make sure that “Use?” checkbox for Pop 1 is checked and for all the others is unchecked.
 
-.. image:: media/Modeling31.png
+.. Figure:: media/Modeling31.png
             :align: center
             :width: 480px
 
@@ -620,13 +620,13 @@ The model (default values) is going to be calculated.
 Let’s decide, that this population will be the larger stuff, dominating the data. This means the Guinier knee at around 0.003 A\ :sup:`-1`. Also, since these data are not calibrated (powder sample), we can leave contrast to default value of 100. But if data would be meaningfully calibrated, correct contrast needs to be used here…
 Let’s change values little bit to get better estimate of parameters… Reasonable starting point is may be with Min size ~ 100, Mean ~ 450, and Std. dev ~ 0.5 :
 
-.. image:: media/Modeling32.png
+.. Figure:: media/Modeling32.png
             :align: center
             :width: 480px
 
 Now we need to select fitting range for this population… Check the “Data controls” Use cursors to select in the graph input data between point 30 and 73 and push button “Q from cursors”. This will set the Q min and Q max values.
 
-.. image:: media/Modeling33.png
+.. Figure:: media/Modeling33.png
             :align: center
             :width: 480px
 
@@ -634,13 +634,13 @@ Make sure the background “Fit?” checkbox is unchecked here…
 
 Now, let’s select parameters to fit. Background is not appropriate for this subset of data. Select “Model controls” again. Check “Fit?” for Volume, Min size, Mean and Std Dev. Values for fitting limits should be set to relatively wide range.
 
-.. image:: media/Modeling34.png
+.. Figure:: media/Modeling34.png
             :align: center
             :width: 480px
 
 Now push button “Fit model” at the bottom of the panel. The model should fit after few iterations…
 
-.. image:: media/Modeling35.png
+.. Figure:: media/Modeling35.png
             :align: center
             :width: 480px
 
@@ -668,7 +668,7 @@ Now we need to do final fitting of all meaningful parameters at once… There ar
 
 Anyway, select background, Volume for each f the populations, Mean size, and Std deviation. Try to fit to the data from 0.0015A\ :sup:`-1` to 0.5 A\ :sup:`-1`\ … With little bit of luck (and a lot of calculations) you should get result similar to one below:
 
-.. image:: media/Modeling36.png
+.. Figure:: media/Modeling36.png
             :align: center
             :width: 480px
 
@@ -681,7 +681,7 @@ This script enables to analyze uncertainties of parameters of the Modeling II, s
 
 2. Stability of each parameter separately. This is bit more complicated - analyzed parameter is fixed, step wise, in range of values user specifies. Other user-selected parameters are fitted and chi-square values are recorded. After the analysis, this dependence is analyzed and based on statistical analysis (number of fitted points and free parameters) the uncertainty of the parameter is estimated. This method is based on chapter 11 "Testing the fit" in "Data Reduction and Error Analysis" P. Bevington and D. K. Robinson, available here (http://hosting.astro.cornell.edu/academics/courses/astro3310/Books/Bevington_opt.pdf). The calculation of Chi-Square target based on number of degrees of freedom is obtained by using data from table C4 in this book and approximating them with polynomial function for ease of calculation.
 
-.. image:: media/Modeling37.png
+.. Figure:: media/Modeling37.png
             :align: center
             :width: 480px
 
@@ -735,7 +735,7 @@ from 22.704 to 33.271
 
 \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
 
-.. image:: media/Modeling38.png
+.. Figure:: media/Modeling38.png
    :align: left
    :width: 580px
 

@@ -12,7 +12,7 @@ Output data
 QRS - Internal in Igor
 ----------------------
 
-.. image:: media/OutputData1.png
+.. Figure:: media/OutputData1.png
    :align: center
    :width: 100%
 
@@ -51,7 +51,7 @@ For example for GI\_Vertical line in my test case, this was the name:
 
 gc\_saxs\_395\_\_GI\_VLp\_0.0077
 
-“gc\_saxs\_395\_”…. Part of the name of used image
+“gc\_saxs\_395\_”…. Part of the name of used Figure
 
 GI\_VLp\_.... GI\_Vertical Line
 

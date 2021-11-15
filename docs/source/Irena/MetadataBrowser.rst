@@ -82,7 +82,7 @@ In the figure above, we are looking for Unified fit results, specifically in the
 
 **Metadata extraction and utilization**
 
-Now, that I have decided what to extract, I can select the data to process. Shift-click will select range of data, ctrl/cmd click enables select/deselect one line etc. I selected all except the first one which is measurement without temperature. Result is in next figure...
+Now, that I have decided what to extract, I can select the data to process. Shift-click will select range of data, ctrl/cmd click enables select/deselect one line etc. I selected all except the first one which is measurement without temperature. Result is in next image...
 
 .. Figure:: media/MetadataBrowser3.jpg
         :align: left
@@ -92,7 +92,7 @@ Now, that I have decided what to extract, I can select the data to process. Shif
 
 The run finished and code created table of results. These are waves, which are stored in folder with named in *Save to:* field on the panel. Note, the folder will be created, but the name must be acceptable for Igor as Folder name. Also, you need to start with root: and add a name which you wish to use. In this case folder contains waves named: FolderNameWv, Level1B, and TemperatureWv. Temperature wave was created by extracting _xyzC from Folder name assuming it is temperature in degrees C. FolderNameWv is created always (and it is text wave). Level1B is Keyword name from the wave note. If the value is number, the wave will be numerical wave. If value is string, wave will be string and if the string is one of few recognized date/time representations, you will get wave with date-time converted to Igor time (seconds since some day in 1972 or whatever).
 
-It is possible to generate easily plot of extracted data, use *X:* and *Y:* popups and select what will be X and Y axis. Push the large button *Plot Selected*. Next figure shows plot of Level1B (aka Porod constant if P=4) against Temperature.
+It is possible to generate easily plot of extracted data, use *X:* and *Y:* popups and select what will be X and Y axis. Push the large button *Plot Selected*. Next image shows plot of Level1B (aka Porod constant if P=4) against Temperature.
 
 .. Figure:: media/MetadataBrowser4.jpg
         :align: left

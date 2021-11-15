@@ -37,7 +37,7 @@ Export data GUI
 This GUI tool allows users to export one or more sets of data - USAXS data, QWRS data, or Irena results data (model results) as one or more ASCII or NXcanSAS files. It is very flexible and convenient, if you need only some data exported. It is also the only way to get (easily) out if Igor Size distributions or other modeling results.
 
 
-.. image:: media/DataExport1.jpg
+.. Figure:: media/DataExport1.jpg
    :align: center
    :width: 480px
 
@@ -48,7 +48,7 @@ Push button “Load data”
 
 Note the “Export multiple data sets?” checkbox. It opens the Multiple Data Export selection panel. This panel enables exporting of many data sets at once. The correct use of this option is to export one data set manually (sets all parameters and export paths), test one data set and then use the Multiple Data set option…. See comments later.
 
-.. image:: media/DataExport2.jpg
+.. Figure:: media/DataExport2.jpg
    :align: center
    :width: 480px
 
@@ -98,7 +98,7 @@ Now, more details : *Q* is [1/A], d is in [A], 2-Theta in degrees. *Intensity* m
 
 Multiple data set export option:
 
-.. image:: media/DataExport3.jpeg
+.. Figure:: media/DataExport3.jpeg
    :align: center
    :width: 280px
 
@@ -111,7 +111,7 @@ There are few items one needs to know about this tool.
 
 a. The tool started to search for data from parent folder of data selected in the main panel. In the current selection :
 
-.. image:: media/DataExport4.jpeg
+.. Figure:: media/DataExport4.jpeg
    :align: center
    :width: 280px
 

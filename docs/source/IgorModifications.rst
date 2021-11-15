@@ -14,17 +14,17 @@ Graph right click menu addition
 
 Irena & Nika adds few more options into right click menu on any graph. These are mostly suitable for saving current graph for future use.
 
-.. image:: media/RightClickOptions1.jpg
+.. Figure:: media/RightClickOptions1.jpg
    :align: center
    :width: 600px
 
-The last three options in the right click menu in the figure are added by Irena & Nika code.
+The last three options in the right click menu in the Image are added by Irena & Nika code.
 
-**Save as jpg** will open Save as dialog, user can select location and input name for jpg file which will be saved. This is medium resolution image file which is suitable for placing in documents. More options are available for users using Igor Pro "Save graphics" option, which is available in File menu when Graph is the top window. If you need to save image of this Graph in any other resolution or in other format (like tiff) you can use this "Save graphics" command.
+**Save as jpg** will open Save as dialog, user can select location and input name for jpg file which will be saved. This is medium resolution Image file which is suitable for placing in documents. More options are available for users using Igor Pro "Save graphics" option, which is available in File menu when Graph is the top window. If you need to save Image of this Graph in any other resolution or in other format (like tiff) you can use this "Save graphics" command.
 
-**Save as pxp** will save current graph as Igor experiment (pxp) file. Code will open Save as Dialog, user can select location and input name for Igor packed (pxp) experiment file. This is equivalent to calling "Save graph copy..." from File menu when Graph is top window. This Igor function saves Igor experiment which contains all data needed to create the graph and the graph itself. The advantage of storing this version of the graph is, that if needed, user can open the pxp experiment and modify, how the graph looks like later. It is more useful than jpg (or other) image of the graph in long run.
+**Save as pxp** will save current graph as Igor experiment (pxp) file. Code will open Save as Dialog, user can select location and input name for Igor packed (pxp) experiment file. This is equivalent to calling "Save graph copy..." from File menu when Graph is top window. This Igor function saves Igor experiment which contains all data needed to create the graph and the graph itself. The advantage of storing this version of the graph is, that if needed, user can open the pxp experiment and modify, how the graph looks like later. It is more useful than jpg (or other) Image of the graph in long run.
 
-**Clone this window with data** will duplicate the graph and make copy of data displayed in this graph. Duplicate graph is Igor function available in "Edit menu", "Duplicate graph" (ctrl/cmd D). This command creates exact copy (with new name) of the top graph. My code does more - it first duplicates the graph and then creates copies of all data in a new folder located in root folder. It then redirects the new graph copy to use these copies of the data. This is especially useful, when user wants to have a copy of graph which relies on temporary data, like most of "work" graphs of Irena. This will work for 1D graphs only (not image graphs) and may fail under some conditions.
+**Clone this window with data** will duplicate the graph and make copy of data displayed in this graph. Duplicate graph is Igor function available in "Edit menu", "Duplicate graph" (ctrl/cmd D). This command creates exact copy (with new name) of the top graph. My code does more - it first duplicates the graph and then creates copies of all data in a new folder located in root folder. It then redirects the new graph copy to use these copies of the data. This is especially useful, when user wants to have a copy of graph which relies on temporary data, like most of "work" graphs of Irena. This will work for 1D graphs only (not Image graphs) and may fail under some conditions.
 
 **Make limits Nice** This will scale graph to closest "nice" limits - round to nearest (min down and max up) number with 1 significant digit. Axis with range of 0.0123 - 1892 will get scaled to 0.01 to 2000. For now this is set same for both log and linear axes. If this needs to be changed, provide feedback how.
 
@@ -38,12 +38,12 @@ DataBrowser additions
 
 Irena & Nika adds few more options to Igor DataBrowser. On Igor 8 these are added as additional buttons while on Igor 9 these are right click options. Igor 8 cannot add right click option to DataBrowser. Their function is the same.
 
-.. image:: media/DataBrowserButtons.jpg
+.. Figure:: media/DataBrowserButtons.jpg
    :align: center
    :width: 380px
 
 
-.. image:: media/RichtClickFolderNameToNums.jpg
+.. Figure:: media/RichtClickFolderNameToNums.jpg
    :align: center
    :width: 380px
 
@@ -55,7 +55,7 @@ To use: Select text wave (likely called "DataFolder") in DataBrowser. Note: this
 
 **Graph w1 vs w2** This function will check, if two numerical waves are selected in Data Browser (exactly TWO and they must be numerical type!) and plots wave1 against wave2. Order is given by order displayed in DataBrowser. To swap the order (and plot wave2 agains wave1), hold down ctrl/cmd key while clicking on the button (or selecting the right click option in Igor 9).
 
-.. image:: media/RightClickDisplayw1w2.jpg
+.. Figure:: media/RightClickDisplayw1w2.jpg
    :align: center
    :width: 380px
 

@@ -32,7 +32,7 @@ Any of these data types will be converted to Two Theta [degrees] - Intensity - u
 
 **Basic GUI and operations**
 
-.. image:: media/WAXS1.png
+.. Figure:: media/WAXS1.png
       :align: center
       :width: 420px
 
@@ -48,7 +48,7 @@ Use cursors to select fitting range or define manually fitting 2Theta min/max va
 
 **The graph**
 
-.. image:: media/WAXS2.png
+.. Figure:: media/WAXS2.png
       :align: center
       :width: 100%
 
@@ -63,9 +63,9 @@ For basic phase analysis and orientation we usually use JCPDS PDF data or altern
 On right had side of the Powder Diffraction/WAXS fits click on the "Diff. lines" tab. Most likely your Diffraction Lines listbox will be empty or contain some cards I distribute with Irena. There are not real JCPDS cards, these are calculated based on models as described below.
 
 
-.. image:: media/WAXS3.png
+.. Figure:: media/WAXS3.png
       :width: 48%
-.. image:: media/WAXS4.png
+.. Figure:: media/WAXS4.png
       :width: 48%
 
 **We need to fill it up. There are few choices**
@@ -78,7 +78,7 @@ Here you can select card “outside” of Igor (distributed with Irena) and the 
 
 Click button and locate the xml card. I have as example Cu card. Card is read and needed information is parsed from the card, dialog:
 
-.. image:: media/WAXS5.png
+.. Figure:: media/WAXS5.png
       :align: center
       :width: 300px
 
@@ -97,14 +97,14 @@ Now you can add it to the graph.
 
 If you choose the checkbox "Display HKL tags" you will also get tags to each peak with HKL. Here is example:
 
-.. image:: media/WAXS6.png
+.. Figure:: media/WAXS6.png
       :align: center
       :width: 100%
 
 
 Note, that you can change the color of these lines if you right click on the name of the card in the Listbox and select new color for that card. It should remember it.
 
-.. image:: media/WAXS7.jpg
+.. Figure:: media/WAXS7.jpg
       :align: center
       :width: 280px
 
@@ -125,7 +125,7 @@ Start Multipeak Fit when you have the graph with data you want to fit. It will t
 
 When you Start the MPF2 with the button "Start Multipeak Fitting 2.0" you will populate the tab more and get MPF2 panel:
 
-.. image:: media/WAXS8.png
+.. Figure:: media/WAXS8.png
       :align: center
       :width: 100%
 
@@ -134,9 +134,9 @@ The process is to setup MPF2 now - select range of data using cursors which you 
 
 You can zoom in, change fit parameters etc. Check the demo. You can add/edit peak if you select range of data with marquee (like for zoom) and right click there and select "Add or edit peaks".
 
-.. image:: media/WAXS9.png
+.. Figure:: media/WAXS9.png
       :width: 48%
-.. image:: media/WAXS10.png
+.. Figure:: media/WAXS10.png
       :width: 48%
 
 
@@ -148,7 +148,7 @@ To fit you can use either "Do Fit" button on the MPF2 panel or "Do MPF2 Fit" on 
 
 Here is a fit:
 
-.. image:: media/WAXS11.png
+.. Figure:: media/WAXS11.png
       :align: center
       :width: 100%
 
@@ -167,7 +167,7 @@ To plot/extract data from the saved results, use button "Plot/Evaluate results" 
 
 I saved few fits of some other data and here are the results:
 
-.. image:: media/WAXS12.png
+.. Figure:: media/WAXS12.png
       :align: center
       :width: 100%
 
@@ -176,7 +176,7 @@ This is Peak profile (Int vs d) for the Peak 2 from sample which was annealed an
 
 I selected and graphed by use of "Graph above of selected Peaks profile" (yes, that language here obviously fails me). And below is what you get if you push "Graph above selected Peaks parameters".
 
-.. image:: media/WAXS13.png
+.. Figure:: media/WAXS13.png
       :align: center
       :width: 480px
 

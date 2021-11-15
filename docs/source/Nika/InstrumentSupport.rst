@@ -115,7 +115,7 @@ This supports data from Australian SANS instrument. Not much more details provid
 Soft Matter Interfaces SMI at NSLS-II
 -------------------------------------
 
-This instrument - 12-ID SAXS/GISAXS instrument (https://www.bnl.gov/ps/beamlines/beamline.php?r=12-ID) can generate data which conform to 2D calibrated Nexus canSAS standard. Nika can load these and generate circular or sector profiles or lineouts along arbitrary line. To do this, check "Calibrated 2D data?" and select canSAS/Nexus as Image type. Note, that when using input Calibrated 2D data, your data processing is severely limited. Also, at this time the beam center must be in the image or Nika will not be able to get properly azimuthal angles. It probably can be fixed if needed, so let me know if you run into troubles. 
+This instrument - 12-ID SAXS/GISAXS instrument (https://www.bnl.gov/ps/beamlines/beamline.php?r=12-ID) can generate data which conform to 2D calibrated Nexus canSAS standard. Nika can load these and generate circular or sector profiles or lineouts along arbitrary line. To do this, check "Calibrated 2D data?" and select canSAS/Nexus as image type. Note, that when using input Calibrated 2D data, your data processing is severely limited. Also, at this time the beam center must be in the image or Nika will not be able to get properly azimuthal angles. It probably can be fixed if needed, so let me know if you run into troubles.
 
 If you have other canSAS/Nexus data from another instrument, please, provide me with sample. There seems to be just enough flexibility in the standard, that I cannot guarantee that Nika can read them without testing and possibly tuning the code.
 

@@ -10,9 +10,9 @@
 Reduce WAXS data procedure
 --------------------------
 
-When you collect data on USAXS instrument, your data are saved in folders related to your "spec" file name. Spec file is where instrument makes various records. The file name is created by adding MM_DD_ (month_day_) to the name staff provides, typically to user name. When you collect USAXS data, a folder with the same name with appended "_usaxs" is created. For SAXS data we create folder with the same name with "_saxs" and for  WAXS with "_waxs". See below in the figure:
+When you collect data on USAXS instrument, your data are saved in folders related to your "spec" file name. Spec file is where instrument makes various records. The file name is created by adding \MM_DD_ (\month_day_) to the name staff provides, typically to user name. When you collect USAXS data, a folder with the same name with appended "_usaxs" is created. For SAXS data we create folder with the same name with "_saxs" and for  WAXS with "_waxs". See below in the image:
 
-.. image:: media/USAXSComputerDataArrangement.jpg
+.. Figure:: media/USAXSComputerDataArrangement.jpg
         :align: center
         :width: 480px
 
@@ -23,7 +23,7 @@ Reduced WAXS data arrangement
 After you reduce WAXS data, you will have in your Igor experiment data arranged in data folders also - in this case you will have SAXS data in root\:WAXS\:Samplename. These data use "QRS" naming :ref:`system <important.QRS>`.
 To see inside of the current Igor experiment, use DataBrowser (ctrl-B or cmd-B).
 
-.. image:: media/WAXSIgorDataArrangement.jpg
+.. Figure:: media/WAXSIgorDataArrangement.jpg
         :align: center
         :width: 480px
 
@@ -77,7 +77,7 @@ Blank file will be loaded and displayed. Please note, that user needs to select 
 
 Here is example of Sample and Blank loaded and displayed side-by-side.
 
-Next is simply - select sample or samples which should be processed and click on button "Process images". Nika will process all selected files. .
+Next is simply - select sample or samples which should be processed and click on button "Process Figures". Nika will process all selected files. .
 
 .. Figure:: media/WAXSProcessedDataImg.jpg
         :align: left

@@ -10,9 +10,9 @@
 Merge USAXS/SAXS/WAXS data
 --------------------------
 
-When you reduce USAXS/SAXS/WAXS data, your data are saved in Igor folders related to your sample name.  USAXS data in root\:USAXS\:Samplename and SAXS data are in  root\:SAXS\:Samplename_u (or Samplename_270_30). To see inside of the current Igor experiment, use DataBrowser (ctrl-B or cmd-B). See below in the figure:
+When you reduce USAXS/SAXS/WAXS data, your data are saved in Igor folders related to your sample name.  USAXS data in root\:USAXS\:Samplename and SAXS data are in  root\:SAXS\:Samplename_u (or Samplename_270_30). To see inside of the current Igor experiment, use DataBrowser (ctrl-B or cmd-B). See below in the image:
 
-.. image:: media/DataMerge1.jpg
+.. Figure:: media/DataMerge1.jpg
         :align: center
         :width: 380px
 

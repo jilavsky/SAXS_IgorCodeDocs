@@ -60,7 +60,7 @@ Use checkboxes and more controls in “Change graph details” (opens new panel 
 
 Example: Selected data and applied included log-log style:
 
-.. image:: media/Plotting2.png
+.. Figure:: media/Plotting2.png
    :align: center
    :width: 100%
 
@@ -74,14 +74,14 @@ Scripting
 
 It is possible to script the Plotting tool I to add multiple data sets into the tool without doing it manually:
 
-.. image:: media/Plotting11.png
+.. Figure:: media/Plotting11.png
    :align: center
    :width: 400px
 
 
 You can use the scripting tool to either rest Plotting tool and add the files or just add files to existing files already in the plotting tool using one of the two buttons:
 
-.. image:: media/Plotting12.png
+.. Figure:: media/Plotting12.png
      :align: center
      :width: 100%
 
@@ -93,7 +93,7 @@ Contour plot
 
 From version 2.52 this tool can create Contour plot. Load series of data in the tool (best through Scripting tool) and then push button "*Contour plot*". Contour plot is created:
 
-.. image:: media/Plotting16.png
+.. Figure:: media/Plotting16.png
    :align: center
    :width: 350px
 
@@ -110,13 +110,13 @@ Waterfall 3D graph
 
 Using the button "(Re)Graph (3D, Wf)" you can create Waterfall graph. It is fast and kind of very simplistic.
 
-.. image:: media/Plotting13.png
+.. Figure:: media/Plotting13.png
    :align: center
    :width: 100%
 
 There are some controls at the top which enable small changes to presentation of this graph...
 
-.. image:: media/Plotting14.png
+.. Figure:: media/Plotting14.png
    :align: center
    :width: 100%
 
@@ -130,7 +130,7 @@ Using Gizmo in Igor is much more advanced and this tool is under development sta
 
 To start, push button "Gizmo (3D)", at least 3 data sets are necessary...
 
-.. image:: media/Plotting17.png
+.. Figure:: media/Plotting17.png
    :align: left
    :width: 350px
 
@@ -138,7 +138,7 @@ To use Gizmo one needs to resample the data to create smooth plane data on grid 
 
 Note that this calculation may take a lot of time, especially when input data have a lot of points. Therefore there is Estimated Calculation time - which is kind of approximate for my Macbook Pro, your times will vary. But it tells you if it takes short time or lot of time. Better feedback ("get coffee" may be provided in the future.
 
-.. image:: media/Plotting18.png
+.. Figure:: media/Plotting18.png
    :align: left
    :width: 350px
 
@@ -158,7 +158,7 @@ You can create movies of rotation of the Gizmo plot, control its visual look, et
 Fitting
 ~~~~~~~
 
-.. image:: media/Plotting5.png
+.. Figure:: media/Plotting5.png
    :align: center
    :width: 100%
 
@@ -167,7 +167,7 @@ Use button “Fitting” to pull up panel with fitting range, checkbox “Use er
 
 Note, that various number of parameters appears below for starting guesses for parameters. You can try to push button “Guess fit parameters”. This will try to guess starting parameters for fitting, since these are necessary for various fits. It may or may not work well. Good guess is VERY important for least square fitting. Example:
 
-.. image:: media/Plotting6.png
+.. Figure:: media/Plotting6.png
    :align: center
    :width: 100%
 
@@ -175,7 +175,7 @@ The try to fitting:
 
 Results are printed in graph:
 
-.. image:: media/Plotting7.png
+.. Figure:: media/Plotting7.png
    :align: center
    :width: 100%
 
@@ -193,14 +193,14 @@ Creating user style
 
 When you have graph which you like to use many times, click button “Save new graph style”. The new style will be created after user provides name. The name is checked for uniqueness and for name appropriateness, so the new name may be slight modification of the name provided. You can rename the style using “Manage Graph details” button.
 
-NOTE: from version 2.38 I have added predefined common styles (Guinier, Porod, Zimm,…) into the menu. These could have been defined by any user if needed. Note, that at this moment it is difficult to do those linearized fits which call for fitting in log scale (fitting log or ln of Intensity vs log or ln of Q for example) because the tool displays data on log scale when the plot calls for it. That is kind of problem, as in order to use line fitting in Igor I would have to create log or ln of the Intensity (or Q). This is mess logically (display Intensity on log/ln scale or create log/ln of intensity and display on linear scale?). I am trying to image out how to do this so it is easy to use for users and logical. I may actually do separate tool for these fits, as adding this into Plotting Tool I seems to make it much more cumbersome to use. User input would be really welcome here!
+NOTE: from version 2.38 I have added predefined common styles (Guinier, Porod, Zimm,…) into the menu. These could have been defined by any user if needed. Note, that at this moment it is difficult to do those linearized fits which call for fitting in log scale (fitting log or ln of Intensity vs log or ln of Q for example) because the tool displays data on log scale when the plot calls for it. That is kind of problem, as in order to use line fitting in Igor I would have to create log or ln of the Intensity (or Q). This is mess logically (display Intensity on log/ln scale or create log/ln of intensity and display on linear scale?). I am trying to Figure out how to do this so it is easy to use for users and logical. I may actually do separate tool for these fits, as adding this into Plotting Tool I seems to make it much more cumbersome to use. User input would be really welcome here!
 
 Import & Export of styles
 ~~~~~~~~~~~~~~~~~~~~~~~~~
 
 Use “Manage Graph details” button.
 
-.. image:: media/Plotting3.png
+.. Figure:: media/Plotting3.png
    :align: center
    :width: 100%
 
@@ -215,7 +215,7 @@ Modifying the data
 
 Click button “Modify data” and new panel will show up.
 
-.. image:: media/Plotting4.png
+.. Figure:: media/Plotting4.png
    :align: center
    :width: 100%
 
@@ -231,10 +231,10 @@ Use button Cancel to reset the corrections to default values seen above. Note, t
 Note, that the length of the name of wave is limited to 30 characters, including the "q\_" etc. at the beginning.
 
 
-Storing graphs for future use, exporting images
+Storing graphs for future use, exporting Figures
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-.. image:: media/Plotting8.png
+.. Figure:: media/Plotting8.png
    :align: center
    :width: 100%
 
@@ -245,7 +245,7 @@ Controls description:
 
 The two top buttons allow user to save current graph as tiff or jpg files. The dialog for naming them is provided after pushing the button.
 
-To save Igor recreation macro, push the next button. It does not work yet… I need to image out how to do this.
+To save Igor recreation macro, push the next button. It does not work yet… I need to Figure out how to do this.
 
 Next is name for Irena own recreation macro, which you can store. This macro is in form of string and stored in “root:Packages:StoredGraphs:".
 
@@ -261,9 +261,9 @@ In version 2.62 I added ability to add linked d-spacing axis to the top of the g
 
 Below is the panel and example of result in a graph.
 
-.. image:: media/Plotting9.png
+.. Figure:: media/Plotting9.png
    :width: 45%
-.. image:: media/Plotting10.png
+.. Figure:: media/Plotting10.png
    :width: 45%
 
 
@@ -273,7 +273,7 @@ Movie making
 
 To present time series of data from version 2.48 this tool can create movies. Use button "Create movie" and ne panel is created:
 
-.. image:: media/Plotting15.png
+.. Figure:: media/Plotting15.png
    :align: left
    :width: 280px
 
@@ -292,7 +292,7 @@ Plotting tool II
 
 This is modification of plotting tool developed by Dale Schaefer. This tool control ANY top graph. It can, therefore, be used more flexibly – but has some limitations… This tool is likely to be developed more in the future.
 
-.. image:: media/Plotting19.png
+.. Figure:: media/Plotting19.png
    :align: left
    :width: 100%
 

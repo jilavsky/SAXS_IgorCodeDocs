@@ -144,12 +144,12 @@ html_theme = 'agogo'
 #
 # html_short_title = None
 
-# The name of an image file (relative to this directory) to place at the top
+# The name of an Image file (relative to this directory) to place at the top
 # of the sidebar.
 #
 # html_logo = None
 
-# The name of an image file (relative to this directory) to use as a favicon of
+# The name of an Image file (relative to this directory) to use as a favicon of
 # the docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
 #
@@ -255,9 +255,9 @@ latex_elements = {
      #
      # 'preamble': '',
 
-     # Latex figure (float) alignment
+     # Latex Image (float) alignment
      #
-     # 'figure_align': 'htbp',
+     # 'Image_align': 'htbp',
 }
 
 # Grouping the document tree into LaTeX files. List of tuples
@@ -268,7 +268,7 @@ latex_documents = [
      u'Jan Ilavsky', 'manual'),
 ]
 
-# The name of an image file (relative to this directory) to place at the top of
+# The name of an Image file (relative to this directory) to place at the top of
 # the title page.
 #
 # latex_logo = None
@@ -378,7 +378,7 @@ epub_copyright = copyright
 #
 # epub_uid = ''
 
-# A tuple containing the cover image and cover page html template filenames.
+# A tuple containing the cover Image and cover page html template filenames.
 #
 # epub_cover = ()
 
@@ -411,13 +411,13 @@ epub_exclude_files = ['search.html']
 #
 # epub_tocscope = 'default'
 
-# Fix unsupported image types using the Pillow.
+# Fix unsupported Image types using the Pillow.
 #
-# epub_fix_images = False
+# epub_fix_Images = False
 
-# Scale large images.
+# Scale large Images.
 #
-# epub_max_image_width = 0
+# epub_max_Image_width = 0
 
 # How to display URL addresses: 'footnote', 'no', or 'inline'.
 #

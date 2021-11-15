@@ -17,20 +17,20 @@ Basic calculator
 
 Select from menu “SAS” item “Scattering contrast calculator”:
 
-.. image:: media/ScattContCalc1.png
+.. Figure:: media/ScattContCalc1.png
         :align: center
         :width: 85%
 
 
 This is the interface. At the top, select number of atoms in the material, set its density and check the check box if you want neutron data displayed. Let’s select 2 atoms, may be Al\ :sub:`2`\ O\ :sub:`3` (Corundum) with density of 4 and see neutron results. This is the picture after this selection
 
-.. image:: media/ScattContCalc2.png
+.. Figure:: media/ScattContCalc2.png
         :align: center
         :width: 85%
 
 Use slider to select each element and check it’s properties – amount in molecule, Isotope etc. Input is done through Periodic system table (push Change element button). To continue, close the table…
 
-.. image:: media/ScattContCalc3.png
+.. Figure:: media/ScattContCalc3.png
         :align: center
         :width: 320px
 
@@ -75,7 +75,7 @@ Anomalous calculator
 
 The package includes Cromer-Liberman code for calculating energy-dependent (anomaouls) effects. The button “Anomalous calculator” on the “Substance editor and Scattering contrast calculator” calls up new window…
 
-.. image:: media/ScattContCalc4.png
+.. Figure:: media/ScattContCalc4.png
         :align: center
         :width: 85%
 
@@ -87,7 +87,7 @@ To select two compounds hold shift. Then input right thickness and click “Reca
 
 **For single energy following appears:**
 
-.. image:: media/ScattContCalc5.png
+.. Figure:: media/ScattContCalc5.png
         :align: center
         :width: 85%
 
@@ -101,7 +101,7 @@ NOTE : line :math:`transm = exp(- \mu T)` is calculated transmission of your mat
 
 **For range of energies:**
 
-.. image:: media/ScattContCalc6.png
+.. Figure:: media/ScattContCalc6.png
         :align: center
         :width: 85%
 
@@ -113,7 +113,7 @@ parameters. The push “Recalculate”.
 The buttons “Display” create graphs of appropriate parameter, see for
 example below:
 
-.. image:: media/ScattContCalc7.png
+.. Figure:: media/ScattContCalc7.png
         :align: center
         :width: 100%
 
@@ -123,6 +123,6 @@ choice. The dialog should be easy to use and allows user to create new
 folder, select name for new data etc. Note, the data are saved as waves
 with so called “x-scaling”. To learn more read Igor manual.
 
-.. image:: media/ScattContCalc8.png
+.. Figure:: media/ScattContCalc8.png
         :align: center
         :width: 100%

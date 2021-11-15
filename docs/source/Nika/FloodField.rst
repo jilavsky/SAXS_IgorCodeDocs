@@ -20,7 +20,7 @@ To create this pix2D sensitivity map, one needs to load in image and for each pi
 
 **GUI**
 
-.. image:: media/FloodField1.png
+.. Figure:: media/FloodField1.png
    :align: center
    :width: 380px
 
@@ -31,11 +31,11 @@ The GUI is very similar to Mask GUI:
 
 “\ *File type*\ ” well, select type of data you have. Note, resulting pix2D sensitivity file is tiff file.
 
-Note, at this time this tool can read ONLY one file at time. If you have multiple files to process, you can append the images with the button “\ *Append file to image*\ ” and the intensities will be added to existing image. If the 2D image does not exist, new image is created. However, if you need to start fresh you need to use button “\ *Make Image”* which will create new 2DF image to work on.
+Note, at this time this tool can read ONLY one file at time. If you have multiple files to process, you can append the images with the button “\ *Append file to image*\ ” and the intensities will be added to existing image. If the 2D image does not exist, new image is created. However, if you need to start fresh you need to use button “\ *Make image”* which will create new 2DF image to work on.
 
 “\ *Select data set to use”* select the image to use
 
-“\ *Make Image*\ ” Loads data in and Creates image
+“\ *Make image*\ ” Loads data in and Creates image
 
 “\ *Add value to each point”* – select, if you need to add some number of counts to each point in image. This will open new control “\ *Offset to add to each point”*.
 
@@ -55,7 +55,7 @@ The code really does not check for values here, and it is possible to set offset
 
 Here is case of loaded image:
 
-.. image:: media/FloodField2.png
+.. Figure:: media/FloodField2.png
    :align: center
    :width: 100%
 
