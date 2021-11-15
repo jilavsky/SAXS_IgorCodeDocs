@@ -15,7 +15,7 @@ Reduce SAXS data
 Collected data arrangement
 ==========================
 
-When you collect data on 9IDC USAXS/SAXS/WAXS instrument, your data are saved in folders related to your "spec" file name. Spec file is where instrument makes various records. The file name is created by adding MM_DD_ (month_day_) to the name staff provides, typically to user name. When you collect USAXS data, a folder with the same name with appended "_usaxs" is created. For SAXS data we create folder with the same name with "_saxs" and for  WAXS with "_waxs". See below in the figure:
+When you collect data on 9IDC USAXS/SAXS/WAXS instrument, your data are saved in folders related to your "spec" file name. Spec file is where instrument makes various records. The file name is created by adding \MM_DD_ (\month_day_) to the name staff provides, typically to user name. When you collect USAXS data, a folder with the same name with appended "_usaxs" is created. For SAXS data we create folder with the same name with "_saxs" and for  WAXS with "_waxs". See below in the figure:
 
 .. image:: media/USAXSComputerDataArrangement.jpg
         :align: center
@@ -61,7 +61,7 @@ Nika will open selected file and read from this file all calibration values we h
 2.  Nika will scan for existing USAXS data and if it finds the data (it will pick random USAXS folder) it will look if there are desmeared data (DSM_Int etc.) or slit smeared data (SMR_Int). If there are desmeared data, it will switch off Slit smearing (uncheck the checkbox on the panel). If it find only slit smeared data, it will check this checkbox to generate appropriate (slit smeared) SAXS data. In any case, if it finds any USAXS data, it will insert proper slit length in the proper field.
 3.  Nika will open the selected image and display it.
 4.  Nika will set proper selection of checkboxes for calibration and insert proper names of lookup functions, which find/calculate for each sample thickness, transmission, and normalization values.
-5.  **MASK:** Depending on Checkbox "Mask Less sensitive pixels" Nika will create one of two masks - in unchecked, default Mask covering edges and beamstop bar. If checked, Nika will also cover pixels between the chips of the detector which are typically slightly lower sensitivity (like 1% or so). Usually these less sensitive points have little impact, but sometimes they are important. See explanation and graph in WAXS data reduction :ref:`here <reduce_WAXS_data_mask>`.  
+5.  **MASK:** Depending on Checkbox "Mask Less sensitive pixels" Nika will create one of two masks - in unchecked, default Mask covering edges and beamstop bar. If checked, Nika will also cover pixels between the chips of the detector which are typically slightly lower sensitivity (like 1% or so). Usually these less sensitive points have little impact, but sometimes they are important. See explanation and graph in WAXS data reduction :ref:`here <reduce_WAXS_data_mask>`.
 6.  **IMPORTANT** - by default Nika is set to produce 120 Q bins, log-q spaced (reduction from about 500 points which it would have with max q resolution). This is correct for small-angle scattering where it reduces noise at high-q, but incorrect if you have diffraction peaks in this Q range and need to have high resolution. If that is the case, select "Max num points?" checkbox.
 7.  Nika will display for user the tab, where user needs to find the correct "Blank" - aka: "Empty" - for the samples user wants to reduce.
 

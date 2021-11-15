@@ -12,60 +12,160 @@ This is list of available form factor and structure factors in Irena package.
 Form factors & their parameters
 -------------------------------
 
+.. list-table:: Form factors and their parameters
+   :widths: 20 20 80
+   :header-rows: 1
 
-========          ========        ===========================================
-Form Factor       Parameter       ParticlePar
-========          ========        ===========================================
-Spheroid          AspectRatio     ParticlePar1
-Intg_Spheroid     AspectRatio     ParticlePar1
-Cylinder          Length   			  ParticlePar1
-Disk              Radius          ParticlePar1
-CylinderAR        AspectRatio     ParticlePar1
-CoreShell	        CoreShellThick  ParticlePar1 //skin thickness in Angstroms
-                  CoreRho         ParticlePar2  //rho [10^10 cm-2]   (not delta rho squared!!!) of core material
-                  ShellRho        ParticlePar3  //rho  [10^10 cm-2]  (not delta rho squared!!!) of shell material
-                  SolventRho      ParticlePar4  //rho [10^10 cm-2]   (not delta rho squared!!!) of surrounding medium  (air=0)
-CoreShellShell    CoreShellThick1 ParticlePar1 //skin thickness in Angstroms
-                  CoreShellThick2 ParticlePar2 //skin thickness in Angstroms
-                  SolventRho      ParticlePar3 //rho [10^10 cm-2]   (not delta rho squared!!!) of surrounding medium  (air=0)
-                  CoreRho         ParticlePar4  //rho [10^10 cm-2]   (not delta rho squared!!!) of core material
-                  Shell 1 Rho     ParticlePar5  //rho  [10^10 cm-2]  (not delta rho squared!!!) of shell material
-                  Shell 2 Rho     ParticlePar6  //rho  [10^10 cm-2]  (not delta rho squared!!!) of shell material
-CoreShellCylinder Length	        ParticlePar1	//length in A
-                  WallThickness   ParticlePar2	//in A
-                  CoreRho         ParticlePar3  //rho  [10^10 cm-2]  (not delta rho squared!!!) of core material
-                  ShellRho        ParticlePar4  //rho [10^10 cm-2]   (not delta rho squared!!!) of shell material
-                  SolventRho      ParticlePar5  //rho [10^10 cm-2]   (not delta rho squared!!!) of surrounding medium  (air=0)
-CoreShellPrec	    CoreShellThick  Is calculated for each size, so the avergae contrast of the core+shell is same as contrast of the solvent.
-		              CoreRho         ParticlePar2 //rho [10^10 cm-2]   (not delta rho squared!!!) of core material
-		              ShellRho        ParticlePar3  //rho  [10^10 cm-2]  (not delta rho squared!!!) of shell material
-		              SolventRho      ParticlePar4  //rho [10^10 cm-2]   (not delta rho squared!!!) of surrounding medium  (air=0)
-Fractal agg       FrRadOfPriPart  ParticlePar1  //radius of primary particle
-			            FractalDim      ParticlePar2  //Fractal dimension
-SphWHSLocMonoSq   Distance for HS model as ratio to part radius
-                  Hard Sphere     model fraction
-Janus CS Mic 1    particle size   Is total size of the particle (R0 in the figure in description)
-			            Shell_Thickness ParticlePar1//shell thickness
-			            SolventRho      ParticlePar2	// rho for solvent
-			            CoreRho         ParticlePar3	// rho for core material
-			            Shell1Rho       ParticlePar4	// rho for shell 1
-			            Shell2Rho       ParticlePar5	// rho for shell 2
-Janus CS Mi2 2    particle size here is shell thickness!!!
-			            Core_Size       ParticlePar1	// Core radius A
-			            SolventRho      ParticlePar2	// rho for solvent
-			            CoreRho         ParticlePar3	// rho for core material
-			            Shell1Rho       ParticlePar4	// rho for shell 1
-			            Shell2Rho       ParticlePar5	// rho for shell 2
-Janus CS Mic 3    Particle size   Is core radius
-			            Shell_Thickness ParticlePar1	// Shell Thickness A
-			            SolventRho      ParticlePar2	// rho for solvent
-			            CoreRho         ParticlePar3	// rho for core material
-			            Shell1Rho       ParticlePar4	// rho for shell 1
-			            Shell2Rho       ParticlePar5	// rho for shell 2
-RectParallepid    Particle size   Is side a
-			            Side B ratio    ParticlePar1	// Ratio side B/A
-			            Side C ratio    ParticlePar2	// Ratio side C/A
-========          ========        ===========================================
+   * - Form Factor
+     - Parameter
+     - ParticlePar
+   * - Spheroid
+     - AspectRatio
+     - ParticlePar1
+   * - Intg_Spheroid
+     - AspectRatio
+     - ParticlePar1
+   * - Cylinder
+     - Length
+     - ParticlePar1
+   * - Disk
+     - Radius
+     - ParticlePar1
+   * - CylinderAR
+     - AspectRatio
+     - ParticlePar1
+   * - CoreShell
+     - CoreShellThick
+     - ParticlePar1 //skin thickness in Angstroms
+   * -
+     - CoreRho
+     - ParticlePar2  //rho [10^10 cm-2] (not delta rho squared!!!) of core material
+   * -
+     - ShellRho
+     - ParticlePar3 //rho  [10^10 cm-2] (not delta rho squared!!!) of shell material
+   * -
+     - SolventRho
+     - ParticlePar3 ParticlePar4  //rho [10^10 cm-2]   (not delta rho squared!!!) of surrounding medium  (air=0)
+   * - CoreShellShell
+     - CoreShellThick1
+     - ParticlePar1 //skin 1 thickness in Angstroms
+   * -
+     - CoreShellThick2
+     - PParticlePar2 //skin 2 thickness in Angstroms
+   * -
+     - SolventRho
+     - ParticlePar3 //rho [10^10 cm-2]   (not delta rho squared!!!) of surrounding medium  (air=0)
+   * -
+     - CoreRho
+     - ParticlePar3 ParticlePar4  //rho [10^10 cm-2]   (not delta rho squared!!!) of core material
+   * -
+     - Shell 1 Rho
+     - ParticlePar5  //rho  [10^10 cm-2]  (not delta rho squared!!!) of shell 1 material
+   * -
+     - Shell 2 Rho
+     - ParticlePar6  //rho  [10^10 cm-2]  (not delta rho squared!!!) of shell 2 material
+   * - CoreShellCylinder
+     - Length
+     - ParticlePar1	//length in A
+   * -
+     - WallThickness
+     - ParticlePar2	//in A
+   * -
+     - CoreRho
+     - ParticlePar3  //rho  [10^10 cm-2]  (not delta rho squared!!!) of core material
+   * -
+     - ShellRho
+     - ParticlePar4  //rho [10^10 cm-2]   (not delta rho squared!!!) of shell material
+   * -
+     - SolventRho
+     - ParticlePar5  //rho [10^10 cm-2]   (not delta rho squared!!!) of surrounding medium  (air=0)
+   * - CoreShellPrec
+     - CoreShellThick
+     - Is calculated for each size, so the average contrast of the core+shell is same as contrast of the solvent.
+   * -
+     - CoreRho
+     - ParticlePar2 //rho [10^10 cm-2]   (not delta rho squared!!!) of core material
+   * -
+     - ShellRho
+     - ParticlePar3  //rho  [10^10 cm-2]  (not delta rho squared!!!) of shell material
+   * -
+     - SolventRho
+     - ParticlePar4  //rho [10^10 cm-2]   (not delta rho squared!!!) of surrounding medium  (air=0)
+   * - Fractal agg
+     - FrRadOfPriPart
+     - ParticlePar1  //radius of primary particle
+   * -
+     - FractalDim
+     - ParticlePar2  //Fractal dimension
+   * - SphWHSLocMonoSq
+     - Distance for HS model as ratio to part radius
+     - ParticlePar1  //ratio
+   * -
+     - Fraction
+     - ParticlePar2  //Hard Spheres volume fraction
+   * - Janus CS Mic 1
+     - particle size
+     - Is total size of the particle (R0 in the figure in description)
+   * -
+     - Shell_Thickness
+     - ParticlePar1  //shell thickness
+   * -
+     - SolventRho
+     - ParticlePar2  //rho for solvent
+   * -
+     - CoreRho
+     - ParticlePar3  //rho for core material
+   * -
+     - Shell1Rho
+     - ParticlePar4  //rho for shell 1
+   * -
+     - Shell2Rho
+     - ParticlePar5  //rho for shell 2
+   * - Janus CS Mic 2
+     - particle size
+     - Is shell thickness!!!
+   * -
+     - Core_Size
+     - ParticlePar1  //Core Size
+   * -
+     - SolventRho
+     - ParticlePar2  //rho for solvent
+   * -
+     - CoreRho
+     - ParticlePar3  //rho for core material
+   * -
+     - Shell1Rho
+     - ParticlePar4  //rho for shell 1
+   * -
+     - Shell2Rho
+     - ParticlePar5  //rho for shell 2
+   * - Janus CS Mic 3
+     - particle size
+     - Is core radius)
+   * -
+     - Shell_Thickness
+     - ParticlePar1  //shell thickness
+   * -
+     - SolventRho
+     - ParticlePar2  //rho for solvent
+   * -
+     - CoreRho
+     - ParticlePar3  //rho for core material
+   * -
+     - Shell1Rho
+     - ParticlePar4  //rho for shell 1
+   * -
+     - Shell2Rho
+     - ParticlePar5  //rho for shell 2
+   * - RectParallepid
+     - particle size
+     - Is side a
+   * -
+     - Side B ratio
+     - ParticlePar1	//Ratio side B/A
+   * -
+     - Side C ratio
+     - ParticlePar2	//Ratio side C/A
 
 .. index::
 		model; User Form Factor
@@ -82,39 +182,100 @@ is flexible option to use when Irena does not have the specific form factor a us
 Structure factors & their parameters
 ------------------------------------
 
-========            ========        ===========================================
-Structure Fct        Parameter      ParticlePar
-========            ========        ===========================================
-Interferences        ref            Beaucage, G. (1995). J Appl Crystallogr 28, 717-728.
-                     Par1           ETA (center-to-center distance)
-                     Par2           Pack (number of particles In nearest neighbor sphere)
-Hard Spheres         ref            Percus-Yevick model, PERCUS,YEVICK PHYS. REV. 110 1 (1958), THIELE J. CHEM PHYS. 39 474 (1968), WERTHEIM  PHYS. REV. LETT. 47 1462 (1981)
-                     Par1           Radius [A] (center-to-center distance between particles is 2\*Par1)
-                     Par2           Volume fraction (fraction)
-Square Well          ref            SHARMA,SHARMA, PHYSICA 89A,(1977),212, NOTE - depths >1.5kT and volume fractions > 0.08 give UNPHYSICAL RESULTS when compared to Monte Carlo simulations
-                     Par1           Radius [A]
-                     Par2           Volume fraction (fraction)
-                     Par3           Well depth e/kT, dimensionless, positive values are attractive
-                     Par4           Well width, multiples of diameters
-Sticky hard sph.     ref            no reference given in NIST macros
-                     Par1           Radius [A]
-                     Par2           Volume fraction (fraction)
-                     Par3           Perturbation parameter (0.1)
-                     Par4           Stickiness, tau
-Hayer Penfold MSA    ref            no reference given in NIST macros
-                     Par1           Radius [A]
-                     Par2           Charges
-                     Par3           Volume fraction
-                     Par4           Temperature in Kelvin
-                     Par5           Monovalent salt concentration (M)
-                     Par6           dielectric constant of solvent
-Interprecipitate     ref            Formula 6 in APPLIED PHYSICS LETTERS 93, 161904 (2008)
-                     Par1           Distance L [A]
-                     Par2           Sigma (root-mean-square deviation (ordering factor))
-DisorderedCrystal    ref            https://en.wikipedia.org/wiki/Structure_factor#Finite_crystals_with_disorder_of_the_second_kind
-                     Par1           Distance a [A]
-                     Par2           Sigma (root-mean-square deviation (ordering factor))
-========            ========        ===========================================
+.. list-table:: Structure factors and their parameters
+   :widths: 20 20 80
+   :header-rows: 1
+
+   * - Structure Fct
+     - Parameter
+     - ParticlePar
+   * - Interferences
+     - ref
+     - Beaucage, G. (1995). J Appl Crystallogr 28, 717-728.
+   * -
+     - Par1
+     - ETA (center-to-center distance)
+   * -
+     - Par2
+     - Pack (number of particles In nearest neighbor sphere)
+   * - Hard Spheres
+     - ref
+     - Percus-Yevick model, PERCUS,YEVICK PHYS. REV. 110 1 (1958), THIELE J. CHEM PHYS. 39 474 (1968), WERTHEIM  PHYS. REV. LETT. 47 1462 (1981)
+   * -
+     - Par1
+     - Radius [A] (center-to-center distance between particles is 2\*Par1)
+   * -
+     - Par2
+     - Volume fraction (fraction)
+   * - Square Well
+     - ref
+     - SHARMA,SHARMA, PHYSICA 89A,(1977),212, NOTE - depths >1.5kT and volume fractions > 0.08 give UNPHYSICAL RESULTS when compared to Monte Carlo simulations
+   * -
+     - Par1
+     - Radius [A]
+   * -
+     - Par2
+     - Volume fraction (fraction)
+   * -
+     - Par3
+     - Well depth e/kT, dimensionless, positive values are attractive
+   * -
+     - Par4
+     - Well width, multiples of diameters
+   * - Sticky hard sph.
+     - ref
+     - n/a in NIST macros
+   * -
+     - Par1
+     - Radius [A]
+   * -
+     - Par2
+     - Volume fraction (fraction)
+   * -
+     - Par3
+     - Perturbation parameter (0.1)
+   * -
+     - Par4
+     - Stickiness, tau
+   * - Hayer Penfold MSA
+     - ref
+     - n/a in NIST macros
+   * -
+     - Par1
+     - Radius [A]
+   * -
+     - Par2
+     - Charges
+   * -
+     - Par3
+     - Volume fraction
+   * -
+     - Par4
+     - Temperature in Kelvin
+   * -
+     - Par5
+     - Monovalent salt concentration (M)
+   * -
+     - Par6
+     - dielectric constant of solvent
+   * - Interprecipitate
+     - ref
+     - Formula 6 in APPLIED PHYSICS LETTERS 93, 161904 (2008)
+   * -
+     - Par1
+     - Distance L [A]
+   * -
+     - Par2
+     - Sigma (root-mean-square deviation (ordering factor))
+   * - DisorderedCrystal
+     - ref
+     - https://en.wikipedia.org/wiki/Structure_factor#Finite_crystals_with_disorder_of_the_second_kind
+   * -
+     - Par1
+     - Distance a [A]
+   * -
+     - Par2
+     - Sigma (root-mean-square deviation (ordering factor))
 
 
 **Important** comment for Core-shell and Core shell cylinder (and Unified tube). The volume definition for Core-shell objects is matter of discussion. Heated at times and I suspect that the appropriate answer depends on the case when and how the FF is used. Therefore from version 2.26 Irena macros include option which needs to be set - both Core shell and Core shell cylinder will share common parameter (this parameter is global for all cases of calls to core shell form factors or their volumes) of volume definition.
