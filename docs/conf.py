@@ -31,7 +31,7 @@
 # ones.
 extensions = [
     'sphinx.ext.autodoc',
-    'sphinx.ext.mathbase',
+    'sphinx.ext.jsmath',
     'sphinx.ext.mathjax',
 ]
 
