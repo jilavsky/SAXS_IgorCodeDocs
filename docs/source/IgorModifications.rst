@@ -61,5 +61,3 @@ To use: Select text wave (likely called "DataFolder") in DataBrowser. Note: this
 
 
 Additional functions may be eventually added, if needed.
-
-------

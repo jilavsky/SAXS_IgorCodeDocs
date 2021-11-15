@@ -13,9 +13,9 @@ Form factors & their parameters
 -------------------------------
 
 
-========          ========        ========
+========          ========        ===========================================
 Form Factor       Parameter       ParticlePar
---------          --------        --------
+========          ========        ===========================================
 Spheroid          AspectRatio     ParticlePar1
 Intg_Spheroid     AspectRatio     ParticlePar1
 Cylinder          Length   			  ParticlePar1
@@ -65,7 +65,7 @@ Janus CS Mic 3    Particle size   Is core radius
 RectParallepid    Particle size   Is side a
 			            Side B ratio    ParticlePar1	// Ratio side B/A
 			            Side C ratio    ParticlePar2	// Ratio side C/A
-========          ========        ========
+========          ========        ===========================================
 
 .. index::
 		model; User Form Factor
@@ -82,8 +82,9 @@ is flexible option to use when Irena does not have the specific form factor a us
 Structure factors & their parameters
 ------------------------------------
 
-=============        ========       ========
+========            ========        ===========================================
 Structure Fct        Parameter      ParticlePar
+========            ========        ===========================================
 Interferences        ref            Beaucage, G. (1995). J Appl Crystallogr 28, 717-728.
                      Par1           ETA (center-to-center distance)
                      Par2           Pack (number of particles In nearest neighbor sphere)
@@ -113,8 +114,7 @@ Interprecipitate     ref            Formula 6 in APPLIED PHYSICS LETTERS 93, 161
 DisorderedCrystal    ref            https://en.wikipedia.org/wiki/Structure_factor#Finite_crystals_with_disorder_of_the_second_kind
                      Par1           Distance a [A]
                      Par2           Sigma (root-mean-square deviation (ordering factor))
-========             ========        ========
-
+========            ========        ===========================================
 
 
 **Important** comment for Core-shell and Core shell cylinder (and Unified tube). The volume definition for Core-shell objects is matter of discussion. Heated at times and I suspect that the appropriate answer depends on the case when and how the FF is used. Therefore from version 2.26 Irena macros include option which needs to be set - both Core shell and Core shell cylinder will share common parameter (this parameter is global for all cases of calls to core shell form factors or their volumes) of volume definition.

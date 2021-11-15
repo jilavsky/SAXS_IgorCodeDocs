@@ -38,7 +38,6 @@ This GUI tool allows users to export one or more sets of data - USAXS data, QWRS
 
 
 .. image:: media/DataExport1.jpg
-
    :align: center
    :width: 480px
 
