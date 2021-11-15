@@ -130,7 +130,7 @@ In this plot we use Eta and Corr length, wavelentgth is read from header or can 
 
 \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
 
-.. _model.Treubner-Strey:
+
 
 Treubner-Strey for small-angle diffraction
 -------------------------------------------

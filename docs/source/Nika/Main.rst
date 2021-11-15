@@ -241,7 +241,7 @@ Calc. Stats.
 ~~~~~~~~~~~~
 When checked, Nika will calculate statistics of the image. What is calculated depends on what is done with image - you always get raw image statistics, but if image is processes, processed/calibrated statistics is calculated also. Notebook with the statistics is attached right of the image:
 
-.. Figure:: media/imageStatistics1.png
+.. Figure:: media/ImageStatistics1.png
    :align: center
    :width: 100%
 
