@@ -241,7 +241,7 @@ Calc. Stats.
 ~~~~~~~~~~~~
 When checked, Nika will calculate statistics of the image. What is calculated depends on what is done with image - you always get raw image statistics, but if image is processes, processed/calibrated statistics is calculated also. Notebook with the statistics is attached right of the image:
 
-.. Figure:: media/imageStatistics1.jpg
+.. Figure:: media/imageStatistics1.png
    :align: center
    :width: 100%
 
@@ -271,7 +271,7 @@ Name trimming
 
 Igor Pro has 32 character limit for names but many operating systems allow much longer names. Also, users are notorious for using file names as abstract.
 
-If Nika is suppose to save the data in Igor experiment, it needs to cut the name down to smaller size – and since it is using part of the name to describe how the data were reduced, it limits user useable length of the string to less characters… Current version will calculate maximum allowed length of the name based on what Nika wants to append to the name and trims if needed. Note, that this makes the length dependent on which processing is done for those data - circular average simply appends _C (2 characters) and two more are needed for q_, r_, or s_, so the length of name for circular average is 32-4=28. For sector average one can have e.g., _270_30 (along 270 deg, +/-30 deg sector), 7+2=9 characters, only 23 characters left for user name.
+If Nika is suppose to save the data in Igor experiment, it needs to cut the name down to smaller size – and since it is using part of the name to describe how the data were reduced, it limits user useable length of the string to less characters… Current version will calculate maximum allowed length of the name based on what Nika wants to append to the name and trims if needed. Note, that this makes the length dependent on which processing is done for those data - circular average simply appends _C (2 characters) and two more are needed for \q_, \r_, or \s_, so the length of name for circular average is 32-4=28. For sector average one can have e.g., _270_30 (along 270 deg, +/-30 deg sector), 7+2=9 characters, only 23 characters left for user name.
 
 .. Figure:: media/Main15.png
    :align: center

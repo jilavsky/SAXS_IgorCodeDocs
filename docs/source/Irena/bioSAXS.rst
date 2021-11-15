@@ -237,8 +237,9 @@ In this graph I simply double clicked on the Sbuf1_00033_00005: and it was added
 In the graph code adds the black averaged data set and saves the data.
 
 Now, to process all of the imported data all I have to do is to follow the above routine for each imported set of 45 measurements per sample. Note, that the code is writing report in the history area of Igor (just above command line input):
-  Created averaged data set in\:root\:SAXS\:SltWT_00039\:SltWT_00039_ave\:
-Averaged following data
+
+Created averaged data set in\:root\:SAXS\:SltWT_00039\:SltWT_00039_ave\: Averaged following data :
+
 sets:r_SltWT_00039_00001;r_SltWT_00039_00002;r_SltWT_00039_00003;r_SltWT_00039_00004;r_SltWT_00039_00005;r_SltWT_00039_00006;r_SltWT_00039_00007;r_SltWT_00039_00008;r_SltWT_00039_00009;r_SltWT_00039_00010;r_SltWT_00039_00011;r_SltWT_00039_00012;r_SltWT_00039_00013;r_SltWT_00039_00014;r_SltWT_00039_00015;r_SltWT_00039_00016;r_SltWT_00039_00017;r_SltWT_00039_00018;r_SltWT_00039_00019;r_SltWT_00039_00020;r_SltWT_00039_00021;r_SltWT_00039_00022;r_SltWT_00039_00023;r_SltWT_00039_00024;r_SltWT_00039_00025;r_SltWT_00039_00026;r_SltWT_00039_00027;r_SltWT_00039_00028;r_SltWT_00039_00029;r_SltWT_00039_00030;r_SltWT_00039_00031;r_SltWT_00039_00032;r_SltWT_00039_00033;r_SltWT_00039_00034;r_SltWT_00039_00035;r_SltWT_00039_00036;r_SltWT_00039_00037;r_SltWT_00039_00038;r_SltWT_00039_00039;r_SltWT_00039_00040;r_SltWT_00039_00041;r_SltWT_00039_00042;r_SltWT_00039_00043;r_SltWT_00039_00044;r_SltWT_00039_00045;
 
 
@@ -370,9 +371,7 @@ Resulting new data, for rest of Irena are "QRS" data type with zConc appened to 
         :Figwidth: 750px
 
 
-------
-
-------
+------------------------------------------
 
 .. _bioSAXS_PDDF:
 
@@ -524,7 +523,7 @@ Now, this suggests, that we now have reasonable solution and obtained two approx
 
 Now we will fit PDDF using GNOM to these data. Note, that the Rg is around 30A, suggesting we need to assume max size around 70-90A. Switch to PDDF tab, this will clear the bottom graph.
 
-1. Select radiobutton *GNOM* if it is not selected. Check the checboxes *Rmin==0* and *Rmax==0* set *Alfa in* =0 and *R pnts in* =0, set *Dmax Est*=90.
+1. Select radiobutton *GNOM* if it is not selected. Check the checboxes *Rmin==0* and *Rmax==0* set *Alfa in = 0* and *R pnts in = 0*, set *Dmax Est = 90*.
 2. Select Q range for fitting. Only data between cursors will be exported in dat file for GNOM. Data from Q=0.013 to Q=0.13 are suitable for fitting, even though it does not seem to matter too much on this very good sample.
 3. Now push button *Run PDDF on current data*. When running first time you will get a dialog to find where GNOM executable file is located. Read the instructions and hit button OK.
 
