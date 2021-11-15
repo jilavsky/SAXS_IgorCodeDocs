@@ -333,7 +333,7 @@ MaxEnt Sky Background. While this is relatively complicated number internally, n
 
 **IPG/TNNLS**
 
-.. Figure:: media/SizeDistribution8.png
+.. Figure:: media/SizeDistribution8.jpg
       :align: left
       :width: 100%
 

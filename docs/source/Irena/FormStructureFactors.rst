@@ -342,8 +342,8 @@ Since Irena version 2.54 Spheroid with aspect ratio !=1 will use NIST xop to spe
 **Integrated_Spheroid**
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-same code as in the spheroid, but in this case the code integrates over the width of the R bin.
-Note, the bin star and end points are calculated linearly (even for log-binned data) as half way distance:
+same code as in the spheroid, but in this case the code integrates over the width of the R bin. Note, the bin star and end points are calculated linearly (even for log-binned data) as half way distance:
+
  |	Rstart = (Rn + Rn-1)/2
  |	Rend  =  (Rn + Rn+1)/2
  |	Uses adaptive steps to integrate Bessel function oscillations of the form factor over the width of the bin in R  - note, the averaging is done including the volume of particles involved. This code is quite convoluted and time consuming. Its only reasonable use is for cases with wide bins in radius (R), when this removes some of the Bessel function oscillations.
@@ -693,7 +693,7 @@ T. Futterer, G. A. Vliegenthart, and P. R. Lang, "Particle Scattering Factor of 
 The Form factor follows formula 3 of this manuscript
 
 
-which describes scattering from the particle on the left of the Figure 1 from their manuscript (below).
+which describes scattering from the particle on the left of the Image 1 from their manuscript (below).
 
 .. Figure:: media/FormFactor_Janus1.png
    :align: left
@@ -711,7 +711,7 @@ Note: the results in the above graph are scaled to F^2(Q=0) = 1. Since the formu
 
 This FF is implemented twice...
 
-| "Janus CoreShell Micelle 1"		... particle size is total size of the particle (R0 in the figure in description), parameters:
+| "Janus CoreShell Micelle 1"		... particle size is total size of the particle (R0 in the Image in description), parameters:
 |	Shell_Thickness=ParticlePar1			//shell thickness A
 |	CoreRho=ParticlePar2				// rho for core material
 |	Shell1Rho=ParticlePar3			// rho for shell 1 material
@@ -727,7 +727,7 @@ This FF is implemented twice...
 |	SolventRho=ParticlePar5			// rho for solvent material
 
 | -
-| "Janus CoreShell Micelle 3"		... particle size is radius of the core (Ri in the figure in description), parameters:
+| "Janus CoreShell Micelle 3"		... particle size is radius of the core (Ri in the Image in description), parameters:
 |	Shell_Thickness=ParticlePar1			//shell thickness A
 |	CoreRho=ParticlePar2				// rho for core material
 |	Shell1Rho=ParticlePar3			// rho for shell 1 material
@@ -787,7 +787,7 @@ Real core shell system (pick shell contrast 34.95). Use "Whole particle" as volu
    :width: 420px
    :figwidth: 100%
 
-Janus CoreShell Micelle 1, fake the core shell with same contrast (34.95) for both shells. Recall that the total size of the CoreShell in Irena is radius of core ("Radius")+ shell thickness; while for Janus CoreShell Micelle 1 it is just Radius (see figure).
+Janus CoreShell Micelle 1, fake the core shell with same contrast (34.95) for both shells. Recall that the total size of the CoreShell in Irena is radius of core ("Radius")+ shell thickness; while for Janus CoreShell Micelle 1 it is just Radius (see image).
 
 .. Figure:: media/FormFactor_Janus8.png
    :align: left

@@ -77,6 +77,7 @@ Models supported:
 -----------------
 
  | *Guinier*
+ 
 Fits Guinier law.
 
  | *Porod*

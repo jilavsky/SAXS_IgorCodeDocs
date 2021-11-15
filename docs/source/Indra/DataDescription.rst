@@ -38,7 +38,7 @@ SAXS and WAXS use Nika for data reduction and that uses different naming system 
     2. SAXS data have "u". This is Nika generated "fake" slit smeared data with smearing using same slit length as USAXS data. These data should be used to merge with USAXS SMR type data. There is really no other use for these data. These data are generated only if USAXS data are not desmeared (there is checkbox on the control panel for this).
     3. WAXS data have "C". This is Nika's way of telling it is doing circular average around the beam center, where data exist.
 
-In this :ref:`QRS naming system <QRSdataDescription>`the folder is called : "SampleName_0001_xyz" with "q_SampleName_0001_xyz" for Q vector, "r_SampleName_0001_xyz" for intensity, and "s_SampleName_0001_xyz" for uncertainty.
+In this :ref:`QRS naming system <QRSdataDescription>` the folder is called : "SampleName_0001_xyz" with "q_SampleName_0001_xyz" for Q vector, "r_SampleName_0001_xyz" for intensity, and "s_SampleName_0001_xyz" for uncertainty.
 
 
 .. index::

@@ -77,7 +77,7 @@ Blank file will be loaded and displayed. Please note, that user needs to select 
 
 Here is example of Sample and Blank loaded and displayed side-by-side.
 
-Next is simply - select sample or samples which should be processed and click on button "Process Figures". Nika will process all selected files. .
+Next is simply - select sample or samples which should be processed and click on button "Process Images". Nika will process all selected files. .
 
 .. Figure:: media/WAXSProcessedDataImg.jpg
         :align: left

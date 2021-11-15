@@ -14,11 +14,11 @@ Select “Main panel” from the “SAS 2D” menu. This will present the follow
 
 The panel has three major parts:
 
-**Top** is designed for 2D data selection. Here user selects which 2D Figure will be processed.
+**Top** is designed for 2D data selection. Here user selects which 2D image will be processed.
 
 **Middle** (*tabbed area*) is designed for controls of processing. This is the busiest area of the panel and each tab will be explained later.
 
-**Bottom** contains buttons for main controls and 2D Figure controls.
+**Bottom** contains buttons for main controls and 2D image controls.
 
 .. index::
     Nika; Selecting data
@@ -26,11 +26,11 @@ The panel has three major parts:
 Selecting data
 ---------------
 
-Nika can load number of different **Figure types** - aka: file formats, file types - usually well described by file extension (e.g., tif). These are selected by "**Figure type**" popup menu in top right corner. If appropriate file type is not found in the “Figure type” popup menu, you will have to contact me so I can develop and add appropriate loader for your specific data. Note, that most data formats are binary data with some header, and if you can get description of your data format you can often use General Binary reader.
+Nika can load number of different **image types** - aka: file formats, file types - usually well described by file extension (e.g., tif). These are selected by "**image type**" popup menu in top right corner. If appropriate file type is not found in the “image type” popup menu, you will have to contact me so I can develop and add appropriate loader for your specific data. Note, that most data formats are binary data with some header, and if you can get description of your data format you can often use General Binary reader.
 
-Select appropriate type of data you have and then push “Select data path” button, dialog is presented, in which path to folder on the hard drive containing 2D Figures is selected. Find the local path to data using this standard Igor dialog. and push OK when done.
+Select appropriate type of data you have and then push “Select data path” button, dialog is presented, in which path to folder on the hard drive containing 2D images is selected. Find the local path to data using this standard Igor dialog. and push OK when done.
 
-NOTE the “**Calibrated 2D data**?” checkbox. If selected, Nika expects 2D calibrated data – fully normalized and corrected data provided as one of the 2D formats, basically 2D Figure of Intensity, Q (vector), and uncertainty. Number of options is being current developed, the code currently handles EQSAXS (ORNL) and canSAS/Nexus. This part is under heavy development at this time, expect changes…
+NOTE the “**Calibrated 2D data**?” checkbox. If selected, Nika expects 2D calibrated data – fully normalized and corrected data provided as one of the 2D formats, basically 2D image of Intensity, Q (vector), and uncertainty. Number of options is being current developed, the code currently handles EQSAXS (ORNL) and canSAS/Nexus. This part is under heavy development at this time, expect changes…
 
 When valid path is selected, the Igor will check the folder and list all files of appropriate type (assuming the files have extensions) in the ListBox below the button.
 
@@ -50,7 +50,7 @@ Note, the files ending with “\_mask”. These are mask files created by Nika p
 Invert 0,0 corner
 ------------------
 
-As default Igor displays 0,0 of the Figure in the top left corner. This seems to be distressing for some users, so if checked, Figures will have 0,0 in the left bottom corner. Nothing else is changed, so the orientation of sectors WRT original Figure is preserved and reduced data are the same as without this checkbox checked. Simply, the processing of Nika package is independent of this checkbox, it is ONLY cosmetic…
+As default Igor displays 0,0 of the image in the top left corner. This seems to be distressing for some users, so if checked, images will have 0,0 in the left bottom corner. Nothing else is changed, so the orientation of sectors WRT original image is preserved and reduced data are the same as without this checkbox checked. Simply, the processing of Nika package is independent of this checkbox, it is ONLY cosmetic…
 
 Sort order
 -----------
@@ -111,17 +111,17 @@ Load configuration button – load stuff from config file into the program. Note
 
 Note, that the config file has name and Comment string. If you get lost altogether, you can also see on the right hand side what values are stored in that configuration file. It is really good idea to use meaningful names and comments – especially if you have a lot of configuration files
 
-Export Figure
+Export image
 ~~~~~~~~~~~~
 
-Enables user to export the main 2D graph as tiff Figure from Igor.
+Enables user to export the main 2D graph as tiff image from Igor.
 
-Store Figure
+Store image
 ~~~~~~~~~~~~
 
-Enables user to store the current main 2D Figure in Igor Experiment for reference… Remember, they can be large and so do not store too many or the Igor experiment may become unmanageably large. Also, there is not much support for dealing with these Figures (it is not really clear what user would want to do with them to me), so you are on your own and use Igor tools to handle these Figures…
+Enables user to store the current main 2D image in Igor Experiment for reference… Remember, they can be large and so do not store too many or the Igor experiment may become unmanageably large. Also, there is not much support for dealing with these images (it is not really clear what user would want to do with them to me), so you are on your own and use Igor tools to handle these images…
 
-There is NO WAY to load these Figures back into Nika at this time. It can be done manually, but not through Nika menus & functions.
+There is NO WAY to load these images back into Nika at this time. It can be done manually, but not through Nika menus & functions.
 
 .. index::
     Nika; Create movie
@@ -129,9 +129,9 @@ There is NO WAY to load these Figures back into Nika at this time. It can be don
 Create Movie
 ~~~~~~~~~~~~
 
-This opens panel, which is interface for ability to create movie from either 2D Figures or 1D lineouts…
+This opens panel, which is interface for ability to create movie from either 2D images or 1D lineouts…
 
-Note: The way this tool is designed, Figure is added every time any of the Convert buttons is called. It is possible to use this tool to create movie from RAW data only manually (by manually adding each frame) when user wants to load the data in using the “Ave & Display sel. files” button. Using this button you cannot use Automatic add function.
+Note: The way this tool is designed, image is added every time any of the Convert buttons is called. It is possible to use this tool to create movie from RAW data only manually (by manually adding each frame) when user wants to load the data in using the “Ave & Display sel. files” button. Using this button you cannot use Automatic add function.
 
 But the same result you can achieve by using convert buttons and simply not converting the data any way (not checking anything on “Main” tab and any of the “Sectors”, “Prev” and “LineProf” tabs. In this case you can add frames automatically, which is probably more useful…
 
@@ -143,50 +143,50 @@ But the same result you can achieve by using convert buttons and simply not conv
 
 The panel walks user through the steps necessary…
 
-1. **Load and process one data set.** In order to use this feature, user needs to first load some test data set (Figure) to have test case to try the display options. This test case needs to be processed all the way needed…
+1. **Load and process one data set.** In order to use this feature, user needs to first load some test data set (image) to have test case to try the display options. This test case needs to be processed all the way needed…
 
-2. **User needs to decide what to actually add into the movie**\ … Selecting the checkboxes creates the Figure, if you need to you can recreate (or pull up if it is hidden) the Figure by the button “Create Img/Graph”. There are various options:
+2. **User needs to decide what to actually add into the movie**\ … Selecting the checkboxes creates the image, if you need to you can recreate (or pull up if it is hidden) the image by the button “Create Img/Graph”. There are various options:
 
-   a. 2D RAW data Figure. This Figure is using separate Figure, copy of the RAW data. The graph can be customized by user (zoom, range scaling,…). Since the code for subsequent Figures replaces this separate copy of the Figure with newly loaded the wave, this does not modify the Figure itself. Therefore the display should be relatively stable and under user control – it should stay as user zoomed/set color range/etc...
+   a. 2D RAW data image. This image is using separate image, copy of the RAW data. The graph can be customized by user (zoom, range scaling,…). Since the code for subsequent images replaces this separate copy of the image with newly loaded the wave, this does not modify the image itself. Therefore the display should be relatively stable and under user control – it should stay as user zoomed/set color range/etc...
 
-   b. 2D Corrected data Figure. Same as above, but the Figure used is a copy of the fully corrected 2D Figures (empty/background subtracted, calibrated…). Again, the controls are left to user present ones since the code overwrites the separate copy of the data and therefore swaps the new data into the Figure without major recreation. Should be relatively stable without major changes to the way the data are displayed.
+   b. 2D Corrected data image. Same as above, but the image used is a copy of the fully corrected 2D images (empty/background subtracted, calibrated…). Again, the controls are left to user present ones since the code overwrites the separate copy of the data and therefore swaps the new data into the image without major recreation. Should be relatively stable without major changes to the way the data are displayed.
 
-   c. 1D data. This is graph of the lineouts created by the code. NOTE: if you are creating more than one lineout from each Figure (like when using multiple sectors), all of these may be subsequently used! This may be good (movie of sequence of sectors on one Figure) or bad (for movies from many Figures). There is no way of skipping and using only specific sectors. Use Hook function to create that…
+   c. 1D data. This is graph of the lineouts created by the code. NOTE: if you are creating more than one lineout from each image (like when using multiple sectors), all of these may be subsequently used! This may be good (movie of sequence of sectors on one image) or bad (for movies from many images). There is no way of skipping and using only specific sectors. Use Hook function to create that…
    You have relatively lot of controls of the graph, same as in the above options 1 and 2, as the data for this graph are a separate copy of your last data. When the old ones are overwritten, the new ones are “swapped” into the graph and replaced without modifications to the graph. So the graph should stay without major changes, unless set that way. For example, if Axis are set to auto scale, they may change. But if they are set to fixed start/end, they will stay fixed. At least I hope .
 
-   d. Use main 2D Figure. This one simply uses the Main 2D Figure. Seems very good choice - BUT: that Figure is recreated every time from scratch so there are very few controls available to user – you either like it and then use it, or you cannot use this method. You should, of course, use the controls on main panel to modify the Figure – like use RAW or Processed data, display sectors, beam center, colors, or Figure with Q axes… That works, but you cannot control other things, such as zoom range etc.
+   d. Use main 2D image. This one simply uses the Main 2D image. Seems very good choice - BUT: that image is recreated every time from scratch so there are very few controls available to user – you either like it and then use it, or you cannot use this method. You should, of course, use the controls on main panel to modify the image – like use RAW or Processed data, display sectors, beam center, colors, or image with Q axes… That works, but you cannot control other things, such as zoom range etc.
 
-   e. Use user Hook function… This is advanced method. Here you can do whatever you want to create the Figure you want to append, just call the function: Movie\_UserHookFunction and if it exists, it will be called. This function MUST generate graph/Figure and leave it as the top Figure. This top Figure is added to the movie when called… Note: while this is advanced programming, this is way to get really what you want into the movie… Below is commented out example (present in the code also) which pulls up the main 2 D Figure and prints a note. You can add here any other formatting which you want to do or use…
+   e. Use user Hook function… This is advanced method. Here you can do whatever you want to create the image you want to append, just call the function: Movie\_UserHookFunction and if it exists, it will be called. This function MUST generate graph/image and leave it as the top image. This top image is added to the movie when called… Note: while this is advanced programming, this is way to get really what you want into the movie… Below is commented out example (present in the code also) which pulls up the main 2 D image and prints a note. You can add here any other formatting which you want to do or use…
 
 .. code::
 
     Function Movie_UserHookFunction()
-        DoWindow CCDFigureToConvertFig
+        DoWindow CCDimageToConvertFig
         if(V_Flag)
-           DoWIndow/F CCDFigureToConvertFig
-           AutoPositionWindow /M=1 /R=NI1A_CreateMoviesPanel CCDFigureToConvertFig
+           DoWIndow/F CCDimageToConvertFig
+           AutoPositionWindow /M=1 /R=NI1A_CreateMoviesPanel CCDimageToConvertFig
         else
            Abort "Main 2D windows does not exist"
         endif
         // print "called Movie\_UserHookFunction function"
     end
 
-1. **Modify the Figure/graph**. Here you can modify some of the appearance of the Figure/graph. If you want to display log of intensity in the Figures, here is your only chance (for first two options). You can append also file name – and edit the appearance of the legend manually – as long as you do not change the reference to global string, which contains this name, you can change font, size, location…
+1. **Modify the image/graph**. Here you can modify some of the appearance of the image/graph. If you want to display log of intensity in the images, here is your only chance (for first two options). You can append also file name – and edit the appearance of the legend manually – as long as you do not change the reference to global string, which contains this name, you can change font, size, location…
 
-2. “\ ***Open movie file”*** button. You here create movie file and open it for writing – external file for Igor experiment. Remember to set proper frame rate. Frame rate of 1 is 1frame/second, 10 is 10 frames/second. So if you have 100 Figures to add, at 10frames/second the whole movie will play for 10 seconds. You can have ONLY one movie file opened at one time (Igor limitation). The button greys out when movie file is opened. | Also note that the button on main panel changes
+2. “\ ***Open movie file”*** button. You here create movie file and open it for writing – external file for Igor experiment. Remember to set proper frame rate. Frame rate of 1 is 1frame/second, 10 is 10 frames/second. So if you have 100 images to add, at 10frames/second the whole movie will play for 10 seconds. You can have ONLY one movie file opened at one time (Igor limitation). The button greys out when movie file is opened. | Also note that the button on main panel changes
 
 .. Figure:: media/Main11.png
       :align: center
       :width: 480px
 
 
-3. **Append Figures to movie file**:
+3. **Append images to movie file**:
 
    You have two options:
 
-   a. “\ *Append current Frame*\ ” button. – Works always, appends current Figure/graph per selection (see above item 2) manually to the movie. Use when you want to control the appending of the frames really well.
+   a. “\ *Append current Frame*\ ” button. – Works always, appends current image/graph per selection (see above item 2) manually to the movie. Use when you want to control the appending of the frames really well.
 
-   b. Checkbox “\ *Append Frames Automatically*\ ” – if set, after loading & processing every Figure a frame is appended automatically.
+   b. Checkbox “\ *Append Frames Automatically*\ ” – if set, after loading & processing every image a frame is appended automatically.
 
 4. “\ *Close Movie file*\ ” button. Well, before you can play it, you need to close it…
 
@@ -217,11 +217,11 @@ Live processing is attempt to make automatics display or processing data for ins
    :width: 380px
 
 
-The description is hopefully clear. You can start background process, which is sleeping for the "Update time". If Igor Pro is not busy at the time when woken up, the background process will basically run "refresh" command and if new file is found (after applying all Match RegEx and Data type matching, this new Figure is automatically processed using the settings in Nika.
+The description is hopefully clear. You can start background process, which is sleeping for the "Update time". If Igor Pro is not busy at the time when woken up, the background process will basically run "refresh" command and if new file is found (after applying all Match RegEx and Data type matching, this new image is automatically processed using the settings in Nika.
 
 Note, that user interactions may delay this processing, so if user is using Igor, this may not happen. However, if user is using sporadically this update may happen at inconvenient time, so make sure if you want to "Play" with the file you stop this background process.
 
-Note checkboxes: "Display new Figure" or "Convert new Figures", which control, which button is pushed by this tool when new Figure is found. The first pushes "Ave & Display sel. file(s)" while later pushes "Convert sel. files 1 at time".
+Note checkboxes: "Display new image" or "Convert new images", which control, which button is pushed by this tool when new image is found. The first pushes "Ave & Display sel. file(s)" while later pushes "Convert sel. files 1 at time".
 
 Intensity calibration
 ~~~~~~~~~~~~~~~~~~~~~
@@ -235,13 +235,13 @@ Most of the time the data in Small-angle scattering are normalized and not calib
 enables users to select which units of absolute intensity calibration they want to write in wave note of the data. Other packages (Irena) may use this information and then it may be critical to have the right one in there.
 
 .. index::
-    Nika: Figure Statistics
+    Nika: image Statistics
 
 Calc. Stats.
 ~~~~~~~~~~~~
-When checked, Nika will calculate statistics of the Figure. What is calculated depends on what is done with Figure - you always get raw Figure statistics, but if Figure is processes, processed/calibrated statistics is calculated also. Notebook with the statistics is attached right of the Figure:
+When checked, Nika will calculate statistics of the image. What is calculated depends on what is done with image - you always get raw image statistics, but if image is processes, processed/calibrated statistics is calculated also. Notebook with the statistics is attached right of the image:
 
-.. Figure:: media/FigureStatistics1.jpg
+.. Figure:: media/imageStatistics1.jpg
    :align: center
    :width: 100%
 
@@ -298,12 +298,12 @@ Etc…
 .. index::
     Nika; Batch processing
 
-Batch processing (no Figures)
+Batch processing (no images)
 ----------------------------
 
-*This is way to significantly speed up processing of Figures in Nika.*
+*This is way to significantly speed up processing of images in Nika.*
 
-Testing has shown that up to 75% of time to process data in Nika can be spent on displaying the Figures, drawing into the Figures, and graphing the 1D data. And printing notes in the history area. Most of the time this is acceptable and Figures help users to understand what is happening. However, when processing large number of Figures this can needlessly slow down processing. The checkbox *Batch Proc. (no Figures)* speeds up processing by preventing needless Figure display. If this checkbox is selected, Nika will stop all Figure displays, updates of opened graphs and to indicate it is working will just display a panel *Nika is batch Processing data* (see next figure). While this panel is up, Nika is running, but the only thing changing user can see is the red *Sample Name* on the main panel. When the selected batch of samples (batch is selected in the *Select input data* listbox) this panel will disappear.
+Testing has shown that up to 75% of time to process data in Nika can be spent on displaying the images, drawing into the images, and graphing the 1D data. And printing notes in the history area. Most of the time this is acceptable and images help users to understand what is happening. However, when processing large number of images this can needlessly slow down processing. The checkbox *Batch Proc. (no images)* speeds up processing by preventing needless image display. If this checkbox is selected, Nika will stop all image displays, updates of opened graphs and to indicate it is working will just display a panel *Nika is batch Processing data* (see next image). While this panel is up, Nika is running, but the only thing changing user can see is the red *Sample Name* on the main panel. When the selected batch of samples (batch is selected in the *Select input data* listbox) this panel will disappear.
 
 .. Figure:: media/Main_BatchProcessing1.jpg
    :align: center
@@ -315,7 +315,7 @@ Also, notes are printed in the history area during the start and after the end o
    :align: center
    :width: 580px
 
-**Suggestion:**  Process one or two Figures first and verify the settings are correct and all parameters are correctly set. When you check the parameters and understand, that all is working right, you can run larger number of Figures in batch mode.
+**Suggestion:**  Process one or two images first and verify the settings are correct and all parameters are correctly set. When you check the parameters and understand, that all is working right, you can run larger number of images in batch mode.
 
 **If the batch processing hits error and stops :** Nothing bad happened. Close manually the panel *Nika is batch Processing data* (it can be killed as any other panel), fix the problem, and start again from where Nika stopped.
 
@@ -325,7 +325,7 @@ Also, notes are printed in the history area during the start and after the end o
 Controls in tabs
 ----------------
 
-**Note, that if Figures are averaged, they are first averaged during loading, and then – during processing to create lineouts / square matrix are corrected as described below. Therefore all parameters here related to single (if possibly averaged) Figure!**
+**Note, that if images are averaged, they are first averaged during loading, and then – during processing to create lineouts / square matrix are corrected as described below. Therefore all parameters here related to single (if possibly averaged) image!**
 
 These are controls in the tabbed area.
 
@@ -344,7 +344,7 @@ Main
 
 Here are some very clear parameters, related to SAXS camera geometry:
 
-Sample to CCD distance in millimeters, Wavelength/Xray energy (these windows are linked), CCD Figure pixel size in mm (in X and Y directions). Note, X direction is horizontally, Y direction vertically. And Beam center position. Note, one can display beam center (to check it) in the graph by checkbox below the tab area.
+Sample to CCD distance in millimeters, Wavelength/Xray energy (these windows are linked), CCD image pixel size in mm (in X and Y directions). Note, X direction is horizontally, Y direction vertically. And Beam center position. Note, one can display beam center (to check it) in the graph by checkbox below the tab area.
 
 And further there is pile of checkboxes, which describe method how to calibrate the data. Note, that formula used for calibration appears below to avoid any misunderstanding of the method. Select method needed for processing – and following tabs will have the appropriate controls available.
 
@@ -392,9 +392,9 @@ For linearly polarized radiation use “Polarization radiation”, see separate 
 
 By the way, for small-angle scattering each of these corrections is negligible.
 
-**“Dezinering”** - Data, Empty, and Dark field Figures can be “dezingered” during loading. In this procedure each point is compared to surrounding pixels and if it is significantly larger (that is the dezinger ratio, if 2 then if the pixel is 2x larger than average of surrounding pixels) it is replaced with the average of the surrounding pixels. This is to remove spurious very high intensity points, which occur on some instruments.
+**“Dezinering”** - Data, Empty, and Dark field images can be “dezingered” during loading. In this procedure each point is compared to surrounding pixels and if it is significantly larger (that is the dezinger ratio, if 2 then if the pixel is 2x larger than average of surrounding pixels) it is replaced with the average of the surrounding pixels. This is to remove spurious very high intensity points, which occur on some instruments.
 
-It is possible to dezinger each Figure multiple times, in case the “zingers” are larger than single pixel.
+It is possible to dezinger each image multiple times, in case the “zingers” are larger than single pixel.
 
 ***Calibration/processing parameters: ***
 
@@ -404,15 +404,15 @@ It is possible to dezinger each Figure multiple times, in case the “zingers”
 
 **Correction factor** is for secondary calibration factor.
 
-**Measurements times** in seconds, for each Figure.
+**Measurements times** in seconds, for each image.
 
-Sometime one wants to use measurement time to correct Figures collected at different time exposures. While not suggested, it is possible to do here. I strongly discourage this.
+Sometime one wants to use measurement time to correct images collected at different time exposures. While not suggested, it is possible to do here. I strongly discourage this.
 
 Monitor counts allow scaling data by using monitor on incoming intensity.
 
-**“Fixed offset for CCD Figures”** this is single value to be **subtracted** from each pixel of Figure to be processed.
+**“Fixed offset for CCD images”** this is single value to be **subtracted** from each pixel of image to be processed.
 
-***“Monitor counts”*** use monitor counts to scale Figures (Sample/Empty)… This makes no sense for dark field…
+***“Monitor counts”*** use monitor counts to scale images (Sample/Empty)… This makes no sense for dark field…
 
 Each of these values can be inserted by user as number, or using function:
 
@@ -420,7 +420,7 @@ Each of these values can be inserted by user as number, or using function:
    :align: center
    :width: 400px
 
-These function need to be “look up” functions, which are called with Figure name as parameter (FunctionName(“FigureName”)) and must return single real number. The real use is to provide automatic look up of parameters from some records written by instrument. Above example is from included special support for DND CAT instrument.
+These function need to be “look up” functions, which are called with image name as parameter (FunctionName(“imageName”)) and must return single real number. The real use is to provide automatic look up of parameters from some records written by instrument. Above example is from included special support for DND CAT instrument.
 
 *Let me point out once more here, that using some of these corrections together makes no sense… Choose wisely.*
 
@@ -442,9 +442,9 @@ Following are function of the buttons:
 
 2. Load mask – load file selected above in the list box as mask
 
-3. Add mask to Figure – adds mask into the 2D Figure from the Figure
+3. Add mask to image – adds mask into the 2D image from the image
 
-4. Remove mask from Figure – removes the mask from the Figure
+4. Remove mask from image – removes the mask from the image
 
 Mask color – allows to change color (red, green, blue, black) of the displayed mask…
 
@@ -461,7 +461,7 @@ Emp/Dark
    :width: 380px
 
 
-Here are controls for Empty/Dark field/pixel sensitivity (aka flood) Figures.
+Here are controls for Empty/Dark field/pixel sensitivity (aka flood) images.
 
 Button “Select path to mask, dark & pix sens, files” Selects path to data with the Empty, Dark field etc. I believe the files need to be the same type as data file (I need to check this).
 
@@ -540,14 +540,14 @@ This method is used to convert Intensity vs azimuthal angle from “polar coordi
 
 On vertical axis is angle from 0 degrees axis (horizontally right from the beam center) and on horizontal axis is pixels distance from beam center. This is effectively set of lineouts in all azimuthal angles. It should be noted, that the code works very well for relatively small widths – may be up to 5 degrees, then the code becomes less precise, so keep angles small. Suggested is 1 -5 degrees.
 
-These data then can be processed further by use of “Figure line profile” tool. This tool for now has it’s own “mindset” and does not properly update always. The dependencies are quite complex. If it does not update, close the tool and reopen…
+These data then can be processed further by use of “image line profile” tool. This tool for now has it’s own “mindset” and does not properly update always. The dependencies are quite complex. If it does not update, close the tool and reopen…
 
-.. Figure:: media/Main27.png
+.. image:: media/Main27.png
    :align: center
    :width: 100%
 
 
-The “SquareMap of Intensity vs pixel” graph on the top right above shows the intensity in linear/log (checkbox left top corner) as function of pixel (bottom axis) and azimuthal angle (left axis). The lineout plot at the right bottom shows the intensity from this plot (note, the log/lin scaling in the Figure translates here!) as function of pixels/q/d/2 theta. Note, that this produces “natural” binning with every step in pixel is assigned single q/d/2theta position.
+The “SquareMap of Intensity vs pixel” graph on the top right above shows the intensity in linear/log (checkbox left top corner) as function of pixel (bottom axis) and azimuthal angle (left axis). The lineout plot at the right bottom shows the intensity from this plot (note, the log/lin scaling in the image translates here!) as function of pixels/q/d/2 theta. Note, that this produces “natural” binning with every step in pixel is assigned single q/d/2theta position.
 
 Note, the controls:
 
@@ -563,9 +563,9 @@ Note, the controls:
 
 Note, that by selecting larger width here, one can get very good and reliable sector average and manually move this average through the different azimuthal angles. Very useful, when hunting for particular azimuthal orientation…
 
-**Use RAW data** if selected unprocessed Figure is used.
+**Use RAW data** if selected unprocessed image is used.
 
-**Use Processed data** if selected processed Figure is used, available ONLY if the last Figure was loaded using one of the “\ **Convert…**\ ” buttons, unavailable if the last Figure was loaded using “\ **Ave & display sel. files(s)**. If the data were loaded using “\ **Ave & display…**\ ” button, processed data do not exist.
+**Use Processed data** if selected processed image is used, available ONLY if the last image was loaded using one of the “\ **Convert…**\ ” buttons, unavailable if the last image was loaded using “\ **Ave & display sel. files(s)**. If the data were loaded using “\ **Ave & display…**\ ” button, processed data do not exist.
 
 **Controls on Lineout tool:**
 
@@ -591,17 +591,17 @@ This tool calculates Intensity profile along curve on the detector. It uses diff
 
 *The differences:*
 
-“\ **Sectors**\ ” use inverse lookup method and can be set to create multiple different sectors on one Figure at once. Since this tool caches the lookup tables, it is slower first time, but much faster on subsequent Figures. This tool can be used ONLY by setting the data reduction parameters and then using buttons “\ **Convert…**\ ”. You cannot manually evaluate any sector and no preview is provided. This tool causes high memory sizes of the Igor experiments with Nika package – the lookup tables are large. But it is fast for what it does.
+“\ **Sectors**\ ” use inverse lookup method and can be set to create multiple different sectors on one image at once. Since this tool caches the lookup tables, it is slower first time, but much faster on subsequent images. This tool can be used ONLY by setting the data reduction parameters and then using buttons “\ **Convert…**\ ”. You cannot manually evaluate any sector and no preview is provided. This tool causes high memory sizes of the Igor experiments with Nika package – the lookup tables are large. But it is fast for what it does.
 
 And you can setup multiple sectors to be evaluated at once.
 
-“\ **LineProf**\ ” uses built in Igor Line Profile tool. It can be set ONLY to process one line profile at a time. This tool does not cache anything, so it takes the same time to process for each Figure. However, it is relative fast and can be used manually on Converted Figure. So, there are two methods to use it:
+“\ **LineProf**\ ” uses built in Igor Line Profile tool. It can be set ONLY to process one line profile at a time. This tool does not cache anything, so it takes the same time to process for each image. However, it is relative fast and can be used manually on Converted image. So, there are two methods to use it:
 
 a. Set one line profile parameters, choose how to save data and push one of buttons “\ **Convert..**\ ”
 
 b. Do not set any conversion parameters, but use one of the buttons “\ **Convert..**\ ”, set the **LineProf** tool to use Processed data and then set parameters for the
 
-You can only set one line profile at a time, unless you manually create multiple profiles on each converted Figure.
+You can only set one line profile at a time, unless you manually create multiple profiles on each converted image.
 
 **Controls:**
 
@@ -615,17 +615,17 @@ You can only set one line profile at a time, unless you manually create multiple
    :align: center
    :width: 100%
 
-**NOTE:** some controls from the lower graph tab are moved to next tab, so this Figure is slightly obsolete. Will be fixed later.
+**NOTE:** some controls from the lower graph tab are moved to next tab, so this image is slightly obsolete. Will be fixed later.
 
 New controls here:
 
 “\ **Use?**\ ” – switches on this tool.
 
-“\ **Use Raw**?” – and “\ **Use Processed**?” – choices which Figure the tool will be used on. User Processed is not available if the last data set was loaded using “\ **Ave & Display..**\ ” button (no Processed data are created in this case). NOTE: if you hit any button
+“\ **Use Raw**?” – and “\ **Use Processed**?” – choices which image the tool will be used on. User Processed is not available if the last data set was loaded using “\ **Ave & Display..**\ ” button (no Processed data are created in this case). NOTE: if you hit any button
 
 “\ **Convert..**\ ” and this tool is enabled, it is set to “\ **Use Processed**\ ” automatically.
 
-“\ **Distance from Center [in pixels]**\ ” – user control to move the object to specific *q* . The *q* where the data will be calculated is displayed next to this control and is the appropriate *q* (*q\ :sub:`y`* or *q\ :sub:`z`*) for give shape. See Ellipse definition for specific there. NOTE: you must control the pixel position. Positive direction is to the right of the beam center (horizontally) or up from the beam center (vertically). Lines are drawn to help user Figure this out.
+“\ **Distance from Center [in pixels]**\ ” – user control to move the object to specific *q* . The *q* where the data will be calculated is displayed next to this control and is the appropriate *q* (*q\ :sub:`y`* or *q\ :sub:`z`*) for give shape. See Ellipse definition for specific there. NOTE: you must control the pixel position. Positive direction is to the right of the beam center (horizontally) or up from the beam center (vertically). Lines are drawn to help user image this out.
 
 “\ **Width [in pixels]**\ ” – width of the profile (minimum used one is 1 even if 0 is set by user) in pixels. This is the control to use to change how wide stripe is averaged. Next to it is control which shows this in *q* units. NOTE: the *q* width is calculated simply by subtracting Q values for the sides of the stripe. Intensity is averaged at each point perpendicularly to the direction of the line (curve). If more than 1 pixel is used for averaging, standard deviation of average is provided as error, if only 1 pixel is used, square root is used (which may be seriously WRONG)… You were warned.
 
@@ -633,7 +633,7 @@ This tool calculate intensity, intensity uncertainty and *q, q\ :sub:`y`*, and *
 
 **IMPORTANT:**
 
-Of course, GISAXS community had to adopt different definition of Qx, Qy,a nd Qz than I did years ago, and therefore, this tool uses somehow different definitions than rest of Nika. So the horizontal direction (x-direction for Nika) is the Qy direction. Vertical direction on the detector is “y” direction for Nika; but it is direction of Qz. Please, keep this in mind… For those adventurous souls, who actually read my code, keep in mind at some point the code switches on your the x-y Figure coordinates to y-z-(x) GISAXS coordinates… Sorry. No other fix I would know about.
+Of course, GISAXS community had to adopt different definition of Qx, Qy,a nd Qz than I did years ago, and therefore, this tool uses somehow different definitions than rest of Nika. So the horizontal direction (x-direction for Nika) is the Qy direction. Vertical direction on the detector is “y” direction for Nika; but it is direction of Qz. Please, keep this in mind… For those adventurous souls, who actually read my code, keep in mind at some point the code switches on your the x-y image coordinates to y-z-(x) GISAXS coordinates… Sorry. No other fix I would know about.
 
 *For now these are the available profiles:*
 
@@ -675,7 +675,7 @@ These profiles are for Grazing incidence geometry. They need Grazing incidence a
    :width: 380px
 
 
-Both can include mirror Figure line across the beam center.
+Both can include mirror image line across the beam center.
 
 Note, that the position is defined in pixels as before, but the Q values are corrected according to the Grazing incidence geometry corrections, see Gilles Renaud, Remi Lazzari, and Frederic Leroy, Probing surface and interface morphology with GISAXS, Surface Science Reports 64(2009) 255-380, formula (1).
 
@@ -704,7 +704,7 @@ However, another geometry, which is also used, is slightly different:
 
 (Fig2. - http://www.physics.queensu.ca/~saxs/GISAXS.html)
 
-Note the difference here is, that in the first Figure the sample is horizontal and beam is tilted, as it is commonly used for liquid surface scattering (“GEO\_LSS”). For solid samples it may be more convenient to tilt the sample itself and rest of instrument stays fixed (“GEO\_SOL”). In my rare encounters with GISAXS technique, this is what I have used.
+Note the difference here is, that in the first image the sample is horizontal and beam is tilted, as it is commonly used for liquid surface scattering (“GEO\_LSS”). For solid samples it may be more convenient to tilt the sample itself and rest of instrument stays fixed (“GEO\_SOL”). In my rare encounters with GISAXS technique, this is what I have used.
 
 These two geometries differ in the calculation of alfa-f needed for calculation of q in vertical direction. For GEO\_SOL the detector is perpendicular to the original (incoming) beam direction and the alfa-f calculation does not require any more input from user as the calculation is simply the angle of the outgoing triangle – alfa-I as shown in Fig 2 here.
 
@@ -783,13 +783,13 @@ Overwrite existing data if exist – if data with the same name exist, overwrite
    :width: 380px
 
 
-Note, that the LineProf tool uses another “graph” window (“Line Profile Preview”) under the main Figure. This window contains some controls that are very useful.
+Note, that the LineProf tool uses another “graph” window (“Line Profile Preview”) under the main image. This window contains some controls that are very useful.
 
 The data are automatically updated as the parameters for the profile are changed. This gives user live update (but can take time, if it takes too much time for anyone, let me know and I’ll add controls to avoid the updates “live”).
 
 User can display the data as function of *q,* *q\ :sub:`y`* or *q\ :sub:`z`* and on lin-lin, log-lin, lin-log and log-log scales. Note, that negative values cannot be displayed on log scale, so since q values for lower part of detector (below beam center) are defined as negative, you may not see them if you choose log scale. Also the *q* values look sometimes really weird, but generally they should be correct. If there are any issues with definitions of negative directions, let me know.
 
-User can also save the data displayed in this window, which enables user to create multiple line profiles from existing Figure – this is manual method. NOTE that save parameters are taken from the setting of the controls for this purpose in the tab in the main panel (“Create 1D graph”, “Store data in Igor experiment”…). If you choose “Overwrite existing data” and do not change the name, you may get in troubles.
+User can also save the data displayed in this window, which enables user to create multiple line profiles from existing image – this is manual method. NOTE that save parameters are taken from the setting of the controls for this purpose in the tab in the main panel (“Create 1D graph”, “Store data in Igor experiment”…). If you choose “Overwrite existing data” and do not change the name, you may get in troubles.
 
 When data are being saved some cryptic description to indicate what profile was used and which *q* was used will be attached to the name used. More full description is attached to wave note.
 
@@ -797,7 +797,7 @@ For example for GI\_Vertical line in my test case, this was the name:
 
 gc\_saxs\_395\_\_GI\_VLp\_0.0077
 
-“gc\_saxs\_395\_”…. Part of the name of used Figure
+“gc\_saxs\_395\_”…. Part of the name of used image
 
 GI\_VLp\_.... GI\_Vertical Line
 
@@ -848,7 +848,7 @@ This controls how data re stored in Igor. Note, that if you want to *Create 1D g
 
 **Name data controls:**
 
-This controls how data are named when imported. Here is where user can select how the names are created using either imported Figure name with optionally some trimming, user can write Igor Function which will provide the necessary name etc.
+This controls how data are named when imported. Here is where user can select how the names are created using either imported image name with optionally some trimming, user can write Igor Function which will provide the necessary name etc.
 
 **Export data controls:**
 
@@ -864,7 +864,7 @@ This controls if the data will be automatically exported as they are processed. 
    :align: center
    :width: 380px
 
-Checking the checkbox *Export Nexus* brings up dialog for Nexus Export and import. In this case the important part is Bottom part. User needs to setup export path (folder on drive) and select what will be exported. **SUGGESTION** use ONLY the top option "Save data in canSAS Nexus File". This will create individual Nexus file for each data set. Second option "Append processed 1D data to Nexus" will append multiple data sets in single file. When I tried this, file with ~40 Figures hang sasView badly and I needed to kill it.
+Checking the checkbox *Export Nexus* brings up dialog for Nexus Export and import. In this case the important part is Bottom part. User needs to setup export path (folder on drive) and select what will be exported. **SUGGESTION** use ONLY the top option "Save data in canSAS Nexus File". This will create individual Nexus file for each data set. Second option "Append processed 1D data to Nexus" will append multiple data sets in single file. When I tried this, file with ~40 images hang sasView badly and I needed to kill it.
 
 "Append processed 2D data to Nexus" will append the calibrated 2D data in the file. It is not obvious if there is any program which can accept these data, so, even though there is standard on this, it makes little to no sense to do.
 
@@ -886,17 +886,17 @@ Bottom controls
 
 These controls have following functions:
 
-“\ **Display only checkbox**\ ” Nika will average all selected files, which are selected in the list box, and display them as one Figure. The program will just load and display the Figures, including some processing (dezinging), if selected. but no calibration or other processing is done. This is really for preview of how the Figure looks like.
+“\ **Display only checkbox**\ ” Nika will average all selected files, which are selected in the list box, and display them as one image. The program will just load and display the images, including some processing (dezinging), if selected. but no calibration or other processing is done. This is really for preview of how the image looks like.
 
-Note, if more than 1 Figure is selected, the Figures are first AVERAGED – that is intensities for each pixel as summed together and then divided by number of Figures.
+Note, if more than 1 image is selected, the images are first AVERAGED – that is intensities for each pixel as summed together and then divided by number of images.
 
-“\ **Process sel. files individually**\ ” Nika will load one Figure at a time from the files selected in the list box and processeach individually according to selection in the tabbed area. For each input file you get all output data (whatever you selected above).
+“\ **Process sel. files individually**\ ” Nika will load one image at a time from the files selected in the list box and processeach individually according to selection in the tabbed area. For each input file you get all output data (whatever you selected above).
 
-“\ **Avergae all selected and process**\ ” Nika will average all selected files in the list box and process them - together as one input data - according to selection in the tabbed area. You get ONE output data (whatever you selected above) for all together. Typically used when multiple Figure of same condition are collected to improve statistics.
+“\ **Avergae all selected and process**\ ” Nika will average all selected files in the list box and process them - together as one input data - according to selection in the tabbed area. You get ONE output data (whatever you selected above) for all together. Typically used when multiple image of same condition are collected to improve statistics.
 
-Note, if more than 1 Figure is selected, the Figures are first AVERAGED – that is intensities for each pixel as summed together and then divided by number of Figures.
+Note, if more than 1 image is selected, the images are first AVERAGED – that is intensities for each pixel as summed together and then divided by number of images.
 
-“\ **Average N of selected and process**\ ” Nika will average Sequentially (in order) N selected files in the list box and process them - together as one input data - according to selection in the tabbed area. You get ONE output data (whatever you selected above) for each N Figures. Typically used when multiple Figure of same condition are collected to improve statistics.
+“\ **Average N of selected and process**\ ” Nika will average Sequentially (in order) N selected files in the list box and process them - together as one input data - according to selection in the tabbed area. You get ONE output data (whatever you selected above) for each N images. Typically used when multiple image of same condition are collected to improve statistics.
 
 This opens further controls:
 
@@ -904,36 +904,36 @@ This opens further controls:
    :align: center
    :width: 70%
 
-“\ **N =**\ ” This controls how many Figures Nika will avergae over.
+“\ **N =**\ ” This controls how many images Nika will avergae over.
 
 “\ **Skip Bad files**\ ” Enables to skip automatically processing of files, which have too low intensity (SetVariable control with limiting value appears when selected). Used to skip files which were accidentally NOT exposed in case of failing shutters or other issues.
 
-“\ **Min int =**\ ” This defines "bad Figure". Typically bad Figure has much lower intensity than good Figure (shutter did not open, instrument failed) and so one one set minimum intensity in Figure needed to consider such Figure a good one. If bad Figure is found, it is skipped. Note, that even bad Figures are counted in the "N" value.
+“\ **Min int =**\ ” This defines "bad image". Typically bad image has much lower intensity than good image (shutter did not open, instrument failed) and so one one set minimum intensity in image needed to consider such image a good one. If bad image is found, it is skipped. Note, that even bad images are counted in the "N" value.
 
-“\ **Display RAW data**\ ” will display in the Figure right of the panel the UNCORRECTED data file as loaded in. Values for the pixles are raw counts from the detector.
+“\ **Display RAW data**\ ” will display in the image right of the panel the UNCORRECTED data file as loaded in. Values for the pixles are raw counts from the detector.
 
-“\ **Display Processed**\ ” will display in the Figure right of the panel the fully CORRECTED and CALIBRATED data. The values for the pixles should be directly absolute intensity in this case. This choice is not available, if Figure was loaded through using “\ **Ave & Display sel. Files(s)**\ ”. In this case no processing of the Figure was done. Use button “\ **Convert sel. Files 1 at time**\ ” or the other buttons…. Just remember, that only the last Figure is available for display.
+“\ **Display Processed**\ ” will display in the image right of the panel the fully CORRECTED and CALIBRATED data. The values for the pixles should be directly absolute intensity in this case. This choice is not available, if image was loaded through using “\ **Ave & Display sel. Files(s)**\ ”. In this case no processing of the image was done. Use button “\ **Convert sel. Files 1 at time**\ ” or the other buttons…. Just remember, that only the last image is available for display.
 
-“\ **Colors**\ ” Choice of color scales. These are now remebered on a given computer, the the last one should be reused next time. Default is Terrain.
+“\ **Colors**\ ” Choice of color scales. These are now remembered on a given computer, the the last one should be reused next time. Default is Terrain.
 
-“\ **Scale Img x**\ ” User can select how large the Figure shoudl be displayed on the screen. If input Figure is too large, set smaller so it fits on the screen (this should eb done automatically anyway), if it is small, scale up to have it cover larger fraction of the screen.
+“\ **Scale Img x**\ ” User can select how large the image shouLd be displayed on the screen. If input image is too large, set smaller so it fits on the screen (this should eb done automatically anyway), if it is small, scale up to have it cover larger fraction of the screen.
 
-“\ **Display beam center**\ ” will add circles in the Figure showing where beam center is set
+“\ **Display beam center**\ ” will add circles in the image showing where beam center is set
 
 “\ **Display sectors/Lines**\ ” will add lines showing sectors or lines, which are selected for data analysis (if any)
 
-“\ **Log Int display**\ ” will switch displayed Figure into log (intensity) or linear (Intensity).
+“\ **Log Int display**\ ” will switch displayed image into log (intensity) or linear (Intensity).
 
-“\ **Figure with Q axes**\ ” Appends Qx/Qy (or Qz/Qy) axes to displayed Figure. Note, when unchecked, it has to recreate the Figure, since these Q
+“\ **image with Q axes**\ ” Appends Qx/Qy (or Qz/Qy) axes to displayed image. Note, when unchecked, it has to recreate the image, since these Q
 axes cannot be removed any other way.
 
-“\ **Figure w/ Q axes with grid**\ ” Appends Qx/Qy (or Qz/Qy) axes to displayed Figure – with grid lines. Note, when unchecked, it has to recreate the Figure, since these Q axes cannot be removed any other way.
+“\ **image w/ Q axes with grid**\ ” Appends Qx/Qy (or Qz/Qy) axes to displayed image – with grid lines. Note, when unchecked, it has to recreate the image, since these Q axes cannot be removed any other way.
 
-“\ **Display Color Scale?**\ ” Appends color scale to Figure.
+“\ **Display Color Scale?**\ ” Appends color scale to image.
 
-“\ **User def. Min/Max?**\ ” Opens controls to set manually max and min intensity to display in the Figure. Does not change when new Figure is loaded.
+“\ **User def. Min/Max?**\ ” Opens controls to set manually max and min intensity to display in the image. Does not change when new image is loaded.
 
-“\ **Sliders**\ ” Slide to set min and max intensity displayed in the Figure. Resets when new Figure is loaded.
+“\ **Sliders**\ ” Slide to set min and max intensity displayed in the image. Resets when new image is loaded.
 
 
 .. index::
@@ -971,7 +971,7 @@ In the following panel which shows after selecting “Polarization correction”
 
 After selecting Polarized radiation you need to make further choice…
 
-If the Sigma Polarization Plane is 0 degrees, then the detector orientation is such, that the polarization plane is horizontal in the Nika Figure of the detector. Note that horizontal is Nika’s definition of 0 degrees on the detector.
+If the Sigma Polarization Plane is 0 degrees, then the detector orientation is such, that the polarization plane is horizontal in the Nika image of the detector. Note that horizontal is Nika’s definition of 0 degrees on the detector.
 
 **This has nothing to do with the orientation of polarization in real World, this is an orientation between the polarization plane and the way detector is read. In this case the correction looks like this:**
 
@@ -982,9 +982,9 @@ If the Sigma Polarization Plane is 0 degrees, then the detector orientation is s
 
 with largest correction (increase of intensity) where the color is blue.
 
-For case, when polarization plane is vertical in Igor Figure (perpendicular to Nika’s definition of 0 degrees on detector) , the correction looks like this:
+For case, when polarization plane is vertical in Igor image (perpendicular to Nika’s definition of 0 degrees on detector) , the correction looks like this:
 
-.. Figure:: media/Main46.png
+.. image:: media/Main46.png
    :align: center
    :width: 380px
 
