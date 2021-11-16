@@ -28,7 +28,7 @@ Other instrument setups can be added on request. Provide me with enough data and
 .. _Nika.9IDC_Instrument:
 
 .. index::
-    Nika; 9ID-C instrument support
+    Nika Instrument Support; 9ID-C instrument support
 
 9ID SAXS - WAXS
 ---------------
@@ -38,7 +38,7 @@ This is support for APS beamline 9ID SAXS and WAXS instruments. This is my beaml
 .. _Nika.12IDC_Instrument:
 
 .. index::
-    Nika; 12ID-C instrument support
+    Nika Instrument Support; 12ID-C instrument support
 
 
 12ID-C SAXS using Gold detector
@@ -62,7 +62,7 @@ To use follow these steps:
 .. _Nika.12IDB_Instrument:
 
 .. index::
-    Nika; 12ID-B instrument support
+    Nika Instrument Support; 12ID-B instrument support
 
 
 12ID-B SAXS WAXS
@@ -76,7 +76,7 @@ This code may or may not work at this time. We are still working some details on
 .. _Nika.ALS_RSoXS:
 
 .. index::
-    Nika; ALS RSoXS instrument support
+    Nika Instrument Support; ALS RSoXS instrument support
 
 
 RSoXS ALS soft energy instrument
@@ -87,7 +87,7 @@ This is support for ALS RSoXS instrument. When selected, it allows users to use 
 .. _Nika.SSRL_MatSAXS:
 
 .. index::
-    Nika; SSRL Mat SAXS instrument support
+    Nika Instrument Support; SSRL Mat SAXS instrument support
 
 
 SSRL Mat SAXS
@@ -98,7 +98,7 @@ This is support for SSRL Materials science SAXS camera. When selected, it sets f
 .. _Nika.TPA:
 
 .. index::
-    Nika; TPA instrument support
+    Nika Instrument Support; TPA instrument support
 
 TPA
 ---
@@ -109,7 +109,7 @@ This supports data from Australian SANS instrument. Not much more details provid
 .. _Nika.SMI_NSLSII:
 
 .. index::
-    Nika; SMI NSLS-II instrument support
+    Nika Instrument Support; SMI NSLS-II instrument support
 
 
 Soft Matter Interfaces SMI at NSLS-II
@@ -123,7 +123,7 @@ If you have other canSAS/Nexus data from another instrument, please, provide me 
 .. _Nika.5ID_DND:
 
 .. index::
-    Nika; APS 5ID DND SAXS/WAXS instrument support
+    Nika Instrument Support; APS 5ID DND SAXS/WAXS instrument support
 
 
 DND CAT (APS 5ID) SAXS camera

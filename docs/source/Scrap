@@ -1,17 +1,47 @@
 Test header
 ===========
 
-Here is my tesxt to playwith.::
+Here is my text to playwith.::
 
-     print 'helo'
-     >> helo
+This creates active link:
 
-.. _important.QRS:
+define location (IMPORTANT):
 
-.. _important.QIS:
+.. _FAQ.ModelingMultipleUFlevels:
 
-_important.USAXSNames:
+and use as click link:
 
-_important.slit_smeared
+:ref:`Why does Modeling warn against use of multiple Unified levels? <FAQ.ModelingMultipleUFlevels>`
 
-_important.GeneticOptimization
+
+
+this makes record in index under:
+
+index:
+D
+Data naming convention
+    Introduction
+
+where Introduciton is clickable.
+
+.. index:: Data naming convention; Introduction
+
+or
+.. index::
+    model; Form Factors
+    Form and Structure Factors
+
+
+This makes clicable record in index:
+
+.. index:: Export data
+
+under Export Data.
+
+
+to compile locally:
+terminal
+cd /Users/ilavsky/GitHub/SAXS_IgorCodeDocs
+conda env list
+conda activate base (if needed)
+make -C docs clean html

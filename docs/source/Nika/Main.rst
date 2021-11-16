@@ -1,5 +1,5 @@
 .. index::
-    Nika; Main panel Nika
+    Nika; Main panel
 
 
 Main Panel
@@ -872,10 +872,7 @@ Checking the checkbox *Export Nexus* brings up dialog for Nexus Export and impor
 
 
 .. index::
-    Nika bottom controls
-
-.. index::
-   Nika; Bottom Controls
+     Nika; Bottom Controls
 
 Bottom controls
 ---------------
@@ -991,11 +988,9 @@ For case, when polarization plane is vertical in Igor image (perpendicular to Ni
 
 with maximum correction (blue color).
 
-.. index::
-    Nika uncertainties
 
 .. index::
-    Nika; uncertainties
+    Nika uncertainties
 
 
 Uncertainties (“Errors”)
@@ -1015,7 +1010,6 @@ The Uncertainty method can be changed in the “Configuration panel” available
    :align: center
    :width: 380px
 
-.. index:: Q resolution Nika
 
 .. index::
     Nika; Q-resolution

@@ -29,7 +29,8 @@ Unload the macros
 
 When you want to pass Igor experiment to someone without Irena installed, it is good idea to remove the Irena from current experiment. Removing the macros itself is achieved by selecting “Remove Irena package”, the very last item in the last “SAS” submenu. This will unload macros and put back in the “Macros” menu command to load Irena macros in the future.
 
-.. index:: Data naming convention; Introduction
+.. index::
+  Data naming convention; Introduction
 
 Data naming conventions
 -----------------------
@@ -44,7 +45,9 @@ Data manipulations tools, which create a new (e.g., merged) data set will create
 
 .. _important.QRS:
 
-.. index:: QRS names, Data naming convention; QRS
+.. index::
+  QRS names
+  Data naming convention; QRS
 
 Data naming conventions - QRS
 -----------------------------
@@ -73,7 +76,9 @@ This is data naming convention for data stored within Igor experiment, typically
 
 **w\_NameOfSample width of each bin of Q, d, or 2 theta.**
 
-.. index:: QIS names, Data naming convenition; QIS
+.. index::
+  QIS names
+  Data naming convention; QIS
 
 .. _important.QIS:
 
@@ -98,7 +103,9 @@ This is data naming convention for data stored within Igor experiment, typically
 
 .. _important.USAXSNames:
 
-.. index:: USAXS names, Data naming convenition; USAXS
+.. index::
+  USAXS names
+  Data naming convention; USAXS
 
 Data naming conventions - USAXS
 -------------------------------

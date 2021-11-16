@@ -1,7 +1,7 @@
 .. _import_data:
 
 .. index::
-    Import data, Introduction
+    Import data
 
 Import data
 ===========

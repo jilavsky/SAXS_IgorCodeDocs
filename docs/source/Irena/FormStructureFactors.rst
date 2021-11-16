@@ -167,14 +167,6 @@ Form factors & their parameters
      - Side C ratio
      - ParticlePar2	//Ratio side C/A
 
-.. index::
-		model; User Form Factor
-
-**User Form Factor**
---------------------
-
-is flexible option to use when Irena does not have the specific form factor a user need. It uses user provided functions for Form factor and Volume of a scatterer. Details are provided :ref:`later in this document <FormFactors.User>`. `Github Irena depository
-<https://github.com/jilavsky/SAXS_IgorCode/tree/master/User%20form%20factors%20for%20Irena/>`_ has place where users can share their form factors. Instructions how to download are on this page. If you have Form factor to share, please, send it to ilavsky@aps.anl.gov.
 
 .. index::
 		model; Structure Factors

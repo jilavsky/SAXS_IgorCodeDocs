@@ -1,7 +1,8 @@
 .. _System_specific_Models:
 
 .. index::
-   model; lamellar structures
+   model; Lamellar structures
+   System Specific Models
 
 System specific models
 ======================
@@ -25,7 +26,7 @@ For explanation of the Unified level control, please see Unified fit. Unified ca
 Tool overview and use
 ---------------------
 
-The use of the tool will be demonstrated on Debye-Bueche model, but is similar for all models. The tool uses new generation data selection tool, used by Muti Sample Plotting tool, all bioSAXS tools, etc. In the top part are controls which allow users to choose what data will be listed in the listbox. Choices are USAXS data or QRS data, USAXS can be slit smeared or desmeared and one can use "Folder match string" (uses Regular expressions, see bottom of panel for hints how to use them).
+The use of the tool will be demonstrated on Debye-Bueche model, but is similar for all models. The tool uses new generation data selection tool, used by Muti Sample Plotting tool, all bioSAXS tools, etc.  :ref:`see <DataSelectionMulti>`. In the top part are controls which allow users to choose what data will be listed in the listbox. Choices are USAXS data or QRS data, USAXS can be slit smeared or desmeared and one can use "Folder match string" (uses Regular expressions, see bottom of panel for hints how to use them).
 
 .. Figure:: media/SysSpecModels01.jpg
    :align: center
@@ -68,7 +69,7 @@ These buttons and checkboxes control, how the data are fitted and results saved.
 
 *Save to folder* checkbox - this will save waves with results (Q, and intensity) into data folder. They can be plotted later and also can be "recovered" - if same solution has been found in the folder, code will offer to reload the parameters from this solution. Useful when you need to jump through many data sets.
 
-*Save to waves* checkbox - creates folder (e.g. for Bebye-Bueche root\:DebyeBuecheResults\: ) and save waves with each individual parameter there. Data are added in order they are processed, wave with folder names is also created. This is useful when you need easy way of plotting the results of sequence of analysis.
+*Save to waves* checkbox - creates folder (e.g. for Debye-Bueche root\:DebyeBuecheResults\: ) and save waves with each individual parameter there. Data are added in order they are processed, wave with folder names is also created. This is useful when you need easy way of plotting the results of sequence of analysis.
 
 *Delay in Seq. Proc:* sets time which code waits in between analysis of data sets in sequence. Useful for visual inspection and making notes when processing larger set of data.
 
@@ -79,7 +80,10 @@ These buttons and checkboxes control, how the data are fitted and results saved.
 \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
 
 **Models details**
-==================
+---------------------
+
+.. index::
+   model; Debye-Bueche
 
 Debye-Bueche model for gels
 ----------------------------
@@ -130,6 +134,8 @@ In this plot we use Eta and Corr length, wavelentgth is read from header or can 
 
 \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
 
+.. index::
+   model; Treubner-Strey
 
 
 Treubner-Strey for small-angle diffraction
@@ -168,6 +174,9 @@ This is example of plot of Treubner-Strey model on arbitrary data, I do not seem
 \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
 
 .. _model.Ciccariello_Benedetti:
+
+.. index::
+   model; Ciccariello–Benedetti
 
 
 Ciccariello–Benedetti model for coated smooth surfaces
@@ -208,6 +217,10 @@ Note, that one may need to select also SAS background and set fitting limits and
 
 .. _model.Hermans:
 
+.. index::
+   model; Hermans
+
+
 Hermans model for lamellar systems
 -----------------------------------
 
@@ -223,6 +236,9 @@ For details see: https://doi.org/10.1016/j.polymer.2021.124281
 \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
 
 .. _model.Modfied_Hermans:
+
+.. index::
+   model; Modified Hermans
 
 Modified Hermans model for lamellar systems
 -------------------------------------------
@@ -240,11 +256,13 @@ For details see: https://doi.org/10.1016/j.polymer.2021.124281
 
 .. _model.Unified-Born-Green:
 
+.. index::
+   model; Unified Born-Green
+
 Unified Born Green model for lamellar systems
 ---------------------------------------------
 
 For details see: https://doi.org/10.1016/j.polymer.2021.124281
-
 
 
 .. Figure:: media/SysSpecModels_UBG1.jpg

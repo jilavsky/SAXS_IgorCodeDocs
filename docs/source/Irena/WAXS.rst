@@ -1,7 +1,6 @@
 .. _model.waxs:
 
 .. index::
-   model; WAXS
    WAXS
    Powder diffraction
 
