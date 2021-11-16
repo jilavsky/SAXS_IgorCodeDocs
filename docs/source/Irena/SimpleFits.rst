@@ -71,13 +71,14 @@ In the image one can see results of run of Spheroid model on sequence of data se
 
 *Delete Existing results* This button will close  table with results and delete the folder  root\:SpheroidFitResults (or similarly named folder with results from different fitting model). Be careful, there is no recovery for this.
 
-*To display & further process* the results stored in the results folder, you can use :ref:`DataBrowser additions <DataBrowser additions>`.
+..
+  *To display & further process* the results stored in the results folder, you can use :ref:`DataBrowser additions <DataBrowser additions>`.
 
 Models supported:
 -----------------
 
  | *Guinier*
- 
+
 Fits Guinier law.
 
  | *Porod*

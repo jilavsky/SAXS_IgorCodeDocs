@@ -39,7 +39,8 @@ Now, user can save results. Results can be saved in three ways using the three c
 
 User can select multiple data sets in the listbox, method to use, Q range to use, and way to store results and run same analysis method on sequence of the data. Note, that data are processed in the order (from top to bottom) they are displayed in the Listbox. It is really useful to order the processing in meaningful order (time, temperature, etc.) which then results in the tables being in suitable order.
 
-*To display & further process* the results stored in the results folder, you can use :ref:`DataBrowser additions <DataBrowser additions>`.
+..
+  *To display & further process* the results stored in the results folder, you can use :ref:`DataBrowser additions <DataBrowser additions>`.
 
 
 **Using the tool**

@@ -43,7 +43,10 @@ Modeling II can use up to 10 "populations" or models : each can be either "Size 
 
 **NOTE: “Unified level” :** this is kind of simplified Unified level and the tool will complain (once every 24 hours) if you try to use more than one Unified level. It is not impossible, but it is discouraged. If you need more Unified levels, you need “Unified fit” tool. There are various rules and relationships, which can be enforced in that tool. The reason for Unified level here is to enable one combine scattering from particulate system with the scattering from fractal system formed by these particles. Typical use is to describe low-q power law slope, which is mass fractal of primary particles, which then can be modeled correctly. For more details, read: :ref:`Unified Fit <unified-fit>`.
 
-**NOTE: "Diffraction peak" :** this is simplified version of Diffraction tool and for now there is no way to include relationships between the peaks (to provide for specific structures) as the Diffraction tool allows. Fort more details on the terms, peak profiles etc. read the Diffraction tool chapter, :ref:`Diffraction Peaks<PeaksShapes>`.
+**NOTE: "Diffraction peak" :** this is simplified version of Diffraction tool and for now there is no way to include relationships between the peaks (to provide for specific structures) as the Diffraction tool allows. Fort more details on the terms, peak profiles etc. read the Diffraction tool chapter.
+
+..
+  :ref:`Diffraction Peaks<PeaksShapes>`
 
 **NOTE: "Mass Fractal" and "Surface Fractal" :** These are analytical formulas of mass fractal and surface fractal. The use and parameters copy dedictaed tool :ref:`Fractal model<model.Fractal>` For details see also  :ref:`Mass and Surface Fractals <MassAndSurfaceFractals>`.
 
