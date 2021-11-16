@@ -32,8 +32,8 @@ The use of the tool will be demonstrated on Debye-Bueche model, but is similar f
    :align: center
    :width: 480px
 
-**Controls**
-------------
+Controls
+--------
 
 Pick data type of the top to display dat you want to see and order them the way you need. *Add one data* set into the tool by *double click* a dataset. This will add the data in the tool and create a log-log plot. The blue letters above the Model pulldown menu show, which data set is currently being analyzed.
 
@@ -79,8 +79,8 @@ These buttons and checkboxes control, how the data are fitted and results saved.
 
 \*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
 
-**Models details**
----------------------
+Models details
+--------------
 
 .. index::
    model; Debye-Bueche

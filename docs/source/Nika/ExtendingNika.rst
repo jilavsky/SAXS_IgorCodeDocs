@@ -53,8 +53,8 @@ To read a specific value from this code I wrote following function:
       //this function can be easily modified to return different values from the table
       //
       //To use this place this code in a text file with extension .ipf file in
-      //Documents/Wavemetrics/Igor Pro 7 User Procedures/Igor Procedures
-      //(or /Igor Pro 6 Igor Procedures/)
+      //Documents/Wavemetrics/Igor Pro 8 User Procedures/Igor Procedures
+      //(or /Igor Pro 9 Igor Procedures/)
       //ipf files placed in Igor Procedures folder are loaded always when Igor starts.
       //
       //Then in Nika : check "use sample Thickness (t)" checkbox and

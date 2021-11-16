@@ -2,7 +2,7 @@
 
 .. index::
    model; size distribution
-   size distributions; model SAS data
+   Size distribution
 
 Size Distribution
 ====================

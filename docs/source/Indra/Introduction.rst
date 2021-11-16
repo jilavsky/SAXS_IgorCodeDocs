@@ -8,7 +8,7 @@ Introduction
 
 This is manual for Indra package for data reduction of USAXS data collected on 9ID-C USAXS/SAXS/WAXS instrument at the Advanced Photon Source (APS) of Argonne National Laboratory. For more details see https://usaxs.aps.anl.gov
 
-Manual |release| for Indra version 1.93 for Igor 7.05 and above
+Manual |release| for Indra version 1.93 for Igor 8.04 and above
 
 |today|
 

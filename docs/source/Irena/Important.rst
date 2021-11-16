@@ -137,7 +137,8 @@ This is data naming convention for data stored within Igor experiment, required 
 Slit smeared (USAXS) data
 -------------------------
 
-.. index:: Slit smeared data
+.. index::
+  Slit smeared data
 
 Fitting slit smeared data is major *Irena* **advantage**. It is nearly **ALWAYS** better to fit slit smeared data than to desmear the data and then fit them. However, some *Irena* tools have limitations when fitting smeared data: due to need to smear data and the way it is handled by *Irena* routine, the modeled range of data (the high-\ *q* selected for modeling and fitting) have to be larger than slit length. Typical slit length of the USAXS instrument is 0.02-0.03 A\ :sup:`-1`, so the high-\ *q* range needed to be at least 0.08 A\ :sup:`-1`. This means, that it is not possible to select for modeling data from small-qs to only 0.02 A\ :sup:`-1` ONLY.
 
@@ -145,7 +146,8 @@ This is fixed now for **Modeling, Unified Fit, and Size distribution** by adding
 
 .. _important.Qresolution:
 
-.. index:: Q resolution Irena
+.. index::
+  Q resolution Irena
 
 Per point smeared data by Q resolution
 ---------------------------------------
@@ -157,33 +159,54 @@ Kill all Irena panels and graphs
 
 .. _important.KillPanels:
 
-.. index:: Close all panels (Irena)
+.. index::
+  Close all panels (Irena)
 
 This menu item allows closing all Irena related windows – panels and graphs – to be closed at once. Very convenient…
 
-Open Irena pdf manual
----------------------
+Irena manual
+-------------
 
 .. _important.OpenManual:
 
-.. index:: Manual, Open Manual
+.. index::
+  Manual
+  Open Manual
 
-In most cases this should open Irena manual in default pdf reader. If you are reading this, you probably managed. Better is to access manual on the web site:
+In most cases button *Help* present on most panels should open Irena manual in web browser on web site:
 
 http://saxs-igorcodedocs.readthedocs.io/en/latest/index.html
+
+You can also download from there version of the manual in pdf, epub, and html as zip file. These can be used for off-lien reading of manual.
+
+Irena youtube channel
+---------------------
+
+.. _important.Youtube:
+
+.. index::
+  Youtube
+
+
+Movies are available here :
+
+https://www.youtube.com/channel/UCDTzjGr3mAbRi3O4DJG7xHA/about
+
 
 Open Form factor description
 --------------------------------------
 
 .. _important.OpneFFDescription:
 
-.. index:: Form factors
+.. index::
+  Form factors
 
 This should open pdf file with form factors description – including simplified code and graphs. These are form factors in the “central bank” of the Irena, available for use in packages, which use them.
 
 .. _important.UpdateCheck:
 
-.. index:: Update check Irena
+.. index::
+  Update check Irena
 
 Check for updates
 -----------------
@@ -201,7 +224,8 @@ The buttons open appropriate web pages in your web browser.
 Location of items in SAS menu
 ------------------------------
 
-.. index:: Irena menu items
+.. index::
+  Irena menu items
 
 The location of items in SAS menu keeps changing. Here is current (version 2.62) location to help you find what you need…:
 
@@ -275,9 +299,10 @@ unsuccessfully.
 
 “Configure Figure default fonts and names” in the SAS menu will create panel with some controls common for all tools, like font type & size and how legend names are handled. NOTE: Panel controls are applied immediately to all existing panels, graph controls are applied ONLY to the newly created graphs (and only those which were upgraded to this behavior).
 
-.. index:: DO NOT restore Panel Sizes
-           Panel size
-           Panel position and size restore
+.. index::
+  DO NOT restore Panel Sizes
+  Panel size
+  Panel position and size restore
 
 .. _important.DoNOTRestorePanelSizes:
 
@@ -312,7 +337,8 @@ Not all packages follow these controls yet, if you see issues in package of your
 
 .. _DataSelection:
 
-.. index:: Data Selection Controls (Irena)
+.. index::
+  Data Selection Controls (Irena)
 
 Data selection
 ---------------
@@ -413,7 +439,8 @@ Match strings are tool-specific, so each tool has its own specific set of match 
 
 .. _DataSelectionMulti:
 
-.. index:: MultiData Selection Controls
+.. index::
+  MultiData Selection Controls
 
 MultiData selection
 -------------------

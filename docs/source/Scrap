@@ -11,7 +11,7 @@ define location (IMPORTANT):
 
 and use as click link:
 
-:ref:`Why does Modeling warn against use of multiple Unified levels? <FAQ.ModelingMultipleUFlevels>`
+:ref:`Sometext <FAQ.ModelingMultipleUFlevels>`
 
 
 
@@ -45,3 +45,7 @@ cd /Users/ilavsky/GitHub/SAXS_IgorCodeDocs
 conda env list
 conda activate base (if needed)
 make -C docs clean html
+
+
+
+In the top part are :ref:`standard data selection tools <DataSelection>`. In the top part user can select *First set data input* and \ *Second set data input*.

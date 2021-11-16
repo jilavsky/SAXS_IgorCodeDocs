@@ -2,13 +2,13 @@
 
 .. index::
     Introduction Irena
-    
+
 Introduction
 ============
 
 Jan Ilavsky and Peter R. Jemian, *“Irena: tool suite for modeling and analysis of small-angle scattering”*, Journal of Applied Crystallography, vol. 42 (2009). Please e-mail me, if you need copy.
 
-Manual |release| for Irena version 2.62 for Igor 7.x
+Manual |release| for Irena version 2.62 for Igor 8.04 or higher
 
 |today|
 
@@ -33,10 +33,12 @@ These macros represent a collaborative work in progress and it is very likely th
 
 ilavsky@aps.anl.gov
 
-Description
------------
 
-The “\ *Irena*\ ” package is a suite of Igor Pro (Wavemetrics, version Igor 7.x) macros for the evaluation of small-angle scattering data. It has been designed to use seamlessly data from APS USAXS instrument (currently beamline 9ID, Advanced Photon Source, Argonne, IL); reduced using “Indra” package. Further it can work easily with any SAS data, which have scattering vector (q), Intensity, and (optional) Intensity uncertainty (“error”). Latest releases can, in specific cases (only) use also q resolution. It can easily use “qrs” (or "qis", NIST) naming system. It easily integrates with 2D (area detector) SAXS/WAXS data reduction package “Nika” which uses the qrs naming system. Its use for most other data is made easy by a customized import tool, which should be able to handle most “column-type” ASCII data from various SAS instruments.
+---------------------------------------------------------------------------
+
+**Description**
+
+The “\ *Irena*\ ” package is a suite of Igor Pro (Wavemetrics, version Igor 8.04 or higher) macros for the evaluation of small-angle scattering data. It has been designed to use seamlessly data from APS USAXS instrument (currently beamline 9ID, Advanced Photon Source, Argonne, IL); reduced using “Indra” package. Further it can work easily with any SAS data, which have scattering vector (q), Intensity, and (optional) Intensity uncertainty (“error”). Latest releases can, in specific cases (only) use also q resolution. It can easily use “qrs” (or "qis", NIST) naming system. It easily integrates with 2D (area detector) SAXS/WAXS data reduction package “Nika” which uses the qrs naming system. Its use for most other data is made easy by a customized import tool, which should be able to handle most “column-type” ASCII data from various SAS instruments.
 
 *Irena* contains following parts:
 

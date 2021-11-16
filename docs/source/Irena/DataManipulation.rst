@@ -8,9 +8,10 @@ Data manipulation tools
 List of Tools
 ----------------
 
-1.  :ref:`Data Manipulation 1 - one or two data sets <data_manipulation_1>`
-2.  :ref:`Data Manipulation 2 - many data sets <data_manipulation_2>`
-3.  :ref:`Data Merge - two data segments <data_merge>`
+#.  :ref:`Data Manipulation 1 - one or two data sets <data_manipulation_1>`
+#.  :ref:`Data Manipulation 2 - many data sets <data_manipulation_2>`
+#.  :ref:`Data Manipulation 3 - many data sets <data_manipulation_3>`
+#.  :ref:`Data Merge - two data segments <data_merge>`
 
 Data manipulation I
 -------------------
@@ -388,7 +389,7 @@ The tool has two main modes of operation
 There are currently two Merge methods. Some has been already described above, but here are the details.
 
 1. **Optimized Overlap** This is the main part of the Data Merging tool. This is done always and is default method of this tool. If you push button "Reset merge params" this method is selected. If data have sufficiently good quality for both data sets over sufficient q/point range, this is preferred method. In this case the code will take the overlapping region in data and optimize values of all selected Parameters (Data 1 Backg., Data 2 Scaling, Data 1 or 2 Q shift). Any number of parameters can be selected. Value of the others, if known, can be put in by users manually. Default is to fit Data 1 Background and Data 2 scaling. Data 1 and 2 Q shift is assumed to be 0. Combined data contain Data 1 from their minimum Q to the high Q of overlap region. Data 2 start at low Q of overlap region and go to their high Q. In the overlap region you have both Data 1 and Data 2 points.
-1. **Optimized Overlap, trim Data1** This is same method as "Optimized Overlap", but when data are combined, Data1 are used only to the low Q of the overlap region. Then Data 2 start. Therefore, there is not region in which there would be both Data 1 and Data 2 points. Overlapping region is using ONLY Data 2. This often results in less noise in the overlapping region, especially on USAXS where high Q may be very noisy and have high uncertainties. 
+1. **Optimized Overlap, trim Data1** This is same method as "Optimized Overlap", but when data are combined, Data1 are used only to the low Q of the overlap region. Then Data 2 start. Therefore, there is not region in which there would be both Data 1 and Data 2 points. Overlapping region is using ONLY Data 2. This often results in less noise in the overlapping region, especially on USAXS where high Q may be very noisy and have high uncertainties.
 3. **Extrap. Data1 and Optimize** This is optional part of the process. If selected, Data 1 is first fitted with function selected in "Extrap fnc." popup (below the "Merge method popup") - options are Porod (Intensity = Backgr. + Const * Q\ :sup:`-4`), "Power Law" (Intensity = Const * Q\ :sup:`-P`) or "Power law w Backg" (Intensity = Backgr. + Const * Q\ :sup:`-P`). Range of data used for fitting is selected by cursors C and D, which are placed in the graph when needed. The look like cross and have letters next to them:
 
 .. Figure:: media/DataManipulation20.jpg
@@ -489,3 +490,35 @@ If I zoom in the data and look at them in detail, it should be clear what happen
 As you can see, original noisy Data 1 points (red data) are replaced between cursor C and B with smooth power law data (with original error bars). Those data are then merged with the Data 2 which are nearly perfectly scaled to Data 1, even though the overlap region is quite small (there are only 6 points of each data in the overlap region). Since the Data 1 are here approximated with lots more data points to create data for overlap, the robustness of this merging is much higher than when 6 noisy points are used. Also, since the cursor D is at lower q value than even cursor A, merging data are calculated from more, less noise, more robust points. Assuming the Power law is correct approximation of data in the selected range between cursor C and B, this is better way of merging data.
 
 Now I can push "Save Data" button and actually, in this case, use same setting for all of the data I have in the set, since they are all very similar.
+
+.. index:: Data Manipulation III
+
+.. _data_manipulation_3:
+
+
+Data manipulation III
+----------------------
+
+New tool, using new GUI for quick processing of many data sets quickly. For now, work in progress. The tool uses new generation data selection tool, used by Muti Sample Plotting tool, all bioSAXS tools, etc.  :ref:`see <DataSelectionMulti>`.
+
+**Description**
+
+.. Figure:: media/DataManipulation28.jpg
+           :align: left
+           :width: 460px
+
+This tool is under development. It can currently do limited number of operations, but it can do them  quickly and easily.
+
+*Process data* - this is default and what can be done is selected by checkboxes :
+  #. *Trim data* - trims Q range fo data, set Q values for Qmin and Qmax.
+  #. *Subtract data* - subtracts data set. For now simply subtracts the data set without scaling anything.
+
+Double click adds data to graph.
+Use *Process data* to process data. If only one data are selected in the listbox, you need to use *Save data* button to save results. If range of data sets is selected in the Listbox, they are processed and saved.
+
+
+*Average multiple data* will average all selected data sets into one.
+
+*Delete data* - this tool can delete data. There is no undo. Waves are deleted and if the folder left is empty, it should be deleted also.
+
+more development is planned as needed. 

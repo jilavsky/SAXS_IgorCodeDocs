@@ -15,8 +15,8 @@ List of Tools
 
 .. _plotting_tool_I:
 
-
------
+Plotting tool I
+---------------
 
 .. Figure:: media/Plotting1.png
    :align: left
@@ -25,7 +25,7 @@ List of Tools
 
 **Introduction**
 
-This plotting tool is designed to be able to produce publication ready plots of variaous types of 1D data : SAXS/SANS and WAXS data, any of Irena results, and practically anything which one should display in XY type plot. It can also perform simple fits. The tool creates usual XY plot as default, but can also create few types of 3D plots - Contour plot, Waterfall plot and Gizmo plot. It can also create movies of either 2D plot and 3D plots.
+This plotting tool is designed to be able to produce publication ready plots of various types of 1D data : SAXS/SANS and WAXS data, any of Irena results, and practically anything which one should display in XY type plot. It can also perform simple fits. The tool creates usual XY plot as default, but can also create few types of 3D plots - Contour plot, Waterfall plot and Gizmo plot. It can also create movies of either 2D plot and 3D plots.
 
 The tool allows creation of plot user styles, which can be applied quickly and reproducibly to numerous sets of data. New data types can be automatically created. Please note, that the formatting is saved ONLY if it is done through my custom made panels designed for this purpose.
 
@@ -47,8 +47,8 @@ The tasks, which can be done:
 
 This tool can also display “results” – size distributions, Unified fits etc.
 
-Plotting tool I
----------------
+How to use
+~~~~~~~~~~
 
 Select “Plotting I” from SAS menu.
 
@@ -182,8 +182,8 @@ Results are printed in graph:
 
 To remove the results from the graph and clean it up, use button “Remove Tags and Fits”.
 
-Remove a data set from the graphing tool
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Remove a data set
+~~~~~~~~~~~~~~~~~
 
 To restart the tool and cleanup the data from graph push button “Kill graph, reset”, to remove one data set at a time from the tool, use button “Remove data”.
 
@@ -290,7 +290,7 @@ You can create sequence of 2D graphs or 3D graphs, in 2d graphs you can either a
 Plotting tool II
 ----------------
 
-This is modification of plotting tool developed by Dale Schaefer. This tool control ANY top graph. It can, therefore, be used more flexibly – but has some limitations… This tool is likely to be developed more in the future.
+This is modification of plotting tool developed by Dale Schaefer. This tool control ANY top graph. It can, therefore, be used more flexibly – but has some limitations… This tool is deprecated and should not be used.
 
 .. Figure:: media/Plotting19.png
    :align: left
@@ -306,8 +306,9 @@ The GUI contains selected controls and any change in this GUI is applied to the 
 
 .. index::
     Multi Sample Plotting tool
+    Plotting tool 3
 
-Multi Sample Plotting tool
+Multi-Sample Plotting tool
 --------------------------
 
 This is tool developed to be able to plot many Irena/Indra/Nika data types quickly and easily. Many plots can be created quickly, with lots of data included in each graph. Also, controls can be individually applied to any graph. The tool can plot X-Y (optionally error) such as data (Q/Int/Err) or results (Size distribution, PDDF,...), but also different SAXS linearization plots - Guinier, Kratky, Porod and few others used mostly in bioSAXS.
