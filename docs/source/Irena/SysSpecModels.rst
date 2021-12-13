@@ -224,6 +224,9 @@ Note, that one may need to select also SAS background and set fitting limits and
 Hermans model for lamellar systems
 -----------------------------------
 
+The Hermans model assumes independent, normal distributions for the crystalline and amorphous regions of lamellae. It also assumes the lamellae are composed of infinitely wide, perfectly aligned, and regularly spaced sheets. Details about lamellae imperfections cannot be obtained from the fit. The model directly fits the scattered intensity from SAXS and USAXS measurements. Five independent parameters are used to determine the long period which include the mean crystalline thickness (tL), the standard deviation of the crystalline thickness (σL), the mean amorphous thickness (ta), the standard deviation of the amorphous thickness (σa), and a Porod prefactor for surface scattering (B1). While it can be extended to USAXS measurements, since the model assumes perfectly lamellar sheets it leads to a -2 power law slope at low-q measurements. The Hermans model describes the surface scattering Porod region at high-q, the Guinier region for the lamellar thickness, the structure factor for stacking of lamellae, and the two-dimensional scaling regime for infinite width lamellae. The function does not describe the lateral extent of the lamellae or higher order structures such as fibrous stacks and meso-structures such as spherulites.
+
+
 For details see: https://doi.org/10.1016/j.polymer.2021.124281
 
 .. Figure:: media/SysSpecModels_Her1.jpg
@@ -243,6 +246,8 @@ For details see: https://doi.org/10.1016/j.polymer.2021.124281
 Modified Hermans model for lamellar systems
 -------------------------------------------
 
+Like the Hermans model, the hybrid-Hermans model assumes independent, normally distributed crystalline and amorphous thicknesses of lamellae sheets and these lamellar sheets are composed of perfectly aligned, infinitely wide, and regularly spaced. The hybrid-Hermans model also describes the surface scattering Porod region at high-q, the Guinier region for the lamellar thickness, and the structure factor for stacking of lamellae. However, this function adds additional terms from the Unified function1 to describe the higher order structures associated with the lamellae stacks. The hybrid-Hermans model has the same parameters as the Hermans model to describe the lamellae but requires two extra parameters (Rg,2 and G2) for a total of seven parameters when limited to the lamellar width.
+
 For details see: https://doi.org/10.1016/j.polymer.2021.124281
 
 
@@ -261,6 +266,8 @@ For details see: https://doi.org/10.1016/j.polymer.2021.124281
 
 Unified Born Green model for lamellar systems
 ---------------------------------------------
+
+The Unified Born-Green model assumes that the lamellae are laterally symmetric, have a platelet structure, and the only contrast present is between the amorphous and crystalline regions. In contrast to the Hermans and hybrid-Hermans models, the Unified Born-Green model also assumes two-dimensional correlations between the lamellae stacks (i.e. thickness and lateral directions). The model requires 6 parameters (Rg,1, B1, p, ξ, δ, kI) to describe the lamellar features. The Unified Born-Green function can be modified to include additional parameters to describe higher order lamellar structures.
 
 For details see: https://doi.org/10.1016/j.polymer.2021.124281
 
