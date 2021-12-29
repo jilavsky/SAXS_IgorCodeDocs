@@ -14,7 +14,9 @@ This is "visualization tool" - it is NOT fitting of data. Data are first fitted 
 
 *Keep in mind, that this is really random process and same growth parameters will result in wide ranging models. One needs to run many times and see, how the results vary. Store results which are close to your target data, you may never recreate them.*
 
-*Some parts of the code generate randomly errors or failures. I will be trying to find a solution fo those which are errors, some are simply results of random growth. In any case, solution is to run model again. There are some specific conditions which seem to fail all the time. Select different parameters.*
+*Some parts of the code generate randomly errors or failures. Sometimes code seems to hang in evaluation of aggregate which was grown... I will be trying to find a solution fo those which are errors, some are simply results of random growth. In any case, solution is to run model again. There are some specific conditions which seem to fail all the time. Select different parameters.*
+
+**Find Best Match Aggregate** added 2021/12, this is random growth of Aggregates (see at the end of this  page) but match to wanted fractal parameters is evaluated by "Misfit" parameter. User defined number of aggregates is grown and if aggregate within user defined Misfit value, aggregate is accepted and test is stopped. If good enough fit is not found, lowest misfit aggregate is available as the last saved aggregate.
 
 .. _MassFractalAggregateModel.Parameters:
 
@@ -38,6 +40,19 @@ Each of these terms can be inter-related with each other by:
 .. math::
 
     R=\frac{R_g}{d_p}=z^{1/d_f}=p^{1/d_{min}}=s^{1/c}
+
+Also
+
+.. math::
+
+    d_f = c * d_{min}
+
+and
+
+.. math::
+
+    Misfit = (c_{model}^2-c_{target}^2)/c_{target}^2 + (d_{min,model}^2-d_{min,target}^2)/d_{min,target}^2
+
 
 Where:
 
@@ -179,3 +194,32 @@ In this plot one can easily see, that while most model match value for c, model 
 
 
 Button “\ **Delete all Stored**\ ” This button will delete ALL stored 3D Aggregates. It also closes all graphs for this tool to be able to delete these stored aggregates.
+
+
+Find Best Match Aggregate
+-------------------------
+
+added 2021/12, this is random growth of Aggregates  but match to wanted fractal parameters is evaluated by "Misfit" parameter (see at the top of this page its definition). User defined number of aggregates is grown and if aggregate within user defined Misfit value, aggregate is accepted and test is stopped. If good enough fit is not found, lowest misfit aggregate is available as the last saved aggregate.
+
+This new capability required change in GUI where mid part now has three tabs. The last tab is for this tool.
+
+
+.. Figure:: media/3DAggregate14.jpg
+   :align: center
+   :width: 480px
+
+
+*How to use*
+
+1. User sets the blue fields "Target d\ :sub:`min` " and "c". These are values obtained from Unified fit (they are loaded automatically when Unified fit results are selected) or user can type them in.
+2. User sets target “Misfit” value (see top of this page for definition). Typical values which can be reached vary, 0.01 is a good start.
+3. User selects max number of Aggregates to grow at one Sticking probability) Default is 10.
+4. User chooses if to vary sticking probabilities, number of steps and min/max. Default is do not vary, and if yes, then 5 steps between 10 and 90 %
+5. User sets other growth conditions, such as Sticking method and Mutli Part attraction.
+
+
+Using button *Grow Best Match Agg* code will run until it either generates all aggregates (see "Total number of growths", default is 50) if it does not find solution OR until it finds aggregate which fits within the requested misfit value.
+
+At the end either user is presented with Aggregate which is within the Misfit user wanted OR with the one with lowest Misfit achieved.
+
+Misfit is now added to the Compare Stored aggregates and notebook as output parameter. 
