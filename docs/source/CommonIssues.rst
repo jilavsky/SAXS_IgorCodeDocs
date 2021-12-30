@@ -5,6 +5,7 @@
     Common Display problems
     Missing controls on Panels
     Panel artifacts
+    xop not loading (macOS)
 
 Common problems
 ===============
@@ -66,16 +67,16 @@ Note, that it should be possible to use higher DPI settings with enough pixels o
     HDF5OpenFile error
 
 
-Error caused by missing HDF5 xop
---------------------------------
+Error caused by missing HDF5 xop - Igor 8 ONLY
+----------------------------------------------
 
-This error appears when Installer does not make proper link to Igor Pro included HDF5.xop or for some other reason this library is not loaded properly on Igor start. You will see something similar to:
+This is error specific to Igor 8 and before, Igor 9 does have HDF5 functions built in... This error appears when Installer does not make proper link to Igor Pro included HDF5.xop or for some other reason this library is not loaded properly on Igor start. You will see something similar to:
 
 .. Figure:: media/HDF5xopError.jpg
    :align: center
    :width: 380px
 
-Important here is that you see error on line containing HDF5Open... HDF5Close... etc. This is due to missing link/alias to the xop library or the library not being properly loaded. To learn more about Igor Extensions, run in Igor command prompt: *DisplayHelpTopic "Igor Extensions"*
+Important here is that you see error on line containing HDF5Open... HDF5Close... or any other error related to HDF5 etc. This is due to missing link/alias to the xop library or the library not being properly loaded. To learn more about Igor Extensions, run in Igor command prompt: *DisplayHelpTopic "Igor Extensions"*
 
 Here is how you fix this problem:
 
@@ -97,3 +98,9 @@ Here is how you fix this problem:
 
 
 Quit Igor Pro, restart and it should work now correctly. If not, please contact me so I can identify the problem.
+
+
+xop not loading (macOS)
+-----------------------
+
+Please note, that macOS Catalina and later versions have issues loading old (unsigned) xop packages due to system protection system (Gatekeeper). I personally run Igor 8.04 and 9.00 on Catalina without problems, but getting xops to load first time is bit challenge. One time challenge... If you need to use Catalina or later, here are some helpful links. General Wavemetrics statement macOS xop load issue: https://www.wavemetrics.com/news/igor-pro-macos-1015-catalina , and how to get xops loading https://www.wavemetrics.com/forum/general/workaround-catalina-xop-problem.

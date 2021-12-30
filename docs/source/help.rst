@@ -7,6 +7,8 @@ Help
 
 For more information see web sites:
 
+**Github wiki :** https://github.com/jilavsky/SAXS_IgorCode/wiki 
+
 **Irena :** https://usaxs.xray.aps.anl.gov/software/irena
 
 **Nika :** https://usaxs.xray.aps.anl.gov/software/nika
