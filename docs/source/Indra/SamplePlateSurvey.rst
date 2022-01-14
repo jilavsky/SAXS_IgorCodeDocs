@@ -72,6 +72,7 @@ Tool Description
  * Top Controls
  * Tab with Sample Table
  * Tab with Options control
+ * Tab with Export Controls
  * Bottom area with output buttons.
  * And message which reports to user last action he/she did!
 
@@ -139,19 +140,22 @@ Here user needs to fill the important details needed by USAXS/SAXS/WAXS instrume
            :width: 480px
            :figwidth: 500px
 
+
+*Copy sel. rows to Clipboard*    Copies values in one or more selected rows into "Clipboard" and saves it for later use. There is only ONE Clipboard available to users, copying selected rows in Clipboard will overwrite all existing content in the Clipboard.
+
+*Paste Clipboard to sel. rows*    Paste the values stored using above "Copy row values to Clipboard" command into the selected rows. Overwrites existing values.  *Important: you need to select same number of target rows as is in Clipboard stored EXCEPT when only single row is stored in Clipboard. If only one row is stored, its (same) content is copied in each selected row. When multiple rows are stored, content of each stored row pasted (in order) in selected target rows.* Note: Clipboard is not emptied by this command, same content can be pasted many times.
+
+*Insert new rows with Clipboard vals.*    Inserts needed number of new rows below the top selected row and pastes the values stored by above "Copy row values to Clipboard" command into the new rows. In this case all rows from clipboard are pasted as single block below the *top selected row* in the table. Even if rows in Clipboard were originally not contiguous range (clipboard has no record of original position of the content). *If multiple lines* are selected, *ONLY the TOP selected row* is considered for location and other selections are ignored. Note: Table Clipboard is not emptied by this command, same content can be pasted many times.
+
 *Insert new lines*    Inserts one row in the selected row, moving the rest down.
 
 *Delete selected lines*    Deletes selected rows, rest moves up.
 
 *Duplicate selected lines*    Inserts a new row in the Sample Table. The new row is filled with values from the row which is being duplicated. Useful when you need to measure sample twice in positions close together. Duplicate line, change sx and/or sy and done.
 
-*Set lines as Blank*    Writes in Sample name string Blank
+*Write same Name*    Asks for string and where to write inputs; write this this string into all indicated Sample Name fields. Useful when many samples have same prefix and user needs to just append index or code.
 
-*Set as Dist. Std. AgbehLaB6*    Writes in Sample names string "AgBehenateLaB6" to indicate positions are used by standard.
-
-*Write same name*    Asks for string and where to write inputs; write this this string into all indicated Sample Name fields. Useful when many samples have same prefix and user needs to just append index or code.
-
-*Write same thickness*    Asks for value and where to write inputs; writes this thickness value as instructed. Useful when many samples have same thickness. Note the default thickness on second tab if all samples have same thickness.
+*Write same Thickness*    Asks for value and where to write inputs; writes this thickness value as instructed. Useful when many samples have same thickness. Note the default thickness on second tab if all samples have same thickness.
 
 *Same Sx to all empty*    Asks user for sx value and this one is filled in all empty sx fields in the table. SX fields which contain any number are not changed.
 
@@ -161,11 +165,13 @@ Here user needs to fill the important details needed by USAXS/SAXS/WAXS instrume
 
 *Increment Sy from selected row*    Takes value for sy in the selected row, asks user for step and inserts incremented sy values to all higher rows. Step can be negative. Great if user needs to step through the sample at fixed distances.
 
-*Copy row values to Clipboard*    Copies values in selected rows into "Clipboard" and saves it for later use. There is only ONE Clipboard available to users, copying selected rows in Clipboard will overwrite all existing content in the Clipboard.
+*Add to Sx from selected row*    Starting from selected row down, adds constant to each sx value. This is useful when you need to shift all measurements points by the same value.
 
-*Paste Clipboard to rows*    Paste the values stored using above "Copy row values to Clipboard" command into the selected rows. Overwrites existing values.  *Important: you need to select same number of target rows as is in Clipboard stored EXCEPT when only single row is stored in Clipboard. If only one row is stored, its (same) content is copied in each selected row. When multiple rows are stored, content of each stored row pasted (in order) in selected target rows.* Note: Clipboard is not emptied by this command, same content can be pasted many times.
+*Add to Sy from selected row*    Starting from selected row down, adds constant to each sy value. This is useful when you need to shift all measurements points by the same value.
 
-*Insert new rows with Clipboard*    Inserts needed number of new rows below the top selected row and pastes the values stored by above "Copy row values to Clipboard" command into the new rows. In this case all rows from clipboard are pasted as single block below the *top selected row* in the table. Even if rows in Clipboard were originally not contiguous range (clipboard has no record of original position of the content). *If multiple lines* are selected, *ONLY the TOP selected row* is considered for location and other selections are ignored. Note: Table Clipboard is not emptied by this command, same content can be pasted many times.
+*Set lines as Blank*    Writes in Sample name string Blank
+
+*Set as Dist. Std. AgbehLaB6*    Writes in Sample names string "AgBehenateLaB6" to indicate positions are used by standard.
 
 
 Table Clipboard can now handle one or many selected lines from the table. Most tools handle multiple selected lines, hopefully logically... If more functionality is needed, let me know.
@@ -224,7 +230,48 @@ Sometimes we need to modify data collection in way which is rare and difficult t
 |	  IN3S_WriteListOfCommands(listWaveG, LBSelectionWvG, 0, 1, "_B")
 | end
 
+*******
 
+**Export Controls**
+
+Normally, user prepares and saves one or more "Position Sets" and exports one at time into command file. This is typical use of this tool.
+
+However, some users need to prepare multiple "Positions sets" and then run all at once. This is typically when user mounts number of different samples on one plate and each sample needs more complicated data collection points arrangement. It would be possible to prepare one really complicated position set (=table) with all of these samples, placed one after another, but often it is better to prepare many "Position sets" and then combine them together. Also, if all measurement positions are in one large table, each geometry will be done in one group. This may not be ideal, if there are samples with different priorities.
+
+One option is to use button "Append to cmd file" (see below). But that gets cumbersome quickly also.
+
+*Export Controls* tab provides better control of merging multiple saved "Position sets" into one large command file. See figure.
+
+.. Figure:: media/SamplePlate8.jpg
+           :align: left
+           :width: 330px
+           :figwidth: 350px
+
+
+Radio button *Export Current set?* will export whatever is in the current Position set (table) on tab 1, when "Export", "Append", or "Preview" buttons are used. This is default = normal behavior.
+
+Radio button *Export list of sets below?* will show the controls as seen in the figure and when used, Position sets will be exported in order from top to bottom, as they are in the right hand side Listbox. Available saved Position sets are in the left hand side Listbox.
+
+You drag-and-drop names from left to right and can insert new ones anywhere - before, between, or after already present names. You right-click on the right hand listbox to get command to delete selected name. You can use Position sets multiple times, if needed.
+
+You cannot reorder any columns by drag-and-drop - add sets to right as needed and delete ones which you do not need.
+
+List on the left hand side is updated when you change tabs to reflect all available saved Position sets.
+
+*What will happen ?* When you create list in the right hand listbox (e.g., like in the figure above: test2, test1, test3) and then push button "Preview" or "Export" or "Append", the code will:
+1. save current table content as temporary with unique temp name.
+2. loads first set on the list in the tool (here test2) and creates output notebook using settings saved with that Position set.
+3. loads next set on the list (here test1) and appends to notebook using its settings
+4. loads next, exports, etc... Until done with the list of Position sets in the right hand listbox.
+5. when done with all, restores content to the table from saved temporary storage and deletes these saved data.
+6. uses the merged commands in the output notebook and does whatever the button was suppose to do - Preview, Export, Append.
+
+*Important*
+
+* Save your current Position set, especially if you plan to use it. Button should be green - not red.
+* Each set has its own "Option controls" saved and restored, so if you want to measure only some geometries for some sets, this needs to be selected at the time of saving.
+* If you are using Hook function, it is run at the time of handling each set. So if you Hook function creates multiple measurement positions for each sample, these are grouped together.
+* Verify you like what you see using "Preview" button. Things can get complicated.  
 
 *******
 
