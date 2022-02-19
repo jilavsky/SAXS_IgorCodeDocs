@@ -2,13 +2,27 @@
 .. _GUIcontrolsMissing:
 
 .. index::
+    Reading Igor 9 saved experiments in Igor 8
+    Reading HDF5 files with non standard compression
     Common Display problems
     Missing controls on Panels
     Panel artifacts
+    Error caused by missing HDF5 xop - Igor 8 ONLY
     xop not loading (macOS)
 
 Common problems
 ===============
+
+
+Reading Igor 9 saved experiments in Igor 8
+------------------------------------------
+
+Igor 9 added option to scale Panels with scaling factor which was not available in Igor 8. This method is much better than what Irena and Nika are using in Igor 8 and before. However, Igor 8 does not understand the flag used to scale the panels and if you try to open Igor 9 saved experiment with opened panel in Igor 8, you get error on start. The solution here is to use leftmost button on dialog "Quit macro" (not "Abort experiment load" !), acknowledge what Igor wants you to know and then reopen the panel you are missing. The "Load Experiment Diagnostic" window can be dismissed, it is not really useful in this case. Also note, that to prevent data loss, Igor will not name this experiment by its original name, you may need to give it meaningful name before saving.
+
+Reading HDF5 files with non standard compression
+-------------------------------------------------
+
+HDF5 files (e.g., Nexus) can use compression to save space. Standard in HDF5 is GZIP, which is available in Igor by default. However, there are others (e.g., LZ4) used by specific software or devices (Dectris Eiger/Pilatus detectors use LZ4). Igor 8 and 9 on Windows and Igor 9 on macOS can be relatively simply extended using plugins to read compressed data using these additional compressions. Instructions are here: https://www.wavemetrics.com/comment/22658#comment-22658 . Basically, you need to download plugins from links provided and place them in default location on each system. HDF5 in Igor will then pickup the plugins when needed and be able to READ these compressed data.
 
 Screen Resolution
 -----------------

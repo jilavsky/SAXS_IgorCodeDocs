@@ -323,7 +323,7 @@ Also, notes are printed in the history area during the start and after the end o
     Nika; Tabbed controls
 
 Controls in tabs
-----------------
+================
 
 **Note, that if images are averaged, they are first averaged during loading, and then – during processing to create lineouts / square matrix are corrected as described below. Therefore all parameters here related to single (if possibly averaged) image!**
 
@@ -340,7 +340,7 @@ We will now go through each tab separately
     Nika Main parameters
 
 Main
-~~~~
+----
 
 Here are some very clear parameters, related to SAXS camera geometry:
 
@@ -365,10 +365,10 @@ with the choice of the Solid angle correction.
 .. index::
     Nika Processing parameters
 
-Param
-~~~~~
+Par
+---
 
-.. Figure:: media/Main19.png
+.. Figure:: media/Main19.jpg
    :align: center
    :width: 400px
 
@@ -396,11 +396,14 @@ By the way, for small-angle scattering each of these corrections is negligible.
 
 It is possible to dezinger each image multiple times, in case the “zingers” are larger than single pixel.
 
-***Calibration/processing parameters: ***
+**Calibration/processing parameters: **
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-**Sample thickness** in millimeters, **transmission** as fraction.
+**Sample thickness** in millimeters
 
-***Important note**: Nika versions prior 1.75 had a bug in the code, which caused the thicknesss to be used in mm and not converted into cm, as appropriate for SAXS data calibration. This was fixed in Nika version 1.75. BUT, this means, that calibration constants obtained on prior versions of Nika need to be also scaled by factor of 10 to account for this. I suggest carefully revising calibrations when upgrading to new version of Nika. This message will be also provided to users when new Nika version finds panel created by old Nika version. My apologies for this issue. **Note:** Under usual conditions when measurement of standard was reduced in Nika and then calibration constant was obtained this bug have cancelled out. This is also the reason why this bug was not found for so long. Thanks to a user, who actually read the code and found the bug.
+***Important note**: Nika versions prior 1.75 had a bug in the code, which caused the thickness to be used in mm and not converted into cm, as appropriate for SAXS data calibration. This was fixed in Nika version 1.75. BUT, this means, that calibration constants obtained on prior versions of Nika need to be also scaled by factor of 10 to account for this. I suggest carefully revising calibrations when upgrading to new version of Nika. This message will be also provided to users when new Nika version finds panel created by old Nika version. My apologies for this issue. **Note:** Under usual conditions when measurement of standard was reduced in Nika and then calibration constant was obtained this bug have cancelled out. This is also the reason why this bug was not found for so long. Thanks to a user, who actually read the code and found the bug.
+
+**Transmission** as fraction. Note, if you have semi transparent beamstop, you can use **Transp. Beamstop** checkbox and input radius of the beamstop in pixels (read it from images with cursors). You need to have at least one sample image loaded in Nika. Nika will create a mask over current beam center and, when sample is being corrected, Nika will calculate average intensity in the circle of radius you provided around the beam center which was input at the time of checking this checkbox for sample and empty. Sample/Empty ratio is then transmission. Note, that if you change the beam center position, you need to rerun the code creating the mask for this calculation. Simply uncheck and check this checkbox "Transp. Beamstop" again.
 
 **Correction factor** is for secondary calibration factor.
 
@@ -428,7 +431,7 @@ These function need to be “look up” functions, which are called with image n
     Nika Mask
 
 Mask
-~~~~
+----
 
 .. Figure:: media/Main22.jpg
    :align: center
@@ -454,7 +457,7 @@ Current mask name – shows name of last loaded mask file
     Nika Empty/Blank, Nika dark
 
 Emp/Dark
-~~~~~~~~
+--------
 
 .. Figure:: media/Main23.jpg
    :align: center
@@ -479,7 +482,7 @@ Now, this is bit tricky how to do this. This method is basically very simplistic
     Nika Sector lineouts; Nika Circular lineout
 
 Sectors
-~~~~~~~
+-------
 
 .. Figure:: media/Main24.jpg
    :align: center
@@ -520,7 +523,7 @@ Overwrite existing data if exist – if data with the same name exist, overwrite
     Nika Polar transformation
 
 PolTrans
-~~~~~~~~~
+--------
 
 This means: ”Polar transformation” – prior (pre 1.68) name was “Preview” which is the intended use of this tool…
 
@@ -585,7 +588,7 @@ Save lineout – this saves “qrs” data in SAS folder in current Igor experim
 .. _LineProfileTool:
 
 LineProf
-~~~~~~~~
+--------
 
 This tool calculates Intensity profile along curve on the detector. It uses different method than **Sectors** tool. Therefore, there are some important differences in how to use this tool…
 
