@@ -48,7 +48,7 @@ Modeling II can use up to 10 "populations" or models : each can be either "Size 
 ..
   :ref:`Diffraction Peaks<PeaksShapes>`
 
-**NOTE: "Mass Fractal" and "Surface Fractal" :** These are analytical formulas of mass fractal and surface fractal. The use and parameters copy dedictaed tool :ref:`Fractal model<model.Fractal>` For details see also  :ref:`Mass and Surface Fractals <MassAndSurfaceFractals>`.
+**NOTE: "Mass Fractal" and "Surface Fractal" :** These are analytical formulas of mass fractal and surface fractal. The use and parameters copy dedicated tool :ref:`Fractal model<model.Fractal>` For details see also  :ref:`Mass and Surface Fractals <MassAndSurfaceFractals>`.
 
 
 .. _SizeDistributionDescription:

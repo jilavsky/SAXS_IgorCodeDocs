@@ -18,6 +18,7 @@ Implemented models:
 * Guinier Sheet
 * Invariant
 * 1D Correlation
+* Power Law
 
 .. Figure:: media/SimpleFitsBioSAXS1.jpg
         :align: left
@@ -104,6 +105,14 @@ Fits Guinier if shape is infinite sheet.
  | *Invariant*
 
 Calculates invariant with background subtraction.
+
+ | *Power Law*
+
+Fits Power law formula :math:`Int = Pref * Q^{-Exp} + Bckg`
+
+
+***********
+
 
 .. Figure:: media/SimpleFitsInvariant1.jpg
         :align: left
