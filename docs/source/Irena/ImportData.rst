@@ -76,6 +76,9 @@ Explanation of control available here:
 
 “\ *Create errors”* if the data imported do not contain error bars, this will generate sqrt(Intensity) error bars. These can be further modified (multiplied) in Data manipulation tool.
 
+“\ *UTF-8"* if Igor cannot recognize ASCII file encoding, it will present dialog which require user to select encoding for EACH file being imported. This can get pretty annoying and happens when the ASCII header contains non-standard ASCII character (in example I have greek letter denoting micrometer). In this case you can check this checkbox \"UTF-8?\" encoding and file will be imported forcefully as if it is UTF-8. This may cause issues, but unlikely. Default is unchecked.
+
+
 “\ *Use file name as folder name”* **Strongly suggested to use**. Will cause the import tool to create for each imported data set new folder with name by the file name.
 
 “\ *Use USAXS names”,* ”\ *Use qrs wave names”, "Use QIS (NIST) wv nms"* selects which naming structure is used during import of data. One of these selections is more or less necessary for multiple file import.

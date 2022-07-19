@@ -51,7 +51,7 @@ and
 
 .. math::
 
-    Misfit = (c_{model}^2-c_{target}^2)/c_{target}^2 + (d_{min,model}^2-d_{min,target}^2)/d_{min,target}^2
+    Misfit = sqrt(((c_{model}-c_{target})^2/c_{target}^2 + (d_{min,model}-d_{min,target})^2/d_{min,target}^2)/2)
 
 
 Where:
@@ -222,4 +222,4 @@ Using button *Grow Best Match Agg* code will run until it either generates all a
 
 At the end either user is presented with Aggregate which is within the Misfit user wanted OR with the one with lowest Misfit achieved.
 
-Misfit is now added to the Compare Stored aggregates and notebook as output parameter. 
+Misfit is now added to the Compare Stored aggregates and notebook as output parameter.
