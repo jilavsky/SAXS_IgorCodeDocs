@@ -397,3 +397,29 @@ There are two ways to apply formatting to a graph.
 *Export as tiff* will save controlled graph as high resolution tiff file.
 
 *Export as pxp* will save controlled graph as Igor experiment. This is very convenient way to store copy of the graph - with all formatting and data for future use as it becomes individual experiment which one cannot change accidentally. I strongly suggest saving individual Igor experiments for each graph used in paper etc.
+
+**"3D" graphs**
+
+This tool can also generate 3D representation of the sequence of data. This is achieved by using buttons *Create Image Plot*, *Create Contour plot*, and *Create Waterfall plot*. These functions using is kind of specific due to how the tool works, so read details. It is important:
+
+1. These functions deepend on which graph is selected, typically the top graph
+2. These functions will create a new version of the data, so effectively they become "detached" from the original data
+3. You can find the data in root:MultiDataPlot3DPlots: folder, you may need to delete orphant ones if you close the graph/image
+4. For Image plot: log data need to be rebinned to linear steps as images cannot be plotted on log side scales. Tick creatating is trying to be smart...  this causes the ticks and labels be bit confusing. You can create different number of ticks usign controls above the image. For x axis you need to try different number of steps to get sensible ticks distribution as the tool is trying to have reasonable steps. The code is nto too smart, chaneg number of steps and see when you get best ticks locations.
+5. Vertical axis in Image graph needs user input. This is usually some kind of sequence step which code has no idea what it is. Code creates ticks locations (change number if you need to) but expects that user will fill in the table meaningful labels and adds manually Axis label and units. 
+
+Here are some examples of images one can make, log axis first:
+
+.. Figure:: media/MultiDataPlot4.jpg
+        :align: left
+        :width: 400px
+        :Figwidth: 390px
+
+Linear axes 
+
+.. Figure:: media/MultiDataPlot5.jpg
+        :align: left
+        :width: 400px
+        :Figwidth: 390px
+
+
