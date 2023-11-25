@@ -405,21 +405,23 @@ This tool can also generate 3D representation of the sequence of data. This is a
 1. These functions deepend on which graph is selected, typically the top graph
 2. These functions will create a new version of the data, so effectively they become "detached" from the original data
 3. You can find the data in root:MultiDataPlot3DPlots: folder, you may need to delete orphant ones if you close the graph/image
-4. For Image plot: log data need to be rebinned to linear steps as images cannot be plotted on log side scales. Tick creatating is trying to be smart...  this causes the ticks and labels be bit confusing. You can create different number of ticks usign controls above the image. For x axis you need to try different number of steps to get sensible ticks distribution as the tool is trying to have reasonable steps. The code is nto too smart, chaneg number of steps and see when you get best ticks locations.
+4. For Image plot: log data need to be rebinned to linear steps as images cannot be plotted on log side scales. Tick creatating is trying to be smart..◊.  this causes the ticks and labels be bit confusing. You can create different number of ticks usign controls above the image. For x axis you need to try different number of steps to get sensible ticks distribution as the tool is trying to have reasonable steps. The code is nto too smart, chaneg number of steps and see when you get best ticks locations.
 5. Vertical axis in Image graph needs user input. This is usually some kind of sequence step which code has no idea what it is. Code creates ticks locations (change number if you need to) but expects that user will fill in the table meaningful labels and adds manually Axis label and units. 
 
-Here are some examples of images one can make, log axis first:
+Here are some examples of images one can make, log axis first, linear axes second :
 
 .. Figure:: media/MultiDataPlot4.jpg
-        :align: left
-        :width: 400px
-        :Figwidth: 390px
+      :align: center
+      :width: 100%
 
-Linear axes 
+
+
+
 
 .. Figure:: media/MultiDataPlot5.jpg
-        :align: left
-        :width: 400px
-        :Figwidth: 390px
+     :align: center
+      :width: 100%
+
+
 
 
