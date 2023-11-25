@@ -280,7 +280,12 @@ To present time series of data from version 2.48 this tool can create movies. Us
 You can create sequence of 2D graphs or 3D graphs, in 2d graphs you can either add the data in between the frames or replace the data in between the frames. Few other controls allow you to control how the movie is going to look like. The 3D graph here is the Waterfall graph described above, Gizmo has its own movie creation tool provided by Wavemetrics.
 
 
------
+---------------------------------------------
+
+
+
+
+
 
 .. _Plotting_tool_2:
 
@@ -411,16 +416,15 @@ This tool can also generate 3D representation of the sequence of data. This is a
 Here are some examples of images one can make, log axis first, linear axes second :
 
 .. Figure:: media/MultiDataPlot4.jpg
-      :align: center
-      :width: 100%
+    :align: center
+    :width: 100%
 
-
-
+------------------------------------------
 
 
 .. Figure:: media/MultiDataPlot5.jpg
-     :align: center
-      :width: 100%
+         :align: center
+         :width: 100%
 
 
 
