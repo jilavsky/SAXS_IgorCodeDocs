@@ -285,8 +285,6 @@ You can create sequence of 2D graphs or 3D graphs, in 2d graphs you can either a
 
 
 
-
-
 .. _Plotting_tool_2:
 
 .. index::
@@ -426,6 +424,6 @@ Here are some examples of images one can make, log axis first, linear axes secon
          :align: center
          :width: 100%
 
-
+ 
 
 
