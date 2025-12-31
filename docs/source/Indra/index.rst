@@ -5,14 +5,16 @@ Indra manual
 
 .. index:: ! Indra manual
 
-Manual |release| for Indra (USAXS data reduction) version 1.99 for Igor 8.0  and higher (will NOT work on Igor 7.05)
+Manual |release| for Indra (USAXS data reduction) version 2.05 for Igor 9.05  and higher (will NOT work on Igor 8 or older)
 
 .. toctree::
    :maxdepth: 4
 
    Introduction
-   DataDescription
+   DataCollection
    SamplePlateSurvey
+   IgorDataDescription
+   ImportData
    FlyscanDataReduction
    StepscanDataReduction
    SAXSDataReduction

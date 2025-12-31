@@ -52,7 +52,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'Irena and Nika manuals'
-copyright = u'2023, Jan Ilavsky'
+copyright = u'2025, Jan Ilavsky'
 author = u'Jan Ilavsky'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -60,7 +60,7 @@ author = u'Jan Ilavsky'
 # built documents.
 #
 # The short X.Y version.
-version = u'1.5.3'
+version = u'1.5.5'
 # The full version, including alpha/beta/rc tags.
 release = version
 
@@ -69,7 +69,7 @@ release = version
 #
 # This is also used if you do content translation via gettext catalogs.
 # Usually you set "language" from the command line for these cases.
-language = None
+language = 'en'
 
 # There are two options for replacing |today|: either, you set today to some
 # non-false value, then it is used:
@@ -158,6 +158,8 @@ html_theme = 'agogo'
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 # html_static_path = ['nstatic']
+html_static_path = ['_static']
+html_css_files = ['custom.css']
 
 # Add any extra paths that contain custom files (such as robots.txt or
 # .htaccess) here, relative to this directory. These files are copied

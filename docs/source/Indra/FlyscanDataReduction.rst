@@ -2,10 +2,12 @@
 .. _reduce_data_panel:
 
 .. index::
-    Reduce USAXS data, Introduction
+    Reduce USAXS data Igor 
 
-Reduce USAXS Flyscan data
--------------------------
+
+
+Reduce USAXS Flyscan data in Igor Pro
+-------------------------------------
 
 **Comments:**
 
@@ -22,7 +24,8 @@ Igor is quite reliable and crashes rarely. But no software is crash proof and yo
 Collected data arrangement
 ==========================
 
-When you collect data on 9IDC USAXS/SAXS/WAXS instrument, your data are saved in folders related to your "spec" file name. Spec file itself is text file where instrument makes various records. The file name is created by adding \MM_DD_ (\month_day_) to the name staff selects, typically version of user name. When you collect USAXS data, a folder with the same name with appended "_usaxs" is created. For SAXS data we create folder with the same name with "_saxs" and for  WAXS with "_waxs". See below in the Image:
+When you collect data on 12IDC USAXS/SAXS/WAXS instrument, your data are saved in your MM_DD_userName folder. The folder name is created by adding \MM_DD_ (\month_day_) to the name staff selects, typically version of PI user name. This user folder has internal folder structure with \"SampleName" leve of folders. These folders can be created by users (Command is : RE(newSample("sampleName"))). Note, that the default sampleName is "data" which is used when a newUser command is run.  
+When you collect USAXS data, a folder with the same name as sample name but with appended "_usaxs" is created inside the sampleName folder. For SAXS data we create folder with the same name with "_saxs" and for  WAXS with "_waxs". See below in the Image:
 
 .. Figure:: media/USAXSComputerDataArrangement.jpg
         :align: center

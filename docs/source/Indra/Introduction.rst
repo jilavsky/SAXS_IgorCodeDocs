@@ -2,13 +2,14 @@
 
 .. index::
     Introduction Indra (USAXS data reduction)
+    USAXS instrument description
 
-Introduction
-============
 
-This is manual for Indra package for data reduction of USAXS data collected on 9ID-C USAXS/SAXS/WAXS instrument at the Advanced Photon Source (APS) of Argonne National Laboratory. For more details see https://usaxs.aps.anl.gov
 
-Manual |release| for Indra version 1.93 for Igor 8.04 and above
+Info:
+This is manual for USAXS instrument data collection and reduction (*Indra* package) for USAXS/SAXS/WAXS instrument currently (as of 2026/01) located on 12ID-E (C) at the Advanced Photon Source (APS) of Argonne National Laboratory. For more details see https://usaxs.xray.aps.anl.gov/  
+
+Manual |release| for Indra version 2.05 for Igor 9.05 and above
 
 |today|
 
@@ -20,16 +21,18 @@ These macros represent a collaborative work in progress and it is very likely th
 
 ilavsky@aps.anl.gov
 
-Description
------------
+****
 
-The “\ *Indra*\ ” package is a suite of Igor Pro (Wavemetrics, version Igor 7.05 and higher) macros for data reduction of small-angle scattering data collected on APS USAXS instrument (currently beamline 9ID, Advanced Photon Source, Argonne, IL).
+
+What is USAXS/SAXS/WAXS instrument?
+-----------------------------------
+
+
+The “\ *Indra*\ ” package is a suite of Igor Pro (Wavemetrics, version Igor 9.05 and higher) macros for data reduction of small-angle scattering data collected on APS USAXS instrument (currently beamline 12ID, Advanced Photon Source, Argonne, IL).
 
 .. index::
     USAXS instrument description
 
-What is USAXS/SAXS/WAXS instrument?
------------------------------------
 
 Details on USAXS instrument are in following publications:
      1. Ilavsky, I., P. Jemian, A. J. Allen and G. G. Long (2004). Versatile USAXS (Bonse-Hart) facility for advanced materials research. Synchrotron Radiation Instrumentation. T. Warwick, J. Arthur, H. A. Padmore and J. Stohr. Melville, Amer. Inst. Physics. 705: 510-513.
@@ -38,35 +41,46 @@ Details on USAXS instrument are in following publications:
      4. Zhang, F., A. J. Allen, L. E. Levine, J. Ilavsky, G. G. Long and A. R. Sandy (2011). "Development of ultra-small-angle X-ray scattering–X-ray photon correlation spectroscopy." Journal of Applied Crystallography 44(1): 200-212.
      5. Ilavsky, J., A. J. Allen, L. E. Levine, F. Zhang, P. R. Jemian and G. G. Long (2012). "High-energy ultra-small-angle X-ray scattering instrument at the Advanced Photon Source." Journal of Applied Crystallography 45(6): 1318-1320.
      6. Ilavsky, J., F. Zhang, A. J. Allen, L. E. Levine, P. R. Jemian and G. G. Long (2013). "Ultra-Small-Angle X-ray Scattering Instrument at the Advanced Photon Source: History, Recent Development, and Current Status." Metallurgical and Materials Transactions a-Physical Metallurgy and Materials Science 44A(1): 68-76.
-
-The USAXS/SAXS/WAXS instrument provides world-unique capabilities - or more details see https://usaxs.aps.anl.gov :
-
-Standard configuration (Si 220 crystals)
-
-  * Energy range ..........   10 - 24 keV
-  * Q range ...................    0.0001 to 6 [1/A] (max depends on energy used)
-  * Collection time ........  2 - 5 minutes
-  * Intensity range ........  up to 12 decades (depends on sample), desmeared
-  * Q resolution ............  ~ 0.00008 [1/A] in the USAXS range (up to ~0.1 [1/A])
-  * SAXS ....................... Q range ~ 0.03 to 1.3 [1/A]
-  * WAXS ...................... d spacing range approximately 6A to 0.8 A, depending on energy
+     7. Ilavsky, J., Zhang, F., Andrews, R. N., Kuzmenko, I., Jemian, P.R., Levine, L. E., Allen, A. J. (2018). "Development of combined microstructure and structure characrization facility for in situ and operando studies at the Advanced Photon Source", Journal of Applied Crystallography  51, 867-882, https://doi.org/10.1107/S160057671800643X
+     8. Zhang, F. and Ilavsky, J. (2024). "Bridging length scales in hard materials with ultra- small angle X-ray scattering – a critical review" IUCrJ 11, https://doi.org/10.1107/S2052252524006298
 
 
-High resolution configuration (Si 440 crystals) - requires significant setup and alignment time, special request only
 
-  * Energy ....................  10 - 18 keV
+The USAXS/SAXS/WAXS instrument provides world-unique capabilities - or more details see https://usaxs.xray.aps.anl.gov :
+
+Standard configuration (Si 220 crystals) Flyscanning or step scanning
+
+  * Energy range .....  10 - 28 keV
+  * Q range ...............   0.0001 to 6 [1/A] (max depends on energy used)
+  * Collection time ...   1 - 3 minutes
+  * Intensity range ...   up to 12 decades (depends on sample), desmeared
+  * Q resolution ........   ~ 0.00008 [1/A] in the USAXS range (up to ~0.1 [1/A])
+  * SAXS ...................   Q range ~ 0.03 to 1.3 [1/A]
+  * WAXS ...................  d spacing range ~ 6A to 0.8 A, depending on energy
+
+
+High resolution configuration (Si 440 crystals) step scanning only
+
+  * Energy ....................  20 or 24 keV
   * Q range ...................   0.00003 to 6 [1/A] (max depends on energy used)
-  * Collection time ........ 4 - 6 minutes
-  * Intensity range ........  up to 12 decades (depends on sample), desmeared
-  * Q resolution ............  ~ 0.00003 [1/A] in the USAXS range (up to ~0.1 [1/A])
-  * SAXS ....................... Q range ~0.03 - 1.3 [1/A]
-  * WAXS ...................... d spacing range approximately 6A to 0.8 A, depending on energy
+  * Collection time ....... 4 - 6 minutes
+  * Intensity range ......  up to 12 decades (depends on sample), desmeared
+  * Q resolution ...........  ~ 0.00003 [1/A] in the USAXS range (up to ~0.1 [1/A])
+  * SAXS ........................   Q range ~ 0.03 to 1.3 [1/A]
+  * WAXS ....................... d spacing range ~ 6A to 0.8 A, depending on energy
 
 .. index::
     USAXS naming system
 
-When using Indra package to reduced data, it uses "USAXS" naming system for use with Irena macros. When you use Irena to analyze, plot, or even only export data, you need to select "USAXS" choice in the top of the panels.
+When using USAXS instrument data reduction packages "Matilda" (automatic data reduction) and "Indra" and "Nika" (manual data reduction) your data are available in Igor for use with data analsysi tools (like "Irena") with following naming systems: 
 
-**Make sure you save Igor experiment**
-Igor is quite reliable and crashes rarely. But no software is crash proof and you really do not want to loose lot of your work and time. Therefore, do yourself a favor and save your Igor experiment, routinely.
-**YOU WERE WARNED!!!!**
+* "USAXS" for USAXS data. Note, that you will normally have available multple versions of the data, the most inportant are slit smeared and desmeared versions which are used for data analysis. 
+
+* "QRS" for SAXS and WAXS. 
+
+When you use "Irena" to analyze, plot, or even only export data, you need to select "USAXS" or "QRS" choice in the top of each panel. 
+
+History of the instrument:
+==========================
+
+This isntrument was built at Advanced Photn Source in 1998 at Beamline 33ID (UNICAT). It was moved to beamline 32ID in around 2005, around 2010 moved to 15ID (ChemMatCARS), around 2015 moved to 9ID, and in 2021 moved for short time to 20ID. It has been located at 12ID since APS-U upgrade in 2024. Details are available in : DOI: 10.1007/s11661-012-1431-y. 

@@ -538,14 +538,11 @@ However, for usability in case you changed the display size in the mean time, th
 
 There is override to thsi behavior in the Configure defaults (see above) panel, where you can choose not to have panel size and position restored.
 
-.. _LargeDisplayChallenge:
-
-.. index:: High-res displays
 
 Using Irena on high resolution displays
 ---------------------------------------
 
-Igor has problems handling high resolution displays - 4k displays and similar - on Windows. Some users will set the resolution relatively high (may be 2.5 horizontally) but in order to be able to read the text on the screen they scale the font higher. Some combinations of resolutions and font scaling result in panels which are incorreclty populated with controls. If this happens, the only solution is to change resolution (typically to less points) and reduce the font scaling. Unluckily, this is the only solution provided by Wavemetrics to me.
+see:  :ref:`Large display scaling <LargeDisplayChallenge>` 
 
 
 .. index:: XOP use

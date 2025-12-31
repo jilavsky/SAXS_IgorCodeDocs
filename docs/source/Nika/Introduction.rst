@@ -8,7 +8,7 @@ Introduction
 
 Jan Ilavsky, "Nika - software for 2D data reduction", J. Appl. Cryst. (2012), vol. 45, pp. 324-328. DOI:10.1107/S0021889812004037. Please e-mail me, if you need copy.
 
-Manual |release| for Nika version 1.75 for Igor 7.x
+Manual |release| for Nika version 1.75 for Igor 9.05 and higher
 
 |today|
 

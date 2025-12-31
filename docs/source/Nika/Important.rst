@@ -156,7 +156,7 @@ To aid users I have now added function which calculates what the area available 
 
 .. index:: High-res displays
 
-Igor 7 has problems handling high resolution displays - 4k displays and similar - on Windows 7, 8 and 10. If you have problems seeing panel content or simply anything else looks off, please, check :ref:`GUI Controls Missing in Common Issues <GUIcontrolsMissing>`.
+These packages are setup for large enough displays - in PIXELS displaye - this can be issue with high resolution displays - 4k displays and similar - on Windows. If you have problems seeing panel content or simply anything else looks off, please, check :ref:`GUI Controls Missing in Common Issues <GUIcontrolsMissing>` . Note, that you can have 4k display, but if you use large Display scaling (200% or more), the display really offers Igor pro ONLY fraction of pixels, which makes all panels too large and they do nto fit on screen. 
 
 **GET LARGE ENOUGH DISPLAY. THEY ARE CHEAP NOW...**
 

@@ -1,25 +1,26 @@
 .. _dataDescription:
 
+Igor experiments
+==================
+
 .. index::
-    USAXS/SAXS/WAXS data description
+    USAXS/SAXS/WAXS data 
     Data naming systems
 
-Data collected
-==============
 
-This is description of what data are collected by USAXS - SAXS - WAXS instrument and how they are stored in Igor experiment.
 
 There are two basic types of measured data - "USAXS" and "QRS" which you need to distinguish when looking inside Igor Experiment with reduced data from this instrument. Irena also recognizes "Irena results" as type of Irena output tools - Size distribution, Unified fit, etc.
-
-.. index::
-    USAXS data type
 
 USAXS data type
 ---------------
 
+.. index::
+    USAXS data type
+
+
 Independent if you used Fly scanning or step scanning, your data will be of type "USAXS". Data will be found in root\:USAXS folder, organized in folder, one folder for each data collection run - example: *SampleName_0001* . Inside this SampleName_0001 folder you will find many waves with data, but there are two which are of real importance :
 
-    1. SMR_Qvec, SMR_Int, SMR_Error - these are Q, Intensity, and uncertainty for your data, in SLIT SMEARED geometry. Slit length (typically 0.025 - 0.35 1/A) is in the wave note. These data should be on absolute intensity scale, if you had proper sample thickness provided to code during data reduction. *Irena* can use these data for modeling, as it has slit smearing built in the code, and will switch it on when necessary.
+    1. SMR_Qvec, SMR_Int, SMR_Error - these are Q, Intensity, and uncertainty for your data, in SLIT SMEARED geometry. Slit length (typically 0.025 - 0.035 1/A) is in the wave note. These data should be on absolute intensity scale, if you had proper sample thickness provided to code during data reduction. *Irena* can use these data for modeling, as it has slit smearing built in the code, and will switch it on when necessary.
     2. DSM_Qvec, DSM_Int, DSM_Error - these are Q, Intensity, and uncertainty for your data in pinhole geometry. These are obtained either by desmearing (during data reduction or after data reduction using separate tool) - or optionally by using 2D collimated USAXS instrument geometry.
 
 
