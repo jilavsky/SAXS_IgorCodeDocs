@@ -2,7 +2,7 @@
 
 .. index::
    model; Lamellar structures
-   System Specific Models
+   Irena; System specific models
 
 System specific models
 ======================

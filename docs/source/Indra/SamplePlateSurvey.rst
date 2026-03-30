@@ -1,7 +1,7 @@
 .. _samlePlateSurvey:
 
 .. index::
-    Sample Plate Survey
+    Indra; Sample plate survey
 
 Sample Plate Setup tool
 =======================

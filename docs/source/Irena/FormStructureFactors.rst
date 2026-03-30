@@ -2,7 +2,7 @@
 
 .. index::
     model; Form Factors
-    Form and Structure Factors
+    Irena; Form and structure factors
 
 Form Factors & Structure factors
 ================================

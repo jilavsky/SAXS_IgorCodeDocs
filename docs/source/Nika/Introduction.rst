@@ -1,6 +1,6 @@
 .. _Introduction_Nika:
 
-.. index:: Introduction Nika
+.. index:: Nika; Introduction
 
 Introduction
 ============

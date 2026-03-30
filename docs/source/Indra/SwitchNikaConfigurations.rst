@@ -2,7 +2,7 @@
 
 
 .. index::
-    Switch Nika Configurations
+    Indra; Switch Nika configurations
 
 Switch Nika Configurations
 --------------------------
@@ -24,12 +24,12 @@ Now we can select "Create New Configuration". Nika will ask, if we want to save 
 .. Figure:: media/ConfigurationManager2.jpg
         :align: left
         :width: 380px
-        :Figwidth: 820px
+        :figwidth: 820px
 
 .. Figure:: media/ConfigurationManager3.jpg
         :align: left
         :width: 380px
-        :Figwidth: 820px
+        :figwidth: 820px
 
 And Nika will be restarted with new, unconfigured Nika. If 9ID configuration panel is opened, it will be reopened again.
 
@@ -40,7 +40,7 @@ You can return to any saved configuration by selecting it in the pull down menu,
 .. Figure:: media/ConfigurationManager4.jpg
         :align: left
         :width: 380px
-        :Figwidth: 820px
+        :figwidth: 820px
 
 Nika will ask if you want to save the current configuration (you can give it new name or overwrite any existing one). Keep track of these configurations and keep it simple...
 

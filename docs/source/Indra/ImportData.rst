@@ -7,7 +7,7 @@ Import USAXS/SAXS/WAXS data in Igor Pro
 
 
 .. index::
-    Import USAXS/SAXS/WAXS data
+    Indra; Import USAXS/SAXS/WAXS data
 
 **Comments:**
 
@@ -15,7 +15,7 @@ Importing tool uses "USAXS" naming system for USAXS and "QRS" for SAXS and WAXS.
 
 
 .. index::
-    Collected data arrangement 2
+    Indra; Collected data arrangement
 
 Collected data arrangement
 --------------------------

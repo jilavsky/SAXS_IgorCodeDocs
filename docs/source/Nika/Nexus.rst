@@ -3,6 +3,7 @@
 .. index::
     Nexus standard
     Nexus file format
+    Nika; Nexus files
 
 NEXUS data
 ----------
@@ -70,7 +71,7 @@ And, assuming the “downstream” software can read properly the Nexus NXcanSAS
 **Note**: *Should*\ … The Nexus standard is under development and it is committee work, in my experience things can complicated and confusing sometimes. I have tried to write the most standard file I can. There is bit too much flexibility in the Nexus NXcanSAS format to guarantee reliable data exchange under all conditions.
 
 .. index::
-    Nexus GUI Nika
+    Nika; Nexus GUI
 
 Nexus GUI description
 ~~~~~~~~~~~~~~~~~~~~~

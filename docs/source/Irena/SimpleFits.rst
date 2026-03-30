@@ -3,7 +3,7 @@
 Simple fits tool
 ================
 
-.. index:: Simple Fits
+.. index:: Irena; Simple Fits
 
 
 This tool is used to do simple fits on many data sets quickly. Ideally, one setups the Q range and fitting conditions on one or two data sets and runs the tool on all of the data selected in the listbox. Assuming q range and model are suitable for all, user gets quickly table or graph of results.
@@ -23,7 +23,7 @@ Implemented models:
 .. Figure:: media/SimpleFitsBioSAXS1.jpg
         :align: left
         :width: 500px
-        :Figwidth: 550px
+        :figwidth: 550px
 
 **Selecting data**
 
@@ -38,13 +38,13 @@ Select Q range to fit a specific model and push button *Fit Current (One) Datase
 .. Figure:: media/SimpleFitsBioSAXS2.jpg
         :align: left
         :width: 500px
-        :Figwidth: 550px
+        :figwidth: 550px
 
 
 .. Figure:: media/SimpleFitsBioSAXS3.jpg
         :align: left
         :width: 500px
-        :Figwidth: 550px
+        :figwidth: 550px
 
 
 Note value for chi-square for goodness of fit.
@@ -66,7 +66,7 @@ User can select multiple data sets in the listbox, method to use, Q range to use
 .. Figure:: media/SimpleFitsBioSAXS4.jpg
         :align: left
         :width: 700px
-        :Figwidth: 750px
+        :figwidth: 750px
 
 In the image one can see results of run of Spheroid model on sequence of data sets. Code run 5 data sets, created new folder in Igor experiment root\:SpheroidFitResults and stored there many waves with results of the model. It then created a table with these values and displayed for user. User can now go and manually utilize the model results in their own graphs or subsequence processing. I also stored data in notebook, but that is not shown here - it contains summary of resulting values and  graph for each sample which was run.
 

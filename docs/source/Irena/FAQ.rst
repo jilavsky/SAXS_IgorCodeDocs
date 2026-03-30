@@ -1,7 +1,7 @@
 .. _faq:
 
 .. index::
-    FAQ Irena
+    Irena; FAQ
 
 Frequently asked questions Irena
 ================================

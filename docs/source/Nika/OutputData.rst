@@ -1,8 +1,8 @@
 .. _QRSdataDescription:
 
 .. index::
-    Output data Nika
-    Export data Nika
+    Nika; Output data
+    Nika; Export data
     QRS data type
 
 

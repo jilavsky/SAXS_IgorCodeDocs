@@ -3,9 +3,8 @@
 
 
 .. index::
-    Reduce USAXS data, Step scans
-.. index::
-    USAXS data reduction, Step scans
+    Indra; Reduce USAXS step scan data
+    Indra; USAXS step scan data reduction
 
 Reduce step scan data
 ---------------------

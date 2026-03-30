@@ -2,7 +2,6 @@
 
 .. index::
     model; Modeling
-    Modeling package
 
 Modeling
 ========
@@ -119,8 +118,8 @@ Gauss (normal), Log-Normal, LSW, and Ardell.
 .. _Log-Normal Distribution:
 
 .. index::
-   Probability distributions: Gauss
-   Probability distributions: Log-Normal
+   Probability distributions; Gauss
+   Probability distributions; Log-Normal
 
 **Gauss** and **Log-Normal** distribution definitions were adopted from NIST
 engineering statistics handbook. See http://www.itl.nist.gov/div898/handbook/eda/section3/eda366.htm
@@ -148,7 +147,7 @@ The NIST definition is modified to be more elegant and parameters used by Irena 
 .. _LSW Distribution:
 
 .. index::
-   Probability distributions: LSW
+   Probability distributions; LSW
 
 The **LSW distribution** has been accepted from a source by J. Nasser, A. K. Kuruvilla, and J. E. Smith Jr. These authors in their manuscript on the web (www.space.gc.ca/science/space\_science/paper\_reports/spacebound97/materials\_sciece/….) refer to distribution by Lifshitz, Slyozlov, and Wagner:
 
@@ -161,7 +160,7 @@ This is the particle size distribution predicted by LSW in their theory of Ostwa
 .. _Ardell Distribution:
 
 .. index::
-   Probability distributions: Ardell
+   Probability distributions; Ardell
 
 **Ardell distribution** has been adopted per request (by our metallurgy colleagues) based on papers: Ardell, AJ and Ozolins, V., Trans-interface diffusion-controlled coarsening, Nature Materials, Vol. 4, pg. 309, April 2005 and Ardell, A.J., Quantitative predictions of the trans-interface diffusion-controlled theory of particle coarsening, Acta materialia 58 (2010), 4325-4331. Here are the formulas for the distribution:
 

@@ -2,7 +2,7 @@
 
 .. _LookupFunctions:
 
-.. index:: Extend Nika Lookup functions
+.. index:: Nika; Extend lookup functions
 
 
 Parameters lookup functions
@@ -14,7 +14,7 @@ Nika can be extended and customized to lookup parameters from various records. T
 .. _LookupFunctions.LookupFromExtraTextFile:
 
 .. index::
-      Nika Lookup Functions; Text file
+      Nika lookup functions; Text file
 
 Lookup from external text file
 ------------------------------
@@ -148,8 +148,8 @@ To read a specific value from this code I wrote following function:
 .. _LookupFunctions.LookupFromWaveNote:
 
 .. index::
-    Nika Lookup Functions; Metadata
-    Nika Lookup Functions; Wave notes
+    Nika lookup functions; Metadata
+    Nika lookup functions; Wave notes
 
 Lookup from wavenote metadata
 -----------------------------

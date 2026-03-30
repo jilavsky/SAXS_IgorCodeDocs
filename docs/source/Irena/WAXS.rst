@@ -2,6 +2,7 @@
 
 .. index::
    WAXS
+   Irena; WAXS fitting
    Powder diffraction
 
 Powder diffraction (WAXS) fitting

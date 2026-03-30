@@ -3,9 +3,8 @@
 
 
 .. index::
-    Reduce WAXS data
-.. index::
-    WAXS data reduction
+    Indra; Reduce WAXS data
+    Indra; WAXS data reduction
 
 Reduce WAXS data procedure
 --------------------------
@@ -31,7 +30,7 @@ To see inside of the current Igor experiment, use DataBrowser (ctrl-B or cmd-B).
 
 
 .. index::
-    WAXS data reduction panel
+    Indra; WAXS data reduction panel
 
 WAXS data reduction
 ===================
@@ -42,7 +41,7 @@ Select "Load Nika 2D SAS macros" from "Macros" menu, or preferably, load "USAXS,
 .. Figure:: media/WAXSReductionConfig.jpg
         :align: left
         :width: 500px
-        :Figwidth: 820px
+        :figwidth: 820px
 
 Select (or keep selected) checkbox "WAXS" and follow the instructions in the red letters. Keep other checkboxes selected as they are by default, more info later... First step is to push button "Set default settings". This will create dialog where you need to navigate to location of your WAXS data (see above about the data arrangement) and you need to select *any* data file from your samples, assuming there was no change in geometry for the data in that folder (distances, energy, etc.). So select a file (see below) and click Open.
 
@@ -50,7 +49,7 @@ Select (or keep selected) checkbox "WAXS" and follow the instructions in the red
 .. Figure:: media/WAXSSelectNXDataFile.jpg
         :align: left
         :width: 500px
-        :Figwidth: 820px
+        :figwidth: 820px
 
 Nika will open selected file and read from this file all calibration values we have included in each of the files. Few more things will happen at the same time:
 
@@ -66,14 +65,14 @@ Next step is to select the proper Blank - if needed, right click in the panel an
 .. Figure:: media/WAXSBlankSelection.jpg
         :align: left
         :width: 500px
-        :Figwidth: 820px
+        :figwidth: 820px
 
 Blank file will be loaded and displayed. Please note, that user needs to select proper Blank/empty file for each range of samples. So do not forget to change it if necessary.
 
 .. Figure:: media/WAXSSampleBlankLoaded.jpg
         :align: left
         :width: 700px
-        :Figwidth: 820px
+        :figwidth: 820px
 
 Here is example of Sample and Blank loaded and displayed side-by-side.
 
@@ -82,7 +81,7 @@ Next is simply - select sample or samples which should be processed and click on
 .. Figure:: media/WAXSProcessedDataImg.jpg
         :align: left
         :width: 700px
-        :Figwidth: 820px
+        :figwidth: 820px
 
 
 .. _reduce_WAXS_data_mask:
@@ -96,7 +95,7 @@ Depending on data dynamic range, noise and overall intensity, sometimes we can s
 .. Figure:: media/WAXSimpactOfLessSensitivePixels.jpg
         :align: left
         :width: 700px
-        :Figwidth: 820px
+        :figwidth: 820px
 
 
 and here is how the mask looks like:
@@ -105,4 +104,4 @@ and here is how the mask looks like:
 .. Figure:: media/WAXSMaskedLessSensitivePixels.jpg
         :align: left
         :width: 400px
-        :Figwidth: 820px
+        :figwidth: 820px

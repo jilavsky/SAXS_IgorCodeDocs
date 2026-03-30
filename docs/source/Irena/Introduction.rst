@@ -1,7 +1,7 @@
 .. _introduction:
 
 .. index::
-    Introduction Irena
+    Irena; Introduction
 
 Introduction Irena
 ==================

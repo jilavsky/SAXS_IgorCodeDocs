@@ -3,9 +3,8 @@
 
 
 .. index::
-    Reduce SAXS data
-.. index::
-    SAXS data reduction
+    Indra; Reduce SAXS data
+    Indra; SAXS data reduction
 
 Reduce SAXS data
 ----------------
@@ -34,7 +33,7 @@ To see inside of the current Igor experiment, use DataBrowser (ctrl-B or cmd-B).
 **Please note, that in this picture you see for each sample data processed twice. Folders with data ending _270_30 are pinhole data and need to be merged later with Desmeared USAXS data. Data in folders ending _u are slit smeared SAXS data which are intended for merging with slit smeared USAXS data.**
 
 .. index::
-    SAXS data reduction, Configuration
+    Indra; SAXS data reduction configuration
 
 SAXS data reduction
 ===================
@@ -45,7 +44,7 @@ Select "Load Nika 2D SAS macros" from "Macros" menu, or preferably, load "USAXS,
 .. Figure:: media/SAXSReductionConfig.jpg
         :align: left
         :width: 500px
-        :Figwidth: 820px
+        :figwidth: 820px
 
 Select (or keep selected) checkbox "SAXS" and follow the instructions in the red letters. Keep other checkboxes selected as they are by default, more info later... First step is to push button "Set default settings". This will create dialog where you need to navigate to location of your SAXS data (see above about the data arrangement) and you need to select *any* data file from your samples, assuming there was no change in geometry for the data in that folder (distances, energy, etc.). So select a file (see below) and click Open
 
@@ -53,7 +52,7 @@ Select (or keep selected) checkbox "SAXS" and follow the instructions in the red
 .. Figure:: media/SAXSSelectNXDataFile.jpg
         :align: left
         :width: 500px
-        :Figwidth: 820px
+        :figwidth: 820px
 
 Nika will open selected file and read from this file all calibration values we have included in each of the files. Few more things will happen at the same time:
 
@@ -70,14 +69,14 @@ Next step is to select the proper Blank - if needed, right click in the panel an
 .. Figure:: media/SAXSBlankSelection.jpg
         :align: left
         :width: 500px
-        :Figwidth: 820px
+        :figwidth: 820px
 
 Blank file will be loaded and displayed. Please note, that user needs to select proper Blank/empty file for each range of samples. So do not forget to change it if necessary.
 
 .. Figure:: media/SAXSSampleBlankLoaded.jpg
         :align: left
         :width: 700px
-        :Figwidth: 820px
+        :figwidth: 820px
 
 Here is example of Sample and Blank loaded and displayed side-by-side.
 
@@ -87,6 +86,6 @@ Next is simply - select sample or samples which should be processed and click on
 .. Figure:: media/SAXSProcessedDataImg.jpg
         :align: left
         :width: 700px
-        :Figwidth: 820px
+        :figwidth: 820px
 
 OK, next step is to reduce WAXS data (if collected) and - or - merge USAXS and SAXS data together. See other chapters how to :ref:`switch configuration <switch_nika_configurations>` and :ref:`reduce WAXS <reduce_WAXS_data_procedure>`.

@@ -2,12 +2,11 @@
 
 .. index::
     model; Reflectivity
-    Reflectivity
 
 Reflectivity
 ============
 
-.. figure:: media/Reflectivity1.png
+.. Figure:: media/Reflectivity1.png
    :align: left
    :width: 300px
    :figwidth: 320px

@@ -1,7 +1,7 @@
 .. _MassFractalAggregateModel:
 
 .. index::
-   Mass Fractal Aggregate
+   model; Mass fractal aggregate
 
 Mass Fractal Aggregate model
 ============================

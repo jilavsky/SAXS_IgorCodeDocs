@@ -92,7 +92,7 @@ where :math:`\beta` is the width and :math:`\mu` is the center of the peak.
 
 7. Skew normal function
 
-.. figure:: media/SmallAngleDiffraction15.png
+.. Figure:: media/SmallAngleDiffraction15.png
    :align: center
    :width: 780px
 

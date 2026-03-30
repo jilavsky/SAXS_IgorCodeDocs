@@ -1,11 +1,11 @@
 Important Information
 =====================
 
-.. index:: Units Nika
+.. index:: Nika; Units
 
 The code uses for all size related parameters Angstroems (10\ :sup:`-10` m) or for Q vector (A\ :sup:`-1`). In the case of scattering contrast, number distribution and any other volume contents centimeters (10\ :sup:`-2` m).
 
-.. index:: Load packages Nika
+.. index:: Nika; Load packages
 
 Loading the macros
 ------------------
@@ -19,7 +19,7 @@ In menu “Macros” select “Load Nika 2D SAS macros”.
 New menu “SAS 2D” appears. This is where all the Nika macros are
 controlled from.
 
-.. index:: Unload packages Nika
+.. index:: Nika; Unload packages
 
 Unload the macros
 -----------------
@@ -28,7 +28,7 @@ There are two items on may wish to do to unload the macros from any experiment. 
 
 Then removing the macros itself is achieved by selecting “Remove Nika 1 macros” in the “SAS 2D” menu. This will unload macros and put back in the “Macros” menu command to load Nika macros, if necessary.
 
-.. index:: Configure defaults Nika
+.. index:: Nika; Configure defaults
 
 Configure default fonts and names & Errors
 ------------------------------------------
@@ -60,8 +60,9 @@ Note the choice of GUI and Graph defaults panels when different fonts are used c
 
 Defaults button returns the panel font choices to platform specific default state (Mac: Geneva size 9 and PC Tahoma size 12). Note, that there is no guarantee that these were your choices before. But these should be reasonable choices for most setups.
 
-.. index:: DO NOT restore Panel Sizes
-           Panel size
+.. index::
+    Nika; Panel size
+    Nika; Do not restore panel sizes
 
 .. _important.DoNOTRestorePanelSizes:
 
@@ -70,7 +71,7 @@ Defaults button returns the panel font choices to platform specific default stat
 Do NOT restore Panel Sizes” controls if panels are restored to last used size and position when either they are recreated (they were closed and a tool is opened again) or when some existing experiment is reopened. Keep in mind, that if this checkbox is not selected, every time you scale up/down a panel, its position and size is recorded. When being recreated, the panel will move and scale back to its size. NOTE: Position and size is recorded ONLY when panel size is changed, not when it is just moved. If you want to overwrite this behavior, hold down any modifier key (alt, cmd/ctrl/shift...).
 
 
-.. index:: Uncertainty Nika
+.. index:: Nika; Uncertainty
 
 Error (uncertainty) estimates for points
 ----------------------------------------
@@ -85,7 +86,7 @@ Up to version 1.42 Nika used “error” calculation, which seemed to produce re
 
 Please note, that Standard error of mean (SEM) is miserably small for high-intensity instruments and generally is too small. At least in my experience. However, it seems to work fine for Pilatus detectors. Standard deviation was what I was trying to get with the old method – there should not be much difference between them most of the time.
 
-.. index:: Multiple configurations Nika
+.. index:: Nika; Multiple configurations
 
 Configuration manager
 ---------------------
@@ -139,11 +140,13 @@ There is no way at this time to rename saved configurations, except manually ren
 
 
 
-.. _SmallDisplayChallenge:
+.. _NikaSmallDisplayChallenge:
 
-.. _CheckIgorDisplayArea:
+.. _NikaCheckIgorDisplayArea:
 
-.. index:: Display problems; Small displays, Check for display area
+.. index::
+    Display problems; Small displays
+    Display problems; Check for display area
 
 Using Nika on small & large displays
 ------------------------------------
@@ -154,7 +157,7 @@ To aid users I have now added function which calculates what the area available 
 
 .. _LargeDisplayChallenge:
 
-.. index:: High-res displays
+.. index:: Display problems; High-res displays
 
 These packages are setup for large enough displays - in PIXELS displaye - this can be issue with high resolution displays - 4k displays and similar - on Windows. If you have problems seeing panel content or simply anything else looks off, please, check :ref:`GUI Controls Missing in Common Issues <GUIcontrolsMissing>` . Note, that you can have 4k display, but if you use large Display scaling (200% or more), the display really offers Igor pro ONLY fraction of pixels, which makes all panels too large and they do nto fit on screen. 
 
@@ -187,7 +190,7 @@ You can scale panels up or down, but they will not scale to smaller size than or
 NOTE: the setting of size is now persistent - in the current Igor Experiment that is - therefore, if you scale panel up and then close the panel, next time you recreate this panel, it will be rescaled for you to the same size. However, for usability in case you changed the display size in the mean time, the panel will be also imited in size to 50% width fo the current display AND 90% height of the current display. If you want to reset the panel to its default size, hold down shift/alt or cmd/ctrl key while creating the panel again. The size will be reset.
 
 
-.. index:: Update check Nika
+.. index:: Nika; Update check
 
 Check for updates
 -----------------
@@ -203,7 +206,7 @@ You can get this panel opened any time from SAS 2D> Check for updates
 The buttons open appropriate web pages in your web browser.
 
 
-.. index:: Extend Nika functionality
+.. index:: Nika; Extend functionality
 
 Modifying Nika functionality
 ----------------------------

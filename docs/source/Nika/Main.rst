@@ -5,7 +5,7 @@
 Main Panel
 ==========
 
-.. figure:: media/Main1.jpg
+.. Figure:: media/Main1.jpg
    :align: left
    :width: 340px
    :figwidth: 360px
@@ -135,7 +135,7 @@ Note: The way this tool is designed, image is added every time any of the Conver
 
 But the same result you can achieve by using convert buttons and simply not converting the data any way (not checking anything on “Main” tab and any of the “Sectors”, “Prev” and “LineProf” tabs. In this case you can add frames automatically, which is probably more useful…
 
-.. figure:: media/Main10.png
+.. Figure:: media/Main10.png
    :align: left
    :width: 320px
    :figwidth: 350px
@@ -235,7 +235,7 @@ Most of the time the data in Small-angle scattering are normalized and not calib
 enables users to select which units of absolute intensity calibration they want to write in wave note of the data. Other packages (Irena) may use this information and then it may be critical to have the right one in there.
 
 .. index::
-    Nika: image Statistics
+    Nika; image Statistics
 
 Calc. Stats.
 ~~~~~~~~~~~~
@@ -250,7 +250,7 @@ enables users to select which units of absolute intensity calibration they want 
 
 
 .. index::
-    Nika: Sample name
+    Nika; Sample name
 
 Sample Name
 ~~~~~~~~~~~
@@ -396,8 +396,8 @@ By the way, for small-angle scattering each of these corrections is negligible.
 
 It is possible to dezinger each image multiple times, in case the “zingers” are larger than single pixel.
 
-**Calibration/processing parameters: **
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+Calibration/processing parameters:
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 **Sample thickness** in millimeters
 

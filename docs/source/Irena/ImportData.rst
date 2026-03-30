@@ -1,7 +1,7 @@
 .. _import_data:
 
 .. index::
-    Import data
+    Irena; Import data
 
 Import data
 ===========
@@ -46,7 +46,7 @@ Importing ASCII SAS data
 .. Figure:: media/ImportData2.png
         :align: left
         :width: 300px
-        :Figwidth: 320px
+        :figwidth: 320px
 
 Explanation of control available here:
 

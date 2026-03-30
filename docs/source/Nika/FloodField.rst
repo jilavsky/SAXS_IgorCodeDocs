@@ -1,6 +1,6 @@
 .. _FlodField:
 
-.. index:: Flood field Nika
+.. index:: Nika; Flood field
 
 
 Flood field

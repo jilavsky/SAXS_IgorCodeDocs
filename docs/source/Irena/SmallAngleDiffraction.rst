@@ -30,7 +30,7 @@ Use of the tool:
 
 Select “Small-angle diffraction” from the menu
 
-.. figure:: media/SmallAngleDiffraction1.png
+.. Figure:: media/SmallAngleDiffraction1.png
    :align: center
    :width: 100%
 
@@ -88,7 +88,7 @@ Bckg – flat backgroud
 
 Tabs for Peaks:
 
-.. figure:: media/SmallAngleDiffraction16.png
+.. Figure:: media/SmallAngleDiffraction16.png
    :align: left
    :width: 300
 
@@ -109,7 +109,7 @@ Lower set of parameters are peak parameters calculated numerically, so they may 
 
 Final controls:
 
-.. figure:: media/SmallAngleDiffraction17.png
+.. Figure:: media/SmallAngleDiffraction17.png
    :align: center
    :width: 380px
 
@@ -126,7 +126,7 @@ Final controls:
 
 “Structure?” – sets ratios of positions for some known structures. Peak positions will be fixed with respect to Peak1. Note, user must set correct widths and prefactors for each peak manually…
 
-.. figure:: media/SmallAngleDiffraction18.png
+.. Figure:: media/SmallAngleDiffraction18.png
    :align: center
    :width: 75%
 
@@ -135,7 +135,7 @@ Final controls:
 
 “Paste to Notebook” – opens notebook for results and pastes in there graph and summary of results.
 
-.. figure:: media/SmallAngleDiffraction19.png
+.. Figure:: media/SmallAngleDiffraction19.png
    :align: center
    :width: 90%
 
@@ -144,7 +144,7 @@ Final controls:
 
 You can attach also residuals or normalized residuals into the graph, see example below.
 
-.. figure:: media/SmallAngleDiffraction20.png
+.. Figure:: media/SmallAngleDiffraction20.png
    :align: center
    :width: 90%
 

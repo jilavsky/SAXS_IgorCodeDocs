@@ -1,6 +1,6 @@
 .. _export_data:
 
-.. index:: Export data
+.. index:: Irena; Export data
 
 Export data
 -----------

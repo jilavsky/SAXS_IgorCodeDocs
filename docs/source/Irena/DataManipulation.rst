@@ -1,4 +1,4 @@
-.. index:: Data Manipulation I
+.. index:: Irena; Data manipulation I
 
 .. _data_manipulation_1:
 
@@ -114,7 +114,7 @@ Results of above mathematical functions can be also smoothed by checking *Smooth
 
 Please, make sure you fill in properly the names of waves for output data. There is nothing I can do here to catch typos and mistakes…
 
-.. index:: Data Manipulation II
+.. index:: Irena; Data manipulation II
 
 .. _data_manipulation_2:
 
@@ -260,7 +260,7 @@ methods.
 
 Post processing enables you to further modify data after they were processed through the system - Scale them (e.g., put on absolute scale), Reduce number of points (log-q rebin the data) and set Intensity units to appropriate unit - cm\ :sup:`2`/cm:sup:`3`, cm\ :sup:`2`/g, or arbitrary, so *Irena* is aware of the data units.
 
-.. index:: Merge 2 data sets
+.. index:: Irena; Merge 2 data sets
 
 .. _data_merge:
 
@@ -491,7 +491,7 @@ As you can see, original noisy Data 1 points (red data) are replaced between cur
 
 Now I can push "Save Data" button and actually, in this case, use same setting for all of the data I have in the set, since they are all very similar.
 
-.. index:: Data Manipulation III
+.. index:: Irena; Data manipulation III
 
 .. _data_manipulation_3:
 

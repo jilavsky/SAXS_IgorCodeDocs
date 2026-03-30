@@ -13,7 +13,9 @@ Web site for *Irena* is: https://usaxs.xray.aps.anl.gov/software/irena
 
 Web site for *Nika* is: https://usaxs.xray.aps.anl.gov/software/nika
 
-Current, prior, and future versions of the code are available from :index:`Github`:
+.. index:: Github
+
+Current, prior, and future versions of the code are available from Github:
 
 https://github.com/jilavsky/SAXS_IgorCode
 
@@ -74,9 +76,13 @@ Instructions for installation
 
 To install the macros, you need to install first Igor Pro (https://www.wavemetrics.com/products/igorpro), at least version 8.04, preferably Igor Pro 9.x, or higher. Igor Pro 9 was released in 2021.
 
-*Igor 7*  :index:`Igor 7.08`: is last supported by *Irena* version 2.69 and *Nika* version 1.82 which are included in **February2020** release. Igor Pro 7 was released July 2016 and is not obsolete. Upgrade.
+.. index:: Igor 7.08
 
- *Igor 6*  :index:`Igor 6.37`: is last supported by *Irena* version 2.62 and *Nika* version 1.761 - and you need the latest Igor Pro 6 release (6.37). These versions are still available for the APS web site as one zip file and need to be installed manually, see https://usaxs.xray.aps.anl.gov/software/irena and https://usaxs.xray.aps.anl.gov/software/nika. **Upgrade.**
+*Igor 7* Igor 7.08 is last supported by *Irena* version 2.69 and *Nika* version 1.82 which are included in **February2020** release. Igor Pro 7 was released July 2016 and is not obsolete. Upgrade.
+
+.. index:: Igor 6.37
+
+*Igor 6* Igor 6.37 is last supported by *Irena* version 2.62 and *Nika* version 1.761 - and you need the latest Igor Pro 6 release (6.37). These versions are still available for the APS web site as one zip file and need to be installed manually, see https://usaxs.xray.aps.anl.gov/software/irena and https://usaxs.xray.aps.anl.gov/software/nika. **Upgrade.**
 
 Movies with instructions and explanation are available on my :ref:`YouTube channel <YouTubeChannel>`.
 

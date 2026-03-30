@@ -1,6 +1,6 @@
 .. _data_mining:
 
-.. index:: Data mining
+.. index:: Irena; Data mining
 
 Data mining tool
 =================

@@ -2,7 +2,7 @@
 
 .. index::
    model; size distribution
-   Size distribution
+   Irena; Size distribution
 
 Size Distribution
 ====================

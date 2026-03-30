@@ -4,7 +4,7 @@ Other Tools
 ===========
 
 .. index::
-    Create QRS structure
+    Irena; Create QRS structure
 
 QRS data folder creation tool
 -----------------------------
@@ -72,7 +72,7 @@ Logging feature
 ----------------
 
 .. index::
-    Logging feature
+    Irena; Logging feature
 
 This feature is not finished and works only for standard models. It is planned update for future to make sure these records are useful…
 

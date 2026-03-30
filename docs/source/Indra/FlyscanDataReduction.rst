@@ -2,7 +2,7 @@
 .. _reduce_data_panel:
 
 .. index::
-    Reduce USAXS data Igor 
+    Indra; Reduce USAXS data
 
 
 
@@ -19,7 +19,7 @@ Igor is quite reliable and crashes rarely. But no software is crash proof and yo
 
 
 .. index::
-    Collected data arrangement
+    Indra; Collected data arrangement
 
 Collected data arrangement
 ==========================
@@ -50,9 +50,8 @@ In the Figure above the "waves" are sorted in the order they are created. You ca
 
 
 .. index::
-    Reduce USAXS data, Flyscans
-.. index::
-    USAXS data reduction, Flyscans
+    Indra; Reduce USAXS flyscan data
+    Indra; USAXS flyscan data reduction
 
 Reduce Flyscan data procedure
 =============================
@@ -69,7 +68,7 @@ Select "Load USAXS macros" from "Macros" menu. This will create "USAXS" menu and
 .. Figure:: media/USAXSDataReduction1.jpg
         :align: left
         :width: 800px
-        :Figwidth: 820px
+        :figwidth: 820px
 
 Follow these steps:
 
@@ -78,7 +77,7 @@ Use “\ *Select data path”* to browse to the folder on the computer where the
 .. Figure:: media/USAXSDataLocation.jpg
         :align: left
         :width: 400px
-        :Figwidth: 420px
+        :figwidth: 420px
 
 First we MUST process instrumental curve = "Blank" (aka "Empty" or similar names). This is important to do FIRST since without having proper instrumental curve, we cannot reduce and calibrate data measured on any sample. It is critical to use Blank measurement collected with EXACTLY the same setup, same energy, and as close in time to sample measurement as reasonable. Weaker the scattering, more important is to have a good Blank. Note, if your sample is inside environment (capillary, heater,...) the Blank includes the environment. For capillaries one can have two types of Blanks - empty capillary OR solvent. Talk to staff which one is appropriate for your specific case. If in doubt, collect both and decide later...
 
@@ -87,7 +86,7 @@ Make sure the checkbox "Process as Blank" is checked and Blank sample measuremen
 .. Figure:: media/USAXSDataReduction2.jpg
         :align: left
         :width: 800px
-        :Figwidth: 820px
+        :figwidth: 820px
 
 In the main graph you see Intensity-vs-q plot (log-log). In the top right corner is inset of the same Intensity data, but plotted against angle of analyzer stage. It is fitted at the top with Gauss+Lorenz function which provides center (angle at which q=0), width of the rocking curve (this is q resolution and is needed for absolute calibration) and maximum at the top (this is needed for absolute calibration). If this fit in the inset does not look good enough, move cursors up/down and try fitting with the buttons yourself. If this keeps failing, talk to beamline scientist to get help. The main graph shows how the instrument profile looks like. These profiles vary based on crystal surface quality and various dimensions in the instrument.
 
@@ -98,7 +97,7 @@ Push button *Save Data* and this blank curve will be stored in way the code can 
 .. Figure:: media/USAXSDataReduction3.jpg
         :align: left
         :width: 800px
-        :Figwidth: 820px
+        :figwidth: 820px
 
 What you see here is presentation of measured data (scaled by 1/transmission) - red curve - with Blank - black curve - plotted against left axis. You see subtraction - blue curve - plotted against right axis. This is Subtracted, calibrated, slit-smeared data. In the inset you should see fit to the peak profile of intensity vs angle plot, again providing values for q=0 angle, maximum intensity and width of the rocking curve.
 
@@ -117,7 +116,7 @@ Tab *Diode*
 .. Figure:: media/USAXSDataReduction4.jpg
         :align: left
         :width: 800px
-        :Figwidth: 820px
+        :figwidth: 820px
 
 Tab *Geometry* Ignore this tab, any changes here are NOT going to help you.
 
@@ -132,7 +131,7 @@ Tab *Desmear*
 .. Figure:: media/USAXSDataReduction5.jpg
         :align: left
         :width: 800px
-        :Figwidth: 820px
+        :figwidth: 820px
 
 Note that now there are two versions of your subtracted (and calibrated data). One version is the blue curve - this is slit smeared USAXS data. The there is green version of the same curve - this is desmeared version of the data. The desmeared version of the data is version you can model with ANY fitting program for SAS data analysis. Slit smeared data can be modeled ONLY with Irena package.
 
@@ -151,7 +150,7 @@ Important - Qmin range - check
 .. Figure:: media/USAXSDataReduction6.jpg
         :align: left
         :width: 800px
-        :Figwidth: 820px
+        :figwidth: 820px
 
 Here is processed data set. When happy, push button *Save Data* and data are saved. Note, a new graph is created, and in this graph presents Intensity vs q curve, desmeared one if you were desmearing, and slit smeared one if not. You can kill this graph, it will be recreated if needed...
 
@@ -159,7 +158,7 @@ Here is processed data set. When happy, push button *Save Data* and data are sav
 .. Figure:: media/USAXSDataReduction7.jpg
         :align: left
         :width: 800px
-        :Figwidth: 820px
+        :figwidth: 820px
 
 
 You can process next sample/s.

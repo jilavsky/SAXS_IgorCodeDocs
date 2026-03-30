@@ -1,7 +1,7 @@
 .. _MetadataBrowser:
 
 .. index::
-    Metadata Browser
+    Irena; Metadata Browser
 
 
 Metadata Browser
@@ -25,7 +25,7 @@ Irena keywords are hopefully understandable for humans. They are picked as reaso
 .. Figure:: media/MetadataBrowser1.jpg
         :align: left
         :width: 800px
-        :Figwidth: 850px
+        :figwidth: 850px
 
 
 **Metadata Browser GUI organization**
@@ -74,7 +74,7 @@ To remove keyword which you do not want to process, you can double click that na
 .. Figure:: media/MetadataBrowser2.jpg
         :align: left
         :width: 800px
-        :Figwidth: 820px
+        :figwidth: 820px
 
 
 In the figure above, we are looking for Unified fit results, specifically in the wave called UnifiedFitIntensity, in its note. If there would be multiple generations of results we would pick the most recent one (the highest order number). Metadata are listed in the middle listbox - BUT only those which contain anywhere in their name string "Level1". By double clicking on Level1B line in the middle Listbox user adds this keyword to those which will be extracted from data selected in the left side Listbox. I also added extraction of temperature from the folder name. Since the name contains a common way of recording temperature.  Optionally, if this temperature would be written in the metadata, it can be extracted as usual metadata value.
@@ -87,7 +87,7 @@ Now, that I have decided what to extract, I can select the data to process. Shif
 .. Figure:: media/MetadataBrowser3.jpg
         :align: left
         :width: 800px
-        :Figwidth: 820px
+        :figwidth: 820px
 
 
 The run finished and code created table of results. These are waves, which are stored in folder with named in *Save to:* field on the panel. Note, the folder will be created, but the name must be acceptable for Igor as Folder name. Also, you need to start with root: and add a name which you wish to use. In this case folder contains waves named: FolderNameWv, Level1B, and TemperatureWv. Temperature wave was created by extracting _xyzC from Folder name assuming it is temperature in degrees C. FolderNameWv is created always (and it is text wave). Level1B is Keyword name from the wave note. If the value is number, the wave will be numerical wave. If value is string, wave will be string and if the string is one of few recognized date/time representations, you will get wave with date-time converted to Igor time (seconds since some day in 1972 or whatever).
@@ -97,7 +97,7 @@ It is possible to generate easily plot of extracted data, use *X:* and *Y:* popu
 .. Figure:: media/MetadataBrowser4.jpg
         :align: left
         :width: 800px
-        :Figwidth: 820px
+        :figwidth: 820px
 
 
 Last feature is ability to *Delete old results*. This button will try to close graph and table using the results and delete folder which is in *Save To:* field. Alternatively, same can be achieved by using DataBrowser from Igor Pro and deleting the folder form there, manually closing all tables and graphs using data from teat folder first.

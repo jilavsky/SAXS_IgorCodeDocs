@@ -4,8 +4,8 @@ Igor experiments
 ==================
 
 .. index::
-    USAXS/SAXS/WAXS data 
-    Data naming systems
+    Indra; USAXS/SAXS/WAXS data description
+    Indra; Data naming systems
 
 
 
@@ -15,7 +15,7 @@ USAXS data type
 ---------------
 
 .. index::
-    USAXS data type
+    Indra; USAXS data type
 
 
 Independent if you used Fly scanning or step scanning, your data will be of type "USAXS". Data will be found in root\:USAXS folder, organized in folder, one folder for each data collection run - example: *SampleName_0001* . Inside this SampleName_0001 folder you will find many waves with data, but there are two which are of real importance :
@@ -27,8 +27,8 @@ Independent if you used Fly scanning or step scanning, your data will be of type
 
 
 .. index::
-    SAXS data type
-    WAXS data type
+    Indra; SAXS data type
+    Indra; WAXS data type
 
 SAXS/WAXS data type
 -------------------
@@ -43,7 +43,7 @@ In this :ref:`QRS naming system <QRSdataDescription>` the folder is called : "Sa
 
 
 .. index::
-    Merged data types
+    Indra; Merged data types
 
 Merged data types
 -----------------

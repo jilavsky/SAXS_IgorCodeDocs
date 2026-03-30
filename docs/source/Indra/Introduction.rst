@@ -1,8 +1,7 @@
 .. _introduction:
 
 .. index::
-    Introduction Indra (USAXS data reduction)
-    USAXS instrument description
+    Indra; Introduction
 
 
 

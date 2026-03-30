@@ -1,7 +1,7 @@
 .. _evaluate-size-distributions:
 
 .. index::
-   size distributions; evaluate details from
+   Irena; Evaluate size distributions
 
 Evaluate size distributions
 ===========================

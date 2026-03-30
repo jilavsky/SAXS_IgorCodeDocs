@@ -1,7 +1,7 @@
 .. _Plotting_Tools:
 
 .. index::
-    Plotting tool I
+    Irena; Plotting tool I
 
 Plotting tools
 ==============
@@ -288,7 +288,7 @@ You can create sequence of 2D graphs or 3D graphs, in 2d graphs you can either a
 .. _Plotting_tool_2:
 
 .. index::
-    Plotting tool II
+    Irena; Plotting tool II
 
 Plotting tool II
 ----------------
@@ -308,8 +308,7 @@ The GUI contains selected controls and any change in this GUI is applied to the 
 .. _Plotting_tool_3:
 
 .. index::
-    Multi Sample Plotting tool
-    Plotting tool 3
+    Irena; Multi sample plotting tool
 
 Multi-Sample Plotting tool
 --------------------------
@@ -320,7 +319,7 @@ This is tool developed to be able to plot many Irena/Indra/Nika data types quick
 .. Figure:: media/MultiDataPlot1.jpg
         :align: left
         :width: 800px
-        :Figwidth: 720px
+        :figwidth: 720px
 
 
 **Data Selection**
@@ -357,7 +356,7 @@ Every Graph has *Graph Window name* - this is Igor name used to address it. Typi
 .. Figure:: media/MultiDataPlot2.jpg
         :align: left
         :width: 400px
-        :Figwidth: 390px
+        :figwidth: 390px
 
 Next is *Graph Title* which is user changeable string. This string is present by this tool to something meaningful (if possible) and user can change it. This is any string, spaces, characters, numbers, symbols... This is what is seen by user in the top bar of each graph. Make is sensible and understandable.
 
@@ -366,7 +365,7 @@ If user wants to change to which the tool writes, user can change the *Graph Win
 .. Figure:: media/MultiDataPlot3.jpg
         :align: left
         :width: 400px
-        :Figwidth: 390px
+        :figwidth: 390px
 
 *New graph* button creates a new graph. Note, that adding data into graph "none" in the *Graph window name* will also create a new graph.
 

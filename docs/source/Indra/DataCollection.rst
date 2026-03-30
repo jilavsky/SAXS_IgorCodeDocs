@@ -4,9 +4,9 @@ Data Collection
 ---------------
 
 .. index::
-    USAXS data collection
-    HDF5 Data files
-    Nexus Files
+    Indra; USAXS data collection
+    HDF5 data files
+    Nexus files
 
 
 
@@ -50,7 +50,7 @@ Large amount of metadata is added into each Nexus file in various fields which u
 
 
 .. index::
-    USAXS/SAXS/WAXS HDF5 
+    Indra; USAXS/SAXS/WAXS HDF5 files
     HDF5 files
 
 
@@ -62,7 +62,7 @@ Each data collection segment saves its data in separate HDF5 file, SAXS and WAXS
 
 
 .. index::
-    Matilda
+    Indra; Matilda automatic data reduction
 
 .. _automatic_data_reduction :   
 

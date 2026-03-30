@@ -1,7 +1,7 @@
 .. _TwoPhaseSolid:
 
 .. index::
-   Two Phase Solid
+   model; Two phase solid
 
 Two Phase Solid model
 =====================
@@ -158,7 +158,7 @@ But representative value of these higher magnifications are questionable.
 .. _Display3DData:
 
 .. index::
-   Display 3D data
+   Irena; Display 3D data
 
 Display 3D data
 ===============
@@ -169,7 +169,7 @@ This can display 3D data using Igor Gizmo. Unfinished for now. Ignore or use at 
 .. _ImportPOVPDBFIles:
 
 .. index::
-   Import POV or PDB files
+   Irena; Import POV or PDB files
 
 Import POV or PDB files
 =======================

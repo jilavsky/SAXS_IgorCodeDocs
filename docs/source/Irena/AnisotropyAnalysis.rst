@@ -1,8 +1,8 @@
 .. _AnisotropyAnalysis:
 
 .. index::
-   Anisotropy Analysis
-   Hermans Orientational parameter
+   Irena; Anisotropy analysis
+   Hermans orientational parameter
 
 Anisotropy Analysis - HOP
 =========================

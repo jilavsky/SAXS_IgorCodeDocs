@@ -16,7 +16,7 @@ List of Tools
 
 .. _import_bioSAXS_ASCII:
 
-.. index:: Import bioSAXS ASCII data
+.. index:: Irena; bioSAXS import ASCII data
 
 Import bioSAXS ASCII Data
 -------------------------
@@ -87,7 +87,7 @@ Select ASCII data import from “BioSAS” menu. You get GUI, which presents var
 .. Figure:: media/ImportDataBio2.jpg
         :align: left
         :width: 300px
-        :Figwidth: 350px
+        :figwidth: 350px
 
 Explanation of control available here:
 
@@ -120,14 +120,14 @@ Locate data using “\ *Select data path”* button. This will populate the list
 .. Figure:: media/ImportDataBio3.jpg
         :align: left
         :width: 500px
-        :Figwidth: 550px
+        :figwidth: 550px
 
 So, lets assume the graph looks OK. **Check the Q scale - in case the Q values are 10x larger than you expect, you have Q in 1/nm and need to check the checkbox "Convert Q from [1/nm]"** Select files which you want to import - or just select all using button "Select all".
 
 .. Figure:: media/ImportDataBio4.jpg
         :align: left
         :width: 300px
-        :Figwidth: 350px
+        :figwidth: 350px
 
 
 Next decide, if you have many files per one sample - typically multiple measurements you want to average first - or if you have one file per sample. If you have many files (our example) you should check "Group by Samples?" option. If you have one file per sample, you should uncheck this checkbox or your data structure will be too complicated.
@@ -142,7 +142,7 @@ However, if you have only one measurement per sample, using this grouping just b
 
 .. _average_subtract_scale:
 
-.. index:: bioSAXS Average, Subtract, Scale
+.. index:: Irena; bioSAXS average, subtract, scale
 
 BioSAXS Data manipulation - Average, Subtract, Scale
 ----------------------------------------------------
@@ -177,7 +177,7 @@ The main GUI is here:
 .. Figure:: media/AverageBioSAXS1.jpg
         :align: left
         :width: 600px
-        :Figwidth: 650px
+        :figwidth: 650px
 
 The tool can do three things quickly and easily... It is not meant for more complicated processing. It also assumes, that you follow the procedure in order - Average - Subtract - and optionally Scale. Any other order may cause major troubles.
 
@@ -188,7 +188,7 @@ Understanding data selection tools makes user life easier. In the Data selection
 .. Figure:: media/AverageBioSAXS2.jpg
         :align: left
         :width: 500px
-        :Figwidth: 550px
+        :figwidth: 550px
 
 
 *Start Fldr.* Here you can select at which location in data tree code will start looking for the data. In this case we look fro data from root:
@@ -216,7 +216,7 @@ To add data, we have tow options.
 .. Figure:: media/AverageBioSAXS3.jpg
         :align: left
         :width: 500px
-        :Figwidth: 550px
+        :figwidth: 550px
 
 In this graph I simply double clicked on the Sbuf1_00033_00005: and it was added to the graph. You can add all data sets you want, but it may get tedious after few data sets.
 
@@ -232,7 +232,7 @@ In this graph I simply double clicked on the Sbuf1_00033_00005: and it was added
 .. Figure:: media/AverageBioSAXS4.jpg
         :align: left
         :width: 500px
-        :Figwidth: 550px
+        :figwidth: 550px
 
 In the graph code adds the black averaged data set and saves the data.
 
@@ -262,7 +262,7 @@ In this case it is better to set starting folder as root\:SAXS\: (or whatever th
 .. Figure:: media/SubtractBioSAXS1.jpg
         :align: left
         :width: 500px
-        :Figwidth: 550px
+        :figwidth: 550px
 
 To process a data set, follow the instructions on the panel.
 
@@ -275,7 +275,7 @@ To process a data set, follow the instructions on the panel.
 .. Figure:: media/SubtractBioSAXS2.jpg
         :align: left
         :width: 500px
-        :Figwidth: 550px
+        :figwidth: 550px
 
 
 Now, if you have many data sets from which you need to subtract same buffer, with same scaling, you can run this in sequence. Select all data sets you want to process (Careful *DO NOT* select buffer measurement). Then use *Sub. Buffer On Selected* button and all data sets selected in the listbox will be processed in sequence.
@@ -301,7 +301,7 @@ If needed, user can scale more or less any data (Int-Q-Error) using Scale operat
 .. Figure:: media/ScaleBioSAXS1.jpg
         :align: left
         :width: 500px
-        :Figwidth: 550px
+        :figwidth: 550px
 
 
 In the image I displayed only data which are subtracted ("sub" in the Folder match (RegEx)). I added data set into the graph and scaled by factor of 10. Code created a note in the history area:
@@ -324,7 +324,7 @@ This tool is used to subtract buffer from data measured with different concentra
 .. Figure:: media/ConcSeries1.jpg
         :align: left
         :width: 700px
-        :Figwidth: 750px
+        :figwidth: 750px
 
 Use controls and selections on the left side of the panel to select samples. For example, in this case the names of samples end with avg, so we can reduce number fo samples displayed by adding avg in Folder Match field. We can also set Start folder etc.
 
@@ -337,7 +337,7 @@ Add samples in the Sample and Buffer Name fields. *To add samples in the right f
 .. Figure:: media/ConcSeries2.jpg
         :align: left
         :width: 700px
-        :Figwidth: 750px
+        :figwidth: 750px
 
 Next fill the Input Concentrations (*SamX Conc Inp*) in gm/ml. If you selected *Protein?* or *Nucleic Acid?* code will calculate estimate for buffer scaling based on empirical formula. Else, the value is left as is. In that case, make sure it is close to 1. When done, push *Plot data*.
 
@@ -345,14 +345,14 @@ Next fill the Input Concentrations (*SamX Conc Inp*) in gm/ml. If you selected *
 .. Figure:: media/ConcSeries3.jpg
         :align: left
         :width: 700px
-        :Figwidth: 750px
+        :figwidth: 750px
 
 Next we need to select optimization/fitting conditions. Select using *Fit?* what you want to optimize. At least one concentration (*suggested the highest one*) must stay unchecked. The code will not allow the maximum concentration to be checked if user tries to select too many checkboxes. Next you need to also select Q range using cursors in which the data will be evaluated. When done, push button *Subtract & Plot*
 
 .. Figure:: media/ConcSeries4.jpg
         :align: left
         :width: 700px
-        :Figwidth: 750px
+        :figwidth: 750px
 
 This graph now shows subtracted data plotted against right axis based on our estimates.
 
@@ -368,14 +368,14 @@ Resulting new data, for rest of Irena are "QRS" data type with zConc appened to 
 .. Figure:: media/ConcSeries5.jpg
         :align: left
         :width: 700px
-        :Figwidth: 750px
+        :figwidth: 750px
 
 
 ------------------------------------------
 
 .. _bioSAXS_PDDF:
 
-.. index:: bioSAXS PDDF and Molecular weight
+.. index:: Irena; bioSAXS PDDF and molecular weight
 
 bioSAXS PDDF and Molecular weight
 ---------------------------------
@@ -404,7 +404,7 @@ Following methods are implemented :
 .. Figure:: media/BioPDDF1.jpg
         :align: left
         :width: 800px
-        :Figwidth: 850px
+        :figwidth: 850px
 
 
 **GUI description**
@@ -504,7 +504,7 @@ This will walk users through the Molecular weight fitting. As noted above, there
 .. Figure:: media/BioPDDF2.jpg
         :align: left
         :width: 800px
-        :Figwidth: 850px
+        :figwidth: 850px
 
 3. Now, we have a good fit and therefore good values for Rg and I(0). Now we need to make sure the right Q range is used for SAXSMoW method. Check *Qmax 8/Rg* and values should update. This fixed Qmax for both methods used here to about 0.28 [1/A]. Users can make different choices here and discussion on what is right is not part of this manual.
 4. If you look on the blue curve in the bottom graph, you can see, that the integration of Q\*I(Q) does not reach plateau. It should in order for Rambo-Tainer method to work as this integration is effectively version of invariant. This is due to poor subtraction of buffer for this sample. Check The *Autofind Backg?* checkbox and re run the *Fit Rg and calculate MW*.
@@ -516,7 +516,7 @@ Now, this suggests, that we now have reasonable solution and obtained two approx
 .. Figure:: media/BioPDDF3.jpg
         :align: left
         :width: 800px
-        :Figwidth: 850px
+        :figwidth: 850px
 
 
 **How to fit PDDF**
@@ -530,21 +530,21 @@ Now we will fit PDDF using GNOM to these data. Note, that the Rg is around 30A, 
 .. Figure:: media/BioPDDF4.jpg
         :align: left
         :width: 300px
-        :Figwidth: 350px
+        :figwidth: 350px
 
 4. In the next system dialog, locate Folder (directory) in ATSAS folder called "bin" and select that directory. This is where the binaries for gnom and autognom are.
 
 .. Figure:: media/BioPDDF5.jpg
         :align: left
         :width: 300px
-        :Figwidth: 350px
+        :figwidth: 350px
 
 5. Code will write out dat file as input for gnom in system provided temp directory and run gnom with appropriate command flags as selected in the GUI. It will wait for gnom to finish and read the OUT file in. It will then run through some calculations and present the results.
 
 .. Figure:: media/BioPDDF6.jpg
         :align: left
         :width: 800px
-        :Figwidth: 850px
+        :figwidth: 850px
 
 
 **Description of results**
@@ -563,27 +563,27 @@ Here are examples how the data are saved, in pictures...
 .. Figure:: media/BioPDDF7.jpg
         :align: center
         :width: 600px
-        :Figwidth: 650px
+        :figwidth: 650px
 
 Image above shows record in Notebook.
 
 .. Figure:: media/BioPDDF8.jpg
         :align: center
         :width: 900px
-        :Figwidth: 950px
+        :figwidth: 950px
 
 
 .. Figure:: media/BioPDDF9.jpg
         :align: center
         :width: 400px
-        :Figwidth: 450px
+        :figwidth: 450px
 
 The two images above show record created in Igor experiment. A folder called root:PDDFFitResults will be created, waves which can be seen in the image are created and every time user saves new results a new line is added to each of the waves. These waves are used to create the table seen in the image above. Old data are not overwritten, unless used deletes them all using the button on the panel. Therefore, same data set can be in the table many times.
 
 .. Figure:: media/BioPDDF11.jpg
         :align: center
         :width: 400px
-        :Figwidth: 450px
+        :figwidth: 450px
 
 Image shows which wave are saved in Data folder with the data. Multiple "generations" can be saved, data are not over written. User needs to delete them manually, if necessary. These are seen by rest of irena as *Irena results*.
 
@@ -591,7 +591,7 @@ Image shows which wave are saved in Data folder with the data. Multiple "generat
 .. Figure:: media/BioPDDF10.jpg
         :align: center
         :width: 600px
-        :Figwidth: 650px
+        :figwidth: 650px
 
 
 And finally, this is GNOM out file saved where this experiment called "BioSAXS manual 1.pxp" is located. New folder is created and all OUT files are saved there. Out file of the same name will be overwritten. User is warned by dialog which asks for permission to overwrite the out file.

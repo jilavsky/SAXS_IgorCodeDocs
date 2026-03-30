@@ -3,13 +3,13 @@
 Important Information
 =====================
 
-.. index:: Units Irena
+.. index:: Irena; Units
 
 The code uses for all size related parameters Angstroems (10\ :sup:`-10` m) or for Q vector (A\ :sup:`-1`). In the case of scattering contrast, number distribution and any other volume contents centimeters (10\ :sup:`-2` m).
 
 Output of the size is *usually* in particle diameters, but Modeling II is using radii as default (and diameters optionally), but read the graphs, the output may not be always the same. Output graph legend or panel text should be always correct.
 
-.. index:: Load packages Irena
+.. index:: Irena; Load packages
 
 Loading the macros
 ------------------
@@ -22,7 +22,7 @@ In menu “Macros” select “Load Irena SAS macros”.
 
 Irena code is loaded and compiled. This can take a while. New menu “SAS” appears. This is where all the Irena macros are controlled from.
 
-.. index:: Unload packages Irena
+.. index:: Irena; Unload packages
 
 Unload the macros
 -----------------
@@ -147,7 +147,7 @@ This is fixed now for **Modeling, Unified Fit, and Size distribution** by adding
 .. _important.Qresolution:
 
 .. index::
-  Q resolution Irena
+  Irena; Q resolution
 
 Per point smeared data by Q resolution
 ---------------------------------------
@@ -160,7 +160,7 @@ Kill all Irena panels and graphs
 .. _important.KillPanels:
 
 .. index::
-  Close all panels (Irena)
+  Irena; Close all panels
 
 This menu item allows closing all Irena related windows – panels and graphs – to be closed at once. Very convenient…
 
@@ -170,8 +170,7 @@ Irena manual
 .. _important.OpenManual:
 
 .. index::
-  Manual
-  Open Manual
+  Irena; Open manual
 
 In most cases button *Help* present on most panels should open Irena manual in web browser on web site:
 
@@ -199,14 +198,14 @@ Open Form factor description
 .. _important.OpneFFDescription:
 
 .. index::
-  Form factors
+  Irena; Form factors
 
 This should open pdf file with form factors description – including simplified code and graphs. These are form factors in the “central bank” of the Irena, available for use in packages, which use them.
 
 .. _important.UpdateCheck:
 
 .. index::
-  Update check Irena
+  Irena; Update check
 
 Check for updates
 -----------------
@@ -225,7 +224,7 @@ Location of items in SAS menu
 ------------------------------
 
 .. index::
-  Irena menu items
+  Irena; Menu items
 
 The location of items in SAS menu keeps changing. Here is current (version 2.62) location to help you find what you need…:
 
@@ -291,7 +290,7 @@ unsuccessfully.
       :width: 350px
 
 
-.. index:: Configure defaults (Irena)
+.. index:: Irena; Configure defaults
 
 .. _important.ConfigureDefaults:
 
@@ -300,9 +299,9 @@ unsuccessfully.
 “Configure Figure default fonts and names” in the SAS menu will create panel with some controls common for all tools, like font type & size and how legend names are handled. NOTE: Panel controls are applied immediately to all existing panels, graph controls are applied ONLY to the newly created graphs (and only those which were upgraded to this behavior).
 
 .. index::
-  DO NOT restore Panel Sizes
-  Panel size
-  Panel position and size restore
+  Irena; Panel size
+  Irena; Panel position and size restore
+  Irena; Do not restore panel sizes
 
 .. _important.DoNOTRestorePanelSizes:
 
@@ -338,7 +337,7 @@ Not all packages follow these controls yet, if you see issues in package of your
 .. _DataSelection:
 
 .. index::
-  Data Selection Controls (Irena)
+  Irena; Data selection controls
 
 Data selection
 ---------------
@@ -440,7 +439,7 @@ Match strings are tool-specific, so each tool has its own specific set of match 
 .. _DataSelectionMulti:
 
 .. index::
-  MultiData Selection Controls
+  Irena; MultiData selection controls
 
 MultiData selection
 -------------------
@@ -449,7 +448,7 @@ MultiData selection
 .. Figure:: media/MultiDataSelectionTools1.jpg
         :align: left
         :width: 300px
-        :Figwidth: 350px
+        :figwidth: 350px
 
 
 *Data type* Irena recognizes few data types.
@@ -472,7 +471,7 @@ MultiData selection
 .. Figure:: media/MultiDataSelectionTools2.jpg
         :align: left
         :width: 400px
-        :Figwidth: 450px
+        :figwidth: 450px
 
 *Which tool results* is selection of Irena tools, in this example it is Unified fit. Code will show only folders which contain some Unified fit results. But there are many results which are possible.
 
@@ -485,7 +484,7 @@ MultiData selection
 .. Figure:: media/MultiDataSelectionTools3.jpg
         :align: left
         :width: 400px
-        :Figwidth: 450px
+        :figwidth: 450px
 
 *HOW TO USE* Pick *Data selection checkboxes* properly. Pick a good *Starting folder*. If needed, use *Folder Match (RegEx)* to see only data folders you want to see. Sort the data based on whatever is appropriate in the *Sort Folders* options.  Learn some regular expressions, handy cheatsheet is below the Listbox... Regular expressions, at least basics, help a lot!
 
@@ -495,9 +494,11 @@ MultiData selection
 
 .. _CheckIgorDisplayArea:
 
-.. index:: Display problems; Small displays, Check for display area
-           Graphical Interface: Panel Scaling
-           Panel scaling
+.. index::
+  Display problems; Small displays
+  Display problems; Check for display area
+  Graphical Interface; Panel scaling
+  Panel scaling
 
 Using Irena on small displays
 -----------------------------
@@ -545,7 +546,7 @@ Using Irena on high resolution displays
 see:  :ref:`Large display scaling <LargeDisplayChallenge>` 
 
 
-.. index:: XOP use
+.. index:: Irena; XOP use
 
 Use of XOP
 ----------
@@ -562,7 +563,7 @@ Igor Pro enables use of external C-code to speed up some high cpu intensive oper
 
 .. _important.GeneticOptimization:
 
-.. index:: Genetic optimization
+.. index:: Irena; Genetic optimization
 
 Genetic optimization
 --------------------

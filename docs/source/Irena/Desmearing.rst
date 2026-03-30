@@ -28,7 +28,7 @@ The Image 4 from J. Appl. Cryst. (2009). 42, 469–479, doi:10.1107/S00218898090
 **NOTE** : Slit length is NOT q-resolution. Slit width actually could be considered q-resolution of the instrument and is sometimes presumed that way. But while slit width is something given by instrument geometry and detector system, final data q-resolution may be lower due to data processing, binning, etc. It can get bit confusing to users. But, slit length assumed in Irena is always perpendicular to the q-resolution direction. Also, Indra and Nika packages produce dQ values and those represent final post-processing q-resolution, which includes effects of slit width combined with data handling, averaging, etc.  *Therefore dQ exists for Slit smeared data and can be much worse than slit width of the original instrument! Do NOT confuse these two "resolution" values...*
 
 
-.. index:: Desmearing
+.. index:: Irena; Desmearing
 
 Desmearing
 ==========

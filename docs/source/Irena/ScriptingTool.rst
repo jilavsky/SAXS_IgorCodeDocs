@@ -1,6 +1,6 @@
 .. _scripting_tool:
 
-.. index:: Scripting tool
+.. index:: Irena; Scripting tool
 
 Scripting tool
 ==============

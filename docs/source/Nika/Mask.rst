@@ -1,4 +1,4 @@
-.. index:: Mask Nika
+.. index:: Nika; Mask
 
 Mask
 ====
