@@ -66,5 +66,5 @@ If you decide to merge SAXS + WAXS data, make sure SAXS is switched to "max numb
 Export for other tools
 ----------------------
 
-*DO NOT export for other tools SRM (slit smeared) data, unless you really know what you are doing.* I was unable to verify, that other tools handle slit smearing we have properly. If you want to do so, talk to me and we will test it first.
+*DO NOT export for other tools  (SMR slit smeared) data, unless you really know what you are doing.* I was unable to verify, that other tools handle slit smearing we have properly. If you want to do so, talk to me and we will test it first.
 Use :ref:`Export data tool <export_data>` and export ASCII or Nexus for SAS and GSAS xye for WAXS tools, like GSAS-II.

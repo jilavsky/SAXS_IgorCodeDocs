@@ -90,7 +90,7 @@ Important - Background data collection strategy
     4. If no data have "blank" in name, automatic data reduction is NOT done.
     5. The Blank MUST be somewhere *User folder*, it does not have to be in the same SampleFolder. 
     6. Data without a blank will only be reduced to QR data (no background subtraction, no calibration) and need to be reduced in Igor.
-3. Sample calibration is done using the sample **thickness** in the file. There is no way to patch parameters back, thickness must be prvided before data collection.
+3. Sample calibration is done using the sample **thickness** in the file. There is no way to patch parameters back, thickness must be provided before data collection.
 4. Calibration is done assuming the *thickness* is the correct calibration method. That means the Intensity units are [cm2/cm3]. There is no way to do calibration per weight etc.
 5. The data reduction/calibration is automatically done within 15 seconds after the data are finished collecting.
 
@@ -139,12 +139,12 @@ Data files - what to do now?
 
 OK, so now you have bunch of HDF5 files, what to do with them? These are combined raw (NXsas) and reduced/calibrated (NXcanSAS) data at once, not likely common thing for most users... 
 
-Believe or not, these are all data you really need, if you have done everything right and do not have any special requirements. Keep in mind that Matilda has default parameter selection (see above) which cannot be changed. If anythign needs to be changed or modified, Igor code (Indra for USAXS nadn Nika for SAXs and WAXS) are tools which can be used to re-reduce the data. In Igor one can overwrite many selections and even change the Blank into any other measurement (including measurements which do not have "blank" in name).
+Believe or not, these are all data you really need, if you have done everything right and do not have any special requirements. Keep in mind that Matilda has default parameter selection (see above) which cannot be changed. If anything needs to be changed or modified, Igor code (Indra for USAXS nadn Nika for SAXS and WAXS) are tools which can be used to re-reduce the data. In Igor one can overwrite many selections and even change the Blank into any other measurement (including measurements which do not have "blank" in name).
 
 **Here are options how to use these HDF5 data:**
 
 1. Import into Igor through the new USAXS GUI, HDF5 importer, or native Igor Pro HDF5 handling. See :ref:`Import data <import_data_procedure>`
-2. Use the hdf5 files directly in applications, which can read NXcanSAS data - I have tested sasView and it worked perfectly fine. Throw the HDF5 file into file window and sasView picked the right data from it.  
+2. Use the hdf5 files directly in applications, which can read NXcanSAS data - I have tested sasView 6 (https://www.sasview.org/) and it worked perfectly fine. Throw the HDF5 file into file window and sasView picked the right data from it. No need to do anything, just take the hdf5 file and throw it there ;-)  
 3. Open the file in HDFView and look at the data, check the file structure, find metadata. Use any application able to read HDF5 files to import the data (Matlab etc).  
 4. Use Python to read the data from the file for analysis in Python. Note, that NXcanSAS definition describes how to find where the data are the from attributes, if needed, there is code in Matilda (check Github page) which does this for you.
 

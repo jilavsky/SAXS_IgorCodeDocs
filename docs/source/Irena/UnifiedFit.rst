@@ -166,7 +166,7 @@ Controls above the tabs:
  * *Display local fits* displays local Guinier and Porod fits in the graphs for active tab level
  * *Number of levels* selects number of levels displayed. Note, that at no time parameters for not displayed levels are reset, so user can switch between number of displayed (=used) levels freely…
 
-Now, when we have the data we will start building the structures **from high Qs** Note, this is **IMPORTANT**, always build the Unified fit modxel from high-q area = start from small size scatterers.
+Now, when we have the data we will start building the structures **from high Qs** Note, this is **IMPORTANT**, always build the Unified fit model from high-q area = start from small size scatterers.
 
 Select the number of level 1, check Update Unified automatically (if used computer is fast enough, else push the button Graph Unified)… Click on the Tab “1. level”. What appears is the screen shot:
 

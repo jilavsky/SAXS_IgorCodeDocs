@@ -72,7 +72,7 @@ High resolution configuration (Si 440 crystals) step scanning only
 .. index::
     USAXS naming system
 
-When using USAXS instrument data reduction packages "Matilda" (automatic data reduction) and "Indra" and "Nika" (manual data reduction) your data are available in Igor for use with data analsysi tools (like "Irena") with following naming systems: 
+When using USAXS instrument data reduction packages "Matilda" (automatic data reduction) and "Indra" and "Nika" (manual data reduction) your data are available in Igor for use with data analysis tools (like "Irena") with following naming systems: 
 
 * "USAXS" for USAXS data. Note, that you will normally have available multple versions of the data, the most inportant are slit smeared and desmeared versions which are used for data analysis. 
 
@@ -80,7 +80,6 @@ When using USAXS instrument data reduction packages "Matilda" (automatic data re
 
 When you use "Irena" to analyze, plot, or even only export data, you need to select "USAXS" or "QRS" choice in the top of each panel. 
 
-History of the instrument:
-==========================
+**History of the instrument:**
 
-This isntrument was built at Advanced Photn Source in 1998 at Beamline 33ID (UNICAT). It was moved to beamline 32ID in around 2005, around 2010 moved to 15ID (ChemMatCARS), around 2015 moved to 9ID, and in 2021 moved for short time to 20ID. It has been located at 12ID since APS-U upgrade in 2024. Details are available in : DOI: 10.1007/s11661-012-1431-y. 
+This instrument was built at Advanced Photn Source in 1998 at Beamline 33ID (UNICAT). It was moved to beamline 32ID in around 2005, around 2010 moved to 15ID (ChemMatCARS), around 2015 moved to 9ID, and in 2021 moved for short time to 20ID. It has been located at 12ID since APS-U upgrade in 2024. Details are available in : DOI: 10.1007/s11661-012-1431-y. 
