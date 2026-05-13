@@ -76,6 +76,7 @@ The “\ *Irena*\ ” package is a suite of Igor Pro (Wavemetrics, version Igor 
 #.  **X-ray & neutron reflectivity** calculations using Parrat’s recursive method
 #.  **Scattering contrast calculator** including anomalous effects
 #.  **Data import tools**. Allows importing ASCII, HDF5 canSAS Nexus, or canSAS XML files. For ASCII SAS data need to be written in columns, separated by white space, tab or other separators. Allows creating user-friendly logical folder structure within Igor experiment.
+#.  **HDF5 Browser** - interactive two-pane tool for browsing, comparing, and transferring data between HDF5 files and Igor Pro experiments. Supports metadata preservation, drag-and-drop, and attribute round-tripping.
 #.  **Data export tool** – exports into ASCII, HDF5 canSAS Nexus, or canSAS XML files. For ASCII the data are written in columns, separated by white space, tab or other separators.
 #.  **Desmearing** for finite-slit length smeared data
 #.  **Data manipulation tools**. Allows merging, smoothing, adding together and subtracting of SAS data sets. These data sets do not have to necessarily use the same naming convention.
