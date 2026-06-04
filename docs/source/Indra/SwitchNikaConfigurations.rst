@@ -27,12 +27,14 @@ configuration — if you plan to return to SAXS reduction later, save it and
 name it "SAXS".
 
 .. Figure:: media/ConfigurationManager2.jpg
-   :align: center
+   :align: left
    :width: 380px
+   :figwidth: 820px
 
 .. Figure:: media/ConfigurationManager3.jpg
-   :align: center
+   :align: left
    :width: 380px
+   :figwidth: 820px
 
 Nika restarts with a new, unconfigured instance. If the 9ID configuration
 panel was open, it will be reopened automatically.
@@ -45,8 +47,9 @@ In the example below, both SAXS and WAXS configurations have been saved and
 are available for selection:
 
 .. Figure:: media/ConfigurationManager4.jpg
-   :align: center
+   :align: left
    :width: 380px
+   :figwidth: 820px
 
 Nika will ask whether to save the current configuration before switching. You
 can overwrite an existing configuration or save under a new name.

@@ -1,85 +1,126 @@
+.. _indra-merge-data:
 .. _merge_data_procedure:
 .. _merge_data_panel:
-
 
 .. index::
     Indra; Merge USAXS/SAXS/WAXS data
 
 Merge USAXS/SAXS/WAXS data
---------------------------
+===========================
 
-When you reduce USAXS/SAXS/WAXS data, your data are saved in Igor folders related to your sample name.  USAXS data in root\:USAXS\:Samplename and SAXS data are in  root\:SAXS\:Samplename_u (or Samplename_270_30). To see inside of the current Igor experiment, use DataBrowser (ctrl-B or cmd-B). See below in the image:
+After reducing USAXS/SAXS/WAXS data, the results are stored in Igor folders
+organized by sample name: USAXS data in ``root:USAXS:Samplename`` and SAXS
+data in ``root:SAXS:Samplename_u`` (or ``Samplename_270_30``). To browse the
+current Igor experiment, use the Data Browser (Ctrl-B or Cmd-B).
 
 .. Figure:: media/DataMerge1.jpg
-        :align: center
-        :width: 380px
+   :align: center
+   :width: 380px
 
-Next we need to merge USAXS and SAXS data together. We will use Irena package tool "Merge two datasets" :ref:`Merge two datasets <data_merge>`.
-
+To combine USAXS and SAXS data into a single merged dataset, use the Irena
+tool :ref:`Merge two datasets <data_merge>`.
 
 .. index::
     Indra; USAXS-SAXS data merge
 
 Data Merging panel
-==================
+------------------
 
-If needed, load Irena package by selecting "Load Irena SAS macros" from "Macros" menu. Select "Data Manipulation" from "SAS" menu, and from that submenu select "Merge two data sets".
-
+If needed, load Irena by selecting "*Load Irena SAS macros*" from the Macros
+menu. Then select "*Data Manipulation*" from the SAS menu, followed by
+"*Merge two data sets*".
 
 .. Figure:: media/DataMerge2.jpg
-        :align: left
-        :width: 500px
-        :figwidth: 820px
+   :align: left
+   :width: 500px
+   :figwidth: 820px
 
-This will load large panel:
+This opens a large panel:
 
 .. Figure:: media/DataMerge3.jpg
-        :align: left
-        :width: 800px
-        :figwidth: 820px
+   :align: left
+   :width: 800px
+   :figwidth: 820px
 
-To merge desmeared USAXS data with SAXS data, select as in the figure above. USAXS checkbox, DSM checkbox. Make sure you select root\:USAXS in the pull down menu. For second data set select QRS checkbox and root\:SAXS in the pul down menu. Note, that is you select DSM data for Data set 1, code should insert "_270" in the Data set 2 matchbox.
+To merge desmeared USAXS data with SAXS data, configure as shown above: select
+the USAXS checkbox and the DSM checkbox, and set the pull-down menu to
+``root:USAXS``. For the second dataset, select the QRS checkbox and set the
+pull-down menu to ``root:SAXS``. When DSM data are selected for Dataset 1,
+the code automatically inserts ``_270`` in the Dataset 2 match field.
 
-If you want to merge slit smeared data, set as below:
+To merge slit-smeared data instead, configure as follows:
 
 .. Figure:: media/DataMerge4.jpg
-        :align: left
-        :width: 400px
-        :figwidth: 820px
+   :align: left
+   :width: 400px
+   :figwidth: 820px
 
-Note, that when you select "SMR colim?" checkbox for slit smeared data, the code will insert "_u" in the match field for second data set.
+When the "*SMR colim?*" checkbox is selected for slit-smeared data, the code
+automatically inserts ``_u`` in the Dataset 2 match field.
 
-Now we need to test settings for various controls for merging. Make sure the "Test mode" at the top above the right graph is set, other controls we will now set as needed:
+Testing merge settings
+~~~~~~~~~~~~~~~~~~~~~~
+
+Ensure "*Test mode*" is enabled at the top of the right graph before adjusting
+merge parameters.
 
 .. Figure:: media/DataMerge5.jpg
-        :align: left
-        :width: 600px
-        :figwidth: 820px
+   :align: left
+   :width: 600px
+   :figwidth: 820px
 
-Double click on left column data set, pick some representative data set. This will add the data set into the graph in red color. Double click on same data set SAXS data in right column, this will add that data set in the black color in graph, plotted against right axis.
+Double-click a dataset in the left column to add it to the graph in red.
+Double-click the corresponding SAXS dataset in the right column to add it in
+black, plotted against the right axis.
 
 .. Figure:: media/DataMerge6.jpg
-        :align: left
-        :width: 800px
-        :figwidth: 820px
+   :align: left
+   :width: 800px
+   :figwidth: 820px
 
-First we need to select proper overlap region. Note the "Merge method" selection at the top of the window. Optimize Overlap is the best method, suitable when data scatter strongly enough in both SAXS and USAXS instruments and should be used if possible. If necessary, use more advanced methods (read about them in :ref:`Merge two datasets <data_merge>` or talk with beamline staff). We will use this basic method here. Select overlap using the round cursor (on black data set) and square cursor on red data set. Note, that data at Q values lower than position of round cursor are truncated from black data and data at Q values higher than square cursor are truncated from red data. There must be sufficient overlap region - or use the other merge methods.
+Select the merge method using the "*Merge method*" control at the top of the
+window. "*Optimize Overlap*" is the recommended method when both USAXS and SAXS
+data have sufficient scatter in the overlap region. For other situations, see
+:ref:`Merge two datasets <data_merge>` for descriptions of advanced methods or
+consult beamline staff.
 
-Next we need to pick which parameters will be optimized. Practically always we need to subtract *Data 1 background* and we need to get *Data 2 scaling* as selected by the two checkboxes on left top in the window. Sometimes we may need to also optimize the *Data 2 Q shift*.
+Use the round cursor (on the black dataset) and the square cursor (on the red
+dataset) to define the overlap region. Data at Q values below the round cursor
+are truncated from the black dataset; data above the square cursor are
+truncated from the red dataset. Sufficient overlap between the two datasets is
+required.
 
-To test the merge procedure, push button "Process data". You get Data overlayed with blue curve which is the merged data. If needed, move cursors around until data look OK.
+Select the parameters to optimize: typically "*Data 1 background*" and
+"*Data 2 scaling*" (top-left checkboxes) are always needed. "*Data 2 Q shift*"
+may be needed in some cases.
+
+Click "*Process data*" to preview the merge. A blue curve shows the merged
+result. Adjust cursor positions as needed until the overlap looks correct.
 
 .. Figure:: media/DataMerge7.jpg
-        :align: left
-        :width: 800px
-        :figwidth: 820px
+   :align: left
+   :width: 800px
+   :figwidth: 820px
 
-Now you have few options. You can simply push button "Save data" (there are two, both are orange to show, that data were not saved). Or you can check checkbox "Merge mode" and Process data either individually (double click on a data set from left column, right column and data will be processed and optionally saved automatically) or Process data sequentially, when you select range of files in each column and code will merge them sequentially. Code selects first from left column and merges with first in right column, seconds with second etc. Note, they do not have to lineup on the same lines. You can make non continuous selection in each column. More in :ref:`Data Merge tool  <data_merge>` tool manual in Irena manual.
+Saving merged data
+~~~~~~~~~~~~~~~~~~
 
+After a satisfactory merge, you have several options:
+
+* Click "*Save data*" (shown in orange until saved) to save the current merged
+  dataset.
+
+* Enable "*Merge mode*" and use "*Process data*" interactively — double-click
+  a pair of datasets from the left and right columns, and the code processes
+  and optionally saves them automatically.
+
+* For batch merging, select ranges of files in each column and use "*Process
+  and save data*". The code pairs the first file from the left column with the
+  first from the right column, the second with the second, and so on.
+  Selections in the two columns do not need to occupy the same rows. See
+  :ref:`Data Merge tool <data_merge>` in the Irena manual for full details.
 
 .. Figure:: media/DataMerge8.jpg
-        :align: left
-        :width: 800px
-        :figwidth: 820px
-
-In the above picture I have merged Selected files together automatically by selecting them, setting top controls as you see above and pushing button "Process and save data".
+   :align: left
+   :width: 800px
+   :figwidth: 820px
