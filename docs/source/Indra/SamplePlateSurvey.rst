@@ -1,4 +1,4 @@
-.. _samlePlateSurvey:
+.. _indra-sample-plate-survey:
 
 .. index::
     Indra; Sample plate survey
@@ -6,373 +6,519 @@
 Sample Plate Setup tool
 =======================
 
-Most users of our instrument have many samples which need to be measured. Over time we have developed various sample holders, which can hold up to 100 (at this time) of samples at once. Using these sample holders makes experiments lot more efficient, convenient, and suitable for remote experiments or mail-in experiments. The *Sample Plate Setup* tool described here is part of Indra (USAXS) package from September 2020 release.
+Most users of this instrument have many samples to measure. Over time a variety
+of sample holders have been developed that can accommodate up to 100 samples at
+once. The *Sample Plate Setup* tool described here is part of the Indra (USAXS)
+package, available since the September 2020 release.
 
-*Purpose*
+**Purpose**
 
-This tool enables users to pre fill one or more "Sample table" and send it to instrument ahead of their measurements. The same tool can be used at the beamline to fine tune measurement positions using radiography and export the command file. This way user avoids having to type sample names and positions at the beamline, while there is beam. User can type these positions while mounting the samples on these plates, making the process less error prone and more time efficient.
+This tool allows users to pre-fill one or more Sample Tables and send them to
+the instrument ahead of their measurements. The same tool can be used at the
+beamline to fine-tune measurement positions using radiography and to export the
+command file. This avoids the need to type sample names and positions at the
+beamline during beam time, making the process less error-prone and more time
+efficient.
 
-How to plan experiment (and sample plate)
------------------------------------------
+How to plan an experiment (and sample plate)
+---------------------------------------------
 
-Which sample plate (aka "sample holder") is needed depends on sample type (solid, powder, liquid), how large the samples are, what conditions need to be kept during shipping, measurement, and storage and also, how fragile the sample is. Users should talk with staff and based on the discussion and information provided on this page (https://usaxs.xray.aps.anl.gov/documentation/sample-environments) pick the right sample plate/holder. Note, that sample plates are being developed or changed all the time and therefore that page is updated routinely. Check again, even if you have used instrument before.
+The appropriate sample plate (sample holder) depends on sample type (solid,
+powder, liquid), sample dimensions, required conditions during shipping,
+measurement, and storage, and sample fragility. Discuss your needs with
+beamline staff and consult the sample environments page
+(https://usaxs.xray.aps.anl.gov/documentation/sample-environments) to select
+the right holder. That page is updated regularly as sample plates are
+developed or changed — check it even if you have used the instrument before.
 
-Let now us assume, that you have picked suitable sample plate/holder from the list and have beamtime scheduled few weeks from now. You should contact the staff at the instrument (mailto:usaxs@aps.anl.gov) at least 3 weeks before your experiment start and request suitable number of specific plates to be shipped to you. Alternative is to use drawings provided on above linked sample environments web page and 3D print your own or get one milled in machine shop. Neither is too expensive today. these are simple structures. At least two weeks before your experiment you should *receive* needed number of sample plates of suitable types.
+Once you have selected a suitable sample plate, contact instrument staff at
+usaxs@aps.anl.gov at least 3 weeks before your experiment and request the
+appropriate number of plates to be shipped to you. Alternatively, use the
+drawings on the sample environments page to 3D-print your own or have one
+machined. Receive the plates at least two weeks before your experiment begins.
 
-Now you need to plan data collection. Here are some rules to keep in mind:
-  * Data collection for one sample (or Blank) is about 4 minutes (typical) with USAXS about 120 seconds, SAXS and WAXS about 20-30 seconds each. Rest is moving instrument around, transmission measurement etc.
-  * There is overhead with survey, calibration and radiography, so typically you need 5-6 minutes of overall time per each sample. That is ~10 samples/hour, up to ~80 samples/shift. Moving samples around takes time, minimize the motions.
-  * You need to measure suitable instrumental curve - "Blank" - one for each about 5-10 sample measurements. Blank is everything which is in the beam EXCEPT your sample. If you have powder in Scotch tape, Blank is Scotch tape pouch without the powder. If you have suspension in water, Blank is water with capillary/NMR tube without the suspended material, etc. Talk to staff if not clear. *It is important*
-  * You need to measure Blanks throughout the data collection - not all at the beginning or at the end. Instrument background may evolve during time, so you need to measure Blank - few samples - Blank - few samples - Blank etc.
-  * Blank measurement is critically important. Without suitable Blank no useful data can be obtained from the USAXS instrument. Background is significant so it MUST be subtracted - and normalization/calibration cannot be done either.
-  * Sample Thickness is important. Data from USAXS instrument are on absolute intensity scale if correct sample thickness is provided. This does not apply for samples which cannot/will not be put on absolute intensity scale (powders,..). In that case set default thickness to 1mm and problem solved. Thickness is in millimeters (it is converted correctly later in data reduction).
+Planning considerations:
 
-Mount the samples on the plates. If there is pre defined Template for the one you are using (check below), start with Template for this plate. It will make your life easier. Horizontal direction, when mounted in the instrument, is called SX and vertical is SY. Some obvious feature on each plate is designated SX=0 and SY=0 (typically top right corner) and all distances are measured from this position, in millimeters. Position designation is arbitrary and you are welcome to designate for your own holders (if staff approves their use ahead) any feature which is easy to find.
+* Each sample (or Blank) takes approximately 4 minutes: ~120 seconds for USAXS
+  and 20–30 seconds each for SAXS and WAXS. Survey, calibration, and
+  radiography overhead adds time — allow 5–6 minutes per sample, giving
+  roughly 10 samples/hour or up to ~80 samples/shift. Minimize unnecessary
+  sample stage movements.
+* A suitable instrument background measurement ("Blank") is required for
+  approximately every 5–10 sample measurements. The Blank is everything in the
+  beam *except* the sample. For example: for powder in Scotch tape, the Blank
+  is an empty Scotch tape pouch; for a suspension in water, the Blank is water
+  in the same capillary/NMR tube without the suspended material. Consult staff
+  if in doubt — correct Blank measurement is essential.
+* Distribute Blank measurements throughout the run: Blank → samples → Blank →
+  samples, and so on. Do not collect all Blanks at the start or end.
+* Without a suitable Blank, no useful data can be obtained. Background is
+  significant and must be subtracted; calibration also requires Blank data.
+* Provide correct sample thickness in millimeters. Data from the USAXS
+  instrument are on absolute intensity scale when the correct thickness is
+  entered. For samples that cannot be placed on absolute scale (powders, etc.),
+  set thickness to 1 mm.
 
-While you are mounting the samples, keep in mind, that the samples need to be shipped to us. They need to stay mounted during shipping. Tape the samples sufficiently well. Mark the samples with names so if they fall off, staff can remount them. Scotch Magic tape seems to be preferred tape based on our experience, as it has relatively low background signal and no diffraction peaks (Kapton has diffraction peaks in SAXS region). Talk to staff.
+Mount samples on the plates, using the predefined Template if one exists (see
+below). Horizontal position at the instrument is called SX and vertical is SY.
+An obvious reference feature on each plate is designated SX=0, SY=0 (typically
+the top-right corner), and all distances are measured in millimeters from that
+position.
 
-Fill the table in the tool while you mount the samples - or after you mounted all the samples. How to do it depends on your preferences. Here are some obvious options:
-  * Fill the table with names and positions manually. Create suitable number of lines in Sample Table and start typing.
-  * If image of the sample plate is available, fill names for all samples in the table (do not forget to add Blanks, distributed throughout the data collection about every 10 sample measurements) and then select a row in the table and right click in the image on place where the sample is located and write the values there.
-  * At the beamline, where "Beamline survey" works, you can be adding lines with new samples using the "Beamline survey tool".
-  * If all samples have same thickness (or thickness is unknown), set default thickness in the "Options control" and leave the Thickness column empty. If sample thickness varies, write thickness to those which do not have default thickness, leave empty for those which do.
-  * Sample Names need to be suitable name for our instrument - string, starting with letter, no spaces, only letters, numbers, and "_". When a name is written in the table column "Sample name", the name is checked and if needed, converted in suitable string. If you do not like what you see, make different choice for name.
-  * Check below description of right click options for the Table controls. There are many useful right click commands you can use to make the setup of table easier.
+Samples must survive shipping. Secure them adequately and label each one so
+that it can be remounted if it falls off. Scotch Magic tape is preferred for
+mounting: it has low background signal and no diffraction peaks (unlike Kapton,
+which has diffraction peaks in the SAXS range).
 
-Verify positions and names. If plate image is available, use the image to show you where sample for each row is.
+Fill the Sample Table while mounting (or after mounting is complete):
 
+* Enter names and positions manually by typing into the table.
+* If a plate image is available, enter all sample names in the table first
+  (including Blanks distributed throughout the run), then right-click in the
+  image at each sample position to assign coordinates.
+* At the beamline, use the Beamline Survey tool to add and fine-tune positions
+  interactively.
+* If all samples have the same thickness (or thickness is unknown), set the
+  default thickness in Options Controls and leave the Thickness column empty;
+  fill in only differing thicknesses where needed.
+* Sample names must be valid instrument filenames: string starting with a
+  letter, no spaces, only letters, numbers, and ``_``. Names entered in the
+  table are checked and cleaned automatically.
+* Use the right-click menu on the Sample Table for many useful bulk operations
+  (described below).
 
+Verify positions and names. If a plate image is available, use it to confirm
+that each row's red marker corresponds to the correct physical sample position.
 
-*SAVE THE POSITION SET & IGOR EXPERIMENT*
+.. warning::
 
-Change the default (and *meaningless*) unique name into name which matches somehow the sample plate and can be easily identified. If you have Plate#5 and Plate#6 from us, save positions for Plate#5 as "Plate_5" etc. Keep it simple! *It may be 2am when staff is trying to understand this.* Save the Igor experiment with meaningful name, preferably containing your own name or GUP number or whatever is easy to understand. Unique name. Sensible name. For mail-in e-mail Igor experiment to staff. For remote access you can use NoMachine file transfer and push it from your computer to control computer at the beamline and/or e-mail the Igor experiment to staff ahead of your experiment. *DO NOT e-mail the command files* commend files will be generated at the beamline after checking the sample positions with radiography.
+   Save the position set and the Igor experiment with a clear, meaningful name
+   before sending anything to staff. If you have Plate #5 and Plate #6, save
+   them as "Plate_5" and "Plate_6". Use a unique, identifiable name for the
+   Igor experiment (e.g., your name or GUP number). For mail-in experiments,
+   email the Igor experiment to staff. For remote access, use NX file transfer.
+   **Do not email command files** — these are generated at the beamline after
+   verifying sample positions with radiography.
 
-Here are few more of practical suggestions for shipping and safety:
-  * Samples can fall off, make sure they are marked with names and can be identified.
-  * Keep the sample locations as simple as possible.
-  * Package suitably for shipping. Bubble wrap if reasonable.
-  * Ship with at least two days to spare.
-  * There is no weekend delivery at ANL, samples for weekend must arrive latest Thursday morning.
-  * Talk to staff about shipping.
-  * *Send staff necessary safety and chemistry information.*
-  * For remote operations, submit ESAF at least 14 days before your experiment. Mail-in ESAF is handled by staff, they need chemistry and safety information well ahead of your measurement.
+Practical shipping and safety reminders:
 
+* Label all samples so they can be identified if they fall off.
+* Keep sample locations as simple as possible.
+* Package suitably for shipping; use bubble wrap where appropriate.
+* Ship with at least two days to spare. There is no weekend delivery at ANL —
+  samples for Monday must arrive by Thursday morning at the latest.
+* Send staff all required safety and chemical information.
+* For remote operations, submit the ESAF at least 14 days before your
+  experiment. Mail-in ESAFs are handled by staff — provide safety and chemistry
+  information well in advance.
 
-Tool Description
-----------------
+Tool description
+-----------------
 
-*Start the tool* To start the tool, select **Setup Sample Plates** from USAXS Menu.
+To start the tool, select **Setup Sample Plates** from the USAXS menu.
 
 .. Figure:: media/SamplePlate1.jpg
-           :align: left
-           :width: 450px
-           :figwidth: 470px
+   :align: left
+   :width: 450px
+   :figwidth: 470px
 
-**General description**: The panel is divided into four main parts:
- * Top Controls
- * Tab with Sample Table
- * Tab with Options control
- * Tab with Export Controls
- * Bottom area with output buttons.
- * And message which reports to user last action he/she did!
+The panel is divided into the following areas:
 
-Controls in each of these areas are described below. The main purpose of this tool is to help users fill the "Sample Table" with Sample names, sx, sy, thickness and in the future metadata. This tool should make that easy, convenient, and reliable. *At the beamline* this tool can also be used for survey of sample positions, tweaking and fine tuning sx and sy for measurements and creating the command file.
+* Top Controls
+* Sample Table tab
+* Options Controls tab
+* Export Controls tab
+* Bottom area with output buttons
+* Last Info/Warning message field
 
-It is important to understand, that user can create multiple *Position sets* which can be stored with user selected names inside *One Igor Experiment*. These Position sets can be restored into the Sample table, changed, and saved or exported as command file. One Igor experiment can therefore contain many Sample sets. We expect typical user to have multiple sample plates, use this tool to create Position set for each sample plates (while mounting the samples) and then deliver to us one Igor experiment for their mail-in or remote experiment.
+Controls in each area are described below. The main purpose of the tool is to
+help users fill the Sample Table with sample names, SX/SY positions, and
+thickness values. At the beamline, the tool also supports position survey and
+command file export.
 
-*******
+Users can create multiple *Position Sets*, each stored under a user-selected
+name within a single Igor experiment. Position sets can be restored, edited,
+and re-exported. A single Igor experiment can therefore contain position sets
+for all sample plates in an experiment.
 
-**Top selection controls**
+Top selection controls
+~~~~~~~~~~~~~~~~~~~~~~
 
-*Create New Sample Set* will create a new empty table in the "Sample Table" .
+"*Create New Sample Set*" — Creates a new empty Sample Table. Uses the
+"Lines =" value to set the number of rows (default: 20).
 
-*Add Sample Positions* will append more lines to the end of the "Sample Table". Both of these buttons use the "Lines =" value to decide, how many lines are created. Default value is 20, user can change the number as needed.
+"*Add Sample Positions*" — Appends additional rows to the current Sample Table.
+Also uses the "Lines =" value.
 
-*Templates* If user is using a standard sample plate we designed and pre-programmed in the tool, like our Acrylic plate which has 9x9 samples, user can populate the table with predefined positions for this plate. Number of our common plates are predefined, more will be added over time. Optionally, user can choose "Generic grid holder" which through dialog asks for starting sx/sy position, step in sx and step in sy and number of positions vertically and horizontally. User can therefore create rectangular grid of positions quickly.
-User can also create image of the plate using *Create image* button, which will create scaled version of the sample plate and provide some cool features. See later *images* for more functionality description.
+"*Templates*" — If the selected sample plate is one of the predefined
+templates (e.g., the 9×9 Acrylic/magnetic plate), this button populates the
+table with predefined center positions. A "Generic grid holder" option prompts
+for starting SX/SY, step sizes, and grid dimensions, then generates a
+rectangular grid of positions.
 
-*Import image* This allows user to import image taken by camera (jpg, tiff, png,...) with the sample plate. image is imported and separate image is display with controls which enable user to select corners of rectangular are and assign dimensions in mm to this area. Image is then straightened and cropped. This create custom image which can be used same as can be created for some templates using *Create image* button.
+"*Create image*" — Creates a scaled image of the sample plate for those
+templates that support it. See the Image section below.
 
-*Select Saved set* If user saved a "Set of positions" (= filled table) using the button *Save Positions Set* (at the bottom of this panel), a sample set will be stored in this Igor experiment. Using this popup menu, user can select this saved positions set and using button *Load saved Position Set* can restore the positions in the table. Existing set of positions is overwritten, so save your positions first under suitable name, if you do not want to loose those. There is no undo here.
+"*Import image*" — Imports a camera image (JPG, TIFF, PNG, etc.) of a custom
+sample plate and guides you through cropping, scaling, and straightening it for
+use with the position survey features.
 
-*Beamline survey* this button opens special tool for survey of positions at the beamline. This tool will open only at the beamline. It is described at the bottom of this help page, if needed.
+"*Select Saved set*" — Selects a previously saved Position Set for loading.
 
-*Current set name* This is name for the current set of positions. Random name is generated when buttons are used. User should change this name into meaningful name related to the sample plates they are using. It REALLY helps if  it is easy to identify for anyone - sample plates may have numbers, so use "AcrylicPlate5" or anything sensible.
+"*Load saved Position Set*" — Restores a saved Position Set into the table.
+The existing table contents are overwritten — save your work first.
 
-*Save Position Set* This button will save the current sample set in this Igor experiment, it is then available as Saved sample set in *Select Saved set*. Note, that if this button is disabled, current sample set was not changed.
+"*Beamline survey*" — Opens the Beamline Survey panel, available only on
+beamline computers. Described in the Beamline Survey section below.
 
------
+"*Current set name*" — Name for the current Position Set. A random name is
+generated initially. Change it to something meaningful (e.g., "AcrylicPlate5")
+that clearly identifies the plate.
 
-**Example** Assume that as user you have received two Acrylic plates and want to populate a table for each and fill in sample names and positions. The following steps are needed to generate table with positions and display image of the plate to guide in sample mounting.
-  1.  Start the tool.
-  2.  Select the correct *Template*  (e.g., 9x9 Acrylic/magnetic plate" which is default)
-  3.  Push button *Populate table* (needed lines will be added automatically)
-  4.  Push button *Create image*
+"*Save Position Set*" — Saves the current Sample Set in the Igor experiment.
+The button is disabled if no changes have been made since the last save.
+
+**Example workflow**
+
+Assume you have received two Acrylic plates and want to populate a table for
+each:
+
+1. Start the tool.
+2. Select the correct *Template* (e.g., "9×9 Acrylic/magnetic plate", the
+   default).
+3. Click "*Populate table*" (the required number of rows is added automatically).
+4. Click "*Create image*".
 
 .. Figure:: media/SamplePlate2.jpg
-           :align: left
-           :width: 830px
-           :figwidth: 850px
+   :align: left
+   :width: 830px
+   :figwidth: 850px
 
-Result is table, pre filled with center positions for each sample position. Positions are indexed, in millimeters, with respect to top right corner, which is defined as sx=0 and sy=0. First two openings are designated for beamline use. Others are for users to use. The red marker in the image shows position of the currently selected row of samples in the table. See later *images* for more functionality description. Fill the table for Plate 1, mounting up to 79 samples on this plate.
-  5. *Set Name* for the plate into easy to identify name which is clearly related to the plate in front of your (e.g., Plate5 if the Plate has sticker "Plate#5").
-  6. *Save Position Set* using the button under the plate name.
-  7. Use steps 3-6 to create a table for second plate and populate it with sample names/positions. Note, that as you populate the table row which is being edited will have red dot displayed in the image (if it exists) with sx and sy locations and sample name.
-  8. Check your work. Either move row-by-row and check that red dot and name match location of that sample in the image. Or, on "Option Controls" select "Display all samples in image" and all sample positions will be displayed with their names attached.
-  9. Save Igor Experiment with meaningful name (e.g. "MyName_USAXS_20200805.pxp"). Send this experiment to staff or drop it to control computer through NXclient or shared Box folder. Following other instructions at the top of this page ship the plates with samples mounted to the instrument.
+The table is pre-filled with center positions for each sample slot, indexed
+in millimeters from the top-right corner (SX=0, SY=0). The first two positions
+are reserved for beamline use. The red marker in the image shows the position
+of the currently selected table row.
 
-******
+5. Set the *Current set name* to a clear identifier (e.g., "Plate5").
+6. Click *Save Position Set*.
+7. Repeat steps 3–6 for the second plate.
+8. Verify your work: move row by row to check that each red marker matches the
+   physical sample location. Or, in the Options Controls tab, enable
+   "*Display all samples in image*" to show all positions at once.
+9. Save the Igor experiment with a meaningful name (e.g.,
+   ``MyName_USAXS_20200805.pxp``) and send it to staff, or transfer it to the
+   beamline control computer via NX or a shared Box folder.
 
-**Sample Table**
+Sample Table
+~~~~~~~~~~~~
 
-Here user needs to fill the important details needed by USAXS/SAXS/WAXS instrument to collect data. There are four basic values we need:
-  1.  *Sample name = First column*. This must be acceptable filename on all systems we use (Linux, Windows, Mac). In order to make things reliable, names must be single word, start with letter, and use only letters, numbers, and "_". And be less than 40 characters long. System will fix user input in this field to match these requirements. If you do not like the result, edit it - but make better choices on your sample name. User name passing the above requirements will not be modified.
-  2.  SX position. This is horizontal distance of measurement position, in millimeters, from defined sx=0. Typically from right edge of the holder, but is kind of arbitrary and can be any location.
-  3.  SY position. This is vertical distance of measurement position, in millimeters, from defined sy=0. Typically from the top edge of the holder, but is kind of arbitrary and can be anything.
-  4. Sample thickness, in millimeters. Needed to put data on absolute intensity scale. If not filled by user, "Option Control" has default value which will be used. Can be 0 for blanks.
+Each row contains the four values required by the instrument:
 
-*Important note* - any line with no Sample name in it is considered empty line and will be skipped when creating command file. Fill Sample Names only for used positions and you can leave the other lines in there. Or delete. See later.
+1. **Sample name** — Must be a valid filename: starts with a letter, uses only
+   letters, numbers, and ``_``, and is at most 40 characters. The system
+   corrects non-conforming input automatically.
+2. **SX** — Horizontal measurement position in millimeters from SX=0.
+3. **SY** — Vertical measurement position in millimeters from SY=0.
+4. **Thickness** — Sample thickness in millimeters, used for absolute intensity
+   calibration. If left empty, the default from Options Controls is used.
 
-*Right click menu* on the *Sample Table* provide lots of useful functionality. Note, that you can select one line or multiple lines, to select range of lines hold down shift and to pick and choose disjoint lines, hold down ctrl/cmd buttons. Note, that some of the tools use only the top (first) line selected...
+.. note::
+
+   Any row with an empty Sample Name is treated as an empty row and is skipped
+   when the command file is generated. You can leave unused rows in the table
+   or delete them.
+
+The right-click menu on the Sample Table provides many useful operations. You
+can select one row, a contiguous range (Shift-click), or multiple disjoint rows
+(Ctrl/Cmd-click).
 
 .. Figure:: media/SamplePlate3.jpg
-           :align: left
-           :width: 480px
-           :figwidth: 500px
+   :align: left
+   :width: 480px
+   :figwidth: 500px
 
+"*Copy sel. rows to Clipboard*" — Copies selected rows to the Table Clipboard,
+overwriting any previously stored content. Only one Clipboard is available.
 
-*Copy sel. rows to Clipboard*    Copies values in one or more selected rows into "Clipboard" and saves it for later use. There is only ONE Clipboard available to users, copying selected rows in Clipboard will overwrite all existing content in the Clipboard.
+"*Paste Clipboard to sel. rows*" — Pastes stored rows into the selected rows.
+When the Clipboard contains a single row, that row's content is pasted into
+each selected row. When multiple rows are stored, they are pasted in order into
+the same number of selected target rows.
 
-*Paste Clipboard to sel. rows*    Paste the values stored using above "Copy row values to Clipboard" command into the selected rows. Overwrites existing values.  *Important: you need to select same number of target rows as is in Clipboard stored EXCEPT when only single row is stored in Clipboard. If only one row is stored, its (same) content is copied in each selected row. When multiple rows are stored, content of each stored row pasted (in order) in selected target rows.* Note: Clipboard is not emptied by this command, same content can be pasted many times.
+"*Insert new rows with Clipboard vals.*" — Inserts new rows below the top
+selected row and fills them with the Clipboard contents. When multiple rows are
+selected, only the top selected row's position is used.
 
-*Insert new rows with Clipboard vals.*    Inserts needed number of new rows below the top selected row and pastes the values stored by above "Copy row values to Clipboard" command into the new rows. In this case all rows from clipboard are pasted as single block below the *top selected row* in the table. Even if rows in Clipboard were originally not contiguous range (clipboard has no record of original position of the content). *If multiple lines* are selected, *ONLY the TOP selected row* is considered for location and other selections are ignored. Note: Table Clipboard is not emptied by this command, same content can be pasted many times.
+"*Insert new lines*" — Inserts one empty row at the selected position, shifting
+subsequent rows down.
 
-*Insert new lines*    Inserts one row in the selected row, moving the rest down.
+"*Delete selected lines*" — Deletes selected rows; remaining rows shift up.
 
-*Delete selected lines*    Deletes selected rows, rest moves up.
+"*Duplicate selected lines*" — Inserts a copy of the selected row immediately
+below it. Useful for measuring the same sample at nearby positions.
 
-*Duplicate selected lines*    Inserts a new row in the Sample Table. The new row is filled with values from the row which is being duplicated. Useful when you need to measure sample twice in positions close together. Duplicate line, change sx and/or sy and done.
+"*Write same Name*" — Prompts for a string and target range, then writes that
+string into all specified Sample Name fields.
 
-*Write same Name*    Asks for string and where to write inputs; write this this string into all indicated Sample Name fields. Useful when many samples have same prefix and user needs to just append index or code.
+"*Write same Thickness*" — Prompts for a value and target range, then writes
+that thickness into all specified Thickness fields.
 
-*Write same Thickness*    Asks for value and where to write inputs; writes this thickness value as instructed. Useful when many samples have same thickness. Note the default thickness on second tab if all samples have same thickness.
+"*Same Sx to all empty*" — Prompts for an SX value and fills it into all
+currently empty SX fields. Existing values are not changed.
 
-*Same Sx to all empty*    Asks user for sx value and this one is filled in all empty sx fields in the table. SX fields which contain any number are not changed.
+"*Same Sy to all empty*" — Prompts for an SY value and fills it into all
+currently empty SY fields. Existing values are not changed.
 
-*Same Sy to all empty*    Asks user for sy value and this one is filled in all empty sy fields in the table. SY fields which contain any number are not changed.
+"*Increment Sx from selected row*" — Takes the SX value of the selected row,
+prompts for a step size (which may be negative), and fills incremented SX
+values into all rows below.
 
-*Increment Sx from selected row*    Takes value for sx in the selected row, asks user for step and inserts incremented sx values to all higher rows. Step can be negative. Great if user needs to step through the sample at fixed distances.
+"*Increment Sy from selected row*" — Same as above for SY.
 
-*Increment Sy from selected row*    Takes value for sy in the selected row, asks user for step and inserts incremented sy values to all higher rows. Step can be negative. Great if user needs to step through the sample at fixed distances.
+"*Add to Sx from selected row*" — Adds a constant offset to each SX value from
+the selected row downward.
 
-*Add to Sx from selected row*    Starting from selected row down, adds constant to each sx value. This is useful when you need to shift all measurements points by the same value.
+"*Add to Sy from selected row*" — Adds a constant offset to each SY value from
+the selected row downward.
 
-*Add to Sy from selected row*    Starting from selected row down, adds constant to each sy value. This is useful when you need to shift all measurements points by the same value.
+"*Set lines as Blank*" — Writes "Blank" into the Sample Name field of the
+selected rows.
 
-*Set lines as Blank*    Writes in Sample name string Blank
+"*Set as Dist. Std. AgbehLaB6*" — Writes "AgBehenateLaB6" into the Sample
+Name field of the selected rows.
 
-*Set as Dist. Std. AgbehLaB6*    Writes in Sample names string "AgBehenateLaB6" to indicate positions are used by standard.
-
-
-Table Clipboard can now handle one or many selected lines from the table. Most tools handle multiple selected lines, hopefully logically... If more functionality is needed, let me know.
-
-*******
-
-**Option Controls**
-
+Options Controls
+~~~~~~~~~~~~~~~~
 
 .. Figure:: media/SamplePlate4.jpg
-           :align: left
-           :width: 380px
-           :figwidth: 400px
+   :align: left
+   :width: 380px
+   :figwidth: 400px
 
+"*USAXS All?*", "*SAXS all?*", "*WAXS all?*" — Select which measurement
+segments to collect for all samples. Uncheck any segment that is not needed.
 
-In this tab user can select various options. The most common one will be options *USAXS All?*, *SAXS all?*, and *WAXS all?*. When selected, all samples in the table are measured using that technique. If user does not need one or two of those techniques, uncheck the measurement and that segment will be skipped.
+"*Default sample thickness*" — Default thickness applied to rows with an empty
+Thickness column.
 
-*Default sample thickness*    Can be set for set of samples (e.g., NMR tubes are 4mm ID) and then thickness does not have to be provided in the Sample table.
+"*Export order*" — Controls the order in which segments are collected (default:
+USAXS–SAXS–WAXS).
 
-*Export order*    Controls in which order the segments will be collected. Default is USAXS-SAXS-WAXS.
+"*Run Export Hook function?*" — Enables a user-modifiable hook function that
+can modify table entries when writing the command file (see Hook function
+below).
 
-*Run Export Hook function?*    User can modify existing example Hook function in the code which will somehow modify the table input when writing to command file. Example is to measure each sample in multiple places offset by some distance etc. See the **Hook function** below.
+"*USAXS time, SAXS time, WAXS time*" — Times used to calculate the estimated
+total run time shown at the bottom of the panel. These values are not sent to
+EPICS; set measurement times in EPICS separately.
 
-*USAXS time, SAXS time, WAXS time*    These values are used to calculate total run time (see bottom of the panel). NOTE, that these values are NOT transferred to epics, so user must set these in epics on their own.
+"*Default Command file name*" — Do not change unless you have a specific reason
+to do so.
 
-*Default Command file name* - do not change unless you really know what you are doing. Name of macro file being exported.
+"*Display individual controls*" — Enables per-sample selection of which
+measurement segment(s) to run. This is rarely needed; consult staff before
+using.
 
-*GUI Controls* are rarely needed.   *Display individual controls*    Will enable user to choose - per sample - when to run which measurement segment. Basically, bad idea unless you know why you need it. Talk to staff, but "DO NOT DO IT".
+"*Display all samples in image*" — Shows red markers and names for all samples
+in the table simultaneously on the plate image.
 
-*Display all samples in image*    Will show red dots and names in the image for all samples in the table. Useful when looking for open space in mostly filled table.
+Hook function
+^^^^^^^^^^^^^
 
-**Hook function**
+For non-standard data collection patterns, enable "*Run Export hook function?*"
+and modify the hook function in your Igor experiment. Click "*Display Hook
+Function*" to copy the function template into the main Procedure window for
+editing. The example below measures five positions per sample (center plus
+offsets in four directions):
 
-Sometimes we need to modify data collection in way which is rare and difficult to put in GUI. For this purpose we have checkbox *Run Export hook function?*. If this checkbox is checked, code will run for export a "hook" function. This function needs to be modified in the code (or one can use overwrite). Below is example, which for each (non-Blank) position collects actually 5 different positions. Center (defined one) and one up, down, left and right from the center position. This is used to get average over wider area to get larger statistical average.
+.. code-block:: igor
 
-*Display Hook Function* button will copy the hook function in main Procedure file in Igor experiment for user to edit and modify. Code below is what you get:
+    override Function IN3S_ExportHookFunction(listWaveG, LBSelectionWvG)
+        wave listWaveG, LBSelectionWvG
+        //  Modify this function as needed.
+        //  IN3S_WriteListOfCommands(listWaveG, LBSelectionWvG, sxOffset, syOffset, TitleModifier)
+        //  1. Keep wave names listWaveG, LBSelectionWvG unchanged.
+        //  2. Change sxOffset and syOffset [mm] (added to sx and sy from the table).
+        //  3. Change TitleModifier (appended to the sample name).
+        //  4. Ensure "Run Export Hook function" checkbox is checked and procedures are compiled.
+        IN3S_WriteListOfCommands(listWaveG, LBSelectionWvG, -1,  0, "_R")  // right
+        IN3S_WriteListOfCommands(listWaveG, LBSelectionWvG,  0, -1, "_T")  // top
+        IN3S_WriteListOfCommands(listWaveG, LBSelectionWvG,  1,  0, "_L")  // left
+        IN3S_WriteListOfCommands(listWaveG, LBSelectionWvG,  0,  1, "_B")  // bottom
+    end
 
+Export Controls
+~~~~~~~~~~~~~~~
 
-| override Function IN3S_ExportHookFunction(listWaveG, LBSelectionWvG)
-|   	wave listWaveG, LBSelectionWvG
-|   	//  Modify this function as needed, for example comment out lines etc.
-|   	//  These are parameters:
-|   	//		IN3S_WriteListOfCommands(listWaveG, LBSelectionWvG, sxOffset, syOffset, TitleModifier)
-|   	//	1. Keep the wave names listWaveG, LBSelectionWvG as they are. These contain info for all samples.
-|   	//	2. Change the sxOffset and syOffset [mm] (these values are added to the sx and sy in the table).
-|   	//	3. Change the TitleModifier, this is appended to the sample name.
-|	    //	4. make sure you have "Run Export Hook function" checkbox checked and compiled procedures.
-|	   //************************************************************************************************
-|	  //this measures right of center position
-|	  IN3S_WriteListOfCommands(listWaveG, LBSelectionWvG, -1, 0, "_R")
-|	  //this measures top of center position
-|	  IN3S_WriteListOfCommands(listWaveG, LBSelectionWvG, 0, -1, "_T")
-|	  //this measures left of center position
-|	  IN3S_WriteListOfCommands(listWaveG, LBSelectionWvG, 1, 0, "_L")
-|	  //this measures bottom of center position
-|	  IN3S_WriteListOfCommands(listWaveG, LBSelectionWvG, 0, 1, "_B")
-| end
+The typical workflow is to prepare and save one or more Position Sets, then
+export them one at a time to a command file.
 
-*******
-
-**Export Controls**
-
-Normally, user prepares and saves one or more "Position Sets" and exports one at time into command file. This is typical use of this tool.
-
-However, some users need to prepare multiple "Positions sets" and then run all at once. This is typically when user mounts number of different samples on one plate and each sample needs more complicated data collection points arrangement. It would be possible to prepare one really complicated position set (=table) with all of these samples, placed one after another, but often it is better to prepare many "Position sets" and then combine them together. Also, if all measurement positions are in one large table, each geometry will be done in one group. This may not be ideal, if there are samples with different priorities.
-
-One option is to use button "Append to cmd file" (see below). But that gets cumbersome quickly also.
-
-*Export Controls* tab provides better control of merging multiple saved "Position sets" into one large command file. See figure.
+For experiments requiring multiple Position Sets to be combined into a single
+command file, the Export Controls tab provides a drag-and-drop interface:
 
 .. Figure:: media/SamplePlate8.jpg
-           :align: left
-           :width: 330px
-           :figwidth: 350px
+   :align: left
+   :width: 330px
+   :figwidth: 350px
 
+"*Export Current set?*" (radio button) — Exports whatever is in the current
+Sample Table when Export, Append, or Preview buttons are used. This is the
+default behavior.
 
-Radio button *Export Current set?* will export whatever is in the current Position set (table) on tab 1, when "Export", "Append", or "Preview" buttons are used. This is default = normal behavior.
+"*Export list of sets below?*" (radio button) — When selected, shows two list
+boxes: available saved Position Sets on the left, and the export order on the
+right. Drag names from left to right to build the export list. Right-click in
+the right list to delete entries. Position sets can appear multiple times in
+the export list.
 
-Radio button *Export list of sets below?* will show the controls as seen in the figure and when used, Position sets will be exported in order from top to bottom, as they are in the right hand side Listbox. Available saved Position sets are in the left hand side Listbox.
+When you click Preview, Export, or Append with a list configured, the tool:
 
-You drag-and-drop names from left to right and can insert new ones anywhere - before, between, or after already present names. You right-click on the right hand listbox to get command to delete selected name. You can use Position sets multiple times, if needed.
+1. Saves the current table content temporarily.
+2. Loads the first Position Set from the list and generates output using that
+   set's saved Options settings.
+3. Loads each subsequent set and appends to the output.
+4. After all sets are processed, restores the original table content.
+5. Applies the combined output to whichever action button was pressed.
 
-You cannot reorder any columns by drag-and-drop - add sets to right as needed and delete ones which you do not need.
+.. note::
 
-List on the left hand side is updated when you change tabs to reflect all available saved Position sets.
+   Save the current Position Set before using this feature. Each set has its
+   own saved Options settings. Use the Preview button to verify the combined
+   output before exporting.
 
-*What will happen ?* When you create list in the right hand listbox (e.g., like in the figure above: test2, test1, test3) and then push button "Preview" or "Export" or "Append", the code will:
-1. save current table content as temporary with unique temp name.
-2. loads first set on the list in the tool (here test2) and creates output notebook using settings saved with that Position set.
-3. loads next set on the list (here test1) and appends to notebook using its settings
-4. loads next, exports, etc... Until done with the list of Position sets in the right hand listbox.
-5. when done with all, restores content to the table from saved temporary storage and deletes these saved data.
-6. uses the merged commands in the output notebook and does whatever the button was suppose to do - Preview, Export, Append.
+Bottom controls
+~~~~~~~~~~~~~~~
 
-*Important*
+"*Preview cmd file*" — Opens an Igor notebook displaying the command file for
+inspection.
 
-* Save your current Position set, especially if you plan to use it. Button should be green - not red.
-* Each set has its own "Option controls" saved and restored, so if you want to measure only some geometries for some sets, this needs to be selected at the time of saving.
-* If you are using Hook function, it is run at the time of handling each set. So if you Hook function creates multiple measurement positions for each sample, these are grouped together.
-* Verify you like what you see using "Preview" button. Things can get complicated.  
+"*Export cmd file*" — Saves the command file to your Desktop as the file named
+in the Default Command file name field (``usaxs.mac`` is strongly recommended).
+On beamline computers (usaxspc7 or usaxspc11), the file is also automatically
+transferred to the instrument working directory via SFTP.
 
-*******
+"*Append to cmd file*" — Appends the current Sample Table's commands to an
+existing command file on the Desktop. Use this to combine multiple tables: export
+the first table with *Export cmd file*, then use *Append to cmd file* for each
+additional table.
 
-**Bottom controls**
+"*Dialog Export cmd file*" — Opens a Save As dialog so you can choose the
+output location and filename.
 
-There are few buttons in this area. These are actions run when user finishes setting up the top parts of this panel.
+"*Estimated run time [min]*" — Estimated total collection time based on the
+USAXS, SAXS, and WAXS times specified in Options Controls.
 
-*Preview cmd file* will create Igor notebook with the commands for inspection.
+"*Last Info/Warning*" — Reports the last action taken by the tool. Useful for
+operations that have no other visible response.
 
-*Export cmd file* will save the command file for current "Sample Table", as text, with name in the "Default command file name" field (usaxs.mac is strongly suggested) on your *Desktop*. If you are working on usaxspc7 or usaxspc11, this usaxs.mac will be also sftp to instrument working directory.
+Image
+~~~~~
 
-*Append to cmd file* this will append to the end of prior command file measurements from current Sample Table. This enables users to combine multiple tables together. Note, that this really works only when "usaxs.mac" is used as export file name. First export the usaxs.mac for the first table with *Export cmd file*. This is saved on your *Desktop*. Then use *Append to cmd file* for subsequent tables (as many as needed) and more measurements will be attached to this usaxs.mac. If you are working on usaxspc7 or usaxspc11, updated usaxs.mac will be also sftp to instrument working directory.
+The plate image provides visual guidance when mounting samples. For supported
+templates, click *Create image* to generate the image. To use a custom holder,
+use *Import image* to import and scale a camera photograph (see Import image
+section below).
 
-*Dialog Export cmd file* will save the command file through save-as dialog, so user can pick any location on user computer and optionally change the name as needed.
+Right-clicking in the image provides two options:
 
-*Estimated run time [min]*  best guess how long this will take to collect (if all works as expected). Uses the "USAXS, SAXS, and WAXS times". Again, user must set the times in epics controls on their own.
+a. "*Write position*" — Writes the clicked SX/SY coordinates into the currently
+   selected row in the Sample Table.
+b. "*Append line with position*" — Appends a new row at the end of the table
+   with the clicked coordinates.
 
-*Last Info/Warning*  Note what was done last. Some events do not have any obvious visible response, so this tell you, what happened last.
+The image displays calibrated millimeter axes and grid lines and can be zoomed
+without loss of functionality.
 
-*******
+Survey at the beamline
+~~~~~~~~~~~~~~~~~~~~~~
 
-**Image**
-
-Image of sample plates provide multiple functionality for users. If they are defined for some Template, user can create such image using button *Create image*. Alternatively, user can use *Import image* to import jpg/tiff... Image of the sample holder and trim/scale it in subsequent step (see more below). If they are not defined, user get error message. Images are very helpful, since they serve as visual guidance when mounting the samples. Pick row in which you want to place sample and red marker will show position on the plate. The purpose is to minimize mistakes.
-
-There is right click menu for the image - user can right click (or control/cmd click) on position in the image and select one of two right click menu options.
-    a.  *Write position* - this will write sx and sy for the position of the click into the currently selected row in the table.
-    b.  *Append line with position* this will append a new line at the end of the table with the sx and sy positions of the right click.
-
-Note that the image has calibration in millimeters and has grid lines, image can be zoomed in and out without loss of functionality.
-
-Images may not exist for all plates beamline has.
-
-******
-
-**Survey at the beamline**
-
-At the beamline the button *Beamline survey* will open a new panel. This panel can control the instrument and should be used with help of radiography to fine tune measurement positions.
+At the beamline, the "*Beamline survey*" button opens an additional panel for
+fine-tuning sample positions using radiography.
 
 .. Figure:: media/SamplePlate5.jpg
-           :align: left
-           :width: 330px
-           :figwidth: 350px
+   :align: left
+   :width: 330px
+   :figwidth: 350px
 
+The top section displays values for the currently selected row in the Sample
+Table. "*Row down*" and "*Row up*" buttons step through rows. Selecting a
+different row in the Sample Table also updates this panel. When the last row is
+reached, clicking "*Row down*" adds a new empty row.
 
-*The top part* are numbers related to row selected in the *Sample Table*. In the image Sample Table in the main panel has selected row 3 (rows numbering is zero based, the first one is row=0, so this is actually fourth row). The buttons "Row down" and "Row up" let user move between rows. Another option to move to different row is to select different row in the Sample Table. This tool will sync. Note, than when there is no more rows at the end of the Sample table, a new empty row will be added when button "Row down" is pushed.
+"*Sa Name*" and "*Sa Thickness*" — Sample name and thickness from the table.
+Editable here; clicking "*Save Values*" copies them back to the table.
 
-*Sa Name* and *Sa Thickness* are Sample name and thickness from the Sample table on the main panel. User can edit them here and when button "Save Values" is pushed, these are copied into the table in the selected row. Sample Name and thickness are both checked for sensibility and cleaned up if necessary.
+"*Sa X tbl*" and "*Sa Y Tbl*" — Read-only display of the SX/SY values from
+the table.
 
-*Sa X tbl* and *Sa Y Tbl* are sx and sy values from the Sample Table. They are red only values here.
+"*Drive to table values*" — **Moves the instrument** SX and SY motors to the
+table values. Works only if both SX and SY contain valid numbers. Will not move
+while the instrument is collecting data.
 
-*Drive to table values* button will move *instrument* sx and sy to the Sample Table values (above). **THIS MOVES INSTRUMENT** Will work ONLY if both sx and sy have meaningful numbers in, if any is empty, no motion is done.  Note, that this code will refuse to move sx and sy while instrument is collecting data.
+"*Drive to SX/SY on row change?*" — When checked, changing the selected row
+automatically moves the instrument to that row's SX/SY position.
 
-*Drive to SX/SY on row change?* if this checkbox is selected, when user changes row, the code will move to sx and sy positions from that row, if possible. It does not matter if the row is changed by button or by selecting a row in the Sample Table.
+"*Go 0,0*" — Moves the instrument to SX=0, SY=0.
 
-*Go 0,0* button will move instrument to sx=0 and sy=0.
+"*Save values*" — Saves the current motor positions as SX/SY in the selected
+table row, along with any edited Sample Name and Thickness values.
 
-*Save values* button will save current sx and sy motor positions in selected row in Sample Table. It will also copy in that row Sample Name and Thickness.
+Motor controls (bottom section)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Standard motor controls similar to the EPICS motor GUI. SX and SY readbacks
+update approximately 10 times per second.
 
+"*Step controls*" — Enter a step size manually, or use the up/down arrows to
+change the step by ±1 mm. "*x 0.1*" divides the step by 10; "*x 10*" multiplies
+by 10.
 
-**Bottom part**
+"*Set SX 0*" / "*Set SY 0*" — Redefines the current SX or SY position as zero.
 
-these are  motor controls, similar to our standard epics motor GUI. There is SX and SY values - motor positions read from epics. Arrows will change target motor position by the step value. Epics is updated about 10x second by background procedure, readback of the position (above the target setVariable) changes as motor is moving. When target and readback agree, motor stopped moving.
+"*STOP motors*" — Issues an all-stop command to the controller. Not all motors
+may respond, depending on how they are controlled.
 
-*Step controls* Steps can be changed multiple different ways. User can select the value and type in the field. Arrows up/down next to the step value change step by 1mm up or down. Button "x 0.1" makes the step 10x smaller and button "x 10" makes the step 10x larger.
+"*Open Slits Large*" — Opens slits to the large position for radiography.
 
-*Set SX 0* button will redefine current sx position as 0.
+"*USAXS slits*" / "*SWAXS slits*" — Moves slits to USAXS or SAXS/WAXS sizes.
 
-*Set SY 0* button will redefine current sy position as 0.
+"*Sync w/epics*" — Synchronizes SX and SY targets and readbacks with the
+current EPICS motor positions. May be needed when SX/SY are controlled from
+both EPICS and Igor simultaneously.
 
-*STOP motors* button will attempt to issue to our controller All stop. Not all motors will stop, some are driven differently and will not obey. This is "oops" button.
+.. warning::
 
-*Open Slits Large* button will open slits to large size for radiography.
+   The Beamline Survey tool is disabled on non-beamline computers. Even on
+   beamline computers, it will not move motors while data collection is active.
+   The tool has no knowledge of EPICS limits or errors — if motors are
+   behaving unexpectedly, check EPICS and contact staff.
 
-*USAXS slits* button will redefine move slits to USAXS sizes.
+Import image
+~~~~~~~~~~~~
 
-*SWAXS slits* button will redefine move slits to SAXS/WAXS sizes.
+Use *Import image* to import a rectangular sample holder photograph (JPG, TIFF,
+PNG, BMP, or similar), assign real-world dimensions, and create a calibrated
+plate image for use with position survey features.
 
-*Sync w/epics* button will sync sx and sy target and readback with what is their real position at the instrument. This may be needed when someone combines controls of sx and sy from epics and Igor. Igor does not update positions from epics under some conditions.
-
-Beamline survey should be disabled for all installations except at the beamline computers. Even at beamline computers, this tool will not move motors if instrument indicates that it is collecting data. Also, this tool does not know anything about epics limits and any other errors or failures in epics, so if motors do not work properly, check epics. Call staff. **DO NOT GET CREATIVE.**
-
-
-******
-
-**Import image**
-
-This is used to import rectangular sample holder image, taken by camera, assign dimensions, trim edges, straighten parallax and convert into image same as when using our own sample holder. Here is example of steps:
-
-1.  Use *Import image* button and fins suitable jpg, tiff, png, bmp or other image. All images are converted to greyscale in Igor. I assume imported image is RBV and tested this on iPhone jpg images.
+1. Click *Import image* and select a suitable image file. All images are
+   converted to grayscale in Igor Pro. RGB images (e.g., iPhone JPEGs) are
+   supported.
 
 .. Figure:: media/SamplePlate6.jpg
-           :align: left
-           :width: 730px
-           :figwidth: 750px
+   :align: left
+   :width: 730px
+   :figwidth: 750px
 
-2.  Select corners of rectangular area for which you know the dimensions in millimeters and which you want to trim around with cursors. In the image above we have cursors A, B, C, D in the corners of our liquid sample holder. Selected area has real world dimensions 220mm horizontal and 75mm vertical. Image has parallax and meeds to be trimmed. Using button *Trim image* I can generate the Sample plate image, which can be used for survey of samples.
+2. Place cursors A, B, C, and D at the corners of a rectangular region for
+   which you know the real-world dimensions in millimeters. In the example
+   above, the cursors mark the corners of a liquid sample holder that is 220 mm
+   wide and 75 mm tall. The image includes perspective distortion that needs to
+   be corrected.
 
+3. Click *Trim image* to generate a corrected, calibrated plate image that can
+   be used for sample position survey.
 
 .. Figure:: media/SamplePlate7.jpg
-           :align: left
-           :width: 730px
-           :figwidth: 750px
+   :align: left
+   :width: 730px
+   :figwidth: 750px
