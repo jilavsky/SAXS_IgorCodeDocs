@@ -1,3 +1,4 @@
+.. _irena-data-mining:
 .. _data_mining:
 
 .. index:: Irena; Data mining
@@ -5,31 +6,53 @@
 Data mining tool
 =================
 
-This tool allows finding and tabulating various data from folders within Igor. At this moment it is just about functional and will be developed further.
+This tool locates and tabulates various data values stored across folders within
+an Igor experiment. Data can be stored in variables, strings, wave notes, or as
+waves. Depending on the input type, results can be output to graphs or a
+notebook (for waves), or to a notebook or new waves (for strings, variables,
+and wave note data).
 
-The data can be stored in either variables, strings, wave notes or they can be waves with data themselves. Depending on input type, the data can be output into graphs or notebook (for waves), or in notebook or in new waves (for strings, variables and data from wave notes).
+.. note::
 
-**Use**
+   This tool is functional but still being developed. Additional features will
+   be added in future releases.
 
-There are few peculiarities, this tool behaves little bit different than the others… See below:
+Use
+---
 
-In the top part you need to select data type to be searched and example folder, in which are data types you want to “mine”. Therefore, you need to be able to find at least one folder with data you are looking for.
+The tool has some behaviors that differ from other Irena panels.
+
+In the top section, select the data type to search and an example folder that
+contains the data types you want to mine. You must be able to find at least one
+folder with the data of interest.
 
 .. Figure:: media/DataMining1.png
    :align: left
    :width: 580px
 
+When you select such a folder, a new panel appears listing the specific items
+in that folder. The top list shows waves, strings, or variables as appropriate;
+the bottom shows the wave note (for waves) or the value (for strings or
+variables).
 
-When you select such folder, new panel with list of particular items from this folder appears. The top lists waves/strings/variables as appropriate; bottom lists the wave note (for waves) or the value of the string or variable.
+Mining waves
+~~~~~~~~~~~~
 
-**Mining the waves:**
+Enter or select wave names — one, two, or three — in the provided fields. To
+select, highlight a wave in the panel and click "*Read X*" (or Y or Error). The
+``*`` wildcard is supported. Output options: print to a notebook (listing which
+folders do or do not contain these waves) or plot the waves into a graph (X vs Y)
+with controls for colors and axis scaling.
 
-You can select (or input manually) wave names – one, two or three – in the fields. To select highlight the wave in the panel and then push button “Read X” (Y or Error). You can also use \* as wildcard. Then you can either output into notebook (and print which folders contain – or do not contain these waves) or you can plot the waves into graph (plots X against Y) with few controls (colors, axis type).
+Mining strings, variables, and wave notes
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Mining the strings/variables/wave notes**
+Select a string or variable name in the right panel list and click "*add to
+list*". To select wave note content, select both the wave and the desired wave
+note item, then click "*add to list*". To remove items, use "*Clear*" to clear
+the entire list.
 
-Select string or variable name in the list in the right panel and push button “add to list”. The item will be added.
-
-To select wave note, select both wave and item in the wave note and pus button “add to list”. Item will be added. At this time you have to Clear the whole list, if you want to remove something.
-
-Output can be done to notebook (can be messy very fast…) or to new waves. Create new folder for the waves. After search, these waves will be created, if possible converted to number waves and new table will be created.
+Output can be sent to a notebook (can become large quickly) or to new waves.
+Create a new folder for the output waves before searching. After the search,
+output waves are created, converted to numeric waves where possible, and
+displayed in a new table.
