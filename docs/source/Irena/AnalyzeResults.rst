@@ -1,12 +1,16 @@
+.. _irena-analyze-results:
 .. _analyze_results:
+
+.. index:: Irena; Analyze results
 
 Analyze results
 ================
 
-.. index:: Irena; Analyze results
-
-
-This tool is used to do analyze results from other, complicated tools, where this functionality does not fit in. Currently it supports only results from Size distribution tool. This tool is available in SAXS > Support tools and it replaces older "Evaluate Size distributions" which is currently available in "old stuff" with the same functionality.
+This tool analyzes results from other Irena tools where that functionality
+would not fit within those tools' panels. Currently it supports results from
+the Size Distribution tool. It is available from SAXS → Support tools and
+replaces the older "Evaluate Size distributions" tool (still available in
+"Old stuff" with the same functionality).
 
 Implemented models:
 
@@ -14,42 +18,63 @@ Implemented models:
 * Number distribution
 
 .. Figure:: media/AnalyzeResultsSD1.jpg
-        :align: left
-        :width: 700px
-        :figwidth: 750px
+   :align: left
+   :width: 700px
+   :figwidth: 750px
 
-**Selecting data**
+Selecting data
+--------------
 
-Understanding data selection tools makes user life easier. In the Data selection part of the panel you need to define sufficiently the data you want to look inside. There is detailed description on how to use this widget system :ref:`Multi Data selection <DataSelectionMulti>`. Please refer to that page for details. This tool can use three types of data - USAXS, QRS (SAXS or WAXS) as well as Irena results (results saved by other Irena tools). All SAXS/WAXS data which DO NOT come from APS USAXS instrument use QRS naming system. Only if you have our USAXS data, you should use USAXS data type. For everyone else, use *QRS* naming system that is how your data came through ASCII importer or through Nika. For Irena results, there are two meaningful tools to be applied - Volume and Number Size distribution results.
+Familiarity with the data selection tools simplifies use of this panel. In the
+Data selection area, define the data to analyze. Full details are available in
+:ref:`Multi Data selection <DataSelectionMulti>`. The tool accepts three data
+types: USAXS, QRS (SAXS or WAXS), and Irena results. SAXS/WAXS data that do
+not come from the APS USAXS instrument use the QRS naming system; use USAXS
+only for APS USAXS data. For Irena results, the two applicable types are
+Volume and Number size distribution outputs.
 
-You need to select *Start fldr* (e.g., "root\:SAXS\:") and data type using *Folder Match* (e\.g., "sub").
+Select *Start fldr* (e.g., ``root:SAXS:``) and a data type using *Folder Match*
+(e.g., ``sub``).
 
-**Add data using double click** Add data using double click. Data are always added to the top graph as log-Intensity vs log-Q. For some (Guinier, Porod,...) the lower graph presents linearization plot. For some (Sphere) no linearization plot is presented.
+**Add data by double-clicking** in the folder list. Data are added to the top
+graph as log-Intensity vs log-Q. For some models (Guinier, Porod, etc.), the
+lower graph shows a linearization plot.
 
-Now, user can save results. Results can be saved in three ways using the three checkboxes on the panel:
+Saving results
+--------------
 
-* Results can be recorded in Notebook. This can be opened using *Get Notebook With Results* button.
+Results can be saved in three ways using the checkboxes on the panel:
 
-* Waves containing resulting values - and text wave with folder name - in Igor folder (root\:NameDependingOnMethod). User can create table with those results using button *Get Table With results*. Also, user can manually graph any of those values as needed.
+* **Notebook** — results are printed to a notebook, opened with the
+  "*Get Notebook With Results*" button.
+* **Waves** — waves containing result values and a text wave with folder names
+  are created in an Igor folder (``root:NameDependingOnMethod``). Use
+  "*Get Table With results*" to display them. These waves can also be plotted
+  manually.
+* **Data folder** — fitted intensity-Q waves are saved in the source data
+  folder, with fit parameters in the wave note. These data can be plotted with
+  Irena plotting tools and the wave notes inspected later using the
+  *Metadata Browser*.
 
-* Results can be saved in the folder where the data came from. In this case waves with fitted Int-Q are created and results are placed in wave notes. User can plot these using Irena plotting tools (these are Irena results type) and look through the wave note values later using *Metadata Browser*.
+Run as sequence
+---------------
 
+Select multiple datasets in the listbox, choose the analysis method, set the Q
+range, configure result storage, and click "*Evaluate sequence*" to process all
+selected datasets in order (top to bottom as listed). Ordering the data
+meaningfully (by time, temperature, etc.) produces result tables in a
+correspondingly useful order.
 
-**Run as sequence**
-
-User can select multiple data sets in the listbox, method to use, Q range to use, and way to store results and run same analysis method on sequence of the data. Note, that data are processed in the order (from top to bottom) they are displayed in the Listbox. It is really useful to order the processing in meaningful order (time, temperature, etc.) which then results in the tables being in suitable order.
-
-..
-  *To display & further process* the results stored in the results folder, you can use :ref:`DataBrowser additions <DataBrowser additions>`.
-
-
-**Using the tool**
-
-Here is picture of tool while used:
+Using the tool
+--------------
 
 .. Figure:: media/AnalyzeResultsSD2.jpg
-        :align: left
-        :width: 700px
-        :figwidth: 750px
+   :align: left
+   :width: 700px
+   :figwidth: 750px
 
-Add data into the graph (double click), select range with cursors, check if you want Mercury intrusion porosimetry graph and hit "Calculate Results". Save results as needed. For multiple data sets, set all correctly for one, test and then select range fo data in listbox and use "Evaluate sequence" to run on many quickly.
+Add data to the graph (double-click), set cursors to the analysis range, check
+whether Mercury Intrusion Porosimetry output is needed, and click
+"*Calculate Results*". Save results as needed. For multiple datasets, configure
+and test settings on one representative dataset, then select the range in the
+listbox and use "*Evaluate sequence*" to process all of them.

@@ -1,103 +1,164 @@
+.. _irena-metadata-browser:
 .. _MetadataBrowser:
 
 .. index::
     Irena; Metadata Browser
 
-
 Metadata Browser
-----------------
+================
 
+Irena uses wave notes in Igor Pro to store metadata for all data operations.
+When data are imported, Irena records the source file, location, processing
+history, and any modifications. Each subsequent processing step in Irena adds
+further metadata to the wave note. The result is a large accumulation of
+information that is difficult to read directly.
 
-Irena heavily relies on use of wave notes in Igor to store metadata for both data - on import, for example, Irena records which data were imported, where the file was located, how the data were processed and modified etc. Every time some processing is done in Irena tools, more metadata are added to wave note. As result, there is basically giant pile of information which is really difficult to read and understand. Igor provides rudimentary way to look inside the wave notes using DataBrowser. By selecting a wave in DataBrowser and making sure checkbox "info" is selected, one can see the wave note.
+Metadata are formatted in the wave notes as ``Keyword=Value;`` pairs. This
+consistent format enables the *Metadata Browser* to provide a structured
+interface for searching and extracting specific metadata values.
 
-Irena will format its records in the wave notes as keyword=value; list. Thanks to this clear definition fo format, Irena can provide relatively easy to use interface *Metadata Browser* for users to extract the data from wave notes.
+Igor's DataBrowser provides basic access to wave notes: select a wave, enable
+the "info" checkbox, and the wave note is displayed.
 
-Irena keywords are hopefully understandable for humans. They are picked as reasonably as possible and generally should be possible (hopefully) to understand.
+Keyword conventions:
 
-* When importing data Irena uses names which seem logical and related to step when used (date, file name,...).
-* If metadata from the data container (header, Nexus metadata,...) are used, same names which were in the container are used. These are often least understandable...
-* When Irena (or Nika) tool generates its own metadata, it uses its internal names of the tool, which are hopefully meaningful for those who understand the tool use.
+* **Import step:** keywords related to import date, source filename, etc.
+* **Instrument metadata:** keywords from the data container (header, NeXus
+  metadata, etc.) — these are passed through as-is and are sometimes less
+  intuitive.
+* **Irena/Nika processing:** internal parameter names from the tools, which
+  are meaningful to users familiar with the relevant tool.
 
-**There is NO list of keywords available anywhere**  You will need to figure it out or get in touch with me and I can help you. Sorry, too many options. Also, there is no guarantee metadata keywords are unique, which can cause issue. If you find conflicts, let me know and I will change the keywords somewhere. And finally, there is no guarantee a specific number is actually saved. If you find something missing, let me know and I will add it.
+.. note::
 
-
+   No master list of all keywords is maintained, as the number and nature of
+   keywords varies widely. To find a specific keyword, browse a representative
+   wave note or contact the developer for assistance. Keyword names are not
+   guaranteed to be unique across all tools; if conflicts are found, contact
+   the developer to have them resolved. Not all parameters are guaranteed to be
+   saved; if a needed value is missing, contact the developer to have it added.
 
 .. Figure:: media/MetadataBrowser1.jpg
-        :align: left
-        :width: 800px
-        :figwidth: 850px
+   :align: left
+   :width: 800px
+   :figwidth: 850px
 
+GUI organization
+-----------------
 
-**Metadata Browser GUI organization**
+The Metadata Browser panel has four main areas:
 
-If you look at the Figure with MetadataBrowser GUI, you can see that is divided in few parts:
+* **Data Controls and Selection** — left third of the panel, from top to bottom.
+  Contains data type selectors and a vertical listbox listing all data in the
+  current Igor experiment that match the current selection criteria. Select
+  which datasets will be probed during extraction here.
+* **Metadata Selection** — middle vertical listbox (with controls above it).
+  Displays the available metadata keywords for the currently selected wave.
+* **List of metadata to process** — rightmost listbox. Contains the keywords
+  that will be extracted from all selected folders.
+* **Processing controls** — bottom-right area. Used to run the extraction,
+  display a results table, plot selected results, or view results in an Igor
+  folder.
 
-* *Data Controls & Selection* - Left 1/3 column of the GUI, from top to bottom, is part dedicated to data type selections and controls. There are few controls for data type selection and left vertical listbox which lists available data in the current Igor experiment, which match the controls selection. Here user can select which data sets will be probed when processing (extracting, mining for the data).
-* *Metadata Selection* This is middle vertical listbox (with few controls above it) and here user can pick names of metadata.
-* *List of metadata to process* this is right most listbox and contains names of metadata, which will be extracted from the selected folders.
-* *Controls at the bottom right* which are used to process selected folders, display table of extracted results. It also allows users to plot selected results or show the results in the Igor folder.
+Data Controls and Selection
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Data Controls & Selection**
+The top-left section is the data selector. Full details are in
+:ref:`Multi Data selection <DataSelectionMulti>`.
 
-Left top side of the panel is Data selection. In the Data selection you need to define sufficiently the data you want to look inside. There is detailed description on how to use this widget system :ref:`Multi Data selection <DataSelectionMulti>`. Please refer to that page for details.
+Data types recognized:
 
-*Data type* Irena recognizes few data types directly:
+* **USAXS** — naming system for data from the APS USAXS instrument.
+* **QRS** — the default data naming system for SAXS/WAXS in Irena and Nika.
+  See :ref:`QRS data type <important.QRS>`.
+* **Irena results** — any fit or modeling output saved by Irena (size
+  distributions, model fits, PDDF, diffraction peaks, etc.).
+* **Any** — when all checkboxes are unchecked, a regular expression can be
+  entered to define which wave is X, Y, and optionally error. The first wave
+  matching the expression is selected.
 
-* USAXS data type = this is naming system for data generated by APS USAXS instrument. Ignore, unless you have data from this instrument. If you have our data, you should know enough to use this.
-* QRS data type = this is the default data naming system for SAXS/WAXS data in Irena and Nika. For details see here :ref:`QRS data type <important.QRS>`.
-* Irena results = any fit and modeling results generated by Irena. Most tools will save some type of data - size distribution, fits, pddf, diffraction peaks,... All of these data types can be seen as "Irena results"
-* Any = if all checkboxes are unchecked, user can define Regular expression, which will tell irena which wave is x, y, and optionally error. Keep in mind, that the first wave matching the regular expression will be picked. This may require some testing or help from me, if you want to use it.
+"*Start Fldr*" — Sets the starting location for the folder search
+(e.g., ``root:SAXS:``). A tighter starting folder makes the search faster.
 
-*Start Fldr* Here you can select at which location in data tree code will start looking for the data. Pick suitable place, for example root\:SAXS may be a good start. Picking suitable start where to look for data makes the code run faster.
+"*Folder Match (RegEx)*" — Limits the displayed folders using a regular
+expression. For example, entering ``00034`` shows only folders containing that
+string in their name.
 
-*Folder Match (RegEx)* this allows users to look for only some of the folders. A short summary on regular expressions is at the bottom of the page, below the Listbox with folder. Google it, understanding regular expressions will be very helpful.
+"*Invert?*" — Inverts the regular expression filter, showing folders that do
+NOT match.
 
-*Invert?* this checkbox inverts the Regular expression meaning. So if you insert in the "Folder Match" field string 00034, only data which have in name 00034 will show. If you check this checkbox, selection is inverted and all files which do NOT contain this string in the name will show.
+"*Sort Folders*" — Sorts the folder list using one of several available
+methods. Correct ordering is important when processing sequential data
+(e.g., time or temperature series) so that result tables have a meaningful order.
 
-*Sort Folders* This sorts the folders using one of many methods implemented. As result, this will group folders in order which may be helpful for processing. For example, some tools create list of results in the order the samples were processed. Having proper order helps plotting results after the analysis properly.
+Metadata selection
+~~~~~~~~~~~~~~~~~~
 
+The middle column. The top shows (in red) the wave name currently selected in
+the left listbox. Clicking a dataset name in the left listbox updates this
+display and populates the middle listbox with all keyword=value pairs from the
+wave note.
 
-**Metadata selection**
+Use "*Regex Key name*" to filter the displayed keywords by a regular expression,
+reducing the list when it is very long.
 
-This is the middle column. The top above the listbox shows in red which data name is currently selected. Clicking on any name in the left Data Selection Listbox will change the name here. At that time code will also extract wave note and fill the middle list box with the wave note, one pair of keyword=value on each line. User can now look for the metadata which he/she wants.
+**Double-click** on a keyword=value entry to add that keyword to the right
+listbox, which defines the set of keywords to extract.
 
-Since the list is surely long and it is difficult to find what one wants, one can use *Regex Key name* - regular expression which is used to reduce which Keywords are displayed.
+The folder name of the source data is always automatically included as a
+reference.
 
-*Double clicking* on the Keyword=value string in the listbox adds the Keyword to the listbox on the right hand side, which lists which keywords will code look for and extract into folder as waves.
+When the folder name contains useful encoded information (for example,
+``_246C`` encoding a temperature), the "*Extract From Folder Name*" pull-down
+menu can parse and extract that value into a separate wave.
 
-*Folder name* of the data is always included in the list to provide reliable way to assign extracted values to the data source.
-
-In case the Folder name contains useful information - for example it has _xyzC in the name, Pull down menu *Extract From Folder Name* will enable user to extract the values in separate wave.
-
-To remove keyword which you do not want to process, you can double click that name in the right listbox or to remove all, use the button below the listbox.
+To remove a keyword from the extraction list, double-click it in the right
+listbox, or use the "*Remove all*" button below the listbox.
 
 .. Figure:: media/MetadataBrowser2.jpg
-        :align: left
-        :width: 800px
-        :figwidth: 820px
+   :align: left
+   :width: 800px
+   :figwidth: 820px
 
+In the example above, the Unified Fit result wave ``UnifiedFitIntensity`` is
+selected. The middle listbox is filtered to show only keywords containing
+"Level1". Double-clicking "*Level1B*" adds it to the extraction list. An
+extraction of temperature from the folder name is also configured, since the
+folder name encodes temperature in a recognizable format.
 
-In the figure above, we are looking for Unified fit results, specifically in the wave called UnifiedFitIntensity, in its note. If there would be multiple generations of results we would pick the most recent one (the highest order number). Metadata are listed in the middle listbox - BUT only those which contain anywhere in their name string "Level1". By double clicking on Level1B line in the middle Listbox user adds this keyword to those which will be extracted from data selected in the left side Listbox. I also added extraction of temperature from the folder name. Since the name contains a common way of recording temperature.  Optionally, if this temperature would be written in the metadata, it can be extracted as usual metadata value.
+Metadata extraction and utilization
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
-**Metadata extraction and utilization**
-
-Now, that I have decided what to extract, I can select the data to process. Shift-click will select range of data, ctrl/cmd click enables select/deselect one line etc. I selected all except the first one which is measurement without temperature. Result is in next image...
+Select the datasets to process in the left listbox (Shift-click for a range,
+Ctrl/Cmd-click for individual items), then run the extraction.
 
 .. Figure:: media/MetadataBrowser3.jpg
-        :align: left
-        :width: 800px
-        :figwidth: 820px
+   :align: left
+   :width: 800px
+   :figwidth: 820px
 
+After extraction, the code creates a table of results. The output waves are
+stored in the folder specified in the "*Save to:*" field on the panel. The
+folder is created automatically; the name must be a valid Igor folder name
+starting with ``root:``.
 
-The run finished and code created table of results. These are waves, which are stored in folder with named in *Save to:* field on the panel. Note, the folder will be created, but the name must be acceptable for Igor as Folder name. Also, you need to start with root: and add a name which you wish to use. In this case folder contains waves named: FolderNameWv, Level1B, and TemperatureWv. Temperature wave was created by extracting _xyzC from Folder name assuming it is temperature in degrees C. FolderNameWv is created always (and it is text wave). Level1B is Keyword name from the wave note. If the value is number, the wave will be numerical wave. If value is string, wave will be string and if the string is one of few recognized date/time representations, you will get wave with date-time converted to Igor time (seconds since some day in 1972 or whatever).
+In this example, the output folder contains three waves: ``FolderNameWv``
+(always created, text wave), ``Level1B`` (the extracted keyword value, numeric
+wave), and ``TemperatureWv`` (extracted from the folder name by parsing
+``_xyzC`` as a temperature in °C). Numeric values produce numeric waves;
+string values produce text waves; recognized date/time strings produce Igor
+time waves.
 
-It is possible to generate easily plot of extracted data, use *X:* and *Y:* popups and select what will be X and Y axis. Push the large button *Plot Selected*. Next image shows plot of Level1B (aka Porod constant if P=4) against Temperature.
+To generate a plot, use the "*X:*" and "*Y:*" popups to select axes and click
+"*Plot Selected*". The example below shows Level1B (the Porod constant when
+P = 4) plotted against temperature:
 
 .. Figure:: media/MetadataBrowser4.jpg
-        :align: left
-        :width: 800px
-        :figwidth: 820px
+   :align: left
+   :width: 800px
+   :figwidth: 820px
 
-
-Last feature is ability to *Delete old results*. This button will try to close graph and table using the results and delete folder which is in *Save To:* field. Alternatively, same can be achieved by using DataBrowser from Igor Pro and deleting the folder form there, manually closing all tables and graphs using data from teat folder first.
+"*Delete old results*" — Closes any graphs and tables using the results and
+deletes the folder specified in the "*Save To:*" field. The same result can
+be achieved manually through the Igor DataBrowser by closing associated windows
+and deleting the folder directly.

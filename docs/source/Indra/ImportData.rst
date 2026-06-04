@@ -1,81 +1,101 @@
+.. _indra-import-data:
 .. _import_data_procedure:
 .. _import_data_panel:
-
-
-Import USAXS/SAXS/WAXS data in Igor Pro
-=======================================
-
 
 .. index::
     Indra; Import USAXS/SAXS/WAXS data
 
-**Comments:**
+Import USAXS/SAXS/WAXS data in Igor Pro
+========================================
 
-Importing tool uses "USAXS" naming system for USAXS and "QRS" for SAXS and WAXS. When you use Irena to analyze, plot, or even only export data, you need to select "USAXS" or "QRS" choice in the top of the panels.
-
-
-.. index::
-    Indra; Collected data arrangement
+The import tool uses the ``USAXS`` naming system for USAXS data and the
+``QRS`` naming system for SAXS and WAXS data. When using Irena to analyze,
+plot, or export data, select the appropriate ``USAXS`` or ``QRS`` option at
+the top of each panel.
 
 Collected data arrangement
 --------------------------
 
-When you collect data on 12IDC USAXS/SAXS/WAXS instrument, your data are saved in your MM_DD_userName folder. The folder name is created by adding \MM_DD_ (\month_day_) to the name staff selects, typically version of PI user name. This user folder has internal folder structure with \"SampleName" leve of folders. These folders can be created by users (Command is : RE(newSample("sampleName"))). Note, that the default sampleName is "data" which is used when a newUser command is run.  
-When you collect USAXS data, a folder with the same name as sample name but with appended "_usaxs" is created inside the sampleName folder. For SAXS data we create folder with the same name with "_saxs" and for  WAXS with "_waxs". See below in the Image:
+.. index::
+    Indra; Collected data arrangement
+
+When you collect data on the 12IDC USAXS/SAXS/WAXS instrument, data are saved
+in a folder named ``MM_DD_userName``. The folder name is formed by prepending
+the month and day (``MM_DD_``) to the name selected by staff, typically based
+on the PI username. This user folder contains subfolders for each sample,
+named at the ``SampleName`` level. Sample folders can be created with the
+command ``RE(newSample("sampleName"))``. The default sample name is ``"data"``,
+used when ``newUser`` is run.
+
+Within each sample folder:
+
+* USAXS data are stored in a subfolder with the suffix ``_usaxs``
+* SAXS data are stored in a subfolder with the suffix ``_saxs``
+* WAXS data are stored in a subfolder with the suffix ``_waxs``
 
 .. Figure:: media/USAXSComputerDataArrangement.jpg
-        :align: center
-        :width: 280px
+   :align: center
+   :width: 280px
 
-After you run your USAXS/SAXS/WAXS experiment, you will have somehow available a MM_DD_userName folder. Typically users will download the folder on USB drive or we will share the folder with users in Box.com (ANL cloud provider). Typical size is less than 4MB of data per USAXS/SAXS/WAXS set for each sample. Note, that typically we also collect jpg image of each sample before each data collection (small, about 100kb images) as "witness" images. Instrument truns automatic data reduction on each data set - for details see automatic data reduction description :ref:`Matilda Automatic data reduction <automatic_data_reduction>`.  
+After completing your experiment, the ``MM_DD_userName`` folder is typically
+available via USB drive or Box.com (ANL cloud storage). A typical USAXS/SAXS/WAXS
+dataset per sample is less than 4 MB. Small JPEG witness images (~100 KB each)
+are also collected before each measurement run. The instrument performs
+automatic data reduction on each dataset — see
+:ref:`Matilda automatic data reduction <automatic_data_reduction>` for details.
 
+Indra release 2.05 introduces a new import tool that can quickly import all
+data from NXcanSAS (NeXus) data files. The tool is suitable for general use
+and also supports basic re-reduction of data with default parameters.
 
-Indra release 2.05 adds new tool which can (currently) import easily and quickly all data from folders of these Nexus - NXcanSAS - data files. For now this code is in beta, but it has been used in 2025-03 by users at the beamline and seemed to work fine. For now the code is mostly useful as import tool, but it cna also re-reduce the data with simple default parameters. I plan to update the code to to have more features for data reduction over time. 
-
-
-To Open the new GUI, use the menu **"USAXS-SAXS-WAXS data reduction (new)"** and you will get a new panel:
-
+To open the new import panel, select **"USAXS-SAXS-WAXS data reduction (new)"**
+from the USAXS menu:
 
 .. Figure:: media/USAXS_new_1.jpg
-        :align: center
-        :width: 280px
-
-
+   :align: center
+   :width: 280px
 
 .. Figure:: media/USAXS_new_2.jpg
-        :align: center
-        :width: 480px
+   :align: center
+   :width: 480px
 
-
-There are two main buttons which can be used to Import the data. 
+Two main import methods are available.
 
 Import Whole Sample
 -------------------
 
-In this case everything in a sampleFolder subfolders will be imported. This is more or less "One button" solution. Push this button, select "sampleName" folder and code will import all existing USAXS, SAXS, and WAXS data from subfolders. Images are not imported. This is the fastest way to get data in Igor Pro. The image below is of data imported this way - selecting folder "BelowEdge", code imported all data from subfolder "BelowEdge_usaxs", "BelowEdge_saxs", "BelowEdge_waxs". 
-
+This method imports all USAXS, SAXS, and WAXS data found within a sample
+folder's subfolders in a single step. Select the sample-level folder
+(e.g., ``BelowEdge``), and the code imports data from ``BelowEdge_usaxs``,
+``BelowEdge_saxs``, and ``BelowEdge_waxs`` automatically. Witness images are
+not imported. This is the fastest method for getting data into Igor Pro.
 
 .. Figure:: media/USAXS_new_3.jpg
-        :align: center
-        :width: 680px
+   :align: center
+   :width: 680px
 
-
-
-Import Selected Data 
+Import Selected Data
 --------------------
 
-When you need to import only some of the data, for example during data collection you need to import first few finished scans, of you have only few scans in one very large sampleFolder (why did you NOT split this in smaller chunks?)., you can follow selective procedure:
+Use this method when you need to import only a subset of data, for example
+during an ongoing experiment or when a sample folder contains a very large
+number of scans that you want to import selectively.
 
-1.  use button "Select data path" and point your GUI on any one of the three subfolders. Typically the best choice is "_usaxs" folder, but it may be the other ones, if those contain more data sets. For example, if you did not collect always all three segments and one fo the folders contains more datasets than others, you need to point on the folder with most data. 
+1. Click "*Select data path*" and navigate to any one of the three subfolders
+   (``_usaxs``, ``_saxs``, or ``_waxs``). Choose the subfolder that contains
+   the most datasets for best matching.
 
-2.  Select checboxes for which segments you want to import. "USAXS?", "SAXS?", "WAXS?", "Image?" - selecting any of these (see figure above) will select these for import. 
+2. Select the checkboxes for the data types to import: "*USAXS?*", "*SAXS?*",
+   "*WAXS?*", "*Image?*".
 
-3. Push the "Import Selected data to Igor". Note, that if the data do not exist, no error is generated and missing data are siletnly skipped. 
-
-Below is image which shows what happens when I selected all checkboxes, including Image, and imported just one of the data sets.  
+3. Click "*Import Selected data to Igor*". If any selected data type does not
+   exist for a given scan, it is silently skipped without error.
 
 .. Figure:: media/USAXS_new_4.jpg
-        :align: center
-        :width: 680px
+   :align: center
+   :width: 680px
 
-**This is BETA version** for now. Do not use the "Re-reduce data" option for now, it may nto work as expected and is work in progress. Do not expect more than what is described above for now. If you run into troubles, let me know and I will investigate. 
+.. note::
+
+   The "*Re-reduce data*" option is a work in progress and may not function as
+   expected. Limit use of this panel to the import functions described above.

@@ -1,3 +1,4 @@
+.. _irena-size-distribution:
 .. _model.size-distribution:
 
 .. index::
@@ -7,7 +8,7 @@
 Size Distribution
 ====================
 
-This tool includes three methods to computer a size distribution from the measured SAS data:
+This tool includes three methods to compute a size distribution from the measured SAS data:
 
 * :ref:`model.maxent`
 * :ref:`model.regularization`
@@ -51,7 +52,9 @@ To get real volume fraction for high concentration systems users need to do this
 
 **Also note** It gets even more complicated. As we get to high concentrations, both scatterer and main phase "dimensions" scatter. It is therefore impossible to distinguish which photon or neutron scatter from "dimension" of scatterer and which  from "dimension" of main phase. Also, Babinnet principle is telling us, that we do not even know which phase is which phase - so scattering from 30% porous solid has same invariant (scattered intensity) as scattering from 70% porous solid. Be VERY careful to apply Size distribution tools on any higher concentration systems. You can get in real trouble really quickly. This is minefield which requires good understanding of theory and how these tools approximate the model. And yes, this all is actually hidden in the main formula of this tool. It is just not so obvious.
 
-**You have been warned. DO NOT publish garbage I keep seeing, like size distribution with 80% volume fraction. There is no such thing, something is WRONG**
+.. warning::
+
+   A size distribution result showing 80% volume fraction is physically impossible. If you obtain such a value, something is fundamentally wrong with the data, the model assumptions, or both. Review the assumptions before proceeding.
 
 
 

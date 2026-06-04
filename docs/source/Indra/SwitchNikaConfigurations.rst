@@ -1,49 +1,63 @@
+.. _indra-switch-nika-configurations:
 .. _switch_nika_configurations:
-
 
 .. index::
     Indra; Switch Nika configurations
 
 Switch Nika Configurations
---------------------------
+==========================
 
-In order to be able to reduce both SAXS and WAXS data in one Igor experiment we need to have two Nika configurations available. However, only one Nika configuration (for SAXS or WAXS) can be available at any given time. To do this we will use Nika's Configuration manager tool :
+To reduce both SAXS and WAXS data within a single Igor experiment, two
+separate Nika configurations are required. However, only one configuration
+(SAXS or WAXS) can be active at any given time. Use Nika's Configuration
+Manager tool to switch between them:
 
 .. Figure:: media/ConfManagerMenu.png
-        :align: center
-        :width: 280px
+   :align: center
+   :width: 280px
 
-Select this menu item and you will get panel:
+Select this menu item to open the Configuration Manager panel:
 
 .. Figure:: media/ConfigurationManager1.jpg
-        :align: center
-        :width: 380px
+   :align: center
+   :width: 380px
 
-Now we can select "Create New Configuration". Nika will ask, if we want to save current configuration - and if you want to reduce again SAXS data, you should do so. You need to give the existing (SAXS) configuration a name - I suggest SAXS.
+Select "*Create New Configuration*". Nika will ask whether to save the current
+configuration — if you plan to return to SAXS reduction later, save it and
+name it "SAXS".
 
 .. Figure:: media/ConfigurationManager2.jpg
-        :align: left
-        :width: 380px
-        :figwidth: 820px
+   :align: left
+   :width: 380px
+   :figwidth: 820px
 
 .. Figure:: media/ConfigurationManager3.jpg
-        :align: left
-        :width: 380px
-        :figwidth: 820px
+   :align: left
+   :width: 380px
+   :figwidth: 820px
 
-And Nika will be restarted with new, unconfigured Nika. If 9ID configuration panel is opened, it will be reopened again.
+Nika restarts with a new, unconfigured instance. If the 9ID configuration
+panel was open, it will be reopened automatically.
 
-Next step is to configure and reduce WAXS data. After you are done with WAXS data you can save the WAXS configuration.
+Configure and reduce WAXS data as needed. When finished, save the WAXS
+configuration.
 
-You can return to any saved configuration by selecting it in the pull down menu, in the example below I have saved SAXS and WAXS configurations and can switch Nika between them:
+To switch back to any saved configuration, select it from the dropdown menu.
+In the example below, both SAXS and WAXS configurations have been saved and
+are available for selection:
 
 .. Figure:: media/ConfigurationManager4.jpg
-        :align: left
-        :width: 380px
-        :figwidth: 820px
+   :align: left
+   :width: 380px
+   :figwidth: 820px
 
-Nika will ask if you want to save the current configuration (you can give it new name or overwrite any existing one). Keep track of these configurations and keep it simple...
+Nika will ask whether to save the current configuration before switching. You
+can overwrite an existing configuration or save under a new name.
 
-**NOTE: Configurations take a lot of space in Igor experiments. Do not have too many Nika configurations saved as files may get excessively large.**
+.. warning::
 
-Next step is to :ref:`reduce WAXS <reduce_WAXS_data_procedure>`.
+   Configurations consume significant space in Igor experiment files. Avoid
+   saving more configurations than necessary, as files can become excessively
+   large.
+
+Next step: :ref:`reduce WAXS data <reduce_WAXS_data_procedure>`.

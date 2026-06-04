@@ -1,3 +1,4 @@
+.. _irena-reflectivity:
 .. _model.reflectivity:
 
 .. index::
@@ -11,88 +12,130 @@ Reflectivity
    :width: 300px
    :figwidth: 320px
 
-This is relatively simple tool to model and fit X-ray and neutron reflectivity for up to 8 layers using recursive Parratt’s code (L. G. Parratt, *Phys Rev*, **95**\ (2), 359-369, 1954), as implemented for example in older code called “Parratt”. The code itself was provided by Andrew Nelson (Andrew_Nelson@users.sourceforge.net ). I have implemented only the GUI in manner similar to the rest of the Irena code. I will provide basic support for this package. Please note, that Andy has made more complex and capable version of his package “Mottofit” available for free download to other Igor users through http://motofit.sourceforge.net/ under GNU license. If you need more complex fitting, than my code allows, please use Andy’s powerful code. You may, however, have to learn little bit more of Igor.
+This tool models and fits X-ray and neutron reflectivity for up to 8 layers
+using the recursive Parratt algorithm (L. G. Parratt, *Phys. Rev.*, **95**(2),
+359–369, 1954). The underlying code was provided by Andrew Nelson
+(Andrew_Nelson@users.sourceforge.net). The GUI follows the conventions of the
+rest of the Irena package.
 
-**Use of xop to speedup the calculations**
+For more complex fitting than this tool supports, use Andy Nelson's more capable
+package *Motofit*, available at http://motofit.sourceforge.net/ under the GNU
+license. When publishing results from this tool, cite:
 
-The code uses optional abeles.xop and GenCurveFit.xop. These are both optional – but the increase in speed (especially abeles.xop) is major (factor of 5-10x). These xops can be downloaded from Andrew Nelson’s web site (listed above).
+   A. Nelson, "Co-refinement of multiple-contrast neutron/X-ray reflectivity
+   data using MOTOFIT," *J. Appl. Cryst.* (2006), 39, 273–276.
 
-**Explanation**
+**Optional XOPs for speed**
 
-For testing purposes, I have included 3 column reflectivity data in Irena folder (…Wavemetrics/Igor Pro/User procedures/Irena) in the file called reflectivity.txt. Please load the data through Data loading tool as qrs data.
+The code supports the optional ``abeles.xop`` and ``GenCurveFit.xop``.
+Both are optional, but ``abeles.xop`` provides a 5–10× speedup. Both can be
+downloaded from Andrew Nelson's website (see above).
 
-The select “Reflectivity” from the SAS menu:
+Use
+---
 
-**Following are the parts of the panel**:
+A sample 3-column reflectivity dataset is included in the Irena folder
+(``…Wavemetrics/Igor Pro/User Procedures/Irena/reflectivity.txt``). Load it
+through the Data loading tool as QRS data.
 
-1. In the top part are :ref:`standard data selection tools <DataSelection>` . Select type of data, data folder with the data, and wave names containing q, reflectivity and error. Push Graph to generate graphs. If you have resolution as single value, uncheck the “Resolution?” checkbox and insert value in the field, if you have resolution wave (q resolution), select it’s wave name here. NOTE: this wave must be in the same folder as the data are. Also, for now there are no checks on wave length, so make sure this wave has same number of points as data waves have.
+Select "*Reflectivity*" from the SAS menu.
 
-2. Note that there are few controls : "*Oversample model?*" if selected model is calculated for 5x as many points as input data have. "*0 at the substrate*" if selected thickness is calculated starting at the substrate, not at the top as usually. "*L1 at the substrate*" if selected, the first layer is at the substrate.
+**Panel sections:**
 
-3. Select number of layers, input scattering length density (SLD) for the top environment (usually air, so 0 is fine, but if this experiment was done for example under water, than this would be different). The tabs contain controls for each layer – thickness in A, SLD (real and imaginary) in units as displayed on the panel and roughness.
+1. :ref:`Standard data selection tools <DataSelection>` at the top. Select
+   data type, folder, and wave names for Q, reflectivity, and error. Click
+   "*Graph*" to generate the graphs. For a single-value Q-resolution, uncheck
+   the "*Resolution?*" checkbox and enter the value; for a Q-resolution wave,
+   select its wave name here. The resolution wave must be in the same folder
+   as the data and must have the same number of points.
 
-4. Substrate values – roughness and SLD
+2. Additional options:
 
-5. Measurement (aka flat) background.
+   - "*Oversample model?*" — calculates the model at 5× the number of input
+     data points. Useful for sparse data (e.g., neutron reflectivity).
+   - "*0 at the substrate*" — counts thickness starting from the substrate
+     rather than from the top (default is from the top).
+   - "*L1 at the substrate*" — counts layers from the substrate rather than
+     from the top.
 
-6. Control buttons
+3. Select the number of layers. Enter the SLD of the top environment (typically
+   air, so 0; for measurements under water, adjust accordingly). Each tab
+   contains controls for one layer: thickness (Å), real and imaginary SLD,
+   and roughness.
 
-When data are selected, following graphs appear:
+4. Substrate roughness and SLD.
+
+5. Flat (measurement) background.
+
+6. Fit control buttons.
+
+After selecting data, three graphs appear:
 
 .. Figure:: media/Reflectivity2.png
    :align: left
    :width: 100%
 
-Note, that the top graph is log-log plot of reflectivity vs Q, medium is reflectivity \* Q^n (n=0 to 4 as selected in the panel) and bottom is reflectivity profile. The fitting (see later) is done in the space reflectivity \* Q^n to improve mathematical stability and convergence of the problem. The controls (selection of data range) however, MUST be done in the top graph (the log-log plot).
+The top graph is a log-log plot of reflectivity vs Q. The middle graph shows
+reflectivity × Q\ :sup:`n` (n = 0 to 4, selectable in the panel). The bottom
+graph shows the SLD profile. Fitting is performed in reflectivity × Q\ :sup:`n`
+space to improve numerical stability. Data range selection with cursors must be
+done in the **top** (log-log) graph.
 
-Now, I have very good values for these particular data (thanks to Dale Schaefer for providing the data and solution!!), see the tabs below:
+Example with known parameters (two-layer system):
 
 .. Figure:: media/Reflectivity3.png
    :width: 45%
 .. Figure:: media/Reflectivity4.png
    :width: 45%
 
-
-Input these values and SLD for substrate of (real part) 2.073 and imaginary part 2.37e-6. The resolution is 1%, so uncheck the “resolution wave (if checked)” and input 1%.
-
-Then push button “Graph model” you should get really good match to data:
+Enter these layer values and a substrate SLD of 2.073 (real part) and 2.37×10\ :sup:`-6`
+(imaginary part). Set resolution to 1% (uncheck the resolution wave checkbox and
+enter 1%). Click "*Graph model*" to compare the model to data:
 
 .. Figure:: media/Reflectivity5.png
    :align: left
    :width: 100%
 
-I suggest you play now with parameters to find out, how sensitive the problem is.
+Adjust parameters to explore sensitivity.
 
-**Details**
+Control details
+~~~~~~~~~~~~~~~
 
-Resolution wave - this is q resolution - has number of options... Either Fixed value in % (e.g., 1% of q for each point), wave with % value for each point, wave with delta q for each point and wave with (delta q)\ :sup:`2` for each point.
+**Resolution wave** — Q-resolution input options: fixed percentage (e.g., 1%
+of Q), a wave containing percentage values per point, a wave containing ΔQ
+per point, or a wave containing (ΔQ)\ :sup:`2` per point.
 
-*Oversample model* - allow user to calculate model with more points (5x more) then input data. Useful, when you have "sparse" data - typically neutron reflectivity.
+**Auto update** — recalculates the model after each parameter change. Required
+for slider use. Disable on slow computers.
 
-*0 at the substrate* - selects to start with the thickness at the substrate, default is at the top of the system (typically air).
+**Scale data** — apply a scaling factor to match reflectivity to 1 at Q = 0.
 
-*L1 at the substrate* - from where you count the layers. Deafult is from top, option is from substrate.
+**Use errors** — includes uncertainty values in the fit. Fitting without
+uncertainties may be unreliable.
 
-*Use errors* - use the errors... The code may have problems fitting without uncertainties (aka: errors).
+**Fitting** — Select the data range with cursors in the top graph and click
+"*Fit model*". Fitting is performed in reflectivity × Q\ :sup:`n` space;
+using n = 4 is recommended to avoid neglecting high-Q data. If the fit
+fails but reaches a partial solution, "*Reverse fit*" restores the pre-fit
+parameters.
 
-*Auto update* - recalculate when any parameter changes. Needed for use of sliders. Do not check on really slow computers.
+For best results, use :ref:`Genetic optimization <important.GeneticOptimization>`.
+Genetic optimization requires realistic low and high parameter limits.
 
-Scale data using scaling factor to hit 1 at Q=0.
+**Insert/remove layer** — adds or removes a layer from the current model.
 
-If you set the system to "Auto update" you can use sliders to see how the reflectivity changes.
+**Parameter linking** — links two parameters together (e.g., if one is known
+to be N × another), allowing them to be fit simultaneously.
 
-You can fit the parameters using Least Square fitting, but more likely you want to use :ref:`Genetic optimization <important.GeneticOptimization>`. Note, however, that for Genetic optimization the low and high limits for parameters must be "reachable". The Gen. Opt. tests all of the parameter range to find optimum solution.
+**Save data** — copies model data into the data folder for future use. When
+reloading data from a folder that already contains reflectivity results, the
+option to restore the previous solution is offered.
 
-You can insert/remove layer using the button, if you need to add/remove layer from the current system.
+**Export data** — saves an ASCII file for external use. This option is
+deprecated; the preferred approach is to use "*Save data*" and then the ASCII
+data export tool.
 
-You can link parameters together. If you know one of the parameters is N x parameter from other layer, you can link them and fit them together.
+.. note::
 
-*Fit model/reverse fit*: Select range of data to fit in the top graph and push the Fit model button. Fitting is done in the Intensity \* Q^n as selected in the panel. Use power of 4 is suggested, if lower values are used, the fitting tends to neglect the high-q data. If fit fails but reaches some solution, you can recover to previous data by pushing “reverse fit” button. Very handy…
-
-*Save data* – copies model data into data folder so they can be used in the future. If you try to load data from folder containing already reflectivity data, you will have option to reload previous solution into the tool. This allows very quick re graphing of the stored solution.
-
-*Export data* saves ASCII file outside Igor for use in other packages. Obsolete and not maintained. Better - save data in folder ("Save data") and then use ASCII data export to save data where you need them.
-
-Do not ask me to add more layers, use Motofit (http://motofit.sourceforge.net/wiki/index.php/Main\_Page) for anything, which is more complicated than what Irena Reflectivity can do.
-
-When publishing data processed with this tool cite Motofit manuscript: A. Nelson, Co-refinement of multiple-contrast neutron/X-ray reflectivity data using MOTOFIT, Appl. Cryst. (2006). 39, 273-276; as this tool uses internally the code by Andrew Nelson.
+   For fitting requirements beyond what this tool supports, use Motofit
+   (http://motofit.sourceforge.net/wiki/index.php/Main_Page).

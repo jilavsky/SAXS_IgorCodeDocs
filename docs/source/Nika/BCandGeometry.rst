@@ -1,3 +1,5 @@
+.. _nika-beam-center-geometry:
+
 .. index::
     Nika; Beam center
     Nika; Sample-detector distance
@@ -5,234 +7,267 @@
     Nika; Distance calibration
     Nika; Standard calibration
 
+Beam Center and Geometry Refinement
+=====================================
 
-Beam Center and Geometry refinement
-===================================
+The beam center and geometry refinement tool provides the following capabilities:
 
-Included tool for finding beam center and refining geometry parameters allows at this time to:
+1. Locate the beam center from an attenuated-beam image by fitting a 2D Gaussian
+   profile.
+2. Locate the beam center graphically when diffraction rings are available.
+3. Refine the beam center by least-squares fitting to diffraction ring positions.
+4. Refine sample-to-detector distance, wavelength, and beam center using a
+   calibrant image (e.g., Silver Behenate for SAXS or CeO for diffraction).
+   User-defined calibrants are also supported.
+5. Refine detector tilts. See the tilt section below — this is not
+   straightforward.
 
-1. Locate beam center when image with attenuated beam is collected by fitting 2D Gaussian profile
+Access the tool from the menu: "*Beam center and geometry cor.*"
 
-2. Locate beam center with help of graphical tools when diffraction lines are available
-
-3. Refine beam center using least square fitting when diffraction lines are available
-
-4. Refine Sample to detector distance, wavelength and beam centers when calibrant image is available (Silver behenate for example for SAXS
-   and CeO standard for diffraction, but user defined is available.
-
-5. Refine tilts for tilted detectors. See notes later. It is NOT that easy.
-
-Main tool is located in the menu under name: “Beam center and geometry cor.”
-
-This tool creates control panel:
+This opens the control panel:
 
 .. Figure:: media/BCandGeometry1.png
    :align: center
    :width: 480px
 
+Select the data path and file type. Enable dezingering if needed and set the
+number of passes. Check "*Log image*" to display the logarithm of intensity —
+all calculations use the original (linear) intensity regardless. Click
+"*Make image*" to create the image.
 
-First select path to data, as using the other tools… Select appropriate type of data. Select “dezinger” if needed and number of passes of this process. Check log image if you wish to see log of intensity, but all calculations are done with original intensity… Create image by pushimg “Make image” button.
+If a high-background sample makes diffraction peaks hard to see, check the
+"*Subtr. Blank*" checkbox and load a blank image (beam-on, no sample) through
+the main panel. This subtraction can improve peak visibility.
 
-If needed (high background samples) you can select “\ *Subtr. Blank*\ **”** checkbox – and need to load Empty measurements (“Blank image”, image without sample but with X-rays on) through the main panel. This is used to subtract that from measured data. It is sometimes needed to have better diffraction peaks.
+Additional options: "*Use mask?*" uses the mask loaded in the main panel (create
+or load a mask there first). "*Use Geom Corrs?*" applies geometry corrections to
+intensity — relevant primarily for very high-angle scattering.
 
-Other options: “Use mask?” and “Use Geom Corrs?. Use mask – uses mask used in the main panel, so it needs to be first created (suggestion: create mask first before doing anything else) or loaded using main panel. Geometry corrections to intensity may be important for really high angle scattering, but unlikely…
-
-The first tab is for locating (at least roughly) the beam center.
+The first tab is for locating the beam center.
 
 Beam center using attenuated beam
----------------------------------
+-----------------------------------
 
-Load in the image containing attenuated beam :
+Load the attenuated-beam image:
 
 .. Figure:: media/BCandGeometry2.png
    :align: center
    :width: 100%
 
-
-Zoom in the area with the beam using Igor controls (select the area and right-click on Windows, select Expand. Select reasonably small area, fitting over large areas takes a long time.
+Zoom into the beam region using Igor controls (select the area and right-click →
+Expand on Windows). Use a reasonably small area — fitting over a large region is
+slow.
 
 .. Figure:: media/BCandGeometry3.png
    :align: center
    :width: 100%
 
-
-Push “Fit 2D Gaussian” button:
+Click "*Fit 2D Gaussian*":
 
 .. Figure:: media/BCandGeometry4.png
    :align: center
    :width: 100%
 
+Contours are overlaid on the image showing the Gaussian fit result. The fitted
+beam center coordinates are automatically transferred to the appropriate
+variables in the main panel.
 
-Note, that Contours are appended to the image showing how the Gaussina fit looks like. Results from fitting with beam center values are pushed into right variables.
+Beam center using "help circle"
+---------------------------------
 
-Beam center using “help circle”
--------------------------------
+If an attenuated-beam image is not available, a calibrant image with diffraction
+rings can be used to estimate the beam center. Standard calibrants for SAXS
+include Silver Behenate; CeO and LaB\ :sub:`6` are common for diffraction.
 
-If image with attenuated beam is not available, following method may help to get relatively good estimate for beam center. Needed is image with material which has diffraction rings – this is usually no problem for diffraction, where number of standard exists. For SAXS usual material is silver behenate.
-
-This is image with CeO powder standard collected on 2D area detector:
+Example: CeO powder standard on a 2D area detector:
 
 .. Figure:: media/BCandGeometry5.png
    :align: center
    :width: 100%
 
+Check the "*Display circle*" checkbox and use the slider to scale the circle to
+approximately match one of the rings. Adjust the beam center (set a suitable
+step size with the "step" controls) until the circle aligns with the ring:
 
-Check the “Display circle” checkbox and use slider to scale the circle to size close to one of the rings. Then change beam center (set useful step size using the “step” variables) to match the circles as good as possible:
-
-So from this:
+Before adjustment:
 
 .. Figure:: media/BCandGeometry6.png
    :align: center
    :width: 100%
 
-
-Get to this:
+After adjustment:
 
 .. Figure:: media/BCandGeometry7.png
    :align: center
    :width: 100%
 
-
-This is already a good estimate of the beam center…
+This provides a good initial estimate of the beam center.
 
 .. index::
     Nika; Calibration
     Nika; Sample to detector distance
 
-Calibrant & refinement
-----------------------
+Calibrant and refinement
+--------------------------
 
-On the next tab pick the calibrant to use and in tab refinement insert reasonably good estimates of the sample-to-detector distance and wavelength. Pick the predefined calibrant (I have now only CeO and Ag behenate, but can add any number of others). The list of d spacings is filled in… The code can use up to 5 lines for any calibrant material – just overwrite the d spacings on the “Calibrant tab” with own values. User needs to know the d spacing for this material. D spacing cannot be optimized!
+On the Calibrant tab, select the calibrant material and enter reasonable initial
+estimates for sample-to-detector distance and wavelength on the Refinement tab.
+Predefined calibrants include CeO and Silver Behenate; additional calibrants can
+be configured by entering d-spacings directly in the Calibrant tab. The code
+supports up to 5 diffraction lines per calibrant material. Note that d-spacings
+are fixed inputs and cannot be refined.
 
-**Note, that you have to have also appropriate size of the pixels set in the main panel**:
+.. note::
+
+   Verify that the correct pixel size is entered in the main panel before
+   running the refinement.
 
 .. Figure:: media/BCandGeometry8.png
    :align: center
    :width: 100%
 
-
-In the tab “Calibrant” now select “Display?” Checkbox. This will add circles where using current parameters should be the lines and two lines around each of this line.
+On the Calibrant tab, check the "*Display?*" checkbox to overlay circles showing
+the expected positions of the diffraction lines with the current parameters.
+Two boundary lines (red) indicate the search width used by the refinement code.
 
 .. Figure:: media/BCandGeometry9.png
    :align: center
    :width: 100%
 
-
-Note detail here:
+In detail:
 
 .. Figure:: media/BCandGeometry10.png
    :align: center
    :width: 100%
 
-The white line is calculated position of the diffraction from current parameters, greenish fuzzy line below is the diffraction line and red lines indicate the width, which will be used by the code to search for the line positions. In order for the code to work, the diffraction line has to be within the two red lines all way around the circle. It has to be single line within this area – therefore no overlapping lines are possible here…. To do this, change wavelength and sample to detector distance, possibly beam center positions.
-
-See here:
+The white line shows the calculated diffraction position; the greenish line is
+the measured diffraction ring; the red lines show the search boundary. For the
+refinement to work, the measured ring must lie within the red boundary lines all
+the way around the circle, and there must be only one ring within the boundary
+(no overlapping lines). Adjust the wavelength, sample-to-detector distance, and
+beam center until this condition is met.
 
 .. Figure:: media/BCandGeometry11.png
    :align: center
    :width: 100%
 
+Adjust the search width (red boundary lines) per diffraction line as needed.
+The peak position is found by fitting a Gaussian to the radial intensity profile
+between the red lines. The fit requires some flat background on either side of
+the diffraction peak, but should not include neighboring peaks.
 
-If needed make the width between the two red lines wider as necessary – it is line specific, so each diffraction line can have different width. Note, that the peak position is found by fitting Gaussien profile on intensity profile in the radial direction between the two red lines, so they need to contain some flat background around the diffraction line, but now too much.
-
-The line profile is taken over width (number of pixels on image) perpendicular to the radial direction as set in “Lineout Intg. Over (pix)” on “Calibrant” tab. This value is ONLY one for all diffraction lines. Depending on quality of the lines this may be narrow or broad. If the lines are broken up, with spots, wider will help, but too wide will reduce precision.
+The integration width perpendicular to the radial direction ("*Lineout Intg.
+Over (pix)*" on the Calibrant tab) applies to all diffraction lines. For
+broken or spotty rings, a wider integration helps, but reduces precision.
 
 .. Figure:: media/BCandGeometry12.png
    :align: center
    :width: 100%
 
+On the Refinement tab, select which parameters to refine: beam center,
+sample-to-detector distance, and/or wavelength. Note that refining both
+wavelength and distance simultaneously requires at least two diffraction lines.
 
-In the “Refinement” tab select which parameters to refine – beam center, Sample-to-detector distance and/or wavelength. Note, that to refine wavelength AND sample-to-detector distance together you need at least 2 diffraction lines.
-
-Select number of “sectors’ to use (see below is set to 60). This how many direction away from beam center are evaluated. For 60 sectors the code analyzes every 12 degrees (360/60=12) lineout in radial direction between the red lines, finds maximum by fitting peak profile and tries to fit to these positions of the diffraction peak.
-
-NOTE: Even, if the image covers only small part of the 360 degrees (when beam stop is or beyond the edge of the detector) the analysis is done only every 360/number\_of\_sectors (in example 360/60=12) degrees. Therefore you may need to increase this number of sectors significantly to make sure you have enough points in which the positions of diffraction ring are analyzed.
+Set the number of sectors (radial directions to evaluate). For 60 sectors the
+code evaluates every 12° (360°/60) around the beam center. For images covering
+only a fraction of 360° (e.g., when the beamstop or detector edge cuts off part
+of the ring), increase the number of sectors to ensure sufficient coverage within
+the available image area.
 
 .. Figure:: media/BCandGeometry13.png
    :align: center
    :width: 100%
 
+If the direction of a given sector falls outside the image, it is skipped.
+Using many sectors increases computation time.
 
-This is how many directions for each ring will be evaluated. If the direction falls out of image, it is skipped. Note, too many may take lot of time…
+If "*Display in image*" is selected, the code shows which line is being evaluated
+in real time. This significantly slows the refinement.
 
-Note: if you select “\ *Display in image”* the code will show on the image which line is being evaluated at any time. This slows down significantly the fitting as the display part is kind of slow…
+Other refinement controls:
 
-Note the other controls:
+* **BC X, BC Y** — Beam center coordinates; editable here.
+* **Peak shape profile** — Gaussian (default, most stable), Lorentzian, or
+  Gaussian with sloped background. Alternative profiles are useful when the
+  Gaussian fit fails.
+* **Tilts** — Can be entered or refined; see the tilt section below.
 
-BC X, BC Y beam center values which can be changed here
-
-Peak shape profile: Guass, Lorenz, and Gauus with sloped background. Most of the time Gauss is fine and most stable. Other shapes are really for cases when Gauss fails.
-
-Tilts… You can change them and fit them here. There is separate chapter later on fitting tilts.
-
-When ready, push “Run refinement” and observe:
-
-As refinement progresses, dotted red line on the image indicates which direction/line are being evaluated and “Profile fit window” graph shows the intensity vs pixel data there and fitted Gaussien profile. Observe and judge quality. If the quality is poor and data are misfit, it is likely that results of refinement will be bad…
+Click "*Run refinement*" to start. A dotted red line on the image shows the
+direction being evaluated; the "Profile fit window" shows the intensity profile
+and fit for each evaluated direction. Poor fits indicate the refinement may
+produce unreliable results.
 
 .. Figure:: media/BCandGeometry14.png
    :align: center
    :width: 100%
 
+If the refinement fails, an error message is displayed and no parameters are
+changed. If the result is unsatisfactory, click "*Return back*" to restore the
+previous parameters.
 
-If the refinement at the end fails, you get error message and no change to original parameters is made. If refinement is successful but you still do not like the result, you can recover the previous parameters by pushing button “Return back”.
+On successful completion, the refined values are transferred to the main panel.
 
-Otherwise, if successful, the results are pushed into the right variables in the main panel and all is done.
-
-Note, with Silver behenate for SAXS, there is only one line, so the processes is easier. But one cannot refine wavelength AND sample-to-detector distance. Note, the line width for Silver behenate needs to be significantly larger and also it is likely that the “Lineout Intg over “ needs to be larger…
+For Silver Behenate (SAXS calibrant, single diffraction ring): only one
+diffraction line is available, so wavelength and distance cannot be refined
+simultaneously. Use a larger line width and lineout integration value for this
+calibrant.
 
 .. index::
     Nika; Detector tilts
 
 Fitting data with tilts
------------------------
+------------------------
 
-Finally version 1.49 adds good code to fit tilts and deal with them – both in data reduction and in the fitting here. Prior versions (1.48 and before) had slow code which handled small tilts ONLY. Current code, as documented below, handles high tilts quite well and is much faster. Test data I’ll be showing were provided by dr. von Dreele. Many thanks to him.
+Version 1.49 introduced robust tilt fitting for both data reduction and geometry
+refinement. Earlier versions handled only small tilts. The current implementation
+handles large tilts accurately and efficiently.
 
-The following data were collected with about 45 degree tilt in one direction:
+Example: data collected with approximately 45° tilt in one direction:
 
 .. Figure:: media/BCandGeometry15.png
    :align: center
    :width: 100%
 
+The diffraction profiles are deformed and resemble (but are not) ellipses.
 
-Note the deformed diffraction profiles which resemble (but are NOT) ellipses.
-
-Above is the best guess of beam center using the circle. Other parameters are reasonable well known, so one can choose LaBr6 as calibrant:
+Initial beam center estimate from the circle tool, with known geometry
+parameters and LaB\ :sub:`6` as calibrant:
 
 .. Figure:: media/BCandGeometry16.png
    :align: center
    :width: 100%
 
+The circles do not match the rings well.
 
-You can see that circles are not a good fit.
+Setting a horizontal tilt of 45° significantly improves the match:
 
 .. Figure:: media/BCandGeometry17.png
    :align: center
    :width: 100%
 
-
-However, selecting horizontal tilt of 45 degrees makes this a good guess.
-
-Now we can run refinement for Beam center, Sa-Det distance, and tilts and we should get very good fit:
+Running the full refinement for beam center, sample-to-detector distance, and
+tilts gives an excellent result:
 
 .. Figure:: media/BCandGeometry18.png
    :align: center
    :width: 100%
 
+Practical notes on tilt fitting:
 
-I should note few things:
+* Ensure the peak fitting boundaries are wide enough that the refinement does
+  not miss the diffraction ring. Running the refinement multiple times often
+  helps.
+* Tilt fitting requires a large solid-angle coverage of data. Fitting tilts with
+  only a small fraction of the diffraction ring visible is generally unreliable.
+  If tilt values are known from external measurements, dial them in manually
+  and verify visually.
+* Note that +45° and −45° tilts are physically different (90° apart). If a tilt
+  is known from another measurement, try both signs.
 
-Make sure the peak fitting does not miss the peak. I try to catch it, but the code is not the most robust. Making the width for each diffraction ring large enough helps a lot. Also, you may want to run the fitting few times. Costs little time and helps often.
-
-Also: Warning – getting tilts requires significant amount of solid angle of data. Basically, you need to see large fraction of the ring to fit tilts. With limited fraction of the diffraction ring my attempts to fit were nearly futile. But you can dial numbers measured by other means in to eyeball the tilts in.
-
-Note that 45 degrees and -45 degrees are NOT the same tilt. There is 90 degrees difference between them, so if you have tilt measured by other means, try using it both positive and negative. Easier to check the effect than try to work out the geometries and convey it here.
-
-Here is example of above data reduced with correctly fitted tilt and with tilt 5 degrees off:
+Comparison of data reduced with the correct tilt versus a tilt offset by 5°:
 
 .. Figure:: media/BCandGeometry19.png
    :align: center
    :width: 100%
 
-
-**The tilts are important!**
+**Detector tilts are important for accurate data reduction.**

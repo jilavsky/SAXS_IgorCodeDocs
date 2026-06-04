@@ -1,6 +1,7 @@
+.. _nika-main:
+
 .. index::
     Nika; Main panel
-
 
 Main Panel
 ==========
@@ -10,75 +11,90 @@ Main Panel
    :width: 340px
    :figwidth: 360px
 
-Select “Main panel” from the “SAS 2D” menu. This will present the following panel:
+Select "*Main panel*" from the SAS 2D menu. The panel has three major areas:
 
-The panel has three major parts:
+**Top** — 2D data selection. Select the image to process.
 
-**Top** is designed for 2D data selection. Here user selects which 2D image will be processed.
+**Middle** (*tabbed area*) — processing controls. Each tab is described below.
 
-**Middle** (*tabbed area*) is designed for controls of processing. This is the busiest area of the panel and each tab will be explained later.
-
-**Bottom** contains buttons for main controls and 2D image controls.
+**Bottom** — main action buttons and 2D image display controls.
 
 .. index::
     Nika; Selecting data
 
 Selecting data
----------------
+--------------
 
-Nika can load number of different **image types** - aka: file formats, file types - usually well described by file extension (e.g., tif). These are selected by "**image type**" popup menu in top right corner. If appropriate file type is not found in the “image type” popup menu, you will have to contact me so I can develop and add appropriate loader for your specific data. Note, that most data formats are binary data with some header, and if you can get description of your data format you can often use General Binary reader.
+Nika supports many image types (file formats). Select the appropriate type from
+the "*image type*" popup menu in the top-right corner. If your format is not
+listed, contact the developer — most formats are binary files with a header,
+and the General Binary reader often works when a format description is
+available.
 
-Select appropriate type of data you have and then push “Select data path” button, dialog is presented, in which path to folder on the hard drive containing 2D images is selected. Find the local path to data using this standard Igor dialog. and push OK when done.
+Click "*Select data path*" and navigate to the folder containing the 2D images.
+Once a valid path is selected, all files of the appropriate type are listed in
+the ListBox below.
 
-NOTE the “**Calibrated 2D data**?” checkbox. If selected, Nika expects 2D calibrated data – fully normalized and corrected data provided as one of the 2D formats, basically 2D image of Intensity, Q (vector), and uncertainty. Number of options is being current developed, the code currently handles EQSAXS (ORNL) and canSAS/Nexus. This part is under heavy development at this time, expect changes…
+Select one file, or multiple files using Shift-click (contiguous) or
+Ctrl-click (non-contiguous), using the pull-down menus below the list box.
 
-When valid path is selected, the Igor will check the folder and list all files of appropriate type (assuming the files have extensions) in the ListBox below the button.
+From Nika version 1.66, ListBoxes support right-click actions for refreshing
+and other functions.
 
-Here user can select one files, more files (by holding down shift key on Windows) and continuing selection (using the two pull down menus below the list Box)…
+Use the "*Match*" field to filter file names using regular expressions.
 
-Note, that from Nika ver. 1.66 Listboxes have right click actions and users can refresh content and perform some functions from right click.
+.. note::
 
-Use the “Match” field to mask the file names with Regular expression. To match part of the name, just use the string needed - so matching samples with \_15s in name, just add \_15s in the field. Regular expressions are very powerful, read on line how to use them.
-
-Note, the files ending with “\_mask”. These are mask files created by Nika package, these were used to be tiff files, now they are hdf5 files… Separate chapter explains how mask is created.
+   Files ending with ``_mask`` are mask files created by Nika (previously TIFF,
+   now HDF5). See the Mask chapter for details.
 
 .. Figure:: media/Main3.png
    :align: left
    :width: 380px
 
+.. note::
+
+   The "*Calibrated 2D data?*" checkbox tells Nika to expect fully normalized
+   and corrected 2D data (Q vector + intensity + uncertainty) rather than raw
+   detector images. Supported formats include EQSANS (ORNL) and canSAS/NeXus.
+   This capability is under active development.
 
 Invert 0,0 corner
 ------------------
 
-As default Igor displays 0,0 of the image in the top left corner. This seems to be distressing for some users, so if checked, images will have 0,0 in the left bottom corner. Nothing else is changed, so the orientation of sectors WRT original image is preserved and reduced data are the same as without this checkbox checked. Simply, the processing of Nika package is independent of this checkbox, it is ONLY cosmetic…
+By default, Igor displays image position (0,0) at the top-left corner. When
+this checkbox is selected, (0,0) appears at the bottom-left. This is a cosmetic
+change only — data processing and sector orientations are unaffected.
 
 Sort order
------------
+----------
 
-Decides how the data are listed in the listbox. Options:
+Controls how files are listed in the ListBox:
 
-- *None* – list as provided by OS.
-- *Sort* – the old method. Alphabetical (but numerical order may get wrong)
-- *Sort2* – alphabetical, but taking care of sorting out smaller number before larger ones.
-- *\_001.* – this one assumes, that end of file name, before extension, is number. Before number you need to have “\_” and after number must be “.” followed by extension.
-- *Invert \_001*
-- *Invert Sort*
-- *Invert Sort2*
-
-All inverted sorting simply reverses the sorting logic. Try them and see, which works best for you.
+- *None* — order as returned by the OS.
+- *Sort* — alphabetical (may sort numbers incorrectly for multi-digit indices).
+- *Sort2* — alphabetical with correct numeric ordering.
+- *\_001.* — sorts by the trailing number before the file extension, assuming
+  the pattern ``Name_NNN.ext``.
+- *Invert \_001*, *Invert Sort*, *Invert Sort2* — reversed versions of the above.
 
 Match
-------
+-----
 
-Using RegEx now. This is Grep language using regular expressions, very powerful. For simplicity: match names containing (anywhere) test, just type in this field test. To match names starting with test type in ^test. Names ending with tif can be matched by tif$ and so on. Note that to match any single character you need to use. Need to start quickly? See here: https://www.cheatography.com/davechild/cheat-sheets/regular-expressions/
+Uses regular expressions (grep syntax) to filter the file list. Examples:
+
+- ``test`` — matches filenames containing "test" anywhere.
+- ``^test`` — matches filenames starting with "test".
+- ``tif$`` — matches filenames ending with "tif".
+
+See https://www.cheatography.com/davechild/cheat-sheets/regular-expressions/
+for a quick reference.
 
 Side buttons
 ------------
 
-There are few buttons next to the Listbox where user can select the data:
-
-Refresh:
- This button was removed in 1.66. The refresh and some other functionality was added to right click for most Listboxes in Nika.
+The Refresh button was removed in version 1.66. Refresh functionality was
+moved to the right-click menu on most ListBoxes.
 
 Save/Load Config
 ~~~~~~~~~~~~~~~~
@@ -87,41 +103,38 @@ Save/Load Config
    :align: center
    :width: 580px
 
-“\ **Save & recall config**\ ” will allow user to save current settings – or load saved settings- in the tabbed area as “configuration”. User can save the configuration file in any place on the hard drive he/she wishes – ideally with the data!
+"*Save & recall config*" saves or loads the current settings in the tabbed area
+as a named configuration file. Configuration files can be saved anywhere on disk
+— ideally alongside the data.
 
-Following dialog is presented:
+Controls in the dialog:
 
-Explanation of controls:
+- "*Select data path*" — choose the folder containing configuration files.
+- Left panel — lists configuration files in the selected folder.
+- Right panel — shows the content (comment on line 1) of the selected file.
+- "*New Conf file name*" — enter a name for the new configuration file.
+- "*New Conf file comment*" — enter a description of the configuration.
+- "*Save configuration*" — saves current tabbed-area settings.
+- "*Load configuration*" — loads settings from the selected file, overwriting
+  the current configuration with no undo.
 
-“Select data path” – select path to folder with the configuration files; Path is displayed below
+.. note::
 
-Left window – shows the names of configuration files found in this location
-
-Right window – shows content (note, first line is user comment) in the selected configuration file. If new configuration file is selected, content of the first one is shown.
-
-New Conf file name – User input for new configuration file to be created
-
-New Conf file comment – place to store info about what this conf file contains!
-
-Save configuration button – save current setting of the tabbed area
-
-Load configuration button – load stuff from config file into the program. Note, your current configuration will be overwritten and there is no way back, if you did not save your configuration…
-
-**Note**: names of dark field, empty beam, mask, and pix2D sensitivity are not saved and are not reloaded, when configuration is reloaded. This would really be very complicated…
-
-Note, that the config file has name and Comment string. If you get lost altogether, you can also see on the right hand side what values are stored in that configuration file. It is really good idea to use meaningful names and comments – especially if you have a lot of configuration files
+   Dark field, empty beam, mask, and pixel sensitivity file names are not saved
+   or reloaded with configuration files.
 
 Export image
 ~~~~~~~~~~~~
 
-Enables user to export the main 2D graph as tiff image from Igor.
+Exports the main 2D graph as a TIFF image from Igor.
 
 Store image
-~~~~~~~~~~~~
+~~~~~~~~~~~
 
-Enables user to store the current main 2D image in Igor Experiment for reference… Remember, they can be large and so do not store too many or the Igor experiment may become unmanageably large. Also, there is not much support for dealing with these images (it is not really clear what user would want to do with them to me), so you are on your own and use Igor tools to handle these images…
-
-There is NO WAY to load these images back into Nika at this time. It can be done manually, but not through Nika menus & functions.
+Stores the current 2D image in the Igor experiment for reference. Stored images
+can be large — avoid storing many of them, as the experiment file can become
+unmanageably large. There is no way to reload stored images back into Nika.
+Use standard Igor tools to work with them.
 
 .. index::
     Nika; Create movie
@@ -129,80 +142,98 @@ There is NO WAY to load these images back into Nika at this time. It can be done
 Create Movie
 ~~~~~~~~~~~~
 
-This opens panel, which is interface for ability to create movie from either 2D images or 1D lineouts…
+Opens a panel for creating movies from 2D images or 1D lineouts.
 
-Note: The way this tool is designed, image is added every time any of the Convert buttons is called. It is possible to use this tool to create movie from RAW data only manually (by manually adding each frame) when user wants to load the data in using the “Ave & Display sel. files” button. Using this button you cannot use Automatic add function.
-
-But the same result you can achieve by using convert buttons and simply not converting the data any way (not checking anything on “Main” tab and any of the “Sectors”, “Prev” and “LineProf” tabs. In this case you can add frames automatically, which is probably more useful…
+Frames are added each time a Convert button is clicked. When using the
+"*Ave & Display sel. files*" button, add frames manually using "*Append
+current Frame*" — automatic frame appending is not available with that button.
+To use automatic appending while displaying RAW data, use a Convert button with
+all processing options unchecked in the Main, Sectors, Prev, and LineProf tabs.
 
 .. Figure:: media/Main10.png
    :align: left
    :width: 320px
    :figwidth: 350px
 
+Steps for creating a movie:
 
-The panel walks user through the steps necessary…
+1. **Load and process one dataset** to establish display options and verify
+   settings.
 
-1. **Load and process one data set.** In order to use this feature, user needs to first load some test data set (image) to have test case to try the display options. This test case needs to be processed all the way needed…
+2. **Select what to add to the movie** using the checkboxes. Click
+   "*Create Img/Graph*" to create or restore the relevant image or graph.
+   Options:
 
-2. **User needs to decide what to actually add into the movie**\ … Selecting the checkboxes creates the image, if you need to you can recreate (or pull up if it is hidden) the image by the button “Create Img/Graph”. There are various options:
+   a. *2D RAW data image* — a separate copy of the raw data. The display
+      (zoom, color range, etc.) is under user control and remains stable as
+      new frames are added.
 
-   a. 2D RAW data image. This image is using separate image, copy of the RAW data. The graph can be customized by user (zoom, range scaling,…). Since the code for subsequent images replaces this separate copy of the image with newly loaded the wave, this does not modify the image itself. Therefore the display should be relatively stable and under user control – it should stay as user zoomed/set color range/etc...
+   b. *2D Corrected data image* — a separate copy of the fully corrected 2D
+      image. Behaves like the RAW option but shows calibrated data.
 
-   b. 2D Corrected data image. Same as above, but the image used is a copy of the fully corrected 2D images (empty/background subtracted, calibrated…). Again, the controls are left to user present ones since the code overwrites the separate copy of the data and therefore swaps the new data into the image without major recreation. Should be relatively stable without major changes to the way the data are displayed.
+   c. *1D data* — a graph of the lineouts produced by the code. If multiple
+      sectors are configured, all resulting lineouts may be included in the
+      movie. Use a hook function to select specific sectors.
 
-   c. 1D data. This is graph of the lineouts created by the code. NOTE: if you are creating more than one lineout from each image (like when using multiple sectors), all of these may be subsequently used! This may be good (movie of sequence of sectors on one image) or bad (for movies from many images). There is no way of skipping and using only specific sectors. Use Hook function to create that…
-   You have relatively lot of controls of the graph, same as in the above options 1 and 2, as the data for this graph are a separate copy of your last data. When the old ones are overwritten, the new ones are “swapped” into the graph and replaced without modifications to the graph. So the graph should stay without major changes, unless set that way. For example, if Axis are set to auto scale, they may change. But if they are set to fixed start/end, they will stay fixed. At least I hope .
+   d. *Use main 2D image* — uses the main 2D image directly. This image is
+      recreated from scratch for each frame, so user zoom and other settings
+      cannot be preserved. Use the main panel controls (RAW/Processed, sectors,
+      beam center, colors, Q axes) to configure its appearance.
 
-   d. Use main 2D image. This one simply uses the Main 2D image. Seems very good choice - BUT: that image is recreated every time from scratch so there are very few controls available to user – you either like it and then use it, or you cannot use this method. You should, of course, use the controls on main panel to modify the image – like use RAW or Processed data, display sectors, beam center, colors, or image with Q axes… That works, but you cannot control other things, such as zoom range etc.
+   e. *Use user Hook function* — advanced option. Define
+      ``Movie_UserHookFunction()`` in your Igor experiment. This function must
+      generate the desired graph/image and leave it as the top window. Example:
 
-   e. Use user Hook function… This is advanced method. Here you can do whatever you want to create the image you want to append, just call the function: Movie\_UserHookFunction and if it exists, it will be called. This function MUST generate graph/image and leave it as the top image. This top image is added to the movie when called… Note: while this is advanced programming, this is way to get really what you want into the movie… Below is commented out example (present in the code also) which pulls up the main 2 D image and prints a note. You can add here any other formatting which you want to do or use…
+      .. code::
 
-.. code::
+          Function Movie_UserHookFunction()
+              DoWindow CCDimageToConvertFig
+              if(V_Flag)
+                 DoWIndow/F CCDimageToConvertFig
+                 AutoPositionWindow /M=1 /R=NI1A_CreateMoviesPanel CCDimageToConvertFig
+              else
+                 Abort "Main 2D windows does not exist"
+              endif
+          end
 
-    Function Movie_UserHookFunction()
-        DoWindow CCDimageToConvertFig
-        if(V_Flag)
-           DoWIndow/F CCDimageToConvertFig
-           AutoPositionWindow /M=1 /R=NI1A_CreateMoviesPanel CCDimageToConvertFig
-        else
-           Abort "Main 2D windows does not exist"
-        endif
-        // print "called Movie\_UserHookFunction function"
-    end
+3. **Modify the image/graph** appearance. For the first two options, select
+   log intensity display here if needed. A filename legend can be appended and
+   its appearance edited manually.
 
-1. **Modify the image/graph**. Here you can modify some of the appearance of the image/graph. If you want to display log of intensity in the images, here is your only chance (for first two options). You can append also file name – and edit the appearance of the legend manually – as long as you do not change the reference to global string, which contains this name, you can change font, size, location…
+4. **Click** "*Open movie file*" to create and open the movie file. Set an
+   appropriate frame rate (1 = 1 frame/second). Only one movie file can be open
+   at a time.
 
-2. “\ ***Open movie file”*** button. You here create movie file and open it for writing – external file for Igor experiment. Remember to set proper frame rate. Frame rate of 1 is 1frame/second, 10 is 10 frames/second. So if you have 100 images to add, at 10frames/second the whole movie will play for 10 seconds. You can have ONLY one movie file opened at one time (Igor limitation). The button greys out when movie file is opened. | Also note that the button on main panel changes
-
-.. Figure:: media/Main11.png
+   .. Figure:: media/Main11.png
       :align: center
       :width: 480px
 
+5. **Append frames** using one of:
 
-3. **Append images to movie file**:
+   a. "*Append current Frame*" — manually appends the current image/graph.
+   b. "*Append Frames Automatically*" checkbox — appends a frame automatically
+      after each image is loaded and processed.
 
-   You have two options:
+6. **Click** "*Close Movie file*" before playing the movie.
 
-   a. “\ *Append current Frame*\ ” button. – Works always, appends current image/graph per selection (see above item 2) manually to the movie. Use when you want to control the appending of the frames really well.
+.. warning::
 
-   b. Checkbox “\ *Append Frames Automatically*\ ” – if set, after loading & processing every image a frame is appended automatically.
+   Close movie files before closing the Igor experiment. If Igor closes with a
+   movie file open, Nika will not be aware of this on the next session and
+   attempting to add frames may fail.
 
-4. “\ *Close Movie file*\ ” button. Well, before you can play it, you need to close it…
+The movie creation dialog:
 
-**Warnings**: It is very likely all hell breaks loose if you close Igor experiment and reopen it later with Movie file opened for writing. I suspect Igor will close the movie file on file close, but Nika will NOT know about it. While it is principally possible to fix this in the code, there are good reasons why not to do it. So keep this in mind and do not leave the Movie files opened when closing the Igor experiment. At least close the Movie file before you try to add any frames to it.
+   .. Figure:: media/Main12.png
+      :align: center
+      :width: 380px
 
-Following dialog on Movie file control:
+On Windows, both MOV (QuickTime) and AVI files can be created. AVI files may
+not play on Mac. QuickTime MOV files offer better cross-platform compatibility
+but may require QuickTime to be installed.
 
-    .. Figure:: media/Main12.png
-       :align: center
-       :width: 380px
-
-Is Igor panel and here are your last chances to control what and how it gets created… I have limited information on what works best, so try this your self… Keep in mind, that while on PC you can create either mov file (Quicktime) or AVI file, it may be challenge to get avi files play on Mac. I suspect that considering the avi mess in video formats, you may have much better chance to play Quicktime movies (mov)… But there is no guarantee on unknown machines, that they will have Apple quicktime.
-
-Note, that every time Nika adds frame to the movie, it prints in the history area:
-
-“Added frame with data : xxxxxxxxxxxx.tif to movie”. This tells you what you added…
+Each time Nika adds a frame, it prints in the history area:
+``Added frame with data : xxxxxxxxxxxx.tif to movie``.
 
 .. index::
     Nika; Live processing
@@ -210,44 +241,56 @@ Note, that every time Nika adds frame to the movie, it prints in the history are
 Live processing
 ~~~~~~~~~~~~~~~
 
-Live processing is attempt to make automatics display or processing data for instruments at synchrotrons or neutron sources. When pushed, it opens new panel:
+Live processing automates display or reduction of data as it arrives from an
+instrument. Clicking the button opens a new panel:
 
 .. Figure:: media/Main13.png
    :align: center
    :width: 380px
 
+A background process wakes up at the configured "*Update time*" interval. If
+Igor is idle at that moment, the process runs a refresh and, if a new file is
+found (after applying all Match and data-type filters), automatically processes
+it using the current Nika settings.
 
-The description is hopefully clear. You can start background process, which is sleeping for the "Update time". If Igor Pro is not busy at the time when woken up, the background process will basically run "refresh" command and if new file is found (after applying all Match RegEx and Data type matching, this new image is automatically processed using the settings in Nika.
+User interactions may delay or prevent processing. Pause the background process
+before working interactively with files.
 
-Note, that user interactions may delay this processing, so if user is using Igor, this may not happen. However, if user is using sporadically this update may happen at inconvenient time, so make sure if you want to "Play" with the file you stop this background process.
-
-Note checkboxes: "Display new image" or "Convert new images", which control, which button is pushed by this tool when new image is found. The first pushes "Ave & Display sel. file(s)" while later pushes "Convert sel. files 1 at time".
+Checkboxes "*Display new image*" and "*Convert new images*" control which button
+is triggered: the first activates "*Ave & Display sel. file(s)*"; the second
+activates "*Convert sel. files 1 at time*".
 
 Intensity calibration
 ~~~~~~~~~~~~~~~~~~~~~
-Most of the time the data in Small-angle scattering are normalized and not calibrated. This prevents users from obtaining quantitative information about volumes of scatterers and specific surface areas (etc…) using data analysis packages (such as *Irena*). If users collect standard sample (e.g., Glassy carbon: **Zhang, F., et al., Glassy Carbon as an Absolute Intensity Calibration Standard for Small-Angle Scattering. Metallurgical and Materials Transactions A, 2010. 41(5): p. 1151-1158.**) the data can be put on absolute scale – either cm\ :sup:`-1`\ sr\ :sup:`-1` (volumetric calibration, also cm\ :sup:`2`/cm:sup:`3`/sr – typically shortened as cm\ :sup:`2`/cm:sup:`3`) or cm\ :sup:`2`/g for weight calibration. The popup :
+
+Most small-angle scattering data are normalized but not calibrated on an
+absolute scale. Absolute calibration enables quantitative analysis of scatterer
+volumes, specific surface areas, and other physical quantities in packages such
+as Irena. Using a calibration standard such as Glassy Carbon (Zhang, F., et al.,
+*Metallurgical and Materials Transactions A*, 2010, 41(5): 1151–1158) places
+data on an absolute scale in either cm\ :sup:`-1` sr\ :sup:`-1` (volumetric)
+or cm\ :sup:`2`/g (weight-based).
 
 .. Figure:: media/Main14.png
    :align: center
    :width: 180px
 
-
-enables users to select which units of absolute intensity calibration they want to write in wave note of the data. Other packages (Irena) may use this information and then it may be critical to have the right one in there.
+The popup selects which units are written to the wave note. Downstream packages
+(e.g., Irena) may use this field — select the correct units.
 
 .. index::
     Nika; image Statistics
 
 Calc. Stats.
 ~~~~~~~~~~~~
-When checked, Nika will calculate statistics of the image. What is calculated depends on what is done with image - you always get raw image statistics, but if image is processes, processed/calibrated statistics is calculated also. Notebook with the statistics is attached right of the image:
+
+When checked, Nika calculates image statistics. Raw image statistics are always
+computed; if the image is processed, corrected/calibrated statistics are
+calculated as well. A notebook with the statistics is displayed beside the image:
 
 .. Figure:: media/ImageStatistics1.png
    :align: center
    :width: 100%
-
-
-enables users to select which units of absolute intensity calibration they want to write in wave note of the data. Other packages (Irena) may use this information and then it may be critical to have the right one in there.
-
 
 .. index::
     Nika; Sample name
@@ -255,332 +298,365 @@ enables users to select which units of absolute intensity calibration they want 
 Sample Name
 ~~~~~~~~~~~
 
-This field has been added in version 1.75 and it is used with data formats which can contain sample name different, that the file name loaded in. Example of such format is Nexus NXsas. Actually, at this time it is the only file format which read, if set in cross-reference table – the sample name from metadata and does not use file name. Every else file format sets this field to file name (without extension). I hope to get more creative later.
-**NOTE** : for space reasons the controls of this setting are now on "SAVE" tab, where other export options are. Sorry, no space on main panel.
+Added in version 1.75. Used with data formats that can store a sample name
+different from the file name — currently, only NeXus NXsas files use this when
+a sample name is configured in the cross-reference table. All other formats set
+this field to the file name (without extension).
+
+.. note::
+
+   Due to space constraints on the main panel, the controls for this setting
+   are on the SAVE tab alongside other export options.
 
 .. index::
    Folder name length (Nika)
    Sample name length (Nika)
    Name trimming (Nika)
 
-
 Name trimming
 ~~~~~~~~~~~~~
 
-*Following controls are on Sect. and LineProf tabs at the bottom. Obviously, Nika needs larger panels in the future. May be next releases…*
+*These controls are at the bottom of the Sect. and LineProf tabs.*
 
-Igor Pro has 32 character limit for names but many operating systems allow much longer names. Also, users are notorious for using file names as abstract.
+Igor Pro has a 32-character limit for wave names, but most operating systems
+allow much longer filenames. Nika reserves some characters for its own suffixes
+(e.g., ``_C`` for circular average, ``_270_30`` for a sector average), leaving
+28 or fewer characters for the user portion of the name.
 
-If Nika is suppose to save the data in Igor experiment, it needs to cut the name down to smaller size – and since it is using part of the name to describe how the data were reduced, it limits user useable length of the string to less characters… Current version will calculate maximum allowed length of the name based on what Nika wants to append to the name and trims if needed. Note, that this makes the length dependent on which processing is done for those data - circular average simply appends _C (2 characters) and two more are needed for \q_, \r_, or \s_, so the length of name for circular average is 32-4=28. For sector average one can have e.g., _270_30 (along 270 deg, +/-30 deg sector), 7+2=9 characters, only 23 characters left for user name.
+Nika calculates the maximum allowed name length based on the active processing
+type and trims longer names automatically.
 
 .. Figure:: media/Main15.png
    :align: center
    :width: 380px
 
-In these controls user can select how to handle too long file names – remove part of the name (string) – and if still too long, trim start or end of the remaining string…
+Controls allow selecting which part of a long name to keep if trimming is
+needed (remove a fixed substring, then trim from the start or end). Example:
 
-Here is example:
+Name: ``My_Name_is_SIMPLYTOO_long_for_comfort_even_with_removal.tif`` (55 chars)
 
-Name
-My\_Name\_is\_SIMPLYTOO\_long\_for\_comfort\_even\_with\_removal.tif
-
-55 characters. Perfect.
-
-Trim end would result in name: My\_Name\_is\_SIMPLYTOO
-
-Trim start: comfort\_even\_with\_removal
-
-And remove “SIMPLYTOO\_long\_for” and trim end :
-My\_Name\_is\_\_long\_for
-
-Etc…
+- Trim end: ``My_Name_is_SIMPLYTOO``
+- Trim start: ``comfort_even_with_removal``
+- Remove "SIMPLYTOO_long_for" then trim end: ``My_Name_is__long_for``
 
 .. index::
     Nika; Batch processing
 
 Batch processing (no images)
-----------------------------
+-----------------------------
 
-*This is way to significantly speed up processing of images in Nika.*
+*Batch processing can significantly speed up large data reductions.*
 
-Testing has shown that up to 75% of time to process data in Nika can be spent on displaying the images, drawing into the images, and graphing the 1D data. And printing notes in the history area. Most of the time this is acceptable and images help users to understand what is happening. However, when processing large number of images this can needlessly slow down processing. The checkbox *Batch Proc. (no images)* speeds up processing by preventing needless image display. If this checkbox is selected, Nika will stop all image displays, updates of opened graphs and to indicate it is working will just display a panel *Nika is batch Processing data* (see next image). While this panel is up, Nika is running, but the only thing changing user can see is the red *Sample Name* on the main panel. When the selected batch of samples (batch is selected in the *Select input data* listbox) this panel will disappear.
+Testing showed that up to 75% of processing time can be spent on image display,
+graph updates, and history area output. The "*Batch Proc. (no images)*" checkbox
+suppresses all image and graph updates during processing. While batch mode is
+active, only the red *Sample Name* field on the main panel updates. When the
+selected batch completes, a "*Nika is batch Processing data*" panel disappears
+automatically.
 
 .. Figure:: media/Main_BatchProcessing1.jpg
    :align: center
    :width: 480px
 
-Also, notes are printed in the history area during the start and after the end of this batch processing :
+The history area records progress at the start and end of the batch:
 
 .. Figure:: media/Main_BatchProcessing2.jpg
    :align: center
    :width: 580px
 
-**Suggestion:**  Process one or two images first and verify the settings are correct and all parameters are correctly set. When you check the parameters and understand, that all is working right, you can run larger number of images in batch mode.
+.. note::
 
-**If the batch processing hits error and stops :** Nothing bad happened. Close manually the panel *Nika is batch Processing data* (it can be killed as any other panel), fix the problem, and start again from where Nika stopped.
-
-.. index::
-    Nika; Tabbed controls
+   Process one or two images first to verify all settings before running a
+   large batch. If batch processing encounters an error and stops, close the
+   "*Nika is batch Processing data*" panel manually, fix the problem, and
+   restart from where processing stopped.
 
 Controls in tabs
-================
+----------------
 
-**Note, that if images are averaged, they are first averaged during loading, and then – during processing to create lineouts / square matrix are corrected as described below. Therefore all parameters here related to single (if possibly averaged) image!**
+.. note::
 
-These are controls in the tabbed area.
+   When images are averaged, averaging occurs during loading. All tab
+   parameters below apply to the single (possibly pre-averaged) image.
 
 .. Figure:: media/Main17.png
    :align: center
    :width: 400px
 
-
-We will now go through each tab separately
-
 .. index::
     Nika Main parameters
 
 Main
-----
+~~~~
 
-Here are some very clear parameters, related to SAXS camera geometry:
+Camera geometry parameters: sample-to-detector distance (mm), wavelength/X-ray
+energy (linked fields), CCD pixel size in X and Y (mm), and beam center
+position.
 
-Sample to CCD distance in millimeters, Wavelength/Xray energy (these windows are linked), CCD image pixel size in mm (in X and Y directions). Note, X direction is horizontally, Y direction vertically. And Beam center position. Note, one can display beam center (to check it) in the graph by checkbox below the tab area.
-
-And further there is pile of checkboxes, which describe method how to calibrate the data. Note, that formula used for calibration appears below to avoid any misunderstanding of the method. Select method needed for processing – and following tabs will have the appropriate controls available.
+Below these are checkboxes selecting the calibration method. The formula used
+for calibration is shown below the checkboxes for clarity.
 
 .. Figure:: media/Main18.png
    :align: center
    :width: 400px
 
+.. note::
 
-Note, that “\ **Use of Dark field**\ ” and “\ **Subtract constant from Data**\ ” cannot be used at the same time (they are effectively the same type correction)…
+   "*Use of Dark field*" and "*Subtract constant from Data*" cannot both be
+   selected simultaneously — they apply the same type of correction.
 
-Note, only the appropriate controls will appear, so seeing all of these at the same time should be VERY unusual…
+   Only controls relevant to the selected calibration method are shown, so
+   seeing all controls simultaneously is not expected under normal use.
 
-Comment for Use of **Solid Angle Correction**: When selected, the data are divided by solid angle of the central pixel (same value for all pixels). To correct for change in pixel solid angle as function of scattering angle, use Geometrical correction. Most of the time we do not bother with this option – if you use secondary calibration standard (like Glassy carbon or water) solid angle correction is included in the Calibration constant. If you do not use calibration and have relative data, you do not care also. The real need for this option is when you use data obtained in different sample to detector distances and want to combine the data together. Then this is necessary option.
-
-Just remember, if you have obtained calibration constant, it is linked
-with the choice of the Solid angle correction.
+**Solid Angle Correction:** When selected, intensity data are divided by the
+solid angle of the central pixel (a constant for all pixels). This accounts for
+the variation in solid angle with scattering angle when combining data from
+different sample-to-detector distances. When using a secondary calibration
+standard (Glassy Carbon, water), this correction is already absorbed into the
+calibration constant and does not need to be applied separately.
 
 .. index::
     Nika Processing parameters
 
 Par
----
+~~~
 
 .. Figure:: media/Main19.jpg
    :align: center
    :width: 400px
 
+"*Geometry correction*" — Corrects for the variation in solid angle of pixels
+on a planar detector as a function of scattering angle. Each pixel intensity
+is divided by (cos 2θ)\ :sup:`3`. One factor corrects for change in pixel
+solid angle in the radial direction, one for change in detector-sample distance
+in the radial direction, and one for the same in the tangential direction.
+Negligible for SAXS data; may be relevant at very high angles.
 
-Here are standard controls (self explaining I hope):
-
-“\ **Geometry correction**\ ” – fixes the **VARIATION** of solid angle projection of the pixels on planar CCD detector. Mostly negligible for SAXS data… Just for completes, this divides the intensity at each pixel by (cos(2Theta))^3. And for those, who do not understand this formula, it took me may be 3 weeks to check it (I stole it from NIST data reduction). Very simplified, one cos(2theta) corrects for change of pixel radial direction as function of scattering angle, second cos(2theta) comes from change in distance between sample and detector as function of scattering angle in radial direction, third cos(2theta) comes from the same correction for tangential direction. Tangential size of pixel does not change as function of scattering angle.
-
-“\ **Polarization Correction”** – Correction for either unpolarized radiation (desktop instruments with tube sources for example) or for Linearly polarized X-ray sources (synchrotrons). Opens up a new panel.
+"*Polarization Correction*" — Correction for unpolarized or linearly polarized
+radiation. Opens an additional panel:
 
 .. Figure:: media/Main20.png
    :align: center
    :width: 380px
 
+For unpolarized radiation (e.g., desktop X-ray tube sources):
 
-For unpolarized radiation use “Unpolarized radiation”. This is applicable ONLY to unpolarized radiation, the intensity data are corrected by formula:
+    Intensity\ :sub:`corrected` = Intensity\ :sub:`measured` / (0.5 × (1 + cos(2θ)\ :sup:`2`))
 
-Intensity\_corrected = Intensity\_measured / (0.5\*(1+cos((2theta))^2))
+For linearly polarized radiation (synchrotrons), see the Polarization correction
+section below.
 
-For linearly polarized radiation use “Polarization radiation”, see separate chapter on Polarization correction little bit further in this manual.
+.. note::
 
-By the way, for small-angle scattering each of these corrections is negligible.
+   Both polarization corrections are negligible for small-angle scattering.
 
-**“Dezinering”** - Data, Empty, and Dark field images can be “dezingered” during loading. In this procedure each point is compared to surrounding pixels and if it is significantly larger (that is the dezinger ratio, if 2 then if the pixel is 2x larger than average of surrounding pixels) it is replaced with the average of the surrounding pixels. This is to remove spurious very high intensity points, which occur on some instruments.
+"*Dezingering*" — Sample, empty, and dark field images can be dezingered on
+load. Each pixel is compared to its neighbors; if it exceeds them by more than
+the dezinger ratio (e.g., 2× the average of surrounding pixels), it is replaced
+by that average. Multiple dezinger passes can be applied for zingers larger than
+one pixel.
 
-It is possible to dezinger each image multiple times, in case the “zingers” are larger than single pixel.
+Calibration/processing parameters
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Calibration/processing parameters:
-~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+**Sample thickness** (mm)
 
-**Sample thickness** in millimeters
+.. note::
 
-***Important note**: Nika versions prior 1.75 had a bug in the code, which caused the thickness to be used in mm and not converted into cm, as appropriate for SAXS data calibration. This was fixed in Nika version 1.75. BUT, this means, that calibration constants obtained on prior versions of Nika need to be also scaled by factor of 10 to account for this. I suggest carefully revising calibrations when upgrading to new version of Nika. This message will be also provided to users when new Nika version finds panel created by old Nika version. My apologies for this issue. **Note:** Under usual conditions when measurement of standard was reduced in Nika and then calibration constant was obtained this bug have cancelled out. This is also the reason why this bug was not found for so long. Thanks to a user, who actually read the code and found the bug.
+   Nika versions prior to 1.75 had a bug where thickness was used in mm rather
+   than being converted to cm before calibration. This was fixed in version
+   1.75. Calibration constants obtained with earlier versions must be scaled by
+   a factor of 10. When a new Nika version detects a panel created by an older
+   version, it displays a warning. Under typical conditions (where the standard
+   was also reduced in Nika), the bug cancelled out, which is why it went
+   undetected for so long.
 
-**Transmission** as fraction. Note, if you have semi transparent beamstop, you can use **Transp. Beamstop** checkbox and input radius of the beamstop in pixels (read it from images with cursors). You need to have at least one sample image loaded in Nika. Nika will create a mask over current beam center and, when sample is being corrected, Nika will calculate average intensity in the circle of radius you provided around the beam center which was input at the time of checking this checkbox for sample and empty. Sample/Empty ratio is then transmission. Note, that if you change the beam center position, you need to rerun the code creating the mask for this calculation. Simply uncheck and check this checkbox "Transp. Beamstop" again.
+**Transmission** as a fraction.
 
-**Correction factor** is for secondary calibration factor.
+For semi-transparent beamstops, enable the "*Transp. Beamstop*" checkbox and
+enter the beamstop radius in pixels. Nika creates a circular mask around the
+beam center and calculates sample/empty intensity ratios within that circle to
+determine transmission. If the beam center is changed, uncheck and recheck
+"*Transp. Beamstop*" to regenerate the mask.
 
-**Measurements times** in seconds, for each image.
+**Correction factor** — Secondary calibration factor.
 
-Sometime one wants to use measurement time to correct images collected at different time exposures. While not suggested, it is possible to do here. I strongly discourage this.
+**Measurement times** (seconds). Correcting for different exposure times is
+possible but not recommended.
 
-Monitor counts allow scaling data by using monitor on incoming intensity.
+**Monitor counts** — Scale data by monitor counts for incoming intensity
+normalization.
 
-**“Fixed offset for CCD images”** this is single value to be **subtracted** from each pixel of image to be processed.
+**Fixed offset for CCD images** — A single value subtracted from each pixel.
 
-***“Monitor counts”*** use monitor counts to scale images (Sample/Empty)… This makes no sense for dark field…
-
-Each of these values can be inserted by user as number, or using function:
+Each parameter value can be entered as a number or provided by a lookup
+function. Lookup functions are called with the image filename as argument and
+must return a single real number.
 
 .. Figure:: media/Main21.png
    :align: center
    :width: 400px
 
-These function need to be “look up” functions, which are called with image name as parameter (FunctionName(“imageName”)) and must return single real number. The real use is to provide automatic look up of parameters from some records written by instrument. Above example is from included special support for DND CAT instrument.
-
-*Let me point out once more here, that using some of these corrections together makes no sense… Choose wisely.*
+The above example uses the DND CAT instrument lookup functions. See the
+:ref:`Extending Nika <ExtendingNika>` chapter for how to write custom lookup
+functions.
 
 .. index::
     Nika Mask
 
 Mask
-----
+~~~~
 
 .. Figure:: media/Main22.jpg
    :align: center
    :width: 380px
 
-First checkbox, if Mask should be used (did not fit on the front tab…), button to select path to files with masks. Note, mask files created by Nika used to be always tiff files, with name in following manner: UserName\_mask.tif Starting with version 1.49 they are now hdf5 files. These can be loaded in same as tiff files, but have anb advantage that these can be later modified in the mask tool…
+Enable or disable mask use with the first checkbox, then select the folder
+containing mask files with the path button. Mask files created by Nika were
+previously TIFF files named ``UserName_mask.tif``; since version 1.49, they
+are HDF5 files.
 
-Following are function of the buttons:
+Buttons:
 
-1. Create New mask – calls tool to create mask (see later in the manual)
+1. *Create New mask* — opens the mask creation tool.
+2. *Load mask* — loads the file selected in the list box.
+3. *Add mask to image* — overlays the mask on the 2D image.
+4. *Remove mask from image* — removes the mask overlay.
 
-2. Load mask – load file selected above in the list box as mask
+*Mask color* — selects the overlay color (red, green, blue, or black).
 
-3. Add mask to image – adds mask into the 2D image from the image
-
-4. Remove mask from image – removes the mask from the image
-
-Mask color – allows to change color (red, green, blue, black) of the displayed mask…
-
-Current mask name – shows name of last loaded mask file
+*Current mask name* — displays the name of the most recently loaded mask file.
 
 .. index::
     Nika Empty/Blank, Nika dark
 
 Emp/Dark
---------
+~~~~~~~~
 
 .. Figure:: media/Main23.jpg
    :align: center
    :width: 380px
 
+Controls for loading empty beam, dark field, and pixel sensitivity (flood field)
+images.
 
-Here are controls for Empty/Dark field/pixel sensitivity (aka flood) images.
+"*Select path to mask, dark & pix sens. files*" — Select the folder containing
+these files (must be the same type as the data files).
 
-Button “Select path to mask, dark & pix sens, files” Selects path to data with the Empty, Dark field etc. I believe the files need to be the same type as data file (I need to check this).
-
-Further buttons load the Empty/Dark/Pixel sensitivity, allow Dezingering of these (same method as the sample dezingering as selected above). And at the bottom are listed the file names of the files loaded…
+Buttons load the empty, dark, and pixel sensitivity images and apply dezingering
+if selected. File names of currently loaded files are shown at the bottom.
 
 .. index::
     Nika Fix background Oversubtraction
 
+"*Fix Background Oversubtraction*" — When checked, Nika prevents negative
+intensities in processed data by shifting the entire 1D output upward after all
+corrections. Specifically, it finds the most negative intensity value (I₁ < 0)
+and adds 1.5 × |I₁| to all points.
 
-*"Fix Background Oversubtraction"* - when checked, Nika will attempt to fix cases where background is stronger than sample+background scattering (after sample is fully processed). Another words, Nika will attempt to prevent negative intensities in processed data. This is done to prevent problems to downstream software, where some software (e.g. Irena) does not like negative intensity (which is physically meaningless).
-Now, this is bit tricky how to do this. This method is basically very simplistic, after processing, calibration, subtraction, etc., Nika will check if any point of resulting 1D data is negative. If so, Nika will find the most negative point (let's ay it has intensity value of I1 < 0) and then add - to ALL points - 1.5 * abs(I1). This shifts the whole scattering intensity curve up by 1.5 * abs(I1), which may cause troubles for absolute intensity calibration etc if this value is not negligible compared to data with signal. *So think hard if this is right. It works quite well for samples which have high-noise weak background at high-q.*
+.. note::
 
+   This correction shifts the absolute intensity scale. For samples with weak
+   high-Q scattering and noisy backgrounds, it can work well. For well-
+   calibrated data, the shift may be significant — use with care.
 
 .. index::
     Nika Sector lineouts; Nika Circular lineout
 
 Sectors
--------
+~~~~~~~
 
 .. Figure:: media/Main24.jpg
    :align: center
    :width: 380px
 
+Controls for circular and sector averages using reverse lookup tables (the
+recommended method for routine data processing). Nika caches the lookup table
+for a given geometry and processes subsequent images much faster.
 
-This tab controls how data are processed when method using “reverse Lookup tables” is used. This is the more suggested method for regular data processing. In this method Nika creates first lookup table for each sector defined and then can process much faster subsequent data files with the same geometry…
+**Controls:**
 
-**Controls**:
-
-**Q space/d space/ 2 theta space** – Output as function of Q, d, or 2 theta…
-
-Min/Max (Q, d, 1 theta) range of evaluated Q, d, 2 theta. Set to 0 for automatic – automatic means, that the min/max is set for first q/d/2 theta which has non zero intensity
-
-“\ **Log binning**\ ” – check yes if Q/d/2 theta binning should be in logarithmic.
-
-“\ **Number of points**\ ” – number of points in Q/d/2 theta which should be created.
-
-**Do circular average** – self-explanatory.
-
-**Make sector averages** – do sector averages. Controls below control orientation and sizes of sectors. To see how the sectors are places, check the checkbox at the bottom of the control panel.
-
-**Create 1D graph** – if checked, 1d graph with output is created (if necessary) and data added. Note, the graph may be crowded very fast, since data are added, and added…
-
-**Store data in Igor experiment** – keep data (as qrs triplets) in current Igor experiment.
-
-Overwrite existing data if exist – if data with the same name exist, overwrite without asking. Otherwise, you will be asked.
-
-**Export data** – export ASCII data
-
-**Select output path** – select where data are to be placed.
-
-**Use input data name for output** – automatically name 1D data (with sector information added as DataName\_Angle\_width) by input data name.
-
-**ASCII data name** – if the above is not selected, this is place to place name for output file. Note, if there is nothing available for the code as sample name, it will ask for some…
+- **Q/d/2θ space** — Output x-axis type.
+- **Min/Max** — Range of Q, d, or 2θ. Set to 0 for automatic (first/last bin
+  with non-zero intensity).
+- "*Log binning*" — Logarithmic binning in Q, d, or 2θ.
+- "*Number of points*" — Number of output bins.
+- **Do circular average** — Calculate and store a circular average.
+- **Make sector averages** — Calculate sector averages. Controls below set
+  orientation and angular width. Check the checkbox at the bottom of the panel
+  to preview sector positions.
+- **Create 1D graph** — Creates a graph and appends data to it.
+- **Store data in Igor experiment** — Saves Q-R-S triplets in the experiment.
+- *Overwrite existing data if exist* — Overwrite without prompting if
+  same-name data exist.
+- **Export data** — Export ASCII data automatically.
+- **Select output path** — Choose the export folder.
+- **Use input data name for output** — Name output data using the input
+  filename plus sector descriptor (e.g., ``DataName_Angle_width``).
+- **ASCII data name** — Manual output filename (used when the above is off).
 
 .. index::
     Nika Polar transformation
 
 PolTrans
---------
+~~~~~~~~
 
-This means: ”Polar transformation” – prior (pre 1.68) name was “Preview” which is the intended use of this tool…
+"PolTrans" (Polar Transformation) was called "Preview" in versions before 1.68,
+reflecting its intended use as a quick visualization tool.
 
-**First:**
+.. warning::
 
-*This tool can use the calibrated data set (as well as RAW data set, depending on checkbox setting) so same calibration procedure is used as for the other processing. This tool is, however, less precise and does NOT produce useable errors. Be warned, this tool is meant as quick look on the data in different directions and not for final data processing…*
+   This tool uses calibrated or raw data (depending on the checkbox setting)
+   but is less precise than the Sectors tool and does NOT produce reliable
+   errors. Use for quick inspection only, not for final data.
 
 .. Figure:: media/Main25.png
    :align: center
    :width: 380px
 
-This method is used to convert Intensity vs azimuthal angle from “polar coordinates” around beam center to plot where azimuthal angle is on vertical axis, pixel coordinate is on horizontal axis and intensity is expressed as color map. In here, one can produce rectangular graph:
+This tool converts intensity from polar coordinates around the beam center into
+a rectangular display with azimuthal angle on the vertical axis and pixel
+distance on the horizontal axis:
 
 .. Figure:: media/Main26.png
    :align: center
    :width: 100%
 
-On vertical axis is angle from 0 degrees axis (horizontally right from the beam center) and on horizontal axis is pixels distance from beam center. This is effectively set of lineouts in all azimuthal angles. It should be noted, that the code works very well for relatively small widths – may be up to 5 degrees, then the code becomes less precise, so keep angles small. Suggested is 1 -5 degrees.
+The vertical axis shows angle from 0° (horizontally right of beam center); the
+horizontal axis shows pixel distance from the beam center. This creates a set of
+lineouts at all azimuthal angles. The code works well for narrow sectors (1–5°
+width); precision degrades for wider sectors.
 
-These data then can be processed further by use of “image line profile” tool. This tool for now has it’s own “mindset” and does not properly update always. The dependencies are quite complex. If it does not update, close the tool and reopen…
+These data can be further analyzed with the "*image line profile*" tool. If that
+tool does not update, close and reopen it.
 
 .. image:: media/Main27.png
    :align: center
    :width: 100%
 
+The "SquareMap" graph (top right) shows intensity as a function of pixel and
+azimuthal angle. The lineout plot (bottom right) shows intensity from that map
+as a function of pixel/Q/d/2θ.
 
-The “SquareMap of Intensity vs pixel” graph on the top right above shows the intensity in linear/log (checkbox left top corner) as function of pixel (bottom axis) and azimuthal angle (left axis). The lineout plot at the right bottom shows the intensity from this plot (note, the log/lin scaling in the image translates here!) as function of pixels/q/d/2 theta. Note, that this produces “natural” binning with every step in pixel is assigned single q/d/2theta position.
+Controls:
 
-Note, the controls:
+- **Number of sectors**
+- **Width of each sector** — sectors can overlap, touch, or leave gaps;
+  default is touching.
+- **Start angle** (0 = right, horizontally from beam center)
+- **End angle** (typically 360° for full circle, or 180° for top half)
+- **Mask data** — masking is applied only if selected here.
+- **Use RAW data** / **Use Processed data** — select which image to use.
+  Processed data are unavailable if the last image was loaded with
+  "*Ave & display sel. files(s)*".
 
-**Number of sectors**
+Line profile tool controls:
 
-**Width of each sector** - it is possible to have width such, that bins overlap, touch or do not touch… Default here is to have them touching.
-
-**Start Angle** (0 = right horizontally from beam center)
-
-**End angle** (wrt to start angle, most likely 360 degrees, or 180 degrees for only top half).
-
-**Mask data** this tool does not mask, unless selected here…
-
-Note, that by selecting larger width here, one can get very good and reliable sector average and manually move this average through the different azimuthal angles. Very useful, when hunting for particular azimuthal orientation…
-
-**Use RAW data** if selected unprocessed image is used.
-
-**Use Processed data** if selected processed image is used, available ONLY if the last image was loaded using one of the “\ **Convert…**\ ” buttons, unavailable if the last image was loaded using “\ **Ave & display sel. files(s)**. If the data were loaded using “\ **Ave & display…**\ ” button, processed data do not exist.
-
-**Controls on Lineout tool:**
-
-Orientation of line profile (Horizontal/vertical)
-
-X axis linear/log scale
-
-Use: pixels/q/d/2 theta
-
-Width and position
-
-Save lineout – this saves “qrs” data in SAS folder in current Igor experiment. Suggested folder/data name is offered through dialog and user can modify as needed. Note, that errors are simple sqrt(intensity) – another words, these errors are not very useful.
+- Orientation (horizontal/vertical)
+- X-axis scaling (linear/log)
+- X-axis units (pixels/Q/d/2θ)
+- Width and position
+- Save lineout — saves QRS data to the SAS folder.
 
 .. index::
     Nika Line profile
@@ -588,59 +664,63 @@ Save lineout – this saves “qrs” data in SAS folder in current Igor experim
 .. _LineProfileTool:
 
 LineProf
---------
+~~~~~~~~
 
-This tool calculates Intensity profile along curve on the detector. It uses different method than **Sectors** tool. Therefore, there are some important differences in how to use this tool…
+Calculates intensity profiles along curves on the detector. Uses a different
+method from the Sectors tool, with important differences:
 
-*The differences:*
+**Sectors** uses inverse lookup tables, caches them for speed, and can evaluate
+multiple sectors simultaneously. However, it cannot be used interactively —
+parameters must be set before running, and no preview is available. Lookup
+tables increase experiment file size.
 
-“\ **Sectors**\ ” use inverse lookup method and can be set to create multiple different sectors on one image at once. Since this tool caches the lookup tables, it is slower first time, but much faster on subsequent images. This tool can be used ONLY by setting the data reduction parameters and then using buttons “\ **Convert…**\ ”. You cannot manually evaluate any sector and no preview is provided. This tool causes high memory sizes of the Igor experiments with Nika package – the lookup tables are large. But it is fast for what it does.
+**LineProf** uses Igor's built-in line profile tool. Only one profile at a time
+is supported; no caching occurs, so processing time is constant per image.
+It can be used interactively on a converted image, either automatically
+(via Convert buttons) or manually (loading an image, then adjusting parameters
+and saving the profile from the Line Profile Preview window).
 
-And you can setup multiple sectors to be evaluated at once.
-
-“\ **LineProf**\ ” uses built in Igor Line Profile tool. It can be set ONLY to process one line profile at a time. This tool does not cache anything, so it takes the same time to process for each image. However, it is relative fast and can be used manually on Converted image. So, there are two methods to use it:
-
-a. Set one line profile parameters, choose how to save data and push one of buttons “\ **Convert..**\ ”
-
-b. Do not set any conversion parameters, but use one of the buttons “\ **Convert..**\ ”, set the **LineProf** tool to use Processed data and then set parameters for the
-
-You can only set one line profile at a time, unless you manually create multiple profiles on each converted image.
-
-**Controls:**
+Controls:
 
 .. Figure:: media/Main28.jpg
    :align: center
    :width: 380px
 
-
-
 .. Figure:: media/Main29.png
    :align: center
    :width: 100%
 
-**NOTE:** some controls from the lower graph tab are moved to next tab, so this image is slightly obsolete. Will be fixed later.
+"*Use?*" — enables the LineProf tool.
 
-New controls here:
+"*Use Raw?*" / "*Use Processed?*" — selects the source image. Processed data
+are unavailable if the last image was loaded with "*Ave & Display..*". When a
+Convert button is clicked with LineProf enabled, it automatically switches to
+"*Use Processed*".
 
-“\ **Use?**\ ” – switches on this tool.
+"*Distance from Center [in pixels]*" — positions the profile at the specified
+pixel distance from the beam center. The corresponding Q value (Q\ :sub:`y` or
+Q\ :sub:`z` depending on profile type) is shown beside this control. Positive
+direction is to the right (horizontal) or up (vertical) from the beam center.
 
-“\ **Use Raw**?” – and “\ **Use Processed**?” – choices which image the tool will be used on. User Processed is not available if the last data set was loaded using “\ **Ave & Display..**\ ” button (no Processed data are created in this case). NOTE: if you hit any button
+"*Width [in pixels]*" — integration width perpendicular to the profile
+direction. The Q-space width is shown beside it. Intensity is averaged over
+this width; for widths > 1 pixel, the error is the standard deviation of the
+average; for 1 pixel, the error is the square root of intensity (which may be
+inaccurate at low intensities).
 
-“\ **Convert..**\ ” and this tool is enabled, it is set to “\ **Use Processed**\ ” automatically.
+The tool outputs intensity, uncertainty, and Q, Q\ :sub:`y`, Q\ :sub:`z`
+values. GI profiles additionally output Q\ :sub:`x`.
 
-“\ **Distance from Center [in pixels]**\ ” – user control to move the object to specific *q* . The *q* where the data will be calculated is displayed next to this control and is the appropriate *q* (*q\ :sub:`y`* or *q\ :sub:`z`*) for give shape. See Ellipse definition for specific there. NOTE: you must control the pixel position. Positive direction is to the right of the beam center (horizontally) or up from the beam center (vertically). Lines are drawn to help user image this out.
+.. note::
 
-“\ **Width [in pixels]**\ ” – width of the profile (minimum used one is 1 even if 0 is set by user) in pixels. This is the control to use to change how wide stripe is averaged. Next to it is control which shows this in *q* units. NOTE: the *q* width is calculated simply by subtracting Q values for the sides of the stripe. Intensity is averaged at each point perpendicularly to the direction of the line (curve). If more than 1 pixel is used for averaging, standard deviation of average is provided as error, if only 1 pixel is used, square root is used (which may be seriously WRONG)… You were warned.
+   The GISAXS community uses a different convention for Q\ :sub:`x`, Q\ :sub:`y`,
+   Q\ :sub:`z` than Nika's internal convention. In Nika, the horizontal (x)
+   direction maps to Q\ :sub:`y` and the vertical (y) direction maps to Q\ :sub:`z`.
+   Keep this in mind when comparing with GISAXS literature.
 
-This tool calculate intensity, intensity uncertainty and *q, q\ :sub:`y`*, and *q\ :sub:`z`* values. If one of GI profiles is used, it will calculate *q*, *q\ :sub:`y`, q\ :sub:`z`*, and *q\ :sub:`x`* values. See below.
+Available profile types:
 
-**IMPORTANT:**
-
-Of course, GISAXS community had to adopt different definition of Qx, Qy,a nd Qz than I did years ago, and therefore, this tool uses somehow different definitions than rest of Nika. So the horizontal direction (x-direction for Nika) is the Qy direction. Vertical direction on the detector is “y” direction for Nika; but it is direction of Qz. Please, keep this in mind… For those adventurous souls, who actually read my code, keep in mind at some point the code switches on your the x-y image coordinates to y-z-(x) GISAXS coordinates… Sorry. No other fix I would know about.
-
-*For now these are the available profiles:*
-
-***Vertical/Horizontal line**:*
+***Vertical/Horizontal line:***
 
 .. Figure:: media/Main30.png
    :align: center
@@ -650,9 +730,8 @@ Of course, GISAXS community had to adopt different definition of Qx, Qy,a nd Qz 
    :align: center
    :width: 380px
 
-There is one more control available – “\ **include mirror**\ ” (above the popup). If this is selected, mirror line over the beam center is included in calculations, see above.
-
-This is line profile for transmission geometry.
+The "*include mirror*" control (above the popup) includes the mirror line across
+the beam center. For transmission geometry.
 
 **Angle line:**
 
@@ -664,168 +743,117 @@ This is line profile for transmission geometry.
    :align: center
    :width: 380px
 
-This is also for transmission geometry.
+For transmission geometry.
 
 .. index::
     Nika Grazing incidence geometry
 
-***GI\_Vertical line & GI\_Horizontal line***
+***GI\_Vertical line and GI\_Horizontal line:***
 
-These profiles are for Grazing incidence geometry. They need Grazing incidence angle:
+For grazing-incidence geometry. Require input of the grazing-incidence angle:
 
 .. Figure:: media/Main34.png
    :align: center
    :width: 380px
 
+Both can include the mirror line across the beam center. The Q values are
+corrected for grazing-incidence geometry following Renaud, Lazzari, and Leroy,
+*Surface Science Reports* 64 (2009) 255–380, formula (1).
 
-Both can include mirror image line across the beam center.
-
-Note, that the position is defined in pixels as before, but the Q values are corrected according to the Grazing incidence geometry corrections, see Gilles Renaud, Remi Lazzari, and Frederic Leroy, Probing surface and interface morphology with GISAXS, Surface Science Reports 64(2009) 255-380, formula (1).
-
-Note: before version 1.68 there was bug in the code for calculation of one of these angles. It hopefully had negligible impact for higher angles, but for small angles the Q calculation was wrong. The fix is, unluckily, complicated – as far as I know, there are two common GISAXS geometries being used. This requires additional user choice here.
-
-Here is the explanation; following pictures are from Lazzari, J. Appl. Cryst. (2002). 35, 406-421 and G. Renaud et al. / Surface Science Reports 64 (2009) 255–380):
+Two common GISAXS geometries are supported from version 1.68:
 
 .. Figure:: media/Main35.png
    :align: center
    :width: 380px
 
-
-Here are the q components calculations based on this geometry. Note, Nika assumes Theta-I = 0.
-
 .. Figure:: media/Main36.png
    :align: center
    :width: 380px
 
-
-However, another geometry, which is also used, is slightly different:
+- **GEO\_SOL** (sample tilted, beam and detector fixed — Fig. 2 in Lazzari
+  et al.): set the y-position of the reflected beam to 0.
+- **GEO\_LSS** (beam tilted, detector perpendicular to sample surface — Fig. 1):
+  enter the y-pixel coordinate of the reflected beam.
 
 .. Figure:: media/Main37.jpeg
    :align: center
    :width: 380px
 
+Nika uses GEO\_SOL if the reflected-beam y-value is < 1, and GEO\_LSS if ≥ 1.
 
-(Fig2. - http://www.physics.queensu.ca/~saxs/GISAXS.html)
-
-Note the difference here is, that in the first image the sample is horizontal and beam is tilted, as it is commonly used for liquid surface scattering (“GEO\_LSS”). For solid samples it may be more convenient to tilt the sample itself and rest of instrument stays fixed (“GEO\_SOL”). In my rare encounters with GISAXS technique, this is what I have used.
-
-These two geometries differ in the calculation of alfa-f needed for calculation of q in vertical direction. For GEO\_SOL the detector is perpendicular to the original (incoming) beam direction and the alfa-f calculation does not require any more input from user as the calculation is simply the angle of the outgoing triangle – alfa-I as shown in Fig 2 here.
-
-For the GEO\_LSS as in Fig 1 the detector is perpendicular to the sample surface, and principally user should provide one more input parameter, as the triangles are not right angle any more. In this case users need to input another value – y position of the reflected beam.
-
-Therefore if user selects GI geometry, from version 1.68 he/she should get new panel:
+When GI geometry is selected, a geometry selection panel appears:
 
 .. Figure:: media/Main38.png
    :align: center
    :width: 380px
 
+Note: +45° and −45° tilts are not equivalent (90° apart). If the tilt is known
+from an external measurement, try both signs.
 
-As instructed, for GISAXS\_SOL where sample is tilted, just put (or leave) 0 in this field, close the panel and all is OK.
-
-If you are using GISAXS\_LSS geometry, you need to read (in pixels) position of the reflected beam and provide here the y coordinate of this beam. Close the panel and all should be set. Nika will use GISAXS\_SOL calculation if this value is set to 0 (actually, if it is smaller than 1), and GISAXS\_LSS if this value is larger than 0 (actually, >=1).
-
-I do not have chance to test this, so if someone can test this and verify this all works, I would be really grateful.
-
-And interestingly, there are instruments, which move their area detectors around much more, and orient them in much more complex way – and Nika has simply no chance to handle those systems. More complex instruments will require dedicated data reduction software.
-
-The bug in this angle calculation was found by one of the users (Thank you!) in version 1.67 of Nika – the correction for alfa-I was missing.
-
-**
-Ellipse profile**
+**Ellipse profile:**
 
 .. Figure:: media/Main39.png
    :align: center
    :width: 380px
 
-
-Note, that there is aspect ratio control here and the Distance from center here is horizontal distance (in q\ :sub:`y`) direction. When set to AR=1, the ellipse becomes circle.
+The aspect ratio control sets the ellipse shape. "*Distance from center*" is the
+horizontal distance (Q\ :sub:`y`). When AR = 1, the ellipse is a circle.
 
 .. Figure:: media/Main40.png
    :align: center
    :width: 380px
 
-
-For AR>1, the ellipse is this way:
+AR > 1:
 
 .. Figure:: media/Main41.png
    :align: center
    :width: 380px
 
-
-For AR<1, the ellipse is this way:
+AR < 1:
 
 .. Figure:: media/Main42.png
    :align: center
    :width: 380px
 
+.. note::
 
-Note, that this tool has one major problem – it is practically impossible to display the data in any sensible way. Neither q, q\ :sub:`z`, or q\ :sub:`y` makes any sense here. In some way one needs to get angle of the intensity position. At this moment I do not produce such data within Nika. User can produce them by himself (the step is 0.25 degree, starting from 0 degrees azimuthal angle on the detector[note: I hope, I got turned around so many times, that this requires some data to test on]).
+   The ellipse profile tool does not currently produce a natural output
+   x-axis — neither Q, Q\ :sub:`z`, nor Q\ :sub:`y` provides a clean
+   parameterization for an ellipse. Contact the developer if you use this
+   tool and have specific requirements.
 
-The other option is to use q\ :sub:`y` and q\ :sub:`z` to generate this angle. **If anyone will ever use this tool, please, contact me and tell me, how you want to use it and I will modify the tool to suit needs of users.**
+Data saving controls for LineProf (same as in the Sectors tab):
 
-***Finally : More shapes…. I can imagine broadening capabilities of this tool with other shapes. If you have such need, talk with me and I’ll add line profile shape for your needs. ***
-
-Controls for saving data are the same (really, these are the same controls, showing on second screen also) as in the **Sectors** tab:
-
-**Create 1D graph** – if checked, 1d graph with output is created (if necessary) and data added. Note, the graph may be crowded very fast, since data are added, and added…
-
-**Store data in Igor experiment** – keep data (as qrs triplets) in current Igor experiment.
-
-Overwrite existing data if exist – if data with the same name exist, overwrite without asking. Otherwise, you will be asked.
-
-**Export data** – export ASCII data
-
-**Select output path** – select where data are to be placed.
-
-**Use input data name for output** – automatically name 1D data (with sector information added as DataName\_Angle\_width) by input data name.
-
-**ASCII data name** – if the above is not selected, this is place to put name for output file. Note, if there is nothing available for the code as sample name, it will ask for some…
+- **Create 1D graph** — append to a 1D graph.
+- **Store data in Igor experiment** — save QRS data.
+- *Overwrite existing data if exist* — overwrite without prompting.
+- **Export data** — export ASCII.
+- **Select output path** — export folder.
+- **Use input data name for output** — auto-name using input filename.
+- **ASCII data name** — manual name.
 
 .. Figure:: media/Main43.png
    :align: center
    :width: 380px
 
+The "*Line Profile Preview*" window under the main image updates live as
+parameters change, providing instant feedback. Display the data as Q, Q\ :sub:`y`,
+or Q\ :sub:`z` on linear or logarithmic scales. Note that negative Q values
+cannot be displayed on log scale.
 
-Note, that the LineProf tool uses another “graph” window (“Line Profile Preview”) under the main image. This window contains some controls that are very useful.
+Data can be saved from this preview window; save parameters are taken from the
+tab controls. If "*Overwrite existing data*" is checked and names are not
+changed, previously saved profiles may be overwritten.
 
-The data are automatically updated as the parameters for the profile are changed. This gives user live update (but can take time, if it takes too much time for anyone, let me know and I’ll add controls to avoid the updates “live”).
+Wave name example for a GI Vertical line profile at Q\ :sub:`y` = 0.0077
+Å\ :sup:`-1`:
 
-User can display the data as function of *q,* *q\ :sub:`y`* or *q\ :sub:`z`* and on lin-lin, log-lin, lin-log and log-log scales. Note, that negative values cannot be displayed on log scale, so since q values for lower part of detector (below beam center) are defined as negative, you may not see them if you choose log scale. Also the *q* values look sometimes really weird, but generally they should be correct. If there are any issues with definitions of negative directions, let me know.
+::
 
-User can also save the data displayed in this window, which enables user to create multiple line profiles from existing image – this is manual method. NOTE that save parameters are taken from the setting of the controls for this purpose in the tab in the main panel (“Create 1D graph”, “Store data in Igor experiment”…). If you choose “Overwrite existing data” and do not change the name, you may get in troubles.
+    gc_saxs_395__GI_VLp_0.0077
 
-When data are being saved some cryptic description to indicate what profile was used and which *q* was used will be attached to the name used. More full description is attached to wave note.
-
-For example for GI\_Vertical line in my test case, this was the name:
-
-gc\_saxs\_395\_\_GI\_VLp\_0.0077
-
-“gc\_saxs\_395\_”…. Part of the name of used image
-
-GI\_VLp\_.... GI\_Vertical Line
-
-0.0077 …. *q\ :sub:`y`* value at which the data were calculated.
-
-Exported data are Int, error, Q, qx, qy, qz columns with header and
-column names
-
-Saved data in Igor are
-
-r\_gc\_saxs\_395\_\_GI\_VLp\_0.0077 intensity
-
-q\_gc\_saxs\_395\_\_GI\_VLp\_0.0077 q
-
-s\_gc\_saxs\_395\_\_GI\_VLp\_0.0077 error
-
-qy\_gc\_saxs\_395\_\_GI\_VLp\_0.0077 qy
-
-qz\_gc\_saxs\_395\_\_GI\_VLp\_0.0077 qz
-
-qx\_gc\_saxs\_395\_\_GI\_VLp\_0.0077 qx (generated ONLY if GI… profile
-is used)
-
-Note: next release of Irena package will have capabilities to use not only qrs data , but also q\ :sub:`x`\ rs, q\ :sub:`y`\ rs, and q\ :sub:`z`\ rs data.
-
+where ``gc_saxs_395_`` is part of the source image name, ``GI_VLp_`` is the
+profile type indicator, and ``0.0077`` is the Q\ :sub:`y` value.
 
 .. index::
     Nika SAVE tab
@@ -834,45 +862,44 @@ Note: next release of Irena package will have capabilities to use not only qrs d
     Nika Export ASCII
     Nika data name
 
-
 Save tab
 ~~~~~~~~
-
-This tab is intended to control all data saving in Nika.
-
 
 .. Figure:: media/Main49.jpg
    :align: center
    :width: 380px
 
-**Store data controls:**
+**Store data controls:** Choose whether to store data in Igor, whether to create
+a 1D graph, and whether to overwrite existing data with the same name.
 
-This controls how data re stored in Igor. Note, that if you want to *Create 1D graph*, *Store data in Igor* must be checked also and the code will do so. *Overwrite existing data if exists* will overwrite data in Igor if the same name data already exist. If you process same data set multiple times for testing, check it. If you process many files, uncheck it as this will prevent accidental overwriting of the data in case their names end up to be same.
+**Name data controls:** Select how output wave names are generated — from the
+input image name (with optional trimming), from a user-supplied Igor function,
+or manually.
 
-**Name data controls:**
+**Export data controls:** Automatically export data as they are processed.
+Options:
 
-This controls how data are named when imported. Here is where user can select how the names are created using either imported image name with optionally some trimming, user can write Igor Function which will provide the necessary name etc.
-
-**Export data controls:**
-
-This controls if the data will be automatically exported as they are processed. This is quite useful if other programs, such as sasView, are going to be used for data analysis. Options are
-
-*Export to ASCII* This allows users to ASCII data (4 columns, Q, Intensity, Uncertainty and Qresolution) into text files.
-
-*GSAS* Should export GSAS compatible ASCII data.
-
-*Export to Nexus* This allows users to export NXcanSAS 1D data to NEXUS. As of version 1.80 this should work for sasView. This required some modifications which I did not expect as sasView cannot load standard NXcanSAS file, the file has to be quite specific.
+- *Export to ASCII* — 4-column text files (Q, Intensity, Uncertainty,
+  Q-resolution).
+- *GSAS* — GSAS-compatible ASCII format for diffraction analysis.
+- *Export to Nexus* — NXcanSAS 1D data to NeXus format. As of version 1.80,
+  compatible with SasView.
 
 .. Figure:: media/Main50.jpg
    :align: center
    :width: 380px
 
-Checking the checkbox *Export Nexus* brings up dialog for Nexus Export and import. In this case the important part is Bottom part. User needs to setup export path (folder on drive) and select what will be exported. **SUGGESTION** use ONLY the top option "Save data in canSAS Nexus File". This will create individual Nexus file for each data set. Second option "Append processed 1D data to Nexus" will append multiple data sets in single file. When I tried this, file with ~40 images hang sasView badly and I needed to kill it.
+Checking "*Export Nexus*" opens the NeXus export dialog. The recommended option
+is "*Save data in canSAS Nexus File*" — one file per dataset. The "*Append
+processed 1D data to Nexus*" option appends multiple datasets to a single file,
+which can cause performance problems in downstream software for large collections.
 
-"Append processed 2D data to Nexus" will append the calibrated 2D data in the file. It is not obvious if there is any program which can accept these data, so, even though there is standard on this, it makes little to no sense to do.
+"*Append processed 2D data to Nexus*" appends calibrated 2D data. Downstream
+software support for this format is limited.
 
-*Create NEW Nexus (NXsas) file with RAW data"* this is interesting option, it allows you to take tiff file or any other source file Nika can read and make it into RAW data nexus file. Note, this is RAW data file with metadata Nika knows. This should be possible then to use for further data reduction. Not sure how useful and meaningful this is.
-
+"*Create NEW Nexus (NXsas) file with RAW data*" converts the input file (TIFF
+or other formats) to a raw NeXus file with the metadata known to Nika. Useful
+for making data readable by other NeXus-capable reduction software.
 
 .. index::
      Nika; Bottom Controls
@@ -884,57 +911,60 @@ Bottom controls
    :align: center
    :width: 70%
 
-These controls have following functions:
+"*Display only checkbox*" — Loads and displays the selected image(s) with
+basic processing (dezingering) but no calibration. If multiple files are
+selected, they are averaged pixel-by-pixel before display.
 
-“\ **Display only checkbox**\ ” Nika will average all selected files, which are selected in the list box, and display them as one image. The program will just load and display the images, including some processing (dezinging), if selected. but no calibration or other processing is done. This is really for preview of how the image looks like.
+"*Process sel. files individually*" — Loads and processes each selected file
+independently according to the current tab settings.
 
-Note, if more than 1 image is selected, the images are first AVERAGED – that is intensities for each pixel as summed together and then divided by number of images.
+"*Average all selected and process*" — Averages all selected files (pixel-by-
+pixel sum divided by count), then processes the result as a single image.
 
-“\ **Process sel. files individually**\ ” Nika will load one image at a time from the files selected in the list box and processeach individually according to selection in the tabbed area. For each input file you get all output data (whatever you selected above).
+"*Average N of selected and process*" — Averages sequentially in groups of N,
+processing each group as one image.
 
-“\ **Avergae all selected and process**\ ” Nika will average all selected files in the list box and process them - together as one input data - according to selection in the tabbed area. You get ONE output data (whatever you selected above) for all together. Typically used when multiple image of same condition are collected to improve statistics.
-
-Note, if more than 1 image is selected, the images are first AVERAGED – that is intensities for each pixel as summed together and then divided by number of images.
-
-“\ **Average N of selected and process**\ ” Nika will average Sequentially (in order) N selected files in the list box and process them - together as one input data - according to selection in the tabbed area. You get ONE output data (whatever you selected above) for each N images. Typically used when multiple image of same condition are collected to improve statistics.
-
-This opens further controls:
+Additional controls appear for this mode:
 
 .. Figure:: media/Main16a.jpg
    :align: center
    :width: 70%
 
-“\ **N =**\ ” This controls how many images Nika will avergae over.
+- "*N =*" — group size for sequential averaging.
+- "*Skip Bad files*" — skips images with intensity below the minimum (e.g.,
+  unexposed frames from shutter failures). A minimum intensity control appears
+  when this is checked. Note that skipped images still count toward N.
 
-“\ **Skip Bad files**\ ” Enables to skip automatically processing of files, which have too low intensity (SetVariable control with limiting value appears when selected). Used to skip files which were accidentally NOT exposed in case of failing shutters or other issues.
+"*Display RAW data*" — Shows uncorrected detector counts in the image window.
 
-“\ **Min int =**\ ” This defines "bad image". Typically bad image has much lower intensity than good image (shutter did not open, instrument failed) and so one one set minimum intensity in image needed to consider such image a good one. If bad image is found, it is skipped. Note, that even bad images are counted in the "N" value.
+"*Display Processed*" — Shows fully corrected and calibrated data. Not available
+if the last image was loaded with "*Ave & Display sel. Files(s)*".
 
-“\ **Display RAW data**\ ” will display in the image right of the panel the UNCORRECTED data file as loaded in. Values for the pixles are raw counts from the detector.
+"*Colors*" — Color scale selection. The last selection is remembered per
+computer. Default is Terrain.
 
-“\ **Display Processed**\ ” will display in the image right of the panel the fully CORRECTED and CALIBRATED data. The values for the pixles should be directly absolute intensity in this case. This choice is not available, if image was loaded through using “\ **Ave & Display sel. Files(s)**\ ”. In this case no processing of the image was done. Use button “\ **Convert sel. Files 1 at time**\ ” or the other buttons…. Just remember, that only the last image is available for display.
+"*Scale Img x*" — Scales the image display size. Reduce for large images that
+do not fit on screen; increase for small images.
 
-“\ **Colors**\ ” Choice of color scales. These are now remembered on a given computer, the the last one should be reused next time. Default is Terrain.
+"*Display beam center*" — Overlays circles showing the beam center position.
 
-“\ **Scale Img x**\ ” User can select how large the image shouLd be displayed on the screen. If input image is too large, set smaller so it fits on the screen (this should eb done automatically anyway), if it is small, scale up to have it cover larger fraction of the screen.
+"*Display sectors/Lines*" — Overlays the configured sectors or line profiles.
 
-“\ **Display beam center**\ ” will add circles in the image showing where beam center is set
+"*Log Int display*" — Toggles between log and linear intensity display.
 
-“\ **Display sectors/Lines**\ ” will add lines showing sectors or lines, which are selected for data analysis (if any)
+"*image with Q axes*" — Appends Q\ :sub:`x`/Q\ :sub:`y` (or Q\ :sub:`z`/Q\ :sub:`y`)
+axes to the image. Unchecking forces image recreation (axes cannot be removed
+otherwise).
 
-“\ **Log Int display**\ ” will switch displayed image into log (intensity) or linear (Intensity).
+"*image w/ Q axes with grid*" — Same as above with grid lines.
 
-“\ **image with Q axes**\ ” Appends Qx/Qy (or Qz/Qy) axes to displayed image. Note, when unchecked, it has to recreate the image, since these Q
-axes cannot be removed any other way.
+"*Display Color Scale?*" — Appends a color scale bar to the image.
 
-“\ **image w/ Q axes with grid**\ ” Appends Qx/Qy (or Qz/Qy) axes to displayed image – with grid lines. Note, when unchecked, it has to recreate the image, since these Q axes cannot be removed any other way.
+"*User def. Min/Max?*" — Opens controls to manually set the intensity display
+range. Range is not reset when a new image is loaded.
 
-“\ **Display Color Scale?**\ ” Appends color scale to image.
-
-“\ **User def. Min/Max?**\ ” Opens controls to set manually max and min intensity to display in the image. Does not change when new image is loaded.
-
-“\ **Sliders**\ ” Slide to set min and max intensity displayed in the image. Resets when new image is loaded.
-
+"*Sliders*" — Set minimum and maximum display intensity. Reset when a new image
+is loaded.
 
 .. index::
     Nika polarization correction
@@ -944,117 +974,122 @@ Polarization correction
 
 Two types are available.
 
-Unpolarized radiation
+**Unpolarized radiation:**
 
-This is generally accepted formula.
+The standard formula::
 
-Linearly polarized radiation
+    Intensity_corrected = Intensity_measured / (0.5 × (1 + cos(2θ)²))
 
-This is polarization correction for linearly polarized radiation, such as produced by double-crystal monochromators on synchrotrons.
+For desktop instruments with X-ray tube sources.
 
-There are two polarization orientations, sigma (linear part) and pi. Most synchrotrons will be linearly sigma polarized, with sigma fraction may be 0.99 or so. Depending on the way the detector is read, the sigma polarization plane may be horizontal or vertical. The panel enables setting the sigma polarization plane orientation.
+**Linearly polarized radiation:**
 
-The final formula is:
+For double-crystal monochromators on synchrotrons. Two polarization orientations
+exist: sigma (linear fraction) and pi. Most synchrotrons are predominantly sigma
+polarized (fraction ~0.99).
 
-where *f*\ :sub:`s` is fraction of sigma polarization, 2q is 2 theta angle, and a is azimuthal angle from the plane of polarization plane.
-
-**Implementation**
-
-All of the Polarization corrections (from version 1.42) in Nika are applied by scaling the 2D data by the formulas above after all of the corrections (including background and dark current subtraction).
-
-In the following panel which shows after selecting “Polarization correction” on the main panel:
+The panel (opened by selecting "*Polarization correction*" on the main panel)
+allows setting the sigma fraction and the orientation of the polarization plane
+relative to the detector:
 
 .. Figure:: media/Main44.png
    :align: center
    :width: 380px
 
-
-After selecting Polarized radiation you need to make further choice…
-
-If the Sigma Polarization Plane is 0 degrees, then the detector orientation is such, that the polarization plane is horizontal in the Nika image of the detector. Note that horizontal is Nika’s definition of 0 degrees on the detector.
-
-**This has nothing to do with the orientation of polarization in real World, this is an orientation between the polarization plane and the way detector is read. In this case the correction looks like this:**
+If the sigma polarization plane is horizontal in the Nika image (0°):
 
 .. Figure:: media/Main45.png
    :align: center
    :width: 380px
 
-
-with largest correction (increase of intensity) where the color is blue.
-
-For case, when polarization plane is vertical in Igor image (perpendicular to Nika’s definition of 0 degrees on detector) , the correction looks like this:
+If the sigma polarization plane is vertical (90°):
 
 .. image:: media/Main46.png
    :align: center
    :width: 380px
 
+The polarization correction is applied by scaling the 2D data after all other
+corrections (background subtraction, dark current, etc.), from version 1.42.
 
-with maximum correction (blue color).
-
+All polarization corrections are negligible for small-angle scattering.
 
 .. index::
     Nika uncertainties
 
+Uncertainties
+-------------
 
-Uncertainties (“Errors”)
-------------------------
+Uncertainty estimation in 2D data reduction is difficult, and no fully rigorous
+method is currently implemented.
 
-Uncertainty estimate in 2D data reduction is sore point and I have not yet found correct solution for it. As far as I know there is really no good way to get meaningful estimates.
+Prior to version 1.43 (versions 1.42 and earlier), the uncertainty calculation
+contained a bug causing overestimated values. From version 1.43, three methods
+are available (selectable in the Configuration panel from the menu):
 
-To complicate the matter is, that prior version 1.43 (1.42 and before) there is bug in the uncertainty (error) calculation, which results in overestimate of the values. My intention was to provide standard deviation of the values averaged into the pixel, but simply, I made typo, which resulted in somehow higher values.
+1. **Standard deviation** (default) — the intended quantity.
+2. **Old method** — the pre-1.43 implementation; retained for compatibility.
+3. **Standard error of mean (SEM)** — standard deviation / √N. Very small for
+   high-intensity instruments; suitable for Pilatus detectors.
 
-Therefore for version 1.43 I provide now three different methods for uncertainity calculations, Standard deviation is default. For compatibility purposes user can choose old (incorrect) version and also standard error of mean – SEM - (standard deviation / sqrt(number of points)).
-
-Please note, that the line profile calculations provide ONLY standard deviation or SEM, since they never used the old method (they use Igor internal method for standard deviation). They default to standard deviation if old method is selected.
-
-The Uncertainty method can be changed in the “Configuration panel” available from menu.
+Line profile calculations always use standard deviation or SEM (not the old
+method), as the line profile tool uses Igor's internal standard deviation
+calculation.
 
 .. Figure:: media/Main47.png
    :align: center
    :width: 380px
 
-
 .. index::
     Nika; Q-resolution
 
 Q-resolution calculations
--------------------------
+--------------------------
 
-From Nika version 1.69 the code can estimate q-resolution of the data. This is highly approximate calculation, which can be probably, similar to Uncertainties calculations considered voodoo calculations. I have reviewed some manuscripts which deal with this , such as Barker, J. Appl. Cryst (1995) 28, 105-114. I have looked in some of the codes and realized, that while this is challenge to do for a specific instrument (USAXS code handles this as correctly as anyone probably ever will need), for generic tool this will be challenge. And to some degree, for X-ray instruments this is mostly (not always!) OK as the resolutions are kind of higher than what neutron system need to deal with.
+From version 1.69, Nika estimates Q-resolution for each data point. This is
+an approximation — Q-resolution calculations for generic 2D detectors are
+inherently instrument-specific and approximate.
 
-Here is description of what Nika does to calculate q resolution for each point.
+Q-resolution contributions considered:
 
-1. **Wavelength resolution** is ignored. For regular monochromatic instruments this is reliably ignorable value. For pink beam, well, if you need it I can add it in the future, but I am not sure if anyone needs it (and this would require yet another GUI control value few people would ever use). So if you need it, let me know and we will deal with it then.
+1. **Wavelength resolution** — ignored. Negligible for monochromatic
+   instruments. Contact the developer if you need it for polychromatic (pink
+   beam) data.
 
-2. **Effect of q-binning**. When Nika calculates intensity, it calculates q value for center of each pixel and then generates q binning (linear or logarithmic) – this means, each q-bin has q\ :sub:`min` and q\ :sub:`max`. All pixels with q\ :sub:`center` between q\ :sub:`min` and q\ :sub:`max` are counted for each bin. Nika provides this q-width (distance between q\ :sub:`min` and q\ :sub:`max`) as q resolution given by nature of averaging.
+2. **Q-binning width** — each Q-bin has a minimum and maximum Q. Nika reports
+   the bin width (Q\ :sub:`max` − Q\ :sub:`min`) as the binning contribution
+   to Q-resolution.
 
-3. **Effect of pixel size**. Note, that above the q is placed into the bin based on center q value. Of course, this means, that some pixels with center near qmin or qmax contain intensity from q values belonging to other q bins due to finite pixel size. This is q resolution due to pixel size.
+3. **Finite pixel size** — pixels near bin boundaries contain intensity from
+   neighboring Q bins. The contribution is calculated from the pixel angular
+   subtense.
 
-4. **Effect of beam size**. Now one needs to realize, that beam has finite size and often is really large. Therefore each pixel will see range of q values (angles) from different places on the beam spot. At the end, this is very similar to pixel size smearing but with beam size values. This is q resolution given by beam size.
+4. **Finite beam size** — each pixel integrates intensity over a range of Q
+   values corresponding to different beam positions. Proportional to beam size
+   on the detector (not the sample).
 
-5. **Effect of detector pixel bleeding**. This is caused by detectors not being able to separate the intensity in one pixel from the next pixel. This is highly detector technology dependent and Nika simply ignores it. Luckily, newer generations of detectors (Pilatus) are pretty good in this.
+5. **Detector pixel bleeding** — not modeled. Modern photon-counting detectors
+   (Pilatus) have negligible bleeding.
+
+Nika convolves contributions 2–4. The beam size is entered in the main GUI;
+if set to 0, only Q-binning and pixel-size contributions are included.
 
 .. Figure:: media/Main48.png
-      :align: center
-      :width: 380px
+   :align: center
+   :width: 380px
 
+The Q-resolution is expressed differently depending on its magnitude:
 
-Note, that adding the Beam size q-resolution required adding of controls for the beam size into the main GUI. If beam size is left as 0, the only thing affected is the q-resolution calculation. This is beam size **ON DETECTOR!** not on the sample. If there is focusing, that can cause differences.
+* At small Q (where binning is the minor contribution): expressed as FWHM of
+  an assumed Gaussian sensitivity function — consistent with what most analysis
+  software expects.
+* At large Q with log-Q binning (where bin width dominates): expressed as a
+  rectangular smearing function, analogous to slit smearing.
 
-OK, so in the table above (and that is not exhaustive table) are some of the sources of the q resolution we need to account for. Nika convolutes together Effect of q-binning, effect of pixel size and effect of beam size. It ignores others.
+Irena Modeling II has been updated to handle both types of Q-smearing.
 
-There are bit more details in how the calculations are handled and in case of real interest, read the code (the function is NI1A\_CalculateQresolution in NI1\_ConvProc.ipf). It gets bit messy in the way these things get expressed:
-
-1. For “small” q-resolution values caused mainly by pixel size and beam size – and where the q-binning is smallish (or at least comparable) component, the correct is expressing q-resolution as FWHM (full width of half maximum) of assumed Gaussian sensitivity of the q bin across of range of q values. This is what most software assumes. This is what you get always at small qs in Nika.
-
-2. For “large” q widths generated at high-q by log-q binning in Nika (and in USAXS using flyscans etc.) the correct representation is more as rectangular slit smearing effect (similar to slit smeared USAXS instrument itself). This is what you get if you use Nika with log-q binning at higher qs.
-
-Irena Modeling II has been recently updated to handle this type of q-smearing. It is bit mess for number of options
-
-**Summary:**
-
-Accounting for q-resolution can be helpful for scattering with sharp features (monodispered systems etc…). It may be critical for fitting such systems as I was unable to fit some of these systems without accounting for q-resolution. Keep that in mind when fitting is not going well.
-
-It can also be very useful to look at to decide what is the real q minimum value of any instrument. I have seen cases when device is quoted to have q\ :sub:`min` – 0.0006 A\ :sup:`-1` but the q resolution at that pixel is about 0.002 A\ :sup:`-1`, which really makes that pixel useless for practical purposes. I think this is more common than we dare to accept…
-
-Recently updated Modeling II tool in Irena can handle different types of q-smearing.
+Q-resolution accounting is most important for scattering with sharp features
+(monodisperse systems, diffraction peaks). Without it, fitting such systems
+may fail even with a correct model. It also provides a meaningful estimate
+of the true Q\ :sub:`min` of an instrument — a detector pixel quoted as having
+Q\ :sub:`min` = 0.0006 Å\ :sup:`-1` may have a Q-resolution of
+0.002 Å\ :sup:`-1` at that position, making the bin practically useless.

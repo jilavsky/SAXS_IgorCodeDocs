@@ -1,4 +1,4 @@
-.. _evaluate-size-distributions:
+.. _irena-evaluate-size-distributions:
 
 .. index::
    Irena; Evaluate size distributions
@@ -6,217 +6,191 @@
 Evaluate size distributions
 ===========================
 
-This is tool to obtain various details about size distributions – such
-as results from Size distribution, Modeling I and Modeling II tools.
-User can obtain mean/mode/median size in range selected by cursors,
-volume, surface and number of particles (per cm\ :sup:`3`) and generate
-cumulative distributions and even mercury intrusion (MIP) curve
-(intruded volume with respect to pressure in Psi).
+This tool obtains various details about size distributions, such as results
+from the Size Distribution, Modeling I, and Modeling II tools. You can
+calculate mean, mode, and median size within a cursor-selected range, as
+well as volume, surface area, and particle number density (per cm\ :sup:`3`).
+The tool can also generate cumulative distributions and mercury intrusion
+porosimetry (MIP) curves showing intruded volume as a function of pressure
+(in psi).
 
-Number of size distributions can be included at one time in the graph,
-but the graph will become crowded very soon…
+Multiple size distributions can be displayed simultaneously, though the graph
+becomes crowded quickly.
 
-**Description**
+Description
+-----------
 
-Select “Evaluate size distributions” from the SAS menu.
+Select "Evaluate size distributions" from the SAS menu.
 
 .. Figure:: media/EvaluateSizeDistributions1.png
    :align: center
    :width: 100%
 
+All controls are located in the control bar at the top of the graph window.
+For MIP data, a new window opens automatically. Monitor the history area for
+important messages about tool requirements and events.
 
-This tool has all controls in the Control bar at the top of the graph
-window. For MIP data a new window will be opened. It is also important
-to follow the history area, as this tool prints important information
-into there so the user is informed about specific needs or events…
+**Data selection controls** (top left)
 
-Data selection controls are top left corner. This tool should know all
-results data from Irena for which it makes sense to be used. If any data
-type is missing, please let me know and I will add it.
+This tool recognizes all Irena result data types suitable for analysis. Select
+a data folder; you will see only folders containing at least one useable data
+type. If multiple data types exist in a folder, select the appropriate ones.
+You may need to specify both X-axis and Y-axis data. Minimal validation is
+performed, so verify your selections carefully.
 
-Select data folder and if more than one of useable data types is in that
-folder, select appropriate data types. You will see only folders, which
-contain at least one useable data type. You may have to select both X
-axis data and Y axis data. Very little checking is done on sensibility
-of the selection here, so be careful.
+The "*Shape of populations*" popup (initially grayed) is described below.
 
-The usually grayed popup “\ *Shape of populations*\ ” will be explained
-below…
+Control buttons
+~~~~~~~~~~~~~~~
 
-Next are buttons with following functions:
+"*Auto-update*" checkbox — When selected, all data recalculate as cursors move.
+Cursors must be on the same dataset; otherwise results will be NaN.
 
-“\ *Auto-update*\ ” checkbox – if selected all data are recalculated
-when cursors are moved. Note, that cursors have to be on the same data
-set , or the results all will be NaNs.
+"*Add data*" — Adds the selected dataset to the graph.
 
-“\ *Add data*\ ” – when data set is selected this button adds the data
-set into the graph
+"*Clear all data*" — Removes all data from the graph.
 
-“\ *Clear all data*\ ” – will remove all data from graph and clear it.
+"*Save Cumul/MIP curves*" — Saves new data to the folder containing the original
+data. Both cumulative size distributions and/or MIP curves are saved as
+applicable, and can later be exported using the Data export tool.
 
-“\ *Save Cumul/MIP curves*\ ” – will save new data into the data folder
-with the original data. Saves the new curves, which exist at that time.
-Both cumulative size distributions and/or MIP curves. These data can be
-exported by using the Data export tool.
+"*Calculate*" — Forces recalculation when "*Auto-update*" is unchecked. Results
+are computed only if cursors are visible in the graph and positioned on the
+same wave.
 
-“\ *Calculate*\ ” – if the “\ *Auto-update*\ ” checkbox is not selected,
-this forces recalculations. Again – if the cursors are not in the graph
-or not on the same wave, no numbers are calculated!
+"*Append tag*" — Adds a descriptive tag to the graph for comparing multiple
+datasets.
 
-”\ *Append tag*\ ” – appends descriptive tag to the graph, so more
-different data sets can be compared together.
+Results area
+~~~~~~~~~~~~
 
-Now the results part:
+"*Statistics for*:" displays the name of the dataset on which cursors are
+positioned and for which calculations are performed.
 
-“\ *Statistics for*:” … is string with the name of data on which the
-cursors are and for which the data are calculated.
+"*Selected diameter min*" and "*max*" show the diameters at the current cursor
+positions.
 
-“\ *Selected diameter min*\ ” and “\ *max*\ ” – diameters of current
-cursor positions so you know where the data are calculated
+"*Volume in the range*" — The fractional volume of scatterers between the
+cursors, calculated using the appropriate formula for the form factor.
 
-“\ *Volume in the range*\ ” – fractional volume of scatterers in the
-range between cursors. Calculated with correct formula for volume of
-give form factor used.
+.. note::
 
-NOTE: for distributions from Modeling I and II it is impossible to
-decide for the code, where which formula for volume should be used. So
-if one combines different shapes, there is practically now way one can
-correctly calculate all of these numbers. Therefore the code will make
-available the popup “Shape of distributions:” and one can select which
-shape should be used for the calculations. This is meaningful if the
-populations are reasonably separate and one knows where which shape
-dominates. This is problem when one is converting between distributions
-– so if one is using volume distribution, the volume is correct at all
-times as there is not conversion needed, but the number of particles may
-be wrong. If one is using number distribution then number of particles
-is right but the volume may be wrong. Specific surface area is likely
-affected all the time, unless one has the right shape. Simply – be
-careful when using Modeling results with more than one shape of
-scatterers.
+   For distributions from Modeling I and II, the code cannot automatically
+   determine which volume formula to apply to mixed-shape populations. When
+   combining different shapes, accurate calculations of volume and particle
+   number are problematic. To address this, the "*Shape of distributions:*"
+   popup becomes available, allowing you to select which shape formula to use.
+   This is meaningful only when populations are well separated and their
+   spatial distribution is known.
 
-User is informed about need to select right shape by printout in the
-history area:
+   - When using a volume distribution, the volume value is always correct (no
+     conversion required), but particle number may be incorrect.
+   - When using a number distribution, particle number is correct, but volume
+     may be incorrect.
+   - Specific surface area is likely affected unless the correct shape is
+     selected.
 
-***“These data may contain mixture of shapes for different populations.
-Please select the right population number to evaluate”***
+   You will be informed of ambiguity via a message in the history area:
 
-This is not problem when individual distributions are saved together
-with the total distribution and evaluated. In such case the code will
-select correct shape for volume calculations and conversions…
+       *"These data may contain mixture of shapes for different populations.
+       Please select the right population number to evaluate."*
 
-“\ *Number density*\ ” is number of particles per cm\ :sup:`3` for data
-between cursors.
+   This limitation does not apply when individual distributions are saved
+   alongside the total distribution and evaluated together; the code
+   automatically selects the correct shape for accurate calculations.
 
-“\ *Specific surfaced area*\ ” is specific surface area between the
-cursors.
+"*Number density*" — Number of particles per cm\ :sup:`3` in the cursor range.
 
-“\ *Mean*\ ”, “\ *mode*\ ”, “\ *median*\ ” are values evaluated for
-GIVEN DISTRIBUTION between cursors – evaluated numerically. Note, that
-of course these will be different for number and volume distributions.
+"*Specific surface area*" — Specific surface area between the cursors.
 
-“\ *FWHM*\ ” is full width at half-maximum value evaluated numerically.
-This is ONLY meaningful, if the data resemble one single peak. There
-will always be number there, but it may be not useful if the data are
-not one single peak.
+"*Mean*", "*Mode*", "*Median*" — Values calculated numerically for the given
+distribution within the cursor range. Note that these differ between number
+and volume distributions.
 
-Last column of checkboxes:
+"*FWHM*" — Full width at half-maximum, evaluated numerically. This metric is
+meaningful only for single-peak distributions. While a value is always
+provided, it may not be useful for multimodal data.
 
-“\ *Log X*\ ” sets diameter axis (x axis) to log scale.
+Display options
+~~~~~~~~~~~~~~~
 
-“\ *Cumulative curves*\ ” forces calculation of cumulative curves
+"*Log X*" — Sets the diameter axis (x-axis) to logarithmic scale.
 
-“\ *Invert Cumul. Curves*\ ” forces the 0 to be at large sizes. There
-are some cases when this is useful…
+"*Cumulative curves*" — Calculates and displays cumulative curves.
 
-“\ *MIP curves?”* – if selected MIP curves are calculated and new window
-with them opens. Few other controls appear also:
+"*Invert Cumul. Curves*" — Forces the origin (zero) to occur at large sizes.
+Useful in certain analytical scenarios.
 
+"*MIP curves?*" — When selected, calculates MIP curves and opens a new window
+displaying them. Additional controls appear for MIP parameters:
 
 .. Figure:: media/EvaluateSizeDistributions2.png
    :align: center
    :width: 200px
 
+These parameters control MIP calculations and use standard values, which you
+can modify as needed. Sigma is in dynes/cm; cos(θ) is dimensionless, where θ
+is the wetting angle between the material and mercury.
 
-These are two parameters used for MIP calculations. These are generally
-used values, user can change them if he/she wishes. Sigma is in dynes/cm
-and cos (theta) is unit less, theta is wetting angle between the
-material and the mercury…
-
-**Example**
-
+Example
+-------
 
 .. Figure:: media/EvaluateSizeDistributions3.png
    :align: center
    :width: 100%
 
-
-The green data are original data, cursors select the range, which is
-being evaluated, black curve is Cumulative size distribution volume (it
-has its own axis on right) and blue is cumulative specific surfaced area
-(has axis mid left). Tag contains summary of results. Since the MIP
-curves checkbox was selected, MIP graph was created:
-
+In this example, the green curve shows original data with cursors selecting
+the evaluation range. The black curve is the cumulative size distribution by
+volume (right axis), and the blue curve is cumulative specific surface area
+(left axis). The tag displays a results summary. Because the MIP curves
+checkbox was selected, an additional MIP graph was generated:
 
 .. Figure:: media/EvaluateSizeDistributions4.png
    :align: center
    :width: 380px
 
+Saving the data stores both cumulative curves and MIP curves in the original
+data folder for export or future use.
 
-If user chooses to save the new data now, both Cumulative curves as well
-as MIP curves are going to be saved in the original data folder for
-export or future use.
-
-Example of comparison of two data sets and use of tags to display
-results for both:
-
+Example of comparing two datasets and using tags to display results for both:
 
 .. Figure:: media/EvaluateSizeDistributions5.png
    :align: center
    :width: 100%
 
+New data created
+----------------
 
-**New data created**
+When you save cumulative and/or MIP curves, new data are created in the folder
+containing the original size distributions. These are named:
 
-If the user chooses to save the cumulative and/or MIP curves, new data
-are created in the folder with original size distributions from which
-these were created. These are named:
+- ``MIPVolume_XX``
+- ``MIPPressure_XX``
+- ``CumulativeSizeDist_XX``
+- ``CumulativeSfcArea_Dist_XX``
+- ``CumulativeDistDiametersDist_XX``
 
-MIPVolume\_XX
+where XX is an index ensuring uniqueness.
 
-MIPPressure\_XX
+The indexing logic is as follows:
 
-CumulativeSizeDist\_XX
+1. The code first attempts to use the index from the original data. For example,
+   if the original data is ``SizesVolumeDistribution_2``, it checks whether
+   index 2 is available. If so, the data is saved with that index, and the
+   result is printed in the history area.
 
-CumulativeSfcArea\_Dist\_XX
+2. If the index is already in use, a message alerts you, and the index is
+   incremented. Track the correct index to know which saved curves correspond
+   to which input data.
 
-CumulativeDistDiametersDist\_XX
+The history area prints what data were created and in which generation they
+were saved. Example output::
 
-With XX being index to guarantee uniqueness.
+   Saved Cumulative data to CumulativeSizeDist_02 / CumulativeSfcArea_Dist_02
+   / CumulativeDistDiametersDist_02 in folder root:USAXS:'08_19':'S20_D8S 263.5':
 
-The index choice is quite complicated and may result in confusion… So
-here is explanation:
+   Saved MIP data to MIPVolume_01 / MIPPressure_01 in folder
+   root:USAXS:'08_19':'S20_D8S 263.5':
 
-1. First the index of the original data is tested – if Original Data
-       were “SizesVolumeDistribution\_2”, then the code will test of the
-       index 2 is available. If yes, it will save the data and print
-       result in the history area.
-
-2. If this index is not available, Message is displayed for user and
-       index is increased. User needs to make sure he/she makes note of
-       the right index and keeps notes on this… I have not found more
-       sensible system yet.
-
-When saving data user is informed by printout in the history are what
-data were created and what generation they were saved in.
-
-Example:
-
-Saved Cumulative data to CumulativeSizeDist\_02 /
-CumulativeSfcArea\_Dist\_02 / CumulativeDistDiametersDist\_02 in folder
-root:USAXS:'08\_19':'S20\_D8S 263.5':
-
-Saved MIP data to MIPVolume\_01 / MIPPressure\_01 in folder
-root:USAXS:'08\_19':'S20\_D8S 263.5':
-
-Note, the waves contain descriptive wave notes which can be exported
-with the ASCII data as header or searched through the Data miner tool.
+The waves contain descriptive wave notes that can be exported as ASCII header
+information or searched using the Data miner tool.

@@ -1,3 +1,4 @@
+.. _nika-instrument-support:
 .. _Nika.InstrumentSupport:
 
 .. index:: Nika; Instrument support
@@ -5,9 +6,11 @@
 Instrument support
 ==================
 
-Instrument support are packages of specific additions in Nika to support special instrument. Depending on the instrument, these functions add capabilities and modify settings to make support of specific instrument easy.
+Instrument support packages extend Nika with instrument-specific capabilities
+and default settings, making it straightforward to reduce data from supported
+instruments.
 
-Currently there are these instruments supported:
+Currently supported instruments:
 
 1.  :ref:`APS 9ID-C USAXS/SAXS/WAXS <Nika.9IDC_Instrument>`
 2.  :ref:`APS 12ID-C SAXS/WAXS <Nika.12IDC_Instrument>`
@@ -16,84 +19,99 @@ Currently there are these instruments supported:
 5.  :ref:`SSRL Mat SAXS <Nika.SSRL_MatSAXS>`
 6.  :ref:`TPA <Nika.TPA>`
 7.  :ref:`APS 5ID DND SAXS/WAXS <Nika.5ID_DND>`
-8.  :ref:`SMI NSLS-II  <Nika.SMI_NSLSII>`
+8.  :ref:`SMI NSLS-II <Nika.SMI_NSLSII>`
 
-
-For other instrument scientists:
---------------------------------
-Other instrument setups can be added on request. Provide me with enough data and description and I can write support for your instrument.
-
-
+Support for additional instruments can be added on request. Contact the
+developer (ilavsky@aps.anl.gov) with sufficient data and a description of the
+instrument geometry.
 
 .. _Nika.9IDC_Instrument:
 
 .. index::
     Nika instrument support; 9ID-C instrument support
 
-9ID SAXS - WAXS
----------------
+9ID SAXS-WAXS
+-------------
 
-This is support for APS beamline 9ID SAXS and WAXS instruments. This is my beamline and there are instructions for how to use this tool. These instructions open when you select this choice. There is also Youtube movie which walks users on how to reduce their data.
+Support for the APS beamline 9ID SAXS and WAXS instruments. Detailed
+instructions are displayed when this configuration is selected from the menu.
+A YouTube tutorial walkthrough is also available.
 
 .. _Nika.12IDC_Instrument:
 
 .. index::
     Nika instrument support; 12ID-C instrument support
 
-
 12ID-C SAXS using Gold detector
--------------------------------
+---------------------------------
 
-This is support for APS beamline 12ID-C SAXS instrument. Short instructions are displayed when option is selected. Note: you need folder of tiff files, spec file and optionally also beamline data reduction script (typically inside the folder, called "goldnormengavg").
+Support for the APS beamline 12ID-C SAXS instrument. Brief instructions are
+displayed when the option is selected.
 
-To use follow these steps:
+Requirements: a folder of TIFF files, a spec file, and optionally a beamline
+data reduction script (typically named ``goldnormengavg``, located inside the
+data folder).
 
-* Load Nika and select in SAS2D > Instrument Configurations > APS 12ID-C SAXS with Gold detector
-* Instructions will be displayed as well as Open file dialog which is looking for spec file. This is typically file name with two letters followed by two digits for each of day, month, and year (e.g., tl081418) and no extension. This file contains record of exposures and parameters for each image collected. Select this file and it will be imported in Igor in lookup table.
-* Next dialog is choice of reading beamline parameters and/or mask definition into Nika - this is available ONLY if file called "goldnormengavg" is found. This file contains distance, pixel size, beam center, mask and other parameters needed for data reduction. If you read these parameters and/or beamline defined mask, any parameters currently in Nika will be replaced with the new ones.
-* You MAY get dialog looking for any of your images to be able to create mask. If you get it, select any of the tiff images with your data and the size of this image will be used to create mask.
-* In the tab "Em/Dk" select proper blank (empty) image for your data.
-* Configure any other data reduction options and output options in Nika.
-* You may want to perform better instrument calibration using AgBehenate image (if available) and/or design your own mask.
-* Rest of Nika use is same as with other instruments. Note, that Nika will, for each image, pull from records normalization values (I0, I0 for blank), calculate transmission (using Blank image selected) and also pull wavelength. No other parameters are routinely pulled from records. Sorely missing is obviously thickness and any absolute calibration constant. They are not available. You can choose to calculate absolute intensity calibration parameter if you have standard (e.g., Glassy Carbon) measurement available.
-* If you need some other parameters from the spec file - like LakeShore temperature, motor positions, etc. - the lookup table is in root\:Packages\:Nika_12IDCLookups in waves with names provided by beamline. You can display the table or write a piece of Igor code which will utilize these values as needed.
+Procedure:
 
+* Load Nika and select: SAS2D → Instrument Configurations → APS 12ID-C SAXS
+  with Gold detector.
+* A file dialog opens prompting for the spec file — typically a filename with
+  two letters followed by two digits each for day, month, and year (e.g.,
+  ``tl081418``), with no extension. This file records exposures and parameters
+  for each image. Select it to import a lookup table into Igor.
+* A second dialog asks whether to read beamline parameters and/or a mask
+  definition from ``goldnormengavg`` (if present). Importing these replaces
+  any existing Nika parameters with the beamline-defined values.
+* A third dialog may appear asking you to select any TIFF image from your
+  data, so that its dimensions can be used to configure the mask.
+* In the "*Em/Dk*" tab, select the appropriate blank (empty) image.
+* Configure data reduction and output options as needed.
+* Optionally, perform instrument calibration using an AgBehenate image (if
+  available) and create a custom mask.
+* Nika reads normalization values (I₀, I₀ for blank), calculates transmission,
+  and pulls wavelength from the lookup table for each image. Sample thickness
+  and absolute calibration constants are not available in the spec file and
+  must be entered manually. If a standard (e.g., Glassy Carbon) measurement is
+  available, absolute calibration can be performed.
+* Additional metadata from the spec file (LakeShore temperature, motor
+  positions, etc.) are available in the lookup table at
+  ``root:Packages:Nika_12IDCLookups``.
 
 .. _Nika.12IDB_Instrument:
 
 .. index::
     Nika instrument support; 12ID-B instrument support
 
-
 12ID-B SAXS WAXS
-----------------
+-----------------
 
-This code may or may not work at this time. We are still working some details on how to move data from beamline software to Nika. Some test case provide do work, but some do not.
-
-
-
+Support for the APS beamline 12ID-B SAXS and WAXS instruments. This
+implementation is still under development and may not work for all datasets.
 
 .. _Nika.ALS_RSoXS:
 
 .. index::
     Nika instrument support; ALS RSoXS instrument support
 
-
 RSoXS ALS soft energy instrument
---------------------------------
+----------------------------------
 
-This is support for ALS RSoXS instrument. When selected, it allows users to use custom procedures for this instrument. Instructions are provided when user selects "Use RSoXS modifications" checkbox.
+Support for the ALS RSoXS instrument. When selected, custom procedures for
+this instrument become available. Instructions are displayed when the
+"*Use RSoXS modifications*" checkbox is checked.
 
 .. _Nika.SSRL_MatSAXS:
 
 .. index::
     Nika instrument support; SSRL Mat SAXS instrument support
 
-
 SSRL Mat SAXS
--------------
+--------------
 
-This is support for SSRL Materials science SAXS camera. When selected, it sets fixed parameters for this instrument and also sets up lookup functions appropriate to read header values recorded in this image format.
+Support for the SSRL Materials Science SAXS camera. Selecting this option sets
+fixed instrument parameters and configures lookup functions to read header
+values recorded in the SSRL image format.
 
 .. _Nika.TPA:
 
@@ -101,61 +119,91 @@ This is support for SSRL Materials science SAXS camera. When selected, it sets f
     Nika instrument support; TPA instrument support
 
 TPA
----
+----
 
-This supports data from Australian SANS instrument. Not much more details provided yet and this code is not under development.
-
+Support for data from the Australian SANS instrument. This support is not
+under active development; limited documentation is available.
 
 .. _Nika.SMI_NSLSII:
 
 .. index::
     Nika instrument support; SMI NSLS-II instrument support
 
+Soft Matter Interfaces (SMI) at NSLS-II
+-----------------------------------------
 
-Soft Matter Interfaces SMI at NSLS-II
--------------------------------------
+The 12-ID SAXS/GISAXS instrument at NSLS-II
+(https://www.bnl.gov/ps/beamlines/beamline.php?r=12-ID) can produce data
+conforming to the 2D calibrated NXcanSAS/NeXus standard. Nika can load these
+files and generate circular or sector profiles, or line profiles along an
+arbitrary direction.
 
-This instrument - 12-ID SAXS/GISAXS instrument (https://www.bnl.gov/ps/beamlines/beamline.php?r=12-ID) can generate data which conform to 2D calibrated Nexus canSAS standard. Nika can load these and generate circular or sector profiles or lineouts along arbitrary line. To do this, check "Calibrated 2D data?" and select canSAS/Nexus as image type. Note, that when using input Calibrated 2D data, your data processing is severely limited. Also, at this time the beam center must be in the image or Nika will not be able to get properly azimuthal angles. It probably can be fixed if needed, so let me know if you run into troubles.
+To use this support: check "*Calibrated 2D data?*" and select canSAS/Nexus as
+the image type.
 
-If you have other canSAS/Nexus data from another instrument, please, provide me with sample. There seems to be just enough flexibility in the standard, that I cannot guarantee that Nika can read them without testing and possibly tuning the code.
+.. note::
 
+   When using calibrated 2D input, data processing options are limited. The
+   beam center must also be within the image frame; otherwise azimuthal angles
+   cannot be determined correctly. If you encounter issues with other NXcanSAS
+   data from a different instrument, please provide a sample dataset — the
+   standard has enough flexibility that compatibility cannot be guaranteed
+   without testing.
 
 .. _Nika.5ID_DND:
 
 .. index::
     Nika instrument support; APS 5ID DND SAXS/WAXS instrument support
 
-
 DND CAT (APS 5ID) SAXS camera
------------------------------
+-------------------------------
 
-DND CAT provides users with data, which are organized in specific folder structure. The data are reduced using scripts based on GSAS-II at the beamline. However, if users wants to process data later in different manner, they have to contact beamline staff and whole process is cumbersome.
+DND CAT provides data in a specific folder structure. Data are typically
+reduced at the beamline using GSAS-II-based scripts. If you need to reprocess
+data afterwards (e.g., for sector averages or a different mask), the Nika DND
+support reads the evaluated 1D text files whose headers contain all parameters
+needed for 2D reduction. The corresponding TIFF image is located automatically
+if the original folder structure is intact; otherwise you will be prompted to
+locate it manually.
 
-Nika DND support is build on presence of evaluated data in text file, where header contains all necessary information for data reduction. Therefore, user opens this text file and the Tiff file with the processed image is found automatically (if user did not change the folder structure). Alternatively, user can point the Nika to the image files, when asked.
+Sample thickness, transmission, wavelength, beam center, calibration constants,
+and other parameters are all read from the text file header. You must create a
+new mask.
 
-The data can then be reprocessed – for example different sectors can be analyzed etc.
+Instructions displayed when you select **SAS 2D → Instrument configurations →
+DND CAT**:
 
-Note, that the user needs to make a new mask, but other parameters (beam center, wavelength, calibration constant as well as sample transmission and thickness) are loaded from the header.
+0. Open Nika's main panel if it is not already open.
 
-The following are instructions which you will get when you select: **"SAS 2D"->"Instrument configurations"--> "DND CAT"**
+1. Select "*DND/txt*" as the image type. Check "*Display only*" as the
+   processing method to avoid errors while mask and parameters are still being
+   configured.
 
-*Instructions for use of DND CAT special configuration*
+2. Use "*Select data path*" to load one ``.txt`` file located in
+   ``.../APSCycle/YourName/Month/processing/plot_files``. Nika will locate the
+   corresponding TIFF files automatically.
 
-0. Open Nika's main panel, if needed.
+   .. note::
 
-1. Select "DND/txt" as image type. Check "Display only" as processing method so you do not get errors if mask/parameters are not correct.
+      The 1D ASCII data in these text files can be loaded directly into Irena
+      using the ASCII loader (Q = column 2, Intensity = column 3, Error =
+      column 4). Nika is only needed if you want to reprocess the 2D → 1D
+      reduction, for example to apply a different mask or compute sector
+      averages.
 
-2. Using "Select data path" load one txt file located in .../APSCycle/YourName/Month/processing/plot_files, these are the txt files you want to see in the file list. Nika will find tiff files on its own.
+3. Run the configuration function again: SAS 2D → Instrument configurations →
+   DND CAT. Select the ``.txt`` file with the same name as the TIFF you want
+   to process. This configures Nika for the correct detector (there are three
+   detectors on the DND SAXS) and sets wavelength, distance, and all other
+   relevant parameters.
 
-        Note, you can load DND processed 1D ASCII data from these files directly into the Irena package using ASCII loader. Q is second column, Intensity is third and error is fourth. Nika is needed only if you want to reprocess the 2D->1D data again, for example if you need sector averages, different mask, etc.
-        ´
-3. Now, run the Configuration function again... Select in the "SAS 2D"->"Instrument configurations"--> "DND CAT". Select name.txt file with the same name as tiff file you want to process. This will configure the Nika properly (for that detector!!!, there are 3 detectors on DND SAXS), including wavelength, distance, etc. Correct checkboxes will be checked and functions set to provide same data processing as DND suggests to do (see below).
+4. Create or load a mask. Ensure the mask dimensions match the image
+   dimensions — Nika will not process images if the mask and image sizes differ.
 
-4. Create mask. You need to create it or load it if you have already created it. Make sure you use the correct image file to create it - with the three different image files associated with each sample, it is bit complicated. Nika does not like when mask and image dimension do not match.
+5. Set processing and output options in the "*Sect.*", "*LineProf*", and
+   "*Save/Exp*" tabs. Enable "*Process sel. files individually*" as needed.
 
-5. Set Nika processing & output options you want = set tabs "Sect.", "LineProf" and "Save/Exp". Set Processing options (checkboxes), likely you need "Process sel. files individually"
-
-6. To reduce image, select the text file with the same name as the tiff file you want to process and "Process image(s)". Nika will parse parameters (wavelength, calibration values, thickness,...) from this txt file, locate the tiff file, load it, and process as described. If you do circular average, you should get what the text file contains. It is good to check that you actually get the same output before using Nika to do different types of processing (e.g., sectors). If something does not match, let me know...
-
-
-This document contains also description I obtained for DND CAT on how data should be processed as well as information where strings with the header from each text file are, in case you need more parameters.
+6. Select the ``.txt`` file matching the TIFF to process and click
+   "*Process image(s)*". Nika reads all parameters from the text file, locates
+   the TIFF, and processes it. Verify that the output matches the text file
+   contents before using Nika for non-default processing.

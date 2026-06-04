@@ -1,3 +1,5 @@
+.. _irena-data-manipulation:
+
 .. index:: Irena; Data manipulation I
 
 .. _data_manipulation_1:

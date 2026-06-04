@@ -1,3 +1,4 @@
+.. _irena-system-specific-models:
 .. _System_specific_Models:
 
 .. index::
@@ -7,26 +8,36 @@
 System specific models
 ======================
 
-**This tool provides GUI for models which are basically analytical formulas applicable to specific microstructures: Debye-Bueche, Treubner-Strey, Ciccariello-Benedetti, Hermans, Modified Hermans, and Unified Green Born model**
+This tool provides a GUI for analytical models applicable to specific
+microstructures:
 
-*Debye-Bueche* model for modeling structural in homogeneities in the gels. https://onlinelibrary.wiley.com/iucr/itc/Ha/ch5o8v0001/sec5o8o3o1o4/
+* **Debye-Bueche** — structural inhomogeneities in gels.
+  https://onlinelibrary.wiley.com/iucr/itc/Ha/ch5o8v0001/sec5o8o3o1o4/
+* **Treubner-Strey** — small-angle diffraction.
+* **Ciccariello-Benedetti** — coated smooth surfaces.
+* **Hermans, Modified Hermans, and Unified Born-Green** — polymer lamellar
+  structures. See: https://doi.org/10.1016/j.polymer.2021.124281
 
-*Treubner-Strey* model for modeling of small-angle diffraction
+Most models can be combined with a low-Q single Unified level. Only one model
+can be active for any dataset at a time.
 
-*Ciccariello-Benedetti* for coated smooth surfaces
+For the Unified level controls, see the Unified Fit documentation. RgCO can be
+linked to the best-guess parameter combination from Debye-Bueche, Treubner-Strey,
+and other models. Residuals are plotted as dots in the graph.
 
-*Hermans, Modified Hermans, and Unified Green Born* all of these are for polymers with lamellar structures. For details see: https://doi.org/10.1016/j.polymer.2021.124281
-
-Most models can be combined with low-Q Single Unified level. New generation GUI enables ONLY one model be applied to any data at time.
-
-For explanation of the Unified level control, please see Unified fit. Unified can have RgCo linked to best guess combination of parameters from Debye-Bueche, Treubner-Strey, and some other models. Residuals are plotted as dots in the graph.
-
----------------------------------------------------------------
+----
 
 Tool overview and use
 ---------------------
 
-The use of the tool will be demonstrated on Debye-Bueche model, but is similar for all models. The tool uses new generation data selection tool, used by Muti Sample Plotting tool, all bioSAXS tools, etc.  :ref:`see <DataSelectionMulti>`. In the top part are controls which allow users to choose what data will be listed in the listbox. Choices are USAXS data or QRS data, USAXS can be slit smeared or desmeared and one can use "Folder match string" (uses Regular expressions, see bottom of panel for hints how to use them).
+The tool is demonstrated below using the Debye-Bueche model, but the workflow
+is the same for all models. The tool uses the multi-sample data selection
+interface also used by the BioSAXS tools and the Multi-Sample Plotting tool.
+See :ref:`Multi Data selection <DataSelectionMulti>`.
+
+The top section contains controls for selecting data type (USAXS or QRS), slit
+smearing vs desmearing for USAXS data, and a folder match string (regular
+expressions supported — see the hint at the bottom of the panel).
 
 .. Figure:: media/SysSpecModels01.jpg
    :align: center
@@ -35,208 +46,231 @@ The use of the tool will be demonstrated on Debye-Bueche model, but is similar f
 Controls
 --------
 
-Pick data type of the top to display dat you want to see and order them the way you need. *Add one data* set into the tool by *double click* a dataset. This will add the data in the tool and create a log-log plot. The blue letters above the Model pulldown menu show, which data set is currently being analyzed.
+**Adding data:** Double-click a dataset in the listbox to load it and create a
+log-log plot. The blue text above the Model pull-down menu shows the currently
+active dataset.
 
-**Model**
+**Model:** Select a model from the pull-down menu. The area below the menu
+populates with controls for that model. Details are in the model-specific
+sections below.
 
-Pick model from pull down menu. Area under the pulldown menu will be populated with controls appropriate for that specific model. Details will be discussed in model sections below.
+**Unified Fit:** Controls appear when the "*Add Unified?*" checkbox is enabled.
+Five parameters are available: G, Rg, P, B, and RgCO. RgCO is critically
+important: when linked, it terminates the Unified level scattering at the scale
+of the model features, indicating that the Unified level and model scattering
+arise from the same phase. If the Unified level scatters from a separate phase
+(e.g., surface scratches), set RgCO to 0 and do not link it. "*Estimate slope*"
+fits P and B to the data range selected by cursors.
 
-**Unified fit**
+**Background:** Flat background, constant across all Q values. Can be fitted.
 
-Unified fit controls are below the Model area. Use checkbox "Add Unified?" to display them and add Unified level scattering to the model. There are 5 parameters - G, Rg, P, and B - and RgCO parameter, which can be linked to best guess combination of parameters of specific models. This RgCO is critically important parameter to understand - if used, scattering from Unified level is terminated at RgCO size and in simplistic term this means, that scattering of the Unified fit level is coming from material which scatters also at smaller sizes.Effectively this states, that Unified fit level and model scattering come from the same phase (material). If Unified fit level would be scattering of different phase (e.g., surface scratches on the sample), RgCO would be 0 and would not be linked to anything. In this case scattering from Model and Unified fit level are independent and total sample scattering is simple sum at each Q. Button *Estimate slope* withs P and B to range fo data selected by cursors.
+**Controls and buttons:**
 
-**Background**
+"*Calculate model*" — computes the model with current parameters. "*Auto
+Recalculate?*" forces recalculation after every parameter change.
 
-Background is assumed simply flat background, same for all Q values. Can be set by user and fitted if appropriate.
+"*Fit data*" — fits the currently loaded dataset. Only parameters with "*Fit?*"
+checked are refined. Verify that fitting parameter ranges are set appropriately.
 
-**Calculate & Save buttons/controls**
+"*Fit sequence*" — fits all datasets selected in the listbox, top to bottom.
+Sort the list appropriately before running.
 
-These buttons and checkboxes control, how the data are fitted and results saved.
+"*Revert fit*" — restores parameters to their pre-fit values.
 
-*Calculate model* Calculates model with current values of parameters. *"Auto Recalculate?"* checkbox will force Calculate model after every parameter change. Useful when enough cpu is available.
+"*Save results*" — saves model output. What is saved depends on the checkboxes:
 
-*Fit data* fits data, current data set in the tool, fits only parameters which have "Fit?" checkbox selected. Pay attention to data ranges. TODO: at this time no warning is provided to users when parameter fitting range is reached.
+* "*Save to Notebook?*" — appends a results summary and plot to the Results
+  notebook.
+* "*Save to folder*" — saves model intensity and Q waves to the source data
+  folder. Saved results can be reloaded later: if a matching solution is found
+  in the folder, the tool offers to restore those parameters.
+* "*Save to waves*" — creates a results folder (e.g., ``root:DebyeBuecheResults:``)
+  and saves individual parameter waves there in processing order. Useful for
+  plotting parameter trends across a dataset series.
 
-*Fit sequence* button - fits sequence of data selected in the Listbox with data sets. Fits data from top to bottom, so if needed, user should make sure samples are sorted in proper order. Note, that
+"*Delay in Seq. Proc.*" — wait time between sequential fits; allows visual
+inspection and note-taking.
 
-*Revert fit* button – use to reset the last set of parameters after bad fit which “lost it’s way”…
+"*Do not restore prior results*" — suppresses the offer to reload saved
+parameters when loading data.
 
-*Save results* button - will save model data for further use. What exactly is saved depends on checkboxes above. See description below.
+"*Hide tags*" — removes parameter tags from the graph.
 
-*Auto recalculate?* checkbox - forces recalculation when any parameter is changed.
+----
 
-*Save to Nogtebook?* checkbox - appends summary of results and plot to the end of results notebook. Useful when you want to export summary of results. Human readable - and you can edit notebook, so it is useful as tool for making notes.
-
-*Save to folder* checkbox - this will save waves with results (Q, and intensity) into data folder. They can be plotted later and also can be "recovered" - if same solution has been found in the folder, code will offer to reload the parameters from this solution. Useful when you need to jump through many data sets.
-
-*Save to waves* checkbox - creates folder (e.g. for Debye-Bueche root\:DebyeBuecheResults\: ) and save waves with each individual parameter there. Data are added in order they are processed, wave with folder names is also created. This is useful when you need easy way of plotting the results of sequence of analysis.
-
-*Delay in Seq. Proc:* sets time which code waits in between analysis of data sets in sequence. Useful for visual inspection and making notes when processing larger set of data.
-
-*Do not restore prior results* checkbox - if checked, code will not offer to restore prior results, if found.
-
-*Hide tags* checkbox - will hide tags with results which can get pretty annoying. If checked, tags will be removed. Uncheck, tags are always added.
-
-\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
-
-Models details
---------------
+Models
+------
 
 .. index::
    model; Debye-Bueche
 
 Debye-Bueche model for gels
-----------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The theory (https://onlinelibrary.wiley.com/iucr/itc/Ha/ch5o8v0001/sec5o8o3o1o4/) is implemented in following form:
-
-.. math::
-
-    I(q)=\frac{4\pi K \varepsilon ^2 corrL^3}{(1+Q^2corrL^2)^2}
-
-where :math:`K = 8 \pi ^2 \lambda^{-4}`
-
-Parameters of the gel are then the corrL – correlation length and :math:`\varepsilon`. The model also allows low-q power law to be fitted and subtracted from data as well as flat SAS background. The low-q power law slope has 2 parameters (slope and prefactor) and background has one. All can be fitted.
-
-**Following citation from Hammouda, NIST, web presentation:** The Debye-Bueche model is used to describe scattering from phase-separated (two- phase) systems. Here also correlations are characterized by an e-folding length ξ. The pair correlation function is give by (Debye-Bueche, 1949):
+The Debye-Bueche model (https://onlinelibrary.wiley.com/iucr/itc/Ha/ch5o8v0001/sec5o8o3o1o4/)
+is implemented as:
 
 .. math::
 
-    \gamma(r) = exp(-\frac{r}{\xi })
+    I(q)=\frac{4\pi K \varepsilon ^2 \xi^3}{(1+Q^2\xi^2)^2}
 
-The scattering cross section is obtained by taking the Fourier transform
-to obtain:
+where :math:`K = 8 \pi ^2 \lambda^{-4}`, ξ is the correlation length, and
+ε is the mean-square fluctuation parameter.
+
+The model also supports a low-Q power-law slope and a flat SAS background, both
+optionally fitted.
+
+From Hammouda (NIST): The Debye-Bueche model describes scattering from
+phase-separated (two-phase) systems with correlations characterized by an
+e-folding length ξ. The pair correlation function (Debye-Bueche, 1949):
 
 .. math::
 
-    \frac{d\Sigma  (Q))}{d\Omega }=\frac{C}{\left [ 1+(Q\xi )^2 \right ]^2}
+    \gamma(r) = \exp\!\left(-\frac{r}{\xi}\right)
 
-The prefactor can be expressed in terms of the volume fraction φ and
-contrast factor :math:`\Delta \rho^2` as:
+Scattering cross section:
 
 .. math::
 
-    C=8\pi\Delta\rho^2\phi \xi ^3
+    \frac{d\Sigma(Q)}{d\Omega} = \frac{C}{\left[1+(Q\xi)^2\right]^2}
 
+where the prefactor is:
 
-The Debye-Bueche model is obtained as a special case of the Teubner-Strey model for
+.. math::
 
-very large d-spacing (d>>ξ).
+    C = 8\pi\Delta\rho^2\phi\xi^3
 
-This is the typical plot:
+The Debye-Bueche model is a limiting case of the Teubner-Strey model for very
+large d-spacing (d >> ξ).
+
+Typical plot:
 
 .. Figure:: media/SysSpecModels_DB1.jpg
    :align: center
    :width: 680px
 
+This example uses Eta and Corr length, with wavelength read from the data
+header (or set manually if not available). The power-law Unified level is
+applied here (see Unified Fit documentation for details on using G = 0 and
+Rg = 10\ :sup:`10`).
 
-In this plot we use Eta and Corr length, wavelentgth is read from header or can be set by user, if needed. We also use Power law slope part of Unified fit (see Unified fit for details and why is G=0 and Rg=10^10).
-
-\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
+----
 
 .. index::
    model; Treubner-Strey
 
-
 Treubner-Strey for small-angle diffraction
--------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Treubner-Strey model follows the publications : Teubner, M; Strey, R. J. Chem. Phys., 1987, 87, 3195 (https://doi.org/10.1063/1.453006) and Schubert, K-V.; Strey, R.; Kline, S. R. and E. W. Kaler J. Chem. Phys., 1994, 101, 5343 (https://doi.org/10.1063/1.467387). More current description also in: https://doi.org/10.1016/j.polymer.2004.08.033
+References:
 
-The code is adopted form NIST SANS package. The formulas are:
+* Teubner, M.; Strey, R. *J. Chem. Phys.* 1987, **87**, 3195.
+  https://doi.org/10.1063/1.453006
+* Schubert, K-V.; Strey, R.; Kline, S. R.; Kaler, E. W.
+  *J. Chem. Phys.* 1994, **101**, 5343. https://doi.org/10.1063/1.467387
+* More recent description: https://doi.org/10.1016/j.polymer.2004.08.033
 
-.. math::
-
-    I(Q)=TS\frac{1}{A+C_1Q^2+C_2Q^4}
-
-Where A, C\ :sub:`1` and C\ :sub:`2` are parameters from the theory and TS is scaling factor.
-
-Correlation length °ξ and repeat distance (d) are:
-
+The code is adapted from the NIST SANS package:
 
 .. math::
 
-    \xi =\left [ \frac{1}{2}(\frac{A}{C_2})^{0.5}+\frac{C_1}{4C_2} \right ]^{-0.5}
+    I(Q) = TS \frac{1}{A + C_1 Q^2 + C_2 Q^4}
 
-    \frac{d}{2\pi} =\left [ \frac{1}{2}(\frac{A}{C_2})^{0.5}-\frac{C_1}{4C_2} \right ]^{-0.5}
+where A, C\ :sub:`1`, and C\ :sub:`2` are theory parameters and TS is a
+scaling factor. Correlation length ξ and repeat distance d:
 
-Example of the GUI with results:
+.. math::
 
-Note, that only the parameters TS, A, C\ :sub:`1`, and C\ :sub:`2` are user controlled. Parameter TS is added scaling factor, as there does not seem to be other way to scale the model to data.
+    \xi = \left[\frac{1}{2}\left(\frac{A}{C_2}\right)^{0.5} + \frac{C_1}{4C_2}\right]^{-0.5}
+
+    \frac{d}{2\pi} = \left[\frac{1}{2}\left(\frac{A}{C_2}\right)^{0.5} - \frac{C_1}{4C_2}\right]^{-0.5}
+
+Only TS, A, C\ :sub:`1`, and C\ :sub:`2` are user-controlled.
 
 .. Figure:: media/SysSpecModels_TS1.jpg
    :align: center
    :width: 580px
 
-
-This is example of plot of Treubner-Strey model on arbitrary data, I do not seem to have handy original data from ~2005 when this was coded and tested.
-
-\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
+----
 
 .. _model.Ciccariello_Benedetti:
 
 .. index::
    model; Ciccariello–Benedetti
 
+Ciccariello-Benedetti model for coated smooth surfaces
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Ciccariello–Benedetti model for coated smooth surfaces
-------------------------------------------------------
+References:
 
-This tools was coded using following manuscripts:
+* Benedetti, A.; Ciccariello, S. *J. Appl. Cryst.* (1994) **27**, 249–256.
+* Pikus, S.; Kobylas, E.; Ciccariello, S. *J. Appl. Cryst.* (2003) **36**,
+  744–748. https://doi.org/10.1107/S0021889803000244
 
-Benedetti, A., S. Ciccariello, Coated Silicas and Small-angle X-ray intensity behavior, J. Appl. Cryst (1994) **27**, 249-256.
+This model assumes a constant-thickness, constant-SLD layer on the surfaces
+of a porous medium, where the layer is always parallel to the underlying
+surface. The Porod Q\ :sup:`-4` slope is modified by an oscillatory term from
+which the film thickness and contrast can be extracted.
 
-Pikus, S., E. Kobylas, and S. Ciccariello, Small-angle scattering characterization of n-aliphatic alcohol films adsorbed on hydroxylated porous silicas, J. Appl. Cryst. (2003) **36**, 744-748,(https://doi.org/10.1107/S0021889803000244).
+.. note::
 
-And tested on experimental data provided by S. Ciccariello. Note, that the experimental data were only slit smeared and that I have found some interesting discrepancies between using finite slit length (and using internal smearing routines of Irena for slit smearing the model) and running provided specific code for slit smeared data (assuming infinite slit length). Simply put, the results vary depending on slit length and one needs to be careful on this. Please, read further…
-
-In summary, this model assumes that on surfaces of porous media is present constant thickness and constant scattering length density layer. The surface of the film is assume to be always parallel with the surface of the solid. Basically, it is coated porous surface with very specific layer – since this is modification of Porod’s law, it is clear that the interfaces must be sharp. In this case the Porod’s Q\ :sup:`-4` power law is modified by oscillatory behavior from which one can extract the thickness and scattering contrast of the film. For more details, please read the manuscripts.
-
-Ciccariello-benedetti example:
+   Discrepancies have been observed between results using finite slit length
+   (Irena's internal smearing routines) and infinite slit-length approximations.
+   Results depend on the assumed slit length.
 
 .. Figure:: media/SysSpecModels_BC1.jpg
    :align: center
    :width: 580px
 
+Fitted parameters:
 
-The model has three main parameters, which can be fitted:
+* *Porod specific surface area* — area of the solid/void or solid/solvent
+  interface (without the layer).
+* *Layer SLD* — scattering length density of the layer.
+* *Layer thickness* — in Å.
 
-*Porod specific surface area* (area of the solid/void or solid/solvent) interface. This is area of the interface without the layer on.
+Fixed parameters (known a priori):
 
-*Layer rho* - scattering length density of the layer material
+* *Solid SLD* — scattering length density of the solid phase.
+* *Void/solvent SLD* — typically 0 for air.
 
-*Layer thickness* - thickness of layerin [A]
+Also set the SAS background and fitting limits as usual. Combining this model
+with a Unified level is generally not physically meaningful.
 
-And the model has two parameters which area assumed to be known:
-
-*Scattering length density of the solid* (rho) and *scattering length density of the void/solvent* (material which is inside the voids). If this is air, it is likely 0.
-
-Note, that one may need to select also SAS background and set fitting limits and “Fit?” checkboxes as in other tools. Alos, this is one model where combination with Unified fit makes little sense, usually...
-
-\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
+----
 
 .. _model.Hermans:
 
 .. index::
    model; Hermans
 
-
 Hermans model for lamellar systems
------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The Hermans model assumes independent, normal distributions for the crystalline and amorphous regions of lamellae. It also assumes the lamellae are composed of infinitely wide, perfectly aligned, and regularly spaced sheets. Details about lamellae imperfections cannot be obtained from the fit. The model directly fits the scattered intensity from SAXS and USAXS measurements. Five independent parameters are used to determine the long period which include the mean crystalline thickness (tL), the standard deviation of the crystalline thickness (σL), the mean amorphous thickness (ta), the standard deviation of the amorphous thickness (σa), and a Porod prefactor for surface scattering (B1). While it can be extended to USAXS measurements, since the model assumes perfectly lamellar sheets it leads to a -2 power law slope at low-q measurements. The Hermans model describes the surface scattering Porod region at high-q, the Guinier region for the lamellar thickness, the structure factor for stacking of lamellae, and the two-dimensional scaling regime for infinite width lamellae. The function does not describe the lateral extent of the lamellae or higher order structures such as fibrous stacks and meso-structures such as spherulites.
+The Hermans model assumes independent normal distributions for the crystalline
+and amorphous regions of lamellae, with infinitely wide, perfectly aligned,
+regularly spaced sheets. Five parameters: mean crystalline thickness (t\ :sub:`L`),
+its standard deviation (σ\ :sub:`L`), mean amorphous thickness (t\ :sub:`a`),
+its standard deviation (σ\ :sub:`a`), and a Porod prefactor for surface
+scattering (B1).
 
+The model describes the Porod surface scattering region, the Guinier region for
+lamellar thickness, the structure factor for lamellar stacking, and the 2D
+scaling regime for infinite-width lamellae. It does not describe lateral extent
+or higher-order structures (fibrous stacks, spherulites).
 
-For details see: https://doi.org/10.1016/j.polymer.2021.124281
+For USAXS measurements: the model assumption of perfectly lamellar sheets
+produces a −2 power-law slope at low Q.
+
+For details: https://doi.org/10.1016/j.polymer.2021.124281
 
 .. Figure:: media/SysSpecModels_Her1.jpg
    :align: center
    :width: 580px
 
+*Note: this model has many parameters and solution uniqueness may be limited.*
 
-*Comment*: this model has many parameters, it is questionable how many unique solutions are there.
-
-\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
+----
 
 .. _model.Modfied_Hermans:
 
@@ -244,37 +278,41 @@ For details see: https://doi.org/10.1016/j.polymer.2021.124281
    model; Modified Hermans
 
 Modified Hermans model for lamellar systems
--------------------------------------------
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-Like the Hermans model, the hybrid-Hermans model assumes independent, normally distributed crystalline and amorphous thicknesses of lamellae sheets and these lamellar sheets are composed of perfectly aligned, infinitely wide, and regularly spaced. The hybrid-Hermans model also describes the surface scattering Porod region at high-q, the Guinier region for the lamellar thickness, and the structure factor for stacking of lamellae. However, this function adds additional terms from the Unified function1 to describe the higher order structures associated with the lamellae stacks. The hybrid-Hermans model has the same parameters as the Hermans model to describe the lamellae but requires two extra parameters (Rg,2 and G2) for a total of seven parameters when limited to the lamellar width.
+Like the Hermans model, but adds Unified function terms (Rg\ :sub:`2`, G\ :sub:`2`)
+to describe higher-order structures associated with lamellar stacks. Total
+parameters: seven when limited to lamellar width.
 
-For details see: https://doi.org/10.1016/j.polymer.2021.124281
-
+For details: https://doi.org/10.1016/j.polymer.2021.124281
 
 .. Figure:: media/SysSpecModels_ModHer1.jpg
    :align: center
    :width: 580px
 
+*Note: this model has many parameters and solution uniqueness may be limited.*
 
-*Comment*: this model has many parameters, it is questionable how many unique solutions are there.
-\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*\*
+----
 
 .. _model.Unified-Born-Green:
 
 .. index::
    model; Unified Born-Green
 
-Unified Born Green model for lamellar systems
----------------------------------------------
+Unified Born-Green model for lamellar systems
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-The Unified Born-Green model assumes that the lamellae are laterally symmetric, have a platelet structure, and the only contrast present is between the amorphous and crystalline regions. In contrast to the Hermans and hybrid-Hermans models, the Unified Born-Green model also assumes two-dimensional correlations between the lamellae stacks (i.e. thickness and lateral directions). The model requires 6 parameters (Rg,1, B1, p, ξ, δ, kI) to describe the lamellar features. The Unified Born-Green function can be modified to include additional parameters to describe higher order lamellar structures.
+Assumes laterally symmetric lamellae with a platelet structure and contrast
+only between amorphous and crystalline regions. Includes two-dimensional
+correlations between lamellar stacks (both thickness and lateral directions),
+unlike Hermans and Modified Hermans. Six parameters: Rg\ :sub:`1`, B1, p, ξ,
+δ, k\ :sub:`I`. Can be extended with additional parameters for higher-order
+structures.
 
-For details see: https://doi.org/10.1016/j.polymer.2021.124281
-
+For details: https://doi.org/10.1016/j.polymer.2021.124281
 
 .. Figure:: media/SysSpecModels_UBG1.jpg
    :align: center
    :width: 580px
 
-
-*Comment*: this model has many parameters, it is questionable how many unique solutions are there.
+*Note: this model has many parameters and solution uniqueness may be limited.*
