@@ -1,9 +1,13 @@
+.. _nika-important:
+
 Important Information
 =====================
 
 .. index:: Nika; Units
 
-The code uses for all size related parameters Angstroems (10\ :sup:`-10` m) or for Q vector (A\ :sup:`-1`). In the case of scattering contrast, number distribution and any other volume contents centimeters (10\ :sup:`-2` m).
+All size-related parameters use Ångströms (10\ :sup:`-10` m) or Q vectors
+in Å\ :sup:`-1`. Scattering contrast, number distributions, and volume-related
+quantities use centimeters (10\ :sup:`-2` m).
 
 .. index:: Nika; Load packages
 
@@ -12,53 +16,69 @@ Loading the macros
 
 :ref:`Install macros <installation>`
 
-Start Igor Pro
+Start Igor Pro.
 
-In menu “Macros” select “Load Nika 2D SAS macros”.
+In the Macros menu, select "*Load Nika 2D SAS macros*".
 
-New menu “SAS 2D” appears. This is where all the Nika macros are
-controlled from.
+A new menu "*SAS 2D*" appears. All Nika functions are accessible from this
+menu.
 
 .. index:: Nika; Unload packages
 
 Unload the macros
 -----------------
 
-There are two items on may wish to do to unload the macros from any experiment. First to remove the large lookup tables associated with the methods Nika is using to convert 2D to 1D data. This is done by selecting “HouseKeeping” from “SAS 2D” menu. This will make the Igor experiment much smaller (often by 60 Mb or even more).
-
-Then removing the macros itself is achieved by selecting “Remove Nika 1 macros” in the “SAS 2D” menu. This will unload macros and put back in the “Macros” menu command to load Nika macros, if necessary.
+To unload Nika from an experiment, two steps are recommended. First, remove the
+large lookup tables used by Nika for 2D-to-1D conversion by selecting
+"*HouseKeeping*" from the SAS 2D menu. This can reduce the Igor experiment
+file size by 60 MB or more. Then, remove the macros themselves by selecting
+"*Remove Nika 1 macros*" from the SAS 2D menu. This unloads the macros and
+restores the "*Load Nika macros*" item to the Macros menu.
 
 .. index:: Nika; Configure defaults
 
-Configure default fonts and names & Errors
-------------------------------------------
+Configure default fonts and names
+----------------------------------
 
-“\ **GUI uncertainty config**\ ” in the SAS menu will create panel with some controls common for all tools, like font type & size and how legend names are handled. NOTE: Panel controls are applied immediately to all existing panels, graph controls are applied ONLY to the newly created graphs (and only those which were upgraded to this behavior).
+"*GUI uncertainty config*" in the SAS menu opens a panel with settings common
+to all tools, including font type and size and how legend names are handled.
+
+.. note::
+
+   Panel controls are applied immediately to all existing panels. Graph controls
+   are applied only to newly created graphs.
 
 **Panels font and font sizes**
 
-These controls enable user to customize font used on control panels therefore this enables customization for a given platform. This is necessary as more and more control is provided on each platform to user and therefore default fonts and font sizes may not be appropriate any more for the panels I design. These settings are actually saved on a given machine as well as the experiment. This has some interesting features, so please, read carefully:
+These controls allow font customization on control panels to accommodate
+platform differences in default fonts and sizes. Settings are saved both on the
+local computer and within the Igor experiment.
 
-When these controls are run (and user is forced to run them if the Irena is loaded and preferences are not found), they save preferences in special folder Igor maintains for users. At the same time, the settings are applied to the current experiment.
+When these settings are applied, preferences are stored in Igor's user
+preferences folder and applied to the current experiment simultaneously.
 
-When this experiment is opened on another computer, the preferences from that computer are not reloaded, so the experiment will use preferences from the original computer. When the “Configure GUI and Graph defaults” is run, it will reload the computer defaults and apply them to the given experiment. Then user can change the fonts and font sizes as they wish. The new settings are saved on the computer – and within the experiment.
+When the experiment is opened on a different computer, the local computer's
+preferences take effect when "*Configure GUI and Graph defaults*" is run. The
+new settings are saved on that computer and within the experiment.
 
-*Note*, that Panel font and font size are platform specific, so same experiment may present differently looking panels on Mac and PC.
+Panel fonts are platform-specific, so the same experiment may display
+differently on Mac and PC.
 
-*Note*, not all controls actually follow these settings, I have been changing some buttons to specific font and font size and those are not affected by these settings.
+.. note::
 
-If there are any issues with the behavior, please, let me know and I’ll see if I can make it more logical.
+   Not all controls follow these font settings — some buttons have fixed fonts
+   that are not affected.
 
-Since version 1.70 these controls are shared with *Irena* package, so they do not fight with each other (which was possible previously). The whole philosophy of this GUI control system is bit convoluted, so if you see some issues, let me know when and how the logic fails.
+Since version 1.70, these controls are shared with the *Irena* package to
+prevent conflicts.
 
 .. Figure:: media/Important1.jpg
    :align: left
    :width: 380px
 
-
-Note the choice of GUI and Graph defaults panels when different fonts are used can mess things us really well… You can mess up the panels really well by wrong choices!
-
-Defaults button returns the panel font choices to platform specific default state (Mac: Geneva size 9 and PC Tahoma size 12). Note, that there is no guarantee that these were your choices before. But these should be reasonable choices for most setups.
+Mismatched font choices between GUI and Graph defaults panels can cause panels
+to display incorrectly. The "*Defaults*" button resets panel fonts to the
+platform-specific defaults (Mac: Geneva size 9; PC: Tahoma size 12).
 
 .. index::
     Nika; Panel size
@@ -66,185 +86,213 @@ Defaults button returns the panel font choices to platform specific default stat
 
 .. _important.DoNOTRestorePanelSizes:
 
-**DO NOT restore Panel Sizes**
+**Do NOT restore panel sizes**
 
-Do NOT restore Panel Sizes” controls if panels are restored to last used size and position when either they are recreated (they were closed and a tool is opened again) or when some existing experiment is reopened. Keep in mind, that if this checkbox is not selected, every time you scale up/down a panel, its position and size is recorded. When being recreated, the panel will move and scale back to its size. NOTE: Position and size is recorded ONLY when panel size is changed, not when it is just moved. If you want to overwrite this behavior, hold down any modifier key (alt, cmd/ctrl/shift...).
+This checkbox controls whether panels are restored to their last-used size and
+position when they are recreated (after being closed) or when an existing
+experiment is reopened.
 
+When unchecked, every panel resize is recorded. On recreation, the panel
+returns to that saved size and position.
+
+.. note::
+
+   Size and position are recorded only when the panel is resized, not when it
+   is merely moved. To override this behavior temporarily, hold any modifier key
+   (Alt, Cmd/Ctrl, Shift) while creating the panel.
 
 .. index:: Nika; Uncertainty
 
-Error (uncertainty) estimates for points
-----------------------------------------
+Error (uncertainty) estimates
+------------------------------
 
-Up to version 1.42 Nika used “error” calculation, which seemed to produce reasonable numbers in most cases. But one of the users realized, that it has error in it (bug) and fails in cases of really low intensities, which can be assumed to be Poisson distribution. Therefore, from version 1.43 Nika has three options for this calculation.
+Prior to version 1.42, Nika used an uncertainty calculation that worked
+adequately in most cases but contained a bug causing incorrect values at very
+low intensities where Poisson statistics apply. From version 1.43, three
+options are available:
 
-1. Old method (default for compatibility reasons). As I said, it has a bug, but seem to work most of the time well enough.
-
-2. Standard deviation
-
-3. Standard error of mean
-
-Please note, that Standard error of mean (SEM) is miserably small for high-intensity instruments and generally is too small. At least in my experience. However, it seems to work fine for Pilatus detectors. Standard deviation was what I was trying to get with the old method – there should not be much difference between them most of the time.
+1. **Old method** (default for compatibility). Contains the known bug but
+   produces acceptable results in most cases.
+2. **Standard deviation** — The intended quantity that the old method
+   approximated.
+3. **Standard error of mean (SEM)** — Very small for high-intensity
+   instruments; suitable for Pilatus detectors.
 
 .. index:: Nika; Multiple configurations
 
 Configuration manager
 ---------------------
 
-From version 1.70 Nika contains “\ **Configuration manager**\ ” . This tool enables one to configure multiple “versions” on Nika inside one igor experiment and switch among them. The main purpose is to handle cases when user needs to reduce data from multiple distances of the same instrument, multiple detectors on the same instrument, optionally from multiple instruments. We have such case on APS 9ID USAXS/SAXS/WAXS instrument where we need to reduce data from SAXS and WAXS.
+From version 1.70, Nika includes a "*Configuration manager*" that allows
+multiple Nika configurations to be stored and switched within a single Igor
+experiment. The primary use case is reducing data from multiple detector
+distances, multiple detectors, or multiple instruments (for example, the APS
+9ID USAXS/SAXS/WAXS instrument requires separate SAXS and WAXS configurations).
 
-How is this done?
+The Configuration manager copies the entire Nika working folder
+(``root:Packages:Convert2Dto1D``) — a snapshot of the current state — into
+``root:Packages:NikaGeometries`` under a user-specified name. This snapshot
+includes the mask, lookup tables, empty image, dark image, and all other Nika
+state. A second configuration can then be set up and saved separately.
 
-To achieve this purpose the Configuration manager will copy whole Nika working folder – create snapshot - (root:Packages:Convert2Dto1D) into specific location (root:Packages:NikaGeometries) with user selected (cleaned up!) name. This contains everything in that folder and it is all Nika needs to operate. This therefore includes mask, lookup tables, Empty image, Dark image - everything… Of course, it is a snapshot of the status at that given time. User can then reconfigure Nika to have another distance, detector – whatever – and save this as second configuration. Then user can switch between the geometries as needed.
+.. warning::
 
-NOTE:
-
-***Only one configuration can be run at given time.***
-
-***All windows will be closed when switching. ***
-
-***The Igor files are likely to get very large (this is space expensive process).***
-
-*The save is done at a specific moment in time, so later changes in configuration are not reflected and user needs to save the configuration again.*
-
-Here is the GUI:
+   - Only one configuration can be active at any given time.
+   - All Nika windows are closed when switching configurations.
+   - Storing configurations significantly increases Igor experiment file size.
+   - Each saved configuration is a snapshot; subsequent changes to the active
+     configuration are not reflected in the saved copy.
 
 .. Figure:: media/Important2.png
    :align: left
    :width: 380px
 
+"*Create New Configuration*" — Deletes the current Nika configuration and
+restarts Nika with a clean default state.
 
-“\ **Create New Configuration**\ ” button will create new default Nika “Configuration” – it will DELETE the current one and restart Nika. Use this button carefully. But it will guarantee that user starts with “clean slate”.
-
-“\ **Save Current Configuration**\ ” button will save the currently configured Nika folder into the location explained above and make it available as “Stored configuration” User can give it their own name – it will be cleaned up and if necessary (with dialog) also unique.
-
-Note, if the Configuration already exists, you will get dialog:
+"*Save Current Configuration*" — Saves the current Nika working folder as a
+named stored configuration. The name is cleaned up automatically; if it already
+exists, a dialog offers the options of overwriting, creating a unique name
+(appending a number), or canceling.
 
 .. Figure:: media/Important3.png
    :align: left
    :width: 380px
 
-Choosing YES (= overwrite) will delete the existing Configuration of this name and save the existing one under that name. Choosing No will create unique name by adding order number at the end (from WAXS will create WAXS0, WAXS1, etc…). bCancel will cancel of course.
+"*Clean up folder before saving?*" — Runs the housekeeping function before
+saving, removing temporary lookup tables and other recalculable data. This
+reduces file size but means the first image processed after loading the
+configuration will take longer.
 
-“\ **Clean up folder before saving**?” checkbox – This will run the “housekeeping” function before storing the Current configuration. This will remove the temporary lookup tables and other stuff, which can be easily recalculated when needed (at cost of CPU). This may make the Igor files much smaller - but when restored the first image processing will take longer.
+"*Last Saved/Loaded Config name*" — Displays the name under which the
+configuration was most recently saved or loaded. This string is not updated
+when Nika parameters are changed, so it can become stale. It reflects only
+what the configuration was named at the last save or load operation.
 
-“\ **Last Saved/Loaded Config name**\ ” this shows what was the last name under which this Configuration was saved or loaded. This is bit dangerous name – it can become stale really quickly as it has no idea what user has done and what therefore may have changed on the configuration. Imagine you have two detector distances. You create Nika configuration for one of them (Short distance) and save it. That will show now “Short distance” as the name of current configuration… But then you proceed to change the distance (and other parameters). This string will not change – it has no idea you changed the parameters. So keep this in mind. It is simply how you called the last configuration when it was saved or loaded.
+"*Load Stored Configuration*" — Lists saved configurations. Selecting one
+opens a dialog offering to save the current configuration, discard it, or
+cancel before loading the selected one. The main Nika panel reopens after
+loading.
 
-“\ **Load Stored Configuration**\ ” – popup which lists saved Configurations. If you select configuration from this popup, dialog will come up which will enable you to : 1. Cancel if you do not want to do anything, 2. Save current configuration and load the one you selected, 3. Not save the current configuration and load the selected one. In any case, you can cancel before anything is done.
+"*Delete Saved Configuration*" — Opens a dialog to select and permanently
+delete a stored configuration.
 
-When loading saved configuration all Nika windows should be closed and after restoring the configuration, the main Nika panel reopens.
+.. note::
 
-“\ **Delete Saved Configuration**\ ” This will open dialog where you can select saved configuration and delete it. This way user can remove stored configurations when they are no more needed to save space (or confusion) in Igor experiment (file).
-
-There is no way at this time to rename saved configurations, except manually renaming the folder in the location (root:Packages:NikaGeometries). The Configuration manager needs to be restarted after this to image out the new names.
-
-
+   Saved configurations cannot be renamed through the Configuration Manager UI.
+   To rename one, manually rename its folder at
+   ``root:Packages:NikaGeometries`` in the Igor data browser, then restart
+   the Configuration Manager.
 
 .. _NikaSmallDisplayChallenge:
-
 .. _NikaCheckIgorDisplayArea:
 
 .. index::
     Display problems; Small displays
     Display problems; Check for display area
 
-Using Nika on small & large displays
-------------------------------------
+Using Nika on small and large displays
+----------------------------------------
 
-Nika generates **a lot of** windows, panels, graphs, notebooks... It really needs large display, 1024x768 is simply too small for useful work. Current version of Nika requires at least 1100 x 900 pixels display - and this is much more complicated on Widowns with the high resolution displays - see :ref:`GUI Controls Missing in Common Issues <GUIcontrolsMissing>`....
+Nika generates many windows, panels, graphs, and notebooks and requires a large
+display. A 1024×768 display is too small for productive work. The current
+version requires at least 1100×900 pixels — and on Windows with high-DPI
+displays this is more complicated. See
+:ref:`GUI Controls Missing in Common Issues <GUIcontrolsMissing>` for details.
 
-To aid users I have now added function which calculates what the area available for content is (in Igor pixel units). On start my code now checks and if available area is smaller than preset values (1100 x 900) the code provides warning in a dialog and instructions in History area. The code will still work, but some tools may refuse to run since the panels would not fit on the screen. Users can maximize Igor window (on Windows), change the display resolution, and/or reduce the Display screen settings ("dpi"), see :ref:`more info <GUIcontrolsMissing>`. To recheck the size after changing the settings, use command "Check Igor display size" from the menu USAXS, SAS2D, or SAS>"Help, About, Manuals, Remove Irena".
+At startup, Nika checks the available display area. If it is smaller than the
+minimum (1100×900), a warning dialog appears and instructions are printed in
+the history area. Some tools may refuse to open if their panels would not fit
+on screen. To increase available area: maximize the Igor window (Windows),
+change display resolution, or reduce display scaling (DPI). To recheck after
+making changes, select "*Check Igor display size*" from the USAXS, SAS2D, or
+SAS → Help menu.
 
 .. _LargeDisplayChallenge:
 
 .. index:: Display problems; High-res displays
 
-These packages are setup for large enough displays - in PIXELS displaye - this can be issue with high resolution displays - 4k displays and similar - on Windows. If you have problems seeing panel content or simply anything else looks off, please, check :ref:`GUI Controls Missing in Common Issues <GUIcontrolsMissing>` . Note, that you can have 4k display, but if you use large Display scaling (200% or more), the display really offers Igor pro ONLY fraction of pixels, which makes all panels too large and they do nto fit on screen. 
+On high-DPI displays (4K and similar) on Windows, large display scaling
+(200% or more) effectively reduces the pixel count available to Igor Pro,
+making panels too large to fit on screen.
 
-**GET LARGE ENOUGH DISPLAY. THEY ARE CHEAP NOW...**
-
-It is possible to move the content (not all, but most) up/down on panels, when needed with the arrows in top right corner:
+Most panel content can be scrolled vertically using the arrows in the top-right
+corner:
 
 .. Figure:: media/Important14.png
-      :align: center
-      :width: 380px
+   :align: center
+   :width: 380px
 
-
-The two arrows at the top right corner of most panels - like here on plotting tool panel - move the content of the panel up/down, so if your screen is  too small vertically (usual problem), you can move the controls in the screen itself. However, this is a chllenge in Igor 7 and does not work too well.
-
-So here is the same area, but content was now moved bit higher, so one can reach to the bottom controls:
+This is the same panel with content scrolled up to reach bottom controls:
 
 .. Figure:: media/Important15.png
-      :align: center
-      :width: 380px
+   :align: center
+   :width: 380px
 
-
-If you have a large display, you can zoom panels by dragging lower right corner - note mark:
+On large displays, panels can be resized by dragging the lower-right corner
+(marked with a resize handle):
 
 .. Figure:: media/Important16.png
-      :align: center
-      :width: 30px
+   :align: center
+   :width: 30px
 
-You can scale panels up or down, but they will not scale to smaller size than original size.
-
-NOTE: the setting of size is now persistent - in the current Igor Experiment that is - therefore, if you scale panel up and then close the panel, next time you recreate this panel, it will be rescaled for you to the same size. However, for usability in case you changed the display size in the mean time, the panel will be also imited in size to 50% width fo the current display AND 90% height of the current display. If you want to reset the panel to its default size, hold down shift/alt or cmd/ctrl key while creating the panel again. The size will be reset.
-
+Panels can be scaled up but not below their original size. Panel size is
+persistent within the Igor experiment — if a panel is scaled up and closed, it
+reopens at the same size. Size is capped at 50% of the current display width
+and 90% of the display height. To reset a panel to its default size, hold any
+modifier key (Shift, Alt, or Cmd/Ctrl) while opening it.
 
 .. index:: Nika; Update check
 
 Check for updates
------------------
+------------------
 
 .. Figure:: media/ImportantUpdateCheck.jpg
    :align: center
    :height: 250px
 
-Nika will perform once-per month check for updates every 30 days. It checks installed versions of the packages and web available versions. It also reminds you about need to cite manuscripts related to the Nika. Please, cite those manuscripts as necessary.
-
-You can get this panel opened any time from SAS 2D> Check for updates
-
-The buttons open appropriate web pages in your web browser.
-
+Nika checks for available updates once per month. The check compares installed
+package versions against those available online and reminds users to cite the
+relevant publications. The update panel can be opened at any time from
+SAS 2D → Check for updates. The buttons open the appropriate web pages in your
+browser.
 
 .. index:: Nika; Extend functionality
 
 Modifying Nika functionality
-----------------------------
+------------------------------
 
-Basic method of modifying Nika functionality is to use “hook” functions – functions, which are called when they exist. In order to use them one needs to be proficient Igor programmer, so the description here is limited. You will need to read the code anyway.
+Nika functionality can be extended using hook functions — Igor functions that
+are called at specific points in Nika's processing pipeline if they exist in
+the current experiment. A working knowledge of Igor programming is required.
 
-Note: if you need more “hook” functions, ask and I’ll add them. Better then forking your code and then not being able to update your code in the future.
-
-List of hook functions:
+Available hook functions:
 
 +-------------------------------------------------+------------------------------------------------------+------------------------------------------------------------------------------------------+
-| Name of hook function                           | Called where                                         | Why?                                                                                     |
+| Name of hook function                           | Called where                                         | Purpose                                                                                  |
 +=================================================+======================================================+==========================================================================================+
-| Nika\_Hook\_ModifyMainPanel()                   | NI1A\_Convert2Dto1DPanelFnct()                       | After the main panel is created, so user can change the panel as needed.                 |
+| Nika\_Hook\_ModifyMainPanel()                   | NI1A\_Convert2Dto1DPanelFnct()                       | After the main panel is created; modify panel layout or add controls.                    |
 +-------------------------------------------------+------------------------------------------------------+------------------------------------------------------------------------------------------+
-| Nika\_Hook\_AfterDisplayLineout(int,Qvec,Err)   | NI1A\_DisplayLineoutAfterProc                        | After lineout is displayed so user can change it as needed                               |
+| Nika\_Hook\_AfterDisplayLineout(int,Qvec,Err)   | NI1A\_DisplayLineoutAfterProc                        | After a lineout is displayed; modify appearance or perform additional analysis.          |
 +-------------------------------------------------+------------------------------------------------------+------------------------------------------------------------------------------------------+
-| ModifyImportedimageHook(imageName)              | NI1BC\_BmCntrCreateimage                             | Modifies image after import. E.g., enables user to trim image to ROI only etc.           |
+| ModifyImportedimageHook(imageName)              | NI1BC\_BmCntrCreateimage                             | After image import; trim to ROI, apply corrections, etc.                                 |
 |                                                 | NI1A\_ImportThisOneFile                              |                                                                                          |
 |                                                 | NI1A\_LoadEmptyOrDark                                |                                                                                          |
 |                                                 | NI1M\_MaskCreateimage                                |                                                                                          |
 |                                                 | NI1\_FloodCreateAppendimage                          |                                                                                          |
 +-------------------------------------------------+------------------------------------------------------+------------------------------------------------------------------------------------------+
-| PilatusHookFunction(imageName)                  | NI1A\_UniversalLoader                                | After Piltus image is loaded so one can modify it as needed.                             |
+| PilatusHookFunction(imageName)                  | NI1A\_UniversalLoader                                | After a Pilatus image is loaded; modify or augment the loaded data.                      |
 +-------------------------------------------------+------------------------------------------------------+------------------------------------------------------------------------------------------+
-| ImportedimageHookFunction(imageName)            | NI1A\_UniversalLoader                                | After loading any image just at the end. Can be used to modify loaded image as needed.   |
+| ImportedimageHookFunction(imageName)            | NI1A\_UniversalLoader                                | After loading any image; modify the loaded image as needed.                              |
 +-------------------------------------------------+------------------------------------------------------+------------------------------------------------------------------------------------------+
-| AfterDisplayimageHook()                         | Various places after Nika displays detector image.   | Can be used to modify displayed image. Note – works on top image.                        |
+| AfterDisplayimageHook()                         | Various places after Nika displays a detector image. | Modify the displayed image. Operates on the top image.                                   |
 +-------------------------------------------------+------------------------------------------------------+------------------------------------------------------------------------------------------+
-| Movie\_UserHookFunction()                       | NI1A\_MovieCallUserHookFunction                      | In movie tool – create or modify image used for movie. See GUI.                          |
+| Movie\_UserHookFunction()                       | NI1A\_MovieCallUserHookFunction                      | In the movie tool; create or modify the image used for the movie frame. See GUI.         |
 +-------------------------------------------------+------------------------------------------------------+------------------------------------------------------------------------------------------+
-| *Need more?*                                    | Let me know here…                                    |                                                                                          |
+| *Need more?*                                    | Contact the developer to request additional hooks.   |                                                                                          |
 +-------------------------------------------------+------------------------------------------------------+------------------------------------------------------------------------------------------+
 
-*Example:*
-
-Following function is called after any image is loaded (if it exists)
-and simply prints in history area image statistics.
+*Example — print image statistics after any image is loaded:*
 
 .. code::
 
@@ -253,8 +301,7 @@ and simply prints in history area image statistics.
        wavestats NewWaveName
      end
 
-Following function, if present, will zoom in top 50 pixels on the
-detector image
+*Example — zoom in on the top 50 pixels of the detector image after display:*
 
 .. code::
 
