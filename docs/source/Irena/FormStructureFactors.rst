@@ -1,3 +1,4 @@
+.. _irena-form-structure-factors:
 .. _FormStructureFactors:
 
 .. index::
