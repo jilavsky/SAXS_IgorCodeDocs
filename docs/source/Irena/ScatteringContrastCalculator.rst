@@ -1,3 +1,4 @@
+.. _irena-scattering-contrast-calculator:
 .. _scattering_contrast_calculator:
 
 .. index::
@@ -7,62 +8,77 @@
 Scattering contrast calculator
 ==============================
 
-
-**Introduction**
-
-Calculating scattering contrast for various compounds is annoying “monkey” work, which can be easily left to computers. The tool in “Irena” at this time allows one to calculate the X-ray and neutron scattering contrast for compounds with up to 24 atoms, with known density, with known atomic fractions and **with no energy dependence**. Energy-dependent anomalous scattering effects (for X-rays) may also be considered by an additional level of this tool (see button marked :ref:`"Anomalous calculator" <Anomalous_Calculator>`  in lower right corner).
+Calculating scattering contrast for compounds is tedious but well-suited for
+automation. This tool calculates X-ray and neutron scattering contrast for
+compounds with up to 24 atoms, using known density and atomic fractions,
+**without energy dependence**. Energy-dependent anomalous scattering effects
+(for X-rays) can be included using the
+:ref:`Anomalous calculator <Anomalous_Calculator>` (see the button in the
+lower-right corner).
 
 Basic calculator
 ----------------
 
-Select from menu “SAS” item “Scattering contrast calculator”:
+Select "*Scattering contrast calculator*" from the SAS menu:
 
 .. Figure:: media/ScattContCalc1.png
-        :align: center
-        :width: 85%
+   :align: center
+   :width: 85%
 
-
-This is the interface. At the top, select number of atoms in the material, set its density and check the check box if you want neutron data displayed. Let’s select 2 atoms, may be Al\ :sub:`2`\ O\ :sub:`3` (Corundum) with density of 4 and see neutron results. This is the picture after this selection
+At the top, select the number of atoms in the compound, enter its density,
+and check the checkbox if neutron data should be shown. For example, selecting
+2 atoms for Al\ :sub:`2`\ O\ :sub:`3` (Corundum) with a density of 4.0 and
+enabling neutron results gives:
 
 .. Figure:: media/ScattContCalc2.png
-        :align: center
-        :width: 85%
+   :align: center
+   :width: 85%
 
-Use slider to select each element and check it’s properties – amount in molecule, Isotope etc. Input is done through Periodic system table (push Change element button). To continue, close the table…
+Use the slider to select each element and check its properties — amount in the
+formula unit, isotope, etc. Element selection is done through the Periodic
+Table (click "*Change element*", then close the table to continue):
 
 .. Figure:: media/ScattContCalc3.png
-        :align: center
-        :width: 320px
+   :align: center
+   :width: 320px
 
-Most of the fields is filled automatically with data from internal databases of this tool. In the lowest part of the tool are results and intermediate calculations of this tool – so one can obtain various numbers, which needed to be calculated.
+Most fields are filled automatically from the internal databases. The lower
+section of the tool shows results and intermediate calculations.
 
 **Matrix**
 
-To calculate :math:`(\Delta \rho)^2 = (\rho_{matrix} - \rho_{scatterer})^{2}` we need to set scattering length density of matrix. This can be done in numerous ways:
+To calculate (Δρ)² = (ρ\ :sub:`matrix` − ρ\ :sub:`scatterer`)², the scattering
+length density of the matrix must be specified. This can be done in several ways:
 
-1. Write the numbers directly in the fields provided
+1. Enter values directly in the provided fields.
+2. Calculate the matrix SLD with the tool and click "*Set as matrix*".
+3. Save compound data with "*Save data*" and reload as matrix with "*Load matrix data*".
 
-2. Calculate the matrix scattering length densities and use “Set as matrix” button
-
-3. Save matrix data using “Save data” button and then load them as matrix “Load matrix data”
-
-In each case the values for “delta-rho squared” should be recalculated. Note, that if checkbox “Use vacuum as matrix” is checked, vacuum is used as matrix and no selection for matrix is available…
+In each case the Δρ² values are recalculated automatically. When "*Use vacuum
+as matrix*" is checked, vacuum is used and no matrix selection is available.
 
 **Saving data**
 
-This tool has “saving” feature, which allows to save the compound parameters in such way, that it can be used in the future. **The data can be saved either INSIDE the current Igor experiment or OUTSIDE Igor experiment.** Compounds saved outside are available to any Igor experiment on that particular computer**. But experiment moved to another computer will not have these compounds saved…
+Compound parameters can be saved for future use, either inside the current
+Igor experiment or on the computer (accessible to all Igor experiments on that
+machine, but not portable to other computers). Use the checkbox
+"*Within this experiment (or on the computer)?*" to select the storage location.
 
-To select where compounds are saved, use checkbox “Within this experiment(or on the computer)?
+- "*Save data*" — saves the current compound. Modify the name as needed and
+  keep it within 27 characters (Igor name limit). Retain the quotes around the
+  name.
+- "*Load data*" — loads a saved compound.
+- "*Load matrix data*" — loads a compound as the matrix only.
+- "*New compound*" — clears all settings to start a new compound definition.
 
-Use buttons “Save data” to save current compound, modify name as necessary – keep in mind to keep the “” around the name and use characters allowed as file names. Limit name to 27 characters or so (Igor string name limitation).
+.. note::
 
-Use buttons “Load data” to load data in the tool and “Load matrix data” to load data as matrix ONLY…
+   Loading saved data from ASCII files introduces small rounding errors that
+   affect (Δρ)² calculations via "*Load matrix data*".
 
-Comment: Due to rounding related to saving the data in ASCII file, there will be rounding error when using “Load matrix data” in the :math:`(\Delta \rho)^2` calculations…
-
-Button “New compound” will clear all settings in the tool to start creation of the new compound.
-
-**New comments on saving the data:** From this release the compound data are saved with in the same place where the Irena macros are stored. This is to allow users of limited privileges to run and operate. See above comments on macros installation.
+From the current release, compound data are saved in the same location as the
+Irena macros, allowing users with limited file system privileges to use the
+feature.
 
 .. _Anomalous_Calculator:
 
@@ -73,56 +89,61 @@ Button “New compound” will clear all settings in the tool to start creation 
 Anomalous calculator
 --------------------
 
-The package includes Cromer-Liberman code for calculating energy-dependent (anomaouls) effects. The button “Anomalous calculator” on the “Substance editor and Scattering contrast calculator” calls up new window…
+The package includes Cromer-Liberman code for calculating energy-dependent
+(anomalous) scattering effects. Click "*Anomalous calculator*" in the Substance
+editor panel to open the anomalous calculator:
 
 .. Figure:: media/ScattContCalc4.png
-        :align: center
-        :width: 85%
+   :align: center
+   :width: 85%
 
-Use of this tool:
+Select one or two compounds that have been created and saved in the basic
+scattering contrast calculator. If only one compound is selected, use vacuum
+as the second phase (checkbox below the compound selector). Choose whether to
+calculate at a single energy or over an energy range. Note that calculating
+over many points can take a significant amount of time.
 
-Select one or two compounds created and SAVED in previous (regular scattering contrast calculator). If you select only one, use vacuum as second phase (checkbox below the selection of compounds). Then select, if you want to calculate values at one energy or in energy range. Note, that calculating values for large number of points may take quite a long time.
+To select two compounds, Shift-click. Enter the appropriate thickness and
+click "*Recalculate*". Enter the Q value if results at a specific Q are needed
+(for small-angle scattering, assume Q = 0).
 
-To select two compounds hold shift. Then input right thickness and click “Recalculate”. Fill in the Q if you need values at higher Q values (for small-angle scattering assume Q=0)…
-
-**For single energy following appears:**
+**Single energy**
 
 .. Figure:: media/ScattContCalc5.png
-        :align: center
-        :width: 85%
+   :align: center
+   :width: 85%
 
-
-Note, that table on right got filled with all relevant numbers – f’ and f” , :math:`\mu`, and related values for each compound separately. Note, that f’ and f” are here with two different units as output – in electrons per molecule unit and in 10\ :sup:`10` cm\ :sup:`-2`. Lowest number is :math:`(\Delta \rho)^2` between the two compounds at this energy…
+The table on the right is populated with all relevant values: f', f",
+μ, and related quantities for each compound. f' and f" are given in two unit
+conventions — electrons per molecule and 10\ :sup:`10` cm\ :sup:`-2`. The
+lowest value shown is (Δρ)² between the two compounds at this energy.
 
 .. index::
     Scattering Contrast Calculator; Transmission Calculation
 
-NOTE : line :math:`transm = exp(- \mu T)` is calculated transmission of your materials, with the thickness in the "Thickness" field and energy where this calculation was done. The thickness is same for each material and in [mm]. This can be easily used to pre-calculate necessary thickness of the sample before experiments. If you change the thickness, these transmission values get automatically recalculated.
+The line ``transm = exp(−μT)`` gives the calculated transmission of each
+material at the entered thickness (in mm) and selected energy. Changing the
+thickness automatically recalculates transmission — useful for estimating
+required sample thickness before an experiment.
 
-**For range of energies:**
+**Range of energies**
 
 .. Figure:: media/ScattContCalc6.png
-        :align: center
-        :width: 85%
+   :align: center
+   :width: 85%
 
-
-Fill in the range of energies, number of steps you want to calculate
-(equidistantly spaced between min and max energies) and other
-parameters. The push “Recalculate”.
-
-The buttons “Display” create graphs of appropriate parameter, see for
-example below:
+Enter the energy range, number of calculation steps (equally spaced between
+minimum and maximum), and other parameters, then click "*Recalculate*". The
+"*Display*" buttons create graphs of the calculated parameters:
 
 .. Figure:: media/ScattContCalc7.png
-        :align: center
-        :width: 100%
+   :align: center
+   :width: 100%
 
-
-Buttons “Save …” save the wave with the data into Igor folder of users
-choice. The dialog should be easy to use and allows user to create new
-folder, select name for new data etc. Note, the data are saved as waves
-with so called “x-scaling”. To learn more read Igor manual.
+The "*Save ...*" buttons save the result waves to an Igor folder of your
+choice. The data are saved with x-scaling — see the Igor Pro manual for
+details.
 
 .. Figure:: media/ScattContCalc8.png
-        :align: center
-        :width: 100%
+   :align: center
+   :width: 100%

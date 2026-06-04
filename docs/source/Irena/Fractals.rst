@@ -1,3 +1,4 @@
+.. _irena-fractal-model:
 .. _model.Fractal:
 
 .. index:: model; Fractal
@@ -5,112 +6,166 @@
 Fractal model
 =============
 
-This model has been developed by Andrew J. Allen from NIST (Andrew.allen@nist.gov). The model allows to combine two volume and two mass fractals in much similar way as the Unified model does. The parameters from this model have advantage of being more “fractal-related” than the values from Unified. There is short pdf file included in the distribution, which served as basis for my design of this tool. Note, that this tool is actually port of Andrew's original Fortran code into Igor, my code was verified to give same results as this Fortran code. Citation for this model all users should cite is: G. Gadikota, F. Zhang, A.J. Allen; “Towards understanding the microstructural and structural changes in natural hierarchical materials for energy recovery: In-operando multi-scale X-ray scattering characterization of Na- and Ca-montmorillonite on heating to 1150 °C,” (with supplementary material) Fuel, 196, 195-209 (2017). DOI: 10.1016/j.fuel.2017.01.092
+This model was developed by Andrew J. Allen (NIST, Andrew.allen@nist.gov).
+It allows combining up to two volume (mass) fractals and two surface fractals
+in a manner similar to the Unified model. The parameters have the advantage of
+being more directly fractal-related than those from Unified Fit. A short PDF
+description is included in the distribution and served as the basis for this
+implementation. The Igor code is a port of Andrew's original Fortran code and
+has been verified to produce identical results.
 
+Please cite:
 
-Important points  to proper analysis using this model are:
-  Make realistic initial estimates of the parameters - including fixing any flat background term so it is effectively subtracted out from the model (can be refined slightly in a final fit). Porod law fitting can be used in an appropriate q-range to do this. This also has the advantage of providing a total surface area, St from which the “rough” surface-fractal surface area, Ssf, can be subtracted out to give the volume-fractal surface area, Svf, etc.
+   G. Gadikota, F. Zhang, A. J. Allen, "Towards understanding the
+   microstructural and structural changes in natural hierarchical materials for
+   energy recovery: In-operando multi-scale X-ray scattering characterization
+   of Na- and Ca-montmorillonite on heating to 1150 °C," *Fuel*, 196, 195–209
+   (2017). DOI: 10.1016/j.fuel.2017.01.092
 
-  The eta parameter should also probably be fixed at ≈ 0.5 initially (again some final refinement can be considered when everything else is done.
+Important points for proper analysis
+--------------------------------------
 
-**The key problem for the user in all this is the following:**
-If you have just one volume-fractal and one surface-fractal component, plus a background, there are in principle 9 fitting parameters. However, for each region of the scattering curve that has essentially one curvature, you typically only need 3 fit parameters for fit convergence in that region.
-So, to fit everything you really need to see at least 3 distinct regions of the USAXS/SAXS curve, and just 3 of the above parameters (a different 3 in each case) need to be dominant in each regime! A sensible trial of reasonable parameter values should be experimented with first, then fit parameters introduced progressively using what is known (at least qualitatively) to help discover and refine what is unknown quantitatively. Usually, I like to get semi-respectable fits for the whole curve, then focus on particular regions of the data to refine one set of component parameters, then fix most of these and move on to the next region, etc.
+* Make realistic initial parameter estimates. Fix the flat background to an
+  effective subtracted value initially (a small amount of refinement in the
+  final fit is acceptable). Porod law fitting in an appropriate Q range is
+  useful for this — it also provides a total surface area S\ :sub:`t` from
+  which the rough surface-fractal surface area S\ :sub:`sf` can be subtracted
+  to yield the volume-fractal surface area S\ :sub:`vf`.
+* The η parameter should generally be fixed at approximately 0.5 initially,
+  with limited refinement in the final fit.
 
-Note, that the short write up below was written for studies of cement and therefore some of the terms are material-specifically called.
+**Key challenge:** For a single volume-fractal and single surface-fractal
+component plus background, there are in principle 9 fitting parameters. However,
+each distinct region of the scattering curve with approximately one curvature
+typically requires only 3 parameters for convergence in that region. A
+minimum of 3 distinct regions in the data is needed to fit all parameters
+reliably.
 
-**Model description**
+A recommended fitting approach: start with reasonable initial parameters and
+achieve a semi-acceptable fit to the whole curve, then focus on individual Q
+regions to refine each parameter set while fixing the others. Iterate until
+all parameters are well constrained.
+
+Model description
+------------------
 
 .. Figure:: media/Fractals1.png
    :align: center
    :width: 100%
 
-
 .. Figure:: media/Fractals2.png
-      :align: center
-      :width: 100%
+   :align: center
+   :width: 100%
 
+Use
+---
 
-**Use**
+.. note::
 
-*Important* : If you are using USAXS data, these must be desmeared, not slit smeared. The tool will not "see" the slit smeared data. Turns out, it was really difficult to use slit smeared data for users.
+   USAXS data used with this model must be desmeared (DSM). The tool does not
+   recognize slit-smeared data.
 
-I do not have included real fractal data, but for purpose of GUI description and function description, the included data should be sufficient.
+Real fractal data are not included in the distribution, but the included
+example data are sufficient for demonstrating GUI functionality.
 
-Start the tool from SAS menu under “Fractal model”. GUI panel similar to all other tools appears, select “Use QRS data structure” and pick the data set available. The push “Graph” button to create graphs.
+Start the tool from the SAS menu under "*Fractal model*". Select
+"*Use QRS data structure*" and pick the available dataset, then click "*Graph*"
+to create the graphs.
 
-Note, that the “Subtract background” variable next to data selection allows to subtract known FIXED large background. The “SAS Background” at the bottom is similar term, but this one can be fitted during the fitting routine.
+The "*Subtract background*" variable next to the data selection allows
+subtracting a known fixed large background before fitting. The "*SAS Background*"
+parameter at the bottom is a similar term but is refined during fitting.
 
-**Select “Use mass fractal 1” for starters and other checkboxes as in image below:**
+Select "*Use mass fractal 1*" and configure checkboxes as shown:
 
 .. Figure:: media/Fractals4.png
-         :align: center
-         :width: 100%
+   :align: center
+   :width: 100%
 
+Any combination of the two mass fractals and two surface fractals can be used.
 
-Note, that you can combine ANY combination of the two mass fractals and two surface fractals.
+Mass fractal parameters
+~~~~~~~~~~~~~~~~~~~~~~~
 
-Comments on Mass fractal parameters:
+**Particle volume** — volume of a single primary particle.
 
-Most parameters should be closely related to the ones mentioned above in description of the method.
+**Particle radius** — radius of a primary particle.
 
-**Particle volume** – volume of particles
+**Dv** — volume-fractal dimension.
 
-**Particle radius** – size of the particle
+**Correlation length** — mean nearest-neighbor separation between particles.
 
-**Dv** - fractal dimension
+**Particle aspect ratio (beta)** — primary particles are spheroids with
+dimensions R × R × β·R.
 
-**Correlation length** – distance between the particles
+* β = 1: spheres (most common)
+* β > 1: elongated spheroids (prolate, "cigars")
+* β < 1: flattened spheroids (oblate, "disks")
 
-**Particle aspect ratio (beta)** – Particles are spheroids with this aspect ratio - their dimensions are R x R x beta\*R. Most often aspect ratio should be *1* if particles are approximately spheres (most common), larger than *1* are elongated spheroids (~cigars), lower than *1* for prolated particles (~disks). Note, that the code uses monodispersed Form factors (sphere or spheroid) and this results in Bessel function oscillations at high-q values. This is rarely realistic and unless there is Surface fractal at higher q values, model looks weird.
+The code uses monodisperse form factors (sphere or spheroid), which produce
+Bessel-function oscillations at high Q. These oscillations are rarely
+physically realistic. Unless a surface fractal is present at high Q to obscure
+them, the model may appear unrealistic in that range.
 
-
-**Use UF Particle Form Factor** Starting from Irena version 2.70 you can choose checkbox "Use UF Particle Form Factor". In this case code will use Unified Fit Sphere form factor which is approximate Form factor for sphere using Unified Fit model. Aspect ratio beta is not used (it is 1 since this is sphere). Note, in the figure below that there are no oscillations at high-q.
-
-**Polydispersity index** When you choose checkbox "Use UF Particle Form Factor", Polydispersity index (PDI) becomes available. This is value representing size distribution of primary particles. PDI=1 is completely monodispersed system, PDI=3 is when Porod's region completely merges with Guinier area and highly polydispersed system has PDI up to 10. I expect typical systems to need PDI between 1 - 5
-
+**Use UF Particle Form Factor** (from Irena version 2.70) — uses the Unified
+Fit approximate sphere form factor, which is free of Bessel-function
+oscillations. Aspect ratio β is fixed at 1 when this option is selected.
 
 .. Figure:: media/Fractals4a.jpg
-         :align: center
-         :width: 100%
+   :align: center
+   :width: 100%
 
+**Polydispersity index (PDI)** — available when "*Use UF Particle Form Factor*"
+is selected. Represents the size distribution of primary particles.
 
-**Contrast** – contrast…
+* PDI = 1: monodisperse
+* PDI = 3: Porod region fully merges with the Guinier region
+* PDI = 5–10: highly polydisperse
 
-**Volume filling** – see above
+Typical systems require PDI between 1 and 5.
 
-**Internal integration Num pnts** – internal parameter. Number of point in the numerical integral which I use to calculate orientational average of the particle form factor. Small number of points (especially at high aspect ratios) can cause artifacts. Large number of points increases significantly calculation time. My suggestion is to lower the number of points to find a good starting conditions and for final fitting may be increase, or to recalculate for testing results with higher (double) number of points at the end – if no change is observed, the number of points is selected correctly.
+**Contrast** — scattering contrast.
 
-Suggestions: check solution for particle aspect ratio 2 and 0.5, keep integral integration num of point reasonably high (over 100 for sure, likely around 500) and change it only if you seem to see artifacts. Keep volume filling between about 0.4 and 0.6.
+**Volume filling** — volume fraction of the fractal phase.
 
-**Now select “Use Surf Fractal 1” and deselect the mass fractal:**
+**Internal integration Num pnts** — number of points in the numerical
+orientational-average integral. Too few points (especially at high aspect
+ratios) cause artifacts; too many increase calculation time significantly.
+
+Recommended approach: start with a lower number of points to find good initial
+parameters, then increase to verify convergence for the final fit. If the
+result does not change when the number of points is doubled, the chosen value
+is adequate. Keep volume filling between approximately 0.4 and 0.6.
+
+Surface fractal parameters
+~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Select "*Use Surf Fractal 1*" (and deselect the mass fractal if testing
+independently):
 
 .. Figure:: media/Fractals5.png
-         :align: center
-         :width: 100%
-
+   :align: center
+   :width: 100%
 
 .. Figure:: media/Fractals6.png
-            :align: center
-            :width: 40%
+   :align: center
+   :width: 40%
 
+**Smooth surface** — upper limit of smooth surface scattering (see model
+description above).
 
-Bottom picture shows updated Surface Fractal panel.
+**Ds** — surface-fractal dimension.
 
-Comments on surface fractal parameters:
+**Correlation length** — correlation length as defined in the theory.
 
-Again, for meaning check the description above.
+**Qc (Terminal Q)** — Q value at which scattering transitions from the surface
+fractal regime to smooth-surface Porod scattering (I ∝ Q\ :sup:`-4`).
 
-**Smooth surface** – limits of smooth surface as described above
+**Qc width [% of Qc]** — smoothing parameter for the turnover at Q\ :sub:`c`.
+Typical value: 10% (options: 5, 10, 15, 20, 25%).
 
-**Ds** – fractal dimension
+**Contrast** — scattering contrast.
 
-**Correlation length** – correlation length as described in the theory
-
-**Qc (Terminal Q)** – Q value at which scattering reaches smooth surface and turns into Porod’s scattering (Int ~ Q\ :sup:`-4`).
-
-**Qc width [% of Qc]** – smoothing parameter for the turn over in the function used to enforce the Qc. Typically 10%, can be 5, 10, 15, 20, and 25%.
-
-**Contrast** - contrast…
-
-Method of finding the solution is same as with Unified fit – first manually find good starting conditions and then select appropriate range of data with cursors and use fitting (select appropriate parameters to fit) to optimize data using least square fitting…
+The fitting approach is the same as for Unified Fit: first find good starting
+conditions manually, then use cursors to select the appropriate Q range and
+apply least-squares fitting with the desired parameters free.

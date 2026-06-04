@@ -1,90 +1,99 @@
+.. _irena-introduction:
 .. _introduction:
 
 .. index::
     Irena; Introduction
 
-Introduction Irena
-==================
+Introduction — Irena
+====================
 
-Jan Ilavsky and Peter R. Jemian, *“Irena: tool suite for modeling and analysis of small-angle scattering”*, Journal of Applied Crystallography, vol. 42 (2009). Please e-mail me, if you need copy.
-
-Manual |release| for Irena version 2.62 for Igor 8.04 or higher
+Manual |release| for Irena version 2.62 for Igor Pro 8.04 or higher.
 
 |today|
 
 **Jan Ilavsky**
 
-**Acknowledgement of authors for selected included methods:**
+If you use Irena in published work, please cite:
 
-  #.  Least Squares Modeling & other methods – Jan Ilavsky
-  #.  Size distribution – Pete R. Jemian (Maximum entropy/regularization)
-  #.  Unified model – Greg Beaucage
-  #.  Gunier-Porod model - Bualem Hammouda
-  #.  Pair Distance Dist. Function – Jan Ilavsky, Pete Jemian (regularization)
-  #.  Fractals model – Andrew J. Allen
-  #.  Reflectivity (aka Parrat’s code) – Andrew Nelson
-  #.  Desmearing – Pete R. Jemian
-  #.  Ciccariello-Benedetti model - S. Ciccariello
+   Jan Ilavsky and Peter R. Jemian, *"Irena: tool suite for modeling and
+   analysis of small-angle scattering"*, Journal of Applied Crystallography,
+   vol. 42 (2009).
 
+**Acknowledgements — contributors of selected methods:**
 
-Disclaimer:
+  #. Least squares modeling and other methods — Jan Ilavsky
+  #. Size distribution — Pete R. Jemian (maximum entropy/regularization)
+  #. Unified model — Greg Beaucage
+  #. Guinier-Porod model — Bualem Hammouda
+  #. Pair distance distribution function — Jan Ilavsky, Pete Jemian (regularization)
+  #. Fractals model — Andrew J. Allen
+  #. Reflectivity (Parratt's code) — Andrew Nelson
+  #. Desmearing — Pete R. Jemian
+  #. Ciccariello-Benedetti model — S. Ciccariello
 
-These macros represent a collaborative work in progress and it is very likely that not all features are finished at any given time. Therefore, some features may not work fully or at all. Please note, while I try my best to verify the results, no guarantees can be made as to the reliability of these results. Please, verify results in some other way. Please report any bugs to me, I will do my best to fix them ASAP. I provide limited support for users of these macros. Limited means that my time available for this support is limited. If you need help, e-mail Igor file to me with data so I can work on your data.
+.. note::
 
-ilavsky@anl.gov
+   These macros represent a collaborative work in progress and not all features
+   may be complete at any given time. While every effort is made to verify
+   results, no guarantees can be made as to their reliability. Please verify
+   results independently and report any bugs to ilavsky@anl.gov. Support is
+   provided on a best-effort basis.
 
+Description
+-----------
 
----------------------------------------------------------------------------
+The *Irena* package is a suite of Igor Pro (WaveMetrics, version 8.04 or
+higher) macros for the evaluation of small-angle scattering data. It was
+designed to work seamlessly with data from the APS USAXS instrument (currently
+beamline 9ID, Advanced Photon Source, Argonne, IL) reduced using the *Indra*
+package. It also works with any SAS dataset that provides a scattering vector
+(Q), intensity, and optionally intensity uncertainty. Specific releases support
+Q-resolution data. The package integrates easily with the *Nika* 2D data
+reduction package (QRS naming system) and provides a customizable import tool
+for most column-format ASCII data from other SAS instruments.
 
-**Description**
+*Irena* contains the following components:
 
-The “\ *Irena*\ ” package is a suite of Igor Pro (Wavemetrics, version Igor 8.04 or higher) macros for the evaluation of small-angle scattering data. It has been designed to use seamlessly data from APS USAXS instrument (currently beamline 9ID, Advanced Photon Source, Argonne, IL); reduced using “Indra” package. Further it can work easily with any SAS data, which have scattering vector (q), Intensity, and (optional) Intensity uncertainty (“error”). Latest releases can, in specific cases (only) use also q resolution. It can easily use “qrs” (or "qis", NIST) naming system. It easily integrates with 2D (area detector) SAXS/WAXS data reduction package “Nika” which uses the qrs naming system. Its use for most other data is made easy by a customized import tool, which should be able to handle most “column-type” ASCII data from various SAS instruments.
-
-*Irena* contains following parts:
-
-#. **Simple Fits and Analysis -** 
-    *  *Guinier*
-    *  *Porod*
-    *  *Sphere*, *Spheroid*
-    *  *Guinier rod*, *Guinier sheet*
-    *  *Invariant*
-    *  *1D correlation*
-    *  *Power law*
-#. **Size distribution** using Maximum Entropy, Total Non-negative least square (TNNLS) & Regularization methods for evaluation of small-angle scattering from scatterers represented by number of different form factors.
-#. **Modeling** (II) of SAS from up to 10 model "populations" (either Size distribution, Unified level, or diffraction peaks each) to up to 10 different data sets… VERY powerful tool. Number of form factors and structure factors.
-#. **Unified fit model** for fitting SAS data using up to 5 levels of combinations of Guinier and power law dependencies.
-#. **Gunier-Porod model** for fitting of SAS data using up to 5 "levels"
+#. **Simple Fits and Analysis**
+    * Guinier
+    * Porod
+    * Sphere, Spheroid
+    * Guinier rod, Guinier sheet
+    * Invariant
+    * 1D correlation
+    * Power law
+#. **Size distribution** using maximum entropy, total non-negative least squares (TNNLS), and regularization methods for evaluating small-angle scattering from scatterers represented by various form factors.
+#. **Modeling (II)** of SAS from up to 10 model "populations" (size distributions, Unified levels, or diffraction peaks) fit simultaneously to up to 10 datasets. Includes many form factors and structure factors.
+#. **Unified Fit** for fitting SAS data using up to 5 levels of combined Guinier and power-law dependencies.
+#. **Guinier-Porod model** for fitting SAS data using up to 5 levels.
 #. **Pair distance distribution function** (PDDF, p(r)).
-#. **Fractal model**  combination of 2 mass and 2 surface fractals.
-#. **Systems specific models** tool with option for:
-    *  *Debye-Bueche model* for scattering from gels
-    *  *Treubner\_Strey model* for small-angle diffraction
-    *  *Cicarriello-Benedetti model* for layer on smooth surfaces
-    *  *Hermans* - few versions. 
-#.  **BioSAXS tools** Separate set of tools to support typical flow of data handling and analysis in BioSAXS:  
+#. **Fractal model** — combination of up to 2 mass fractals and 2 surface fractals.
+#. **Systems-specific models** including:
+    * Debye-Bueche model for scattering from gels
+    * Treubner-Strey model for small-angle diffraction
+    * Ciccariello-Benedetti model for layers on smooth surfaces
+    * Hermans — several versions
+#. **BioSAXS tools** — a dedicated toolset supporting the typical BioSAXS workflow:
+    * Import data
+    * Average, subtract, scale
+    * Plot
+    * Simple fits
+    * Merge SAXS-WAXS
+    * Export
+    * PDDF + MW (Gnom, etc.)
+    * Concentration series
+#. **Small-angle diffraction** tool for modeling diffraction in the small-angle range.
+#. **Powder diffraction fitting (WAXS)** for fitting peak positions in powder diffraction-type data.
+#. **X-ray and neutron reflectivity** calculations using Parratt's recursive method.
+#. **Scattering contrast calculator** including anomalous (energy-dependent) effects.
+#. **Data import tools** — imports ASCII, HDF5 canSAS NeXus, or canSAS XML files. ASCII data must be in columns separated by whitespace, tabs, or other delimiters. Creates user-friendly logical folder structures within the Igor experiment.
+#. **HDF5 Browser** — interactive two-pane tool for browsing, comparing, and transferring data between HDF5 files and Igor Pro experiments. Supports metadata preservation, drag-and-drop, and attribute round-tripping.
+#. **Data export tool** — exports to ASCII, HDF5 canSAS NeXus, or canSAS XML files.
+#. **Desmearing** for finite-slit-length smeared data.
+#. **Data manipulation tools** — merging, smoothing, adding, and subtracting SAS datasets. Input datasets are not required to use the same naming convention.
+#. **Two plotting tools** — generate various SAS plot types (Porod, Guinier, Kratky, Zimm, etc.) with basic fitting. Save and reapply plot styles for reproducible publication-ready figures. Plotting tool I supports two types of 3D graphs and movie export.
+#. **Data mining tools** — search for results (variables, strings, waves) across Igor experiment folders with flexible output options.
+#. **Scripting tool** — automates Size Distribution and Unified Fit analysis across multiple datasets.
+#. Folder structure creation tool for unstructured QRS data, and several other utilities.
 
-    *  *Import* data
-    *  *Avergae*, *Subtract, *Scale*
-    *  *Plot*
-    *  *Simple fits*
-    *  *Megre SAXS-WAXS*
-    *  *Export*
-    *  *PDDF+MW(Gnom...)*
-    *  *Concentration series*
-#.  **Small-angle diffraction** tool to model diffraction in small-angle scattering area
-#.  **Powder diffraction fitting (WAXS)** to fit peak positions for powder diffraction like data.
-#.  **X-ray & neutron reflectivity** calculations using Parrat’s recursive method
-#.  **Scattering contrast calculator** including anomalous effects
-#.  **Data import tools**. Allows importing ASCII, HDF5 canSAS Nexus, or canSAS XML files. For ASCII SAS data need to be written in columns, separated by white space, tab or other separators. Allows creating user-friendly logical folder structure within Igor experiment.
-#.  **HDF5 Browser** - interactive two-pane tool for browsing, comparing, and transferring data between HDF5 files and Igor Pro experiments. Supports metadata preservation, drag-and-drop, and attribute round-tripping.
-#.  **Data export tool** – exports into ASCII, HDF5 canSAS Nexus, or canSAS XML files. For ASCII the data are written in columns, separated by white space, tab or other separators.
-#.  **Desmearing** for finite-slit length smeared data
-#.  **Data manipulation tools**. Allows merging, smoothing, adding together and subtracting of SAS data sets. These data sets do not have to necessarily use the same naming convention.
-#.  **Two plotting tools**. This tool allows to generate various SAS plots (Porod, Guinier, Kratky, Zimm…) and do some basic fitting. Further the tool allows to save plot styles with various formatting parameters and then fast reapply these on other data sets, generating exactly same plots useable for publications. Plotting tool I can generate two types of 3D graphs - wire graph and "Gizmo" graph. It can also generate movies from the data.
-#.  **Data “mining” tools** – allows searching for results (variables/strings/waves …) in the folders of Igor experiment with flexible output options.
-#.  **Scripting tool**. Tool to run (Size distribution and Unified fit for now) tools on multiple data sets at once.
-#.  Tool to create folder structure for unstructured QRS data. And few other tools…
-
-Methods use as similar as reasonably possible. This should simplify learning curve for the users…
-
-Name “\ *Irena”* of this package, for those really interested, is the name of my wife. All my packages have female names, for example “\ *Nika*\ ” is the nickname of my daughter (Veronika), etc. As choice of names is more or less arbitrary, I felt that selecting the name of my wife for this large and important package will be one way to give her credit for all the time I spent working on this package and not with my family.
+All methods use as similar an interface as reasonably possible to minimize the learning curve.
