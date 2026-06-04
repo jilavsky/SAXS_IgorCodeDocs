@@ -1,3 +1,4 @@
+.. _docs-installation:
 .. _Installation:
 
 Installation
@@ -33,7 +34,7 @@ Alternative download site is Github :
 
 https://github.com/jilavsky/SAXS_IgorInstaller/tree/master/Igor_GitHub.
 
-To test and use my code you can use demo version of Igor Pro - Igor pro will run on computer where it was not installed before for one month as full featured demo. To use this, find computer which did not have yet Igor Pro installed, install the latest version of Igor Pro from https://www.wavemetrics.com, and you are set.
+To test and use the code you can use the demo version of Igor Pro - Igor pro will run on computer where it was not installed before for one month as full featured demo. To use this, find computer which did not have yet Igor Pro installed, install the latest version of Igor Pro from https://www.wavemetrics.com, and you are set.
 
 .. _youtube:
 
@@ -44,14 +45,14 @@ Youtube channel for Irena and Nika
 
 .. _YouTubeChannel:
 
-I have Youtube channel for instructional movies. Search for example “Ilavsky Irena” on Youtube and you will see something like this:
+A YouTube channel with instructional videos is available. Searching “Ilavsky Irena” on YouTube will show results like this:
 
 .. Figure:: media/Introduction0.png
    :align: center
    :width: 420px
 
 
-The totally weird link to the channel is here:
+The channel link:
 
 https://www.youtube.com/channel/UCDTzjGr3mAbRi3O4DJG7xHA
 
@@ -64,7 +65,7 @@ This channel contains instructional movies how to install the package and how to
 Courses
 -------
 
-Over the last few years I have had many courses at the APS and around the world either at institutions or at conferences. These, typically two-day courses, teach how to use Irena. Some news about these courses should be available on:
+Courses have been offered at the APS and at institutions and conferences around the world. These, typically two-day courses, teach how to use Irena. Some news about these courses should be available on:
 
 http://small-angle.aps.anl.gov
 
@@ -84,7 +85,7 @@ To install the macros, you need to install first Igor Pro (https://www.wavemetri
 
 *Igor 6* Igor 6.37 is last supported by *Irena* version 2.62 and *Nika* version 1.761 - and you need the latest Igor Pro 6 release (6.37). These versions are still available for the APS web site as one zip file and need to be installed manually, see https://usaxs.xray.aps.anl.gov/software/irena and https://usaxs.xray.aps.anl.gov/software/nika. **Upgrade.**
 
-Movies with instructions and explanation are available on my :ref:`YouTube channel <YouTubeChannel>`.
+Movies with instructions and explanations are available on the :ref:`YouTube channel <YouTubeChannel>`.
 
 There are two main ways to install the macros:
 

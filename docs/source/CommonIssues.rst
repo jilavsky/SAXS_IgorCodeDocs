@@ -33,7 +33,7 @@ Summary: For best performance select 100% DPI setting ("Change the size of text,
 
 When using Windows 7, 8, or 10, typically with high resolution displays (aka 4k, UHD, etc.), users often choose to set display number of pixels to high number but since the text and icons become small to read, they increase DPI - or as Windows 10 names it "Change the size of text, apps, and other items". This tells applications to scale up (if more than 100%) the windows so they can still be readable even with large pixel displays. Igor Pro 8 does not handle this very good - it seems that it can only scale panels up by full 100% steps (100%, 200%, 300%,...). Igor 9 is much better in handling different screen resolutions.
 
-This means, that under some combination of **display resolution** (number of pixels) *and* **DPI settings** user can have the bottoms of the panels cut off and controls  which should be there are missing. Unluckily, even after working with Wavemetrics on this the only solution I know about is to modify display settings. Note, that future (as of 4/28/2017) versions of Irena and Nika will present users with error when they estimate that screen settings are incorrect.
+This means, that under some combination of **display resolution** (number of pixels) *and* **DPI settings** user can have the bottoms of the panels cut off and controls  which should be there are missing. After working with WaveMetrics on this, the only known solution is to modify display settings. Note, that future (as of 4/28/2017) versions of Irena and Nika will present users with error when they estimate that screen settings are incorrect.
 
 Here is example of panel which is **missing bottom controls** due to incorrect settings.
 
@@ -70,7 +70,7 @@ And here is the same Igor panel with this setting, note the presence of the **bo
 
 You may need to change now the display pixel resolution (numbers of pixels setting) to less pixels so you can actually read the text. Or get larger display.
 
-Note, that it should be possible to use higher DPI settings with enough pixels on the screen. Above example was done with HD TV display setting (1920x1080 pixels). My display is 15 inch UHD (aka 4k) display, capable of displaying up to 3840 x 2160 pixels. But at that resolution it is basically humanly impossible to read anything. It is likely that I could use 4k setting AND 200% DPI setting, but I have seen some artifacts. Instead of raising the DPI to 200% I chose less pixels (HD resolutions) and 100% DPI. This has similar/same result with respect to size of text and icons, but Igor Pro works...
+Note, that it should be possible to use higher DPI settings with enough pixels on the screen. Above example was done with HD TV display setting (1920x1080 pixels). For example, on a 15-inch UHD (4K) display capable of 3840×2160 pixels, text becomes unreadable at native resolution. Using 4K resolution with 200% DPI may work but has shown some artifacts in testing. An alternative is to use HD resolution (1920×1080) at 100% DPI — comparable text and icon size, but Igor Pro works reliably.
 
 
 .. _HDF5xopError:
