@@ -9,7 +9,7 @@ Manual |release| for Indra (USAXS data reduction) version 2.05 for Igor Pro
 9.05 and higher.
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 1
 
    Introduction
    DataCollection

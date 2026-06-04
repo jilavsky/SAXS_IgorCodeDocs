@@ -8,7 +8,7 @@ Irena manual
 Manual |release| for Irena version 2.71 for Igor Pro 8.0 and higher.
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 1
 
    Introduction
    Important

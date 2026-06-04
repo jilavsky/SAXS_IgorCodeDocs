@@ -8,7 +8,7 @@ Nika manual
 Manual |release| for Nika version 1.75 for Igor Pro 9.05 and higher.
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 1
 
    Introduction
    Main
