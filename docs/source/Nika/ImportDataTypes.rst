@@ -1,183 +1,256 @@
+.. _nika-import-data-types:
+
 .. index:: Nika; Input 2D data types
 
-Supported Data Types
+Supported data types
+=====================
+
+Igor native loaders
 --------------------
 
-**Igor native loaders**
-
-These are file types, which Nika can load natively. These can be loaded on any platforms:
+These file types are loaded natively by Nika and are available on all platforms:
 
 .. index:: input image; tiff
 
-*tif*    .... tif file, assumed scientific (one layer) tif, not colored.
+*tif* — TIFF file; assumed to be a single-layer scientific TIFF (not color).
 
 .. index:: input image; binary
 
-*GeneralBinary* .... flexible binary data loader :ref:`see description <import.data.Binary>`.
+*GeneralBinary* — Flexible binary data loader. :ref:`See description. <import.data.Binary>`
 
 .. index:: input image; Pilatus
 
-*Pilatus* .... should load NON COMPRESSED Pilatus data. Opens new screen with options. As of 1.66 can also handle compressed (BYTE\_OFFSET) Cbf files. :ref:`See description. <import.data.Pilatus>`
+*Pilatus* — Loads non-compressed Pilatus data. Opens an additional panel with
+options. As of version 1.66, also handles compressed (BYTE_OFFSET) CBF files.
+:ref:`See description. <import.data.Pilatus>`
 
 .. index::
     input image; Nexus
     input image; NxSAS
 
-*Nexus* .... HDF5 based format used at APS, Diamond, … Used at 9ID SAXS/WAXS, 15ID SAXS etc. Contains a lot of extra information, which is stored in wave note for user use. See discussion earlier in the manual.
+*Nexus* — HDF5-based format used at APS, Diamond, and other facilities.
+Used at 9ID SAXS/WAXS, 15ID SAXS, and others. Stores extensive metadata
+accessible via wave notes. See the NeXus chapter in this manual.
 
 .. index:: input image; HDF5
 
-*HDF5* .... under development at this time. Major headache as it is so flexible, that it is nearly useless. I have capabilities but no clear example of hdf5 file being used in practice, so if you have such data, send me example so I can support it.
+*HDF5* — Under development. The HDF5 format is highly flexible, which makes
+writing a generic loader difficult. If you have HDF5 data from a specific
+instrument that Nika does not yet support, please send an example file for
+testing.
 
 .. index::
       input image; Bruker CCD
       input image; SMART
 
-*BrukerCCD* .... Bruker SMART software for CCD
+*BrukerCCD* — Bruker SMART CCD software format.
 
 .. index:: input image; mpa
 
-*mpa* .... The software is MPA-NT (or just MPANT), version 1.48. It is from FAST ComTec, a German company that supplies multi-channel, multiparameter data collection and analysis tools. The hardware is the MPA-3 Dual-parameter multichannel analyzer (from FAST ComTec). That hardware provides the interface to multiwire 2D gas-filled X-ray detector from Molecular Metrology (recently purchased by Rigaku/Osmic).
+*mpa* — MPA-NT (MPANT) version 1.48 format from FAST ComTec. Used with the
+MPA-3 dual-parameter multichannel analyzer and Molecular Metrology
+(Rigaku/Osmic) multiwire 2D gas-filled X-ray detectors.
 
 .. index:: input image; DND
 
-*DND/txt* .... This is loader specifically for data from DND CAT and APS. The data are tif files, but Nika will read text processing record, extract appropriate parameters and use those for reprocessing of the data. There is specific chapter in the manual on use of data from DND CAT.
+*DND/txt* — Loader for DND CAT (APS) data. Raw data are TIFF files, but Nika
+reads an associated text processing record to extract reduction parameters and
+reprocesses the 2D data. See the DND CAT section in the Instrument Support
+chapter.
 
 .. index:: input image; mp/bin
 
-*mp/bin* .... mp binary format. for software above, Has header and binary data behind it.
+*mp/bin* — MP binary format. Contains a header followed by binary data.
 
 .. index:: input image; mp/ascii
 
-*mp/asc* .... mp format, ASCII column of data. Assumes squared shape ( N x N pixels).
+*mp/asc* — MP ASCII format. A single column of data; assumes square images
+(N × N pixels).
 
 .. index:: input image; BSRC
 
-*BSRC/Gold* .... BESSERC 1536x1536 Gold detector binary format. It has header and 16 bit binary data
+*BSRC/Gold* — BESSRC 1536×1536 Gold detector binary format. Contains a header
+and 16-bit binary data.
 
 .. index::
     input image; Rigaku
     input image; Raxis
 
-*RIGK/Raxis* .... This is for Rigaku file “86” format. The code should be able to handle any size images, but tested was on 1k x 1k and 1.5k x 1.5 sizes. I tested the code against Fit2D and based the code on Rigaku C-code…. NOTE: known issue is with newer Raxis file format “100”. Need to rewrite this reader.
+*RIGK/Raxis* — Rigaku file format "86". Handles arbitrary image sizes; tested
+on 1k×1k and 1.5k×1.5k images. Based on the Rigaku C-code reference
+implementation and verified against Fit2D output. Note: the newer Raxis format
+"100" is not yet supported.
 
 .. index:: input image; ADSC
 
-*ADSC* .... binary file with header. Header contains “HEADER\_BYTES” as first element.
+*ADSC* — Binary file with header. Header begins with ``HEADER_BYTES``.
 
 .. index:: input image; WinView
 
-*WinView* .... spe Princeton WinView file format.
+*WinView* — SPE Princeton WinView file format.
 
 .. index:: input image; ASCII
 
-*ASCII* .... ASCII matrix file format. If the file has extension “mtx” the code assumes there is accompanying file with extension “prm” which is read and parameters from that file are placed in the right Nika variables.
+*ASCII* — ASCII matrix format. If the file extension is ``.mtx``, the code
+looks for an accompanying ``.prm`` file and reads parameters from it into the
+appropriate Nika variables.
 
-*ASCII* .... 512 x 512 one column ASCII data, present for 512 x 512 pixels.
+*ASCII* (512×512) — Single-column ASCII data for 512×512 pixel images.
 
 .. index:: input image; Igor binary wave
 
-*Ibw* .... Igor binary wave format. This may be useful if the data are produced by Igor.
+*Ibw* — Igor binary wave format. Useful when data are produced by Igor Pro.
 
 .. index:: input image; BSL
 
-*BSL/SAXS* and *BSL/WAXS* .... BSL/OTOKO file format. See http://srs.dl.ac.uk/ncd/computing/manual.bsl.html for description. Note: you need at least 3 files – file with name Xnn000.mdd which is header file, Xnn001.mdd contains one or more SAXS image4s with Xnn002.mdd calibration file, and/or Xnn003.mdd file with one or more WAXS images with Xnn004.mdd calibration file. The set is listed only one – with “proper” file name in the list of samples. Note, that without the inf file the loader fails and gives error. Read details below, please…
+*BSL/SAXS* and *BSL/WAXS* — BSL/OTOKO file format. See
+http://srs.dl.ac.uk/ncd/computing/manual.bsl.html for format details. Requires
+at least three files: ``Xnn000.mdd`` (header), ``Xnn001.mdd`` (SAXS images)
+with ``Xnn002.mdd`` (calibration), and optionally ``Xnn003.mdd`` (WAXS images)
+with ``Xnn004.mdd`` (calibration). The set appears as a single entry in the
+file list. Without the header file, the loader fails with an error.
 
 .. index:: input image; Fuji image plate
 
-*Fuji/imp* .... Fuji image plate reader (BAS2000 and BAS2500). Nightmare. Anyway, this image plate reader should be able to read 8 bit and 16 bit data from these two readers. There is a lot of variability of this code and I was unable to get test data for 16 bit images. Only 8 bits are tested to work at this time. If you have data from other settings, please, send them for testing to me.
+*Fuji/imp* — Fuji image plate reader (BAS2000 and BAS2500). Supports 8-bit and
+16-bit data. Only 8-bit data have been fully tested. If you have 16-bit data
+from a non-default configuration, send a sample file for testing.
 
 .. index:: input image; edf
 
-*ESRF/edf* .... ESRF ID2 “edf” file format. Should read also other edf formats but has not been tested. Reads ONLY files with ONE image per file – principally the format enables multiple frames (images) in one file, but this is really difficult to support. What to do with all those images???
+*ESRF/edf* — ESRF ID2 "edf" file format. Should read other edf formats as well,
+but this has not been verified. Reads only files containing a single image per
+file — the format allows multiple frames per file, but multi-frame support is not
+implemented.
 
 .. index:: input image; FITS
 
-*FITS* .... This is one case of use of Flexible image Transport System (FITS), R. J. Hanisch et al.: FITS standard, Astronomy & Astrophysics 376, 359–380 (2001)). It is likely going to fail on other files, but it is not clear how this is used in SAXS community at this time.
+*FITS* — Flexible Image Transport System format (Hanisch et al., Astronomy &
+Astrophysics, 376, 359–380, 2001). May fail with files that do not follow the
+specific FITS variant tested. Usage in the SAXS community is unclear.
 
 .. index:: input image; mpa/Univ of Cincinnati
 
-*Mpa/UC* .... University of Cincinnati mpa file format.
+*Mpa/UC* — University of Cincinnati MPA file format.
 
 .. index:: input image; SSRL
 
-*SSRLmat* ..... SAXS Format used at SSRL materials science SAXS beamline. Note, this instrument is supported under "Instrument support" where more helpful tool is.
+*SSRLmat* — SAXS format used at the SSRL Materials Science SAXS beamline. For
+full support, use the dedicated SSRL Mat SAXS entry under Instrument Support.
 
 .. index:: input image; TPA
 
-*TPA/XML* ..... Tool used by Quokka, ANSTO, Australia SANS instrument. More support is in Instrument support.
+*TPA/XML* — Format used by the Quokka SANS instrument at ANSTO (Australia).
+Additional support is available under Instrument Support.
 
 .. index:: input image; GE binary
 
-*GE binary* ..... Used by GE area detectors.
+*GE binary* — Used by GE area detectors.
 
-*BSL/SAXS and BSL/WAXS data format* : note, that this “container” with up to 5 files has more information, which can be extracted. Therefore more controls are needed and separate panel opens up, see below:
+BSL/SAXS and BSL/WAXS detail
+------------------------------
+
+The BSL container format can hold up to 5 associated files and contains
+additional information accessible through a dedicated panel:
 
 .. image:: media/ImportDataTypes1.png
    :align: center
    :width: 380px
 
+The top section shows the pixel dimensions of images in the container. In this
+example the container holds 512×512 images; 20 frames were found. You can
+process the average of all frames (check "*Average*") or individual frames.
 
-**Following are loader details:**
+I₀ and Is are extracted from the associated calibration file. I₀ is the
+upstream ion chamber reading (incident flux / monitor); Is is the downstream
+reading. When both are present, the transmission Is/I₀ is calculated and
+displayed in "*Calc. transm.*". If Is is not recorded, the calculated
+transmission will be zero.
 
-At the top are sixes of pixels for selected images, in this case the BSL/SAXS container contained images with 512 x 512 pixels. It contained 20 images, as indicated by “Found Frames” value. User can select to evaluate average of all 20 images (select checkbox “Average”) or individual frames.
+If the two ion chambers have different sensitivities, or if Is comes from a
+different detector type, apply a *ScalingFactor* to correct the Is/I₀ ratio.
 
-I0 and Is are extracted from the associated calibration file. In this case I0 has some value but there are no numbers for Is. I0 is ion chamber before the sample (incoming flux, monitor…) and Is are after the sample. Principally, when present, the ratio should be transmission, which is calculated for user and placed in “Calc. transm.” value – note, this value is *always* Is/I0. Here it is 0, since Is is = 0.
-
-In case the ion chambers had different sensitivity or Is is actually different detector type, user can also scale the Is/I0 by some ScalingFactor to correct for sensitivity.
-
-*Some of these values can be transferred to Nika variables:*
-
-Always the I0 is transferred to Nika calibration value for I0. User can use it by selecting the “Use Monitor?”.
-
-On the BSL panel is checkbox “Use calculated transmission”? – when selected, value of (ScalingFactor\*Is/Io) is transferred to Nika’s “Sample transmission” value for calibration purposes. It is used when checkbox “Use sample Transmission” is selected, see later Calibration discussion in this manual.
+I₀ is always transferred to Nika's I₀ calibration value (used when "*Use
+Monitor?*" is selected). The "*Use calculated transmission?*" checkbox transfers
+the value of (ScalingFactor × Is / I₀) to Nika's sample transmission field
+(used when "*Use sample Transmission*" is selected).
 
 .. _import.data.Binary:
 
-**General Binary data loader**
+General Binary data loader
+---------------------------
 
-This is basically interface to Igor GBLoadWave function, customized for this application. Most parameters are copied from the GBLoadWave and so it is suggested user looks up this function in the manual for details.
+This is an interface to Igor Pro's ``GBLoadWave`` function, customized for use
+with Nika. Most parameters correspond directly to ``GBLoadWave`` arguments —
+consult the Igor Pro manual for full details.
 
-Selecting GeneralBinary type on any window will pull up control screen. The configuration is same for all NIKA! The window can be safely dismissed (closed) and reopened by reselecting the GeneralBinary data type.
+Selecting "*GeneralBinary*" as the image type opens the configuration panel.
+The configuration is shared across all Nika windows. The panel can be dismissed
+and reopened by reselecting the GeneralBinary type.
 
 .. image:: media/ImportDataTypes2.png
    :width: 45%
 .. image:: media/ImportDataTypes3.png
    :width: 45%
 
-Top part:
+**Top section:** Enter the number of bytes to skip (fixed-length header), or
+check "*Use ASCII header terminator*" if the header ends with a known ASCII
+delimiter. Enter the delimiter string in the provided field. Only the first 40 KB
+of the file are searched for the terminator; for longer headers, use the byte-
+skip option instead. Additional bytes after the terminator can be skipped using
+the follow-on field.
 
-Select number of bytes to skip – or check the “Use ASCII header terminator” if there is ASCII header with known ASCII separator before binary data. The known terminator (separator) in ASCII header- very useful, if the header bytes vary - input search term to look for. NOTE: Only first 40kbytes of data are searched, so the header cannot be longer than 40kbytes. For longer headers use the “Skip Bytes” option. Sometimes, you may need to skip few more bytes behind the terminator. Add those in the field below.
+**Image type section:** Set image dimensions (rows × columns), data type,
+byte order (for integer types), and floating-point format (IEEE or VAX). Refer
+to the Igor Pro manual for descriptions of these options. "*Save Header in Wave
+Note*" appends the skipped ASCII header to the wave note, which is propagated
+through Nika into the final output — useful for preserving instrument metadata.
 
-Image type part:
+Other loaders with panels
+--------------------------
 
-Size of image (rows x columns), type of data, for integer types byte order, and for floats type (IEEE or VAX), check the manual what this means… Save Header in Wave Note will add the skipped ASCII header to wave note, which gets propagated through the package into the final data… Very useful…
+Some loaders require additional user input:
 
-**Other loaders with panels…**
+**Panel-based** (e.g., BSL/SAXS, BSL/WAXS) — Opens a control panel for
+selecting individual frames or computing averages when a file contains multiple
+images, and for accessing additional metadata.
 
-Some other loaders need user parameters to be included. There are two options, which are possible:
-
-Panel. This is for example BSL/SAXS or BSL/WAXS format, where one file can contain multiple images. The panel enables selection of one or average of these images and provides some more information.
-
-Function. Fuji image plate readers (BAS2000 or BAS2500) may be attached to hardware which saves data with varying “endiness”. A note is printed in history area which instructs user how to change endiness of the reader, if needed. This is set for the particular Igor experiment.
+**Function-based** (e.g., Fuji BAS2000/BAS2500) — For readers where data
+endianness may vary with hardware configuration, a note is printed in the history
+area with instructions for changing the endianness setting. This setting persists
+within the Igor experiment.
 
 .. _import.data.Pilatus:
 
-**Pilatus**
+Pilatus
+--------
 
 .. Figure:: media/ImportDataTypes4.png
    :align: center
    :width: 380px
 
+Supported formats: TIFF, EDF, IMG, CBF, and floating-point TIFF (used for
+background-subtracted images). Tested primarily with 100K images; 300K, 300K-W,
+1M, 2M, and 6M formats are supported but less thoroughly tested. Also reads
+auxiliary TXT files from ALS.
 
-Can read: “tiff”, “edf”, “img”, “cbf”, and “tiff with floating numbers” (used for background subtracted images. Should manage 100k, 300k, 300k-w, 1M, 2M, and 6M files, but tested mostly 100k files (send files for testing, please). Can read Auxiliary txt files from ALS.
+"*Set default device values*" — Sets the pixel size to 0.172 mm (the pixel size
+for all current Pilatus detectors).
 
-“\ *Set default device values”* sets pixel size to 0.172 mm which is at this time only pixel size available on this line of detectors.
+.. note::
 
-NOTE: You can design function, called “PilatusHookFunction(“FileNameToLoad”)” which is run after each image is loaded and which can customize behavior of the reader. For example, the function can read the wave note - which contains the header from the Pilatus file – and extract usable information. Or it can read auxiliary text file and extract information there. It is called with the name of file currently loaded as string for parameter.
+   A hook function named ``PilatusHookFunction("FileNameToLoad")`` can be
+   defined to run after each image is loaded. This function can read the wave
+   note (which contains the Pilatus file header) and extract instrument
+   parameters, or read an auxiliary text file. The function receives the
+   currently loaded filename as a string argument.
 
 .. _import.data.Calibrated2DData:
 
-**Calibrated 2D data files**
+Calibrated 2D data files
+--------------------------
 
-*EQSANS* (ORNL) – text file with four columns – Qx, Qy, Intensity, Uncertainty, map of 400x400 points. Generated by EQ SANS instrument at ORNL (provided ~ 5/2014). In version 2.75 this feature may have been broken. Please, do NOT use at this time. If you have files, please, provide me with test samples…*
+*EQSANS* (ORNL) — Text file with four columns (Qx, Qy, Intensity, Uncertainty),
+400×400 point map, generated by the EQ-SANS instrument at ORNL. This feature
+may be broken in version 2.75. Do not use until further notice — send sample
+files if you need this support restored.
