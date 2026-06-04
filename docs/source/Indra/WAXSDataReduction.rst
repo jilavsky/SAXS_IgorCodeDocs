@@ -1,107 +1,136 @@
+.. _indra-waxs-data-reduction:
 .. _reduce_WAXS_data_procedure:
 .. _reduce_WAXS_data_panel:
-
 
 .. index::
     Indra; Reduce WAXS data
     Indra; WAXS data reduction
 
-Reduce WAXS data procedure
---------------------------
+Reduce WAXS data
+================
 
-When you collect data on USAXS instrument, your data are saved in folders related to your "spec" file name. Spec file is where instrument makes various records. The file name is created by adding \MM_DD_ (\month_day_) to the name staff provides, typically to user name. When you collect USAXS data, a folder with the same name with appended "_usaxs" is created. For SAXS data we create folder with the same name with "_saxs" and for  WAXS with "_waxs". See below in the image:
+When you collect data on the USAXS instrument, data are saved in folders named
+using the spec file naming convention: ``MM_DD_userName``. When USAXS data are
+collected, a subfolder with the suffix ``_usaxs`` is created; for SAXS data the
+suffix is ``_saxs``; for WAXS data it is ``_waxs``.
 
 .. Figure:: media/USAXSComputerDataArrangement.jpg
-        :align: center
-        :width: 480px
-
+   :align: center
+   :width: 480px
 
 Reduced WAXS data arrangement
-=============================
+------------------------------
 
-After you reduce WAXS data, you will have in your Igor experiment data arranged in data folders also - in this case you will have SAXS data in root\:WAXS\:Samplename. These data use "QRS" naming :ref:`system <important.QRS>`.
-To see inside of the current Igor experiment, use DataBrowser (ctrl-B or cmd-B).
+After reducing WAXS data, the Igor experiment contains WAXS data in
+``root:WAXS:Samplename``, using the ``QRS`` naming
+:ref:`system <important.QRS>`. To browse the experiment, use the Data Browser
+(Ctrl-B or Cmd-B).
 
 .. Figure:: media/WAXSIgorDataArrangement.jpg
-        :align: center
-        :width: 480px
+   :align: center
+   :width: 480px
 
-**Folders with data ending _C are pinhole data reduced with highest possible q resolution as necessary for WAXS.**
-
+Folders ending in ``_C`` contain pinhole-collimated data reduced at the highest
+possible Q resolution, as required for WAXS.
 
 .. index::
     Indra; WAXS data reduction panel
 
 WAXS data reduction
-===================
+-------------------
 
-Data reduction for this instrument is done using  :ref:`Nika package <Introduction_Nika>`. You need to have Nika package :ref:`installed <Installation>`.
-Select "Load Nika 2D SAS macros" from "Macros" menu, or preferably, load "USAXS, Irena and Nika" which will load all there packages. This will create "SAS2D" menu. Note, that it will take some time to compile the code, depending on the speed of your computer. Select from "Instrument Configurations" menu in SAS2D first item : "9IDC or 15IDD USAXS-SAXS-WAXS". This will create panel which can be used to configure Nika package to use on our instrument.
+Data reduction uses the :ref:`Nika package <Introduction_Nika>`. Ensure Nika
+is :ref:`installed <Installation>`. Select "*Load Nika 2D SAS macros*" from
+the Macros menu, or load "*USAXS, Irena and Nika*" to load all three packages.
+This creates the SAS2D menu. From the "*Instrument Configurations*" menu in
+SAS2D, select "*APS USAXS-SAXS-WAXS*". This opens the instrument
+configuration panel for Nika.
 
 .. Figure:: media/WAXSReductionConfig.jpg
-        :align: left
-        :width: 500px
-        :figwidth: 820px
+   :align: left
+   :width: 500px
+   :figwidth: 820px
 
-Select (or keep selected) checkbox "WAXS" and follow the instructions in the red letters. Keep other checkboxes selected as they are by default, more info later... First step is to push button "Set default settings". This will create dialog where you need to navigate to location of your WAXS data (see above about the data arrangement) and you need to select *any* data file from your samples, assuming there was no change in geometry for the data in that folder (distances, energy, etc.). So select a file (see below) and click Open.
-
+Select (or keep selected) the "*WAXS*" checkbox and follow the on-screen
+instructions in red. Keep other checkboxes at their defaults. The first step
+is to click "*Set default settings*", which opens a file dialog. Navigate to
+your WAXS data folder and select any data file from your samples (assuming no
+geometry changes within the folder). Click Open.
 
 .. Figure:: media/WAXSSelectNXDataFile.jpg
-        :align: left
-        :width: 500px
-        :figwidth: 820px
+   :align: left
+   :width: 500px
+   :figwidth: 820px
 
-Nika will open selected file and read from this file all calibration values we have included in each of the files. Few more things will happen at the same time:
+Nika reads calibration values from the selected file and performs the following
+steps automatically:
 
-1.  All parameters will be read and inserted in proper Nika fields.
-2.  Nika will open the selected image and display it.
-3.  Nika will set proper selection of checkboxes for calibration and insert proper names of lookup functions, which find/calculate for each sample thickness, transmission, and normalization values.
-4.  **MASK:** Depending on Checkbox "Mask Less sensitive pixels" Nika will create one of two masks - in unchecked, default Mask covering only edges and the gap between the tiles. If checked, Nika will also cover pixels between the chips of the detector which are typically slightly lower sensitivity (like 1% or so). Usually these less sensitive points have little impact, but sometimes they are important. :ref:`see <reduce_WAXS_data_mask>`.
-5.  **IMPORTANT** - by default Nika is set to use Q for x-axis. This is useful if you want to merge USAXS+SAXS+WAXS data together. If you want, you can use two-theta or d spacing for x-axis. Note, that for Diffraction tool in Irena this is not important (it converts any x-axis to two-theta) and for export to GSAS-II compatible file also (it also converts to two-theta).
-6.  Nika will display for user the tab, where user needs to find the correct "Blank" - aka: "Empty" - for the samples user wants to reduce.
+1. All instrument parameters are read and inserted into the appropriate Nika
+   fields.
+2. Nika opens the selected image and displays it.
+3. Nika sets the correct calibration checkboxes and inserts the appropriate
+   lookup function names for sample thickness, transmission, and normalization.
+4. **Mask:** Depending on the "*Mask Less sensitive pixels*" checkbox, Nika
+   creates one of two masks. When unchecked (default), a mask covering only
+   the detector edges and the gap between tiles is applied. When checked,
+   pixels between detector chips — which are typically ~1% less sensitive —
+   are also masked. See :ref:`Impact of different mask selection
+   <reduce_WAXS_data_mask>` below.
+5. **Important:** By default, Nika uses Q as the x-axis, which is useful for
+   merging USAXS+SAXS+WAXS data. Two-theta or d-spacing can be selected
+   instead. Note that both the Diffraction tool in Irena and the GSAS-II
+   export function convert any x-axis to two-theta automatically, so the
+   x-axis choice here does not affect downstream use with those tools.
+6. Nika displays the Blank selection tab, where you select the appropriate
+   empty/blank file for your samples.
 
-Next step is to select the proper Blank - if needed, right click in the panel and select "Match Blank" or whatever else needed. Either double click on the file or select the file and click "Load Empty".
+Select the correct blank file — right-click in the panel and use "*Match Blank*"
+if needed. Double-click the file or select it and click "*Load Empty*".
 
 .. Figure:: media/WAXSBlankSelection.jpg
-        :align: left
-        :width: 500px
-        :figwidth: 820px
+   :align: left
+   :width: 500px
+   :figwidth: 820px
 
-Blank file will be loaded and displayed. Please note, that user needs to select proper Blank/empty file for each range of samples. So do not forget to change it if necessary.
+The blank file is loaded and displayed. Select the appropriate blank for each
+group of samples and update it whenever geometry or sample conditions change.
 
 .. Figure:: media/WAXSSampleBlankLoaded.jpg
-        :align: left
-        :width: 700px
-        :figwidth: 820px
+   :align: left
+   :width: 700px
+   :figwidth: 820px
 
-Here is example of Sample and Blank loaded and displayed side-by-side.
+Sample and blank are displayed side by side for comparison.
 
-Next is simply - select sample or samples which should be processed and click on button "Process Images". Nika will process all selected files. .
+Select the sample file(s) to process and click "*Process Images*". Nika
+processes all selected files.
 
 .. Figure:: media/WAXSProcessedDataImg.jpg
-        :align: left
-        :width: 700px
-        :figwidth: 820px
-
+   :align: left
+   :width: 700px
+   :figwidth: 820px
 
 .. _reduce_WAXS_data_mask:
 
-Impact of different Mask selection
-==================================
+Impact of different mask selection
+-----------------------------------
 
-Depending on data dynamic range, noise and overall intensity, sometimes we can see impact of pixels at the edges of chips, which have been fused together to form the tiles of the detector. This is common for all Pilatus detectors after some time and at some X-ray energies. Dectris does calibrate their detector sensitivity at specific (typically X-ray tube) energies, but over time and at other energies, this does not work as well. In these cases we can trade number of pixels for quality of data and mask of these lower intensity pixels. Unless we could, somehow, create flat field. Following image shows data without and with masking of less sensitive pixels:
-
+Depending on data dynamic range, noise, and overall intensity, pixels at the
+edges of detector chip tiles can sometimes affect data quality. This is common
+for Pilatus detectors over time and at certain X-ray energies. Dectris
+calibrates detector sensitivity at specific energies, but this calibration
+degrades over time and at other energies. Masking these slightly lower-
+sensitivity pixels trades Q resolution for data quality. The following image
+shows data without and with masking of less-sensitive pixels:
 
 .. Figure:: media/WAXSimpactOfLessSensitivePixels.jpg
-        :align: left
-        :width: 700px
-        :figwidth: 820px
+   :align: left
+   :width: 700px
+   :figwidth: 820px
 
-
-and here is how the mask looks like:
-
+And here is how the corresponding mask appears:
 
 .. Figure:: media/WAXSMaskedLessSensitivePixels.jpg
-        :align: left
-        :width: 400px
-        :figwidth: 820px
+   :align: left
+   :width: 400px
+   :figwidth: 820px
