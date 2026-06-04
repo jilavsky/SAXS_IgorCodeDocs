@@ -3,3 +3,5 @@
 # Defining the exact version will make sure things don't break
 sphinx>=5.0
 readthedocs-sphinx-search>=0.3.0
+setuptools>=65.0
+
