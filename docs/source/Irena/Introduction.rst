@@ -7,7 +7,7 @@
 Introduction — Irena
 ====================
 
-Manual |release| for Irena version 2.62 for Igor Pro 8.04 or higher.
+Manual |release| for Irena version 2.62 for Igor Pro 9.04 or higher.
 
 |today|
 
@@ -42,7 +42,7 @@ If you use Irena in published work, please cite:
 Description
 -----------
 
-The *Irena* package is a suite of Igor Pro (WaveMetrics, version 8.04 or
+The *Irena* package is a suite of Igor Pro (WaveMetrics, version 9.04 or
 higher) macros for the evaluation of small-angle scattering data. It was
 designed to work seamlessly with data from the APS USAXS instrument (currently
 beamline 9ID, Advanced Photon Source, Argonne, IL) reduced using the *Indra*
