@@ -111,10 +111,10 @@ Here is how you fix this problem:
 *  Applications(OSX) or Program Files(win)/Igor Pro 7(or 8) Folder/More Extensions/File Loaders/*HDF5 Help.ihf*    ---  alias/link to --- Documents/Wavemetrics/Igor Pro 7(or 8) User Files/Igor Extensions/ *place alias here...*
 
 
-Quit Igor Pro, restart and it should work now correctly. If not, please contact me so I can identify the problem.
+Quit Igor Pro, restart and it should work now correctly. If the problem persists, contact the developer (ilavsky@aps.anl.gov).
 
 
 xop not loading (macOS)
 -----------------------
 
-Please note, that macOS Catalina and later versions have issues loading old (unsigned) xop packages due to system protection system (Gatekeeper). I personally run Igor 8.04 and 9.00 on Catalina without problems, but getting xops to load first time is bit challenge. One time challenge... If you need to use Catalina or later, here are some helpful links. General Wavemetrics statement macOS xop load issue: https://www.wavemetrics.com/news/igor-pro-macos-1015-catalina , and how to get xops loading https://www.wavemetrics.com/forum/general/workaround-catalina-xop-problem.
+Please note, that macOS Catalina and later versions have issues loading old (unsigned) xop packages due to system protection system (Gatekeeper). Igor 8.04 and 9.00 run on Catalina without problems, but getting XOPs to load for the first time requires a one-time workaround. One time challenge... If you need to use Catalina or later, here are some helpful links. General Wavemetrics statement macOS xop load issue: https://www.wavemetrics.com/news/igor-pro-macos-1015-catalina , and how to get xops loading https://www.wavemetrics.com/forum/general/workaround-catalina-xop-problem.

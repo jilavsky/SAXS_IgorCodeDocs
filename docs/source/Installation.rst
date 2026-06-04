@@ -99,12 +99,12 @@ Download latest version of GitHub installer “GHInstaller\_IrenaNika\_vXYZ.pxp�
 
 Open the file (in Igor 9.x or 8.04) and select “Install Packages” > “Open GitHub GUI”. GUI (left) and Instructions open.
 
-Push “Check packages versions” to check which versions are available on the GitHub site. Read instructions for what to do and how to pick the right one. This installer enables users to install also defined beta versions and even the current “master” version. But be careful, there are no guarantees that the master is fully debugged. I may be working on it.
+Push “Check packages versions” to check which versions are available on the GitHub site. Read instructions for what to do and how to pick the right one. This installer enables users to install also defined beta versions and even the current “master” version. Be careful — master branch versions may be partially debugged or under active development.
 
-Here is expiation of options:
+Options explained:
   #. Release version. One or more release versions may be available in the listing of releases. Pick the latest unless you for some reason need prior release. Release version should work and be tested. Check the comments for any specifics related to that release.
-  #. If you check "Include beta releases" you can pick from defined beta releases. If necessary, I may define a release beta to distribute updated versions to smaller group of people. This release should work but there may be changes modification which need testing.
-  #. If you check "Include beta releases" you can also pick *master* - "master" is a current latest update committed to depository. My intention is to commit only code which works, but, well, it may be untested or being developed. Check wiki on Github page https://github.com/jilavsky/SAXS_IgorCode/wiki for release notes. It may give you an idea what has been changed.
+  #. If you check "Include beta releases" you can pick from defined beta releases. Beta releases are defined to distribute updated versions to a smaller group for testing. This release should work but there may be changes modification which need testing.
+  #. If you check "Include beta releases" you can also pick *master* - "master" is a current latest update committed to depository. The intention is to commit only working code, but master-branch changes may be untested or still under development. Check wiki on Github page https://github.com/jilavsky/SAXS_IgorCode/wiki for release notes. It may give you an idea what has been changed.
 
 Keep in mind that you need xop support for the bit versions (32bit or 64bit) versions of Igor you are using! Do not forget to install them.
 
