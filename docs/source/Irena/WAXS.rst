@@ -1,3 +1,4 @@
+.. _irena-waxs:
 .. _model.waxs:
 
 .. index::
@@ -6,179 +7,195 @@
    Powder diffraction
 
 Powder diffraction (WAXS) fitting
-=================================
+==================================
 
-**Purpose and description**
+Purpose and description
+------------------------
 
-This tool is developed to enable simple analysis of powder diffraction data. Note the "simple" in the description. It's purpose is limited to:
+This tool provides simple analysis of powder diffraction data. Its scope is
+limited to:
 
-#. Display WAXS data. One data set at a time. Multiple data sets can be displayed by Plotting tool.
+1. Displaying WAXS data — one dataset at a time. Multiple datasets can be
+   displayed using the Plotting tool.
 
-#. Append to the displayed data one or more diffraction lines sets (PDF2/4 d-hkl-Intensity data). Few of these PDF cards are available for download from the Irena (calculated from model assumptions), new can be imported from xml JCPDS cards, which you can save from JCPDS PDF2/4. Previous attempt to script LaueGo to calculate the diffraction profile was unstable, as any change in LaueGo has caused the functionality to fail. I have removed this in version 2.62, but if someone would really need it, I can try to revive this in the future. Let me know*.
+2. Appending diffraction line sets (PDF2/4 d-hkl-Intensity data) to the
+   displayed data. Several PDF cards calculated from model assumptions are
+   included in the Irena distribution and additional cards can be imported from
+   JCPDS XML format. A previous interface to LaueGo was removed in version
+   2.62 due to compatibility instability; contact the developer if this
+   capability is needed.
 
-#. Fit diffraction peaks. One data set at a time or as sequence. This is accomplished by using Wavemetrics maintained Multi Peak Fitting 2.0. Fitted results can be stored (in tabular format, each peak profile,...) and plotted.
+3. Fitting diffraction peaks — one dataset at a time or as a sequence, using
+   WaveMetrics' Multi Peak Fitting 2.0 (MPF2). Only **Gaussian** and
+   **Lorentzian** peak shapes are fully supported for result recording and
+   downstream processing.
 
-**What do you need for this tool**
+Data requirements
+-----------------
 
-This tool can use "qrs" or "USAXS" data (slit smearing is not supported at this time). The qrs system handles :
+The tool accepts ``qrs`` or ``USAXS`` data (slit smearing is not supported).
+The QRS naming convention handles:
 
-Q [1/A] - Intensity - Uncertainity (“qrs”)
+* Q [Å\ :sup:`-1`] — Intensity — Uncertainty (``qrs``)
+* d [Å] — Intensity — Uncertainty (``drs``)
+* 2θ [degrees] — Intensity — Uncertainty (``trs``)
 
-d [A] - Intensity - Uncertainity (“drs”) or
+All input types are converted to 2θ [degrees] — Intensity — Uncertainty for
+plotting and analysis.
 
-TwoTheta [degrees] - Intensity - Uncertainity (“trs”) data.
-
-Any of these data types will be converted to Two Theta [degrees] - Intensity - uncertainty for plotting and analysis. This was done based on suggestion by leading diffraction data analysis experts.
-
-**Basic GUI and operations**
+Basic GUI and operations
+------------------------
 
 .. Figure:: media/WAXS1.png
-      :align: center
-      :width: 420px
+   :align: center
+   :width: 420px
 
-In the SAS menu select “Powder Diffraction fitting = WAXS”.
+Select "*Powder Diffraction fitting = WAXS*" from the SAS menu.
 
-This opens GUI:
+In the GUI: select the data type (most likely QRS), the folder containing your
+data, optionally filter folders using regular expressions, and select the sort
+order. Sort order is important for sequential in-situ experiments, both for
+fitting and for obtaining correctly ordered results when the data are later
+"mined" for parameter changes.
 
-At the top select Data type (most likely QRS), folder where folders with your data are, you can use Regex to select subset of folders to be displayed and select how the folders are to be ordered. This is important if data are going to be processed sequentially for in-situ like experiments. In this case order is important both for model fitting as well as for proper order when results are "mined" for graphs and parameter changes later. Do yourself a favor and find here the proper ordering of the processing...
+Double-clicking a dataset opens the graph. If the wave note contains energy
+or wavelength information, it is displayed. An approximately correct wavelength
+is required; for two-theta data, it must be exact.
 
-Double click on a data set creates graph. If the wavenote contains energy (or wavelength) information, it will be used and displayed below. It is critical reasonable number is there, if your data do not contain this information, put it there. It does not have to be exact, but needs to be sensible. If you have already Two Theta data, you need EXACT X-ray energy/wavelength or results will be wrong.
+Set the fitting range using cursors or by entering 2θ min/max values manually.
+Background selection (from a measured empty exposure) is used only if it is
+a significant contribution and will be applied during peak fitting.
 
-Use cursors to select fitting range or define manually fitting 2Theta min/max values at the top. Ignore the background choices, except if you have measured background ("empty") exposure and it is significant part of your data - and you intend to use it later in peak fitting. That will be obvious later.
-
-**The graph**
+The graph
+~~~~~~~~~
 
 .. Figure:: media/WAXS2.png
-      :align: center
-      :width: 100%
+   :align: center
+   :width: 100%
 
+Data are displayed as Intensity vs 2θ (degrees).
 
-Here is example of the graph in default way. Displays the Intensity vs TwoTheta (TTH) in degrees. Weird units, I know.
+Adding diffraction lines (PDF2/4-type)
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-**Adding Diffraction lines (PDF2/4-type)**
+For phase identification, JCPDS PDF data or the free American Mineralogist
+Crystal Structure Database (AMS, http://rruff.geo.arizona.edu/AMS/amcsd.php)
+can be used. Irena cannot connect directly to these databases, but supports
+importing cards manually.
 
-For basic phase analysis and orientation we usually use JCPDS PDF data or alternative is free database of Amercian Mineralogist Crystal Strucutre Database (AMS) in http://rruff.geo.arizona.edu/AMS/amcsd.php. Irena has no way of hooking into the JCPDS or AMS database and this may be developed later, if there is simple way. But the access to the database seems pretty expensive anyway and I assume most users will not have this access. There are ways to avoid the need at least somehow. Read further.
-
-
-On right had side of the Powder Diffraction/WAXS fits click on the "Diff. lines" tab. Most likely your Diffraction Lines listbox will be empty or contain some cards I distribute with Irena. There are not real JCPDS cards, these are calculated based on models as described below.
-
+Click the "*Diff. lines*" tab on the right side of the panel. Several calculated
+cards are distributed with Irena.
 
 .. Figure:: media/WAXS3.png
-      :width: 48%
+   :width: 48%
 .. Figure:: media/WAXS4.png
-      :width: 48%
+   :width: 48%
 
-**We need to fill it up. There are few choices**
+Options for adding diffraction lines:
 
-1.  Import from the set I distribute with Irena. Pick “Export/Import/Delete PDF cards” and you get another GUI: >>>>
+1. **Import from the Irena distribution** — click "*Export/Import/Delete PDF cards*"
+   to open a card management GUI. Cards outside Igor (distributed with Irena)
+   can be copied in; user-created cards can be copied out for storage. Refresh
+   the list after any external changes.
 
-Here you can select card “outside” of Igor (distributed with Irena) and the “Copy IN” or if you create your own cards and want to have them stored, you can “COPY OUT”. You can also delete cards inside this experiment or in outside the Igor experiment (on your hard drive). If you make changes to the content outside or inside of Igor you need to refresh to see changes. Note that “Download Irena Cards” is not doing anything yet.
+2. **Import PDF-4+ XML cards** — click the import button, locate the XML card
+   file, and select whether to overwrite an existing card or create a new one:
 
-2. Import PDF-4+ xml cards
-
-Click button and locate the xml card. I have as example Cu card. Card is read and needed information is parsed from the card, dialog:
-
-.. Figure:: media/WAXS5.png
+   .. Figure:: media/WAXS5.png
       :align: center
       :width: 300px
 
+3. **Import AMS txt cards** — same procedure as JCPDS, but point the file
+   selector to ``AMS_DATA.txt`` files from the AMS database. Download
+   "diffraction data" (not crystal structures).
 
-Allows you to select card to overwrite or create anew card with name you want. If you select card to overwrite, the new card name is not used. If Existing card is not selected, new name is used and card is create in current Igor experiment. You may want to export the card to computer in Irena location for future use.
+4. **Add data manually** — creates an empty table for manual entry or paste
+   from another application. At minimum, d-spacing and intensity are required;
+   HKL values are helpful. Two-theta values are calculated automatically from
+   the current wavelength.
 
-3. Import AMS txt cards
-
-The procedure is same as JCPDS card, except you point the file selector to the AMS_DATA.txt cards. Make sure you download from their database "diffraction data" and not crystal structures of other data.
-
-4. Manually adding data
-
-This method creates empty table which you need to fill in with values manually - either type in or copy/paste from other programs, like Excel. You neeed at least d-spacing and Intensity, hkl are helpful. Do not bother with 2Theta values, they get created for wavelength you are using automatically.
-
-Now you can add it to the graph.
-
-If you choose the checkbox "Display HKL tags" you will also get tags to each peak with HKL. Here is example:
+After adding cards, enable "*Display HKL tags*" to annotate each peak with its
+HKL indices:
 
 .. Figure:: media/WAXS6.png
-      :align: center
-      :width: 100%
+   :align: center
+   :width: 100%
 
-
-Note, that you can change the color of these lines if you right click on the name of the card in the Listbox and select new color for that card. It should remember it.
+Right-click a card name in the listbox to change its display color.
 
 .. Figure:: media/WAXS7.jpg
-      :align: center
-      :width: 280px
+   :align: center
+   :width: 280px
 
-*Distance correction* - tweak Stick positions - from beta version 2.692 (05/2020) I added new control below the buttons, "Correct distance" value. This is to enable tweaking of sticks angular positions in case the transmission geometry has slightly incorrect calibration. This value should be 1 but in case the detector was slightly further or closer to sample than standard, user can tweak the value up/down. This will shit *sticks* for the JPCDS/AMS cards ONLY. One can therefore improve the match between the sticks and peak positions. Note: it shifts (logically) all sticks the same amount. It has no impact on the data, only on sticks ANGULAR positions (not the d-spacing which is ion the tables). Reopening of the WAXS tool resets this value to 1.
+"*Distance correction*" (from version 2.692, May 2020) — A correction factor
+for tweaking stick positions when the detector distance calibration is slightly
+off. The default is 1.0. This shifts the angular positions of the diffraction
+sticks only (not the d-spacing values in the tables) and affects only JCPDS/AMS
+cards. The value resets to 1.0 when the WAXS tool is reopened.
 
+Peak fitting
+~~~~~~~~~~~~
 
-**Peak fitting**
+The "*Peak Fit*" tab contains peak fitting tools using WaveMetrics' Multi Peak
+Fitting 2.0 (MPF2). The MPF2 demo experiment at
 
-The Tab "Peak Fit" on the panel contains tools to do peak fitting. Important note : *Currently the only two peak shapes, which are properly processed and recorded by Irena WAXS code are Gaussian and Lorenz.* While other shapes can be fitted, when recorded by WAXS tool, some parameters cannot be properly saved and processed later. Limit your use to Gaussian and Lorenz peak shapes, please.
+    File → Example Experiments → Curve Fitting → Multi-peak Fit 2 demo
 
-*Peak fitting* uses Multipeak Fit 2.0 ("MPF2") package from Wavemetrics, which actually has nice help and demo Igor experiment. The demo experiment can be found in
+provides a thorough introduction to MPF2 and is strongly recommended before
+using this feature.
 
-File>Example Experiments>Curve Fitting>Multi-peak Fit 2 demo
-
-Please, run this experiment to learn how to use this beast. It is **IMPORTANT**. I will not be explaining the details, except where is needed.
-
-Start Multipeak Fit when you have the graph with data you want to fit. It will throw error if there is no graph. Note the "Initialize: Start Fresh" option - when MPF2 is run, it saves current state in run folders. These do not get deleted when finished and you can start it from previous state by selecting "Initialize" folder here. When you are closing MPF2 panel, it will ask for some comment. If you add it (not required) you will see this comment (make it short) in the popup so you can remember what that folder with MPF2 data was for.
-
-When you Start the MPF2 with the button "Start Multipeak Fitting 2.0" you will populate the tab more and get MPF2 panel:
+Start MPF2 by clicking "*Start Multipeak Fitting 2.0*" — the data graph must
+be open. An error is displayed if no graph is available. MPF2 saves its state in
+run folders; when closing the panel, an optional comment can be added to identify
+the run later.
 
 .. Figure:: media/WAXS8.png
-      :align: center
-      :width: 100%
+   :align: center
+   :width: 100%
 
-
-The process is to setup MPF2 now - select range of data using cursors which you want to fit, do autolocate.
-
-You can zoom in, change fit parameters etc. Check the demo. You can add/edit peak if you select range of data with marquee (like for zoom) and right click there and select "Add or edit peaks".
+Set up MPF2: select the data range with cursors, run "*Autolocate*", zoom in as
+needed, and add or edit peaks by right-clicking within a marquee selection.
 
 .. Figure:: media/WAXS9.png
-      :width: 48%
+   :width: 48%
 .. Figure:: media/WAXS10.png
-      :width: 48%
+   :width: 48%
 
+Baseline function options in MPF2 (standard options plus two added by Irena):
 
-You can select Baseline function - MPF2 has constant, linear, cubic etc, I added two more - polynomial (up to 10th power, fit only as many parameters as you need, hold others at 0) and one, which combines measured background (select on panel in "Background if needed for fitting) and constant. In this case the background is scaled by fitted parameters - "transmission" and constant is another "flat" background.
+* *Polynomial* — up to 10th order; hold unused coefficients at 0.
+* *Measured background + constant* — scales a measured background image by
+  a fitted "transmission" factor and adds a constant flat background. If no
+  background data are loaded, this reduces to a simple constant baseline.
 
-If data are not selected (or do not exist), it becomes seamlessly simple constant and background data gets ignored.
-
-To fit you can use either "Do Fit" button on the MPF2 panel or "Do MPF2 Fit" on the Powder Diffraction/WAXS Fits" panel. They do the same thing.
-
-Here is a fit:
+Fitting can be run with the "*Do Fit*" button on the MPF2 panel or the
+"*Do MPF2 Fit*" button on the Powder Diffraction panel — both are equivalent.
 
 .. Figure:: media/WAXS11.png
-      :align: center
-      :width: 100%
+   :align: center
+   :width: 100%
 
+When satisfied with the fit, click "*Record Current MPF2 Fit results*". Results
+are saved to a folder under ``root:WAXSFitResults:`` with the name specified in
+the panel (cleaned up to be a valid Igor folder name). Each sample gets its own
+subfolder containing results tables and individual peak profiles. Saving results
+for the same sample overwrites the existing folder.
 
-Now, when you have a good fit, you can use "Record Current MPDF2 Fit results".
+Results tables are displayed automatically after saving.
 
-This will copy lots of interesting results data into the folder in "results are stored here" root\:WAXSFitResults\: XYZST..... whatever you give here - XYZST - will be cleaned up to be acceptable folder name and such folder will be created for your results data.
-
-Each sample gets folder in there which will contain tables of results, each peak profile, etc.
-
-Note, that if you save results for the same sample here, the folder is overwritten, so save in different folder if needed.
-
-Note, that tables with results also get created and presented to you.
-
-To plot/extract data from the saved results, use button "Plot/Evaluate results" which will pop up another panel from which you can create plot of selected peak. If there are more folders with results, specific peak from all of the folders will be plotted.
-
-I saved few fits of some other data and here are the results:
+To plot or evaluate results across multiple samples, click "*Plot/Evaluate results*"
+to open a dedicated panel. Selecting a specific peak and folder set plots that
+peak's profile across all available results:
 
 .. Figure:: media/WAXS12.png
-      :align: center
-      :width: 100%
+   :align: center
+   :width: 100%
 
-
-This is Peak profile (Int vs d) for the Peak 2 from sample which was annealed and had multiple peaks changing.
-
-I selected and graphed by use of "Graph above of selected Peaks profile" (yes, that language here obviously fails me). And below is what you get if you push "Graph above selected Peaks parameters".
+Example: peak profile (Intensity vs d) for Peak 2 from a temperature series.
 
 .. Figure:: media/WAXS13.png
-      :align: center
-      :width: 480px
+   :align: center
+   :width: 480px
 
-
-This is end of the help file for now. I will record movie soon and once changes are done to the tool, I will improve the manual.
+Example: peak parameters (position, width, area) from the same series, plotted
+against sample index.
