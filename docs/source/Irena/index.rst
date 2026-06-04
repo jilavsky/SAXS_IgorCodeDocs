@@ -11,6 +11,7 @@ Manual |release| for Irena version 2.75 for Igor Pro 9.0 and higher.
    :maxdepth: 1
 
    Introduction
+   PyIrena
    Important
    ImportData
    ExportData
