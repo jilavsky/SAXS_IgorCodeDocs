@@ -1,3 +1,4 @@
+.. _nika-introduction:
 .. _Introduction_Nika:
 
 .. index:: Nika; Introduction
@@ -5,32 +6,39 @@
 Introduction
 ============
 
-
-Jan Ilavsky, "Nika - software for 2D data reduction", J. Appl. Cryst. (2012), vol. 45, pp. 324-328. DOI:10.1107/S0021889812004037. Please e-mail me, if you need copy.
-
-Manual |release| for Nika version 1.75 for Igor 9.05 and higher
+Manual |release| for Nika version 1.75 for Igor Pro 9.05 and higher.
 
 |today|
 
 **Jan Ilavsky**
 
+If you use Nika in published work, please cite:
+
+   Jan Ilavsky, "Nika — software for 2D data reduction", *J. Appl. Cryst.*
+   (2012), vol. 45, pp. 324–328. DOI: 10.1107/S0021889812004037.
+
 Description
 -----------
 
-This is manual for **Nika** set of macros developed for Igor Pro (Wavemetrics, Inc, `www.wavemetrics.com <http://www.wavemetrics.com>`__) Igor 7.0x. These macros are designed to process 2D (CCD and other area detectors) data from small-angle and wide-angle scattering instruments. The purpose is to process (normalize, background correct, calibrate,...) 2D data from experiment and convert these into 1D “line outs” data – providing correctly calibrated Intensity, q (:math:`2\Theta` or d), and errors.
+This is the manual for the **Nika** set of macros developed for Igor Pro
+(WaveMetrics, Inc., `www.wavemetrics.com <http://www.wavemetrics.com>`__),
+Igor Pro 9.05 and higher. These macros process 2D data from CCD and other area
+detectors used in small-angle and wide-angle scattering instruments. The goal
+is to normalize, background-correct, and calibrate 2D data from an experiment
+and convert them into 1D profiles (intensity, Q or 2θ or d, and errors).
 
-Nika was designed to provide number of methods to extract the data:
+Nika provides the following methods for extracting 1D data:
 
 #. Sector and circular averages ("cake")
+#. Intensity along linear and elliptical paths (vertical/horizontal lines,
+   lines at arbitrary angle, and ellipses of arbitrary aspect ratio)
+#. Intensity along a linear path in grazing-incidence geometry
+#. Intensity versus azimuthal angle (for manual geometry inspection)
 
-#. Intensity along linear and elliptical path (vertical/horizontal lines, line under an angle and ellipse of arbitrary aspect ratio)
+.. note::
 
-#. Intensity along linear path but for Grazing incidence geometry
-
-#. Intensity vs azimuthal angle Figure intended for manual inspection of geometry.
-
-Disclaimer:
-
-These macros represent a collaborative work in progress and it is very likely that not all features are finished at any given time. Therefore, some features may not work fully. Please note, while I try my best to verify the results, no guarantees can be made as to the reliability of these results. Please, verify results in some other way. Please report any bugs to me, I will do my best to fix them ASAP. I provide limited support for users of these macros. Limited means that my time available for this support is limited. If you need help, e-mail Igor file to me with data so I can work on your data.
-
-ilavsky@aps.anl.gov
+   These macros represent a collaborative work in progress and not all features
+   may be complete at any given time. While every effort is made to verify
+   results, no guarantees can be made as to their reliability. Please verify
+   results independently and report any bugs to ilavsky@aps.anl.gov. Support
+   is provided on a best-effort basis.

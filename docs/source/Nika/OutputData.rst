@@ -1,3 +1,4 @@
+.. _nika-output-data:
 .. _QRSdataDescription:
 
 .. index::
@@ -5,79 +6,92 @@
     Nika; Export data
     QRS data type
 
-
 Output data
 ===========
 
-QRS - Internal in Igor
-----------------------
+QRS — Internal Igor storage
+-----------------------------
 
 .. Figure:: media/OutputData1.png
    :align: center
    :width: 100%
 
+Data are stored internally within the Igor experiment (when selected) in
+``root:SAS:``, organized in folders named by sample and integration type:
 
-Data are internally stored (if selected) within Igor experiment in folder root\:SAS\: in folders with
+* ``nameOfSample_C`` — circular average
+* ``nameOfSample_Angle_halfWidth`` — sector average around direction *Angle*
+  with sector half-width *halfWidth*
 
-nameOfSample\_C being the circular average
+Wave names
+~~~~~~~~~~
 
-nameOfSample\_Angle\_halfWidth being sector average around direction Angle with sector half-width.
+**X-axis data**
 
-**The wave names**
+``q_NameOfSample_C`` (or ``_Angle_halfWidth``) — Q vector in Å\ :sup:`-1`
 
-*X-axis data*
+``t_NameOfSample_C`` (or ``_Angle_halfWidth``) — 2θ, when output is with
+respect to two-theta
 
-**q\_NameOfSample\_C (or \_Angle\_halfWidth) q vector in A\ :sup:`-1`**
+``d_NameOfSample_C`` (or ``_Angle_halfWidth``) — d-spacing, when output is
+with respect to d
 
-**t\_ NameOfSample\_C (or \_Angle\_halfWidth) 2 theta, if output with respect to 2 theta**
+**Y-axis data**
 
-**d\_ NameOfSample\_C (or \_Angle\_halfWidth) d for output wrt d**
+``r_NameOfSample_C`` (or ``_Angle_halfWidth``) — intensity (if calibrated, in
+units of cm\ :sup:`-1`; thickness is internally converted to cm)
 
-*y axis data*
+**Error**
 
-**r\_ NameOfSample\_C (or \_Angle\_halfWidth) intensity (if calibrated in whatever units – thickness is converted to cm, so it should be cm\ :sup:`-1`)**
+``s_NameOfSample_C`` (or ``_Angle_halfWidth``) — uncertainty for intensity
 
-*error*
+**Other**
 
-**s\_ NameOfSample\_C (or \_Angle\_halfWidth) error for intensity**
+``w_NameOfSample_C`` (or ``_Angle_halfWidth``) — width of each Q/d/2θ bin.
+Used for LUT output and bin-width smearing. For linear binning this is
+constant (Max − Min) / numOfPoints; for log binning it varies with bin
+position.
 
-*other*
+Line profile data
+~~~~~~~~~~~~~~~~~
 
-**w\_ NameOfSample\_C (or \_Angle\_halfWidth) width of each bin of Q/d.2 theta.** This is for LUT output, and provides data for bin-width smearing. Smaller number of bins, larger width of each. For linear binning, this is same number and is (Max-Min/numOfPoits), but for log binning this is varying function of bin position.
+For line profile output, wave names include a profile indicator and the Q value
+at which the profile was calculated. For example, a GI Vertical line profile
+might be named::
 
-**For Line profile data:**
+    gc_saxs_395__GI_VLp_0.0077
 
-For example for GI\_Vertical line in my test case, this was the name:
+where:
 
-gc\_saxs\_395\_\_GI\_VLp\_0.0077
+* ``gc_saxs_395_`` — part of the source image name
+* ``GI_VLp_`` — GI Vertical Line profile indicator
+* ``0.0077`` — the Q\ :sub:`y` value in Å\ :sup:`-1`
 
-“gc\_saxs\_395\_”…. Part of the name of used Figure
+Exported ASCII files contain columns: Int, error, Q, qx, qy, qz, with a
+header and column labels.
 
-GI\_VLp\_.... GI\_Vertical Line
+Waves saved in Igor for line profiles:
 
-0.0077 …. *q\ :sub:`y`* value at which the data were calculated.
+``r_NameOfSample_ProfileIndicator_Qvalue`` — intensity
 
-Exported data are Int, error, Q, qx, qy, qz columns with header and column names
+``q_NameOfSample_ProfileIndicator_Qvalue`` — Q [Å\ :sup:`-1`]
 
-Saved data in Igor are
+``s_NameOfSample_ProfileIndicator_Qvalue`` — uncertainty
 
-**r\_NameOfSample\_ProfileIndicator\_Qvalue** intensity
+``qy_NameOfSample_ProfileIndicator_Qvalue`` — Q\ :sub:`y` [Å\ :sup:`-1`]
 
-**q\_NameOfSample\_ProfileIndicator\_Qvalue** q [A:sup:`-1`]
+``qz_NameOfSample_ProfileIndicator_Qvalue`` — Q\ :sub:`z` [Å\ :sup:`-1`]
 
-**s\_NameOfSample\_ProfileIndicator\_Qvalue** error
+``qx_NameOfSample_ProfileIndicator_Qvalue`` — Q\ :sub:`x` [Å\ :sup:`-1`]
+(generated only for GI profiles)
 
-**qy\_NameOfSample\_ProfileIndicator\_Qvalue** qy [A:sup:`-1`]
+Each intensity wave has an attached wave note containing useful metadata, for
+example::
 
-**qz\_NameOfSample\_ProfileIndicator\_Qvalue** qz [A:sup:`-1`]
-
-**qx\_NameOfSample\_ProfileIndicator\_Qvalue** qx [A:sup:`-1`] (generated ONLY if GI… profile is used)
-
-Note, intensity wave has attached wave note, containing some useful information:
-
-CalibrationFormula=1\*((Sa2D));CurrentMaskFileName=A mask\_mask;QvectorNumberPoints=300;CircularAverage=1;
+    CalibrationFormula=1*((Sa2D));CurrentMaskFileName=A mask_mask;
+    QvectorNumberPoints=300;CircularAverage=1;
 
 ASCII export
 ------------
 
-see :ref:`ASCII export from Irena <export_data>`
+See :ref:`ASCII export from Irena <export_data>`.
