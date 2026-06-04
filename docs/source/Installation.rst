@@ -77,6 +77,10 @@ Instructions for installation
 
 To install the macros, you need to install first Igor Pro (https://www.wavemetrics.com/products/igorpro), at least version 8.04, preferably Igor Pro 9.x, or higher. Igor Pro 9 was released in 2021.
 
+.. index:: Igor 8.04
+
+*Igor 8* Igor 8.04 is last supported by *Irena* version 2.74 and *Nika* version 1.86 which are included in **June2025** release. s not obsolete. Upgrade.
+
 .. index:: Igor 7.08
 
 *Igor 7* Igor 7.08 is last supported by *Irena* version 2.69 and *Nika* version 1.82 which are included in **February2020** release. Igor Pro 7 was released July 2016 and is not obsolete. Upgrade.
@@ -87,9 +91,10 @@ To install the macros, you need to install first Igor Pro (https://www.wavemetri
 
 Movies with instructions and explanations are available on the :ref:`YouTube channel <YouTubeChannel>`.
 
+
 There are two main ways to install the macros:
 
-**Igor 9.x and 8.04 (64 bit)**
+**Igor 9.04 and 10.x**
 
 .. Figure:: media/Introduction1.png
    :align: center
@@ -97,7 +102,7 @@ There are two main ways to install the macros:
 
 Download latest version of GitHub installer “GHInstaller\_IrenaNika\_vXYZ.pxp”, latest version should be available here: http://usaxs.xray.aps.anl.gov/staff/ilavsky/irena.html
 
-Open the file (in Igor 9.x or 8.04) and select “Install Packages” > “Open GitHub GUI”. GUI (left) and Instructions open.
+Open the file (in Igor 9.04 or 10.x) and select “Install Packages” > “Open GitHub GUI”. GUI (left) and Instructions open.
 
 Push “Check packages versions” to check which versions are available on the GitHub site. Read instructions for what to do and how to pick the right one. This installer enables users to install also defined beta versions and even the current “master” version. Be careful — master branch versions may be partially debugged or under active development.
 
@@ -107,6 +112,8 @@ Options explained:
   #. If you check "Include beta releases" you can also pick *master* - "master" is a current latest update committed to depository. The intention is to commit only working code, but master-branch changes may be untested or still under development. Check wiki on Github page https://github.com/jilavsky/SAXS_IgorCode/wiki for release notes. It may give you an idea what has been changed.
 
 Keep in mind that you need xop support for the bit versions (32bit or 64bit) versions of Igor you are using! Do not forget to install them.
+
+**Igor 8.04 obsolete version no more maintained.**
 
 **Igor 7.08 obsolete version no more maintained.**
 
